@@ -1,0 +1,125 @@
+@use 'colours';
+
+// @use 'font-Roboto';
+@use 'font-Lato';
+@use 'font-RobotoSlab';
+@use 'font-IndieFlower';
+@use 'font-Dyslexie';
+@use 'font-Lexend';
+@use 'font-Exo2';
+
+@mixin body {
+    // font-family: 'Roboto', Verdana, sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-weight: normal;
+}
+
+@mixin heading {
+    font-family: 'Roboto Slab', 'Roboto', Verdana, sans-serif;
+    font-weight: 500; // medium
+}
+
+@mixin scifi {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: normal;
+    text-shadow: 0 0 0.3rem black;
+}
+
+@mixin small-heading {
+    @include heading;
+    font-size: 0.9rem;
+}
+
+@mixin dyslexie {
+    font-family: 'Dyslexie', sans-serif;
+}
+
+@mixin lexend {
+    font-family: 'Lexend', sans-serif;
+}
+
+html {
+    @include body;
+}
+
+p {
+    margin: 1rem 0;
+}
+
+h1, h2, h3 {
+    @include heading;
+}
+
+h1 {
+    font-size: 2.3rem;
+    line-height: 3rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5rem;
+}
+
+h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.4rem;
+}
+
+h4 {
+    @include small-heading;
+    line-height: 1.3rem;
+    margin: 0.3rem 0 0 0;
+    border-bottom: 1px solid colours.$shade;
+}
+
+.small-print {
+    &, p, a {
+        font-size: 0.8rem;
+    }
+}
+
+blockquote {
+    background: colours.$blockquote;
+    border-radius: 0.3rem;
+    padding: 0.8rem 1rem;
+    margin: 0.5rem -0.2rem;
+    border: 1px solid colours.$light;
+
+    &, p {
+        font-size: 1.05rem;
+    }
+
+    p:first-child {
+        margin-top: 0;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+input, output, select {
+    font-size: 1rem;
+}
+
+ol {
+    margin: 0.5rem 0;
+
+    li + li {
+        margin-top: 0.5rem;
+    }
+}
+
+dl {
+    margin: 0.5rem 0;
+
+    dt {
+        font-weight: bold;
+    }
+
+    dd + dt {
+        margin-top: 0.5rem;
+    }
+}

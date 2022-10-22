@@ -1,0 +1,401 @@
+@use 'fonts';
+@use 'colours';
+@use 'responsive';
+@use 'buttons';
+
+$max-slide: 10;
+
+
+//  -- SLIDES --  //
+
+.slides--v {
+    flex: 1 1 auto;
+    position: relative;
+
+    overflow: hidden;
+
+    &[data-show=false] {
+        display: none;
+    }
+
+    .slides__inner {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+
+        transition: top 0.3s ease-in-out;
+    }
+
+    .slide {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+
+        > button.button-prev {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+        }
+
+        > button.button-next {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+        }
+    }
+
+    .slide__inner {
+        margin: 0 auto;
+        
+        > .button.button-next {
+            margin-left: auto;
+        }
+    }
+
+    @for $slide from 0 through $max-slide {
+        &[data-slide="#{$slide}"] {
+            .slides__inner {
+                top: -(100vh) * $slide;
+            }
+        }
+    }
+}
+
+
+//  -- BUILD TABLE --  //
+
+table.build-table {
+    margin-bottom: 0.5rem;
+
+    th {
+        text-align: left;
+        padding-top: 0.5rem;
+        @include fonts.small-heading;
+    }
+    th, td {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    output {
+        display: block;
+
+        height: 1.7rem;
+        line-height: 1.7rem;
+        min-width: 16rem;
+        padding: 0 0.5rem;
+
+        background: colours.$fieldbg;
+        border: 1px solid colours.$light;
+        border-radius: 0.2rem;
+        color: white;
+        text-align: left;
+
+        &.output--select {
+            cursor: pointer;
+        }
+    }
+}
+
+
+//  -- FORM --  //
+
+// Form fields
+fieldset {
+    border: 0 none;
+    padding: 0.2rem 0.2rem 0.2rem 1rem;
+    margin: 0 0 0.5rem 0;
+
+    // background: linear-gradient(to bottom, colours.$fieldbg, transparent);
+    background: colours.$fieldbg;
+    border-radius: 0 0 0.4rem 0.4rem;
+
+    p {
+        margin: 0.6rem 0;
+
+        &.info {
+            padding-left: 1.25rem;
+            line-height: 1.1rem;
+            color: colours.$off-white;
+
+            &, a {
+                font-size: 0.85rem;
+            }
+        }
+
+        + p.info {
+            margin-top: -0.4rem;
+        }
+    }
+}
+
+#font-dyslexie {
+    @include fonts.dyslexie;
+}
+
+#font-lexend {
+    @include fonts.lexend;
+}
+
+.high-contrast {
+    background: black;
+}
+
+.large-print {
+    font-size: 1.3rem;
+}
+
+.colour-output {
+    label {
+        @include fonts.small-heading;
+    }
+
+    .colour-output__inner {
+        border: 1px solid colours.$shade;
+        background: white;
+        padding: 0.2rem;
+        border-radius: 0.4rem;
+
+        cursor: pointer;
+    }
+
+    .colour-output__pallette {
+        border-radius: 0.3rem;
+        width: 8rem;
+        height: 3.5rem;
+        background-color: #808080;
+    }
+}
+
+.brightness-picker {
+    flex: 1 1 auto;
+    label {
+        @include fonts.small-heading;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .brightness-picker__inner {
+        border: 1px solid colours.$shade;
+        background: white;
+        padding: 0.2rem;
+        border-radius: 0.4rem;
+    }
+
+    .brightness-picker__inner2 {
+        position: relative;
+    
+        background: linear-gradient(to right, colours.$brightness-light, colours.$brightness-dark);
+        border-radius: 0.3rem;
+        padding: 0.5rem;
+        height: 2.5rem;
+    }
+
+    .brightness-picker__notch {
+        position: absolute;
+        display: block;
+
+        border-right: 1px solid white;
+        border-left: 1px solid black;
+        height: 1rem;
+        width: 0;
+
+        left: 50%;
+    }
+}
+
+
+//  -- SIDEBAR --  //
+
+// Books
+
+.book-picker {
+    margin: 0.5rem 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.book {
+    $book-size: 12rem;
+
+    appearance: none;
+    border: none;
+    background: transparent;
+
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0.3rem;
+    box-sizing: border-box;
+    width: $book-size;
+    height: $book-size;
+    align-items: center;
+    cursor: pointer;
+
+    border-bottom: 0.2rem solid transparent;
+
+    picture {
+        flex: 1 1 8rem;
+        display: flex;
+        flex-direction: column;
+    }
+    img {
+        flex: 1 1 8rem;
+        min-height: 0;
+        min-width: 0;
+        align-self: center;  // prevent distortion
+    }
+    label {
+        display: block;
+        @include fonts.small-heading;
+        text-align: center;
+    }
+
+    &.book--selected {
+        position: relative;
+        border: 1px solid colours.$light;
+        border-bottom: 0.2rem solid colours.$red-leather;
+        background: colours.$shine;
+
+        label {
+            color: colours.$red-leather;
+        }
+        
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+
+            bottom: -0.5rem;
+            left: calc(50% - 0.3rem);
+            width: 0;
+
+            border-top: 0.3rem solid colours.$red-leather;
+            border-left: 0.3rem solid transparent;
+            border-right: 0.3rem solid transparent;
+        }
+    }
+}
+
+// Items
+
+.select {
+    // list-style: none;
+    // margin: 0;
+    // padding: 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .option {
+        position: relative;
+        border: 0 none;
+        background: transparent;
+        padding: 0.1rem 0.1rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &.option--selected {
+            color: colours.$red-leather;
+            border-bottom: 0.2rem solid colours.$red-leather;
+        }
+
+        &:hover {
+            color: colours.$red-leather;
+        }
+
+        &.option--spot {
+            background-image: url(/images/parchment-spot.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+
+            transition: background-image 0.2s;
+
+            label {
+                border: 1px solid colours.$red-leather-faded;
+                border-radius: 0.2rem;
+                background-color: colours.$shine;
+                padding: 0.3rem 0.1rem;
+            }
+        
+            &:hover {
+                background-image: url(/images/white-spot.png);
+
+                label {
+                    background-color: colours.$off-white;
+                    box-shadow: 0 0.1rem 0.1rem colours.$light;
+                }
+            }
+        }
+
+        &.option--frame {
+            border: 1px solid colours.$red-leather-faded;
+            border-radius: 0.2rem;
+            background-color: colours.$shine;
+
+            box-shadow: 0 0.1rem 0.1rem transparent;
+            transition: box-shadow 0.2s, background-color 0.2s;
+
+            padding: 0.4rem 0.1rem;
+
+            &:hover {
+                background-color: colours.$off-white;
+                box-shadow: 0 0.1rem 0.1rem colours.$light;
+            }
+        }
+
+        &, label {
+            cursor: pointer;
+        }
+
+        img, label {
+            margin: 0.2rem;
+        }
+
+        &.option--portrait {
+            img {
+                height: calc(14vh + 8vw);
+                mix-blend-mode: darken;
+            }
+
+            &.option--portrait-small {
+                justify-content: end;
+                img {
+                    height: calc(11vh + 6vw);
+                }
+            }
+        }
+
+        label {
+            @include fonts.small-heading;
+            min-width: 14rem;
+            padding: 0.1rem 0.2rem;
+        }
+
+        &.select__option--selected {
+            border: 1px solid colours.$red-leather;
+            border-radius: 0.2rem;
+            background: colours.$shine;
+        }
+
+        .option__badge {
+            @include buttons.edition-badge;
+            font-size: 0.75rem;
+            bottom: -0.6rem;
+        }
+    }
+}

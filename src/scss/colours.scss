@@ -1,0 +1,77 @@
+$primary: #1030a0;
+$primary--text: white;
+
+$light: rgba(0,0,0,0.3);
+$shade: rgba(0,0,0,0.5);
+$shadow: rgba(0,0,0,0.6);
+$warm-shadow: rgba(40,25,0,0.6);
+
+$dark-text: #404040;
+
+$off-white: rgba(255,255,255,0.8);
+$shine: rgba(255,255,255,0.4);
+
+$blockquote: rgba(255,255,255,0.4);
+
+$parchment: #ddd4c0;
+$red-leather: #802010;
+$red-leather-faded: rgba(128, 32, 16, 0.5);
+$blue-cloth: #1030a0;
+
+// $postit: #dcd460;
+// $postit: #FFFF99;
+$postit: #e4e090;
+$postit-border: #9F9947;
+// $edition: #f0b850;
+$edition: #D9B167;
+$postit-writing: #202090;
+
+$milestone: #801000;
+
+// build
+$fieldbg: rgba(50,20,0,0.3);
+$fieldsetbg: rgba(50,20,0,0.2);
+
+$brightness-light: #c0c0c0;
+$brightness-dark: #303030;
+
+
+// scifi theme
+$scifi-milestone: #e4e090;
+$scifi-bg: #101030;
+$scifi-raised: rgb(40, 40, 117, 0.6);
+$scifi-glow: rgba(64, 176, 248, 0.6);
+$scifi-edge: rgb(64, 176, 248);
+$scifi-text: #50c8ff;
+
+
+// dark area
+.dark-region {
+    color: white;
+
+    h3, nav.nav--menu h3, h4 {
+        border-bottom-color: $off-white;
+    }
+
+    a, button, .btn, .btn.btn--light, .btn.btn--selected, .btn.btn--min, .badge {
+        &, &:active, &:visited {
+            color: white;
+        }
+    }
+
+    .btn.btn--light {
+        border-color: white;
+    }
+
+    a, button, .btn, .badge {
+        &.btn--selected {
+            background: white;
+            color: $blue-cloth;
+        }
+    }
+
+    .badge {
+        color: white;
+        border-color: white;
+    }
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{{__ title}}</title>
+    
+    <link rel="stylesheet" media="screen" href="/style.css"/>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon16.png"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+</head>
+
+<body id="{{ body-id }}">
+
+{{> @partial-block }}
+
+<div id="blanket"></div>
+{{> main-menu }}
+{{> language-menu }}
+{{> login-menu }}
+{{> contact-menu }}
+
+<script src="/script.js" />
+
+</body>
+</html>

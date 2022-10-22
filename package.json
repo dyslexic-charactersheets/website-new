@@ -1,0 +1,38 @@
+{
+  "name": "website3",
+  "version": "1.0.0",
+  "description": "Website frontend for Dyslexic Character Sheets",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "make": "cd src; node ./make/make.js",
+    "serve": "cd dist; node ./server.js",
+    "debug": "cd src; node --inspect=0.0.0.0:9229 --inspect-brk ./js/make.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dyslexic-charactersheets/website3.git"
+  },
+  "author": "Marcus Downing <marcus.downing@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dyslexic-charactersheets/website3/issues"
+  },
+  "homepage": "https://github.com/dyslexic-charactersheets/website3#readme",
+  "dependencies": {
+    "@node-minify/core": "^7.0.0",
+    "@node-minify/crass": "^7.0.0",
+    "@node-minify/google-closure-compiler": "^7.0.0",
+    "@node-minify/run": "^7.0.0",
+    "browserify": "^17.0.0",
+    "colors": "^1.4.0",
+    "dyslexic-charactersheets": "^1.7.2",
+    "handlebars": "^4.7.7",
+    "handlebars-helpers": "^0.10.0",
+    "sass": "^1.54.9"
+  },
+  "devDependencies": {
+    "fs-extra": "^10.1.0",
+    "light-server": "^2.9.1"
+  }
+}

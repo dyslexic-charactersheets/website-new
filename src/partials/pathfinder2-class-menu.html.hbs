@@ -1,0 +1,13 @@
+<aside id="class-menu" class="aside--right aside--wide" data-key="class">
+    <div class="aside__inner">
+        {{#> build-aside-book-pallette close-button=true key='class' name='Class' game='pf2' items=pf2.classes}}
+            <button class="option option--spot option--portrait" data-select="class" data-value="{{value.id}}" data-text="{{__ value.name}}" data-next="nextSelect(value.selects)">
+                <img src="/images/options/{{value.id}}.png">
+                <label>{{__ value.name}}</label>
+                {{#if value.badge}}
+                    <span class="option__badge">{{__ value.badge}}</span>
+                {{/if}}
+            </button>
+        {{/build-aside-book-pallette}}
+    </div>
+</aside>

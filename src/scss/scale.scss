@@ -1,0 +1,9 @@
+html {
+    font-size: calc(12px + 0.1*(3vw + 1vh));
+}
+
+$pt: 0.1rem;
+
+body, p, a, nav, button {
+    font-size: 1rem;
+}

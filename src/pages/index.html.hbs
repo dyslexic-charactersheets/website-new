@@ -1,0 +1,66 @@
+{{#> base title="Dyslexic Character Sheets" body-id="body-home"}}
+
+{{#> home-layout }}
+    {{#> left }}
+        <div class="spacer"></div>
+        <div class="hero">
+            <h1>
+                <img src="/images/favicon64.png">
+                {{__ "Dyslexic Character Sheets"}}
+            </h1>
+
+            <p>{{__ "Personalised character sheets, unique to your character and free for you to print."}}</p>
+
+            <nav class="nav--bar"><a href="tour.html" id="tour-button" class="btn btn--primary">Tour</a></nav>
+            
+            <nav class="nav--bar"><a class="btn btn--light">How to use</a></nav>
+
+            <div class="pad"></div>
+
+            <blockquote>
+                <h4>Latest update</h4>
+                <p>{{news.0.title}}</p>
+                <nav class="nav--bar"><a class="btn btn--light" href="/{{lang}}/news">Read more</a></nav>
+            </blockquote>
+
+            <nav class="nav--bar">
+                <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light button-patreon">{{__ "Patreon"}}</a>
+                <button class="btn btn--light button-contact">{{__ "Contact"}}</button>
+            </nav>
+
+            <nav class="small-print nav--bar">
+                <a href="/{{lang}}/open-source.html">{{__ "Open source"}}</a> | 
+                <a href="/{{lang}}/translating.html">{{__ "Translating"}}</a> | 
+                <a href="/{{lang}}/legal.html">{{__ "Legal"}}</a></nav>
+        </div>
+        <div class="spacer"></div>
+    {{/left}}
+
+    {{#> right dark=true}}
+        <div class="place">
+            <div class="grid grid--2-2">
+                <a href="/{{lang}}/build-pathfinder2.html" class="stack">
+                    <img src="/images/pathfinder2e-stack.png" class="stack__stack">
+                    <img src="/images/pathfinder2e.png" class="stack__logo">
+                    <span class="stack__edition">{{__ "2e"}}</span>
+                </a>
+                <a href="/{{lang}}/build-starfinder.html" class="stack">
+                    <img src="/images/starfinder-stack.png" class="stack__stack">
+                    <img src="/images/starfinder.png" class="stack__logo">
+                </a>
+                <a href="/{{lang}}/build-pathfinder1.html" class="stack">
+                    <img src="/images/pathfinder-stack.png" class="stack__stack">
+                    <img src="/images/pathfinder.png" class="stack__logo">
+                    <span class="stack__edition">{{__ "1e"}}</span>
+                </a>
+                <a href="/{{lang}}/build-dnd35.html" class="stack">
+                    <img src="/images/dnd35-stack.png" class="stack__stack">
+                    <img src="/images/dnd35.png" class="stack__logo">
+                    <span class="stack__edition">{{__ "3.5e"}}</span>
+                </a>
+            </div>
+        </div>
+    {{/right}}
+{{/home-layout}}
+
+{{/base}}

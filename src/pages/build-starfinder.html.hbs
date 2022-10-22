@@ -1,0 +1,124 @@
+{{#> base title="Starfinder - Dyslexic Character Sheets" body-id="body-build"}}
+
+{{#> build-layout theme="scifi"}}
+    {{#> left dark=true}}
+        {{#> milestones id='milestones-character' show=true }}
+            <button class="milestone milestone--selected" data-milestone="start"><span>{{__ "Start"}}</span></button>
+            <span class="arrow"></span>
+            <button class="milestone" data-milestone="character"><span>{{__ "Character"}}</span></button>
+            <span class="arrow"></span>
+            <button class="milestone" data-milestone="options"><span>{{__ "Options"}}</span></button>
+            <span class="arrow"></span>
+            <button class="milestone" data-milestone="colours"><span>{{__ "Colours"}}</span></button>
+            <span class="arrow"></span>
+            <button class="milestone" data-milestone="picture"><span>{{__ "Picture"}}</span></button>
+            <span class="arrow"></span>
+            <button class="milestone" data-milestone="download"><span>{{__ "Download"}}</span></button>
+        {{/milestones}}
+
+        {{#> milestones id='milestones-starship' show=false }}
+            <button class="milestone milestone--selected" data-milestone="start"><span>{{__ "Start"}}</span></button>
+            <span class="arrow"></span>
+            <button class="milestone" data-milestone="gm"><span>{{__ "Starship"}}</span></button>
+            <span class="arrow"></span>
+            <button class="milestone" data-milestone="colour"><span>{{__ "Colours"}}</span></button>
+            <span class="arrow"></span>
+            <button class="milestone" data-milestone="download"><span>{{__ "Download"}}</span></button>
+        {{/milestones}}
+
+        {{#> milestones id='milestones-gm' show=false }}
+            <button class="milestone milestone--selected" data-milestone="start"><span>{{__ "Start"}}</span></button>
+            <span class="arrow"></span>
+            <button class="milestone" data-milestone="gm"><span>{{__ "GM"}}</span></button>
+            <span class="arrow"></span>
+            <button class="milestone" data-milestone="options"><span>{{__ "Options"}}</span></button>
+            <span class="arrow"></span>
+            <button class="milestone" data-milestone="colour"><span>{{__ "Colours"}}</span></button>
+            <span class="arrow"></span>
+            <button class="milestone" data-milestone="download"><span>{{__ "Download"}}</span></button>
+        {{/milestones}}
+    {{/left}}
+
+    {{#> right dark=true }}
+        {{#> slides-v id='slides-character' show=true }}
+            {{#> slide milestone="start" slide=0 first=true }}
+                <img src="/images/starfinder.png" class="place">
+                <div class="row">
+                    <button class="stack pick-single">
+                        <img src="/images/starfinder-single.png" class="stack__stack">
+                        <p class="stack__label">{{__ "Character"}}</p>
+                    </button>
+                    <button class="stack pick-starship">
+                        <img src="/images/starfinder-ship.png" class="stack__stack">
+                        <p class="stack__label">{{__ "Starship"}}</p>
+                    </button>
+                    <button class="stack pick-gm">
+                        <img src="/images/starfinder-gm.png" class="stack__stack">
+                        <p class="stack__label">{{__ "GM"}}</p>
+                    </button>
+                </div>
+            {{/slide}}
+
+            {{#> slide milestone="character" slide=1 show-next=true }}
+                <h4>{{__ "Character"}}</h4>
+                {{!-- ... --}}
+            {{/slide}}
+
+            {{!-- ... --}}
+        {{/slides-v}}
+        
+        {{#> slides-v id='slides-gm' show=false }}
+            {{#> slide milestone="start" slide=0 first=true }}
+                <img src="/images/starfinder.png" class="place">
+                <div class="row">
+                    <button class="stack pick-single">
+                        <img src="/images/starfinder-single.png" class="stack__stack">
+                        <p class="stack__label">{{__ "Character"}}</p>
+                    </button>
+                    <button class="stack pick-starship">
+                        <img src="/images/starfinder-ship.png" class="stack__stack">
+                        <p class="stack__label">{{__ "Starship"}}</p>
+                    </button>
+                    <button class="stack pick-gm">
+                        <img src="/images/starfinder-gm.png" class="stack__stack">
+                        <p class="stack__label">{{__ "GM"}}</p>
+                    </button>
+                </div>
+            {{/slide}}
+            
+            {{#> slide milestone="gm" slide=1 }}
+                <div class="grid grid--2-2">
+                    <button class="stack stack--fill pick-gm-npc">
+                        <p class="stack__label">{{__ "NPCs"}}</p>
+                    </button>
+                    <button class="stack stack--fill pick-gm-maps">
+                        <p class="stack__label">{{__ "Maps"}}</p>
+                    </button>
+                    <button class="stack stack--fill pick-gm-kingdom">
+                        <p class="stack__label">{{__ "Kingdom"}}</p>
+                    </button>
+                </div>
+            {{/slide}}
+
+            {{#> slide milestone="options" slide=2 show-next=true }}
+                {{#> tab-panes set='gm'}}
+                    {{#> tab-pane set='gm' name='npc' pane-selected=true}}
+                        <h3>{{__ "NPCs"}}</h3>
+                    {{/tab-pane}}
+
+                    {{#> tab-pane set='gm' name='maps' pane-selected=true}}
+                        <h3>{{__ "Maps"}}</h3>
+
+                    {{/tab-pane}}
+
+                    {{#> tab-pane set='gm' name='kingdom' pane-selected=true}}
+                        <h3>{{__ "Kingdom"}}</h3>
+                    {{/tab-pane}}
+                {{/tab-panes}}
+            {{/slide}}
+        
+        {{/slides-v}}
+    {{/right}}
+{{/build-layout}}
+
+{{/base}}

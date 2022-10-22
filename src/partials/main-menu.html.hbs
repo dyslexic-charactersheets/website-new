@@ -1,0 +1,72 @@
+<aside id="main-menu" class="aside--left">
+    <div class="aside__inner dark-region">
+        <nav class="nav--row">
+            <button class="btn btn--min btn--icon menu-button btn--selected">☰</button>
+            <button class="btn btn--light language-button">{{ lang }}</button>
+            <button class="btn btn--light login-button"><i class="i-user"></i>{{__ "Login"}}</button>
+            <div class="spacer"></div>
+            {{> close-button }}
+        </nav>
+
+        <nav class="nav--menu">
+            <h2>{{__ "Dyslexic Character Sheets"}}</h2>
+            <ul>
+                <li>
+                    <a class="btn btn--light" href="/{{lang}}/">{{__ "Home"}}</a>
+                </li>
+                <li>
+                    <a class="btn btn--light" href="/{{lang}}/tour.html">{{__ "Tour"}}</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light button-patreon">{{__ "Patreon"}}</a>
+                </li>
+                <li>
+                    <button class="btn btn--light button-contact">{{__ "Contact"}}</button>
+                </li>
+            </ul>
+
+            <h3>{{__ "Build a character"}}</h3>
+            <ul>
+                <li>
+                    <a class="btn btn--light" href="/{{lang}}/build-pathfinder2.html">{{__ "Pathfinder 2e"}}</a>
+                </li>
+                <li>
+                    <a class="btn btn--light" href="/{{lang}}/build-starfinder.html">{{__ "Starfinder"}}</a>
+                </li>
+                <li>
+                    <a class="btn btn--light" href="/{{lang}}/build-pathfinder1.html">{{__ "Pathfinder 1e"}}</a>
+                </li>
+                <li>
+                    <a class="btn btn--light" href="/{{lang}}/build-dnd35.html">{{__ "Dungeons & Dragons 3.5"}}</a>
+                </li>
+            </ul>
+
+            <h3>{{__ "Information"}}</h3>
+            <ul>
+                <li>
+                    <a class="btn btn--light" href="/{{lang}}/open-source.html">{{__ "Open Source"}}</a>
+                </li>
+                <li>
+                    <a class="btn btn--light" href="/{{lang}}/translating.html">{{__ "Translating"}}</a>
+                </li>
+            </ul>
+
+            <h3>{{__ "Legal"}}</h3>
+            <p>{{{__ "Copyright &copy; Marcus Downing"}}}</p>
+            <p>{{__ "These character sheets are provided under the Artistic License 2.0"}}</p>
+            <ul>
+                <li>
+                    <a class="btn btn--light" href="/{{lang}}/legal.html">{{__ "Legal Info"}}</a>
+                </li>
+                <li>
+                    <a class="btn btn--light" href="/{{lang}}/license.html">{{__ "Artistic License"}}</a>
+                </li>
+                <li>
+                    <a class="btn btn--light" href="/{{lang}}/ogl.html">{{__ "Open Game License"}}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

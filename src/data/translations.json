@@ -1,0 +1,56 @@
+{
+    "en": {
+        "Français": "French",
+        "Espagnol": "Spanish",
+        "Deutsch": "German",
+        "Polskie": "Polish"
+    },
+    "fr": {
+        "English": "Anglais",
+        "Espagnol": "Espagnol",
+        "Deutsch": "Allemand",
+        "Polskie": "Polonais",
+
+        "Dyslexic Character Sheets": "Fiches de Personnages Dyslexiques",
+        "Personalised character sheets, unique to your character and free for you to print.": "Feuilles de personnage personnalisées, uniques à votre personnage et gratuites à imprimer.",
+
+        "Home": "Accueil",
+        "Login": "Connexion",
+        "Contact": "Contactez",
+
+        "Build a character": "Construire un personnage",
+        "Information": "Informations",
+        "Translating": "Traduire",
+        "Legal": "Légale",
+        "Legal Info": "Info Légale",
+        "Copyright &copy; Marcus Downing": "Droits d'auteur &copy; Marcus Downing",
+        "These character sheets are provided under the Artistic License 2.0": "Ces fiches de personnages sont fournies sous la Licence Artistique 2.0",
+
+        "Character": "Personnage",
+        "Start": "Début",
+        "Options": "Options",
+        "Colours": "Couleurs",
+        "Picture": "Dessin",
+        "Download": "Télécharger",
+
+        "Send Message": "Envoyer le Message"
+    },
+    "de": {
+        "English": "Englisch",
+        "Français": "Französisch",
+        "Espagnol": "Spanisch",
+        "Polskie": "Polieren"
+    },
+    "es": {
+        "English": "Inglés",
+        "Français": "Francés",
+        "Deutsch": "Alemán",
+        "Polskie": "Polaco"
+    },
+    "pl": {
+        "English": "Angielski",
+        "Français": "Francuski",
+        "Espagnol": "Hiszpański",
+        "Deutsch": "Niemiecki"
+    }
+}

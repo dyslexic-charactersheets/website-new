@@ -1,0 +1,37 @@
+<nav class="nav--menu">
+
+    <h3>{{__ "Information"}}</h3>
+    <ul class="pick-list">
+        <li>
+            <a class="option{{#if (eq page "open-source")}} option--selected{{/if}}" href="/{{lang}}/open-source.html">
+                {{__ "Open Source"}}
+            </a>
+        </li>
+        <li>
+            <a class="option{{#if (eq page "translating")}} option--selected{{/if}}" href="/{{lang}}/translating.html">
+                {{__ "Translating"}}
+            </a>
+        </li>
+    </ul>
+
+    <h3>{{__ "Legal"}}</h3>
+    <ul class="pick-list">
+        <li>
+            <a class="option{{#if (eq page "legal")}} option--selected{{/if}}" href="/{{lang}}/legal.html">
+                {{__ "Legal Information"}}
+            </a>
+        </li>
+
+        <li>
+            <a class="option{{#if (eq page "license")}} option--selected{{/if}}" href="/{{lang}}/license.html">
+                {{__ "Artistic License"}}
+            </a>
+        </li>
+        
+        <li>
+            <a class="option{{#if (eq page "ogl")}} option--selected{{/if}}" href="/{{lang}}/ogl.html">
+                {{__ "Open Game License"}}
+            </a>
+        </li>
+    </ul>
+</nav>

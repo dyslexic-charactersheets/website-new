@@ -1,0 +1,6 @@
+<button class="book tab{{#if book.selected}} tab--selected{{/if}}" id="{{key}}-book-tab-{{book.id}}" data-set="{{key}}-book" data-name="{{book.id}}">
+    <picture>
+        <img src="/images/books/{{book.img}}.png">
+    </picture>
+    <label>{{__ book.name}}</label>
+</button>

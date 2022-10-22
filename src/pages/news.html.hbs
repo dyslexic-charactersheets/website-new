@@ -1,0 +1,28 @@
+{{#> base title="News - Dyslexic Character Sheets" body-id="body-news"}}
+
+{{#> news-layout }}
+{{#> left dark=true}}
+<nav class="nav--menu">
+    <ul>
+    {{#each news}}
+        <li><a href="#news-{{slug}}">{{title}}</a></li>
+    {{/each}}
+    </ul>
+</nav>
+{{/left}}
+
+{{#> right }}
+
+    {{#each news}}
+    <article id="news-{{slug}}">
+        <h2>{{ title }}</h2>
+        <p><time datetime="{{date}}">{{ date }}</time></p>
+
+        {{{ autop body }}}
+    </article>
+    {{/each}}
+
+{{/right}}
+{{/news-layout}}
+
+{{/base}}

@@ -1,0 +1,80 @@
+{{!-- Top bar: close button, title and tier tabs --}}
+<nav class="nav--row nav--shadow_shallow">
+    {{#if close-button}}
+        {{> close-button }}
+    {{/if}}
+    <h2>{{__ name}}</h2>
+    <div class="spacer"></div>
+    {{#> tabs set=(append key '-book-group')}}
+        {{>tab set=(append key '-book-group') name='core' title='Rulebooks' tab-selected=true}}
+        {{#if items.tiers.lore}}
+            {{>tab set=(append key '-book-group') name='lore' title='Lost Omens'}}
+        {{/if}}
+        {{#if items.tiers.adventures}}
+            {{>tab set=(append key '-book-group') name='adventures' title='Adventures'}}
+        {{/if}}
+        {{#if items.tiers.thirdparty}}
+            {{>tab set=(append key '-book-group') name='thirdparty' title='Third Party'}}
+        {{/if}}
+    {{/tabs}}
+    <div class="spacer"></div>
+</nav>
+
+{{!-- Book bar --}}
+{{#> tab-panes set=(append key '-book-group') tab-panes-shadow=true}}
+    {{#> tab-pane set=(append key '-book-group') name='core' pane-selected=true}}
+        <div class="book-picker">
+            {{#each items.tiers.core}}
+                {{> book book=this key=../key}}
+            {{/each}}
+        </div>
+    {{/tab-pane}}
+
+    {{#if items.tiers.lore}}
+        {{#> tab-pane set=(append key '-book-group') name='lore'}}
+            <div class="book-picker">
+                {{#each items.tiers.lore}}
+                    {{> book book=this key=../key}}
+                {{/each}}
+            </div>
+        {{/tab-pane}}
+    {{/if}}
+
+    {{#if items.tiers.adventures}}
+        {{#> tab-pane set=(append key '-book-group') name='adventures'}}
+            <div class="book-picker">
+                {{#each items.tiers.adventures}}
+                    {{> book book=this key=../key}}
+                {{/each}}
+            </div>
+        {{/tab-pane}}
+    {{/if}}
+
+    {{{dump items.tiers.thirdparty}}}
+    {{#if items.tiers.thirdparty}}
+        {{#> tab-pane set=(append key '-book-group') name='thirdparty'}}
+            <div class="book-picker">
+                {{#each items.tiers.thirdparty}}
+                    {{> book book=this key=../key}}
+                {{/each}}
+            </div>
+        {{/tab-pane}}
+    {{/if}}
+{{/tab-panes}}
+
+{{!-- Options --}}
+<nav class="nav--menu nav--scrollable">
+    {{#> tab-panes set=(append key '-book')}}
+        {{#each items.tiers as |tier|}}
+            {{#each tier as |book|}}
+                {{#> tab-pane set=(append ../../key '-book') name=book.id pane-selected=(eq book.id 'core-rulebook')}}
+                    <div class="select">
+                    {{#each values as |value|}}
+                        {{> @partial-block value=value}}
+                    {{/each}}
+                    </div>
+                {{/tab-pane}}
+            {{/each}}
+        {{/each}}
+    {{/tab-panes}}
+</nav>

@@ -1,0 +1,12 @@
+@use 'colours';
+@use 'fonts';
+@use 'build';
+
+
+.main--theme_adventure {
+    #left .section__inner {
+        background-image: url(/images/bg-hex.png);
+        background-size: 30rem;
+    }
+
+}
