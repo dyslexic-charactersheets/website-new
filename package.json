@@ -14,7 +14,7 @@
     "url": "git+https://github.com/dyslexic-charactersheets/website3.git"
   },
   "author": "Marcus Downing <marcus.downing@gmail.com>",
-  "license": "ISC",
+  "license": "artistic-2.0",
   "bugs": {
     "url": "https://github.com/dyslexic-charactersheets/website3/issues"
   },
@@ -28,7 +28,7 @@
     "colors": "^1.4.0",
     "dyslexic-charactersheets": "^1.7.2",
     "handlebars": "^4.7.7",
-    "handlebars-helpers": "^0.10.0",
+    "handlebars-helpers": "^0.9.8",
     "sass": "^1.54.9"
   },
   "devDependencies": {
