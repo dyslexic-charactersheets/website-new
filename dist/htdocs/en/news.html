@@ -1,272 +1,389 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>News - Dyslexic Character Sheets</title>
-    
-    <link rel="stylesheet" media="screen" href="/style.css"/>
-    <link rel="shortcut icon" type="image/png" href="/images/favicon16.png"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>News - Dyslexic Character Sheets</title>
+  
+  <link rel="stylesheet" media="screen" href="/style.css"/>
+  <link rel="shortcut icon" type="image/png" href="/images/favicon16.png"/>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 </head>
 
-<body id="body-news">
+<body id="body" data-current-menu="">
 
 
 <main class="main--layout_read">
-<section id="left">
-<div class="section__inner dark-region">
-<nav id="menu-buttons" class="nav--row">
-    <a href="/en/" class="btn btn--min btn--icon home-button">&larr;</a>
-    <button class="btn btn--min btn--icon menu-button">☰</button>
-    <button class="btn btn--light language-button">en</button>
-    <button class="btn btn--light login-button"><i class="i-user"></i>Login</button>
-    <div class="spacer"></div>
-</nav><nav class="nav--menu">
-    <ul>
-        <li><a href="#news-new-website">New website!</a></li>
-        <li><a href="#news-lorem-ipsum-dolor-sit-amet">Lorem ipsum dolor sit amet</a></li>
-        <li><a href="#news-lorem-ipsum-2">Lorem ipsum 2</a></li>
-    </ul>
-</nav>
-</div>
-</section>
-<section id="right">
-<div class="section__inner">
+    <section id="left">
+        <div class="pane pane--bg_blue  dark-region ">
+                  <nav class="nav--row">
+                      <a href="/en/" class="btn btn--min">
+                        <img src="/images/favicon64.png">
+                        Dyslexic Character Sheets
+                      </a>
+                    </nav>
+                    <nav class="nav--row">
+                          <button 
+                        type="button"
+                        
+                        class="btn " 
+                        data-on-click="body.currentMenu &#x3D; main-menu"
+                        
+                      >
+                        ☰      
+                      </button>
+                  
+                          <button 
+                        type="button"
+                        
+                        class="btn " 
+                        data-on-click="body.currentMenu &#x3D; language-menu"
+                        
+                      >
+                        <i class="icon icon_globe"></i>en      
+                      </button>
+                  
+                          <button 
+                        type="button"
+                        
+                        class="btn " 
+                        data-on-click="body.currentMenu &#x3D; login-menu"
+                        
+                      >
+                        <i class="icon icon_user"></i>Login      
+                      </button>
+                  
+                      <div class="spacer"></div>
+                      
+                    </nav>
+                  <nav class="nav--dated">
+                      <ul>
+                          <li><a href="#news-" data-set="">
+                              New website!
+                              <time datetime="December 18, 2023">1 Jan 2023</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              Some thoughts on One D&amp;D and the OGL
+                              <time datetime="December 18, 2023">17 Nov 2022</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              Edit and Save is live!
+                              <time datetime="December 18, 2023">3 Jun 2022</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              April 2022: 3D Character Sheets
+                              <time datetime="December 18, 2023">1 Apr 2022</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              The Blockchain
+                              <time datetime="December 18, 2023">31 Jan 2022</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              April 2021: The Perfect Character Sheet
+                              <time datetime="December 18, 2023">1 Apr 2021</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              April 2020: Starfinder Refresh
+                              <time datetime="December 18, 2023">1 Apr 2020</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              April 2018: Tails of Fallout Equestria
+                              <time datetime="December 18, 2023">1 Apr 2018</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              April 2017: Tails of Equestria
+                              <time datetime="December 18, 2023">1 Apr 2017</time>
+                          </a></li>
+                      </ul>
+                  </nav>
+          </div>  </section>
+    <section id="right">
+        <div class="pane pane--bg_parchment  light-region ">
+            <div class="read-area">
+                        <img src="/images/coffee-stain.png" id="coffee-stain">
+                
+                        <article class="news" id="news-">
+                          <h2>New website!</h2>
+                          <time datetime="December 18, 2023"><span class="day">1</span><span class="month">Jan</span><span class="year">2023</span></time>
+                
+                          <p>The new website for Dyslexic Character Sheets is live!</p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>Some thoughts on One D&amp;D and the OGL</h2>
+                          <time datetime="December 18, 2023"><span class="day">17</span><span class="month">Nov</span><span class="year">2022</span></time>
+                
+                          <p>I've seen rumours that One D&D won't be getting a OGL.</p>
+                <p>If you're not familiar with it, the Open Game License is a legal document that permits anybody to use the D&D rules in their own publications provided they respect their intellectual property. It's what allows third-party publishers to make adventures and other content for the game, it's what allows games like Pathfinder to exist, and it's what allows me to make character sheets legally.</p>
+                <p>The openness of the game has spawned a great deal of the creativity that's blossomed in the RPG space. Without it, D&D would not be the commercial success it is now.</p>
+                <p>It sounds like WotC sees all this money going to other people and want to get that for themselves. The move into the digital space, with the purchase of D&D Beyond and the development of their own VTT, indicates that they want to own the whole D&D experience. If true, this is a short-sighted decision, both for WotC and for the hobby as a whole.</p>
+                <p>I have no insider information. I don't know if this rumour is true.</p>
+                <p>But I do know that, without a legal framework, I could not make character sheets for it. Nor would I want to.</p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>Edit and Save is live!</h2>
+                          <time datetime="December 18, 2023"><span class="day">3</span><span class="month">Jun</span><span class="year">2022</span></time>
+                
+                          <p>After more than a year working on it, I've finally released some massive new features:</p>
+                <p>- Edit all the fields in the character sheet, including proficiencies, alignment, etc.</p>
+                <p>- Calculations work automatically (*)</p>
+                <p>- Save your character sheet</p>
+                <p>These features are for patrons only. You'll need to subscribe (at the $1 minimum rate) and log in using your Patreon account to get the benefits.</p>
+                <p>Full editing has been the #1 requested feature in all the years I've been building these. It was only made possible because of the way the new Pathfinder 2e sheets are built - which, sadly, means it doesn't apply the Pathfinder 1e, Starfinder or D&D 3.5e character sheets.</p>
+                <p>While these new features are only for patrons, the character sheets themselves are as free as they always have been. Accessibility features and translations are also free. For a breakdown of exactly what's free and what's reserved, see the Patrons page.</p>
+                <p>(*) Not all the classes and archetypes are fully calculated yet, but most of them should be.</p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>April 2022: 3D Character Sheets</h2>
+                          <time datetime="December 18, 2023"><span class="day">1</span><span class="month">Apr</span><span class="year">2022</span></time>
+                
+                          <a href="/files/3D Character Sheet 2022.html">3D Character Sheet 2022.html</a>
+                          <p>Our tabletop games are increasingly 3D. We have 3D VTTs with 3D animated maps, 3D printed miniatures, and of course we roll 3D dice. But we're still using the same flat old 2D character sheets we've had since the 1970s!</p>
+                <p>It's time for that to change. Dyslexic Character Sheets is proud to give you a special preview of the first ever 3D character sheet...</p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>The Blockchain</h2>
+                          <time datetime="December 18, 2023"><span class="day">31</span><span class="month">Jan</span><span class="year">2022</span></time>
+                
+                          <p>Just to head off the inevitable question, Dyslexic Character Sheets will NOT be participating in NFTs or cryptocurrencies in any way.</p>
+                <p>Anyone who'd like more details is welcome to listen to a tape of me laughing for 45 minutes, followed by a two hour lecture on how money works, what the blockchain actually is, and why your money is best kept far, far away from the whole thing.</p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>April 2021: The Perfect Character Sheet</h2>
+                          <time datetime="December 18, 2023"><span class="day">1</span><span class="month">Apr</span><span class="year">2021</span></time>
+                
+                          <a href="/files/Perfect 2021.pdf">Perfect 2021.pdf</a>
+                          <p>After years of development, I'm finally ready to give you... the most perfect character sheet ever!</p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>April 2020: Starfinder Refresh</h2>
+                          <time datetime="December 18, 2023"><span class="day">1</span><span class="month">Apr</span><span class="year">2020</span></time>
+                
+                          <a href="/files/Starfinder 2020.pdf">Starfinder 2020.pdf</a>
+                          <p>I'm looking to make a slight style change to the Starfinder sheets. What do people think of the attached?</p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>April 2018: Tails of Fallout Equestria</h2>
+                          <time datetime="December 18, 2023"><span class="day">1</span><span class="month">Apr</span><span class="year">2018</span></time>
+                
+                          <a href="/files/Tails of Fallout Equestria 2018.pdf">Tails of Fallout Equestria 2018.pdf</a>
+                          <p>There've been a lot of interesting developments in table-top RPGs in the last year. Here's a little sneak preview of something I'm working on.</p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>April 2017: Tails of Equestria</h2>
+                          <time datetime="December 18, 2023"><span class="day">1</span><span class="month">Apr</span><span class="year">2017</span></time>
+                
+                          <a href="/files/Tails of Equestria 2017.pdf">Tails of Equestria 2017.pdf</a>
+                          <p>A speak preview of a new game I'm going to be supporting.</p>
+                        </article>
+                
+              </div>  </div>  </section>  </main>
 
-    <article id="news-new-website">
-        <h2>New website!</h2>
-        <p><time datetime="October 30, 2022">October 30, 2022</time></p>
-
-        <p>The new website for Dyslexic Character Sheets is live!</p>
-    </article>
-    <article id="news-lorem-ipsum-dolor-sit-amet">
-        <h2>Lorem ipsum dolor sit amet</h2>
-        <p><time datetime="October 30, 2022">October 30, 2022</time></p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent hendrerit nulla odio, quis fermentum urna scelerisque eget. Proin eu magna at velit luctus ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis sagittis justo a tempor. Proin condimentum scelerisque justo, ut accumsan augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum consectetur ipsum sit amet nisl fermentum, auctor euismod libero egestas. Cras ut lobortis leo. Nam nec congue sapien. Cras egestas nunc eget tempor egestas. Fusce ultricies, lectus sit amet fermentum pulvinar, orci tortor pulvinar nulla, vitae consectetur sapien sapien quis massa. Duis rhoncus diam ac dolor eleifend, vitae faucibus nisi commodo. In ultricies vehicula diam, ac volutpat nisl porta vitae. Phasellus condimentum erat ac nisl rutrum, non euismod nisi gravida.</p>
-<p>Duis condimentum euismod ipsum gravida accumsan. Sed lobortis ultrices erat, sed aliquet orci tempor vel. Phasellus id pretium augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id risus ut diam hendrerit posuere mollis quis tellus. Duis fringilla, libero eu gravida dictum, dui augue aliquam neque, ut pulvinar libero urna non diam. Aliquam risus turpis, sagittis in bibendum quis, dictum ac urna. Curabitur et nisi aliquam, rhoncus nisl sed, auctor enim. In vel risus ut nisi tincidunt eleifend at elementum libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nunc elit, suscipit sed magna sed, volutpat fermentum arcu. Ut eu est et sapien facilisis lacinia in ut turpis. Morbi mollis, nibh vitae pulvinar consectetur, quam mi suscipit neque, ut tristique mi felis sit amet mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque nisi diam, gravida ut aliquet non, accumsan nec felis. In hac habitasse platea dictumst.</p>
-<p>Phasellus volutpat ante vel metus aliquet sodales. In nec elit ac purus suscipit consequat volutpat vel urna. Phasellus sed orci fringilla leo semper pretium in nec enim. Nulla varius interdum nibh, iaculis cursus dui sollicitudin vel. Donec mauris enim, efficitur id dui nec, feugiat sodales nisl. Nullam luctus neque a lectus tincidunt, nec cursus risus porta. Nulla et ante at libero viverra sollicitudin vitae et elit. Proin malesuada ut mi sed rhoncus. Quisque dapibus ac nibh aliquet finibus. Aliquam porta mauris dui, ac euismod sapien tempor nec. Aliquam id cursus eros.</p>
-<p>Suspendisse scelerisque non erat id bibendum. Aenean a sapien sit amet enim varius bibendum eget at sem. Duis bibendum luctus libero quis malesuada. Sed consectetur vel velit ut porttitor. Etiam eu venenatis dui. Pellentesque mauris justo, semper nec ornare ac, pharetra in nunc. Integer a lacus rutrum, ultricies sem vel, venenatis lectus. Maecenas rutrum neque ac eros dignissim, sed lobortis enim luctus.</p>
-<p>In consectetur, augue quis venenatis finibus, erat neque dictum augue, vitae congue libero erat eu nisl. Aliquam non placerat dolor. In hac habitasse platea dictumst. Fusce sagittis, neque sit amet aliquet facilisis, turpis libero ornare lacus, ac rutrum elit purus eget ligula. Donec eu iaculis velit. Sed sit amet rhoncus dolor. Curabitur sollicitudin metus a mauris gravida congue. Nullam at orci sit amet ligula venenatis scelerisque consectetur a velit.</p>
-    </article>
-    <article id="news-lorem-ipsum-2">
-        <h2>Lorem ipsum 2</h2>
-        <p><time datetime="October 30, 2022">October 30, 2022</time></p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent hendrerit nulla odio, quis fermentum urna scelerisque eget. Proin eu magna at velit luctus ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis sagittis justo a tempor. Proin condimentum scelerisque justo, ut accumsan augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum consectetur ipsum sit amet nisl fermentum, auctor euismod libero egestas. Cras ut lobortis leo. Nam nec congue sapien. Cras egestas nunc eget tempor egestas. Fusce ultricies, lectus sit amet fermentum pulvinar, orci tortor pulvinar nulla, vitae consectetur sapien sapien quis massa. Duis rhoncus diam ac dolor eleifend, vitae faucibus nisi commodo. In ultricies vehicula diam, ac volutpat nisl porta vitae. Phasellus condimentum erat ac nisl rutrum, non euismod nisi gravida.</p>
-<p>Duis condimentum euismod ipsum gravida accumsan. Sed lobortis ultrices erat, sed aliquet orci tempor vel. Phasellus id pretium augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id risus ut diam hendrerit posuere mollis quis tellus. Duis fringilla, libero eu gravida dictum, dui augue aliquam neque, ut pulvinar libero urna non diam. Aliquam risus turpis, sagittis in bibendum quis, dictum ac urna. Curabitur et nisi aliquam, rhoncus nisl sed, auctor enim. In vel risus ut nisi tincidunt eleifend at elementum libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nunc elit, suscipit sed magna sed, volutpat fermentum arcu. Ut eu est et sapien facilisis lacinia in ut turpis. Morbi mollis, nibh vitae pulvinar consectetur, quam mi suscipit neque, ut tristique mi felis sit amet mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque nisi diam, gravida ut aliquet non, accumsan nec felis. In hac habitasse platea dictumst.</p>
-<p>Phasellus volutpat ante vel metus aliquet sodales. In nec elit ac purus suscipit consequat volutpat vel urna. Phasellus sed orci fringilla leo semper pretium in nec enim. Nulla varius interdum nibh, iaculis cursus dui sollicitudin vel. Donec mauris enim, efficitur id dui nec, feugiat sodales nisl. Nullam luctus neque a lectus tincidunt, nec cursus risus porta. Nulla et ante at libero viverra sollicitudin vitae et elit. Proin malesuada ut mi sed rhoncus. Quisque dapibus ac nibh aliquet finibus. Aliquam porta mauris dui, ac euismod sapien tempor nec. Aliquam id cursus eros.</p>
-<p>Suspendisse scelerisque non erat id bibendum. Aenean a sapien sit amet enim varius bibendum eget at sem. Duis bibendum luctus libero quis malesuada. Sed consectetur vel velit ut porttitor. Etiam eu venenatis dui. Pellentesque mauris justo, semper nec ornare ac, pharetra in nunc. Integer a lacus rutrum, ultricies sem vel, venenatis lectus. Maecenas rutrum neque ac eros dignissim, sed lobortis enim luctus.</p>
-<p>In consectetur, augue quis venenatis finibus, erat neque dictum augue, vitae congue libero erat eu nisl. Aliquam non placerat dolor. In hac habitasse platea dictumst. Fusce sagittis, neque sit amet aliquet facilisis, turpis libero ornare lacus, ac rutrum elit purus eget ligula. Donec eu iaculis velit. Sed sit amet rhoncus dolor. Curabitur sollicitudin metus a mauris gravida congue. Nullam at orci sit amet ligula venenatis scelerisque consectetur a velit.</p>
-    </article>
-
-</div>
-</section></main>
-
-<div id="blanket"></div>
-<aside id="main-menu" class="aside--left">
-    <div class="aside__inner dark-region">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button btn--selected">☰</button>
-            <button class="btn btn--light language-button">en</button>
-            <button class="btn btn--light login-button"><i class="i-user"></i>Login</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h2>Dyslexic Character Sheets</h2>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/en/">Home</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/en/tour.html">Tour</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light button-patreon">Patreon</a>
-                </li>
-                <li>
-                    <button class="btn btn--light button-contact">Contact</button>
-                </li>
-            </ul>
-
-            <h3>Build a character</h3>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/en/build-pathfinder2.html">Pathfinder 2e</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/en/build-starfinder.html">Starfinder</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/en/build-pathfinder1.html">Pathfinder 1e</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/en/build-dnd35.html">Dungeons &amp; Dragons 3.5</a>
-                </li>
-            </ul>
-
-            <h3>Information</h3>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/en/open-source.html">Open Source</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/en/translating.html">Translating</a>
-                </li>
-            </ul>
-
-            <h3>Legal</h3>
-            <p>Copyright &copy; Marcus Downing</p>
-            <p>These character sheets are provided under the Artistic License 2.0</p>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/en/legal.html">Legal Info</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/en/license.html">Artistic License</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/en/ogl.html">Open Game License</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</aside><aside id="language-menu" class="aside--left">
-    <div class="aside__inner dark-region">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button">☰</button>
-            <button class="btn btn--light language-button btn--selected">en</button>
-            <button class="btn btn--light login-button"><i class="i-user"></i>Login</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h3>Language</h3>
-            
-            <ul class="pick-list">
-                <li>
-                    <a class="option option--selected" href="/en/news.html">
+<div id="blanket"
+  data-bind="show = body.currentMenu | isSet"
+></div>
+<aside id="main-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'main-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>en      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Login      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h2>Dyslexic Character Sheets</h2>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/en/">Home</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/en/tour.html">Tour</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/en/news.html">News</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a href="https://discord.gg/ajVTD4N" class="btn btn--light btn--bgicon button-discord">Discord</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-patreon">Patreon</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-github">GitHub</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <button class="btn btn--light button-contact">Contact</button>
+                    </li>
+                  </ul>
+          
+                  <h3>Build a character</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/en/build-pathfinder2.html">Pathfinder 2e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/en/build-starfinder.html">Starfinder</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/en/build-pathfinder1.html">Pathfinder 1e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/en/build-dnd35.html">Dungeons &amp; Dragons 3.5</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Information</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/en/open-source.html">Open Source</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/en/translating.html">Translating</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Legal</h3>
+                  <p>Copyright &copy; Marcus Downing</p>
+                  <p>These character sheets are provided under the Artistic License 2.0</p>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/en/legal.html">Legal Info</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/en/license.html">Artistic License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/en/ogl.html">Open Game License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/en/orc.html">ORC License</a>
+                    </li>
+                  </ul>
+                </nav>
+        </div>    </div>
+  </aside><aside id="language-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'language-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>en      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Login      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Language</h3>
+                  
+                  <ul class="pick-list">
+                    <li>
+                      <a class="option option--selected" href="/en/news.html">
                         <span class='badge badge--language'>en</span>
                         <b>English</b> / 
                         English
-                    </a>
-                </li>
-                <li>
-                    <a class="option" href="/fr/news.html">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/fr/news.html">
                         <span class='badge badge--language'>fr</span>
                         <b>Français</b> / 
                         French
-                    </a>
-                </li>
-                <li>
-                    <a class="option" href="/es/news.html">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/es/news.html">
                         <span class='badge badge--language'>es</span>
                         <b>Espagnol</b> / 
                         Spanish
-                    </a>
-                </li>
-                <li>
-                    <a class="option" href="/de/news.html">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/de/news.html">
                         <span class='badge badge--language'>de</span>
                         <b>Deutsch</b> / 
                         German
-                    </a>
-                </li>
-                <li>
-                    <a class="option" href="/pl/news.html">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/pl/news.html">
                         <span class='badge badge--language'>pl</span>
                         <b>Polskie</b> / 
                         Polish
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</aside><aside id="login-menu" class="aside--left">
-    <div class="aside__inner dark-region">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button">☰</button>
-            <button class="btn btn--light language-button">en</button>
-            <button class="btn btn--light login-button btn--selected"><i class="i-user"></i>Login</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h3>Login</h3>
-
-            <p>Patrons get the ability to edit all the fields, have calculations work automatically, and save character sheets. Login with Patreon to unlock these features:</p>
-
-            <p>
-                <a class="btn btn--light button-patreon" href="https://www.patreon.com/oauth2/authorize?response_type=code&amp;client_id=0oURl0qZgYq8jpkZ0rl5KCfzpYb_Uki2bLfDwzlaVrFRr1QM7IrtNUt19eaulVgM&amp;redirect_uri=https%3A%2F%2Fwww.dyslexic-charactersheets.com%2Fauth%2Fpatreon-redirect">Login with Patreon</a>
-            </p>
-
-            <p class="small-print">Logging in will set a cookie on your PC. This does not contain any personally identifiable information, and will not be sent to any third party.</p>
-
-            <h3>Become a patron</h3>
-
-            <p>Support the site and gain access to extra features for just $1 by becoming a patron.</p>
-
-            <p>
-                <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light button-patreon">Patreon</a>
-            </p>
-        </nav>
-    </div>
-</aside><aside id="contact-menu" class="aside--left">
-    <div class="aside__inner">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button">☰</button>
-            <button class="btn btn--light language-button">en</button>
-            <button class="btn btn--light login-button"><i class="i-user"></i>Login</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h3>Contact</h3>
-
-            <form id="message-form" method="post" action="/message" class="contact-form">
-                <p>Your message:</p>
-
-                <textarea name="message"></textarea>
-
-                <p>
-                    <label for="game">Which game is this about?</label>
-                </p>
-                <div class="row">
-                    <label><input type="radio" name="game" value="pf2"> Pathfinder 2e</label>
-                    <label><input type="radio" name="game" value="sf"> Starfinder</label>
-                </div>
-                <div class="row">
-                    <label><input type="radio" name="game" value="pf1"> Pathfinder 1e</label>
-                    <label><input type="radio" name="game" value="d35"> D&amp;D 3.5</label>
-                </div>
-
-                <p>
-                    <label for="author">
-                        Your name:
-                        <input id="author" name="author" type="text" placeholder="The Internet" class="box">
-                    </label>
-                </p>
-                <p>
-                    <label for="email">
-                        Optionally, your email address:
-                    </label>
-                </p>
-                <p>
-                    <input id="email" name="email" type="email" placeholder="But only if you feel like it" class="box">
-                </p>
-                
-                <button class="btn btn--primary" id="message-send">Send Message</button>
-            </form>
-        </nav>
-
-        <img class="page-curl" src="/images/page-curl.png">
-    </div>
-</aside>
-<script src="/script.js" />
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+        </div>    </div>
+  </aside></aside>
+<script src="/script.js"></script>
 
 </body>
 </html>

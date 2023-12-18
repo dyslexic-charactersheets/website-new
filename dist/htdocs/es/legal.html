@@ -1,313 +1,403 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Legal - Dyslexic Character Sheets</title>
-    
-    <link rel="stylesheet" media="screen" href="/style.css"/>
-    <link rel="shortcut icon" type="image/png" href="/images/favicon16.png"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Legal - Dyslexic Character Sheets</title>
+  
+  <link rel="stylesheet" media="screen" href="/style.css"/>
+  <link rel="shortcut icon" type="image/png" href="/images/favicon16.png"/>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 </head>
 
-<body id="body-read">
+<body id="body" data-current-menu="">
 
 
 <main class="main--layout_read">
-<section id="left">
-<div class="section__inner dark-region">
-<nav id="menu-buttons" class="nav--row">
-    <a href="/es/" class="btn btn--min btn--icon home-button">&larr;</a>
-    <button class="btn btn--min btn--icon menu-button">☰</button>
-    <button class="btn btn--light language-button">es</button>
-    <button class="btn btn--light login-button"><i class="i-user"></i>Login</button>
-    <div class="spacer"></div>
-</nav>    <nav class="nav--menu">
+    <section id="left">
+        <div class="pane pane--bg_blue pane--shadow_left dark-region ">
+                    <nav class="nav--row">
+                        <a href="/es/" class="btn btn--min">
+                          <img src="/images/favicon64.png">
+                          Dyslexic Character Sheets
+                        </a>
+                      </nav>
+                      <nav class="nav--row">
+                            <button 
+                          type="button"
+                          
+                          class="btn " 
+                          data-on-click="body.currentMenu &#x3D; main-menu"
+                          
+                        >
+                          ☰      
+                        </button>
+                    
+                            <button 
+                          type="button"
+                          
+                          class="btn " 
+                          data-on-click="body.currentMenu &#x3D; language-menu"
+                          
+                        >
+                          <i class="icon icon_globe"></i>es      
+                        </button>
+                    
+                            <button 
+                          type="button"
+                          
+                          class="btn " 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Login      
+                        </button>
+                    
+                        <div class="spacer"></div>
+                        
+                      </nav>
+                    <nav class="nav--menu">
+                      <h3>Information</h3>
+                      <ul class="pick-list">
+                        <li>
+                          <a class="option" href="/es/open-source.html">
+                              Open Source
+                          </a>
+                        </li>
+                        <li>
+                          <a class="option" href="/es/translating.html">
+                              Translating
+                          </a>
+                        </li>
+                      </ul>
+                  
+                      <h3>Legal</h3>
+                      <ul class="pick-list">
+                        <li>
+                          <a class="option option--selected" href="/es/legal.html">
+                              Legal Information
+                          </a>
+                        </li>
+                
+                        <li>
+                          <a class="option" href="/es/license.html">
+                              Artistic License
+                          </a>
+                        </li>
+                        
+                        <li>
+                          <a class="option" href="/es/ogl.html">
+                              Open Game License
+                          </a>
+                        </li>
+                        
+                        <li>
+                          <a class="option" href="/es/orc.html">
+                              ORC License
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+          </div>  </section>
+    <section id="right">
+        <div class="pane pane--bg_parchment  light-region ">
+            <div class="read-area">
+                          
+                          <h1>Legal Information</h1>
+                          
+                          <h2>Copyright</h2>
+                          <p>Copyright © 2013–2023 Marcus Downing.</p>
+                          
+                          <div class="columns columns--n_2">
+                              <div class="column">
+                                  
+                                  <h2>License</h2>
+                                    <p>This work is released under the <a href='//license.html'>Artistic License 2.0</a>, excluding those parts licensed from other owners.</p>
+                                  <blockquote class="blockquote--well">
+                                        <p>You can take any part of this project, keep it, modify it, share it, and even charge money for it. The only condition is that you must honestly state where it came from by linking back to this website.</p>
+                                    </blockquote>  <p>Parts of this work are ORC Licensed Material, or Open Game Content, as disclaimed below:</p>
+                                  
+                                </div><div class="column">
+                                  
+                                    <h2>Fonts</h2>
+                                    <p>These character sheets use the fonts <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> (released under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>) and <a href="https://fonts.google.com/specimen/Merriweather">Merriweather</a> (released under the <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>).</p>
+                                    <p>This website uses the fonts <a href="https://fonts.google.com/specimen/Roboto+Slab">Roboto Slab</a> (released under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>) and <a href="https://fonts.google.com/specimen/Lato">Lato</a> (released under the <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>).</p>
+                                    <p><a href="https://dyslexiefont.com/">Dyslexie</a> is used with permission from Dyslexie Font B.V., Netherlands.</p>
+                                    
+                                </div>  </div>
+                          <blockquote class="blockquote--box">
+                                <h2>Pathfinder Second Edition</h2>
+                              <div class="columns columns--n_2">
+                                  <div class="column">
+                                      
+                                          <h3>ORC License</h3>
+                                          <p>A part of Pathfinder Second Edition (those works published from November 2023 on) is published under the <a href='/es/orc.html'>OpenRPG Creative License (ORC License)</a>. These character sheets use properties owned by Paizo Inc. and others, used under the ORC License.</p>
+                                      
+                                          <h3>Open Game Licence</h3>
+                                          <p>A part of Pathfinder Second Edition (those works published prior to November 2023) uses the <a href='/es/ogl.html'>Open Game License (OGL)</a>; see Section 15 of the OGL declaration for a list of publications. These character sheets use properties owned by Paizo Inc. and others, used under the Open Game License.</p>
+                                          
+                                    </div><div class="column">
+                                          <h3>Trademarks and Copyrights</h3>
+                                          <p>These character sheets use trademarks and/or copyrights owned by Paizo Inc., used under <b>Paizo's Community Use Policy</b> (<a href='https://paizo.com/communityuse'>paizo.com/communityuse</a>). We are expressly prohibited from charging you to use or access this content. These character sheets are not published, endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit <a href='https://paizo.com/'>paizo.com</a>.</p>
+                                      
+                                    </div>  </div>
+                            </blockquote>
+                          <blockquote class="blockquote--box">
+                                <h2>Pathfinder First Edition</h2>
+                              <div class="columns columns--n_2">
+                                  <div class="column">
+                                      
+                                          <h3>Open Game Licence</h3>
+                                          <p>These character sheets use properties owned by Paizo Inc. and others, used under the <a href='/es/ogl.html'>Open Game License (OGL)</a>. See Section 15 of the OGL declaration for a list of publications.</p>
+                                          
+                                    </div><div class="column">
+                                      
+                                          <h3>Trademarks and Copyrights</h3>
+                                          <p>These character sheets use trademarks and/or copyrights owned by Paizo Inc., used under <b>Paizo's Community Use Policy</b> (<a href='https://paizo.com/communityuse'>paizo.com/communityuse</a>). We are expressly prohibited from charging you to use or access this content. These character sheets are not published, endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit <a href='https://paizo.com/'>paizo.com</a>.</p>
+                                      
+                                    </div>  </div>
+                            </blockquote>
+                          <blockquote class="blockquote--box">
+                                <h2>Starfinder</h2>
+                              <div class="columns columns--n_2">
+                                  <div class="column">
+                                      
+                                          <h3>Open Game Licence</h3>
+                                          <p>These character sheets use properties owned by Paizo Inc. and others, used under the <a href='/es/ogl.html'>Open Game License (OGL)</a>. See Section 15 of the OGL declaration for a list of publications.</p>
+                                          
+                                    </div><div class="column">
+                                      
+                                          <h3>Trademarks and Copyrights</h3>
+                                          <p>These character sheets use trademarks and/or copyrights owned by Paizo Inc., used under <b>Paizo's Community Use Policy</b> (<a href='https://paizo.com/communityuse'>paizo.com/communityuse</a>). We are expressly prohibited from charging you to use or access this content. These character sheets are not published, endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit <a href='https://paizo.com/'>paizo.com</a>.</p>
+                                      
+                                    </div>  </div>
+                            </blockquote>
+                          <blockquote class="blockquote--box">
+                                <h2>Dungeons &amp; Dragons 3.5</h2>
+                              <div class="columns columns--n_2">
+                                  <div class="column">
+                                      
+                                          <h3>Open Game Licence</h3>
+                                          <p>These character sheets use properties owned by Wizards of the Coast LLC and others, used under the <a href='/es/ogl.html'>Open Game License (OGL)</a>. See Section 15 of the OGL declaration for a list of publications.</p>
+                                          
+                                    </div><div class="column">
+                                      
+                                          <h3>Trademarks and Copyrights</h3>
+                                          
+                                          <p>Wizards of the Coast, Dungeons &amp; Dragons, and their logos are trademarks of Wizards of the Coast LLC in the United States and other countries. © 2015 Wizards. All Rights Reserved.</p>
+                                          <p>These character sheets are not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC. These character sheets may use the trademarks and other intellectual property of Wizards of the Coast LLC, which is permitted under <a href='https://dnd.wizards.com/resources/fan-site-kit'>Wizards' Fan Site Policy</a>. For example, Dungeons &amp; Dragons® is a trademark(s) of Wizards of the Coast. For more information about Wizards of the Coast or any of Wizards' trademarks or other intellectual property, please visit their website at <a href='https://www.wizards.com/'>www.wizards.com</a>.</p>
+                                      
+                                    </div>  </div>
+                            </blockquote>
+                          
+              </div>  </div>  </section>  </main>
+
+<div id="blanket"
+  data-bind="show = body.currentMenu | isSet"
+></div>
+<aside id="main-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'main-menu'"
     
-        <h3>Information</h3>
-        <ul class="pick-list">
-            <li>
-                <a class="option" href="/es/open-source.html">
-                    Open Source
-                </a>
-            </li>
-            <li>
-                <a class="option" href="/es/translating.html">
-                    Translating
-                </a>
-            </li>
-        </ul>
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>es      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Login      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h2>Dyslexic Character Sheets</h2>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/es/">Home</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/es/tour.html">Tour</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/es/news.html">News</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a href="https://discord.gg/ajVTD4N" class="btn btn--light btn--bgicon button-discord">Discord</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-patreon">Patreon</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-github">GitHub</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <button class="btn btn--light button-contact">Contact</button>
+                    </li>
+                  </ul>
+          
+                  <h3>Build a character</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/es/build-pathfinder2.html">Pathfinder 2e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/es/build-starfinder.html">Starfinder</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/es/build-pathfinder1.html">Pathfinder 1e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/es/build-dnd35.html">Dungeons &amp; Dragons 3.5</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Information</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/es/open-source.html">Open Source</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/es/translating.html">Translating</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Legal</h3>
+                  <p>Copyright &copy; Marcus Downing</p>
+                  <p>These character sheets are provided under the Artistic License 2.0</p>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/es/legal.html">Legal Info</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/es/license.html">Artistic License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/es/ogl.html">Open Game License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/es/orc.html">ORC License</a>
+                    </li>
+                  </ul>
+                </nav>
+        </div>    </div>
+  </aside><aside id="language-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'language-menu'"
     
-        <h3>Legal</h3>
-        <ul class="pick-list">
-            <li>
-                <a class="option option--selected" href="/es/legal.html">
-                    Legal Information
-                </a>
-            </li>
-    
-            <li>
-                <a class="option" href="/es/license.html">
-                    Artistic License
-                </a>
-            </li>
-            
-            <li>
-                <a class="option" href="/es/ogl.html">
-                    Open Game License
-                </a>
-            </li>
-        </ul>
-    </nav></div>
-</section><section id="right">
-<div class="section__inner">
-
-<h1>Legal Information</h1>
-
-<div class="columns">
-<div class="column">
-        
-    <h2>Copyright</h2>
-    <p>Copyright © 2013–2022 Marcus Downing.</p>
-
-    <h2>License</h2>
-    <p>This product is released under the <a href='/es/license.html'>Artistic License 2.0</a>, and uses properties covered by the <a href='/es/ogl.html'>Open Game License</a>.
-
-    <blockquote>
-        <p>In short, you can take any part of this project, keep it, modify it, share it, and even charge money for it. The only condition is that you must be honest about where it came from by linking back to this website.</p>
-    </blockquote>
-
-    <h3>Licensing Terms</h3>
-    <p>For the purposes of the license, the "source" is defined as the Illustrator files, script files and other original creations covered under product identity below, as well as the source code for this website; and "compiled form" is defined as any PDF or HTML file produced as a product of these files, including those produced using this website.</p>
-
-    <h3>OGL Open Content</h3>
-    <p>The following items are hereby identified as Product Identity, as defined in the Open Game License version 1.0a, Section 1(e), and are not Open Content: the visual design, layout and appearance of the character sheets, the source code of this website and the attached Build My Character tool, and the scripts used to manipulate the character sheets.</p>
-    <p>Elements that have previously been designated as Open Game Content, are in the public domain or have previously been identified as product identity by another vendor are not included in this declaration.</p>
-    <p>Except for material designated as Product Identity (see above) or the property of other companies, the game mechanics used in this product are Open Game Content, as defined in the Open Gaming License version 1.0a Section 1(d).</p>
-
-</div>
-<div class="column">
-
-    <h2>Pathfinder and Starfinder</h2>
-    <p>These character sheets use trademarks and/or copyrights owned by Paizo Inc., used under <b>Paizo's Community Use Policy</b> (<a href='https://paizo.com/communityuse'>paizo.com/communityuse</a>). We are expressly prohibited from charging you to use or access this content. These character sheets are not published, endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit <a href='https://paizo.com/'>paizo.com</a>.</p>
-
-    <h2>Dungeons &amp; Dragons </h2>
-    <p>Wizards of the Coast, Dungeons &amp; Dragons, and their logos are trademarks of Wizards of the Coast LLC in the United States and other countries. © 2015 Wizards. All Rights Reserved.</p>
-    <p>These character sheets are not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC. These character sheets may use the trademarks and other intellectual property of Wizards of the Coast LLC, which is permitted under <a href='https://dnd.wizards.com/resources/fan-site-kit'>Wizards' Fan Site Policy</a>. For example, Dungeons & Dragons® is a trademark(s) of Wizards of the Coast. For more information about Wizards of the Coast or any of Wizards' trademarks or other intellectual property, please visit their website at <a href='https://www.wizards.com/'>www.wizards.com</a>.</p>
-
-    <h2>Fonts</h2>
-    <p>These character sheets use the fonts <a href="http://www.fontsquirrel.com/fonts/roboto">Roboto</a> (released under the Google Android License) and <a href="http://www.fontsquirrel.com/fonts/merriweather">Merriweather</a> (released under the <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>).</p>
-    <p><a href="https://dyslexiefont.com/">Dyslexie</a> is used with permission from Dyslexie Font B.V., Netherlands.</p>
-
-</div>
-</div>
-
-</div>
-</section></main>
-
-<div id="blanket"></div>
-<aside id="main-menu" class="aside--left">
-    <div class="aside__inner dark-region">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button btn--selected">☰</button>
-            <button class="btn btn--light language-button">es</button>
-            <button class="btn btn--light login-button"><i class="i-user"></i>Login</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h2>Dyslexic Character Sheets</h2>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/es/">Home</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/es/tour.html">Tour</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light button-patreon">Patreon</a>
-                </li>
-                <li>
-                    <button class="btn btn--light button-contact">Contact</button>
-                </li>
-            </ul>
-
-            <h3>Build a character</h3>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/es/build-pathfinder2.html">Pathfinder 2e</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/es/build-starfinder.html">Starfinder</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/es/build-pathfinder1.html">Pathfinder 1e</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/es/build-dnd35.html">Dungeons &amp; Dragons 3.5</a>
-                </li>
-            </ul>
-
-            <h3>Information</h3>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/es/open-source.html">Open Source</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/es/translating.html">Translating</a>
-                </li>
-            </ul>
-
-            <h3>Legal</h3>
-            <p>Copyright &copy; Marcus Downing</p>
-            <p>These character sheets are provided under the Artistic License 2.0</p>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/es/legal.html">Legal Info</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/es/license.html">Artistic License</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/es/ogl.html">Open Game License</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</aside><aside id="language-menu" class="aside--left">
-    <div class="aside__inner dark-region">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button">☰</button>
-            <button class="btn btn--light language-button btn--selected">es</button>
-            <button class="btn btn--light login-button"><i class="i-user"></i>Login</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h3>Language</h3>
-            
-            <ul class="pick-list">
-                <li>
-                    <a class="option" href="/en/legal.html">
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>es      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Login      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Language</h3>
+                  
+                  <ul class="pick-list">
+                    <li>
+                      <a class="option" href="/en/legal.html">
                         <span class='badge badge--language'>en</span>
                         <b>English</b> / 
                         Inglés
-                    </a>
-                </li>
-                <li>
-                    <a class="option" href="/fr/legal.html">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/fr/legal.html">
                         <span class='badge badge--language'>fr</span>
                         <b>Français</b> / 
                         Francés
-                    </a>
-                </li>
-                <li>
-                    <a class="option option--selected" href="/es/legal.html">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option option--selected" href="/es/legal.html">
                         <span class='badge badge--language'>es</span>
                         <b>Espagnol</b> / 
                         Espagnol
-                    </a>
-                </li>
-                <li>
-                    <a class="option" href="/de/legal.html">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/de/legal.html">
                         <span class='badge badge--language'>de</span>
                         <b>Deutsch</b> / 
                         Alemán
-                    </a>
-                </li>
-                <li>
-                    <a class="option" href="/pl/legal.html">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/pl/legal.html">
                         <span class='badge badge--language'>pl</span>
                         <b>Polskie</b> / 
                         Polaco
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</aside><aside id="login-menu" class="aside--left">
-    <div class="aside__inner dark-region">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button">☰</button>
-            <button class="btn btn--light language-button">es</button>
-            <button class="btn btn--light login-button btn--selected"><i class="i-user"></i>Login</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h3>Login</h3>
-
-            <p>Patrons get the ability to edit all the fields, have calculations work automatically, and save character sheets. Login with Patreon to unlock these features:</p>
-
-            <p>
-                <a class="btn btn--light button-patreon" href="https://www.patreon.com/oauth2/authorize?response_type=code&amp;client_id=0oURl0qZgYq8jpkZ0rl5KCfzpYb_Uki2bLfDwzlaVrFRr1QM7IrtNUt19eaulVgM&amp;redirect_uri=https%3A%2F%2Fwww.dyslexic-charactersheets.com%2Fauth%2Fpatreon-redirect">Login with Patreon</a>
-            </p>
-
-            <p class="small-print">Logging in will set a cookie on your PC. This does not contain any personally identifiable information, and will not be sent to any third party.</p>
-
-            <h3>Become a patron</h3>
-
-            <p>Support the site and gain access to extra features for just $1 by becoming a patron.</p>
-
-            <p>
-                <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light button-patreon">Patreon</a>
-            </p>
-        </nav>
-    </div>
-</aside><aside id="contact-menu" class="aside--left">
-    <div class="aside__inner">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button">☰</button>
-            <button class="btn btn--light language-button">es</button>
-            <button class="btn btn--light login-button"><i class="i-user"></i>Login</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h3>Contact</h3>
-
-            <form id="message-form" method="post" action="/message" class="contact-form">
-                <p>Your message:</p>
-
-                <textarea name="message"></textarea>
-
-                <p>
-                    <label for="game">Which game is this about?</label>
-                </p>
-                <div class="row">
-                    <label><input type="radio" name="game" value="pf2"> Pathfinder 2e</label>
-                    <label><input type="radio" name="game" value="sf"> Starfinder</label>
-                </div>
-                <div class="row">
-                    <label><input type="radio" name="game" value="pf1"> Pathfinder 1e</label>
-                    <label><input type="radio" name="game" value="d35"> D&amp;D 3.5</label>
-                </div>
-
-                <p>
-                    <label for="author">
-                        Your name:
-                        <input id="author" name="author" type="text" placeholder="The Internet" class="box">
-                    </label>
-                </p>
-                <p>
-                    <label for="email">
-                        Optionally, your email address:
-                    </label>
-                </p>
-                <p>
-                    <input id="email" name="email" type="email" placeholder="But only if you feel like it" class="box">
-                </p>
-                
-                <button class="btn btn--primary" id="message-send">Send Message</button>
-            </form>
-        </nav>
-
-        <img class="page-curl" src="/images/page-curl.png">
-    </div>
-</aside>
-<script src="/script.js" />
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+        </div>    </div>
+  </aside></aside>
+<script src="/script.js"></script>
 
 </body>
 </html>

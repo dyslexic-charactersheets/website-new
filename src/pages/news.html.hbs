@@ -1,28 +1,43 @@
-{{#> base title="News - Dyslexic Character Sheets" body-id="body-news"}}
+{{#> Base title="News - Dyslexic Character Sheets" }}
 
-{{#> news-layout }}
-{{#> left dark=true}}
-<nav class="nav--menu">
-    <ul>
-    {{#each news}}
-        <li><a href="#news-{{slug}}">{{title}}</a></li>
-    {{/each}}
-    </ul>
-</nav>
-{{/left}}
+{{#> ReadLayout }}
+  {{#> Left dark=true}}
+    {{#> Pane bg="blue"}}
+      {{> MenuButtons}}
 
-{{#> right }}
+      <nav class="nav--dated">
+          <ul>
+          {{#each news}}
+              <li><a href="#news-{{slug}}" data-set="">
+                  {{title}}
+                  <time datetime="{{date}}">{{ dayOfMonth }} {{ shortMonth }} {{ dateYear }}</time>
+              </a></li>
+          {{/each}}
+          </ul>
+      </nav>
+    {{/Pane}}
+  {{/Left}}
 
-    {{#each news}}
-    <article id="news-{{slug}}">
-        <h2>{{ title }}</h2>
-        <p><time datetime="{{date}}">{{ date }}</time></p>
+  {{#> Right }}
+    {{#> Pane bg="parchment"}}
+      {{#> ReadArea}}
+        <img src="/images/coffee-stain.png" id="coffee-stain">
 
-        {{{ autop body }}}
-    </article>
-    {{/each}}
+        {{#each news}}
+        <article class="news" id="news-{{slug}}">
+          <h2>{{ title }}</h2>
+          <time datetime="{{date}}"><span class="day">{{ dayOfMonth }}</span><span class="month">{{ shortMonth }}</span><span class="year">{{ dateYear }}</span></time>
 
-{{/right}}
-{{/news-layout}}
+          {{#if file}}
+          <a href="{{ fileURL }}">{{ file }}</a>
+          {{/if}}
+          {{{ autop body }}}
+        </article>
+        {{/each}}
 
-{{/base}}
+      {{/ReadArea}}
+    {{/Pane}}
+  {{/Right}}
+{{/ReadLayout}}
+
+{{/Base}}

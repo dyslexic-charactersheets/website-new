@@ -1,411 +1,558 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Starfinder - Dyslexic Character Sheets</title>
-    
-    <link rel="stylesheet" media="screen" href="/style.css"/>
-    <link rel="shortcut icon" type="image/png" href="/images/favicon16.png"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Starfinder - Dyslexic Character Sheets</title>
+  
+  <link rel="stylesheet" media="screen" href="/style.css">
+  <link rel="shortcut icon" type="image/png" href="/images/favicon16.png">
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 
-<body id="body-build">
+<body id="body" data-current-menu="">
 
 
 <main class="main--layout_build main--theme_scifi">
-<section id="left">
-<div class="section__inner dark-region">
-<nav id="menu-buttons" class="nav--row">
-    <a href="/fr/" class="btn btn--min btn--icon home-button">&larr;</a>
-    <button class="btn btn--min btn--icon menu-button">☰</button>
-    <button class="btn btn--light language-button">fr</button>
-    <button class="btn btn--light login-button"><i class="i-user"></i>Connexion</button>
-    <div class="spacer"></div>
-</nav><nav class="nav--milestones" data-slide="0" id="milestones-character" data-show="true">
-    <div class="spacer spacer--min"></div>
-    <div class="nav__inner">
-                    <button class="milestone milestone--selected" data-milestone="start"><span>Début</span></button>
-                    <span class="arrow"></span>
-                    <button class="milestone" data-milestone="character"><span>Personnage</span></button>
-                    <span class="arrow"></span>
-                    <button class="milestone" data-milestone="options"><span>Options</span></button>
-                    <span class="arrow"></span>
-                    <button class="milestone" data-milestone="colours"><span>Couleurs</span></button>
-                    <span class="arrow"></span>
-                    <button class="milestone" data-milestone="picture"><span>Dessin</span></button>
-                    <span class="arrow"></span>
-                    <button class="milestone" data-milestone="download"><span>Télécharger</span></button>
-    </div>
-    <div class="spacer spacer--min"></div>
-</nav>
-
-<nav class="nav--milestones" data-slide="0" id="milestones-starship" data-show="false">
-    <div class="spacer spacer--min"></div>
-    <div class="nav__inner">
-                    <button class="milestone milestone--selected" data-milestone="start"><span>Début</span></button>
-                    <span class="arrow"></span>
-                    <button class="milestone" data-milestone="gm"><span>Starship</span></button>
-                    <span class="arrow"></span>
-                    <button class="milestone" data-milestone="colour"><span>Couleurs</span></button>
-                    <span class="arrow"></span>
-                    <button class="milestone" data-milestone="download"><span>Télécharger</span></button>
-    </div>
-    <div class="spacer spacer--min"></div>
-</nav>
-
-<nav class="nav--milestones" data-slide="0" id="milestones-gm" data-show="false">
-    <div class="spacer spacer--min"></div>
-    <div class="nav__inner">
-                    <button class="milestone milestone--selected" data-milestone="start"><span>Début</span></button>
-                    <span class="arrow"></span>
-                    <button class="milestone" data-milestone="gm"><span>GM</span></button>
-                    <span class="arrow"></span>
-                    <button class="milestone" data-milestone="options"><span>Options</span></button>
-                    <span class="arrow"></span>
-                    <button class="milestone" data-milestone="colour"><span>Couleurs</span></button>
-                    <span class="arrow"></span>
-                    <button class="milestone" data-milestone="download"><span>Télécharger</span></button>
-    </div>
-    <div class="spacer spacer--min"></div>
-</nav>
-</div>
-</section>
-<section id="right">
-<div class="section__inner dark-region">
-<div class="slides slides--v" data-slide="0" id="slides-character" data-show="true">
-    <div class="slides__inner">
-        <div class="slide">
-            
-            <div class="slide__inner">
-                                <img src="/images/starfinder.png" class="place">
-                                <div class="row">
-                                    <button class="stack pick-single">
-                                        <img src="/images/starfinder-single.png" class="stack__stack">
-                                        <p class="stack__label">Personnage</p>
-                                    </button>
-                                    <button class="stack pick-starship">
-                                        <img src="/images/starfinder-ship.png" class="stack__stack">
-                                        <p class="stack__label">Starship</p>
-                                    </button>
-                                    <button class="stack pick-gm">
-                                        <img src="/images/starfinder-gm.png" class="stack__stack">
-                                        <p class="stack__label">GM</p>
-                                    </button>
-                                </div>
-            </div>
-            
-        </div>
-        <div class="slide">
-                <button class="btn btn--min btn--icon-label button-prev" data-slide="0">
-                    <span class="btn__icon">&uarr;</span>
-                    <span class="btn__label">Prev</span>
-                </button>
-            
-            <div class="slide__inner">
-                                <h4>Personnage</h4>
-                    <div class="row row--centre">
-                        <button class="btn btn--circle btn--icon-label button-next" data-slide="2">
-                            <span class="btn__label">Next</span>
-                            <span class="btn__icon">&darr;</span>
-                        </button>
+    <section id="left">
+        <div class="pane pane--bg_starfield pane--shadow_left dark-region">
+                  <nav class="nav--row">
+                      <a href="/fr/" class="btn btn--min">
+                        <img src="/images/favicon64.png">
+                        Dyslexic Character Sheets
+                      </a>
+                    </nav>
+                    <nav class="nav--row">
+                          <button class="btn " data-on-click="body.currentMenu &#x3D; main-menu" >
+                        ☰      
+                      </button>
+                  
+                          <button class="btn " data-on-click="body.currentMenu &#x3D; language-menu" >
+                        <i class="icon icon_globe"></i>fr      
+                      </button>
+                  
+                          <button class="btn " data-on-click="body.currentMenu &#x3D; login-menu" >
+                        <i class="icon icon_user"></i>Connexion      
+                      </button>
+                  
+                      <div class="spacer"></div>
+                      
+                    </nav>      
+            <div 
+                class="switch" 
+                id="milestones"
+                data-current="character"
+                
+              >
+                
+                <div class="switch__case" data-value="character" data-show="">
+                              <nav 
+                                  class="nav--milestones"
+                                  id="milestones-character"
+                                  data-current="start"
+                                  data-forward=""
+                                >
+                                  <div class="spacer spacer--min"></div>
+                                  <div class="nav__inner">
+                                      
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="start"
+                                        data-bind=b1 data-pick="">
+                                        <span>Début</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="character"
+                                        data-bind=b2 data-pick="">
+                                        <span>Personnage</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="options"
+                                        data-bind=b3 data-pick="">
+                                        <span>Options</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="colours"
+                                        data-bind=b4 data-pick="">
+                                        <span>Couleurs</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="picture"
+                                        data-bind=b5 data-pick="">
+                                        <span>Dessin</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="download"
+                                        data-bind=b6 data-pick="">
+                                        <span>Télécharger</span>
+                                      </button>
+                                  </div>
+                                  <div class="spacer spacer--min"></div>
+                                </nav>  </div>
+                <div class="switch__case" data-value="starship" data-show="">
+                              <nav 
+                                  class="nav--milestones"
+                                  id="milestones-starship"
+                                  data-current="start"
+                                  data-forward=""
+                                >
+                                  <div class="spacer spacer--min"></div>
+                                  <div class="nav__inner">
+                                      
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="start"
+                                        data-bind=b7 data-pick="">
+                                        <span>Début</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="starship"
+                                        data-bind=b8 data-pick="">
+                                        <span>Starship</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="colour"
+                                        data-bind=b9 data-pick="">
+                                        <span>Couleurs</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="download"
+                                        data-bind=ba data-pick="">
+                                        <span>Télécharger</span>
+                                      </button>
+                                  </div>
+                                  <div class="spacer spacer--min"></div>
+                                </nav>  </div>
+                <div class="switch__case" data-value="gm" data-show="">
+                              <nav 
+                                  class="nav--milestones"
+                                  id="milestones-gm"
+                                  data-current="start"
+                                  data-forward=""
+                                >
+                                  <div class="spacer spacer--min"></div>
+                                  <div class="nav__inner">
+                                      
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="start"
+                                        data-bind=bb data-pick="">
+                                        <span>Début</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="gm"
+                                        data-bind=bc data-pick="">
+                                        <span>GM</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="options"
+                                        data-bind=bd data-pick="">
+                                        <span>Options</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="colours"
+                                        data-bind=be data-pick="">
+                                        <span>Couleurs</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="download"
+                                        data-bind=bf data-pick="">
+                                        <span>Télécharger</span>
+                                      </button>
+                                  </div>
+                                  <div class="spacer spacer--min"></div>
+                                </nav>  </div>  </div>  </div>  </section>
+    <section id="right">
+        <div class="pane pane--bg_scifi  dark-region">
+            <div 
+                class="slideshow slideshow--v" 
+                id="slides-character" 
+                data-jump="start" 
+                data-slides="[&quot;start&quot;,&quot;character&quot;,&quot;colours&quot;,&quot;download&quot;]"
+                
+              >
+                <div class="slideshow__dolly">
+                  <div class="slide" data-jump="">
+                      <div class="slide__inner ">
+                          
+                          
+                                      <img src="/images/starfinder.png" class="place">
+                                      <div class="row">
+                                          <button class="stack pick-single">
+                                              <img src="/images/starfinder-single.png" class="stack__stack">
+                                              <p class="stack__label">Personnage</p>
+                                          </button>
+                                          <button class="stack pick-starship">
+                                              <img src="/images/starfinder-ship.png" class="stack__stack">
+                                              <p class="stack__label">Starship</p>
+                                          </button>
+                                          <button class="stack pick-gm">
+                                              <img src="/images/starfinder-gm.png" class="stack__stack">
+                                              <p class="stack__label">GM</p>
+                                          </button>
+                                      </div>
+                          
+                  
+                      </div>
                     </div>
-            </div>
-            
-                <button class="btn btn--min btn--icon-label button-next" data-slide="2">
-                    <span class="btn__label">Next</span>
-                    <span class="btn__icon">&darr;</span>
-                </button>
-        </div>
-    </div>
-</div>        
-<div class="slides slides--v" data-slide="0" id="slides-gm" data-show="false">
-    <div class="slides__inner">
-        <div class="slide">
-            
-            <div class="slide__inner">
-                                <img src="/images/starfinder.png" class="place">
-                                <div class="row">
-                                    <button class="stack pick-single">
-                                        <img src="/images/starfinder-single.png" class="stack__stack">
-                                        <p class="stack__label">Personnage</p>
-                                    </button>
-                                    <button class="stack pick-starship">
-                                        <img src="/images/starfinder-ship.png" class="stack__stack">
-                                        <p class="stack__label">Starship</p>
-                                    </button>
-                                    <button class="stack pick-gm">
-                                        <img src="/images/starfinder-gm.png" class="stack__stack">
-                                        <p class="stack__label">GM</p>
-                                    </button>
-                                </div>
-            </div>
-            
-        </div>            
-        <div class="slide">
-                <button class="btn btn--min btn--icon-label button-prev" data-slide="0">
-                    <span class="btn__icon">&uarr;</span>
-                    <span class="btn__label">Prev</span>
-                </button>
-            
-            <div class="slide__inner">
-                                <div class="grid grid--2-2">
-                                    <button class="stack stack--fill pick-gm-npc">
-                                        <p class="stack__label">NPCs</p>
-                                    </button>
-                                    <button class="stack stack--fill pick-gm-maps">
-                                        <p class="stack__label">Maps</p>
-                                    </button>
-                                    <button class="stack stack--fill pick-gm-kingdom">
-                                        <p class="stack__label">Kingdom</p>
-                                    </button>
-                                </div>
-            </div>
-            
-        </div>
-        <div class="slide">
-                <button class="btn btn--min btn--icon-label button-prev" data-slide="1">
-                    <span class="btn__icon">&uarr;</span>
-                    <span class="btn__label">Prev</span>
-                </button>
-            
-            <div class="slide__inner">
-                <div class="tab-panes" id="gm-tab-panes">
-                    <div class="tab-pane tab-pane--selected" id="gm-tab-pane-npc" data-set="gm" data-name="npc">
-                        <div class="tab-pane__inner">
-                                                    <h3>NPCs</h3>
-                        </div>
-                    </div>
-                    <div class="tab-pane tab-pane--selected" id="gm-tab-pane-maps" data-set="gm" data-name="maps">
-                        <div class="tab-pane__inner">
-                                                    <h3>Maps</h3>
+                  <div class="slide" data-jump="">
+                      <div class="slide__inner ">
+                          
+                  <div class="row align_centre">
+                          <button class="btn btn--min btn--icon-label" data-on-click="emit prev-slide" >
+                                          <span class="btn__icon">&uarr;</span>
+                                          <span class="btn__label">Back</span>
                             
-                        </div>
+                          </button>
+                    </div>        
+                                      <h4>Personnage</h4>
+                          
+                  <div class="row align_centre">
+                          <button class="btn btn--min btn--icon-label" data-on-click="emit next-slide" >
+                                          <span class="btn__label">Next</span>
+                                          <span class="btn__icon">&darr;</span>
+                            
+                          </button>
                     </div>
-                    <div class="tab-pane tab-pane--selected" id="gm-tab-pane-kingdom" data-set="gm" data-name="kingdom">
-                        <div class="tab-pane__inner">
-                                                    <h3>Kingdom</h3>
-                        </div>
-                    </div></div>            <div class="row row--centre">
-                        <button class="btn btn--circle btn--icon-label button-next" data-slide="3">
-                            <span class="btn__label">Next</span>
-                            <span class="btn__icon">&darr;</span>
-                        </button>
+                      </div>
                     </div>
-            </div>
-            
-                <button class="btn btn--min btn--icon-label button-next" data-slide="3">
-                    <span class="btn__label">Next</span>
-                    <span class="btn__icon">&darr;</span>
-                </button>
-        </div>        
-    </div>
-</div></div>
-</section></main>
+                </div>
+              </div>      
+            <div 
+                class="slideshow slideshow--v" 
+                id="slides-gm" 
+                data-jump="start" 
+                data-slides="[&quot;start&quot;,&quot;character&quot;,&quot;colours&quot;,&quot;download&quot;]"
+                
+              >
+                <div class="slideshow__dolly">
+                  <div class="slide" data-jump="">
+                      <div class="slide__inner ">
+                          
+                          
+                                      <img src="/images/starfinder.png" class="place">
+                                      <div class="row">
+                                          <button class="stack pick-single">
+                                              <img src="/images/starfinder-single.png" class="stack__stack">
+                                              <p class="stack__label">Personnage</p>
+                                          </button>
+                                          <button class="stack pick-starship">
+                                              <img src="/images/starfinder-ship.png" class="stack__stack">
+                                              <p class="stack__label">Starship</p>
+                                          </button>
+                                          <button class="stack pick-gm">
+                                              <img src="/images/starfinder-gm.png" class="stack__stack">
+                                              <p class="stack__label">GM</p>
+                                          </button>
+                                      </div>
+                          
+                  
+                      </div>
+                    </div>        
+                  <div class="slide" data-jump="">
+                      <div class="slide__inner ">
+                          
+                  <div class="row align_centre">
+                          <button class="btn btn--min btn--icon-label" data-on-click="emit prev-slide" >
+                                          <span class="btn__icon">&uarr;</span>
+                                          <span class="btn__label">Back</span>
+                            
+                          </button>
+                    </div>        
+                                      <div class="grid grid--2-2">
+                                          <button class="stack stack--fill pick-gm-npc">
+                                              <p class="stack__label">NPCs</p>
+                                          </button>
+                                          <button class="stack stack--fill pick-gm-maps">
+                                              <p class="stack__label">Maps</p>
+                                          </button>
+                                          <button class="stack stack--fill pick-gm-kingdom">
+                                              <p class="stack__label">Kingdom</p>
+                                          </button>
+                                      </div>
+                          
+                  
+                      </div>
+                    </div>
+                  <div class="slide" data-jump="">
+                      <div class="slide__inner ">
+                          
+                  <div class="row align_centre">
+                          <button class="btn btn--min btn--icon-label" data-on-click="emit prev-slide" >
+                                          <span class="btn__icon">&uarr;</span>
+                                          <span class="btn__label">Back</span>
+                            
+                          </button>
+                    </div>        
+                          <div class="tab-panes" id="gm-tab-panes">
+                              <div class="tab-pane tab-pane--selected" id="gm-tab-pane-npc" data-set="gm" data-name="npc">
+                                  <div class="tab-pane__inner">
+                                                          <h3>NPCs</h3>
+                                  </div>
+                              </div>
+                              <div class="tab-pane tab-pane--selected" id="gm-tab-pane-maps" data-set="gm" data-name="maps">
+                                  <div class="tab-pane__inner">
+                                                          <h3>Maps</h3>
+                                      
+                                  </div>
+                              </div>
+                              <div class="tab-pane tab-pane--selected" id="gm-tab-pane-kingdom" data-set="gm" data-name="kingdom">
+                                  <div class="tab-pane__inner">
+                                                          <h3>Kingdom</h3>
+                                  </div>
+                              </div></div>        
+                  <div class="row align_centre">
+                          <button class="btn btn--min btn--icon-label" data-on-click="emit next-slide" >
+                                          <span class="btn__label">Next</span>
+                                          <span class="btn__icon">&darr;</span>
+                            
+                          </button>
+                    </div>
+                      </div>
+                    </div>      
+                </div>
+              </div>  </div>  </section>  </main>
 
-<div id="blanket"></div>
-<aside id="main-menu" class="aside--left">
-    <div class="aside__inner dark-region">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button btn--selected">☰</button>
-            <button class="btn btn--light language-button">fr</button>
-            <button class="btn btn--light login-button"><i class="i-user"></i>Connexion</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h2>Fiches de Personnages Dyslexiques</h2>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/fr/">Accueil</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/fr/tour.html">Tour</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light button-patreon">Patreon</a>
-                </li>
-                <li>
-                    <button class="btn btn--light button-contact">Contactez</button>
-                </li>
-            </ul>
-
-            <h3>Construire un personnage</h3>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/fr/build-pathfinder2.html">Pathfinder 2e</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/fr/build-starfinder.html">Starfinder</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/fr/build-pathfinder1.html">Pathfinder 1e</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/fr/build-dnd35.html">Dungeons &amp; Dragons 3.5</a>
-                </li>
-            </ul>
-
-            <h3>Informations</h3>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/fr/open-source.html">Open Source</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/fr/translating.html">Traduire</a>
-                </li>
-            </ul>
-
-            <h3>Légale</h3>
-            <p>Droits d'auteur &copy; Marcus Downing</p>
-            <p>Ces fiches de personnages sont fournies sous la Licence Artistique 2.0</p>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/fr/legal.html">Info Légale</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/fr/license.html">Artistic License</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/fr/ogl.html">Open Game License</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</aside><aside id="language-menu" class="aside--left">
-    <div class="aside__inner dark-region">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button">☰</button>
-            <button class="btn btn--light language-button btn--selected">fr</button>
-            <button class="btn btn--light login-button"><i class="i-user"></i>Connexion</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h3>Language</h3>
-            
-            <ul class="pick-list">
-                <li>
-                    <a class="option" href="/en/build-starfinder.html">
+<div id="blanket" data-bind=b10 data-show=""></div>
+<aside id="main-menu" 
+    class="menu menu--left" 
+    data-bind=b11 data-show=""
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region">
+                
+                  <nav class="nav--row">
+                        <button class="btn " data-on-click="body.currentMenu &#x3D; main-menu" >
+                      ☰      
+                    </button>
+                
+                        <button class="btn " data-on-click="body.currentMenu &#x3D; language-menu" >
+                      <i class="icon icon_globe"></i>fr      
+                    </button>
+                
+                        <button class="btn " data-on-click="body.currentMenu &#x3D; login-menu" >
+                      <i class="icon icon_user"></i>Connexion      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h2>Fiches de Personnages Dyslexiques</h2>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/fr/">Accueil</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/tour.html">Tour</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/news.html">News</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a href="https://discord.gg/ajVTD4N" class="btn btn--light btn--bgicon button-discord">Discord</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-patreon">Patreon</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-github">GitHub</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <button class="btn btn--light button-contact">Contactez</button>
+                    </li>
+                  </ul>
+          
+                  <h3>Construire un personnage</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/fr/build-pathfinder2.html">Pathfinder 2e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/build-starfinder.html">Starfinder</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/build-pathfinder1.html">Pathfinder 1e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/build-dnd35.html">Dungeons &amp; Dragons 3.5</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Informations</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/fr/open-source.html">Open Source</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/translating.html">Traduire</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Légale</h3>
+                  <p>Droits d'auteur &copy; Marcus Downing</p>
+                  <p>Ces fiches de personnages sont fournies sous la Licence Artistique 2.0</p>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/fr/legal.html">Info Légale</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/license.html">Artistic License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/ogl.html">Open Game License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/orc.html">ORC License</a>
+                    </li>
+                  </ul>
+                </nav>
+        </div>    </div>
+  </aside><aside id="language-menu" 
+    class="menu menu--left" 
+    data-bind=b12 data-show=""
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region">
+                
+                  <nav class="nav--row">
+                        <button class="btn " data-on-click="body.currentMenu &#x3D; main-menu" >
+                      ☰      
+                    </button>
+                
+                        <button class="btn " data-on-click="body.currentMenu &#x3D; language-menu" >
+                      <i class="icon icon_globe"></i>fr      
+                    </button>
+                
+                        <button class="btn " data-on-click="body.currentMenu &#x3D; login-menu" >
+                      <i class="icon icon_user"></i>Connexion      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Language</h3>
+                  
+                  <ul class="pick-list">
+                    <li>
+                      <a class="option" href="/en/build-starfinder.html">
                         <span class='badge badge--language'>en</span>
                         <b>English</b> / 
                         Anglais
-                    </a>
-                </li>
-                <li>
-                    <a class="option option--selected" href="/fr/build-starfinder.html">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option option--selected" href="/fr/build-starfinder.html">
                         <span class='badge badge--language'>fr</span>
                         <b>Français</b> / 
                         Français
-                    </a>
-                </li>
-                <li>
-                    <a class="option" href="/es/build-starfinder.html">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/es/build-starfinder.html">
                         <span class='badge badge--language'>es</span>
                         <b>Espagnol</b> / 
                         Espagnol
-                    </a>
-                </li>
-                <li>
-                    <a class="option" href="/de/build-starfinder.html">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/de/build-starfinder.html">
                         <span class='badge badge--language'>de</span>
                         <b>Deutsch</b> / 
                         Allemand
-                    </a>
-                </li>
-                <li>
-                    <a class="option" href="/pl/build-starfinder.html">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/pl/build-starfinder.html">
                         <span class='badge badge--language'>pl</span>
                         <b>Polskie</b> / 
                         Polonais
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</aside><aside id="login-menu" class="aside--left">
-    <div class="aside__inner dark-region">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button">☰</button>
-            <button class="btn btn--light language-button">fr</button>
-            <button class="btn btn--light login-button btn--selected"><i class="i-user"></i>Connexion</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h3>Connexion</h3>
-
-            <p>Patrons get the ability to edit all the fields, have calculations work automatically, and save character sheets. Login with Patreon to unlock these features:</p>
-
-            <p>
-                <a class="btn btn--light button-patreon" href="https://www.patreon.com/oauth2/authorize?response_type=code&amp;client_id=0oURl0qZgYq8jpkZ0rl5KCfzpYb_Uki2bLfDwzlaVrFRr1QM7IrtNUt19eaulVgM&amp;redirect_uri=https%3A%2F%2Fwww.dyslexic-charactersheets.com%2Fauth%2Fpatreon-redirect">Login with Patreon</a>
-            </p>
-
-            <p class="small-print">Logging in will set a cookie on your PC. This does not contain any personally identifiable information, and will not be sent to any third party.</p>
-
-            <h3>Become a patron</h3>
-
-            <p>Support the site and gain access to extra features for just $1 by becoming a patron.</p>
-
-            <p>
-                <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light button-patreon">Patreon</a>
-            </p>
-        </nav>
-    </div>
-</aside><aside id="contact-menu" class="aside--left">
-    <div class="aside__inner">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button">☰</button>
-            <button class="btn btn--light language-button">fr</button>
-            <button class="btn btn--light login-button"><i class="i-user"></i>Connexion</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h3>Contactez</h3>
-
-            <form id="message-form" method="post" action="/message" class="contact-form">
-                <p>Your message:</p>
-
-                <textarea name="message"></textarea>
-
-                <p>
-                    <label for="game">Which game is this about?</label>
-                </p>
-                <div class="row">
-                    <label><input type="radio" name="game" value="pf2"> Pathfinder 2e</label>
-                    <label><input type="radio" name="game" value="sf"> Starfinder</label>
-                </div>
-                <div class="row">
-                    <label><input type="radio" name="game" value="pf1"> Pathfinder 1e</label>
-                    <label><input type="radio" name="game" value="d35"> D&amp;D 3.5</label>
-                </div>
-
-                <p>
-                    <label for="author">
-                        Your name:
-                        <input id="author" name="author" type="text" placeholder="The Internet" class="box">
-                    </label>
-                </p>
-                <p>
-                    <label for="email">
-                        Optionally, your email address:
-                    </label>
-                </p>
-                <p>
-                    <input id="email" name="email" type="email" placeholder="But only if you feel like it" class="box">
-                </p>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+        </div>    </div>
+  </aside><aside id="login-menu" 
+    class="menu menu--left" 
+    data-bind=b13 data-show=""
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region">
                 
-                <button class="btn btn--primary" id="message-send">Envoyer le Message</button>
-            </form>
-        </nav>
-
-        <img class="page-curl" src="/images/page-curl.png">
-    </div>
-</aside>
-<script src="/script.js" />
+                  <nav class="nav--row">
+                        <button class="btn " data-on-click="body.currentMenu &#x3D; main-menu" >
+                      ☰      
+                    </button>
+                
+                        <button class="btn " data-on-click="body.currentMenu &#x3D; language-menu" >
+                      <i class="icon icon_globe"></i>fr      
+                    </button>
+                
+                        <button class="btn " data-on-click="body.currentMenu &#x3D; login-menu" >
+                      <i class="icon icon_user"></i>Connexion      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Connexion</h3>
+          
+                  <p>Patrons get the ability to edit all the fields, have calculations work automatically, and save character sheets. Login with Patreon to unlock these features:</p>
+          
+                  <p>
+                    <a class="btn btn--light btn--bgicon button-patreon" href="https://www.patreon.com/oauth2/authorize?response_type=code&amp;client_id=0oURl0qZgYq8jpkZ0rl5KCfzpYb_Uki2bLfDwzlaVrFRr1QM7IrtNUt19eaulVgM&amp;redirect_uri=https%3A%2F%2Fwww.dyslexic-charactersheets.com%2Fauth%2Fpatreon-redirect">Login with Patreon</a>
+                  </p>
+          
+                  <p class="small-print">Logging in will set a cookie on your PC. This does not contain any personally identifiable information, and will not be sent to any third party.</p>
+          
+                  <h3>Become a patron</h3>
+          
+                  <p>Support the site and gain access to extra features for just $1 by becoming a patron.</p>
+          
+                  <p>
+                    <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-patreon">Patreon</a>
+                  </p>
+                </nav>
+        </div>    </div>
+  </aside>
+<script src="/script.js"></script>
+<script>
+  
+bind('b1', 'data-pick', 'milestones-character.current eq this.milestone');
+bind('b2', 'data-pick', 'milestones-character.current eq this.milestone');
+bind('b3', 'data-pick', 'milestones-character.current eq this.milestone');
+bind('b4', 'data-pick', 'milestones-character.current eq this.milestone');
+bind('b5', 'data-pick', 'milestones-character.current eq this.milestone');
+bind('b6', 'data-pick', 'milestones-character.current eq this.milestone');
+bind('b7', 'data-pick', 'milestones-starship.current eq this.milestone');
+bind('b8', 'data-pick', 'milestones-starship.current eq this.milestone');
+bind('b9', 'data-pick', 'milestones-starship.current eq this.milestone');
+bind('ba', 'data-pick', 'milestones-starship.current eq this.milestone');
+bind('bb', 'data-pick', 'milestones-gm.current eq this.milestone');
+bind('bc', 'data-pick', 'milestones-gm.current eq this.milestone');
+bind('bd', 'data-pick', 'milestones-gm.current eq this.milestone');
+bind('be', 'data-pick', 'milestones-gm.current eq this.milestone');
+bind('bf', 'data-pick', 'milestones-gm.current eq this.milestone');
+bind('b10', 'data-show', 'body.currentMenu', 'any');
+bind('b11', 'data-show', 'body.currentMenu', 'this.id');
+bind('b12', 'data-show', 'body.currentMenu', 'this.id');
+bind('b13', 'data-show', 'body.currentMenu', 'this.id');
+</script>
 
 </body>
 </html>

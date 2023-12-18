@@ -1,7 +1,7 @@
 @use 'scale';
 @use 'fonts';
 @use 'colours';
-@use 'icons';
+@use 'content';
 
 @use 'layout';
 @use 'responsive';
@@ -10,7 +10,7 @@
 
 @use 'home';
 @use 'build';
-@use 'milestones';
+@use 'news';
 
 @use 'theme-adventure';
 @use 'theme-scifi';

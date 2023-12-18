@@ -1,6 +1,6 @@
 <aside id="background-menu" class="aside--right aside--wide" data-key="background">
     <div class="aside__inner">
-        {{#> build-aside-book-pallette close-button=true key='background' name='Background' game='pf2' items=pf2.backgrounds}}
+        {{#> build-aside-book-pallette close-button=true key='background' name='Background' game='pf2' items=pf2.selects.background}}
             <button class="option option--frame" data-select="background" data-value="{{value.id}}" data-text="{{__ value.name}}">
                 <label>{{__ value.name}}</label>
                 {{#if value.badge}}

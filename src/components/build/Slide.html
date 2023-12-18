@@ -1,0 +1,70 @@
+<template>
+  <div class="slide" data-jump="{{jump}}">
+    <div class="slide__inner {{#if width}}width_{{width}}{{/if}}">
+        
+        {{#if (not first)}}
+          {{#> Row align="centre"}}
+            {{#> Button
+              type="min"
+              cls="btn--icon-label"
+              on-click="emit prev-slide"
+            }}
+              <span class="btn__icon">&uarr;</span>
+              <span class="btn__label">{{__ "Back"}}</span>
+            {{/Button}}
+          {{/Row}}
+        {{/if}}
+        
+        {{> @partial-block }}
+        
+        {{#if (and (not last) show-next)}}
+          {{#> Row align="centre"}}
+            {{#> Button
+              type="min"
+              cls="btn--icon-label"
+              on-click="emit next-slide"
+            }}
+              <span class="btn__label">{{__ "Next"}}</span>
+              <span class="btn__icon">&darr;</span>
+            {{/Button}}
+          {{/Row}}
+        {{/if}}
+
+    </div>
+  </div>
+</template>
+
+<script>
+
+// on('button[data-action="prev"]', 'click', (event, button) => {
+//   emit(button, 'prev-slide', event);
+// });
+
+// on('button[data-action="next"]', 'click', (event, button) => {
+//   emit(button, 'next-slide', event);
+// });
+
+</script>
+
+<style>
+  
+.slide {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide__inner {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 50rem;
+
+  &.width_full {
+    max-width: none;
+  }
+}
+</style>

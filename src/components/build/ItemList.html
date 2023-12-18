@@ -1,0 +1,20 @@
+<template>
+  <div class="item-list {{#if show}}item-list--{{show}}{{/if}}" id="{{id}}">
+    {{> @partial-block }}
+  </div>
+</template>
+
+<style>
+.item-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 1rem;
+  gap: 1rem;
+
+
+}
+</style>

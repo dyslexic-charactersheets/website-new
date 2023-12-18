@@ -1,0 +1,141 @@
+<template>
+  <form
+    id="build-form"
+    class="build-form"
+    data-edition=""
+    data-pick=""
+    data-ancestry=""
+    data-heritage=""
+    data-background=""
+    data-class=""
+    data-multiclass="[]"
+    data-archetype="[]"
+    data-option-diehard=""
+    data-option-debug=""
+    data-option-free-archetype=""
+    data-option-ancestry-paragon=""
+    data-option-automatic-bonus-progression=""
+    data-option-proficiency-without-level=""
+  >
+    {{#> Slideshow 
+      id='slides-character'
+      vertical=true
+      slides=(array
+        "start"
+        "pick"
+        "character"
+        "pages"
+        "colours"
+        "picture"
+        "download"
+        "gm-pick"
+        "gm-options"
+        "gm-colours"
+        "gm-download"
+      )
+    }}
+      {{#> Slide jump="start" first="true"}}
+        {{#> Place}}
+          {{> BuildFormPF2_StartSlide }}
+        {{/Place}}
+
+      {{/Slide}}
+
+      {{#> Slide jump="pick" }}
+        {{> BuildFormPF2_PickSlide }}
+      {{/Slide}}
+          
+
+      {{#> Switch 
+        id='switch-character'
+        current=''
+      }}
+        {{#> SwitchCase value='character'}}
+
+          {{#> Slide jump="character" slide=1 show-next=true }}
+            {{> BuildFormPF2_CharacterSlide }}
+          {{/Slide}}
+          
+          {{#> Slide jump="pages" slide=3 show-next=true }}
+            {{> BuildFormPF2_PagesSlide }}
+          {{/Slide}}
+          
+          {{#> Slide jump="colours" slide=4 show-next=true }}
+            {{> BuildFormPF2_AppearanceSlide }}
+          {{/Slide}}
+          
+          {{#> Slide jump="picture" slide=5 show-next=true }}
+            {{> BuildFormPF2_PictureSlide }}
+          {{/Slide}}
+          
+          {{#> Slide jump="download" slide=6 last=true }}
+            {{> BuildFormPF2_DownloadSlide }}
+          {{/Slide}}
+
+        {{/SwitchCase}}
+
+        {{#> SwitchCase value='gm'}}
+          
+          {{#> Slide jump="gm-pick" slide=2 }}
+              <div class="grid grid--2-2">
+                  <button class="stack stack--fill pick-gm-npc">
+                      <p class="stack__label">{{__ "NPCs"}}</p>
+                  </button>
+                  <button class="stack stack--fill pick-gm-maps">
+                      <p class="stack__label">{{__ "Maps"}}</p>
+                  </button>
+                  <button class="stack stack--fill pick-gm-kingdom">
+                      <p class="stack__label">{{__ "Kingdom"}}</p>
+                  </button>
+              </div>
+          {{/Slide}}
+
+          {{#> Slide jump="gm-options" slide=2 show-next=true }}
+              {{#> tab-panes set='gm'}}
+                  {{#> tab-pane set='gm' name='npc' pane-selected=true}}
+                      <h3>{{__ "NPCs"}}</h3>
+                  {{/tab-pane}}
+
+                  {{#> tab-pane set='gm' name='maps' pane-selected=true}}
+                      <h3>{{__ "Maps"}}</h3>
+
+                  {{/tab-pane}}
+
+                  {{#> tab-pane set='gm' name='kingdom' pane-selected=true}}
+                      <h3>{{__ "Kingdom"}}</h3>
+                  {{/tab-pane}}
+              {{/tab-panes}}
+          {{/Slide}}
+          
+          {{#> Slide jump="gm-colours" slide=3 show-next=true }}
+            <p>Colours</p>
+          {{/Slide}}
+          
+          {{#> Slide jump="gm-download" slide=4 last=true }}
+            <p>Download</p>
+          {{/Slide}}
+        {{/SwitchCase}}
+      {{/Switch}}
+    {{/Slideshow}}
+  </form>
+</template>
+
+<script>
+definePipe('editionName', (value) => {
+  // console.log("Edition name", value);
+  switch (value) {
+    case 'pathfinder':
+      return 'Pathfinder'
+    case 'pf2-legacy':
+      return 'Pathfinder 2e Legacy';
+    case 'pf2-remaster':
+      return 'Pathfinder 2e Remaster';
+    case 'sf2':
+      return 'Starfinder 2e';
+    case 'all':
+      return 'Both';
+    default:
+      return "";
+  }
+});
+</script>

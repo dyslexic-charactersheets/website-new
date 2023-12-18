@@ -9,18 +9,17 @@
 @use 'font-Exo2';
 
 @mixin body {
-    // font-family: 'Roboto', Verdana, sans-serif;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato';
     font-weight: normal;
 }
 
 @mixin heading {
-    font-family: 'Roboto Slab', 'Roboto', Verdana, sans-serif;
+    font-family: 'Roboto Slab', 'Roboto';
     font-weight: 500; // medium
 }
 
 @mixin scifi {
-    font-family: 'Exo 2', sans-serif;
+    font-family: 'Exo 2';
     font-weight: normal;
     text-shadow: 0 0 0.3rem black;
 }
@@ -80,26 +79,6 @@ h4 {
     }
 }
 
-blockquote {
-    background: colours.$blockquote;
-    border-radius: 0.3rem;
-    padding: 0.8rem 1rem;
-    margin: 0.5rem -0.2rem;
-    border: 1px solid colours.$light;
-
-    &, p {
-        font-size: 1.05rem;
-    }
-
-    p:first-child {
-        margin-top: 0;
-    }
-
-    p:last-child {
-        margin-bottom: 0;
-    }
-}
-
 input, output, select {
     font-size: 1rem;
 }
@@ -114,6 +93,7 @@ ol {
 
 dl {
     margin: 0.5rem 0;
+    padding: 0 2rem;
 
     dt {
         font-weight: bold;

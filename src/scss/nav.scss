@@ -24,60 +24,89 @@ nav {
 
     &.nav--bar {
         margin: 0.5rem 0;
+        white-space: nowrap;
     }
 
     a, button .btn {
         display: inline-block;
     }
-}
 
-nav.nav--menu {
-    padding: 1rem;
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-
-    h3 {
-        border-bottom: 1px solid colours.$shade;
-        margin: 0.5rem 0;
-    }
-
-    p, ul {
-        padding: 0 0 0 1rem;
-        margin: 0.5rem 0;
-    }
-
-    ul {
-        margin: 0.5rem;
-        // padding: 0;
-        list-style: none;
-
+    &.nav--menu {
+        padding: 1rem;
+        flex: 1 1 auto;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0.5rem;
+        flex-direction: column;
 
-        li {
-            display: inline-block;
-            min-width: 4rem;
-            margin-right: 1rem;
+        h3 {
+            border-bottom: 1px solid colours.$shade;
+            margin: 0.5rem 0;
         }
 
-        &.pick-list {
-            padding-left: 2.5rem;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            
-            .option {
-                cursor: pointer;
-                text-decoration: none;
+        p, ul {
+            padding: 0 0 0 1rem;
+            margin: 0.5rem 0;
+        }
+
+        ul {
+            margin: 0.5rem;
+            // padding: 0;
+            list-style: none;
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+
+            li {
+                display: inline-block;
+                min-width: 4rem;
+                margin-right: 1rem;
             }
 
-            .option--selected:before {
-                content: "⟶";
+            &.pick-list {
+                padding-left: 2.5rem;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                
+                .option {
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+
+                .option--selected:before {
+                    content: "⟶";
+                    display: block;
+                    float: left;
+                    margin-left: -2rem;
+                }
+            }
+        }
+    }
+}
+
+.nav--dated {
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        display: block;
+        margin: 0;
+        padding: 0;
+        
+        > a {
+            display: block;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding: 0.6rem 0.3rem;
+
+            text-decoration: none;
+            
+            time {
                 display: block;
-                float: left;
-                margin-left: -2rem;
+                margin-top: 0.2rem;
+                font-size: 0.7rem;
+                color: rgba(255,255,255,0.7);
             }
         }
     }
@@ -87,110 +116,8 @@ nav.nav--scrollable {
     overflow-y: auto;
 }
 
-#blanket {
-    display: none;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
 
-    &.blanket--show {
-        display: block;
-    }
-}
-
-@mixin aside($size) {
-    width: $size;
-    &.aside--left {
-        left: -$size;
-    }
-    &.aside--right {
-        right: -$size;
-    }
-}
-
-aside {
-    $slide-time: 0.3s;
-
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    bottom: 0;
-
-    display: flex;
-    flex-direction: column;
-
-    @include responsive.large {
-        @include aside(30vw);
-        &.aside--wide {
-            @include aside(70vw);
-        }
-    }
-
-    @include responsive.medium {
-        @include aside(60vw);
-        &.aside--wide {
-            @include aside(90vw);
-        }
-    }
-
-    @include responsive.small {
-        @include aside(90vw);
-        &.aside--wide {
-            @include aside(100vw);
-        }
-    }
-
-    .aside__inner {
-        flex: 1 1 auto;
-        padding: 0.5rem;
-        
-        display: flex;
-        flex-direction: column;
-
-        > .nav--scrollable {
-            flex: 1 0 0;
-            margin-right: -0.5rem;
-            margin-bottom: -0.5rem;
-            padding-right: 0.5rem;    
-        }
-    }
-
-    &.aside--show {
-        box-shadow: 0 0 10000px 10000px colours.$shadow;
-    }
-
-    &.aside--left {
-        transition: left $slide-time;
-
-        &.aside--show {
-            left: 0;
-            box-shadow: 0 0 10000px 10000px colours.$shadow, 1rem 0 1rem colours.$light;
-        }
-    }
-
-    &.aside--right {
-        transition: right $slide-time;
-        @include responsive.parchment-background;
-
-        &.aside--show {
-            right: 0;
-            box-shadow: 0 0 10000px 10000px colours.$shadow, -1rem 0 1rem colours.$light;
-        }
-    }
-
-    // buttons
-    a, button, .btn, .badge {
-        &.btn--selected {
-            border: 0 none;
-            border-radius: 0.2rem;
-            color: colours.$blue-cloth;
-        }
-    }
-}
-
+// Tabs
 
 .tabs {
     // display: inline-block;
@@ -241,20 +168,23 @@ aside {
 }
 
 
-#main-menu {
-    @include responsive.blue-cloth-background;
+// Swap areas
+
+.swap-area {
+    .swap-option {
+        display: none;
+
+        &.swap-option--show {
+            display: block;
+        }
+    }
 }
 
-#language-menu {
-    @include responsive.blue-cloth-background;
-}
 
-#login-menu {
-    @include responsive.blue-cloth-background;
-}
+// Menus
+
 
 #contact-menu {
-    @include responsive.contact-background;
     .aside__inner {
         position: relative;
         margin-right: 0.1rem;

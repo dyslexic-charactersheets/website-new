@@ -3,68 +3,6 @@
 @use 'responsive';
 @use 'buttons';
 
-$max-slide: 10;
-
-
-//  -- SLIDES --  //
-
-.slides--v {
-    flex: 1 1 auto;
-    position: relative;
-
-    overflow: hidden;
-
-    &[data-show=false] {
-        display: none;
-    }
-
-    .slides__inner {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-
-        transition: top 0.3s ease-in-out;
-    }
-
-    .slide {
-        position: relative;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        overflow: hidden;
-
-        > button.button-prev {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-        }
-
-        > button.button-next {
-            position: absolute;
-            bottom: 2rem;
-            right: 2rem;
-        }
-    }
-
-    .slide__inner {
-        margin: 0 auto;
-        
-        > .button.button-next {
-            margin-left: auto;
-        }
-    }
-
-    @for $slide from 0 through $max-slide {
-        &[data-slide="#{$slide}"] {
-            .slides__inner {
-                top: -(100vh) * $slide;
-            }
-        }
-    }
-}
-
 
 //  -- BUILD TABLE --  //
 
@@ -79,25 +17,23 @@ table.build-table {
     th, td {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
+        vertical-align: top;
     }
 
-    output {
-        display: block;
+    h4 {
+        border-bottom: none;
+        margin-bottom: 0.15rem;
+    }
 
-        height: 1.7rem;
-        line-height: 1.7rem;
-        min-width: 16rem;
-        padding: 0 0.5rem;
+    .select-options {
+        max-width: 25rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 
-        background: colours.$fieldbg;
-        border: 1px solid colours.$light;
-        border-radius: 0.2rem;
-        color: white;
-        text-align: left;
-
-        &.output--select {
-            cursor: pointer;
-        }
+    label {
+        margin-right: 1rem;
     }
 }
 
@@ -131,6 +67,10 @@ fieldset {
             margin-top: -0.4rem;
         }
     }
+
+    .indent {
+        padding-left: 1.25rem;
+    }
 }
 
 #font-dyslexie {
@@ -150,6 +90,8 @@ fieldset {
 }
 
 .colour-output {
+    position: relative;
+
     label {
         @include fonts.small-heading;
     }
@@ -168,6 +110,14 @@ fieldset {
         width: 8rem;
         height: 3.5rem;
         background-color: #808080;
+    }
+
+    .colour-output__emblem {
+        position: absolute;
+        bottom: -0.6rem;
+        right: -0.3rem;
+        width: 1.5rem;
+        height: 2rem;
     }
 }
 
@@ -392,10 +342,92 @@ fieldset {
             background: colours.$shine;
         }
 
-        .option__badge {
-            @include buttons.edition-badge;
-            font-size: 0.75rem;
-            bottom: -0.6rem;
+        // .option__badge {
+        //     @include buttons.edition-badge;
+        //     font-size: 0.75rem;
+        //     bottom: -0.6rem;
+        // }
+    }
+}
+
+.list-area {
+    .list-item-template {
+        display: none;
+    }
+
+    .list-item {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 0.3rem;
+
+        .list-item-name {
+            flex: 1 0 auto;
+            max-width: 16rem;
+            margin-right: 1rem;
+        }
+
+        .list-item-subitem {
+            flex: 1 1 auto;
+            margin-right: 1rem;
+        }
+
+        .list-item-remove {
+            flex: 0 0 auto;
+        }
+    }
+}
+
+// Page options
+
+.page-option {
+    width: 10rem;
+    $size: 8rem;
+
+    display: block;
+
+    &.page-option--selected {
+        picture {
+            opacity: 1;
+        }
+    }
+
+    picture {
+        opacity: 0.7;
+
+        width: $size;
+        height: $size;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            box-shadow: 0 0.1rem 0.25rem colours.$shade;
+            cursor: pointer;
+        }
+    }
+
+    label {
+        display: block;
+        padding: 0.2rem 1.1rem;
+        // text-align: center;
+        @include fonts.small-heading;
+
+        input[type=checkbox], input[type=radio] {
+            float: left;
+            margin-top: 0.3rem;
+            margin-left: -1.1rem;
+        }
+    }
+
+    &.page-option--size_small {
+        picture {
+            padding: 1rem;
+            width: $size - 2rem;
+            height: $size - 2rem;
         }
     }
 }

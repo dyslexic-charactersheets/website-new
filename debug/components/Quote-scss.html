@@ -1,0 +1,55 @@
+@use 'responsive';
+  
+.quote {
+  @include responsive.not-xlarge {
+    display: none;
+  }
+
+  position: absolute;
+  right: -10rem;
+  top: 0;
+  width: 10.2rem;
+  height: 12rem;
+  padding: 6rem;
+  background: url(/images/note.png) center no-repeat;
+  background-size: fill;
+  z-index: 990;
+
+  blockquote {
+    position: relative;
+    width: 11rem;
+    height: 10.5rem;
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+    text-indent: -5px;
+    margin: 0px;
+    font-family: 'Indie Flower', cursive;
+    color: #238;
+  }
+
+  cite {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 0.7rem;
+    color: #238;
+  }
+
+  .quote__text {
+    &.quote__text--size_short {
+        font-size: 1.8rem;
+        line-height: 2.1rem;
+    }
+    &.quote__text--size_medium {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+    }
+    &.quote__text--size_long {
+        font-size: 0.85rem;
+        line-height: 1.14rem;
+    }
+  }
+}

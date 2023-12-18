@@ -1,0 +1,47 @@
+<template>
+  <h2>{{__ "Download"}}</h2>
+
+  <h4>{{__ "International"}}</h4>
+  <fieldset>
+    <p>{{__ "Language"}}: &nbsp; <button class="btn btn--light language-button">{{ lang }}</button> {{__ (languagename lang)}}</p>
+    <p>{{__ "Measurement units"}}: 
+      <select name="units">
+      <option selected id='units-default'>{{__ "Default"}} ({{__ "feet"}})</option>
+      <option value="imperial">{{__ "Imperial"}} ({{__ "feet"}})</option>
+      <option value="metric">{{__ "Metric"}} ({{__ "metres"}})</option>
+      {{!-- <option value="chinese">{{__ "Chinese"}} ({{__ "步"}})</option> --}}
+      </select>
+    </p>
+  </fieldset>
+
+  <h4>{{__ "Format"}}</h4>
+  <fieldset>
+    <div class="columns">
+      <div class="column">
+        <p>
+          <input type='radio' name='download-format' value='html' id='download-format-html' checked>
+          <label for='download-format-html'><b>{{__ "HTML"}}</b></label>
+        </p>
+        <p class='info'>{{__ "Allows values to be filled in"}}</p>
+        <p class='info'>{{__ "Adjusts to fit your paper size"}}</p>
+      </div>
+      <div class="column">
+        <p>
+          <input type='radio' name='download-format' value='pdf' id='download-format-pdf'>
+          <label for='download-format-pdf'><b>{{__ "PDF"}}</b></label>
+        </p>
+        <p class='info'>{{__ "Use this if you have trouble printing HTML"}}</p>
+        <p class='info'>
+          <b>{{__ "Paper size:"}}</b>
+          <input type='radio' name='download-paper' value='Letter' id='download-letter' checked>
+          <label for='download-letter'>{{__ "US Letter"}}</label>
+
+          <input type='radio' name='download-paper' value='A4' id='download-a4'>
+          <label for='download-a4'>{{__ "A4"}}</label>
+        </p>
+      </div>
+    </div>
+  </fieldset>
+
+  <button class="place btn btn--primary button-download">{{__ "Download"}}</button>
+</template>

@@ -1,0 +1,13 @@
+{{#if (not (or inmenu (eq page "index")))}}<nav class="nav--row">
+    <a href="/{{lang}}/" class="btn btn--min">
+      <img src="/images/favicon64.png">
+      Dyslexic Character Sheets
+    </a>
+  </nav>{{/if}}
+  <nav class="nav--row">
+    {{#> Button class="btn--min btn--icon" on-click="body.currentMenu = main-menu"}}☰{{/Button}}
+    {{#> Button class="btn btn--light" on-click="body.currentMenu = language-menu"}}{{> Icon icon="globe"}}{{ lang }}{{/Button}}
+    {{#> Button class="btn btn--light" on-click="body.currentMenu = login-menu"}}{{> Icon icon="user"}}{{__ "Login"}}{{/Button}}
+    <div class="spacer"></div>
+    {{#if inmenu}}{{> CloseButton }}{{/if}}
+  </nav>

@@ -1,0 +1,12 @@
+<div class="image-drop image-drop--shape_{{shape}}" id="{{id}}">
+    <input type="hidden" name="{{id}}" id="data-{{id}}"/>
+    {{#if label}}
+      <p>{{__ label}}</p>
+    {{/if}}
+    <img src="{{placeholder}}">
+    {{#if imageselect}}
+      {{#> Button type="light" on-click="select-image"}}
+        {{__ button}}
+      {{/Button}}
+    {{/if}}
+  </div>

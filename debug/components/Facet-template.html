@@ -1,0 +1,18 @@
+<div class="facet">
+    <label>{{__ label}}</label>
+
+    {{#if (eq type "select")}}
+      <select id="{{id}}" data-on-change="">
+        {{#each options}}
+          <option value="{{code}}" {{#if (eq code ../selected)}}selected{{/if}}>{{name}}</option>
+        {{/each}}
+      </select>
+    {{/if}}
+
+    {{#if (eq type "menu")}}
+      <output
+        data-on-click=""
+      ></output>
+    {{/if}}
+
+  </div>

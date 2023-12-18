@@ -1,0 +1,17 @@
+define('editionName', (value) => {
+  console.log("Edition name", value);
+  switch (value) {
+    case 'pathfinder':
+      return 'Pathfinder'
+    case 'pf2-legacy':
+      return 'Pathfinder 2e Legacy';
+    case 'pf2-remaster':
+      return 'Pathfinder 2e Remaster';
+    case 'sf2':
+      return 'Starfinder 2e';
+    case 'all':
+      return 'Both';
+    default:
+      return "";
+  }
+});

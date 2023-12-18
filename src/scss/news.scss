@@ -1,0 +1,50 @@
+@use 'responsive';
+@use 'fonts';
+@use 'colours';
+
+article.news {
+    clear: both;
+    
+    time {
+        float: left;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+
+        width: 4rem;
+        height: 4rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        background-color: colours.$red-leather;
+        box-shadow: 0 0.1rem 0.2rem colours.$light;
+        border-radius: 0.1rem;
+
+        @include fonts.heading;
+        color: white;
+        // font-weight: bold;
+
+        .day {
+            font-size: 1.4rem;
+            line-height: 1.4rem;
+        }
+        .month {
+            font-size: 0.85rem;
+        }
+        .year {
+            font-size: 0.7rem;
+        }
+    }
+}
+
+@include responsive.large {
+    article.news {
+        padding-left: 5rem;
+
+        time {
+            margin-left: -5rem;
+        }
+    }
+}

@@ -1,13 +1,12 @@
-{{#> base title="Open Source - Dyslexic Character Sheets" body-id="body-read"}}
+{{#> Base title="Open Source - Dyslexic Character Sheets" }}
 
-{{#> read-layout }}
-{{#> right }}
+{{#> ContentLayout page="open-source" }}
 
 <h1>{{__ "Open Source"}}</h1>
 
-<blockquote>
+{{#> Box}}
     <p>The character sheets are free and open source.</p>
-</blockquote>
+{{/Box}}
 
 
 <div class="columns">
@@ -15,13 +14,13 @@
 
     <h2>What does "open source" mean?</h2>
 
-    <p>It means everything that makes this project work has been published. All the artwork, script files, source code and other ingredients are available for you to download.</p>
+    <p>Everything that makes this project work has been published. All the artwork, script files, source code and other ingredients are available for you to download.</p>
 
-    <p>It means that all this stuff has been released under a <a href="/{{lang}}/legal.html">license</a> that lets you change them and use them in new ways (provided you stick to a few simple rules).</p>
+    <p>All this stuff has been released under a <a href="/{{lang}}/legal.html">license</a> that lets you change them and use them in new ways (provided you stick to a few simple rules).</p>
 
-    <p>It means you can contribute back to this project, and your work can be of benefit to others.</p>
+    <p>You can contribute back to this project, and your work can be of benefit to others, but you don't have to.</p>
 
-    <p>And it means that this project can continue even if I lose interest and take it away, as long as a copy survives somewhere.</p>
+    <p>This project can continue if I die, or if I lose interest and take it away, as long as a copy survives somewhere.</p>
 
     <nav class="nav--bar">
         <a href="https://github.com/dyslexic-charactersheets/" class="btn btn--light">GitHub</a>
@@ -49,7 +48,7 @@
 
     <ul>
         <li>Pretend you made them yourself</li>
-        <li>Strip the OGL and other legal information out of the project</li>
+        <li>Strip the OGL, ORC Notice and other legal information out of the project</li>
         <li>Anything not permitted by other publishers whose properties this project makes use of, including Wizards of the Coast and Paizo</li>
     </ul>
 
@@ -73,7 +72,6 @@
 </div>
 </div>
 
-{{/right}}
-{{/read-layout}}
+{{/ContentLayout}}
 
-{{/base}}
+{{/Base}}

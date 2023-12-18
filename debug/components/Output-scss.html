@@ -1,0 +1,26 @@
+@use 'colours';
+
+output {
+  display: block;
+
+  height: 1.7rem;
+  line-height: 1.7rem;
+  min-width: 16rem;
+  padding: 0 0.5rem;
+
+  background: colours.$fieldbg;
+  border: 1px solid colours.$light;
+  border-radius: 0.2rem;
+  color: white;
+  text-align: left;
+
+  &[data-on-click] {
+    cursor: pointer;
+  }
+
+  &.output--bare {
+    border: 0 none;
+    padding: 0;
+    background: none;
+  }
+}

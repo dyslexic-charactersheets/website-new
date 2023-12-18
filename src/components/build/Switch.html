@@ -1,0 +1,49 @@
+<template>
+  <div 
+    class="switch" 
+    id="{{id}}"
+    {{#if var}}
+    data-bind="current={{var}}"
+    {{else}}
+    data-current="{{default current 'start'}}"
+    {{/if}}
+  >
+    {{> @partial-block }}
+  </div>
+</template>
+
+<script>
+
+all('.switch', (sw) => {
+  function updateCase() {
+    let current = sw.dataset.current;
+    // for (let swCase of sw.getElementsByClassName('switch__case')) {
+    // for (let swCase of sw.querySelectorAll('> .switch___case')) {
+    for (let swCase of sw.children) {
+      if (swCase.classList.contains('switch__case')) {
+        swCase.dataset.show = swCase.dataset.value == current;
+      }
+    }
+  }
+
+  watch(sw, 'data-current', updateCase);
+  updateCase();
+});
+
+on('.switch', 'switch', (event, sw) => {
+  if (event.hasOwnProperty('details') && event.details.hasOwnProperty('pick') && event.details.pick !== null && event.details.pick != "") {
+    sw.dataset.current = event.details.pick;
+  }
+});
+
+</script>
+
+<style>
+
+.switch {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+</style>

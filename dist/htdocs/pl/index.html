@@ -1,292 +1,370 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Dyslexic Character Sheets</title>
-    
-    <link rel="stylesheet" media="screen" href="/style.css"/>
-    <link rel="shortcut icon" type="image/png" href="/images/favicon16.png"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Dyslexic Character Sheets</title>
+  
+  <link rel="stylesheet" media="screen" href="/style.css"/>
+  <link rel="shortcut icon" type="image/png" href="/images/favicon16.png"/>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 </head>
 
-<body id="body-home">
+<body id="body" data-current-menu="">
 
 
 <main class="main--layout_home">
-<section id="left">
-<div class="section__inner">
-<nav id="menu-buttons" class="nav--row">
+    <section id="left">
+        <div class="pane pane--bg_parchment  light-region ">
+                  
+                    <nav class="nav--row">
+                          <button 
+                        type="button"
+                        
+                        class="btn " 
+                        data-on-click="body.currentMenu &#x3D; main-menu"
+                        
+                      >
+                        ☰      
+                      </button>
+                  
+                          <button 
+                        type="button"
+                        
+                        class="btn " 
+                        data-on-click="body.currentMenu &#x3D; language-menu"
+                        
+                      >
+                        <i class="icon icon_globe"></i>pl      
+                      </button>
+                  
+                          <button 
+                        type="button"
+                        
+                        class="btn " 
+                        data-on-click="body.currentMenu &#x3D; login-menu"
+                        
+                      >
+                        <i class="icon icon_user"></i>Login      
+                      </button>
+                  
+                      <div class="spacer"></div>
+                      
+                    </nav>      <div class="quote quote--hidden">
+                      <blockquote>
+                        <div class="quote__text"></div>
+                        <cite>&mdash; <span class="quote__cite"></span></cite>
+                      </blockquote>
+                    </div>      
+                  <div class="spacer"></div>
+            
+                  <div class="hero">
+                    <h1>
+                      <img src="/images/favicon64.png">
+                      Dyslexic Character Sheets
+                    </h1>
+            
+                    <p>Personalised character sheets, unique to your character and free for you to print.</p>
+            
+                    <nav class="nav--bar"><a href="/pl/tour.html" id="tour-button" class="btn btn--primary">Tour</a></nav>
+            
+                    <div class="pad"></div>
+            
+            <blockquote class="blockquote--well">
+                          <h4>Latest update</h4>
+                          <p>New website!</p>
+                          <nav class="nav--bar"><a class="btn btn--light" href="/pl/news">Read more</a></nav>
+              </blockquote>
+                    <nav class="nav--bar">
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-patreon">Patreon</a>
+                      <a href="https://github.com/dyslexic-charactersheets" class="btn btn--light btn--bgicon button-github">GitHub</a>
+                    </nav>
+                    <nav class="nav--bar">
+                      <a href="https://www.facebook.com/groups/dyslexiccharactersheets" class="btn btn--light btn--bgicon button-facebook">Facebook</a>
+                      <a href="https://discord.gg/ajVTD4N" class="btn btn--light btn--bgicon button-discord">Discord</a>
+                      <button class="btn btn--light button-contact">Contact</button>
+                    </nav>
+            
+                    <nav class="small-print nav--bar">
+                      <a href="/pl/open-source.html">Open source</a> | 
+                      <a href="/pl/translating.html">Translating</a> | 
+                      <a href="/pl/legal.html">Legal</a>
+                    </nav>
+                  </div>
+                  <div class="spacer"></div>
+          </div>  </section>
+    <section id="right">
+        <div class="pane pane--bg_red pane--shadow_right dark-region ">
+            <div class="centre-pane">
+                <div class="centre-pane__inner">
+                  <div class="grid grid--2-2">
+                          <a 
+                            
+                            class="btn btn--tile " 
+                            href="/pl/build-pathfinder2.html" 
+                             
+                            
+                          >
+                                        <picture class="picture--size_tile-large ">
+                                            <img src="/images/pathfinder2e-stack.png">
+                                          </picture>            <picture class="picture--size_logo ">
+                                            <img src="/images/pathfinder2e.png">
+                                          </picture>      <span class="btn__badge">2e</span>
+                          </a>
+                      
+                          <a 
+                            
+                            class="btn btn--tile " 
+                            href="/pl/build-starfinder1.html" 
+                             
+                            
+                          >
+                                        <picture class="picture--size_tile-large ">
+                                            <img src="/images/starfinder-stack.png">
+                                          </picture>            <picture class="picture--size_logo ">
+                                            <img src="/images/starfinder.png">
+                                          </picture>      
+                          </a>
+                      
+                          <a 
+                            
+                            class="btn btn--tile " 
+                            href="/pl/build-pathfinder1.html" 
+                             
+                            
+                          >
+                                        <picture class="picture--size_tile-large ">
+                                            <img src="/images/pathfinder-stack.png">
+                                          </picture>            <picture class="picture--size_logo ">
+                                            <img src="/images/pathfinder.png">
+                                          </picture>      <span class="btn__badge">1e</span>
+                          </a>
+                      
+                          <a 
+                            
+                            class="btn btn--tile " 
+                            href="/pl/build-dnd35.html" 
+                             
+                            
+                          >
+                                        <picture class="picture--size_tile-large ">
+                                            <img src="/images/dnd35-stack.png">
+                                          </picture>            <picture class="picture--size_logo ">
+                                            <img src="/images/dnd35.png">
+                                          </picture>      <span class="btn__badge">3.5e</span>
+                          </a>
+                    </div>    </div>
+              </div>        
+          </div>  </section>  </main>
+<script src="/data.js"></script>
+
+
+<div id="blanket"
+  data-bind="show = body.currentMenu | isSet"
+></div>
+<aside id="main-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'main-menu'"
     
-    <button class="btn btn--min btn--icon menu-button">☰</button>
-    <button class="btn btn--light language-button">pl</button>
-    <button class="btn btn--light login-button"><i class="i-user"></i>Login</button>
-    <div class="spacer"></div>
-</nav>        <div class="spacer"></div>
-        <div class="hero">
-            <h1>
-                <img src="/images/favicon64.png">
-                Dyslexic Character Sheets
-            </h1>
-
-            <p>Personalised character sheets, unique to your character and free for you to print.</p>
-
-            <nav class="nav--bar"><a href="tour.html" id="tour-button" class="btn btn--primary">Tour</a></nav>
-            
-            <nav class="nav--bar"><a class="btn btn--light">How to use</a></nav>
-
-            <div class="pad"></div>
-
-            <blockquote>
-                <h4>Latest update</h4>
-                <p>New website!</p>
-                <nav class="nav--bar"><a class="btn btn--light" href="/pl/news">Read more</a></nav>
-            </blockquote>
-
-            <nav class="nav--bar">
-                <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light button-patreon">Patreon</a>
-                <button class="btn btn--light button-contact">Contact</button>
-            </nav>
-
-            <nav class="small-print nav--bar">
-                <a href="/pl/open-source.html">Open source</a> | 
-                <a href="/pl/translating.html">Translating</a> | 
-                <a href="/pl/legal.html">Legal</a></nav>
-        </div>
-        <div class="spacer"></div>
-</div>
-</section>
-<section id="right">
-<div class="section__inner dark-region">
-        <div class="place">
-            <div class="grid grid--2-2">
-                <a href="/pl/build-pathfinder2.html" class="stack">
-                    <img src="/images/pathfinder2e-stack.png" class="stack__stack">
-                    <img src="/images/pathfinder2e.png" class="stack__logo">
-                    <span class="stack__edition">2e</span>
-                </a>
-                <a href="/pl/build-starfinder.html" class="stack">
-                    <img src="/images/starfinder-stack.png" class="stack__stack">
-                    <img src="/images/starfinder.png" class="stack__logo">
-                </a>
-                <a href="/pl/build-pathfinder1.html" class="stack">
-                    <img src="/images/pathfinder-stack.png" class="stack__stack">
-                    <img src="/images/pathfinder.png" class="stack__logo">
-                    <span class="stack__edition">1e</span>
-                </a>
-                <a href="/pl/build-dnd35.html" class="stack">
-                    <img src="/images/dnd35-stack.png" class="stack__stack">
-                    <img src="/images/dnd35.png" class="stack__logo">
-                    <span class="stack__edition">3.5e</span>
-                </a>
-            </div>
-        </div>
-</div>
-</section></main>
-
-<div id="blanket"></div>
-<aside id="main-menu" class="aside--left">
-    <div class="aside__inner dark-region">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button btn--selected">☰</button>
-            <button class="btn btn--light language-button">pl</button>
-            <button class="btn btn--light login-button"><i class="i-user"></i>Login</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h2>Dyslexic Character Sheets</h2>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/pl/">Home</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/pl/tour.html">Tour</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light button-patreon">Patreon</a>
-                </li>
-                <li>
-                    <button class="btn btn--light button-contact">Contact</button>
-                </li>
-            </ul>
-
-            <h3>Build a character</h3>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/pl/build-pathfinder2.html">Pathfinder 2e</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/pl/build-starfinder.html">Starfinder</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/pl/build-pathfinder1.html">Pathfinder 1e</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/pl/build-dnd35.html">Dungeons &amp; Dragons 3.5</a>
-                </li>
-            </ul>
-
-            <h3>Information</h3>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/pl/open-source.html">Open Source</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/pl/translating.html">Translating</a>
-                </li>
-            </ul>
-
-            <h3>Legal</h3>
-            <p>Copyright &copy; Marcus Downing</p>
-            <p>These character sheets are provided under the Artistic License 2.0</p>
-            <ul>
-                <li>
-                    <a class="btn btn--light" href="/pl/legal.html">Legal Info</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/pl/license.html">Artistic License</a>
-                </li>
-                <li>
-                    <a class="btn btn--light" href="/pl/ogl.html">Open Game License</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</aside><aside id="language-menu" class="aside--left">
-    <div class="aside__inner dark-region">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button">☰</button>
-            <button class="btn btn--light language-button btn--selected">pl</button>
-            <button class="btn btn--light login-button"><i class="i-user"></i>Login</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h3>Language</h3>
-            
-            <ul class="pick-list">
-                <li>
-                    <a class="option" href="/en/">
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>pl      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Login      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h2>Dyslexic Character Sheets</h2>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/pl/">Home</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pl/tour.html">Tour</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pl/news.html">News</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a href="https://discord.gg/ajVTD4N" class="btn btn--light btn--bgicon button-discord">Discord</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-patreon">Patreon</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-github">GitHub</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <button class="btn btn--light button-contact">Contact</button>
+                    </li>
+                  </ul>
+          
+                  <h3>Build a character</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/pl/build-pathfinder2.html">Pathfinder 2e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pl/build-starfinder.html">Starfinder</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pl/build-pathfinder1.html">Pathfinder 1e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pl/build-dnd35.html">Dungeons &amp; Dragons 3.5</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Information</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/pl/open-source.html">Open Source</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pl/translating.html">Translating</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Legal</h3>
+                  <p>Copyright &copy; Marcus Downing</p>
+                  <p>These character sheets are provided under the Artistic License 2.0</p>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/pl/legal.html">Legal Info</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pl/license.html">Artistic License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pl/ogl.html">Open Game License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pl/orc.html">ORC License</a>
+                    </li>
+                  </ul>
+                </nav>
+        </div>    </div>
+  </aside><aside id="language-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'language-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>pl      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Login      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Language</h3>
+                  
+                  <ul class="pick-list">
+                    <li>
+                      <a class="option" href="/en/">
                         <span class='badge badge--language'>en</span>
                         <b>English</b> / 
                         Angielski
-                    </a>
-                </li>
-                <li>
-                    <a class="option" href="/fr/">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/fr/">
                         <span class='badge badge--language'>fr</span>
                         <b>Français</b> / 
                         Francuski
-                    </a>
-                </li>
-                <li>
-                    <a class="option" href="/es/">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/es/">
                         <span class='badge badge--language'>es</span>
                         <b>Espagnol</b> / 
                         Hiszpański
-                    </a>
-                </li>
-                <li>
-                    <a class="option" href="/de/">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/de/">
                         <span class='badge badge--language'>de</span>
                         <b>Deutsch</b> / 
                         Niemiecki
-                    </a>
-                </li>
-                <li>
-                    <a class="option option--selected" href="/pl/">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option option--selected" href="/pl/">
                         <span class='badge badge--language'>pl</span>
                         <b>Polskie</b> / 
                         Polskie
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</aside><aside id="login-menu" class="aside--left">
-    <div class="aside__inner dark-region">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button">☰</button>
-            <button class="btn btn--light language-button">pl</button>
-            <button class="btn btn--light login-button btn--selected"><i class="i-user"></i>Login</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h3>Login</h3>
-
-            <p>Patrons get the ability to edit all the fields, have calculations work automatically, and save character sheets. Login with Patreon to unlock these features:</p>
-
-            <p>
-                <a class="btn btn--light button-patreon" href="https://www.patreon.com/oauth2/authorize?response_type=code&amp;client_id=0oURl0qZgYq8jpkZ0rl5KCfzpYb_Uki2bLfDwzlaVrFRr1QM7IrtNUt19eaulVgM&amp;redirect_uri=https%3A%2F%2Fwww.dyslexic-charactersheets.com%2Fauth%2Fpatreon-redirect">Login with Patreon</a>
-            </p>
-
-            <p class="small-print">Logging in will set a cookie on your PC. This does not contain any personally identifiable information, and will not be sent to any third party.</p>
-
-            <h3>Become a patron</h3>
-
-            <p>Support the site and gain access to extra features for just $1 by becoming a patron.</p>
-
-            <p>
-                <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light button-patreon">Patreon</a>
-            </p>
-        </nav>
-    </div>
-</aside><aside id="contact-menu" class="aside--left">
-    <div class="aside__inner">
-        <nav class="nav--row">
-            <button class="btn btn--min btn--icon menu-button">☰</button>
-            <button class="btn btn--light language-button">pl</button>
-            <button class="btn btn--light login-button"><i class="i-user"></i>Login</button>
-            <div class="spacer"></div>
-            <button class="btn btn--min btn--icon close-button">✕</button>        </nav>
-
-        <nav class="nav--menu">
-            <h3>Contact</h3>
-
-            <form id="message-form" method="post" action="/message" class="contact-form">
-                <p>Your message:</p>
-
-                <textarea name="message"></textarea>
-
-                <p>
-                    <label for="game">Which game is this about?</label>
-                </p>
-                <div class="row">
-                    <label><input type="radio" name="game" value="pf2"> Pathfinder 2e</label>
-                    <label><input type="radio" name="game" value="sf"> Starfinder</label>
-                </div>
-                <div class="row">
-                    <label><input type="radio" name="game" value="pf1"> Pathfinder 1e</label>
-                    <label><input type="radio" name="game" value="d35"> D&amp;D 3.5</label>
-                </div>
-
-                <p>
-                    <label for="author">
-                        Your name:
-                        <input id="author" name="author" type="text" placeholder="The Internet" class="box">
-                    </label>
-                </p>
-                <p>
-                    <label for="email">
-                        Optionally, your email address:
-                    </label>
-                </p>
-                <p>
-                    <input id="email" name="email" type="email" placeholder="But only if you feel like it" class="box">
-                </p>
-                
-                <button class="btn btn--primary" id="message-send">Send Message</button>
-            </form>
-        </nav>
-
-        <img class="page-curl" src="/images/page-curl.png">
-    </div>
-</aside>
-<script src="/script.js" />
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+        </div>    </div>
+  </aside></aside>
+<script src="/script.js"></script>
 
 </body>
 </html>

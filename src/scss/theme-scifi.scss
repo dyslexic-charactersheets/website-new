@@ -4,21 +4,7 @@
 
 .main--theme_scifi {
     nav.nav--milestones {
-        @for $slide from 0 through build.$max-slide {
-            &[data-slide="#{$slide - 1}"] {
-                button.milestone:nth-of-type(#{$slide}) {
-                    &:after {
-                        color: colours.$scifi-milestone;
-                    }
-                    span {
-                        color: colours.$scifi-milestone;
-                        border-bottom-color: colours.$scifi-milestone;
-                    }
-                }
-            }
-        }
-        
-        button.milestone {
+        button.nav--milestones__milestone {
             &:after {
                 content: "🞫";
                 color: white;
@@ -56,6 +42,15 @@
             &:nth-of-type(6), &:nth-of-type(12) {
                 + .arrow {
                     background-image: url(/images/scifi-milestone-arrow6.png);
+                }
+            }
+            &[data-pick="true"] {
+                &:after {
+                    color: colours.$scifi-milestone;
+                }
+                span {
+                    color: colours.$scifi-milestone;
+                    border-bottom-color: colours.$scifi-milestone;
                 }
             }
         }

@@ -1,0 +1,157 @@
+<template>
+  <aside id="{{id}}" 
+    class="menu menu--{{default side 'left'}}{{#if wide}} menu--wide{{/if}} {{cls}}" 
+    {{{bind data-show="body.currentMenu = this.id"}}}
+    {{{dataAttributes data}}}
+  >
+    <div class="menu__inner">
+      {{> @partial-block }}
+    </div>
+  </aside>
+</template>
+
+<script>
+
+// const blanket = document.getElementById('blanket');
+
+// function hideMenus() {
+//   for (let menu of document.getElementsByClassName('menu')) {
+//     menu.dataset.show = false;
+//   }
+//   blanket.dataset.show = false;
+// }
+
+// on('aside.menu', 'show-menu', (event, elem) => {
+//   hideMenus();
+//   elem.dataset.show = true;
+//   blanket.dataset.show = true;
+// });
+
+// on('aside.menu', 'close-menu', (event, elem) => {
+//   elem.dataset.show = false;
+//   blanket.dataset.show = false;
+// });
+
+on('aside.menu', 'close-menu', (event, elem) => {
+  set('body', 'currentMenu', '');
+});
+
+on('#blanket', 'click', (event) => {
+  set('body', 'currentMenu', '');
+});
+
+</script>
+
+<style>
+
+@use 'responsive';
+@use 'colours';
+
+#blanket {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  backdrop-filter: blur(3px);
+
+  &[data-show="true"] {
+    display: block;
+  }
+}
+
+@mixin menu($size) {
+  width: $size;
+  &.menu--left {
+    left: -($size * 1.2);
+  }
+  &.menu--right {
+    right: -($size * 1.2);
+  }
+}
+
+aside.menu {
+  $slide-time: 0.3s;
+
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  @include responsive.large {
+    @include menu(30vw);
+    &.menu--wide {
+      @include menu(70vw);
+    }
+  }
+
+  @include responsive.medium {
+    @include menu(60vw);
+    &.menu--wide {
+      @include menu(90vw);
+    }
+  }
+
+  @include responsive.small {
+    @include menu(90vw);
+    &.menu--wide {
+      @include menu(100vw);
+    }
+  }
+
+  .menu__inner {
+    flex: 1 1 auto;
+    
+    display: flex;
+    flex-direction: column;
+
+    > .nav--scrollable {
+      flex: 1 0 0;
+      margin-right: -0.5rem;
+      margin-bottom: -0.5rem;
+      padding-right: 0.5rem;    
+    }
+  }
+
+  &[data-show="true"] {
+    box-shadow: 0 0 10000px 10000px colours.$shadow;
+  }
+
+  &.menu--left {
+    transition: left $slide-time;
+
+    &[data-show="true"] {
+      left: 0;
+      box-shadow: 0 0 10000px 10000px colours.$shadow, 1rem 0 1rem colours.$light;
+    }
+  }
+
+  &.menu--right {
+    transition: right $slide-time;
+
+    &[data-show="true"] {
+      right: 0;
+      box-shadow: 0 0 10000px 10000px colours.$shadow, -1rem 0 1rem colours.$light;
+    }
+  }
+
+  // buttons
+  a, button, .btn, .badge {
+    &.btn--selected {
+      border: 0 none;
+      border-radius: 0.2rem;
+      color: colours.$blue-cloth;
+    }
+  }
+
+  .btn.btn--light {
+    background-color: transparent;
+  }
+}
+
+</style>

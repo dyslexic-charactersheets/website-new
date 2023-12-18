@@ -1,49 +1,114 @@
-{{#> base title="Legal - Dyslexic Character Sheets" body-id="body-read"}}
+{{#> Base title="Legal - Dyslexic Character Sheets" }}
 
-{{#> read-layout }}
-{{#> right }}
+{{#> ContentLayout page="legal"}}
 
 <h1>{{__ "Legal Information"}}</h1>
 
-<div class="columns">
-<div class="column">
-        
-    <h2>{{__ "Copyright"}}</h2>
-    <p>{{__ "Copyright © 2013–{{0}} Marcus Downing." currentYear}}</p>
+<h2>{{__ "Copyright"}}</h2>
+<p>{{__ "Copyright © 2013–{{0}} Marcus Downing." currentYear}}</p>
 
-    <h2>License</h2>
-    <p>{{{__ "This product is released under the <a href='/{{0}}/license.html'>Artistic License 2.0</a>, and uses properties covered by the <a href='/{{0}}/ogl.html'>Open Game License</a>." lang}}}
+{{#> Columns}}
+{{#> Column}}
 
-    <blockquote>
-        <p>{{__ "In short, you can take any part of this project, keep it, modify it, share it, and even charge money for it. The only condition is that you must be honest about where it came from by linking back to this website."}}</p>
-    </blockquote>
+<h2>License</h2>
+  <p>This work is released under the <a href='/{{0}}/license.html'>Artistic License 2.0</a>, excluding those parts licensed from other owners.</p>
+  {{#> Well}}
+  <p>You can take any part of this project, keep it, modify it, share it, and even charge money for it. The only condition is that you must honestly state where it came from by linking back to this website.</p>
+  {{/Well}}
+  <p>Parts of this work are ORC Licensed Material, or Open Game Content, as disclaimed below:</p>
 
-    <h3>{{__ "Licensing Terms"}}</h3>
-    <p>For the purposes of the license, the "source" is defined as the Illustrator files, script files and other original creations covered under product identity below, as well as the source code for this website; and "compiled form" is defined as any PDF or HTML file produced as a product of these files, including those produced using this website.</p>
+{{/Column}}
+{{#> Column}}
 
-    <h3>{{__ "OGL Open Content"}}</h3>
-    <p>The following items are hereby identified as Product Identity, as defined in the Open Game License version 1.0a, Section 1(e), and are not Open Content: the visual design, layout and appearance of the character sheets, the source code of this website and the attached Build My Character tool, and the scripts used to manipulate the character sheets.</p>
-    <p>Elements that have previously been designated as Open Game Content, are in the public domain or have previously been identified as product identity by another vendor are not included in this declaration.</p>
-    <p>Except for material designated as Product Identity (see above) or the property of other companies, the game mechanics used in this product are Open Game Content, as defined in the Open Gaming License version 1.0a Section 1(d).</p>
+  <h2>{{__ "Fonts"}}</h2>
+  <p>These character sheets use the fonts <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> (released under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>) and <a href="https://fonts.google.com/specimen/Merriweather">Merriweather</a> (released under the <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>).</p>
+  <p>This website uses the fonts <a href="https://fonts.google.com/specimen/Roboto+Slab">Roboto Slab</a> (released under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>) and <a href="https://fonts.google.com/specimen/Lato">Lato</a> (released under the <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>).</p>
+  <p><a href="https://dyslexiefont.com/">Dyslexie</a> is used with permission from Dyslexie Font B.V., Netherlands.</p>
+  
+{{/Column}}
+{{/Columns}}
 
-</div>
-<div class="column">
+{{#> Box}}
+  <h2>Pathfinder Second Edition</h2>
+  {{#> Columns}}
+  {{#> Column}}
 
-    <h2>{{__ "Pathfinder and Starfinder"}}</h2>
-    <p>{{{__ "These character sheets use trademarks and/or copyrights owned by Paizo Inc., used under <b>Paizo's Community Use Policy</b> (<a href='https://paizo.com/communityuse'>paizo.com/communityuse</a>). We are expressly prohibited from charging you to use or access this content. These character sheets are not published, endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit <a href='https://paizo.com/'>paizo.com</a>."}}}</p>
+    <h3>ORC License</h3>
+    <p>A part of Pathfinder Second Edition (those works published from November 2023 on) is published under the <a href='/{{lang}}/orc.html'>OpenRPG Creative License (ORC License)</a>. These character sheets use properties owned by Paizo Inc. and others, used under the ORC License.</p>
 
-    <h2>{{__ "Dungeons & Dragons"}} </h2>
-    <p>{{__ "Wizards of the Coast, Dungeons & Dragons, and their logos are trademarks of Wizards of the Coast LLC in the United States and other countries. © 2015 Wizards. All Rights Reserved."}}</p>
-    <p>{{{__ "These character sheets are not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC. These character sheets may use the trademarks and other intellectual property of Wizards of the Coast LLC, which is permitted under <a href='https://dnd.wizards.com/resources/fan-site-kit'>Wizards' Fan Site Policy</a>. For example, Dungeons & Dragons® is a trademark(s) of Wizards of the Coast. For more information about Wizards of the Coast or any of Wizards' trademarks or other intellectual property, please visit their website at <a href='https://www.wizards.com/'>www.wizards.com</a>."}}}</p>
+    <h3>Open Game Licence</h3>
+    <p>A part of Pathfinder Second Edition (those works published prior to November 2023) uses the <a href='/{{lang}}/ogl.html'>Open Game License (OGL)</a>; see Section 15 of the OGL declaration for a list of publications. These character sheets use properties owned by Paizo Inc. and others, used under the Open Game License.</p>
+    
+  {{/Column}}
+  {{#> Column}}
+    <h3>Trademarks and Copyrights</h3>
+    <p>These character sheets use trademarks and/or copyrights owned by Paizo Inc., used under <b>Paizo's Community Use Policy</b> (<a href='https://paizo.com/communityuse'>paizo.com/communityuse</a>). We are expressly prohibited from charging you to use or access this content. These character sheets are not published, endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit <a href='https://paizo.com/'>paizo.com</a>.</p>
 
-    <h2>{{__ "Fonts"}}</h2>
-    <p>These character sheets use the fonts <a href="http://www.fontsquirrel.com/fonts/roboto">Roboto</a> (released under the Google Android License) and <a href="http://www.fontsquirrel.com/fonts/merriweather">Merriweather</a> (released under the <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>).</p>
-    <p><a href="https://dyslexiefont.com/">Dyslexie</a> is used with permission from Dyslexie Font B.V., Netherlands.</p>
+  {{/Column}}
+  {{/Columns}}
 
-</div>
-</div>
+{{/Box}}
 
-{{/right}}
-{{/read-layout}}
+{{#> Box}}
+  <h2>Pathfinder First Edition</h2>
+  {{#> Columns}}
+  {{#> Column}}
 
-{{/base}}
+    <h3>Open Game Licence</h3>
+    <p>These character sheets use properties owned by Paizo Inc. and others, used under the <a href='/{{lang}}/ogl.html'>Open Game License (OGL)</a>. See Section 15 of the OGL declaration for a list of publications.</p>
+    
+  {{/Column}}
+  {{#> Column}}
+
+    <h3>Trademarks and Copyrights</h3>
+    <p>These character sheets use trademarks and/or copyrights owned by Paizo Inc., used under <b>Paizo's Community Use Policy</b> (<a href='https://paizo.com/communityuse'>paizo.com/communityuse</a>). We are expressly prohibited from charging you to use or access this content. These character sheets are not published, endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit <a href='https://paizo.com/'>paizo.com</a>.</p>
+
+  {{/Column}}
+  {{/Columns}}
+
+{{/Box}}
+
+{{#> Box}}
+  <h2>Starfinder</h2>
+  {{#> Columns}}
+  {{#> Column}}
+
+    <h3>Open Game Licence</h3>
+    <p>These character sheets use properties owned by Paizo Inc. and others, used under the <a href='/{{lang}}/ogl.html'>Open Game License (OGL)</a>. See Section 15 of the OGL declaration for a list of publications.</p>
+    
+  {{/Column}}
+  {{#> Column}}
+
+    <h3>Trademarks and Copyrights</h3>
+    <p>These character sheets use trademarks and/or copyrights owned by Paizo Inc., used under <b>Paizo's Community Use Policy</b> (<a href='https://paizo.com/communityuse'>paizo.com/communityuse</a>). We are expressly prohibited from charging you to use or access this content. These character sheets are not published, endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit <a href='https://paizo.com/'>paizo.com</a>.</p>
+
+  {{/Column}}
+  {{/Columns}}
+
+{{/Box}}
+
+{{#> Box}}
+  <h2>Dungeons &amp; Dragons 3.5</h2>
+  {{#> Columns}}
+  {{#> Column}}
+
+    <h3>Open Game Licence</h3>
+    <p>These character sheets use properties owned by Wizards of the Coast LLC and others, used under the <a href='/{{lang}}/ogl.html'>Open Game License (OGL)</a>. See Section 15 of the OGL declaration for a list of publications.</p>
+    
+  {{/Column}}
+  {{#> Column}}
+
+    <h3>Trademarks and Copyrights</h3>
+    
+    <p>Wizards of the Coast, Dungeons &amp; Dragons, and their logos are trademarks of Wizards of the Coast LLC in the United States and other countries. © 2015 Wizards. All Rights Reserved.</p>
+    <p>These character sheets are not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC. These character sheets may use the trademarks and other intellectual property of Wizards of the Coast LLC, which is permitted under <a href='https://dnd.wizards.com/resources/fan-site-kit'>Wizards' Fan Site Policy</a>. For example, Dungeons &amp; Dragons® is a trademark(s) of Wizards of the Coast. For more information about Wizards of the Coast or any of Wizards' trademarks or other intellectual property, please visit their website at <a href='https://www.wizards.com/'>www.wizards.com</a>.</p>
+
+  {{/Column}}
+  {{/Columns}}
+
+{{/Box}}
+
+
+{{/ContentLayout}}
+
+{{/Base}}

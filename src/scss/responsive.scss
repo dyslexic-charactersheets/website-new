@@ -1,7 +1,20 @@
 @use 'colours';
 
-$large: 1280px;
-$medium: 640px;
+$xlarge: 1600px;
+$large: 1400px;
+$medium: 740px;
+
+@mixin xlarge {
+  @media screen and (min-width: $xlarge) {
+      @content;
+  }
+}
+
+@mixin not-xlarge {
+  @media screen and (max-width: ($xlarge - 1px)) {
+      @content;
+  }
+}
 
 @mixin large {
     @media screen and (min-width: $large) {
@@ -33,57 +46,4 @@ $medium: 640px;
     }
 }
 
-@mixin background ($colour, $bg) {
-    background: $colour;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 
-    @include medium-large {
-        background-image: url(/images/bg-#{$bg}.jpg);
-    }
-
-    @include small {
-        background-image: url(/images/bg-#{$bg}-small.jpg);
-    }
-}
-
-@mixin parchment-background {
-    @include background(colours.$parchment, 'parchment');
-}
-
-@mixin red-leather-background {
-    @include background(colours.$red-leather, 'red-leather');
-}
-
-@mixin blue-cloth-background {
-    @include background(colours.$blue-cloth, 'blue-cloth');
-}
-
-@mixin contact-background {
-    @include background(colours.$postit, 'contact');
-}
-
-@mixin starfield-background {
-    @include background(black, 'starfield');
-}
-
-@mixin scifi-background {
-    // @include background(colours.$scifi-bg, 'circuitboard');
-    background-color: colours.$scifi-bg;
-    background-image: url(/images/bg-circuitboard.jpg);
-    background-size: 25em;
-    background-repeat: repeat;
-}
-
-@mixin right-pane-shadow {
-    box-shadow: inset 0.2rem 0 0.2rem rgba(0,0,0,0.2);
-}
-
-@mixin left-pane-shadow {
-    box-shadow: inset -0.2rem 0 0.2rem rgba(0,0,0,0.3);
-}
-
-@mixin lower-pane-shadow {
-    box-shadow: inset 0 0.2rem 0.2rem rgba(0,0,0,0.3);
-}

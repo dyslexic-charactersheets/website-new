@@ -1,0 +1,46 @@
+<template>
+  {{#> Row align="centre"}}
+    {{> Picture src="/images/pathfinder2e.png" size="logo"}}
+  {{/Row}}
+
+  {{#> Row pad=true}}
+    <h3>{{__ "Select your game edition"}}:</h3>
+    {{> Spacer}}
+    <p>
+      {{__ "Language"}}:
+      {{#> Button class="btn btn--light" on-click="body.currentMenu = language-menu"}}
+        {{> Icon icon="globe"}}{{__ (languagename lang)}}
+      {{/Button}}
+    </p>
+  {{/Row}}
+
+  {{#> TileGrid grid="2-1"}}
+    {{#> Button
+      type="tile"
+      on-click="#build-form.edition=pf2-legacy;#slides-character.jump=pick"
+    }}
+      {{> Picture src="/images/pathfinder2e-classic.png" size="tile"}}
+      <h2>Legacy</h2>
+      <p>2019 Core Rulebook and OGL properties</p>
+    {{/Button}}
+
+    {{#> Button
+      type="tile"
+      on-click="#build-form.edition=pf2-remaster;#slides-character.jump=pick"
+    }}
+      {{> Picture src="/images/pathfinder2e-remaster.png" size="tile"}}
+      <h2>Remaster</h2>
+      <p>2023 Player Core and ORC properties</p>
+    {{/Button}}
+
+    {{#> Button
+      type="tile"
+      on-click="#build-form.edition=all;#slides-character.jump=pick"
+    }}
+      <h3>Use both</h3>
+    {{/Button}}
+
+  {{/TileGrid}}
+
+  <p><a href="{{link lang 'legal'}}">Legal Information</a> &mdash; OGL and ORC.</p>
+</template>

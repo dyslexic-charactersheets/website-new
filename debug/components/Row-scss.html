@@ -1,0 +1,42 @@
+@use 'responsive';
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &.align_centre {
+    justify-content: center;
+  }
+
+  &.align_right {
+    justify-content: flex-end;
+  }
+
+  &.pad {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  @include responsive.medium-large {
+    flex-direction: row;
+  }
+  
+  @include responsive.large {
+    gap: 2rem;
+  }
+
+  @include responsive.medium {
+    gap: 1rem;
+  }
+
+  @include responsive.small {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

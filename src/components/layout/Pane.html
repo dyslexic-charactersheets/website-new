@@ -1,0 +1,83 @@
+<template>
+  <div class="pane pane--bg_{{bg}} {{#if shadow}}pane--shadow_{{shadow}}{{/if}} {{#if (isDark bg)}}dark-region{{else}}light-region{{/if}} {{#if nopad}}pane--nopad{{/if}}">
+    {{> @partial-block }}
+  </div>
+</template>
+
+<style>
+
+@use 'responsive';
+@use 'colours';
+
+@mixin background ($colour, $bg) {
+    background: $colour;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include responsive.medium-large {
+        background-image: url(/images/bg-#{$bg}.jpg);
+    }
+
+    @include responsive.small {
+        background-image: url(/images/bg-#{$bg}-small.jpg);
+    }
+}
+
+.pane {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+
+  padding: 0.5rem;
+  position: relative;
+
+  &.pane--nopad {
+    padding: 0;
+  }
+
+  /* Backgrounds */
+  background: colours.$dark-text;
+
+  &.pane--bg_blue {
+    @include background(colours.$blue-cloth, 'blue-cloth');
+  }
+
+  &.pane--bg_red {
+    @include background(colours.$red-leather, 'red-leather');
+  }
+
+  &.pane--bg_parchment {
+    @include background(colours.$parchment, 'parchment');
+  }
+
+  &.pane--bg_contact {
+    @include background(colours.$postit, 'contact');
+  }
+
+  &.pane--bg_starfield {
+    @include background(black, 'starfield');
+  }
+
+  &.pane--bg_scifi {
+    @include background(colours.$scifi-bg, 'circuitboard');
+    background-size: 25em;
+    background-repeat: repeat;
+  }
+
+  /* Shadows */
+  &.pane--shadow_right {
+    box-shadow: inset 0.2rem 0 0.2rem rgba(0,0,0,0.2);
+  }
+
+  &.pane--shadow_left {
+    box-shadow: inset -0.2rem 0 0.2rem rgba(0,0,0,0.3);
+  }
+
+  &.pane--shadow_lower {
+    box-shadow: inset 0 0.2rem 0.2rem rgba(0,0,0,0.3);
+  }
+
+}
+
+</style>

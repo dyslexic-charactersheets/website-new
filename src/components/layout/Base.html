@@ -1,0 +1,29 @@
+<template>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>{{__ title}}</title>
+  
+  <link rel="stylesheet" media="screen" href="/style.css"/>
+  <link rel="shortcut icon" type="image/png" href="/images/favicon16.png"/>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+</head>
+
+<body id="body" data-current-menu="">
+
+{{> @partial-block }}
+
+<div id="blanket"
+  data-bind="show = body.currentMenu | isSet"
+></div>
+{{> MainMenu }}
+{{> LanguageMenu }}
+{{> LoginMenu }}
+
+<script src="/script.js"></script>
+
+</body>
+</html>
+</template>

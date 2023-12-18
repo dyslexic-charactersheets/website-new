@@ -1,0 +1,246 @@
+<template>
+  {{#if href}}
+    <a 
+      {{#if id}}id="{{id}}"{{/if}}
+      class="btn {{#if type}}btn--{{type}} {{/if}}{{cls}}" 
+      href="{{link lang href}}" 
+      {{#if on-click}}data-on-click="{{on-click}}"{{/if}} 
+      {{{dataAttributes data}}}
+    >
+      {{> @partial-block }}
+      {{#if badge}}<span class="btn__badge">{{__ badge}}</span>{{/if}}
+    </a>
+  {{else}}
+    <button 
+      {{#if id}}id="{{id}}"{{/if}}
+      class="btn {{#if type}}btn--{{type}} {{/if}}{{cls}}" 
+      data-on-click="{{on-click}}"
+      {{{dataAttributes data}}}
+    >
+      {{> @partial-block }}
+      {{#if badge}}<span class="btn__badge">{{__ badge}}</span>{{/if}}
+    </button>
+  {{/if}}
+</template>
+
+<script>
+
+</script>
+
+<style lang="scss">
+  
+@use 'fonts';
+@use 'colours';
+
+$btn-size: 1.7rem;
+
+.btn {
+  appearance: none;
+  text-decoration: none;
+  background: none;
+  border: 0 none;
+  cursor: pointer;
+
+  box-sizing: border-box;
+  white-space: nowrap;
+  position: relative;
+
+  &.btn--primary {
+    display: block;
+    width: 10rem;
+    text-align: center;
+
+    height: $btn-size;
+    line-height: $btn-size;
+    min-width: $btn-size;
+
+    @include fonts.heading;
+
+    box-shadow: 0 0.1rem 0.2rem colours.$light;
+
+    background: colours.$primary;
+    color: colours.$primary--text;
+    border-radius: 0.2rem;
+    padding: 0 1rem;
+  }
+
+  .btn__badge {
+    position: absolute;
+    bottom: -0.5rem;
+    right: -0.5rem;
+    min-width: 1.5rem;
+    text-align: center;
+
+    @include fonts.small-heading;
+
+    padding: 0.1rem 0.4rem;
+    background: colours.$edition;
+    color: colours.$red-leather;
+    border-radius: 0.2rem;
+    border: 1px solid colours.$light;
+    box-shadow: 0 0.1rem 0.25rem colours.$shade;
+  }
+
+  &.btn--light {
+    background: colours.$shine;
+    color: black;
+    border: 1px solid colours.$light;
+    border-radius: 0.2rem;
+    padding: 0 0.6rem;
+    font-size: 0.8rem;
+
+    height: $btn-size;
+    line-height: $btn-size;
+    min-width: $btn-size;
+    white-space: nowrap;
+
+    box-shadow: 0 0.1rem 0.2rem colours.$light;
+
+    &:visited, &:active {
+      color: black;
+    }
+  }
+
+  &.btn--min {
+    background: transparent;
+    color: black;
+    padding: 0 0.3rem;
+    border: 0 none;
+    box-shadow: none;
+
+    height: $btn-size;
+    line-height: $btn-size;
+    min-width: $btn-size;
+
+    &.btn--icon {
+      &.home-button {
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+      }
+    }
+
+    img {
+      height: 1rem;
+    }
+  }
+
+  &.btn--circle {
+    height: 5rem !important;
+    width: 5rem !important;
+    background: colours.$fieldbg;
+    border-radius: 8rem;
+    justify-content: center;
+    box-shadow: 0 0.1rem 0.2rem 0.2rem colours.$fieldbg;
+    padding: 0;
+    border: 1px solid colours.$light;
+  }
+
+  &.btn--icon-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    height: unset;
+
+    .btn__icon {
+      font-size: 2rem;
+      line-height: 2rem;
+      height: 2rem;
+    }
+  }
+
+  &.btn--tile, &.btn--tile-light {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 0.4rem;
+    padding: 1rem;
+    box-shadow: 0 0.1rem 0.25rem colours.$shade;
+
+    flex: 0 1 auto;
+    max-height: 22rem;
+
+    img {
+      flex: 1 1 auto;
+    }
+  }
+
+  &.btn--tile {
+    background: colours.$red-leather-faded;
+    border: 1px solid colours.$light;
+  }
+
+  &.btn--tile-light {
+    background-color: colours.$shine;
+    background-image: url(/images/white-spot.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+
+  &.btn--bgicon {
+    background-size: 1.3rem;
+    background-repeat: no-repeat;
+    background-position: 0.2rem 0.2rem;
+    padding-left: $btn-size + 0.2rem;
+  }
+
+  &.button-discord {
+    background-color: #404EED !important;
+    background-image: url(/images/discord-icon.png);
+    background-position: 0.3rem 0.3rem;
+
+    border-color: #1F2AA9 !important;
+    color: white !important;
+  }
+
+  &.button-facebook {
+    background-color: #0866FF !important;
+    background-image: url(/images/facebook-icon.png);
+    background-position: 0.3rem 0.3rem;
+
+    border-color: rgb(3, 37, 92) !important;
+    color: white !important;
+  }
+
+  &.button-patreon {
+    background-color: white !important;
+    background-image: url(/images/patreon-icon.png);
+
+    color: black !important;
+  }
+
+  &.button-github {
+    background-color: black !important;
+    background-image: url(/images/github-icon.png);
+    
+    color: white !important;
+  }
+
+  &.button-contact {
+    background-color: colours.$postit !important;
+    
+    color: black !important;
+  }
+
+  > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    padding: 0.4rem 0;
+  }
+
+  h4 {
+    border-bottom: 0 none;
+  }
+
+  img {
+    object-fit: contain;
+  }
+}
+</style>

@@ -1,0 +1,16 @@
+all('.switch', (sw) => {
+  function updateCase() {
+    for (let swCase of sw.getElementsByClassName('switch__case')) {
+      swCase.dataset.show = swCase.dataset.value == sw.dataset.current;
+    }
+  }
+
+  watch(sw, 'data-current', updateCase);
+  updateCase();
+});
+
+on('.switch', 'switch', (event, sw) => {
+  if (event.hasOwnProperty('details') && event.details.hasOwnProperty('pick') && event.details.pick !== null && event.details.pick != "") {
+    sw.dataset.current = event.details.pick;
+  }
+});

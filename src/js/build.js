@@ -1,99 +1,24 @@
 //  -- BUILD WIZARD --  //
 
 
-// Slides
-
-function shiftSlides(id, shift) {
-    let slides = document.getElementById('slides-'+id);
-    if (slides !== null) {
-        slides.dataset.show = true;
-        setTimeout(() => {
-            let newSlide = parseInt(slides.dataset.slide) + parseInt(shift);
-            slides.dataset.slide = newSlide;
-            
-            let milestones = document.getElementById('milestones-'+id);
-            if (milestones !== null) {
-                milestones.dataset.show = true;
-                setTimeout(() => {
-                    milestones.dataset.slide = newSlide;
-                }, 1);
-            }
-        });
-    }
-}
-
-function nextSlide(id) {
-    shiftSlides(id, 1);
-}
-
-function showMilestones(id) {
-    // milestones track
-    for (let milestones of document.getElementsByClassName('nav--milestones')) {
-        milestones.dataset.show = false;
-    }
-    let milestones = document.getElementById('milestones-'+id);
-    if (milestones !== null) {
-        milestones.dataset.show = true;
-        setTimeout(() => {
-            milestones.dataset.slide = 1;
-        }, 1);
-    }
-
-    // slides
-    for (let slides of document.getElementsByClassName('slides--v')) {
-        slides.dataset.show = false;
-    }
-    let slides = document.getElementById('slides-'+id);
-    if (slides !== null) {
-        slides.dataset.show = true;
-        setTimeout(() => {
-            slides.dataset.slide = 1;
-        }, 1);
-    }
-
-    // shiftSlides(1);
-}
-
-function setupSlidesButton(btn) {
-    let slidesElem = btn.closest('.slides');
-    btn.addEventListener('click', function () {
-        let slide = btn.dataset.slide;
-        slidesElem.dataset.slide = slide;
-        
-        for (let milestonesElem of document.getElementsByClassName('nav--milestones')) {
-            milestonesElem.dataset.slide = slide;
-        }
-    });
-}
-
-for (let btn of document.getElementsByClassName('button-prev')) {
-    setupSlidesButton(btn);
-}
-for (let btn of document.getElementsByClassName('button-next')) {
-    setupSlidesButton(btn);
-}
-for (let btn of document.getElementsByClassName('button-jump')) {
-    setupSlidesButton(btn);
-}
-
 // Build form
-for (let output of document.getElementsByClassName('output--select')) {
-    ((output) => {
-        let id = output.dataset.select;
-        output.addEventListener('click', (evt) => {
-            showAside(id+'-menu');
-        });
-    })(output);
-}
+// for (let output of document.getElementsByClassName('output--select')) {
+//     ((output) => {
+//         let selectKey = output.dataset.select;
+//         output.addEventListener('click', (evt) => {
+//             showAside(selectKey);
+//         });
+//     })(output);
+// }
 
-for (let btn of document.getElementsByClassName('button-add')) {
-    ((btn) => {
-        let id = btn.dataset.select;
-        btn.addEventListener('click', (evt) => {
-            showAside(id+'-menu');
-        });
-    })(btn);
-}
+// for (let btn of document.getElementsByClassName('button-add')) {
+//     ((btn) => {
+//         let id = btn.dataset.select;
+//         btn.addEventListener('click', (evt) => {
+//             showAside(id+'-menu');
+//         });
+//     })(btn);
+// }
 
 // Tabs
 function showTab(tabset, name) {
@@ -136,41 +61,123 @@ function pickOption(select, value, text) {
     }
 }
 
+// Lists
+function addToList(listArea, value, text, subitem) {
+    if (listArea === null || listArea == "") {
+        return;
+    }
+    let area = document.getElementById('list-area:'+listArea);
+    if (area == null) {
+        return;
+    }
+    
+    for (let template of area.getElementsByClassName('list-item-template')) {
+        let listItem = document.createElement('div');
+        listItem.classList.add("list-item");
+        listItem.id = "list-item:"+listArea+":"+value;
+        listItem.dataset.value = value;
+        listItem.innerHTML = template.innerHTML;
+
+        // adjust the list item
+        for (let span of listItem.getElementsByClassName('list-item-name')) {
+            span.textContent = text;
+        }
+        if (subitem === null || subitem == "") {
+            for (let subitem of listItem.getElementsByClassName('list-item-subitem')) {
+                subitem.remove();
+            }
+        }
+
+        // put it in the list
+        area.appendChild(listItem);
+
+        for (let removeButton of listItem.getElementsByClassName('list-item-remove')) {
+            ((value) => {
+                removeButton.addEventListener('click', (evt) => {
+                    removeFromList(listArea, value);
+                });
+            })(value);
+        }
+    }
+}
+
+function removeFromList(listArea, value) {
+    let listItem = document.getElementById("list-item:"+listArea+":"+value);
+    if (listItem !== null) {
+        listItem.remove();
+    }
+}
+
 for (let btn of document.getElementsByClassName('option')) {
     ((btn) => {
         let select = btn.dataset.select;
         let value = btn.dataset.value;
         let text = btn.dataset.text;
         let next = btn.dataset.next;
+        let listArea = btn.dataset.listArea;
+        let swapArea = btn.dataset.swapArea;
+        let swapValue = btn.dataset.swap;
         btn.addEventListener('click', (evt) => {
             pickOption(select, value, text);
             closeAside();
-            if (next !== null && next != "") {
-                console.log("Next select:", next);
-                showAside(next);
-            }
+            setTimeout(() => {
+                if (next !== null && next != "") {
+                    console.log("Next select:", next);
+                    // showAside(next);
+                }
+            }, 0);
+            swap(swapArea, swapValue);
+            addToList(listArea, value, text, next);
         });
     })(btn);
 }
 
 
+// Page options
+
+for (let pageOption of document.getElementsByClassName('page-option')) {
+    ((pageOption) => {
+        let optionName = pageOption.dataset.name;
+        for (let input of pageOption.getElementsByTagName('input')) {
+            for (let img of pageOption.getElementsByTagName('img')) {
+                img.addEventListener('click', () => {
+                    input.checked = !input.checked;
+                    if (input.checked) {
+                        pageOption.classList.add('page-option--selected');
+                    } else {
+                        pageOption.classList.remove('page-option--selected');
+                    }
+                });
+
+                input.addEventListener('change', () => {
+                    if (input.checked) {
+                        pageOption.classList.add('page-option--selected');
+                    } else {
+                        pageOption.classList.remove('page-option--selected');
+                    }
+                }); 
+            }
+        }
+    })(pageOption);
+}
+
 
 // Colour fields
-function setColourValue(id, hexcolour) {
-    for (let input of document.getElementsByName(id)) {
-        input.value = hexcolour;
-        let output = input.closest('.colour-output');
-        for (let inner of output.getElementsByClassName('colour-output__inner')) {
-            inner.style.backgroundColor = hexcolour;
-        }
-    }
-}
+// function setColourValue(id, hexcolour) {
+//     for (let input of document.getElementsByName(id)) {
+//         input.value = hexcolour;
+//         let output = input.closest('.colour-output');
+//         for (let inner of output.getElementsByClassName('colour-output__inner')) {
+//             inner.style.backgroundColor = hexcolour;
+//         }
+//     }
+// }
 
-for (let output of document.getElementsByClassName('colour-output')) {
-    ((output) => {
-        let colourName = output.dataset.colourname;
-        output.addEventListener('click', () => {
-            showAside('colour-picker-'+colourName);
-        });
-    })(output);
-}
+// for (let output of document.getElementsByClassName('colour-output')) {
+//     ((output) => {
+//         let colourName = output.dataset.colourname;
+//         output.addEventListener('click', () => {
+//             showAside('colour-picker-'+colourName);
+//         });
+//     })(output);
+// }

@@ -1,17 +1,52 @@
 [
     {
+        "title": "April 2017: Tails of Equestria",
+        "date": "2017-04-01T00:00:00.000Z",
+        "file": "Tails of Equestria 2017.pdf",
+        "body": "A speak preview of a new game I'm going to be supporting."
+    },
+    {
+        "title": "April 2018: Tails of Fallout Equestria",
+        "date": "2018-04-01T00:00:00.000Z",
+        "file": "Tails of Fallout Equestria 2018.pdf",
+        "body": "There've been a lot of interesting developments in table-top RPGs in the last year. Here's a little sneak preview of something I'm working on."
+    },
+    {
+        "title": "April 2020: Starfinder Refresh",
+        "date": "2020-04-01T00:00:00.000Z",
+        "file": "Starfinder 2020.pdf",
+        "body": "I'm looking to make a slight style change to the Starfinder sheets. What do people think of the attached?"
+    },
+    {
+        "title": "April 2021: The Perfect Character Sheet",
+        "date": "2021-04-01T00:00:00.000Z",
+        "file": "Perfect 2021.pdf",
+        "body": "After years of development, I'm finally ready to give you... the most perfect character sheet ever!"
+    },
+    {
+        "title": "The Blockchain",
+        "date": "2022-01-31T00:17:00.000Z",
+        "body": "Just to head off the inevitable question, Dyslexic Character Sheets will NOT be participating in NFTs or cryptocurrencies in any way.\nAnyone who'd like more details is welcome to listen to a tape of me laughing for 45 minutes, followed by a two hour lecture on how money works, what the blockchain actually is, and why your money is best kept far, far away from the whole thing."
+    },
+    {
+        "title": "April 2022: 3D Character Sheets",
+        "date": "2022-04-01T00:00:00.000Z",
+        "file": "3D Character Sheet 2022.html",
+        "body": "Our tabletop games are increasingly 3D. We have 3D VTTs with 3D animated maps, 3D printed miniatures, and of course we roll 3D dice. But we're still using the same flat old 2D character sheets we've had since the 1970s!\nIt's time for that to change. Dyslexic Character Sheets is proud to give you a special preview of the first ever 3D character sheet..."
+    },
+    {
+        "title": "Edit and Save is live!",
+        "date": "2022-06-03T13:44:00.000Z",
+        "body": "After more than a year working on it, I've finally released some massive new features:\n- Edit all the fields in the character sheet, including proficiencies, alignment, etc.\n- Calculations work automatically (*)\n- Save your character sheet\nThese features are for patrons only. You'll need to subscribe (at the $1 minimum rate) and log in using your Patreon account to get the benefits.\nFull editing has been the #1 requested feature in all the years I've been building these. It was only made possible because of the way the new Pathfinder 2e sheets are built - which, sadly, means it doesn't apply the Pathfinder 1e, Starfinder or D&D 3.5e character sheets.\nWhile these new features are only for patrons, the character sheets themselves are as free as they always have been. Accessibility features and translations are also free. For a breakdown of exactly what's free and what's reserved, see the Patrons page.\n(*) Not all the classes and archetypes are fully calculated yet, but most of them should be."
+    },
+    {
+        "title": "Some thoughts on One D&D and the OGL",
+        "date": "2022-11-17T21:25:00.000Z",
+        "body": "I've seen rumours that One D&D won't be getting a OGL.\nIf you're not familiar with it, the Open Game License is a legal document that permits anybody to use the D&D rules in their own publications provided they respect their intellectual property. It's what allows third-party publishers to make adventures and other content for the game, it's what allows games like Pathfinder to exist, and it's what allows me to make character sheets legally.\nThe openness of the game has spawned a great deal of the creativity that's blossomed in the RPG space. Without it, D&D would not be the commercial success it is now.\nIt sounds like WotC sees all this money going to other people and want to get that for themselves. The move into the digital space, with the purchase of D&D Beyond and the development of their own VTT, indicates that they want to own the whole D&D experience. If true, this is a short-sighted decision, both for WotC and for the hobby as a whole.\nI have no insider information. I don't know if this rumour is true.\nBut I do know that, without a legal framework, I could not make character sheets for it. Nor would I want to."
+    },
+    {
         "title": "New website!",
         "date": "2023-01-01T00:00:00.000Z",
         "body": "The new website for Dyslexic Character Sheets is live!"
-    },
-    {
-        "title": "Lorem ipsum dolor sit amet",
-        "date": "2023-01-01T00:00:00.000Z",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent hendrerit nulla odio, quis fermentum urna scelerisque eget. Proin eu magna at velit luctus ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis sagittis justo a tempor. Proin condimentum scelerisque justo, ut accumsan augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum consectetur ipsum sit amet nisl fermentum, auctor euismod libero egestas. Cras ut lobortis leo. Nam nec congue sapien. Cras egestas nunc eget tempor egestas. Fusce ultricies, lectus sit amet fermentum pulvinar, orci tortor pulvinar nulla, vitae consectetur sapien sapien quis massa. Duis rhoncus diam ac dolor eleifend, vitae faucibus nisi commodo. In ultricies vehicula diam, ac volutpat nisl porta vitae. Phasellus condimentum erat ac nisl rutrum, non euismod nisi gravida.\nDuis condimentum euismod ipsum gravida accumsan. Sed lobortis ultrices erat, sed aliquet orci tempor vel. Phasellus id pretium augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id risus ut diam hendrerit posuere mollis quis tellus. Duis fringilla, libero eu gravida dictum, dui augue aliquam neque, ut pulvinar libero urna non diam. Aliquam risus turpis, sagittis in bibendum quis, dictum ac urna. Curabitur et nisi aliquam, rhoncus nisl sed, auctor enim. In vel risus ut nisi tincidunt eleifend at elementum libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nunc elit, suscipit sed magna sed, volutpat fermentum arcu. Ut eu est et sapien facilisis lacinia in ut turpis. Morbi mollis, nibh vitae pulvinar consectetur, quam mi suscipit neque, ut tristique mi felis sit amet mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque nisi diam, gravida ut aliquet non, accumsan nec felis. In hac habitasse platea dictumst.\nPhasellus volutpat ante vel metus aliquet sodales. In nec elit ac purus suscipit consequat volutpat vel urna. Phasellus sed orci fringilla leo semper pretium in nec enim. Nulla varius interdum nibh, iaculis cursus dui sollicitudin vel. Donec mauris enim, efficitur id dui nec, feugiat sodales nisl. Nullam luctus neque a lectus tincidunt, nec cursus risus porta. Nulla et ante at libero viverra sollicitudin vitae et elit. Proin malesuada ut mi sed rhoncus. Quisque dapibus ac nibh aliquet finibus. Aliquam porta mauris dui, ac euismod sapien tempor nec. Aliquam id cursus eros.\nSuspendisse scelerisque non erat id bibendum. Aenean a sapien sit amet enim varius bibendum eget at sem. Duis bibendum luctus libero quis malesuada. Sed consectetur vel velit ut porttitor. Etiam eu venenatis dui. Pellentesque mauris justo, semper nec ornare ac, pharetra in nunc. Integer a lacus rutrum, ultricies sem vel, venenatis lectus. Maecenas rutrum neque ac eros dignissim, sed lobortis enim luctus.\nIn consectetur, augue quis venenatis finibus, erat neque dictum augue, vitae congue libero erat eu nisl. Aliquam non placerat dolor. In hac habitasse platea dictumst. Fusce sagittis, neque sit amet aliquet facilisis, turpis libero ornare lacus, ac rutrum elit purus eget ligula. Donec eu iaculis velit. Sed sit amet rhoncus dolor. Curabitur sollicitudin metus a mauris gravida congue. Nullam at orci sit amet ligula venenatis scelerisque consectetur a velit."
-    },
-    {
-        "title": "Lorem ipsum 2",
-        "date": "2023-01-01T00:00:00.000Z",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent hendrerit nulla odio, quis fermentum urna scelerisque eget. Proin eu magna at velit luctus ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis sagittis justo a tempor. Proin condimentum scelerisque justo, ut accumsan augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum consectetur ipsum sit amet nisl fermentum, auctor euismod libero egestas. Cras ut lobortis leo. Nam nec congue sapien. Cras egestas nunc eget tempor egestas. Fusce ultricies, lectus sit amet fermentum pulvinar, orci tortor pulvinar nulla, vitae consectetur sapien sapien quis massa. Duis rhoncus diam ac dolor eleifend, vitae faucibus nisi commodo. In ultricies vehicula diam, ac volutpat nisl porta vitae. Phasellus condimentum erat ac nisl rutrum, non euismod nisi gravida.\nDuis condimentum euismod ipsum gravida accumsan. Sed lobortis ultrices erat, sed aliquet orci tempor vel. Phasellus id pretium augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id risus ut diam hendrerit posuere mollis quis tellus. Duis fringilla, libero eu gravida dictum, dui augue aliquam neque, ut pulvinar libero urna non diam. Aliquam risus turpis, sagittis in bibendum quis, dictum ac urna. Curabitur et nisi aliquam, rhoncus nisl sed, auctor enim. In vel risus ut nisi tincidunt eleifend at elementum libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nunc elit, suscipit sed magna sed, volutpat fermentum arcu. Ut eu est et sapien facilisis lacinia in ut turpis. Morbi mollis, nibh vitae pulvinar consectetur, quam mi suscipit neque, ut tristique mi felis sit amet mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque nisi diam, gravida ut aliquet non, accumsan nec felis. In hac habitasse platea dictumst.\nPhasellus volutpat ante vel metus aliquet sodales. In nec elit ac purus suscipit consequat volutpat vel urna. Phasellus sed orci fringilla leo semper pretium in nec enim. Nulla varius interdum nibh, iaculis cursus dui sollicitudin vel. Donec mauris enim, efficitur id dui nec, feugiat sodales nisl. Nullam luctus neque a lectus tincidunt, nec cursus risus porta. Nulla et ante at libero viverra sollicitudin vitae et elit. Proin malesuada ut mi sed rhoncus. Quisque dapibus ac nibh aliquet finibus. Aliquam porta mauris dui, ac euismod sapien tempor nec. Aliquam id cursus eros.\nSuspendisse scelerisque non erat id bibendum. Aenean a sapien sit amet enim varius bibendum eget at sem. Duis bibendum luctus libero quis malesuada. Sed consectetur vel velit ut porttitor. Etiam eu venenatis dui. Pellentesque mauris justo, semper nec ornare ac, pharetra in nunc. Integer a lacus rutrum, ultricies sem vel, venenatis lectus. Maecenas rutrum neque ac eros dignissim, sed lobortis enim luctus.\nIn consectetur, augue quis venenatis finibus, erat neque dictum augue, vitae congue libero erat eu nisl. Aliquam non placerat dolor. In hac habitasse platea dictumst. Fusce sagittis, neque sit amet aliquet facilisis, turpis libero ornare lacus, ac rutrum elit purus eget ligula. Donec eu iaculis velit. Sed sit amet rhoncus dolor. Curabitur sollicitudin metus a mauris gravida congue. Nullam at orci sit amet ligula venenatis scelerisque consectetur a velit."
     }
 ]

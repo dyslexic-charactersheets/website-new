@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Artistic License 2.0 - Dyslexic Character Sheets</title>
+  
+  <link rel="stylesheet" media="screen" href="/style.css"/>
+  <link rel="shortcut icon" type="image/png" href="/images/favicon16.png"/>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+</head>
+
+<body id="body" data-current-menu="">
+
+
+<main class="main--layout_read">
+    <section id="left">
+        <div class="pane pane--bg_blue pane--shadow_left dark-region ">
+                    <nav class="nav--row">
+                        <a href="/fr/" class="btn btn--min">
+                          <img src="/images/favicon64.png">
+                          Dyslexic Character Sheets
+                        </a>
+                      </nav>
+                      <nav class="nav--row">
+                            <button 
+                          type="button"
+                          
+                          class="btn " 
+                          data-on-click="body.currentMenu &#x3D; main-menu"
+                          
+                        >
+                          ☰      
+                        </button>
+                    
+                            <button 
+                          type="button"
+                          
+                          class="btn " 
+                          data-on-click="body.currentMenu &#x3D; language-menu"
+                          
+                        >
+                          <i class="icon icon_globe"></i>fr      
+                        </button>
+                    
+                            <button 
+                          type="button"
+                          
+                          class="btn " 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Connexion      
+                        </button>
+                    
+                        <div class="spacer"></div>
+                        
+                      </nav>
+                    <nav class="nav--menu">
+                      <h3>Informations</h3>
+                      <ul class="pick-list">
+                        <li>
+                          <a class="option" href="/fr/open-source.html">
+                              Open Source
+                          </a>
+                        </li>
+                        <li>
+                          <a class="option option--selected" href="/fr/translating.html">
+                              Traduire
+                          </a>
+                        </li>
+                      </ul>
+                  
+                      <h3>Légale</h3>
+                      <ul class="pick-list">
+                        <li>
+                          <a class="option" href="/fr/legal.html">
+                              Legal Information
+                          </a>
+                        </li>
+                
+                        <li>
+                          <a class="option" href="/fr/license.html">
+                              Artistic License
+                          </a>
+                        </li>
+                        
+                        <li>
+                          <a class="option" href="/fr/ogl.html">
+                              Open Game License
+                          </a>
+                        </li>
+                        
+                        <li>
+                          <a class="option" href="/fr/orc.html">
+                              ORC License
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+          </div>  </section>
+    <section id="right">
+        <div class="pane pane--bg_parchment  light-region ">
+            <div class="read-area">
+                          
+                          <h1>Translating</h1>
+                          
+                          <p>...</p>
+                          
+              </div>  </div>  </section>  </main>
+
+<div id="blanket"
+  data-bind="show = body.currentMenu | isSet"
+></div>
+<aside id="main-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'main-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>fr      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Connexion      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h2>Fiches de Personnages Dyslexiques</h2>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/fr/">Accueil</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/tour.html">Tour</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/news.html">News</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a href="https://discord.gg/ajVTD4N" class="btn btn--light btn--bgicon button-discord">Discord</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-patreon">Patreon</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-github">GitHub</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <button class="btn btn--light button-contact">Contactez</button>
+                    </li>
+                  </ul>
+          
+                  <h3>Construire un personnage</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/fr/build-pathfinder2.html">Pathfinder 2e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/build-starfinder.html">Starfinder</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/build-pathfinder1.html">Pathfinder 1e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/build-dnd35.html">Dungeons &amp; Dragons 3.5</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Informations</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/fr/open-source.html">Open Source</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/translating.html">Traduire</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Légale</h3>
+                  <p>Droits d'auteur &copy; Marcus Downing</p>
+                  <p>Ces fiches de personnages sont fournies sous la Licence Artistique 2.0</p>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/fr/legal.html">Info Légale</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/license.html">Artistic License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/ogl.html">Open Game License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/orc.html">ORC License</a>
+                    </li>
+                  </ul>
+                </nav>
+        </div>    </div>
+  </aside><aside id="language-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'language-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>fr      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Connexion      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Language</h3>
+                  
+                  <ul class="pick-list">
+                    <li>
+                      <a class="option" href="/en/translating.html">
+                        <span class='badge badge--language'>en</span>
+                        <b>English</b> / 
+                        Anglais
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option option--selected" href="/fr/translating.html">
+                        <span class='badge badge--language'>fr</span>
+                        <b>Français</b> / 
+                        Français
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/es/translating.html">
+                        <span class='badge badge--language'>es</span>
+                        <b>Espagnol</b> / 
+                        Espagnol
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/de/translating.html">
+                        <span class='badge badge--language'>de</span>
+                        <b>Deutsch</b> / 
+                        Allemand
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/pl/translating.html">
+                        <span class='badge badge--language'>pl</span>
+                        <b>Polskie</b> / 
+                        Polonais
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+        </div>    </div>
+  </aside></aside>
+<script src="/script.js"></script>
+
+</body>
+</html>

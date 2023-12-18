@@ -1,0 +1,11 @@
+<div 
+    class="slideshow {{#if vertical}}slideshow--v{{else}}slideshow--h{{/if}}" 
+    id="{{ id }}" 
+    data-jump="{{default jump 'start'}}" 
+    data-slides="{{json slides}}"
+    {{#if forward}}data-forward="{{forward}}"{{/if}}
+  >
+    <div class="slideshow__dolly">
+      {{> @partial-block }}
+    </div>
+  </div>

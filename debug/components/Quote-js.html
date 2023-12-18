@@ -1,0 +1,13 @@
+for (let block of document.getElementsByClassName('quote')) {
+  let quote = quotes[Math.floor(Math.random() * quotes.length)];
+  // console.log("Quote ready", quote);
+
+  for (let text of block.getElementsByClassName('quote__text')) {
+    text.textContent = quote.quote;
+    text.classList.remove('quote--hidden');
+    text.classList.add('quote__text--size_'+quote.size);
+  }
+  for (let cite of block.getElementsByClassName('quote__cite')) {
+    cite.textContent = quote.author;
+  }
+}

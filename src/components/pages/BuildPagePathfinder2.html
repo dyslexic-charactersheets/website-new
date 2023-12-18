@@ -1,0 +1,77 @@
+<template>
+  
+{{#> BuildLayout theme="adventure"}}
+{{#> Left }}
+  {{#> Pane bg="parchment" shadow="left"}}
+    {{> MenuButtons}}
+    
+    <img src="/images/coffee-stain.png" id="coffee-stain">
+
+    {{#> Switch
+      id='switch-milestones'
+      current='character'
+      var="#build-form.pick | default 'character'"
+    }}
+
+      {{#> SwitchCase value='character'}}
+        {{> Milestones
+          id="milestones-character"
+          current="start"
+          var='#slides-character.jump'
+          milestones=(array 
+            (item milestone="start" title="Start")
+            (item milestone="pick" title="Pick")
+            (item milestone="character" title="Character")
+            (item milestone="pages" title="Pages")
+            (item milestone="colours" title="Colours")
+            (item milestone="picture" title="Picture")
+            (item milestone="download" title="Download")
+          )
+        }}
+      {{/SwitchCase}}
+
+      {{#> SwitchCase value='gm'}}
+        {{> Milestones
+          id="milestones-gm"
+          current="start"
+          var='#slides-character.jump'
+          milestones=(array
+            (item milestone="start" title="Start")
+            (item milestone="gm" title="GM")
+            (item milestone="gm-options" title="Options")
+            (item milestone="gm-colours" title="Colours")
+            (item milestone="gm-download" title="Download")
+          )
+        }}
+      {{/SwitchCase}}
+
+    {{/Switch}}
+  {{/Pane}}
+{{/Left}}
+
+{{#> Right dark=true}}
+  {{#> Pane bg="red" nopad=true}}
+    {{> BuildFormPathfinder2 }}
+  {{/Pane}}
+{{/Right}}
+{{/BuildLayout}}
+
+{{> Pathfinder2AncestryMenu }}
+{{> Pathfinder2BackgroundMenu }}
+
+{{!-- {{> pathfinder2-ancestry-menu }}
+{{#each pf2.subselects.ancestry}}
+{{> pathfinder2-heritage-menu key=this.select items=this}}
+{{/each}}
+{{> pathfinder2-background-menu }}
+{{> pathfinder2-class-menu }}
+{{#each pf2.subselects.class}}
+{{> pathfinder2-subclass-menu key=this.select items=this}}
+{{/each}}
+{{> pathfinder2-multiclass-menu }}
+{{> pathfinder2-archetype-menu }}
+
+{{> colour-picker-menu id="base" name="Base Colour" }}
+{{> colour-picker-menu id="accent" name="Accent Colour" }} --}}
+
+</template>

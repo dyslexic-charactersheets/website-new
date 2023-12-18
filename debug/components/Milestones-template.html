@@ -1,0 +1,19 @@
+<nav 
+    class="nav--milestones"
+    id="{{id}}"
+    data-current="{{default current "start"}}"
+    data-forward="{{forward}}"
+  >
+    <div class="spacer spacer--min"></div>
+    <div class="nav__inner">
+      {{#each milestones}}
+        {{#unless (eq @index 0)}}<span class="arrow"></span>{{/unless}}
+        <button class="nav--milestones__milestone"
+          data-milestone="{{milestone}}"
+          {{{bind data-pick=(str "${id}.current eq this.milestone" id=../id)}}}>
+          <span>{{__ title}}</span>
+        </button>
+      {{/each}}
+    </div>
+    <div class="spacer spacer--min"></div>
+  </nav>

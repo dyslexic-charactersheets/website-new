@@ -1,0 +1,33 @@
+.slideshow {
+  flex: 1 1 auto;
+  scroll-behavior: smooth;
+
+  // hide the scrollbar
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  &:-webkit-scrollbar, &:scrollbar { 
+    display: none;  /* Safari and Chrome */
+    width: 0;
+  }
+}
+
+.slideshow--v {
+  overflow-x: clip;
+  overflow-y: auto;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  .slideshow__dolly {
+    flex: 1 0 auto;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slide {
+    min-height: 100vh;
+    flex: 1 0 auto;
+  }
+}

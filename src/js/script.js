@@ -1,15 +1,17 @@
+/*
 // Side menus
 function showAside(name) {
     closeAside();
     let aside = document.getElementById(name);
     if (aside !== null) {
         aside.classList.add('aside--show');
+        document.getElementById('blanket').classList.add('blanket--show');
     } else {
         for (let aside2 of document.querySelectorAll('aside[data-key="'+name+'"]')) {
             aside2.classList.add('aside--show');
+            document.getElementById('blanket').classList.add('blanket--show');
         }
     }
-    document.getElementById('blanket').classList.add('blanket--show');
 }
 
 function closeAside() {
@@ -32,14 +34,8 @@ setupMenu('language-button', 'language-menu');
 setupMenu('login-button', 'login-menu');
 setupMenu('button-contact', 'contact-menu');
 
-for (let btn of document.getElementsByClassName('close-button')) {
-    btn.addEventListener('click', closeAside);
-}
-
 document.getElementById('blanket').addEventListener('click', closeAside);
-
-
-
+*/
 
 // Key interaction
 document.addEventListener('keydown', (evt) => {
@@ -53,4 +49,28 @@ document.addEventListener('keydown', (evt) => {
             break;
     }
 });
+
+
+// Swap options
+
+function swap(area, id) {
+    if (area === null || area === "" || id === null || id === "") {
+        return;
+    }
+    let swapArea = document.getElementById('swap-area:'+area);
+    if (swapArea === null) {
+        return;
+    }
+    for (let swapOption of swapArea.getElementsByClassName('swap-option')) {
+        swapOption.classList.remove('swap-option--show');
+    }
+    let selectedOption = document.getElementById('swap-option:'+area+':'+id);
+    if (selectedOption != null) {
+        selectedOption.classList.add('swap-option--show');
+    }
+}
+
+function swapDefault(area) {
+    swap(area, 'default');
+}
 

@@ -1,7 +1,15 @@
 <aside id="multiclass-menu" class="aside--right aside--wide" data-key="multiclass">
     <div class="aside__inner">
-        {{#> build-aside-book-pallette close-button=true key='multiclass' name='Multiclass' game='pf2' items=pf2.multiclass}}
-            <label>{{__ value.name}}</label>
+        {{#> build-aside-book-pallette close-button=true key='multiclass' name='Multiclass' game='pf2' items=pf2.selects.multiclass}}
+            <button class="option option--spot option--portrait" data-select="multiclass"
+                    data-value="{{value.id}}" data-text="{{__ value.name}}" data-next="{{nextSelect value.selects}}"
+                    data-list-area="multiclass">
+                {{!-- {{{dump value.selects}}} --}}
+                <label>{{__ value.name}}</label>
+                {{#if value.badge}}
+                    <span class="option__badge">{{__ value.badge}}</span>
+                {{/if}}
+            </button>
         {{/build-aside-book-pallette}}
     </div>
 </aside>

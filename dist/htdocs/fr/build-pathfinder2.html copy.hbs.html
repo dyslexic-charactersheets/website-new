@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Pathfinder 2e - Dyslexic Character Sheets</title>
+  
+  <link rel="stylesheet" media="screen" href="/style.css"/>
+  <link rel="shortcut icon" type="image/png" href="/images/favicon16.png"/>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+</head>
+
+<body id="body" data-current-menu="">
+
+
+<main class="main--layout_build main--theme_adventure">
+    <section id="left">
+        <div class="pane pane--bg_parchment pane--shadow_right light-region ">
+                    <nav class="nav--row">
+                        <a href="/fr/" class="btn btn--min">
+                          <img src="/images/favicon64.png">
+                          Dyslexic Character Sheets
+                        </a>
+                      </nav>
+                      <nav class="nav--row">
+                            <button 
+                          type="button"
+                          
+                          class="btn " 
+                          data-on-click="body.currentMenu &#x3D; main-menu"
+                          
+                        >
+                          ☰      
+                        </button>
+                    
+                            <button 
+                          type="button"
+                          
+                          class="btn " 
+                          data-on-click="body.currentMenu &#x3D; language-menu"
+                          
+                        >
+                          <i class="icon icon_globe"></i>fr      
+                        </button>
+                    
+                            <button 
+                          type="button"
+                          
+                          class="btn " 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Connexion      
+                        </button>
+                    
+                        <div class="spacer"></div>
+                        
+                      </nav>        
+                    <img src="/images/coffee-stain.png" id="coffee-stain">
+            
+            <div 
+                class="switch" 
+                id="milestones"
+                data-current="character"
+              >
+                
+                <div class="switch__case" data-value="character" data-show="">
+                                <nav 
+                                    class="nav--milestones"
+                                    id="milestones-character"
+                                    data-current="start"
+                                  >
+                                    <div class="spacer spacer--min"></div>
+                                    <div class="nav__inner">
+                                        
+                                        <button class="nav--milestones__milestone"
+                                          data-milestone="start"
+                                          data-bind="pick = #milestones-character.current | eq 'start'"
+                                        > 
+                                          <span>Début</span>
+                                        </button>
+                                        <span class="arrow"></span>
+                                        <button class="nav--milestones__milestone"
+                                          data-milestone="character"
+                                          data-bind="pick = #milestones-character.current | eq 'character'"
+                                        > 
+                                          <span>Personnage</span>
+                                        </button>
+                                        <span class="arrow"></span>
+                                        <button class="nav--milestones__milestone"
+                                          data-milestone="pages"
+                                          data-bind="pick = #milestones-character.current | eq 'pages'"
+                                        > 
+                                          <span>Pages</span>
+                                        </button>
+                                        <span class="arrow"></span>
+                                        <button class="nav--milestones__milestone"
+                                          data-milestone="colours"
+                                          data-bind="pick = #milestones-character.current | eq 'colours'"
+                                        > 
+                                          <span>Couleurs</span>
+                                        </button>
+                                        <span class="arrow"></span>
+                                        <button class="nav--milestones__milestone"
+                                          data-milestone="picture"
+                                          data-bind="pick = #milestones-character.current | eq 'picture'"
+                                        > 
+                                          <span>Dessin</span>
+                                        </button>
+                                        <span class="arrow"></span>
+                                        <button class="nav--milestones__milestone"
+                                          data-milestone="download"
+                                          data-bind="pick = #milestones-character.current | eq 'download'"
+                                        > 
+                                          <span>Télécharger</span>
+                                        </button>
+                                    </div>
+                                    <div class="spacer spacer--min"></div>
+                                  </nav>  </div>
+                <div class="switch__case" data-value="gm" data-show="">
+                                <nav 
+                                    class="nav--milestones"
+                                    id="milestones-gm"
+                                    data-current="start"
+                                  >
+                                    <div class="spacer spacer--min"></div>
+                                    <div class="nav__inner">
+                                        
+                                        <button class="nav--milestones__milestone"
+                                          data-milestone="start"
+                                          data-bind="pick = #milestones-gm.current | eq 'start'"
+                                        > 
+                                          <span>Début</span>
+                                        </button>
+                                        <span class="arrow"></span>
+                                        <button class="nav--milestones__milestone"
+                                          data-milestone="gm"
+                                          data-bind="pick = #milestones-gm.current | eq 'gm'"
+                                        > 
+                                          <span>GM</span>
+                                        </button>
+                                        <span class="arrow"></span>
+                                        <button class="nav--milestones__milestone"
+                                          data-milestone="options"
+                                          data-bind="pick = #milestones-gm.current | eq 'options'"
+                                        > 
+                                          <span>Options</span>
+                                        </button>
+                                        <span class="arrow"></span>
+                                        <button class="nav--milestones__milestone"
+                                          data-milestone="colours"
+                                          data-bind="pick = #milestones-gm.current | eq 'colours'"
+                                        > 
+                                          <span>Couleurs</span>
+                                        </button>
+                                        <span class="arrow"></span>
+                                        <button class="nav--milestones__milestone"
+                                          data-milestone="download"
+                                          data-bind="pick = #milestones-gm.current | eq 'download'"
+                                        > 
+                                          <span>Télécharger</span>
+                                        </button>
+                                    </div>
+                                    <div class="spacer spacer--min"></div>
+                                  </nav>  </div>  </div>  </div>  </section>
+    <section id="right">
+        <div class="pane pane--bg_red  dark-region ">
+            
+            <div 
+                class="switch" 
+                id="mainview"
+                data-current="character"
+              >
+                <div class="switch__case" data-value="character" data-show="">
+                    
+                    <div 
+                        class="slideshow slideshow--v" 
+                        id="slides-character" 
+                        data-jump="start" 
+                        data-slides="[&quot;start&quot;,&quot;pick&quot;,&quot;character&quot;,&quot;pages&quot;,&quot;colours&quot;,&quot;picture&quot;,&quot;download&quot;]"
+                      >
+                        <div class="slideshow__dolly">
+                          <div class="slide" data-jump="start">
+                              <div class="slide__inner ">
+                                  
+                                  
+                                                  <img src="/images/pathfinder2e.png" class="place">
+                                  <div class="grid grid--2-1">
+                                          <button 
+                                            type="button"
+                                            id="slides-character"
+                                            class="btn btn--tile " 
+                                            data-on-click=""
+                                            
+                                          >
+                                                                <img src="/images/pathfinder2e-classic.png"/>
+                                                                <h3>Classic</h3>
+                                            
+                                          </button>
+                                          <button 
+                                            type="button"
+                                            id="slides-character"
+                                            class="btn btn--tile " 
+                                            data-on-click=""
+                                            
+                                          >
+                                                                <img src="/images/pathfinder2e-remaster.png"/>
+                                                                <h3>Remaster</h3>
+                                            
+                                          </button>
+                                      
+                                      <div class="row align_centre">
+                                              <button 
+                                                type="button"
+                                                id="slides-character"
+                                                class="btn btn--tile " 
+                                                data-on-click=""
+                                                
+                                              >
+                                                                      <h3>Use both</h3>
+                                                
+                                              </button>
+                                        </div>
+                                    </div>
+                                  
+                          
+                              </div>
+                            </div>
+                          <div class="slide" data-jump="pick">
+                              <div class="slide__inner ">
+                                  
+                                  
+                                                  <img src="/images/pathfinder2e.png" class="place">
+                                  <div class="grid grid--2">
+                                          <button 
+                                            type="button"
+                                            id="slides-character"
+                                            class="btn btn--tile " 
+                                            data-on-click=""
+                                            data-pick="single"
+                                          >
+                                                                <img src="/images/single.png" class="stack__stack">
+                                                                <p class="stack__label">Personnage</p>
+                                            
+                                          </button>
+                                          <button 
+                                            type="button"
+                                            id="slides-character"
+                                            class="btn btn--tile " 
+                                            data-on-click=""
+                                            data-slide="character" data-pick="gm"
+                                          >
+                                                                <img src="/images/gm.png" class="stack__stack">
+                                                                <p class="stack__label">GM</p>
+                                            
+                                          </button>
+                                    </div>        
+                          
+                              </div>
+                            </div>              
+                          <div class="slide" data-jump="character">
+                              <div class="slide__inner ">
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-character"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit prev-slide"
+                                    
+                                  >
+                                                  <span class="btn__icon">&uarr;</span>
+                                                  <span class="btn__label">Back</span>
+                                    
+                                  </button>
+                            </div>        
+                                                    <h2>Personnage</h2>
+                                                    <table class="build-table">
+                                                        <tr>
+                                                            <th>Ancestry</th>
+                                                            <td rowspan="2">
+                                                                <div id="swap-area:heritage" class="build-table__swap swap-area">
+                                                                
+                                                                    <div class="swap-option swap-option--default swap-option--show" id="swap-option:heritage:default">
+                                                                        <h4>Heritage</h4>
+                                                                        <output name="heritage" data-select="heritage" class="output--select"></output>
+                                                                    </div>
+                                  
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <output name="ancestry" data-select="ancestry" class="output--select"></output>
+                                                            </td>
+                                                        </tr>
+                                  
+                                                        <tr>
+                                                            <th>Background</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <output name="background" data-select="background" class="output--select"></output>
+                                                            </td>
+                                                        </tr>
+                                  
+                                                        <tr>
+                                                            <td>
+                                                                <h4>Class</h4>
+                                                                <output name="class" data-select="class" class="output--select"></output>
+                                                            </td>
+                                                            <td>
+                                                                <div id="swap-area:subclass" class="build-table__swap swap-area">
+                                                                    <div class="swap-option swap-option--default swap-option--show" id="swap-option:subclass:default">
+                                                                        <h4>Subclass</h4>
+                                                                        <output name="subclass" data-select="" class="output--select"></output>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                  
+                                                        <tr id="build-multiclass-row">
+                                                            <th>Multiclass</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <div id="list-area:multiclass" class="list-area">
+                                                                    <div class="list-item-template">
+                                                                        <output class="list-item-name"></output>
+                                                                        <output class="list-item-subitem"></output>
+                                                                        <button class="btn btn--light btn--remove button-remove-multiclass list-item-remove" data-select="multiclass">Remove</button>
+                                                                    </div>
+                                                                </div>
+                                                                <button class="btn btn--light button-add button-add-multiclass" data-select="multiclass">Add</button>
+                                                            </td>
+                                                        </tr>
+                                  
+                                                        <tr id="build-archetype-row">
+                                                            <th>Archetype</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <div id="list-area:archetype" class="list-area">
+                                                                    <div class="list-item-template">
+                                                                        <output class="list-item-name"></output>
+                                                                        <output class="list-item-subitem"></output>
+                                                                        <button class="btn btn--light btn--remove button-remove-multiclass list-item-remove" data-select="archetype">Remove</button>
+                                                                    </div>
+                                                                </div>
+                                                                <button class="btn btn--light button-add button-add-archetype" data-select="archetype">Add</button>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                  
+                                                    <div class="columns">
+                                                        <div class="column">
+                                                            <h4>Options</h4>
+                                                            <fieldset>
+                                                                <p><label for='feat-diehard'><input type='checkbox' name='feat-diehard' id='feat-diehard'> Diehard</label></p>
+                                                                <p><label for='debug'><input type='checkbox' name='debug' id='debug'> Debug layouts</label></p>
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="column">
+                                                            <h4>Variant Rules</h4>
+                                                            <fieldset>
+                                                                <p><label for='option-free-archetype'><input type='checkbox' name='free-archetype' id='option-free-archetype'> Free archetype</label></p>
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-character"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit next-slide"
+                                    
+                                  >
+                                                  <span class="btn__label">Next</span>
+                                                  <span class="btn__icon">&darr;</span>
+                                    
+                                  </button>
+                            </div>
+                              </div>
+                            </div>              
+                          <div class="slide" data-jump="pages">
+                              <div class="slide__inner ">
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-character"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit prev-slide"
+                                    
+                                  >
+                                                  <span class="btn__icon">&uarr;</span>
+                                                  <span class="btn__label">Back</span>
+                                    
+                                  </button>
+                            </div>        
+                                                    <h2>Pages</h2>
+                                                    <h4>Personnage</h4>
+                                                    <div class="row row--dense">
+                                                        <div class="page-option">
+                                                            <picture>
+                                                                <img src="/images/pages/thumb-permission.png">
+                                                            </picture>
+                                                            <label>
+                                                                <input type="checkbox" id="page-permission" >
+                                                                Permission to print
+                                                            </label>
+                                                        </div>                      <div class="page-option page-option--selected">
+                                                            <picture>
+                                                                <img src="/images/pages/thumb-cover.png">
+                                                            </picture>
+                                                            <label>
+                                                                <input type="checkbox" id="page-cover"  checked>
+                                                                Cover page
+                                                            </label>
+                                                        </div>                      <div class="page-option page-option--selected">
+                                                            <picture>
+                                                                <img src="/images/pages/thumb-level-up.png">
+                                                            </picture>
+                                                            <label>
+                                                                <input type="checkbox" id="page-level-up"  checked>
+                                                                Level up
+                                                            </label>
+                                                        </div>                      <div class="page-option">
+                                                            <picture>
+                                                                <img src="/images/pages/thumb-reference.png">
+                                                            </picture>
+                                                            <label>
+                                                                <input type="checkbox" id="page-reference" >
+                                                                Reference
+                                                            </label>
+                                                        </div>                      <div class="page-option">
+                                                            <picture>
+                                                                <img src="/images/pages/thumb-actions.png">
+                                                            </picture>
+                                                            <label>
+                                                                <input type="checkbox" id="page-actions" >
+                                                                Actions
+                                                            </label>
+                                                        </div>                      <div class="page-option">
+                                                            <picture>
+                                                                <img src="/images/pages/thumb-character-background.png">
+                                                            </picture>
+                                                            <label>
+                                                                <input type="checkbox" id="page-character-background" >
+                                                                Character Background
+                                                            </label>
+                                                        </div>                  </div>
+                                  
+                                                    <h4>Inventory</h4>
+                                                    <div class="row row--dense">
+                                                        <div class="page-option page-option--size_small">
+                                                            <picture>
+                                                                <img src="/images/pages/thumb-inventory-half.png">
+                                                            </picture>
+                                                            <label>
+                                                                <input type="radio" id="page-inventory-half" name="inventory" value="half" >
+                                                                Half
+                                                            </label>
+                                                        </div>                      <div class="page-option page-option--selected">
+                                                            <picture>
+                                                                <img src="/images/pages/thumb-inventory-full.png">
+                                                            </picture>
+                                                            <label>
+                                                                <input type="radio" id="page-inventory-full" name="inventory" value="full"  checked>
+                                                                Full
+                                                            </label>
+                                                        </div>                      <div class="page-option">
+                                                            <picture>
+                                                                <img src="/images/pages/thumb-inventory-extra.png">
+                                                            </picture>
+                                                            <label>
+                                                                <input type="checkbox" id="page-inventory-extra" >
+                                                                Extra page
+                                                            </label>
+                                                        </div>                  </div>
+                                                    
+                                  
+                                                    <h4>Companions</h4>
+                                                    <div class="row row--dense">
+                                                        <div class="page-option">
+                                                            <picture>
+                                                                <img src="/images/pages/thumb-animal-companion.png">
+                                                            </picture>
+                                                            <label>
+                                                                <input type="checkbox" id="page-animal-companion" >
+                                                                Animal Companion
+                                                            </label>
+                                                        </div>                      <div class="page-option">
+                                                            <picture>
+                                                                <img src="/images/pages/thumb-familiar.png">
+                                                            </picture>
+                                                            <label>
+                                                                <input type="checkbox" id="page-familiar" >
+                                                                Familiar
+                                                            </label>
+                                                        </div>                      <div class="page-option">
+                                                            <picture>
+                                                                <img src="/images/pages/thumb-construct.png">
+                                                            </picture>
+                                                            <label>
+                                                                <input type="checkbox" id="page-construct" >
+                                                                Construct
+                                                            </label>
+                                                        </div>                  </div>
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-character"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit next-slide"
+                                    
+                                  >
+                                                  <span class="btn__label">Next</span>
+                                                  <span class="btn__icon">&darr;</span>
+                                    
+                                  </button>
+                            </div>
+                              </div>
+                            </div>              
+                          <div class="slide" data-jump="colours">
+                              <div class="slide__inner ">
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-character"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit prev-slide"
+                                    
+                                  >
+                                                  <span class="btn__icon">&uarr;</span>
+                                                  <span class="btn__label">Back</span>
+                                    
+                                  </button>
+                            </div>        
+                                                    <div class="columns">
+                                                        <div class="column">
+                                                            <h2>Accessibility</h2>
+                                  
+                                                            <p>Language: &nbsp; <button class="btn btn--light language-button">fr</button> Français</p>
+                                  
+                                                            <h4>Dyslexia</h4>
+                                                            <fieldset>
+                                                                <p class='dyslexic-fonts'><input type='checkbox' id='option-dyslexic' name='option-dyslexic'> <label for='option-dyslexic'>Dyslexic fonts</label></p>
+                                                                <p class='info'>Uses easy-to-read fonts, disables all-caps.</p>
+                                                                
+                                                                <div class="indent">
+                                                                    <p><label for='option-dyslexic-font-dyslexie' id='font-dyslexie'><input type='radio' name='option-dyslexic-font' value='dyslexie' id='option-dyslexic-font-dyslexie' checked> Dyslexie</label> (<a href='https://dyslexiefont.com/'>dyslexiefont.com</a>)</p>
+                                                                    <p><label for='option-dyslexic-font-lexend' id='font-lexend'><input type='radio' name='option-dyslexic-font' value='lexend' id='option-dyslexic-font-lexend'> Lexend Deca</label> (<a href='https://www.lexend.com/'>lexend.com</a>)</p>
+                                                                    <p><label for='option-dyslexic-font-sans' id='font-sans'><input type='radio' name='option-dyslexic-font' value='sans' id='option-dyslexic-font-sans'> Sans-serif</label></p>
+                                                                </dev>
+                                                            </fieldset>
+                                  
+                                                            <h4>Couleurs</h4>
+                                                            <fieldset class="high-contrast">
+                                                                <p><span><input type='checkbox' id='option-high-contrast' name='option-high-contrast'> <label for='option-high-contrast'>High contrast</label><span></span></p>
+                                                                <p class='info'>Makes colours darker, removes white text.</p>
+                                                            </fieldset>
+                                  
+                                                            <div class="row row--centre">
+                                                            <button class="btn btn--primary dyslexic-preset-button">Dyslexic Preset</button>
+                                                            </div>
+                                  
+                                                            <h4>Large print</h4>
+                                                            <fieldset>
+                                                                <p class='large-print'><input type='checkbox' id='option-large-print' name='option-large-print'> <label for='option-large-print'>Large print</label></p>   
+                                                                <p class='info'>Enlarges text and fields, omits some elements to fit on the page.</p>
+                                                            </fieldset>
+                                                        </div>
+                                                        
+                                                        <div class="column">
+                                                            <h2>Couleurs</h2>
+                                  
+                                                            <div class="row">
+                                                                <div class="colour-output" data-colourname="base">
+                                                                    <input type="hidden" name="base" value="#808080">
+                                                                    <label>Base colour</label>
+                                                                    <div class="colour-output__inner">
+                                                                        <div class="colour-output__pallette">
+                                                                        </div>
+                                                                    </div>
+                                                                    <object class="colour-output__emblem" data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
+                                                                </div>                              <div class="colour-output" data-colourname="accent">
+                                                                    <input type="hidden" name="accent" value="#808080">
+                                                                    <label>Accent colour</label>
+                                                                    <div class="colour-output__inner">
+                                                                        <div class="colour-output__pallette">
+                                                                        </div>
+                                                                    </div>
+                                                                    <object class="colour-output__emblem" data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
+                                                                </div>                          </div>
+                                  
+                                                            <div class="brightness-picker">
+                                                                <label>Print darkness</label>
+                                                                <div class="brightness-picker__inner">
+                                                                    <div class="brightness-picker__inner2">
+                                                                        <input type="range" min="1" max="9" value="5" name="colour-brightness">
+                                                                        <span class="brightness-picker__notch"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                  
+                                                            <h2>Page Background</h2>
+                                                            <div class="row">
+                                  
+                                                            </div>
+                                  
+                                                        </div>
+                                                    </div>
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-character"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit next-slide"
+                                    
+                                  >
+                                                  <span class="btn__label">Next</span>
+                                                  <span class="btn__icon">&darr;</span>
+                                    
+                                  </button>
+                            </div>
+                              </div>
+                            </div>              
+                          <div class="slide" data-jump="picture">
+                              <div class="slide__inner ">
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-character"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit prev-slide"
+                                    
+                                  >
+                                                  <span class="btn__icon">&uarr;</span>
+                                                  <span class="btn__label">Back</span>
+                                    
+                                  </button>
+                            </div>        
+                                                    <h2>Dessin</h2>
+                                  
+                                                    <p>...</p>
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-character"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit next-slide"
+                                    
+                                  >
+                                                  <span class="btn__label">Next</span>
+                                                  <span class="btn__icon">&darr;</span>
+                                    
+                                  </button>
+                            </div>
+                              </div>
+                            </div>              
+                          <div class="slide" data-jump="download">
+                              <div class="slide__inner ">
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-character"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit prev-slide"
+                                    
+                                  >
+                                                  <span class="btn__icon">&uarr;</span>
+                                                  <span class="btn__label">Back</span>
+                                    
+                                  </button>
+                            </div>        
+                                                    <h2>Télécharger</h2>
+                                  
+                                                    <h4>International</h4>
+                                                    <fieldset>
+                                                        <p>Language: &nbsp; <button class="btn btn--light language-button">fr</button> Français</p>
+                                                        <p>Measurement units: 
+                                                            <select name="units">
+                                                            <option selected id='units-default'>Default (feet)</option>
+                                                            <option value="imperial">Imperial (feet)</option>
+                                                            <option value="metric">Metric (metres)</option>
+                                                            </select>
+                                                        </p>
+                                                    </fieldset>
+                                  
+                                                    <h4>Format</h4>
+                                                    <fieldset>
+                                                        <div class="columns">
+                                                            <div class="column">
+                                                                <p>
+                                                                    <input type='radio' name='download-format' value='html' id='download-format-html' checked>
+                                                                    <label for='download-format-html'><b>HTML</b></label>
+                                                                </p>
+                                                                <p class='info'>Allows values to be filled in</p>
+                                                                <p class='info'>Adjusts to fit your paper size</p>
+                                                            </div>
+                                                            <div class="column">
+                                                                <p>
+                                                                    <input type='radio' name='download-format' value='pdf' id='download-format-pdf'>
+                                                                    <label for='download-format-pdf'><b>PDF</b></label>
+                                                                </p>
+                                                                <p class='info'>Use this if you have trouble printing HTML</p>
+                                                                <p class='info'>
+                                                                    <b>Paper size:</b>
+                                                                    <input type='radio' name='download-paper' value='Letter' id='download-letter' checked>
+                                                                    <label for='download-letter'>US Letter</label>
+                                  
+                                                                    <input type='radio' name='download-paper' value='A4' id='download-a4'>
+                                                                    <label for='download-a4'>A4</label>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                  
+                                                    <button class="place btn btn--primary button-download">Télécharger</button>
+                                  
+                          
+                              </div>
+                            </div>
+                        </div>
+                      </div>  </div>
+                <div class="switch__case" data-value="gm" data-show="">
+                    <div 
+                        class="slideshow slideshow--v" 
+                        id="slides-gm" 
+                        data-jump="start" 
+                        data-slides="[&quot;start&quot;,&quot;gm&quot;,&quot;options&quot;,&quot;colours&quot;,&quot;download&quot;]"
+                      >
+                        <div class="slideshow__dolly">
+                          <div class="slide" data-jump="start">
+                              <div class="slide__inner ">
+                                  
+                                  
+                                                    <img src="/images/pathfinder2e.png" class="place">
+                                                    <div class="row">
+                                                        <button class="stack pick-single">
+                                                            <img src="/images/single.png" class="stack__stack">
+                                                            <p class="stack__label">Personnage</p>
+                                                        </button>
+                                                        <button class="stack pick-gm">
+                                                            <img src="/images/gm.png" class="stack__stack">
+                                                            <p class="stack__label">GM pages</p>
+                                                        </button>
+                                                    </div>
+                                  
+                          
+                              </div>
+                            </div>              
+                          <div class="slide" data-jump="gm">
+                              <div class="slide__inner ">
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-gm"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit prev-slide"
+                                    
+                                  >
+                                                  <span class="btn__icon">&uarr;</span>
+                                                  <span class="btn__label">Back</span>
+                                    
+                                  </button>
+                            </div>        
+                                                    <div class="grid grid--2-2">
+                                                        <button class="stack stack--fill pick-gm-npc">
+                                                            <p class="stack__label">NPCs</p>
+                                                        </button>
+                                                        <button class="stack stack--fill pick-gm-maps">
+                                                            <p class="stack__label">Maps</p>
+                                                        </button>
+                                                        <button class="stack stack--fill pick-gm-kingdom">
+                                                            <p class="stack__label">Kingdom</p>
+                                                        </button>
+                                                    </div>
+                                  
+                          
+                              </div>
+                            </div>
+                          <div class="slide" data-jump="options">
+                              <div class="slide__inner ">
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-gm"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit prev-slide"
+                                    
+                                  >
+                                                  <span class="btn__icon">&uarr;</span>
+                                                  <span class="btn__label">Back</span>
+                                    
+                                  </button>
+                            </div>        
+                                  <div class="tab-panes" id="gm-tab-panes">
+                                      <div class="tab-pane tab-pane--selected" id="gm-tab-pane-npc" data-set="gm" data-name="npc">
+                                          <div class="tab-pane__inner">
+                                                                        <h3>NPCs</h3>
+                                          </div>
+                                      </div>
+                                      <div class="tab-pane tab-pane--selected" id="gm-tab-pane-maps" data-set="gm" data-name="maps">
+                                          <div class="tab-pane__inner">
+                                                                        <h3>Maps</h3>
+                                              
+                                          </div>
+                                      </div>
+                                      <div class="tab-pane tab-pane--selected" id="gm-tab-pane-kingdom" data-set="gm" data-name="kingdom">
+                                          <div class="tab-pane__inner">
+                                                                        <h3>Kingdom</h3>
+                                          </div>
+                                      </div></div>        
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-gm"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit next-slide"
+                                    
+                                  >
+                                                  <span class="btn__label">Next</span>
+                                                  <span class="btn__icon">&darr;</span>
+                                    
+                                  </button>
+                            </div>
+                              </div>
+                            </div>              
+                          <div class="slide" data-jump="colours">
+                              <div class="slide__inner ">
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-gm"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit prev-slide"
+                                    
+                                  >
+                                                  <span class="btn__icon">&uarr;</span>
+                                                  <span class="btn__label">Back</span>
+                                    
+                                  </button>
+                            </div>        
+                                                  <p>Colours</p>
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-gm"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit next-slide"
+                                    
+                                  >
+                                                  <span class="btn__label">Next</span>
+                                                  <span class="btn__icon">&darr;</span>
+                                    
+                                  </button>
+                            </div>
+                              </div>
+                            </div>              
+                          <div class="slide" data-jump="download">
+                              <div class="slide__inner ">
+                                  
+                          <div class="row align_centre">
+                                  <button 
+                                    type="button"
+                                    id="slides-gm"
+                                    class="btn btn--min btn--icon-label" 
+                                    data-on-click="emit prev-slide"
+                                    
+                                  >
+                                                  <span class="btn__icon">&uarr;</span>
+                                                  <span class="btn__label">Back</span>
+                                    
+                                  </button>
+                            </div>        
+                                                  <p>Download</p>
+                                  
+                          
+                              </div>
+                            </div>    </div>
+                      </div>  </div>  </div>  </div>  </section>  </main>
+
+
+<div id="blanket"
+  data-bind="show = body.currentMenu | isSet"
+></div>
+<aside id="main-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'main-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>fr      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Connexion      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h2>Fiches de Personnages Dyslexiques</h2>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/fr/">Accueil</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/tour.html">Tour</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/news.html">News</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a href="https://discord.gg/ajVTD4N" class="btn btn--light btn--bgicon button-discord">Discord</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-patreon">Patreon</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-github">GitHub</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <button class="btn btn--light button-contact">Contactez</button>
+                    </li>
+                  </ul>
+          
+                  <h3>Construire un personnage</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/fr/build-pathfinder2.html">Pathfinder 2e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/build-starfinder.html">Starfinder</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/build-pathfinder1.html">Pathfinder 1e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/build-dnd35.html">Dungeons &amp; Dragons 3.5</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Informations</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/fr/open-source.html">Open Source</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/translating.html">Traduire</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Légale</h3>
+                  <p>Droits d'auteur &copy; Marcus Downing</p>
+                  <p>Ces fiches de personnages sont fournies sous la Licence Artistique 2.0</p>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/fr/legal.html">Info Légale</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/license.html">Artistic License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/ogl.html">Open Game License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/fr/orc.html">ORC License</a>
+                    </li>
+                  </ul>
+                </nav>
+        </div>    </div>
+  </aside><aside id="language-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'language-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>fr      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Connexion      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Language</h3>
+                  
+                  <ul class="pick-list">
+                    <li>
+                      <a class="option" href="/en/build-pathfinder2.html copy.hbs.html">
+                        <span class='badge badge--language'>en</span>
+                        <b>English</b> / 
+                        Anglais
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option option--selected" href="/fr/build-pathfinder2.html copy.hbs.html">
+                        <span class='badge badge--language'>fr</span>
+                        <b>Français</b> / 
+                        Français
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/es/build-pathfinder2.html copy.hbs.html">
+                        <span class='badge badge--language'>es</span>
+                        <b>Espagnol</b> / 
+                        Espagnol
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/de/build-pathfinder2.html copy.hbs.html">
+                        <span class='badge badge--language'>de</span>
+                        <b>Deutsch</b> / 
+                        Allemand
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/pl/build-pathfinder2.html copy.hbs.html">
+                        <span class='badge badge--language'>pl</span>
+                        <b>Polskie</b> / 
+                        Polonais
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+        </div>    </div>
+  </aside></aside>
+<script src="/script.js"></script>
+
+</body>
+</html>

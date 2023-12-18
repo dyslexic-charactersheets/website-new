@@ -1,0 +1,23 @@
+<template>
+  <div class="switch__case" data-value="{{value}}" data-show="">
+    {{> @partial-block }}
+  </div>
+</template>
+
+<script>
+
+</script>
+
+<style>
+
+.switch__case {
+  display: none;
+
+  &.switch__case[data-show="true"] {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+</style>

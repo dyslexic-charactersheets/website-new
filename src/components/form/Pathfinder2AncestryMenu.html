@@ -1,0 +1,36 @@
+<template>
+  {{#> FormSelectMenu
+    id="form-select-ancestry"
+    code="ancestry"
+    title="Ancestry"
+    select=pathfinder2.ancestry
+    show="full"
+  }}
+    <p>Foo</p>
+  {{/FormSelectMenu}}
+  {{> Data
+    id="pathfinder2.ancestry"
+    value=pathfinder2.ancestry.values
+    key="id"
+  }}
+</template>
+
+<script>
+
+on('#form-select-ancestry', 'form-select:ancestry', (evt) => {
+  let detail = evt.detail;
+  console.log('Form select: Ancestry', detail);
+  set("#build-form", "ancestry", detail);
+});
+
+definePipe('ancestryName', (value) => {
+  console.log("Ancestry name", value);
+  
+  if (window.dataArchive['pathfinder2.ancestry'].hasOwnProperty(value)) {
+    return window.dataArchive['pathfinder2.ancestry'][value].name;
+  }
+  
+  return "";
+});
+
+</script>

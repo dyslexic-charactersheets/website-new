@@ -1,17 +1,22 @@
-{{#> base title="Tour - Dyslexic Character Sheets" body-id="body-tour"}}
+{{#> Base title="Tour - Dyslexic Character Sheets" }}
 
-{{#> tour-layout }}
-{{#> left dark=true }}
+{{#> TourLayout }}
+  {{#> Left dark=true }}
+    {{#> Pane bg="red" shadow="left"}}
+      {{> MenuButtons}}
 
-<p>slides</p>
+      <p>slides</p>
 
-{{/left}}
+    {{/Pane}}
+  {{/Left}}
 
-{{#> right }}
+  {{#> Right }}
+    {{#> Pane bg="parchment"}}
 
-<h1>Tour</h1>
+      <h1>Tour</h1>
 
-{{/right}}
-{{/tour-layout}}
+    {{/Pane}}
+  {{/Right}}
+{{/TourLayout}}
 
-{{/base}}
+{{/Base}}

@@ -1,0 +1,24 @@
+@use 'responsive';
+@use 'layout';
+
+.main--layout_home {
+  @include responsive.large {
+    @include layout.h-layout;
+
+    #left {
+      flex: 1 1 35vw;
+    }
+
+    #right {
+        flex: 1 1 65vw;
+    }
+  }
+
+  @include responsive.small-medium {
+    @include layout.v-layout;
+    
+    section {
+        flex: 1 1 auto;
+    }
+  }
+}

@@ -2,65 +2,11 @@
 @use 'layout';
 @use 'responsive';
 
-body#body-home {
-    main {
-        #left {
-            @include responsive.parchment-background;
-        }
-
-        #right {
-            @include responsive.red-leather-background;
-        }
-    }
-
-    @include responsive.large {
-        main {
-            @include layout.h-layout;
-        }
-
-        #left {
-            flex: 1 1 35vw;
-            .section__inner {
-                padding: 0.5rem;
-            }
-        }
-
-        #right {
-            flex: 1 1 65vw;
-            @include responsive.right-pane-shadow;
-        }
-        .section__inner {
-            @include layout.v-center;
-        }
-    }
-
-    @include responsive.small-medium {
-        main {
-            @include layout.v-layout;
-        }
-        section {
-            flex: 1 1 auto;
-        }
-        #left {
-            .section__inner {
-                padding: 0.5rem;
-            }
-        }
-        #right {
-            @include responsive.lower-pane-shadow;
-        }
-        .section__inner {
-            @include layout.v-center;
-        }
-    }
-}
-
-
 .hero {
     $imgsize: 3rem;
     $imgoffset: 4rem;
 
-    width: 20rem;
+    width: 24rem;
     padding-left: $imgoffset;
     margin-left: auto;
     margin-right: auto;
@@ -75,8 +21,4 @@ body#body-home {
             width: $imgsize;
         }
     }
-            
-    // .btn--light {
-    //     background: rgba(255,255,255,0.5);
-    // }
 }

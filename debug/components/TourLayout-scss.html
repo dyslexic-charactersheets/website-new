@@ -1,0 +1,24 @@
+@use 'responsive';
+@use 'layout';
+
+.main--layout_tour {
+  @include responsive.medium-large {
+    @include layout.h-layout;
+
+    #left {
+      flex: 5 1 auto;
+    }
+
+    #right {
+      flex: 1 0 10rem;
+    }
+  }
+
+  @include responsive.small {
+    @include layout.v-layout;
+    
+    section {
+        flex: 1 1 auto;
+    }
+  }
+}
