@@ -11,7 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 </head>
 
-<body id="body" data-current-menu="">
+<body id="body" data-current-menu="" data-language="{{lang}}">
 
 {{> @partial-block }}
 
@@ -20,7 +20,9 @@
 ></div>
 {{> MainMenu }}
 {{> LanguageMenu }}
+<!-- Login menu goes here -->
 {{> LoginMenu }}
+{{> ContactMenu }}
 
 <script src="/script.js"></script>
 

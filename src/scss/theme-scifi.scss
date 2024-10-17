@@ -2,90 +2,123 @@
 @use 'fonts';
 @use 'build';
 
+@mixin glow-border {
+  @include glow-border-only;
+  background-color: colours.$scifi-raised;
+  color: colours.$scifi-text;
+}
+
+@mixin glow-border-only {
+  border: 1px solid colours.$scifi-edge;
+  box-shadow: 0 0 0.3rem 0.1rem colours.$scifi-glow, inset 0 0 0.3rem 0.1rem colours.$scifi-glow;
+}
+
 .main--theme_scifi {
-    nav.nav--milestones {
-        button.nav--milestones__milestone {
-            &:after {
-                content: "🞫";
-                color: white;
-            }
-            span {
-                @include fonts.scifi;
-                line-height: 0.8rem;
-            }
+  nav.nav--milestones {
+    button.nav--milestones__milestone {
+      &:after {
+        content: "🞫";
+        color: white;
+      }
+      span {
+        @include fonts.scifi;
+        line-height: 0.8rem;
+      }
 
-            &:nth-of-type(1), &:nth-of-type(7) {
-                + .arrow {
-                    background-image: url(/images/scifi-milestone-arrow1.png);
-                }
-            }
-            &:nth-of-type(2), &:nth-of-type(8) {
-                + .arrow {
-                    background-image: url(/images/scifi-milestone-arrow2.png);
-                }
-            }
-            &:nth-of-type(3), &:nth-of-type(9) {
-                + .arrow {
-                    background-image: url(/images/scifi-milestone-arrow3.png);
-                }
-            }
-            &:nth-of-type(4), &:nth-of-type(10) {
-                + .arrow {
-                    background-image: url(/images/scifi-milestone-arrow4.png);
-                }
-            }
-            &:nth-of-type(5), &:nth-of-type(11) {
-                + .arrow {
-                    background-image: url(/images/scifi-milestone-arrow5.png);
-                }
-            }
-            &:nth-of-type(6), &:nth-of-type(12) {
-                + .arrow {
-                    background-image: url(/images/scifi-milestone-arrow6.png);
-                }
-            }
-            &[data-pick="true"] {
-                &:after {
-                    color: colours.$scifi-milestone;
-                }
-                span {
-                    color: colours.$scifi-milestone;
-                    border-bottom-color: colours.$scifi-milestone;
-                }
-            }
+      &:nth-of-type(1), &:nth-of-type(7) {
+        + .arrow {
+          background-image: url(/images/scifi-milestone-arrow1.png);
         }
+      }
+      &:nth-of-type(2), &:nth-of-type(8) {
+        + .arrow {
+          background-image: url(/images/scifi-milestone-arrow2.png);
+        }
+      }
+      &:nth-of-type(3), &:nth-of-type(9) {
+        + .arrow {
+          background-image: url(/images/scifi-milestone-arrow3.png);
+        }
+      }
+      &:nth-of-type(4), &:nth-of-type(10) {
+        + .arrow {
+          background-image: url(/images/scifi-milestone-arrow4.png);
+        }
+      }
+      &:nth-of-type(5), &:nth-of-type(11) {
+        + .arrow {
+          background-image: url(/images/scifi-milestone-arrow5.png);
+        }
+      }
+      &:nth-of-type(6), &:nth-of-type(12) {
+        + .arrow {
+          background-image: url(/images/scifi-milestone-arrow6.png);
+        }
+      }
+      &[data-pick="true"] {
+        &:after {
+          color: colours.$scifi-milestone;
+        }
+        span {
+          color: colours.$scifi-milestone;
+          border-bottom-color: colours.$scifi-milestone;
+        }
+      }
+    }
+  }
+
+  #right {
+    border-left: 1px solid colours.$scifi-glow;
+  }
+
+  .btn.btn--tile {
+    @include glow-border;
+
+    h3 {
+      @include fonts.scifi;
     }
 
-    .stack {
-        border: 1px solid colours.$scifi-edge;
-        background-color: colours.$scifi-raised;
-        box-shadow: 0 0 0.3rem 0.1rem colours.$scifi-glow, inset 0 0 0.3rem 0.1rem colours.$scifi-glow;
-        color: colours.$scifi-text;
-        .stack__label {
-            @include fonts.scifi;
-        }
+    &.pick-gm-npc {
+      background-image: url(/images/pick-gm-npc-scifi.jpg);
     }
 
-    #right {
-        border-left: 1px solid colours.$scifi-glow;
+    &.pick-gm-campaign {
+      background-image: url(/images/pick-gm-campaign-scifi.jpg);
     }
-    
 
-    .stack {
-        &.pick-gm-npc {
-            background-image: url(/images/pick-gm-npc-scifi.jpg);
-        }
-
-        &.pick-gm-campaign {
-            background-image: url(/images/pick-gm-campaign-scifi.jpg);
-        }
-
-        &.pick-gm-maps {
-            background-image: url(/images/pick-gm-maps-scifi.jpg);
-        }
-
-        &.pick-gm-kingdom {
-            background-image: url(/images/pick-gm-kingdom-scifi.jpg);
-        }
+    &.pick-gm-maps {
+      background-image: url(/images/pick-gm-maps-scifi.jpg);
     }
+
+    &.pick-gm-kingdom {
+      background-image: url(/images/pick-gm-kingdom-scifi.jpg);
+    }
+  }
+
+  .btn.btn--primary {
+    @include glow-border;
+    @include fonts.scifi;
+  }
+
+  .image-drop {
+    @include glow-border-only;
+  }
+
+  input, select {
+    @include glow-border;
+  }
+
+  .colour-grid {
+    @include glow-border-only;
+    background-color: rgba(215, 240, 255, 0.6);
+    border-radius: 5px;
+    padding: 0.4rem 1.2rem;
+
+    label {
+      background: rgba(255,255,255,0.3);
+      border-radius: 0.3rem;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+      padding: 1px 0;
+    }
+  }
 }

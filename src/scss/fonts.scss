@@ -89,6 +89,10 @@ ol {
     li + li {
         margin-top: 0.5rem;
     }
+
+    li.unnumbered {
+      list-style: none;
+    }
 }
 
 dl {

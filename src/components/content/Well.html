@@ -1,12 +1,16 @@
 <template>
-  <blockquote class="blockquote--well">
+  <blockquote class="well">
+    {{#if title}}<div class="well__title"><span>{{title}}</span></div>{{/if}}
     {{> @partial-block }}
   </blockquote>
 </template>
 
 <style>
 
-.blockquote--well {
+@use 'colours';
+@use 'fonts';
+
+.well {
   border-radius: 0.2rem;
   padding: 0.8rem 1rem;
   margin: 0.5rem 0;
@@ -20,6 +24,19 @@
   }
   > *:last-child {
     margin-bottom: 0;
+  }
+
+  .well__title {
+    margin-top: -1.4rem;
+
+    span {
+      background: colours.$parchment;
+      box-shadow: 0 1px 2px colours.$shadow;
+      border-radius: 2px;
+      padding: 1px 4px;
+
+      @include fonts.heading;
+    }
   }
 }
 

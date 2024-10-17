@@ -8,9 +8,8 @@
     <p>The character sheets are free and open source.</p>
 {{/Box}}
 
-
-<div class="columns">
-<div class="column">
+{{#> Columns}}
+{{#> Column}}
 
     <h2>What does "open source" mean?</h2>
 
@@ -23,7 +22,7 @@
     <p>This project can continue if I die, or if I lose interest and take it away, as long as a copy survives somewhere.</p>
 
     <nav class="nav--bar">
-        <a href="https://github.com/dyslexic-charactersheets/" class="btn btn--light">GitHub</a>
+        {{#> Button href="https://github.com/dyslexic-charactersheets" type="light" cls="btn--bgicon button-github"}}{{__ "GitHub"}}{{/Button}}
     </nav>
 
     <h2>What can I do with them?</h2>
@@ -39,8 +38,8 @@
 
     <p>If you make useful changes, I encourage you to give them back to the community. Send me a message with your contact details, and if I like your work I'll incorporate it into the project. Even if I don't, you can still publish it on Paizo's forums or the web for others to see.</p>
 
-</div>
-<div class="column">
+{{/Column}}
+{{#> Column}}
 
     <h2>What can't I do?</h2>
 
@@ -65,12 +64,11 @@
     <p>If you have any questions or want to get involved, you can contact me here:</p>
 
     <nav class="nav--bar">
-        <button class="btn btn--light button-contact">{{__ "Contact"}}</button>
+        {{#> Button type="light" cls="button-contact" on-click="body.currentMenu = contact-menu"}}{{__ "Contact"}}{{/Button}}
     </nav>
 
-
-</div>
-</div>
+{{/Column}}
+{{/Columns}}
 
 {{/ContentLayout}}
 

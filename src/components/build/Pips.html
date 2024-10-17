@@ -1,0 +1,39 @@
+<template>
+  <div 
+    class="pips" 
+    data-for="{{for}}"
+    {{#if var}}
+    data-bind="current={{var}}"
+    {{/if}}
+  >
+    {{#times num}}
+      <span class="pip" data-pip="{{i}}"></span>
+    {{/times}}
+  </div>
+</template>
+
+<style>
+@use 'colours';
+
+.pips {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
+
+  .pip {
+    opacity: 60%;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 8px 8px colours.$shade;
+  }
+}
+</style>
+
+<script>
+
+</script>

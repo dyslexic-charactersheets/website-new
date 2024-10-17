@@ -1,4 +1,5 @@
-$primary: #1030a0;
+// $primary: #1030a0;
+$primary: #7a1200;
 $primary--text: white;
 
 $light: rgba(0,0,0,0.3);
@@ -9,13 +10,17 @@ $warm-shadow: rgba(40,25,0,0.6);
 $dark-text: #404040;
 
 $off-white: rgba(255,255,255,0.8);
+$drop-zone: rgba(255,255,255,0.6);
 $shine: rgba(255,255,255,0.4);
 
 $blockquote: rgba(255,255,255,0.4);
 
 $parchment: #ddd4c0;
-$red-leather: #802010;
+$red-leather: #80101b;
+$red-leather-bg: #712022;
 $red-leather-faded: rgba(128, 32, 16, 0.5);
+$red-leather-spotlight: rgba(236, 109, 87, 0.3);
+$red-leather-shadow: rgba(69, 22, 14, 0.3);
 $blue-cloth: #1030a0;
 
 // $postit: #dcd460;
@@ -48,6 +53,7 @@ $scifi-text: #50c8ff;
 // dark area
 .dark-region {
     color: white;
+    text-shadow: 0 0.5px 1px black;
 
     h3, nav.nav--menu h3, h4 {
         border-bottom-color: $off-white;
@@ -75,4 +81,9 @@ $scifi-text: #50c8ff;
         color: white;
         border-color: white;
     }
+}
+
+.light-region {
+  color: black;
+  text-shadow: 0 0 0.5px white;
 }

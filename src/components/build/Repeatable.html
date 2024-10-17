@@ -1,0 +1,50 @@
+<template>
+  <div class="repeatable" id="{{id}}" data-visible="1">
+    {{#each (range 0 max)}}
+      <div class="repeatable__instance {{#if (eq 0 this)}}repeatable__instance--visible{{/if}}" data-instance="{{this}}">
+        {{> @partial-block number=this }}
+      </div>
+    {{/each}}
+    {{#> Button type="light" cls="repeatable__more"}}+{{/Button}}
+  </div>
+</template>
+
+<script>
+on('.repeatable__more', 'click', (evt) => {
+  let repeatable = evt.target.closest('.repeatable');
+  let visible = repeatable.dataset.visible;
+  for (let instance of repeatable.querySelectorAll('.repeatable__instance')) {
+    if (instance.dataset.instance == visible) {
+      instance.classList.add('repeatable__instance--visible');
+    }
+  }
+  repeatable.dataset.visible = 1 + parseInt(visible);
+});
+</script>
+
+<style>
+.repeatable {
+  display: block;
+  position: relative;
+
+  padding: 0.5rem 3rem 0.5rem 0;
+
+  .repeatable__instance {
+    display: none;
+    &.repeatable__instance--visible {
+      display: block;
+    }
+  }
+
+  .repeatable__more {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0;
+    width: 2.5rem !important;
+    text-align: center;
+    height: 1.5rem !important;
+    line-height: 1.5rem !important;
+    font-weight: bold;
+  }
+}
+</style>

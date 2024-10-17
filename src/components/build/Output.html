@@ -3,7 +3,7 @@
 <template>
   <output
     name="{{name}}"
-    id="{{id}}"
+    {{#if id}}id="{{id}}"{{/if}}
     class="{{#if bare}}output--bare{{/if}}"
     {{#if on-click}}data-on-click="{{on-click}}"{{/if}}
     {{#if var}}

@@ -12,26 +12,6 @@
 
 <script>
 
-// const blanket = document.getElementById('blanket');
-
-// function hideMenus() {
-//   for (let menu of document.getElementsByClassName('menu')) {
-//     menu.dataset.show = false;
-//   }
-//   blanket.dataset.show = false;
-// }
-
-// on('aside.menu', 'show-menu', (event, elem) => {
-//   hideMenus();
-//   elem.dataset.show = true;
-//   blanket.dataset.show = true;
-// });
-
-// on('aside.menu', 'close-menu', (event, elem) => {
-//   elem.dataset.show = false;
-//   blanket.dataset.show = false;
-// });
-
 on('aside.menu', 'close-menu', (event, elem) => {
   set('body', 'currentMenu', '');
 });

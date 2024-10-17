@@ -1,0 +1,43 @@
+<template>
+  {{#> Button 
+    id=(str "item-${id}" id=(slug item.id item))
+    type="tile-light"
+    on-click=(str "emit form-select,close-menu ${id}" id=item.id)
+    data=item
+  }}
+    {{{dump item}}}
+    {{{dump show}}}
+    {{#if (eq show "full")}}
+      {{> Picture src=(str "/images/options/${id}.png" id=item.id) size="tile" transparent=true}}
+
+      <h4>{{__ item.name}}</h4>
+      
+      <!-- {{#if item.badge}}
+        <span class="option__badge">{{__ item.badge}}</span>
+      {{/if}} -->
+    {{/if}}
+    {{#if (eq show "small")}}
+      <h4>{{__ item.name}}</h4>
+    {{/if}}
+  {{/Button}}
+</template>
+
+<script>
+
+</script>
+
+<style>
+
+.btn--tile-light {
+  picture {
+    img {
+      height: 16rem;
+    }
+  }
+}
+
+#item-ancestry-gnome {
+
+}
+
+</style>

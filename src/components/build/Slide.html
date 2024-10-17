@@ -1,50 +1,25 @@
 <template>
-  <div class="slide" data-jump="{{jump}}">
+  <div class="slide"
+    data-jump="{{jump}}"
+    {{#if (and (not first) vertical)}}data-show-prev-button="true"{{/if}}
+    {{#if (and (not last) show-next)}}data-show-next-button="true"{{/if}}
+  >
     <div class="slide__inner {{#if width}}width_{{width}}{{/if}}">
-        
-        {{#if (not first)}}
-          {{#> Row align="centre"}}
-            {{#> Button
-              type="min"
-              cls="btn--icon-label"
-              on-click="emit prev-slide"
-            }}
-              <span class="btn__icon">&uarr;</span>
-              <span class="btn__label">{{__ "Back"}}</span>
-            {{/Button}}
-          {{/Row}}
-        {{/if}}
-        
-        {{> @partial-block }}
-        
-        {{#if (and (not last) show-next)}}
-          {{#> Row align="centre"}}
-            {{#> Button
-              type="min"
-              cls="btn--icon-label"
-              on-click="emit next-slide"
-            }}
-              <span class="btn__label">{{__ "Next"}}</span>
-              <span class="btn__icon">&darr;</span>
-            {{/Button}}
-          {{/Row}}
-        {{/if}}
-
+      {{> @partial-block }}
+      {{#if (and (not last) show-next)}}
+        {{#> Row align="right"}}
+          {{#> Button
+            type="circle"
+            on-click="emit next-slide"
+          }}
+            <span class="btn__label">{{__ "Next"}}</span>
+            <span class="btn__icon">&darr;</span>
+          {{/Button}}
+        {{/Row}}
+      {{/if}}
     </div>
   </div>
 </template>
-
-<script>
-
-// on('button[data-action="prev"]', 'click', (event, button) => {
-//   emit(button, 'prev-slide', event);
-// });
-
-// on('button[data-action="next"]', 'click', (event, button) => {
-//   emit(button, 'next-slide', event);
-// });
-
-</script>
 
 <style>
   

@@ -1,0 +1,206 @@
+<template>
+  {{#> SideMenu
+    id=id
+    cls="colour-select-menu"
+    side="right"
+    wide=false
+  }}
+    {{#> Pane bg="parchment" nopad=true}}
+      {{#> HeaderRow}}
+        {{#> Row}}
+          {{> CloseButton }}
+          <h3>{{__ title}}</h3>
+        {{/Row}}
+      {{/HeaderRow}}
+
+      <div class="spacer"></div>
+      
+      <div class='colour-wheel' data-field="{{field}}">
+        <object data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
+        <input type='radio' name='{{id}}' value='grey' id='colour-wheel-grey' data-bind="checked = #build-form.{{field}} | eq 'grey'">
+    
+        <input type='radio' name='{{id}}' value='red' id='colour-wheel-{{id}}-red' data-bind="checked = #build-form.{{field}} | eq 'red'">
+        <input type='radio' name='{{id}}' value='orange' id='colour-wheel-{{id}}-orange' data-bind="checked = #build-form.{{field}} | eq 'orange'">
+        <input type='radio' name='{{id}}' value='gold' id='colour-wheel-{{id}}-gold' data-bind="checked = #build-form.{{field}} | eq 'gold'">
+        <input type='radio' name='{{id}}' value='lime' id='colour-wheel-{{id}}-lime' data-bind="checked = #build-form.{{field}} | eq 'lime'">
+        <input type='radio' name='{{id}}' value='green' id='colour-wheel-{{id}}-green' data-bind="checked = #build-form.{{field}} | eq 'green'">
+        <input type='radio' name='{{id}}' value='teal' id='colour-wheel-{{id}}-teal' data-bind="checked = #build-form.{{field}} | eq 'teal'">
+        <input type='radio' name='{{id}}' value='cyan' id='colour-wheel-{{id}}-cyan' data-bind="checked = #build-form.{{field}} | eq 'cyan'">
+        <input type='radio' name='{{id}}' value='azure' id='colour-wheel-{{id}}-azure' data-bind="checked = #build-form.{{field}} | eq 'azure'">
+        <input type='radio' name='{{id}}' value='blue' id='colour-wheel-{{id}}-blue' data-bind="checked = #build-form.{{field}} | eq 'blue'">
+        <input type='radio' name='{{id}}' value='indigo' id='colour-wheel-{{id}}-indigo' data-bind="checked = #build-form.{{field}} | eq 'indigo'">
+        <input type='radio' name='{{id}}' value='violet' id='colour-wheel-{{id}}-violet' data-bind="checked = #build-form.{{field}} | eq 'violet'">
+        <input type='radio' name='{{id}}' value='magenta' id='colour-wheel-{{id}}-magenta' data-bind="checked = #build-form.{{field}} | eq 'magenta'">
+    
+        <input type='radio' name='{{id}}' value='red2' id='colour-wheel-{{id}}-red2' data-bind="checked = #build-form.{{field}} | eq 'red2'">
+        <input type='radio' name='{{id}}' value='orange2' id='colour-wheel-{{id}}-orange2' data-bind="checked = #build-form.{{field}} | eq 'orange2'">
+        <input type='radio' name='{{id}}' value='gold2' id='colour-wheel-{{id}}-gold2' data-bind="checked = #build-form.{{field}} | eq 'gold2'">
+        <input type='radio' name='{{id}}' value='lime2' id='colour-wheel-{{id}}-lime2' data-bind="checked = #build-form.{{field}} | eq 'lime2'">
+        <input type='radio' name='{{id}}' value='green2' id='colour-wheel-{{id}}-green2' data-bind="checked = #build-form.{{field}} | eq 'green2'">
+        <input type='radio' name='{{id}}' value='teal2' id='colour-wheel-{{id}}-teal2' data-bind="checked = #build-form.{{field}} | eq 'teal2'">
+        <input type='radio' name='{{id}}' value='cyan2' id='colour-wheel-{{id}}-cyan2' data-bind="checked = #build-form.{{field}} | eq 'cyan2'">
+        <input type='radio' name='{{id}}' value='azure2' id='colour-wheel-{{id}}-azure2' data-bind="checked = #build-form.{{field}} | eq 'azure2'">
+        <input type='radio' name='{{id}}' value='blue2' id='colour-wheel-{{id}}-blue2' data-bind="checked = #build-form.{{field}} | eq 'blue2'">
+        <input type='radio' name='{{id}}' value='indigo2' id='colour-wheel-{{id}}-indigo2' data-bind="checked = #build-form.{{field}} | eq 'indigo2'">
+        <input type='radio' name='{{id}}' value='violet2' id='colour-wheel-{{id}}-violet2' data-bind="checked = #build-form.{{field}} | eq 'violet2'">
+        <input type='radio' name='{{id}}' value='magenta2' id='colour-wheel-{{id}}-magenta2' data-bind="checked = #build-form.{{field}} | eq 'magenta2'">
+      </div>
+
+      {{!-- {{>Output var=(str "#build-form.${field} | colourName" field=field) bare=true}} --}}
+      
+      <div class="spacer"></div>
+
+    {{/Pane}}
+  {{/SideMenu}}
+</template>
+
+<script>
+on('.colour-wheel input[type="radio"]', 'change', (evt) => {
+  let radio = evt.currentTarget;
+  let wheel = radio.closest('.colour-wheel');
+  set('#build-form', wheel.dataset.field, radio.value);
+  emit(wheel, 'close-menu');
+});
+
+function colourName(name) {
+  switch (name) {
+    case 'red': case 'red2': return __("Red");
+    case 'orange': case 'orange2': return __("Orange");
+    case 'gold': case 'gold2': return __("Gold");
+    case 'lime': case 'lime2': return __("Lime");
+    case 'green': case 'green2': return __("Green");
+    case 'teal': case 'teal2': return __("Teal");
+    case 'cyan': case 'cyan2': return __("Cyan");
+    case 'azure': case 'azure2': return __("Azure");
+    case 'blue': case 'blue2': return __("Blue");
+    case 'indigo': case 'indigo2': return __("Indigo");
+    case 'violet': case 'violet2': return __("Violet");
+    case 'magenta': case 'magenta2': return __("Magenta");
+    case 'grey': return __("Grey");
+    default: return name;
+  }
+}
+
+definePipe('colourName', (name) => {
+  return colourName(name);
+});
+</script>
+
+<style>
+.colour-wheel {
+  margin: 1rem auto;
+  position: relative;
+}
+.colour-wheel input[type=radio] {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  display: block;
+  margin: 0;
+}
+.colour-wheel input[type=radio][value=grey] {
+  top: 132px;
+  left: 132px;
+}
+.colour-wheel input[type=radio][value=red] {
+  top: 16px;
+  left: 132px;
+}
+.colour-wheel input[type=radio][value=orange] {
+  top: 32px;
+  left: 191px;
+}
+.colour-wheel input[type=radio][value=gold] {
+  top: 75px;
+  left: 232px;
+}
+.colour-wheel input[type=radio][value=lime] {
+  top: 132px;
+  left: 248px;
+}
+.colour-wheel input[type=radio][value=green] {
+  top: 191px;
+  left: 234px;
+}
+.colour-wheel input[type=radio][value=teal] {
+  top: 234px;
+  left: 191px;
+}
+.colour-wheel input[type=radio][value=cyan] {
+  top: 248px;
+  left: 132px;
+}
+.colour-wheel input[type=radio][value=azure] {
+  top: 234px;
+  left: 75px;
+}
+.colour-wheel input[type=radio][value=blue] {
+  top: 191px;
+  left: 32px;
+}
+.colour-wheel input[type=radio][value=indigo] {
+  top: 132px;
+  left: 16px;
+}
+.colour-wheel input[type=radio][value=violet] {
+  top: 75px;
+  left: 32px;
+}
+.colour-wheel input[type=radio][value=magenta] {
+  top: 32px;
+  left: 75px;
+}
+.colour-wheel input[type=radio][value=grey] {
+  top: 132px;
+  left: 132px;
+}
+
+.colour-wheel input[type=radio][value=red2] {
+  top: 58px;
+  left: 132px;
+}
+.colour-wheel input[type=radio][value=orange2] {
+  top: 68px;
+  left: 170px;
+}
+.colour-wheel input[type=radio][value=gold2] {
+  top: 95px;
+  left: 197px;
+}
+.colour-wheel input[type=radio][value=lime2] {
+  top: 132px;
+  left: 206px;
+}
+.colour-wheel input[type=radio][value=green2] {
+  top: 170px;
+  left: 197px;
+}
+.colour-wheel input[type=radio][value=teal2] {
+  top: 197px;
+  left: 170px;
+}
+.colour-wheel input[type=radio][value=cyan2] {
+  top: 206px;
+  left: 132px;
+}
+.colour-wheel input[type=radio][value=azure2] {
+  top: 196px;
+  left: 95px;
+}
+.colour-wheel input[type=radio][value=blue2] {
+  top: 171px;
+  left: 67px;
+}
+.colour-wheel input[type=radio][value=indigo2] {
+  top: 132px;
+  left: 58px;
+}
+.colour-wheel input[type=radio][value=violet2] {
+  top: 95px;
+  left: 67px;
+}
+.colour-wheel input[type=radio][value=magenta2] {
+  top: 67px;
+  left: 95px;
+}
+</style>

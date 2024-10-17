@@ -1,0 +1,75 @@
+<template>
+  {{#> SideMenu
+    id="new-character-menu"
+    side="right"
+  }}
+    {{#> Pane bg="parchment"}}
+      {{#> Row}}
+        {{> CloseButton }}
+        <h2>{{__ "New Character"}}</h2>
+      {{/Row}}
+
+      {{#> CentrePane }}
+
+        {{#> Row align="centre"}}
+          <h3 class="align-centre">{{__ "Pick a game:"}}</h3>
+        {{/Row}}
+        <p>&nbsp;</p>
+
+        {{#> TileGrid grid="1"}}
+          {{#> Button type="tile" on-click="emit reveal-pf2" badge="2e"}}
+            {{> Picture src="/images/pathfinder2e.png" size="logo"}}
+          {{/Button}}
+
+          {{#> Reveal id="pf2-edition"}}
+            {{#> Row align="centre"}}
+              {{#> Button type="primary" href="build-pathfinder2?edition=legacy"}}
+                {{__ "Legacy"}}
+              {{/Button}}
+              {{#> Button type="primary" href="build-pathfinder2?edition=remaster"}}
+                {{__ "Remaster"}}
+              {{/Button}}
+            {{/Row}}
+            
+            {{#> Row align="centre" pad=true}}
+              {{#> Button type="primary" href="build-pathfinder2?edition=both"}}
+                {{__ "Both"}}
+              {{/Button}}
+            {{/Row}}
+          {{/Reveal}}
+
+          {{#> Button type="tile" href="build-starfinder1" badge="1e"}}
+            {{> Picture src="/images/starfinder.png" size="logo"}}
+          {{/Button}}
+
+          {{#> Button type="tile" href="build-pathfinder1" badge="1e"}}
+            {{> Picture src="/images/pathfinder.png" size="logo"}}
+          {{/Button}}
+
+          {{#> Button type="tile" href="build-dnd35" badge="3.5"}}
+            {{> Picture src="/images/dnd35.png" size="logo"}}
+          {{/Button}}
+        {{/TileGrid}}
+
+      {{/CentrePane}}
+      
+    {{/Pane}}
+  {{/SideMenu}}
+</template>
+
+<script>
+
+on("#new-character-menu", "reveal-pf2", (evt) => {
+  emit("#pf2-edition", "reveal", evt);
+});
+
+</script>
+
+<style>
+
+#new-character-menu {
+  .btn--tile {
+    min-height: 6rem;
+  }
+}
+</style>

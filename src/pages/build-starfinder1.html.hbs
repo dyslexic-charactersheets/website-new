@@ -5,31 +5,22 @@
     {{#> Pane bg="starfield" shadow="left"}}
       {{> MenuButtons}}
       
-      {{#> Switch id='milestones' current='character'}}
+      {{#> Switch 
+        id='switch-milestones' 
+        current='character'
+        var="#build-form.pick | default 'character'"
+      }}
 
         {{#> SwitchCase value='character'}}
           {{> Milestones 
             id='milestones-character'
             current='start'
+            var="#slides-character.jump"
             milestones=(array 
               (item milestone="start" title="Start") 
-              (item milestone="character" title="Character")
+              (item milestone="class" title="Class")
               (item milestone="options" title="Options")
-              (item milestone="colours" title="Colours")
               (item milestone="picture" title="Picture")
-              (item milestone="download" title="Download")
-            )
-          }}
-        {{/SwitchCase}}
-
-        {{#> SwitchCase value='starship'}}
-          {{> Milestones 
-            id='milestones-starship'
-            current='start'
-            milestones=(array
-              (item milestone="start" title="Start")
-              (item milestone="starship" title="Starship")
-              (item milestone="colour" title="Colours")
               (item milestone="download" title="Download")
             )
           }}
@@ -39,118 +30,48 @@
           {{> Milestones 
             id='milestones-gm'
             current='start'
+            var="#slides-character.jump"
             milestones=(array
               (item milestone="start" title="Start")
               (item milestone="gm" title="GM")
-              (item milestone="options" title="Options")
-              (item milestone="colours" title="Colours")
-              (item milestone="download" title="Download")
+              (item milestone="gm-options" title="Options")
+              (item milestone="gm-download" title="Download")
             )
           }}
         {{/SwitchCase}}
+
+        {{#> SwitchCase value='starship'}}
+          {{> Milestones 
+            id='milestones-starship'
+            current='start'
+            var="#slides-character.jump"
+            milestones=(array
+              (item milestone="start" title="Start")
+              (item milestone="starship-download" title="Download Starship")
+            )
+          }}
+        {{/SwitchCase}}
+
+        {{#> SwitchCase value='mini'}}
+          {{> Milestones
+            id="milestones-mini"
+            current="start"
+            var="#slides-character.jump"
+            milestones=(array
+              (item milestone="start" title="Start")
+              (item milestone="mini" title="Map Figure")
+              (item milestone="mini-download" title="Download")
+            )
+          }}
+        {{/SwitchCase}}
+
       {{/Switch}}
     {{/Pane}}
   {{/Left}}
 
   {{#> Right dark=true }}
     {{#> Pane bg="scifi"}}
-      {{#> Slideshow 
-        vertical=true 
-        id='slides-character'
-        slides=(array
-          "start"
-          "character"
-          "colours"
-          "download"
-        )  
-      }}
-        {{#> Slide milestone="start" slide=0 first=true }}
-            <img src="/images/starfinder.png" class="place">
-            <div class="row">
-                <button class="stack pick-single">
-                    <img src="/images/starfinder-single.png" class="stack__stack">
-                    <p class="stack__label">{{__ "Character"}}</p>
-                </button>
-                <button class="stack pick-starship">
-                    <img src="/images/starfinder-ship.png" class="stack__stack">
-                    <p class="stack__label">{{__ "Starship"}}</p>
-                </button>
-                <button class="stack pick-gm">
-                    <img src="/images/starfinder-gm.png" class="stack__stack">
-                    <p class="stack__label">{{__ "GM"}}</p>
-                </button>
-            </div>
-        {{/Slide}}
-
-        {{#> Slide milestone="character" slide=1 show-next=true }}
-            <h4>{{__ "Character"}}</h4>
-            {{!-- ... --}}
-        {{/Slide}}
-
-        {{!-- ... --}}
-      {{/Slideshow}}
-      
-      {{#> Slideshow
-        vertical=true 
-        id='slides-gm' 
-        current='start'
-        slides=(array
-          "start"
-          "character"
-          "colours"
-          "download"
-        )  
-      }}
-        {{#> Slide milestone="start" slide=0 first=true }}
-            <img src="/images/starfinder.png" class="place">
-            <div class="row">
-                <button class="stack pick-single">
-                    <img src="/images/starfinder-single.png" class="stack__stack">
-                    <p class="stack__label">{{__ "Character"}}</p>
-                </button>
-                <button class="stack pick-starship">
-                    <img src="/images/starfinder-ship.png" class="stack__stack">
-                    <p class="stack__label">{{__ "Starship"}}</p>
-                </button>
-                <button class="stack pick-gm">
-                    <img src="/images/starfinder-gm.png" class="stack__stack">
-                    <p class="stack__label">{{__ "GM"}}</p>
-                </button>
-            </div>
-        {{/Slide}}
-        
-        {{#> Slide milestone="gm" slide=1 }}
-            <div class="grid grid--2-2">
-                <button class="stack stack--fill pick-gm-npc">
-                    <p class="stack__label">{{__ "NPCs"}}</p>
-                </button>
-                <button class="stack stack--fill pick-gm-maps">
-                    <p class="stack__label">{{__ "Maps"}}</p>
-                </button>
-                <button class="stack stack--fill pick-gm-kingdom">
-                    <p class="stack__label">{{__ "Kingdom"}}</p>
-                </button>
-            </div>
-        {{/Slide}}
-
-        {{#> Slide milestone="options" slide=2 show-next=true }}
-            {{#> tab-panes set='gm'}}
-                {{#> tab-pane set='gm' name='npc' pane-selected=true}}
-                    <h3>{{__ "NPCs"}}</h3>
-                {{/tab-pane}}
-
-                {{#> tab-pane set='gm' name='maps' pane-selected=true}}
-                    <h3>{{__ "Maps"}}</h3>
-
-                {{/tab-pane}}
-
-                {{#> tab-pane set='gm' name='kingdom' pane-selected=true}}
-                    <h3>{{__ "Kingdom"}}</h3>
-                {{/tab-pane}}
-            {{/tab-panes}}
-        {{/Slide}}
-      
-      {{/Slideshow}}
+      {{> BuildFormClassic game="starfinder" gameData=starfinder1 }}
     {{/Pane}}
   {{/Right}}
 {{/BuildLayout}}

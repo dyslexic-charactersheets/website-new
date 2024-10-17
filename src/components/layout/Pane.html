@@ -1,6 +1,12 @@
 <template>
   <div class="pane pane--bg_{{bg}} {{#if shadow}}pane--shadow_{{shadow}}{{/if}} {{#if (isDark bg)}}dark-region{{else}}light-region{{/if}} {{#if nopad}}pane--nopad{{/if}}">
+    {{#if spotlight}}
+      <div class="pane__inner pane__inner--spotlight">
+    {{/if}}
     {{> @partial-block }}
+    {{#if spotlight}}
+      </div>
+    {{/if}}
   </div>
 </template>
 
@@ -24,6 +30,15 @@
     }
 }
 
+@mixin spotlight($light: rgba(255,255,255,0.1), $dark: rgba(0,0,0,0.2)) {
+  /* $light: rgba(255,255,255,0.1);
+  $dark: rgba(0,0,0,0.2); */
+  background:
+    linear-gradient(to bottom right, transparent 50%, $dark),
+    linear-gradient(to bottom left, transparent 50%, $dark),
+    radial-gradient(ellipse at top, $light, transparent);
+}
+
 .pane {
   flex: 1 1 auto;
   display: flex;
@@ -45,6 +60,9 @@
 
   &.pane--bg_red {
     @include background(colours.$red-leather, 'red-leather');
+    > .pane__inner.pane__inner--spotlight {
+      @include spotlight(colours.$red-leather-spotlight, colours.$red-leather-shadow);
+    }
   }
 
   &.pane--bg_parchment {
@@ -78,6 +96,16 @@
     box-shadow: inset 0 0.2rem 0.2rem rgba(0,0,0,0.3);
   }
 
+  /* Inner */
+  > .pane__inner {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
+    &.pane__inner--spotlight {
+      @include spotlight;
+    }
+  }
 }
 
 </style>

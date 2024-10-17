@@ -1,0 +1,35 @@
+<template>
+  {{> FormSelectMenu
+    id="form-select-background"
+    code="background"
+    title="Background"
+    select=pathfinder2.background
+    show="small"
+  }}
+  {{> Data
+    id="pathfinder2.background"
+    value=pathfinder2.background.values
+    key="id"
+  }}
+</template>
+
+<script>
+
+  on('#form-select-background', 'form-select:background', (evt) => {
+    let detail = evt.detail;
+    console.log('Form select: Background', detail);
+    set("#build-form", "background", detail);
+  });
+  
+  definePipe('backgroundName', (value) => {
+    console.log("Background name", value);
+    
+    if (window.dataArchive['pathfinder2.background'].hasOwnProperty(value)) {
+      return window.dataArchive['pathfinder2.background'][value].name;
+    }
+    
+    return "";
+  });
+  
+  </script>
+  

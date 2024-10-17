@@ -1,4 +1,5 @@
 <template>
+  <!-- This is the login menu -->
   {{#> SideMenu
     id="login-menu"
     side="left"
@@ -9,7 +10,7 @@
       <nav class="nav--menu">
         <h3>{{__ "Login"}}</h3>
 
-        <p>Patrons get the ability to edit all the fields, have calculations work automatically, and save character sheets. Login with Patreon to unlock these features:</p>
+        <p>Login with Patreon to get access to patron-only features.</p>
 
         <p>
           <a class="btn btn--light btn--bgicon button-patreon" href="https://www.patreon.com/oauth2/authorize?response_type=code&amp;client_id=0oURl0qZgYq8jpkZ0rl5KCfzpYb_Uki2bLfDwzlaVrFRr1QM7IrtNUt19eaulVgM&amp;redirect_uri=https%3A%2F%2Fwww.dyslexic-charactersheets.com%2Fauth%2Fpatreon-redirect">Login with Patreon</a>
@@ -19,6 +20,8 @@
 
         <h3>{{__ "Become a patron"}}</h3>
 
+        <p>Patrons get the ability to edit all the fields, have calculations work automatically, and save character sheets. Login with Patreon to unlock these features:</p>
+
         <p>Support the site and gain access to extra features for just $1 by becoming a patron.</p>
 
         <p>
@@ -27,4 +30,4 @@
       </nav>
     {{/Pane}}
   {{/SideMenu}}
-</aside>
+</template>

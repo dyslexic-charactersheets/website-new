@@ -1,0 +1,18 @@
+<template>
+  <p><label for="{{name}}">
+    <input type='checkbox' name='{{name}}' id='{{name}}'
+      data-bind="checked=#build-form.{{var}}"
+      data-var="{{var}}"
+    > {{__ label}}</label></label></p>
+</template>
+
+<script>
+  
+on("input[type='checkbox']", "change", (evt) => {
+  let checkbox = evt.target;
+  if (checkbox.dataset.var) {
+    set("#build-form", checkbox.dataset.var, checkbox.checked);
+  }
+});
+
+</script>

@@ -4,9 +4,8 @@
     id="{{id}}"
     {{#if var}}
     data-bind="current={{var}}"
-    {{else}}
-    data-current="{{default current 'start'}}"
     {{/if}}
+    data-current="{{default current 'start'}}"
   >
     <div class="spacer spacer--min"></div>
     <div class="nav__inner">
@@ -17,6 +16,9 @@
           data-bind="pick = #{{../id}}.current | eq '{{milestone}}'"
           {{#if ../var}}
           data-on-click="{{../var}}={{milestone}}"
+          {{/if}}
+          {{#if (eq milestone (default ../current 'start'))}}
+          data-pick="true"
           {{/if}}
         > 
           <span>{{__ title}}</span>
@@ -32,6 +34,7 @@
 @use 'colours';
 @use 'fonts';
 @use 'build';
+@use 'responsive';
 
 nav.nav--milestones {
   flex: 2 1 auto;
@@ -157,6 +160,36 @@ nav.nav--milestones {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+  }
+
+  @include responsive.small {
+    /* flex-direction: row; */
+    .nav__inner {
+      flex-direction: row;
+      padding-bottom: 2rem;
+      padding-right: 4rem;
+    }
+    
+    button.nav--milestones__milestone {
+      position: relative;
+      margin-left: 0.5rem !important;
+      margin-right: 0.5rem !important;
+
+      > span {
+        position: absolute;
+        left: 1rem;
+        top: 2rem;
+        margin-left: 0rem !important;
+        margin-right: 0rem !important;
+      }
+
+      + .arrow {
+        width: 4rem;
+        height: 1rem;
+        margin-left: 0rem !important;
+        margin-right: 0rem !important;
+      }
+    }
   }
 }
 

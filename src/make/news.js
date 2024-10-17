@@ -21,6 +21,14 @@ for (let article of news) {
     if (article.file) {
         article.fileURL = '/files/'+article.file
     }
+
+    // short version for the home page
+    let body = article.body.split('\n', 1)[0];
+    if (body.length > 200) {
+      body = body.substr(0, 200);
+      body.replace(/\.$/, '')+"...";
+    }
+    article.shortText = body;
 }
 
 news.sort((a, b) => a.date > b.date ? -1 : 1);

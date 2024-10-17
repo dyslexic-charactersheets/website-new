@@ -10,13 +10,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 </head>
 
-<body id="body" data-current-menu="">
+<body id="body" data-current-menu="" data-language="es">
 
 
 <main class="main--layout_build main--theme_scifi">
     <section id="left">
         <div class="pane pane--bg_starfield pane--shadow_left dark-region ">
-                  <nav class="nav--row">
+                  <nav class="nav--row" id="home-link">
                       <a href="/es/" class="btn btn--min">
                         <img src="/images/favicon64.png">
                         Dyslexic Character Sheets
@@ -26,7 +26,7 @@
                           <button 
                         type="button"
                         
-                        class="btn " 
+                        class="btn btn--icon " 
                         data-on-click="body.currentMenu &#x3D; main-menu"
                         
                       >
@@ -36,7 +36,7 @@
                           <button 
                         type="button"
                         
-                        class="btn " 
+                        class="btn btn--light " 
                         data-on-click="body.currentMenu &#x3D; language-menu"
                         
                       >
@@ -46,7 +46,7 @@
                           <button 
                         type="button"
                         
-                        class="btn " 
+                        class="btn btn--light " 
                         data-on-click="body.currentMenu &#x3D; login-menu"
                         
                       >
@@ -58,7 +58,8 @@
                     </nav>      
             <div 
                 class="switch" 
-                id="milestones"
+                id="switch-milestones"
+                data-bind="current=#build-form.pick | default &#x27;character&#x27;"
                 data-current="character"
               >
                 
@@ -66,6 +67,7 @@
                               <nav 
                                   class="nav--milestones"
                                   id="milestones-character"
+                                  data-bind="current=#slides-character.jump"
                                   data-current="start"
                                 >
                                   <div class="spacer spacer--min"></div>
@@ -74,34 +76,32 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="start"
                                         data-bind="pick = #milestones-character.current | eq 'start'"
+                                        data-on-click="#slides-character.jump=start"
+                                        data-pick="true"
                                       > 
                                         <span>Start</span>
                                       </button>
                                       <span class="arrow"></span>
                                       <button class="nav--milestones__milestone"
-                                        data-milestone="character"
-                                        data-bind="pick = #milestones-character.current | eq 'character'"
+                                        data-milestone="class"
+                                        data-bind="pick = #milestones-character.current | eq 'class'"
+                                        data-on-click="#slides-character.jump=class"
                                       > 
-                                        <span>Character</span>
+                                        <span>Class</span>
                                       </button>
                                       <span class="arrow"></span>
                                       <button class="nav--milestones__milestone"
                                         data-milestone="options"
                                         data-bind="pick = #milestones-character.current | eq 'options'"
+                                        data-on-click="#slides-character.jump=options"
                                       > 
                                         <span>Options</span>
                                       </button>
                                       <span class="arrow"></span>
                                       <button class="nav--milestones__milestone"
-                                        data-milestone="colours"
-                                        data-bind="pick = #milestones-character.current | eq 'colours'"
-                                      > 
-                                        <span>Colours</span>
-                                      </button>
-                                      <span class="arrow"></span>
-                                      <button class="nav--milestones__milestone"
                                         data-milestone="picture"
                                         data-bind="pick = #milestones-character.current | eq 'picture'"
+                                        data-on-click="#slides-character.jump=picture"
                                       > 
                                         <span>Picture</span>
                                       </button>
@@ -109,45 +109,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="download"
                                         data-bind="pick = #milestones-character.current | eq 'download'"
-                                      > 
-                                        <span>Download</span>
-                                      </button>
-                                  </div>
-                                  <div class="spacer spacer--min"></div>
-                                </nav>  </div>
-                <div class="switch__case" data-value="starship" data-show="">
-                              <nav 
-                                  class="nav--milestones"
-                                  id="milestones-starship"
-                                  data-current="start"
-                                >
-                                  <div class="spacer spacer--min"></div>
-                                  <div class="nav__inner">
-                                      
-                                      <button class="nav--milestones__milestone"
-                                        data-milestone="start"
-                                        data-bind="pick = #milestones-starship.current | eq 'start'"
-                                      > 
-                                        <span>Start</span>
-                                      </button>
-                                      <span class="arrow"></span>
-                                      <button class="nav--milestones__milestone"
-                                        data-milestone="starship"
-                                        data-bind="pick = #milestones-starship.current | eq 'starship'"
-                                      > 
-                                        <span>Starship</span>
-                                      </button>
-                                      <span class="arrow"></span>
-                                      <button class="nav--milestones__milestone"
-                                        data-milestone="colour"
-                                        data-bind="pick = #milestones-starship.current | eq 'colour'"
-                                      > 
-                                        <span>Colours</span>
-                                      </button>
-                                      <span class="arrow"></span>
-                                      <button class="nav--milestones__milestone"
-                                        data-milestone="download"
-                                        data-bind="pick = #milestones-starship.current | eq 'download'"
+                                        data-on-click="#slides-character.jump=download"
                                       > 
                                         <span>Download</span>
                                       </button>
@@ -158,6 +120,7 @@
                               <nav 
                                   class="nav--milestones"
                                   id="milestones-gm"
+                                  data-bind="current=#slides-character.jump"
                                   data-current="start"
                                 >
                                   <div class="spacer spacer--min"></div>
@@ -166,6 +129,8 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="start"
                                         data-bind="pick = #milestones-gm.current | eq 'start'"
+                                        data-on-click="#slides-character.jump=start"
+                                        data-pick="true"
                                       > 
                                         <span>Start</span>
                                       </button>
@@ -173,211 +138,1467 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="gm"
                                         data-bind="pick = #milestones-gm.current | eq 'gm'"
+                                        data-on-click="#slides-character.jump=gm"
                                       > 
                                         <span>GM</span>
                                       </button>
                                       <span class="arrow"></span>
                                       <button class="nav--milestones__milestone"
-                                        data-milestone="options"
-                                        data-bind="pick = #milestones-gm.current | eq 'options'"
+                                        data-milestone="gm-options"
+                                        data-bind="pick = #milestones-gm.current | eq 'gm-options'"
+                                        data-on-click="#slides-character.jump=gm-options"
                                       > 
                                         <span>Options</span>
                                       </button>
                                       <span class="arrow"></span>
                                       <button class="nav--milestones__milestone"
-                                        data-milestone="colours"
-                                        data-bind="pick = #milestones-gm.current | eq 'colours'"
-                                      > 
-                                        <span>Colours</span>
-                                      </button>
-                                      <span class="arrow"></span>
-                                      <button class="nav--milestones__milestone"
-                                        data-milestone="download"
-                                        data-bind="pick = #milestones-gm.current | eq 'download'"
+                                        data-milestone="gm-download"
+                                        data-bind="pick = #milestones-gm.current | eq 'gm-download'"
+                                        data-on-click="#slides-character.jump=gm-download"
                                       > 
                                         <span>Download</span>
                                       </button>
                                   </div>
                                   <div class="spacer spacer--min"></div>
-                                </nav>  </div>  </div>  </div>  </section>
+                                </nav>  </div>
+                <div class="switch__case" data-value="starship" data-show="">
+                              <nav 
+                                  class="nav--milestones"
+                                  id="milestones-starship"
+                                  data-bind="current=#slides-character.jump"
+                                  data-current="start"
+                                >
+                                  <div class="spacer spacer--min"></div>
+                                  <div class="nav__inner">
+                                      
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="start"
+                                        data-bind="pick = #milestones-starship.current | eq 'start'"
+                                        data-on-click="#slides-character.jump=start"
+                                        data-pick="true"
+                                      > 
+                                        <span>Start</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="starship-download"
+                                        data-bind="pick = #milestones-starship.current | eq 'starship-download'"
+                                        data-on-click="#slides-character.jump=starship-download"
+                                      > 
+                                        <span>Download Starship</span>
+                                      </button>
+                                  </div>
+                                  <div class="spacer spacer--min"></div>
+                                </nav>  </div>
+                <div class="switch__case" data-value="mini" data-show="">
+                              <nav 
+                                  class="nav--milestones"
+                                  id="milestones-mini"
+                                  data-bind="current=#slides-character.jump"
+                                  data-current="start"
+                                >
+                                  <div class="spacer spacer--min"></div>
+                                  <div class="nav__inner">
+                                      
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="start"
+                                        data-bind="pick = #milestones-mini.current | eq 'start'"
+                                        data-on-click="#slides-character.jump=start"
+                                        data-pick="true"
+                                      > 
+                                        <span>Start</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="mini"
+                                        data-bind="pick = #milestones-mini.current | eq 'mini'"
+                                        data-on-click="#slides-character.jump=mini"
+                                      > 
+                                        <span>Map Figure</span>
+                                      </button>
+                                      <span class="arrow"></span>
+                                      <button class="nav--milestones__milestone"
+                                        data-milestone="mini-download"
+                                        data-bind="pick = #milestones-mini.current | eq 'mini-download'"
+                                        data-on-click="#slides-character.jump=mini-download"
+                                      > 
+                                        <span>Download</span>
+                                      </button>
+                                  </div>
+                                  <div class="spacer spacer--min"></div>
+                                </nav>  </div>
+              </div>  </div>  </section>
     <section id="right">
         <div class="pane pane--bg_scifi  dark-region ">
-            <div 
-                class="slideshow slideshow--v" 
-                id="slides-character" 
-                data-jump="start" 
-                data-slides="[&quot;start&quot;,&quot;character&quot;,&quot;colours&quot;,&quot;download&quot;]"
-              >
-                <div class="slideshow__dolly">
-                  <div class="slide" data-jump="">
-                      <div class="slide__inner ">
-                          
-                          
-                                      <img src="/images/starfinder.png" class="place">
-                                      <div class="row">
-                                          <button class="stack pick-single">
-                                              <img src="/images/starfinder-single.png" class="stack__stack">
-                                              <p class="stack__label">Character</p>
-                                          </button>
-                                          <button class="stack pick-starship">
-                                              <img src="/images/starfinder-ship.png" class="stack__stack">
-                                              <p class="stack__label">Starship</p>
-                                          </button>
-                                          <button class="stack pick-gm">
-                                              <img src="/images/starfinder-gm.png" class="stack__stack">
-                                              <p class="stack__label">GM</p>
-                                          </button>
-                                      </div>
-                          
-                  
-                      </div>
-                    </div>
-                  <div class="slide" data-jump="">
-                      <div class="slide__inner ">
-                          
-                  <div class="row align_centre">
-                          <button 
-                            type="button"
-                            id="slides-character"
-                            class="btn btn--min btn--icon-label" 
-                            data-on-click="emit prev-slide"
+                  <form 
+                      id="build-form"
+                      class="build-form build-form-classic build-form-starfinder"
+                      data-game="starfinder"
+                    >
+                      <div class="slideshow-buttons"
+                          data-for="slides-character"
+                        >
+                      <div class="row align_centre">
+                              <button 
+                                type="button"
+                                
+                                class="btn btn--icon-label " 
+                                data-on-click="emit prev-slide"
+                                  data-bind="disabled=#slides-character.showPrevButton | not"
+                                
+                              >
+                                        <span class="btn__icon">&uarr;</span>
+                                        <span class="btn__label">Back</span>
+                                
+                              </button>
+                        </div>    
+                      <div class="row align_centre">
+                              <button 
+                                type="button"
+                                
+                                class="btn btn--icon-label " 
+                                data-on-click="emit next-slide"
+                                  data-bind="disabled=#slides-character.showNextButton | not"
+                                
+                              >
+                                        <span class="btn__label">Next</span>
+                                        <span class="btn__icon">&darr;</span>
+                                
+                              </button>
+                        </div>  </div>
+                  <div 
+                      class="slideshow
+                        slideshow--v
+                        
+                        "
+                      id="slides-character" 
+                      data-jump="start"
+                    >
+                      <div class="slideshow__dolly">
+                        
+                        <div class="slide"
+                            data-jump="start"
+                            
                             
                           >
-                                          <span class="btn__icon">&uarr;</span>
-                                          <span class="btn__label">Back</span>
-                            
-                          </button>
-                    </div>        
-                                      <h4>Character</h4>
-                          
-                  <div class="row align_centre">
-                          <button 
-                            type="button"
-                            id="slides-character"
-                            class="btn btn--min btn--icon-label" 
-                            data-on-click="emit next-slide"
-                            
+                            <div class="slide__inner ">
+                              <div class="row align_centre">
+                                                <picture class="picture--size_logo ">
+                                                    <img src="/images/starfinder.png">
+                                                  </picture>  </div>
+                              <div class="row pad">
+                                              <div class="spacer"></div>            <p>
+                                                Language:
+                                      <button 
+                                        type="button"
+                                        id="slides-character"
+                                        class="btn " 
+                                        data-on-click="body.currentMenu &#x3D; language-menu"
+                                        
+                                      >
+                                                        <i class="icon icon_globe"></i>Espagnol
+                                        
+                                      </button>
+                                              </p>
+                                </div>          
+                              <div class="grid grid--2-2">
+                                              
+                                      <button 
+                                        type="button"
+                                        id="slides-character"
+                                        class="btn btn--tile " 
+                                        data-on-click="#switch-milestones.current&#x3D;character; #switch-character.current&#x3D;character; #slides-character.jump&#x3D;class"
+                                        
+                                      >
+                                                        <picture class="picture--size_tile ">
+                                                            <img src="/images/starfinder-single.png">
+                                                          </picture>              <h3>Character</h3>
+                                        
+                                      </button>
+                                  
+                                      <button 
+                                        type="button"
+                                        id="slides-character"
+                                        class="btn btn--tile " 
+                                        data-on-click="#switch-milestones.current&#x3D;gm; #switch-character.current&#x3D;gm; #slides-character.jump&#x3D;gm"
+                                        
+                                      >
+                                                        <picture class="picture--size_tile ">
+                                                            <img src="/images/starfinder-gm.png">
+                                                          </picture>              <h3>GM</h3>
+                                        
+                                      </button>
+                                  
+                                  
+                                      <button 
+                                        type="button"
+                                        id="slides-character"
+                                        class="btn btn--tile " 
+                                        data-on-click="#switch-milestones.current&#x3D;starship; #switch-character.current&#x3D;starship; #slides-character.jump&#x3D;starship-download"
+                                        
+                                      >
+                                                        <h3>Starship</h3>
+                                        
+                                      </button>
+                                  
+                                      <button 
+                                        type="button"
+                                        id="slides-character"
+                                        class="btn btn--tile " 
+                                        data-on-click="#switch-milestones.current&#x3D;mini; #switch-character.current&#x3D;mini; #slides-character.jump&#x3D;mini"
+                                        
+                                      >
+                                                      <h3>Map Figure</h3>
+                                        
+                                      </button>
+                                  
+                                </div>    </div>
+                          </div>
+                              
+                        
+                        <div 
+                            class="switch" 
+                            id="switch-character"
+                            data-current="start"
                           >
-                                          <span class="btn__label">Next</span>
-                                          <span class="btn__icon">&darr;</span>
-                            
-                          </button>
-                    </div>
-                      </div>
-                    </div>
-                </div>
-              </div>      
-            <div 
-                class="slideshow slideshow--v" 
-                id="slides-gm" 
-                data-jump="start" 
-                data-slides="[&quot;start&quot;,&quot;character&quot;,&quot;colours&quot;,&quot;download&quot;]"
-              >
-                <div class="slideshow__dolly">
-                  <div class="slide" data-jump="">
-                      <div class="slide__inner ">
-                          
-                          
-                                      <img src="/images/starfinder.png" class="place">
-                                      <div class="row">
-                                          <button class="stack pick-single">
-                                              <img src="/images/starfinder-single.png" class="stack__stack">
-                                              <p class="stack__label">Character</p>
-                                          </button>
-                                          <button class="stack pick-starship">
-                                              <img src="/images/starfinder-ship.png" class="stack__stack">
-                                              <p class="stack__label">Starship</p>
-                                          </button>
-                                          <button class="stack pick-gm">
-                                              <img src="/images/starfinder-gm.png" class="stack__stack">
-                                              <p class="stack__label">GM</p>
-                                          </button>
-                                      </div>
-                          
-                  
-                      </div>
-                    </div>        
-                  <div class="slide" data-jump="">
-                      <div class="slide__inner ">
-                          
-                  <div class="row align_centre">
-                          <button 
-                            type="button"
-                            id="slides-gm"
-                            class="btn btn--min btn--icon-label" 
-                            data-on-click="emit prev-slide"
-                            
-                          >
-                                          <span class="btn__icon">&uarr;</span>
-                                          <span class="btn__label">Back</span>
-                            
-                          </button>
-                    </div>        
-                                      <div class="grid grid--2-2">
-                                          <button class="stack stack--fill pick-gm-npc">
-                                              <p class="stack__label">NPCs</p>
-                                          </button>
-                                          <button class="stack stack--fill pick-gm-maps">
-                                              <p class="stack__label">Maps</p>
-                                          </button>
-                                          <button class="stack stack--fill pick-gm-kingdom">
-                                              <p class="stack__label">Kingdom</p>
-                                          </button>
-                                      </div>
-                          
-                  
-                      </div>
-                    </div>
-                  <div class="slide" data-jump="">
-                      <div class="slide__inner ">
-                          
-                  <div class="row align_centre">
-                          <button 
-                            type="button"
-                            id="slides-gm"
-                            class="btn btn--min btn--icon-label" 
-                            data-on-click="emit prev-slide"
-                            
-                          >
-                                          <span class="btn__icon">&uarr;</span>
-                                          <span class="btn__label">Back</span>
-                            
-                          </button>
-                    </div>        
-                          <div class="tab-panes" id="gm-tab-panes">
-                              <div class="tab-pane tab-pane--selected" id="gm-tab-pane-npc" data-set="gm" data-name="npc">
-                                  <div class="tab-pane__inner">
-                                                          <h3>NPCs</h3>
+                            <div class="switch__case" data-value="character" data-show="">
+                                
+                                <div class="slide"
+                                    data-jump="class"
+                                    data-show-prev-button="true"
+                                    data-show-next-button="true"
+                                  >
+                                    <div class="slide__inner ">
+                                      <div class="columns columns--n_3">
+                                          <div class="column">
+                                                                <h2>Theme</h2>
+                                            </div><div class="column">
+                                                                <h2>Class</h2>
+                                            </div><div class="column">
+                                                                <h2>Archetype</h2>
+                                            </div>  </div>            
+                                                  <div class="classlist">
+                                      <div class="columns columns--n_3">
+                                          <div class="column">
+                                                                  
+                                                                    <h3>Core Rulebook</h3>
+                                                                    <ul>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Themeless' id='class-themeless' data-class='themeless' data-classname='Themeless' />
+                                                                        <label for='class-themeless'>Themeless</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Ace Pilot' id='class-ace-pilot' data-class='ace-pilot' data-classname='Ace Pilot' />
+                                                                        <label for='class-ace-pilot'>Ace Pilot</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Bounty Hunter' id='class-bounty-hunter' data-class='bounty-hunter' data-classname='Bounty Hunter' />
+                                                                        <label for='class-bounty-hunter'>Bounty Hunter</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Icon' id='class-icon' data-class='icon' data-classname='Icon' />
+                                                                        <label for='class-icon'>Icon</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Mercenary' id='class-mercenary' data-class='mercenary' data-classname='Mercenary' />
+                                                                        <label for='class-mercenary'>Mercenary</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Outlaw' id='class-outlaw' data-class='outlaw' data-classname='Outlaw' />
+                                                                        <label for='class-outlaw'>Outlaw</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Priest' id='class-priest' data-class='priest' data-classname='Priest' />
+                                                                        <label for='class-priest'>Priest</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Scholar' id='class-scholar' data-class='scholar' data-classname='Scholar' />
+                                                                        <label for='class-scholar'>Scholar</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Spacefarer' id='class-spacefarer' data-class='spacefarer' data-classname='Spacefarer' />
+                                                                        <label for='class-spacefarer'>Spacefarer</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Xenoseeker' id='class-xenoseeker' data-class='xenoseeker' data-classname='Xenoseeker' />
+                                                                        <label for='class-xenoseeker'>Xenoseeker</label>
+                                              
+                                                                        </li>
+                                                                    </ul>
+                                                                    <h3>Pact Worlds</h3>
+                                                                    <ul>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Solar Disciple' id='class-solar-disciple' data-class='solar-disciple' data-classname='Solar Disciple' />
+                                                                        <label for='class-solar-disciple'>Solar Disciple</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Roboticist' id='class-roboticist' data-class='roboticist' data-classname='Roboticist' />
+                                                                        <label for='class-roboticist'>Roboticist</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Wild Warden' id='class-wild-warden' data-class='wild-warden' data-classname='Wild Warden' />
+                                                                        <label for='class-wild-warden'>Wild Warden</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Corporate Agent' id='class-corporate-agent' data-class='corporate-agent' data-classname='Corporate Agent' />
+                                                                        <label for='class-corporate-agent'>Corporate Agent</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Gladiator' id='class-gladiator' data-class='gladiator' data-classname='Gladiator' />
+                                                                        <label for='class-gladiator'>Gladiator</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Cyberborn' id='class-cyberborn' data-class='cyberborn' data-classname='Cyberborn' />
+                                                                        <label for='class-cyberborn'>Cyberborn</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Tempered Pilgrim' id='class-tempered-pilgrim' data-class='tempered-pilgrim' data-classname='Tempered Pilgrim' />
+                                                                        <label for='class-tempered-pilgrim'>Tempered Pilgrim</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Space Pirate' id='class-space-pirate' data-class='space-pirate' data-classname='Space Pirate' />
+                                                                        <label for='class-space-pirate'>Space Pirate</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Death-touched' id='class-death-touched' data-class='death-touched' data-classname='Death-touched' />
+                                                                        <label for='class-death-touched'>Death-touched</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Dragonblood' id='class-dragonblood' data-class='dragonblood' data-classname='Dragonblood' />
+                                                                        <label for='class-dragonblood'>Dragonblood</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Dream Prophet' id='class-dream-prophet' data-class='dream-prophet' data-classname='Dream Prophet' />
+                                                                        <label for='class-dream-prophet'>Dream Prophet</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Biotechnician' id='class-biotechnician' data-class='biotechnician' data-classname='Biotechnician' />
+                                                                        <label for='class-biotechnician'>Biotechnician</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Xenoarchaeologist' id='class-xenoarchaeologist' data-class='xenoarchaeologist' data-classname='Xenoarchaeologist' />
+                                                                        <label for='class-xenoarchaeologist'>Xenoarchaeologist</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Cultist' id='class-cultist' data-class='cultist' data-classname='Cultist' />
+                                                                        <label for='class-cultist'>Cultist</label>
+                                              
+                                                                        </li>
+                                                                    </ul>
+                                                                    <h3>Character Operations Manual</h3>
+                                                                    <ul>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Athlete' id='class-athlete' data-class='athlete' data-classname='Athlete' />
+                                                                        <label for='class-athlete'>Athlete</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Grifter' id='class-grifter' data-class='grifter' data-classname='Grifter' />
+                                                                        <label for='class-grifter'>Grifter</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Guard' id='class-guard' data-class='guard' data-classname='Guard' />
+                                                                        <label for='class-guard'>Guard</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Law Officer' id='class-law-officer' data-class='law-officer' data-classname='Law Officer' />
+                                                                        <label for='class-law-officer'>Law Officer</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Noble Scion' id='class-noble-scion' data-class='noble-scion' data-classname='Noble Scion' />
+                                                                        <label for='class-noble-scion'>Noble Scion</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Sensate' id='class-sensate' data-class='sensate' data-classname='Sensate' />
+                                                                        <label for='class-sensate'>Sensate</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='radio' name='switch-class' value='Street Rat' id='class-street-rat' data-class='street-rat' data-classname='Street Rat' />
+                                                                        <label for='class-street-rat'>Street Rat</label>
+                                              
+                                                                        </li>
+                                                                    </ul>
+                                              
+                                            </div><div class="column">
+                                                                  
+                                                                    <h3>Core Rulebook</h3>
+                                                                    <ul>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Envoy' id='class-envoy' data-class='envoy' data-classname='Envoy' />
+                                                                        <label for='class-envoy'>Envoy</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Mechanic' id='class-mechanic' data-class='mechanic' data-classname='Mechanic' />
+                                                                        <label for='class-mechanic'>Mechanic</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Mystic' id='class-mystic' data-class='mystic' data-classname='Mystic' />
+                                                                        <label for='class-mystic'>Mystic</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Operative' id='class-operative' data-class='operative' data-classname='Operative' />
+                                                                        <label for='class-operative'>Operative</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Solarian' id='class-solarian' data-class='solarian' data-classname='Solarian' />
+                                                                        <label for='class-solarian'>Solarian</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Soldier' id='class-soldier' data-class='soldier' data-classname='Soldier' />
+                                                                        <label for='class-soldier'>Soldier</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Technomancer' id='class-technomancer' data-class='technomancer' data-classname='Technomancer' />
+                                                                        <label for='class-technomancer'>Technomancer</label>
+                                              
+                                                                        </li>
+                                                                    </ul>
+                                                                    <h3>Character Operations Manual</h3>
+                                                                    <ul>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Biohacker' id='class-biohacker' data-class='biohacker' data-classname='Biohacker' />
+                                                                        <label for='class-biohacker'>Biohacker</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Vanguard' id='class-vanguard' data-class='vanguard' data-classname='Vanguard' />
+                                                                        <label for='class-vanguard'>Vanguard</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Witchwarper' id='class-witchwarper' data-class='witchwarper' data-classname='Witchwarper' />
+                                                                        <label for='class-witchwarper'>Witchwarper</label>
+                                              
+                                                                        </li>
+                                                                    </ul>
+                                              
+                                            </div><div class="column">
+                                                                  
+                                                                    <h3>Core Rulebook</h3>
+                                                                    <ul>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Arcanamirium Sage' id='class-arcanamirium-sage' data-class='arcanamirium-sage' data-classname='Arcanamirium Sage' />
+                                                                        <label for='class-arcanamirium-sage'>Arcanamirium Sage</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Augmented' id='class-augmented' data-class='augmented' data-classname='Augmented' />
+                                                                        <label for='class-augmented'>Augmented</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Divine Champion' id='class-divine-champion' data-class='divine-champion' data-classname='Divine Champion' />
+                                                                        <label for='class-divine-champion'>Divine Champion</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Phrenic Adept' id='class-phrenic-adept' data-class='phrenic-adept' data-classname='Phrenic Adept' />
+                                                                        <label for='class-phrenic-adept'>Phrenic Adept</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Skyfire Centurion' id='class-skyfire-centurion' data-class='skyfire-centurion' data-classname='Skyfire Centurion' />
+                                                                        <label for='class-skyfire-centurion'>Skyfire Centurion</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Star Knight' id='class-star-knight' data-class='star-knight' data-classname='Star Knight' />
+                                                                        <label for='class-star-knight'>Star Knight</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Starfinder Data Jockey' id='class-starfinder-data-jockey' data-class='starfinder-data-jockey' data-classname='Starfinder Data Jockey' />
+                                                                        <label for='class-starfinder-data-jockey'>Starfinder Data Jockey</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Starfinder Forerunner' id='class-starfinder-forerunner' data-class='starfinder-forerunner' data-classname='Starfinder Forerunner' />
+                                                                        <label for='class-starfinder-forerunner'>Starfinder Forerunner</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                          <input type='checkbox' name='class-Steward Officer' id='class-steward-officer' data-class='steward-officer' data-classname='Steward Officer' />
+                                                                        <label for='class-steward-officer'>Steward Officer</label>
+                                              
+                                                                        </li>
+                                                                    </ul>
+                                              
+                                            </div>  </div>            </div>
+                                <div class="row align_right">
+                                        <button 
+                                          type="button"
+                                          id="switch-character"
+                                          class="btn btn--circle " 
+                                          data-on-click="emit next-slide"
+                                          
+                                        >
+                                                      <span class="btn__label">Next</span>
+                                                      <span class="btn__icon">&darr;</span>
+                                          
+                                        </button>
+                                  </div>    </div>
                                   </div>
-                              </div>
-                              <div class="tab-pane tab-pane--selected" id="gm-tab-pane-maps" data-set="gm" data-name="maps">
-                                  <div class="tab-pane__inner">
-                                                          <h3>Maps</h3>
+                                <div class="slide"
+                                    data-jump="options"
+                                    data-show-prev-button="true"
+                                    data-show-next-button="true"
+                                  >
+                                    <div class="slide__inner ">
+                                                  <h2>Options</h2>
                                       
+                                      <div class="columns columns--n_2">
+                                          <div class="column">
+                                              
+                                                                <h3>Beginners</h3>
+                                                                  <p><label for='buildmycharacter'><input type='checkbox' name='build-my-character' id='buildmycharacter' checked> Build a character</label><p>
+                                                                  <p class='info'>A sheet to help beginners with the process of building their character.</p>
+                                              
+                                              
+                                              
+                                                              <h3>Pages</h3>
+                                                                <p><label for="spellbook-size">Spellbook style</label>
+                                                                  <select name="spellbook-size" id="spellbook-size">
+                                                                    <option value="small">Small entries</option>
+                                                                    <option value="medium" selected>Normal entries</option>
+                                                                    <option value="large">Large entries</option>
+                                                                    <option value="none">None</option>
+                                                                  </select></p>
+                                                          
+                                                                <p><label for="inventory-style">Inventory style</label>
+                                                                  <select name="inventory-style" id="inventory-style">
+                                                                      <option value="normal" selected>Normal (on the combat page)</option>
+                                                                      <option value="expanded">Expanded (separate page)</option>
+                                                                  </select></p>
+                                              
+                                                              <h3>Skills</h3>
+                                                                <p><label for="skills-style">Skills list style</label>
+                                                                    <label for="skills-list-style-normal">
+                                                                      <input type="radio" name="skills-list-style" value="normal" id="skills-list-style-normal" checked>
+                                                                      Normal</label> &nbsp; 
+                                                                    <label for="skills-list-style-blank">
+                                                                      <input type="radio" name="skills-list-style" value="blank" id="skills-list-style-blank"> 
+                                                                      Blank</label>
+                                                                </p>
+                                              
+                                              
+                                                                <table id='flexi-skills'>
+                                              
+                                              
+                                                                <tr><td><label for="show-profession"><input type="checkbox" name="show-profession" id="show-profession" /> Profession</label></td>
+                                                                  <td id='profession-group'>
+                                              <div class="repeatable" id="profession-skills" data-visible="1">
+                                                    <div class="repeatable__instance repeatable__instance--visible" data-instance="0">
+                                                                              <select name="profession-skill-0">
+                                                                                  <option value='architect'>(architect)</option>
+                                                                                  <option value='baker'>(baker)</option>
+                                                                                  <option value='barrister'>(barrister)</option>
+                                                                                  <option value='brewer'>(brewer)</option>
+                                                                                  <option value='butcher'>(butcher)</option>
+                                                                                  <option value='clerk'>(clerk)</option>
+                                                                                  <option value='cook'>(cook)</option>
+                                                                                  <option value='courtesan'>(courtesan)</option>
+                                                                                  <option value='driver'>(driver)</option>
+                                                                                  <option value='engineer'>(engineer)</option>
+                                                                                  <option value='farmer'>(farmer)</option>
+                                                                                  <option value='fisherman'>(fisherman)</option>
+                                                                                  <option value='gambler'>(gambler)</option>
+                                                                                  <option value='gardener'>(gardener)</option>
+                                                                                  <option value='herbalist'>(herbalist)</option>
+                                                                                  <option value='innkeeper'>(innkeeper)</option>
+                                                                                  <option value='librarian'>(librarian)</option>
+                                                                                  <option value='merchant'>(merchant)</option>
+                                                                                  <option value='midwife'>(midwife)</option>
+                                                                                  <option value='miller'>(miller)</option>
+                                                                                  <option value='miner'>(miner)</option>
+                                                                                  <option value='porter'>(porter)</option>
+                                                                                  <option value='sailor'>(sailor)</option>
+                                                                                  <option value='scribe'>(scribe)</option>
+                                                                                  <option value='shepherd'>(shepherd)</option>
+                                                                                  <option value='stable master'>(stable master)</option>
+                                                                                  <option value='soldier'>(soldier)</option>
+                                                                                  <option value='tanner'>(tanner)</option>
+                                                                                  <option value='trapper'>(trapper)</option>
+                                                                                  <option value='woodcutter'>(woodcutter)</option>
+                                                                              </select>
+                                                    </div>
+                                                    <div class="repeatable__instance " data-instance="1">
+                                                                              <select name="profession-skill-1">
+                                                                                  <option value='architect'>(architect)</option>
+                                                                                  <option value='baker'>(baker)</option>
+                                                                                  <option value='barrister'>(barrister)</option>
+                                                                                  <option value='brewer'>(brewer)</option>
+                                                                                  <option value='butcher'>(butcher)</option>
+                                                                                  <option value='clerk'>(clerk)</option>
+                                                                                  <option value='cook'>(cook)</option>
+                                                                                  <option value='courtesan'>(courtesan)</option>
+                                                                                  <option value='driver'>(driver)</option>
+                                                                                  <option value='engineer'>(engineer)</option>
+                                                                                  <option value='farmer'>(farmer)</option>
+                                                                                  <option value='fisherman'>(fisherman)</option>
+                                                                                  <option value='gambler'>(gambler)</option>
+                                                                                  <option value='gardener'>(gardener)</option>
+                                                                                  <option value='herbalist'>(herbalist)</option>
+                                                                                  <option value='innkeeper'>(innkeeper)</option>
+                                                                                  <option value='librarian'>(librarian)</option>
+                                                                                  <option value='merchant'>(merchant)</option>
+                                                                                  <option value='midwife'>(midwife)</option>
+                                                                                  <option value='miller'>(miller)</option>
+                                                                                  <option value='miner'>(miner)</option>
+                                                                                  <option value='porter'>(porter)</option>
+                                                                                  <option value='sailor'>(sailor)</option>
+                                                                                  <option value='scribe'>(scribe)</option>
+                                                                                  <option value='shepherd'>(shepherd)</option>
+                                                                                  <option value='stable master'>(stable master)</option>
+                                                                                  <option value='soldier'>(soldier)</option>
+                                                                                  <option value='tanner'>(tanner)</option>
+                                                                                  <option value='trapper'>(trapper)</option>
+                                                                                  <option value='woodcutter'>(woodcutter)</option>
+                                                                              </select>
+                                                    </div>
+                                                    <div class="repeatable__instance " data-instance="2">
+                                                                              <select name="profession-skill-2">
+                                                                                  <option value='architect'>(architect)</option>
+                                                                                  <option value='baker'>(baker)</option>
+                                                                                  <option value='barrister'>(barrister)</option>
+                                                                                  <option value='brewer'>(brewer)</option>
+                                                                                  <option value='butcher'>(butcher)</option>
+                                                                                  <option value='clerk'>(clerk)</option>
+                                                                                  <option value='cook'>(cook)</option>
+                                                                                  <option value='courtesan'>(courtesan)</option>
+                                                                                  <option value='driver'>(driver)</option>
+                                                                                  <option value='engineer'>(engineer)</option>
+                                                                                  <option value='farmer'>(farmer)</option>
+                                                                                  <option value='fisherman'>(fisherman)</option>
+                                                                                  <option value='gambler'>(gambler)</option>
+                                                                                  <option value='gardener'>(gardener)</option>
+                                                                                  <option value='herbalist'>(herbalist)</option>
+                                                                                  <option value='innkeeper'>(innkeeper)</option>
+                                                                                  <option value='librarian'>(librarian)</option>
+                                                                                  <option value='merchant'>(merchant)</option>
+                                                                                  <option value='midwife'>(midwife)</option>
+                                                                                  <option value='miller'>(miller)</option>
+                                                                                  <option value='miner'>(miner)</option>
+                                                                                  <option value='porter'>(porter)</option>
+                                                                                  <option value='sailor'>(sailor)</option>
+                                                                                  <option value='scribe'>(scribe)</option>
+                                                                                  <option value='shepherd'>(shepherd)</option>
+                                                                                  <option value='stable master'>(stable master)</option>
+                                                                                  <option value='soldier'>(soldier)</option>
+                                                                                  <option value='tanner'>(tanner)</option>
+                                                                                  <option value='trapper'>(trapper)</option>
+                                                                                  <option value='woodcutter'>(woodcutter)</option>
+                                                                              </select>
+                                                    </div>
+                                                    <div class="repeatable__instance " data-instance="3">
+                                                                              <select name="profession-skill-3">
+                                                                                  <option value='architect'>(architect)</option>
+                                                                                  <option value='baker'>(baker)</option>
+                                                                                  <option value='barrister'>(barrister)</option>
+                                                                                  <option value='brewer'>(brewer)</option>
+                                                                                  <option value='butcher'>(butcher)</option>
+                                                                                  <option value='clerk'>(clerk)</option>
+                                                                                  <option value='cook'>(cook)</option>
+                                                                                  <option value='courtesan'>(courtesan)</option>
+                                                                                  <option value='driver'>(driver)</option>
+                                                                                  <option value='engineer'>(engineer)</option>
+                                                                                  <option value='farmer'>(farmer)</option>
+                                                                                  <option value='fisherman'>(fisherman)</option>
+                                                                                  <option value='gambler'>(gambler)</option>
+                                                                                  <option value='gardener'>(gardener)</option>
+                                                                                  <option value='herbalist'>(herbalist)</option>
+                                                                                  <option value='innkeeper'>(innkeeper)</option>
+                                                                                  <option value='librarian'>(librarian)</option>
+                                                                                  <option value='merchant'>(merchant)</option>
+                                                                                  <option value='midwife'>(midwife)</option>
+                                                                                  <option value='miller'>(miller)</option>
+                                                                                  <option value='miner'>(miner)</option>
+                                                                                  <option value='porter'>(porter)</option>
+                                                                                  <option value='sailor'>(sailor)</option>
+                                                                                  <option value='scribe'>(scribe)</option>
+                                                                                  <option value='shepherd'>(shepherd)</option>
+                                                                                  <option value='stable master'>(stable master)</option>
+                                                                                  <option value='soldier'>(soldier)</option>
+                                                                                  <option value='tanner'>(tanner)</option>
+                                                                                  <option value='trapper'>(trapper)</option>
+                                                                                  <option value='woodcutter'>(woodcutter)</option>
+                                                                              </select>
+                                                    </div>
+                                                    <div class="repeatable__instance " data-instance="4">
+                                                                              <select name="profession-skill-4">
+                                                                                  <option value='architect'>(architect)</option>
+                                                                                  <option value='baker'>(baker)</option>
+                                                                                  <option value='barrister'>(barrister)</option>
+                                                                                  <option value='brewer'>(brewer)</option>
+                                                                                  <option value='butcher'>(butcher)</option>
+                                                                                  <option value='clerk'>(clerk)</option>
+                                                                                  <option value='cook'>(cook)</option>
+                                                                                  <option value='courtesan'>(courtesan)</option>
+                                                                                  <option value='driver'>(driver)</option>
+                                                                                  <option value='engineer'>(engineer)</option>
+                                                                                  <option value='farmer'>(farmer)</option>
+                                                                                  <option value='fisherman'>(fisherman)</option>
+                                                                                  <option value='gambler'>(gambler)</option>
+                                                                                  <option value='gardener'>(gardener)</option>
+                                                                                  <option value='herbalist'>(herbalist)</option>
+                                                                                  <option value='innkeeper'>(innkeeper)</option>
+                                                                                  <option value='librarian'>(librarian)</option>
+                                                                                  <option value='merchant'>(merchant)</option>
+                                                                                  <option value='midwife'>(midwife)</option>
+                                                                                  <option value='miller'>(miller)</option>
+                                                                                  <option value='miner'>(miner)</option>
+                                                                                  <option value='porter'>(porter)</option>
+                                                                                  <option value='sailor'>(sailor)</option>
+                                                                                  <option value='scribe'>(scribe)</option>
+                                                                                  <option value='shepherd'>(shepherd)</option>
+                                                                                  <option value='stable master'>(stable master)</option>
+                                                                                  <option value='soldier'>(soldier)</option>
+                                                                                  <option value='tanner'>(tanner)</option>
+                                                                                  <option value='trapper'>(trapper)</option>
+                                                                                  <option value='woodcutter'>(woodcutter)</option>
+                                                                              </select>
+                                                    </div>
+                                                    <div class="repeatable__instance " data-instance="5">
+                                                                              <select name="profession-skill-5">
+                                                                                  <option value='architect'>(architect)</option>
+                                                                                  <option value='baker'>(baker)</option>
+                                                                                  <option value='barrister'>(barrister)</option>
+                                                                                  <option value='brewer'>(brewer)</option>
+                                                                                  <option value='butcher'>(butcher)</option>
+                                                                                  <option value='clerk'>(clerk)</option>
+                                                                                  <option value='cook'>(cook)</option>
+                                                                                  <option value='courtesan'>(courtesan)</option>
+                                                                                  <option value='driver'>(driver)</option>
+                                                                                  <option value='engineer'>(engineer)</option>
+                                                                                  <option value='farmer'>(farmer)</option>
+                                                                                  <option value='fisherman'>(fisherman)</option>
+                                                                                  <option value='gambler'>(gambler)</option>
+                                                                                  <option value='gardener'>(gardener)</option>
+                                                                                  <option value='herbalist'>(herbalist)</option>
+                                                                                  <option value='innkeeper'>(innkeeper)</option>
+                                                                                  <option value='librarian'>(librarian)</option>
+                                                                                  <option value='merchant'>(merchant)</option>
+                                                                                  <option value='midwife'>(midwife)</option>
+                                                                                  <option value='miller'>(miller)</option>
+                                                                                  <option value='miner'>(miner)</option>
+                                                                                  <option value='porter'>(porter)</option>
+                                                                                  <option value='sailor'>(sailor)</option>
+                                                                                  <option value='scribe'>(scribe)</option>
+                                                                                  <option value='shepherd'>(shepherd)</option>
+                                                                                  <option value='stable master'>(stable master)</option>
+                                                                                  <option value='soldier'>(soldier)</option>
+                                                                                  <option value='tanner'>(tanner)</option>
+                                                                                  <option value='trapper'>(trapper)</option>
+                                                                                  <option value='woodcutter'>(woodcutter)</option>
+                                                                              </select>
+                                                    </div>
+                                                    <div class="repeatable__instance " data-instance="6">
+                                                                              <select name="profession-skill-6">
+                                                                                  <option value='architect'>(architect)</option>
+                                                                                  <option value='baker'>(baker)</option>
+                                                                                  <option value='barrister'>(barrister)</option>
+                                                                                  <option value='brewer'>(brewer)</option>
+                                                                                  <option value='butcher'>(butcher)</option>
+                                                                                  <option value='clerk'>(clerk)</option>
+                                                                                  <option value='cook'>(cook)</option>
+                                                                                  <option value='courtesan'>(courtesan)</option>
+                                                                                  <option value='driver'>(driver)</option>
+                                                                                  <option value='engineer'>(engineer)</option>
+                                                                                  <option value='farmer'>(farmer)</option>
+                                                                                  <option value='fisherman'>(fisherman)</option>
+                                                                                  <option value='gambler'>(gambler)</option>
+                                                                                  <option value='gardener'>(gardener)</option>
+                                                                                  <option value='herbalist'>(herbalist)</option>
+                                                                                  <option value='innkeeper'>(innkeeper)</option>
+                                                                                  <option value='librarian'>(librarian)</option>
+                                                                                  <option value='merchant'>(merchant)</option>
+                                                                                  <option value='midwife'>(midwife)</option>
+                                                                                  <option value='miller'>(miller)</option>
+                                                                                  <option value='miner'>(miner)</option>
+                                                                                  <option value='porter'>(porter)</option>
+                                                                                  <option value='sailor'>(sailor)</option>
+                                                                                  <option value='scribe'>(scribe)</option>
+                                                                                  <option value='shepherd'>(shepherd)</option>
+                                                                                  <option value='stable master'>(stable master)</option>
+                                                                                  <option value='soldier'>(soldier)</option>
+                                                                                  <option value='tanner'>(tanner)</option>
+                                                                                  <option value='trapper'>(trapper)</option>
+                                                                                  <option value='woodcutter'>(woodcutter)</option>
+                                                                              </select>
+                                                    </div>
+                                                    <div class="repeatable__instance " data-instance="7">
+                                                                              <select name="profession-skill-7">
+                                                                                  <option value='architect'>(architect)</option>
+                                                                                  <option value='baker'>(baker)</option>
+                                                                                  <option value='barrister'>(barrister)</option>
+                                                                                  <option value='brewer'>(brewer)</option>
+                                                                                  <option value='butcher'>(butcher)</option>
+                                                                                  <option value='clerk'>(clerk)</option>
+                                                                                  <option value='cook'>(cook)</option>
+                                                                                  <option value='courtesan'>(courtesan)</option>
+                                                                                  <option value='driver'>(driver)</option>
+                                                                                  <option value='engineer'>(engineer)</option>
+                                                                                  <option value='farmer'>(farmer)</option>
+                                                                                  <option value='fisherman'>(fisherman)</option>
+                                                                                  <option value='gambler'>(gambler)</option>
+                                                                                  <option value='gardener'>(gardener)</option>
+                                                                                  <option value='herbalist'>(herbalist)</option>
+                                                                                  <option value='innkeeper'>(innkeeper)</option>
+                                                                                  <option value='librarian'>(librarian)</option>
+                                                                                  <option value='merchant'>(merchant)</option>
+                                                                                  <option value='midwife'>(midwife)</option>
+                                                                                  <option value='miller'>(miller)</option>
+                                                                                  <option value='miner'>(miner)</option>
+                                                                                  <option value='porter'>(porter)</option>
+                                                                                  <option value='sailor'>(sailor)</option>
+                                                                                  <option value='scribe'>(scribe)</option>
+                                                                                  <option value='shepherd'>(shepherd)</option>
+                                                                                  <option value='stable master'>(stable master)</option>
+                                                                                  <option value='soldier'>(soldier)</option>
+                                                                                  <option value='tanner'>(tanner)</option>
+                                                                                  <option value='trapper'>(trapper)</option>
+                                                                                  <option value='woodcutter'>(woodcutter)</option>
+                                                                              </select>
+                                                    </div>
+                                                    <div class="repeatable__instance " data-instance="8">
+                                                                              <select name="profession-skill-8">
+                                                                                  <option value='architect'>(architect)</option>
+                                                                                  <option value='baker'>(baker)</option>
+                                                                                  <option value='barrister'>(barrister)</option>
+                                                                                  <option value='brewer'>(brewer)</option>
+                                                                                  <option value='butcher'>(butcher)</option>
+                                                                                  <option value='clerk'>(clerk)</option>
+                                                                                  <option value='cook'>(cook)</option>
+                                                                                  <option value='courtesan'>(courtesan)</option>
+                                                                                  <option value='driver'>(driver)</option>
+                                                                                  <option value='engineer'>(engineer)</option>
+                                                                                  <option value='farmer'>(farmer)</option>
+                                                                                  <option value='fisherman'>(fisherman)</option>
+                                                                                  <option value='gambler'>(gambler)</option>
+                                                                                  <option value='gardener'>(gardener)</option>
+                                                                                  <option value='herbalist'>(herbalist)</option>
+                                                                                  <option value='innkeeper'>(innkeeper)</option>
+                                                                                  <option value='librarian'>(librarian)</option>
+                                                                                  <option value='merchant'>(merchant)</option>
+                                                                                  <option value='midwife'>(midwife)</option>
+                                                                                  <option value='miller'>(miller)</option>
+                                                                                  <option value='miner'>(miner)</option>
+                                                                                  <option value='porter'>(porter)</option>
+                                                                                  <option value='sailor'>(sailor)</option>
+                                                                                  <option value='scribe'>(scribe)</option>
+                                                                                  <option value='shepherd'>(shepherd)</option>
+                                                                                  <option value='stable master'>(stable master)</option>
+                                                                                  <option value='soldier'>(soldier)</option>
+                                                                                  <option value='tanner'>(tanner)</option>
+                                                                                  <option value='trapper'>(trapper)</option>
+                                                                                  <option value='woodcutter'>(woodcutter)</option>
+                                                                              </select>
+                                                    </div>
+                                                    <div class="repeatable__instance " data-instance="9">
+                                                                              <select name="profession-skill-9">
+                                                                                  <option value='architect'>(architect)</option>
+                                                                                  <option value='baker'>(baker)</option>
+                                                                                  <option value='barrister'>(barrister)</option>
+                                                                                  <option value='brewer'>(brewer)</option>
+                                                                                  <option value='butcher'>(butcher)</option>
+                                                                                  <option value='clerk'>(clerk)</option>
+                                                                                  <option value='cook'>(cook)</option>
+                                                                                  <option value='courtesan'>(courtesan)</option>
+                                                                                  <option value='driver'>(driver)</option>
+                                                                                  <option value='engineer'>(engineer)</option>
+                                                                                  <option value='farmer'>(farmer)</option>
+                                                                                  <option value='fisherman'>(fisherman)</option>
+                                                                                  <option value='gambler'>(gambler)</option>
+                                                                                  <option value='gardener'>(gardener)</option>
+                                                                                  <option value='herbalist'>(herbalist)</option>
+                                                                                  <option value='innkeeper'>(innkeeper)</option>
+                                                                                  <option value='librarian'>(librarian)</option>
+                                                                                  <option value='merchant'>(merchant)</option>
+                                                                                  <option value='midwife'>(midwife)</option>
+                                                                                  <option value='miller'>(miller)</option>
+                                                                                  <option value='miner'>(miner)</option>
+                                                                                  <option value='porter'>(porter)</option>
+                                                                                  <option value='sailor'>(sailor)</option>
+                                                                                  <option value='scribe'>(scribe)</option>
+                                                                                  <option value='shepherd'>(shepherd)</option>
+                                                                                  <option value='stable master'>(stable master)</option>
+                                                                                  <option value='soldier'>(soldier)</option>
+                                                                                  <option value='tanner'>(tanner)</option>
+                                                                                  <option value='trapper'>(trapper)</option>
+                                                                                  <option value='woodcutter'>(woodcutter)</option>
+                                                                              </select>
+                                                    </div>
+                                                      <button 
+                                                    type="button"
+                                                    id="profession-skills"
+                                                    class="btn btn--light repeatable__more" 
+                                                    data-on-click=""
+                                                    
+                                                  >
+                                                    +      
+                                                  </button>
+                                              
+                                                </div>                    </td>
+                                                                </tr>
+                                                                </table>
+                                              
+                                                                <p class='info'>There may be other Craft, Perform and Profession skills, depending on setting and rules. Check with your GM</p>
+                                              
+                                            </div><div class="column">
+                                              
+                                                              <h3>Additional pages</h3>
+                                                                <p><label for="include-background"><input type="checkbox" name="include-background" id="include-background" checked /> Character background</label></p>
+                                              
+                                                                <p><label for="include-mini"><input type="checkbox" name="include-mini" id="include-mini" checked /> Map figure sheet</label></p>
+                                                                <p class='info'>Includes stand-up map figure, square map token and stats card for initiative tracking.</p>
+                                                                <p class='indent'>Size: 
+                                                                  <label for="mini-small"><input type="radio" name="mini-size" value="small" id="mini-small"> Small</label>&nbsp; 
+                                                                  <label for="mini-medium"><input type="radio" name="mini-size" value="medium" id="mini-medium" checked> Medium</label>&nbsp; 
+                                                                  <label for="mini-large"><input type="radio" name="mini-size" value="large" id="mini-large"> Large</label>
+                                                                </p>
+                                              
+                                            </div>  </div><div class="row align_right">
+                                        <button 
+                                          type="button"
+                                          id="switch-character"
+                                          class="btn btn--circle " 
+                                          data-on-click="emit next-slide"
+                                          
+                                        >
+                                                      <span class="btn__label">Next</span>
+                                                      <span class="btn__icon">&darr;</span>
+                                          
+                                        </button>
+                                  </div>    </div>
+                                  </div>
+                                <div class="slide"
+                                    data-jump="picture"
+                                    data-show-prev-button="true"
+                                    data-show-next-button="true"
+                                  >
+                                    <div class="slide__inner ">
+                                      <div class="columns columns--n_2">
+                                          <div class="column">
+                                              
+                                                              <h3>Portrait</h3>
+                                                              <div class="image-drop image-drop--shape_portrait" id="portrait">
+                                                                  <input type="hidden" name="portrait" id="data-portrait"/>
+                                                                    <p>Select or drop portrait</p>
+                                                                  <img src="/images/generic.png">
+                                                                  <button 
+                                                                    type="button"
+                                                                    id="portrait"
+                                                                    class="btn btn--primary " 
+                                                                    data-on-click="select-image"
+                                                                    
+                                                                  >
+                                                                            Select portrait
+                                                                    
+                                                                  </button>
+                                                                </div>
+                                            </div><div class="column">
+                                              
+                                                              <h3>Logo</h3>
+                                                              <div class="image-drop image-drop--shape_logo" id="logo">
+                                                                  <input type="hidden" name="logo" id="data-logo"/>
+                                                                    <p>Select or drop logo</p>
+                                                                  <img src="">
+                                                                  <button 
+                                                                    type="button"
+                                                                    id="logo"
+                                                                    class="btn btn--primary " 
+                                                                    data-on-click="select-image"
+                                                                    
+                                                                  >
+                                                                            Select logo
+                                                                    
+                                                                  </button>
+                                                                </div>
+                                                              <h3>Watermark</h3>
+                                                                <p><label for='has-watermark'><input type="checkbox" name="has-watermark" id="has-watermark" /> Watermark every page</label></p>
+                                                                <p><input type='text' name='watermark' id='watermark' class='well' placeholder='YOUR MESSAGE' /></p>
+                                              
+                                            </div>  </div><div class="row align_right">
+                                        <button 
+                                          type="button"
+                                          id="switch-character"
+                                          class="btn btn--circle " 
+                                          data-on-click="emit next-slide"
+                                          
+                                        >
+                                                      <span class="btn__label">Next</span>
+                                                      <span class="btn__icon">&darr;</span>
+                                          
+                                        </button>
+                                  </div>    </div>
+                                  </div>          
+                                <div class="slide"
+                                    data-jump="download"
+                                    data-show-prev-button="true"
+                                    
+                                  >
+                                    <div class="slide__inner ">
+                                                  
+                                                  <h2>Legal</h2>
+                                                    <p><label for='gm-permission'><input type='checkbox' name='gm-permission' id='gm-permission'> Permission to print</label></p>
+                                                    <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
+                                      
+                                                  <h2>Printing Colour</h2>
+                                                    <div class="colour-grid">
+                                                    <div class="columns columns--n_3">
+                                                        <div class="column">
+                                                                    <label class="colour-picker-light" for="colour-light"><span><input type="radio" id="colour-light" name="colour" value="light"/></span> Lighter</label>
+                                                                    <label class="colour-picker-normal" for="colour-normal"><span><input type="radio" id="colour-normal" name="colour" value="normal" checked/></span> Normal</label>
+                                                                    <label class="colour-picker-dark" for="colour-dark"><span><input type="radio" id="colour-dark" name="colour" value="dark"></span> Darker</label>
+                                                                    <label class="colour-picker-black" for="colour-black"><span><input type="radio" id="colour-black" name="colour" value="black"></span> Black</label>
+                                                          </div><div class="column">
+                                                                    <label class="colour-picker-red" for="colour-red"><span><input type="radio" id="colour-red" name="colour" value="red"></span> Red</label>
+                                                                    <label class="colour-picker-orange" for="colour-orange"><span><input type="radio" id="colour-orange" name="colour" value="orange"></span> Orange</label>
+                                                                    <label class="colour-picker-lime" for="colour-lime"><span><input type="radio" id="colour-lime" name="colour" value="lime"></span> Lime</label>
+                                                                    <label class="colour-picker-green" for="colour-green"><span><input type="radio" id="colour-green" name="colour" value="green"></span> Green</label>
+                                                          </div><div class="column">
+                                                                    <label class="colour-picker-cyan" for="colour-cyan"><span><input type="radio" id="colour-cyan" name="colour" value="cyan"></span> Cyan</label>
+                                                                    <label class="colour-picker-blue" for="colour-blue"><span><input type="radio" id="colour-blue" name="colour" value="blue"></span> Blue</label>
+                                                                    <label class="colour-picker-purple" for="colour-purple"><span><input type="radio" id="colour-purple" name="colour" value="purple"></span> Purple</label>
+                                                                    <label class="colour-picker-pink" for="colour-pink"><span><input type="radio" id="colour-pink" name="colour" value="pink"></span> Pink</label>
+                                                          </div>  </div>  </div>
+                                                  <h2>Download</h2>
+                                      <div class="row align_centre pad">
+                                              <button 
+                                                type="button"
+                                                id="download-character"
+                                                class="btn btn--primary " 
+                                                data-on-click=""
+                                                
+                                              >
+                                                                  Download
+                                                
+                                              </button>
+                                        </div>    </div>
                                   </div>
                               </div>
-                              <div class="tab-pane tab-pane--selected" id="gm-tab-pane-kingdom" data-set="gm" data-name="kingdom">
-                                  <div class="tab-pane__inner">
-                                                          <h3>Kingdom</h3>
+                            <div class="switch__case" data-value="gm" data-show="">
+                                
+                                <div class="slide"
+                                    data-jump="gm"
+                                    data-show-prev-button="true"
+                                    data-show-next-button="true"
+                                  >
+                                    <div class="slide__inner ">
+                                                  <h2>Game Master</h2>
+                                                  <input type="hidden" name="gm-pick" id="gm-pick"/>
+                                      
+                                      <div class="grid grid--2-2 grid--gap_small">
+                                          
+                                              <button 
+                                                type="button"
+                                                id="switch-character"
+                                                class="btn btn--gm-tile " 
+                                                data-on-click="#gm-pick.value&#x3D;characters; #switch-gm.current&#x3D;characters; #slides-character.jump&#x3D;gm-options"
+                                                
+                                              >
+                                                                  <picture class="picture--size_gm-tile ">
+                                                                      <img src="/images/starfinder-gm-characters.png">
+                                                                    </picture>                <h3>Characters and NPCs</h3>
+                                                
+                                              </button>
+                                          
+                                              <button 
+                                                type="button"
+                                                id="switch-character"
+                                                class="btn btn--gm-tile " 
+                                                data-on-click="#gm-pick.value&#x3D;maps; #switch-gm.current&#x3D;maps; #slides-character.jump&#x3D;gm-options"
+                                                
+                                              >
+                                                                  <picture class="picture--size_gm-tile ">
+                                                                      <img src="/images/starfinder-gm-maps.png">
+                                                                    </picture>                <h3>Exploration Maps</h3>
+                                                
+                                              </button>
+                                          
+                                              <button 
+                                                type="button"
+                                                id="switch-character"
+                                                class="btn btn--gm-tile " 
+                                                data-on-click="#gm-pick.value&#x3D;campaign; #switch-gm.current&#x3D;campaign; #slides-character.jump&#x3D;gm-options"
+                                                
+                                              >
+                                                                  <picture class="picture--size_gm-tile ">
+                                                                      <img src="/images/gm-campaign.png">
+                                                                    </picture>                  <h3>Campaign Planning</h3>
+                                                
+                                              </button>
+                                          
+                                        </div><div class="row align_right">
+                                        <button 
+                                          type="button"
+                                          id="switch-character"
+                                          class="btn btn--circle " 
+                                          data-on-click="emit next-slide"
+                                          
+                                        >
+                                                      <span class="btn__label">Next</span>
+                                                      <span class="btn__icon">&darr;</span>
+                                          
+                                        </button>
+                                  </div>    </div>
+                                  </div>          
+                                <div class="slide"
+                                    data-jump="gm-options"
+                                    data-show-prev-button="true"
+                                    data-show-next-button="true"
+                                  >
+                                    <div class="slide__inner ">
+                                      <div 
+                                          class="switch" 
+                                          id="switch-gm"
+                                          data-current="start"
+                                        >
+                                          <div class="switch__case" data-value="characters" data-show="">
+                                                              <h2>Characters</h2>
+                                                              <p>Sheets for tracking the whole party, and NPCs.</p>
+                                                              
+                                                              <h3>Party</h3>
+                                                              <p><label for='num-pcs'>Party size:&nbsp; 
+                                                                <select name='num-pcs' id='num-pcs' style='width: 60px; text-align: right;'>
+                                                                  <option value='4'>4</option>
+                                                                  <option value='5'>5</option>
+                                                                  <option value='6'>6</option>
+                                                                  <option value='7'>7</option>
+                                                                  <option value='8'>8</option>
+                                                                  <option value='9'>9</option>
+                                                                  <option value='10'>10</option>
+                                                                </select> 
+                                                                &nbsp;player characters</label></p>
+                                            </div>              
+                                          <div class="switch__case" data-value="maps" data-show="">
+                                                              <h2>Maps</h2>
+                                                              <p>Blank hex maps, isometric maps, city maps and more.
+                                                                </p>
+                                                      
+                                            </div>              
+                                          <div class="switch__case" data-value="campaign" data-show="">
+                                                              <h2>Campaign</h2>
+                                                              <p>History timelines and other sheets for planning a game.</p>
+                                            </div>              
+                                        </div><div class="row align_right">
+                                        <button 
+                                          type="button"
+                                          id="switch-character"
+                                          class="btn btn--circle " 
+                                          data-on-click="emit next-slide"
+                                          
+                                        >
+                                                      <span class="btn__label">Next</span>
+                                                      <span class="btn__icon">&darr;</span>
+                                          
+                                        </button>
+                                  </div>    </div>
+                                  </div>          
+                                <div class="slide"
+                                    data-jump="gm-download"
+                                    data-show-prev-button="true"
+                                    
+                                  >
+                                    <div class="slide__inner ">
+                                                  <h2>Legal</h2>
+                                                    <p><label for='permission'><input type='checkbox' name='permission' id='permission'> Permission to print</label></p>
+                                                    <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
+                                      
+                                                  <h2>Printing Colour</h2>
+                                                    <div class="colour-grid">
+                                                    <div class="columns columns--n_3">
+                                                        <div class="column">
+                                                                    <label class="colour-picker-light" for="gm-colour-light"><span><input type="radio" id="gm-colour-light" name="gm-colour" value="light"/></span> Lighter</label>
+                                                                    <label class="colour-picker-normal" for="gm-colour-normal"><span><input type="radio" id="gm-colour-normal" name="gm-colour" value="normal" checked/></span> Normal</label>
+                                                                    <label class="colour-picker-dark" for="gm-colour-dark"><span><input type="radio" id="gm-colour-dark" name="gm-colour" value="dark"></span> Darker</label>
+                                                                    <label class="colour-picker-black" for="gm-colour-black"><span><input type="radio" id="gm-colour-black" name="gm-colour" value="black"></span> Black</label>
+                                                          </div><div class="column">
+                                                                    <label class="colour-picker-red" for="gm-colour-red"><span><input type="radio" id="gm-colour-red" name="gm-colour" value="red"></span> Red</label>
+                                                                    <label class="colour-picker-orange" for="gm-colour-orange"><span><input type="radio" id="gm-colour-orange" name="gm-colour" value="orange"></span> Orange</label>
+                                                                    <label class="colour-picker-lime" for="gm-colour-lime"><span><input type="radio" id="gm-colour-lime" name="gm-colour" value="lime"></span> Lime</label>
+                                                                    <label class="colour-picker-green" for="gm-colour-green"><span><input type="radio" id="gm-colour-green" name="gm-colour" value="green"></span> Green</label>
+                                                          </div><div class="column">
+                                                                    <label class="colour-picker-cyan" for="gm-colour-cyan"><span><input type="radio" id="gm-colour-cyan" name="gm-colour" value="cyan"></span> Cyan</label>
+                                                                    <label class="colour-picker-blue" for="gm-colour-blue"><span><input type="radio" id="gm-colour-blue" name="gm-colour" value="blue"></span> Blue</label>
+                                                                    <label class="colour-picker-purple" for="gm-colour-purple"><span><input type="radio" id="gm-colour-purple" name="gm-colour" value="purple"></span> Purple</label>
+                                                                    <label class="colour-picker-pink" for="gm-colour-pink"><span><input type="radio" id="gm-colour-pink" name="gm-colour" value="pink"></span> Pink</label>
+                                                          </div>  </div>  </div>
+                                                  <h2>Download</h2>
+                                      <div class="row align_centre pad">
+                                              <button 
+                                                type="button"
+                                                id="download-gm"
+                                                class="btn btn--primary " 
+                                                data-on-click=""
+                                                
+                                              >
+                                                                  Download
+                                                
+                                              </button>
+                                        </div>    </div>
+                                  </div>        
+                              </div>        
+                            
+                            <div class="switch__case" data-value="kingdom" data-show="">
+                                
+                                <div class="slide"
+                                    data-jump="kingdom"
+                                    data-show-prev-button="true"
+                                    data-show-next-button="true"
+                                  >
+                                    <div class="slide__inner ">
+                                                  <h2>Kingdom</h2>
+                                                  
+                                                  <h3>Settlement style</h3>
+                                                    <p><label for="settlement-style-normal"><input type="radio" name="settlement-style" value="normal" id="settlement-style-normal" checked />
+                                                      Normal</label></p>
+                                                    <p><label for="settlement-style-large"><input type="radio" name="settlement-style" value="large" id="settlement-style-large" />
+                                                      Large</label></p>
+                                                    <p><label for="settlement-style-plain"><input type="radio" name="settlement-style" value="plain" id="settlement-style-plain" />
+                                                      Without map</label></p>
+                                <div class="row align_right">
+                                        <button 
+                                          type="button"
+                                          id="switch-character"
+                                          class="btn btn--circle " 
+                                          data-on-click="emit next-slide"
+                                          
+                                        >
+                                                      <span class="btn__label">Next</span>
+                                                      <span class="btn__icon">&darr;</span>
+                                          
+                                        </button>
+                                  </div>    </div>
                                   </div>
-                              </div></div>        
-                  <div class="row align_centre">
-                          <button 
-                            type="button"
-                            id="slides-gm"
-                            class="btn btn--min btn--icon-label" 
-                            data-on-click="emit next-slide"
+                                <div class="slide"
+                                    data-jump="kingdom-download"
+                                    data-show-prev-button="true"
+                                    
+                                  >
+                                    <div class="slide__inner ">
+                                                  <h2>Legal</h2>
+                                                    <p><label for='permission'><input type='checkbox' name='permission' id='permission'> Permission to print</label></p>
+                                                    <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
+                                      
+                                                  <h2>Printing Colour</h2>
+                                                    <div class="colour-grid">
+                                                    <div class="columns columns--n_3">
+                                                        <div class="column">
+                                                                    <label class="colour-picker-light" for="kingdom-colour-light"><span><input type="radio" id="kingdom-colour-light" name="kingdom-colour" value="light"/></span> Lighter</label>
+                                                                    <label class="colour-picker-normal" for="kingdom-colour-normal"><span><input type="radio" id="kingdom-colour-normal" name="kingdom-colour" value="normal" checked/></span> Normal</label>
+                                                                    <label class="colour-picker-dark" for="kingdom-colour-dark"><span><input type="radio" id="kingdom-colour-dark" name="kingdom-colour" value="dark"></span> Darker</label>
+                                                                    <label class="colour-picker-black" for="kingdom-colour-black"><span><input type="radio" id="kingdom-colour-black" name="kingdom-colour" value="black"></span> Black</label>
+                                                          </div><div class="column">
+                                                                    <label class="colour-picker-red" for="kingdom-colour-red"><span><input type="radio" id="kingdom-colour-red" name="kingdom-colour" value="red"></span> Red</label>
+                                                                    <label class="colour-picker-orange" for="kingdom-colour-orange"><span><input type="radio" id="kingdom-colour-orange" name="kingdom-colour" value="orange"></span> Orange</label>
+                                                                    <label class="colour-picker-lime" for="kingdom-colour-lime"><span><input type="radio" id="kingdom-colour-lime" name="kingdom-colour" value="lime"></span> Lime</label>
+                                                                    <label class="colour-picker-green" for="kingdom-colour-green"><span><input type="radio" id="kingdom-colour-green" name="kingdom-colour" value="green"></span> Green</label>
+                                                          </div><div class="column">
+                                                                    <label class="colour-picker-cyan" for="kingdom-colour-cyan"><span><input type="radio" id="kingdom-colour-cyan" name="kingdom-colour" value="cyan"></span> Cyan</label>
+                                                                    <label class="colour-picker-blue" for="kingdom-colour-blue"><span><input type="radio" id="kingdom-colour-blue" name="kingdom-colour" value="blue"></span> Blue</label>
+                                                                    <label class="colour-picker-purple" for="kingdom-colour-purple"><span><input type="radio" id="kingdom-colour-purple" name="kingdom-colour" value="purple"></span> Purple</label>
+                                                                    <label class="colour-picker-pink" for="kingdom-colour-pink"><span><input type="radio" id="kingdom-colour-pink" name="kingdom-colour" value="pink"></span> Pink</label>
+                                                          </div>  </div>  </div>
+                                                  <h2>Download</h2>
+                                      <div class="row align_centre pad">
+                                              <button 
+                                                type="button"
+                                                id="download-kingdom"
+                                                class="btn btn--primary " 
+                                                data-on-click=""
+                                                
+                                              >
+                                                                  Download
+                                                
+                                              </button>
+                                        </div>    </div>
+                                  </div>
+                              </div>        
                             
-                          >
-                                          <span class="btn__label">Next</span>
-                                          <span class="btn__icon">&darr;</span>
+                            <div class="switch__case" data-value="starship" data-show="">
+                                
+                                          <h2>Starship</h2>
+                                
+                                <div class="slide"
+                                    data-jump="starship-download"
+                                    data-show-prev-button="true"
+                                    
+                                  >
+                                    <div class="slide__inner ">
+                                                  <h3>Legal</h3>
+                                                    <p><label for='permission'><input type='checkbox' name='permission' id='permission'> Permission to print</label></p>
+                                                    <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
+                                      
+                                                  <h3>Printing Colour</h3>
+                                                    <div class="colour-grid">
+                                                    <div class="columns columns--n_3">
+                                                        <div class="column">
+                                                                    <label class="colour-picker-light" for="starship-colour-light"><span><input type="radio" id="starship-colour-light" name="starship-colour" value="light"/></span> Lighter</label>
+                                                                    <label class="colour-picker-normal" for="starship-colour-normal"><span><input type="radio" id="starship-colour-normal" name="starship-colour" value="normal" checked/></span> Normal</label>
+                                                                    <label class="colour-picker-dark" for="starship-colour-dark"><span><input type="radio" id="starship-colour-dark" name="starship-colour" value="dark"></span> Darker</label>
+                                                                    <label class="colour-picker-black" for="starship-colour-black"><span><input type="radio" id="starship-colour-black" name="starship-colour" value="black"></span> Black</label>
+                                                          </div><div class="column">
+                                                                    <label class="colour-picker-red" for="starship-colour-red"><span><input type="radio" id="starship-colour-red" name="starship-colour" value="red"></span> Red</label>
+                                                                    <label class="colour-picker-orange" for="starship-colour-orange"><span><input type="radio" id="starship-colour-orange" name="starship-colour" value="orange"></span> Orange</label>
+                                                                    <label class="colour-picker-lime" for="starship-colour-lime"><span><input type="radio" id="starship-colour-lime" name="starship-colour" value="lime"></span> Lime</label>
+                                                                    <label class="colour-picker-green" for="starship-colour-green"><span><input type="radio" id="starship-colour-green" name="starship-colour" value="green"></span> Green</label>
+                                                          </div><div class="column">
+                                                                    <label class="colour-picker-cyan" for="starship-colour-cyan"><span><input type="radio" id="starship-colour-cyan" name="starship-colour" value="cyan"></span> Cyan</label>
+                                                                    <label class="colour-picker-blue" for="starship-colour-blue"><span><input type="radio" id="starship-colour-blue" name="starship-colour" value="blue"></span> Blue</label>
+                                                                    <label class="colour-picker-purple" for="starship-colour-purple"><span><input type="radio" id="starship-colour-purple" name="starship-colour" value="purple"></span> Purple</label>
+                                                                    <label class="colour-picker-pink" for="starship-colour-pink"><span><input type="radio" id="starship-colour-pink" name="starship-colour" value="pink"></span> Pink</label>
+                                                          </div>  </div>  </div>
+                                                  <h3>Download</h3>
+                                      <div class="row align_centre pad">
+                                              <button 
+                                                type="button"
+                                                id="download-starship"
+                                                class="btn btn--primary " 
+                                                data-on-click=""
+                                                
+                                              >
+                                                                  Download
+                                                
+                                              </button>
+                                        </div>    </div>
+                                  </div>
+                              </div>        
                             
-                          </button>
-                    </div>
+                            <div class="switch__case" data-value="mini" data-show="">
+                                
+                                <div class="slide"
+                                    data-jump="mini"
+                                    data-show-prev-button="true"
+                                    data-show-next-button="true"
+                                  >
+                                    <div class="slide__inner ">
+                                                  <h2>Map Figure</h2>
+                                                  
+                                      <div class="columns columns--n_2">
+                                          <div class="column">
+                                              
+                                                              <h3>Portrait</h3>
+                                                              <div class="image-drop image-drop--shape_portrait" id="mini-portrait">
+                                                                  <input type="hidden" name="mini-portrait" id="data-mini-portrait"/>
+                                                                    <p>Select or drop portrait</p>
+                                                                  <img src="/images/generic.png">
+                                                                  <button 
+                                                                    type="button"
+                                                                    id="mini-portrait"
+                                                                    class="btn btn--primary " 
+                                                                    data-on-click="select-image"
+                                                                    
+                                                                  >
+                                                                            Select portrait
+                                                                    
+                                                                  </button>
+                                                                </div>
+                                            </div><div class="column">
+                                              
+                                                              <h3>Watermark</h3>
+                                                                <p><label for='has-watermark'><input type="checkbox" name="has-watermark" id="has-watermark" /> Watermark every page</label></p>
+                                                                <p><input type='text' name='watermark' id='watermark' class='well' placeholder='YOUR MESSAGE' /></p>
+                                              
+                                                              <h2>Size</h2>
+                                                              <p>
+                                                                <label for="mini-mini-small"><input type="radio" name="mini-mini-size" value="small" id="mini-mini-small"> Small</label>&nbsp; 
+                                                                <label for="mini-mini-medium"><input type="radio" name="mini-mini-size" value="medium" id="mini-mini-medium" checked> Medium</label>&nbsp; 
+                                                                <label for="mini-mini-large"><input type="radio" name="mini-mini-size" value="large" id="mini-mini-large"> Large</label>
+                                                              </p>
+                                            </div>  </div><div class="row align_right">
+                                        <button 
+                                          type="button"
+                                          id="switch-character"
+                                          class="btn btn--circle " 
+                                          data-on-click="emit next-slide"
+                                          
+                                        >
+                                                      <span class="btn__label">Next</span>
+                                                      <span class="btn__icon">&darr;</span>
+                                          
+                                        </button>
+                                  </div>    </div>
+                                  </div>
+                                <div class="slide"
+                                    data-jump="mini-download"
+                                    data-show-prev-button="true"
+                                    
+                                  >
+                                    <div class="slide__inner ">
+                                                  <h2>Legal</h2>
+                                                    <p><label for='permission'><input type='checkbox' name='permission' id='permission'> Permission to print</label></p>
+                                                    <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
+                                      
+                                                  <h2>Printing Colour</h2>
+                                                    <div class="colour-grid">
+                                                    <div class="columns columns--n_3">
+                                                        <div class="column">
+                                                                    <label class="colour-picker-light" for="mini-colour-light"><span><input type="radio" id="mini-colour-light" name="mini-colour" value="light"/></span> Lighter</label>
+                                                                    <label class="colour-picker-normal" for="mini-colour-normal"><span><input type="radio" id="mini-colour-normal" name="mini-colour" value="normal" checked/></span> Normal</label>
+                                                                    <label class="colour-picker-dark" for="mini-colour-dark"><span><input type="radio" id="mini-colour-dark" name="mini-colour" value="dark"></span> Darker</label>
+                                                                    <label class="colour-picker-black" for="mini-colour-black"><span><input type="radio" id="mini-colour-black" name="mini-colour" value="black"></span> Black</label>
+                                                          </div><div class="column">
+                                                                    <label class="colour-picker-red" for="mini-colour-red"><span><input type="radio" id="mini-colour-red" name="mini-colour" value="red"></span> Red</label>
+                                                                    <label class="colour-picker-orange" for="mini-colour-orange"><span><input type="radio" id="mini-colour-orange" name="mini-colour" value="orange"></span> Orange</label>
+                                                                    <label class="colour-picker-lime" for="mini-colour-lime"><span><input type="radio" id="mini-colour-lime" name="mini-colour" value="lime"></span> Lime</label>
+                                                                    <label class="colour-picker-green" for="mini-colour-green"><span><input type="radio" id="mini-colour-green" name="mini-colour" value="green"></span> Green</label>
+                                                          </div><div class="column">
+                                                                    <label class="colour-picker-cyan" for="mini-colour-cyan"><span><input type="radio" id="mini-colour-cyan" name="mini-colour" value="cyan"></span> Cyan</label>
+                                                                    <label class="colour-picker-blue" for="mini-colour-blue"><span><input type="radio" id="mini-colour-blue" name="mini-colour" value="blue"></span> Blue</label>
+                                                                    <label class="colour-picker-purple" for="mini-colour-purple"><span><input type="radio" id="mini-colour-purple" name="mini-colour" value="purple"></span> Purple</label>
+                                                                    <label class="colour-picker-pink" for="mini-colour-pink"><span><input type="radio" id="mini-colour-pink" name="mini-colour" value="pink"></span> Pink</label>
+                                                          </div>  </div>  </div>
+                                                  <h2>Download</h2>
+                                      <div class="row align_centre pad">
+                                              <button 
+                                                type="button"
+                                                id="download-mini"
+                                                class="btn btn--primary " 
+                                                data-on-click=""
+                                                
+                                              >
+                                                                  Download
+                                                
+                                              </button>
+                                        </div>    </div>
+                                  </div>
+                              </div>
+                          </div>
                       </div>
-                    </div>      
-                </div>
-              </div>  </div>  </section>  </main>
+                    </div>  </form>  </div>  </section>  </main>
 
 <div id="blanket"
   data-bind="show = body.currentMenu | isSet"
@@ -394,7 +1615,7 @@
                         <button 
                       type="button"
                       id="main-menu"
-                      class="btn " 
+                      class="btn btn--icon " 
                       data-on-click="body.currentMenu &#x3D; main-menu"
                       
                     >
@@ -404,7 +1625,7 @@
                         <button 
                       type="button"
                       id="main-menu"
-                      class="btn " 
+                      class="btn btn--light " 
                       data-on-click="body.currentMenu &#x3D; language-menu"
                       
                     >
@@ -414,7 +1635,7 @@
                         <button 
                       type="button"
                       id="main-menu"
-                      class="btn " 
+                      class="btn btn--light " 
                       data-on-click="body.currentMenu &#x3D; login-menu"
                       
                     >
@@ -447,10 +1668,23 @@
                     <li>
                       <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-github">GitHub</a>
                     </li>
+                    <li>
+                          <a 
+                id="main-menu"
+                class="btn btn--light btn--bgicon button-facebook" 
+                href="https://www.facebook.com/groups/dyslexiccharactersheets" 
+                 
+          
+                
+              >
+                Facebook      
+              </a>
+          
+                    </li>
                   </ul>
                   <ul>
                     <li>
-                      <button class="btn btn--light button-contact">Contact</button>
+                      <button class="btn btn--light button-contact" on-click="body.currentMenu = contact-menu">Contact</button>
                     </li>
                   </ul>
           
@@ -511,7 +1745,7 @@
                         <button 
                       type="button"
                       id="language-menu"
-                      class="btn " 
+                      class="btn btn--icon " 
                       data-on-click="body.currentMenu &#x3D; main-menu"
                       
                     >
@@ -521,7 +1755,7 @@
                         <button 
                       type="button"
                       id="language-menu"
-                      class="btn " 
+                      class="btn btn--light " 
                       data-on-click="body.currentMenu &#x3D; language-menu"
                       
                     >
@@ -531,7 +1765,7 @@
                         <button 
                       type="button"
                       id="language-menu"
-                      class="btn " 
+                      class="btn btn--light " 
                       data-on-click="body.currentMenu &#x3D; login-menu"
                       
                     >
@@ -583,7 +1817,155 @@
                   </ul>
                 </nav>
         </div>    </div>
-  </aside></aside>
+  </aside><!-- Login menu goes here -->
+<!-- This is the login menu -->
+<aside id="login-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'login-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="login-menu"
+                      class="btn btn--icon " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="login-menu"
+                      class="btn btn--light " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>es      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="login-menu"
+                      class="btn btn--light " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Login      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Login</h3>
+          
+                  <p>Login with Patreon to get access to patron-only features.</p>
+          
+                  <p>
+                    <a class="btn btn--light btn--bgicon button-patreon" href="https://www.patreon.com/oauth2/authorize?response_type=code&amp;client_id=0oURl0qZgYq8jpkZ0rl5KCfzpYb_Uki2bLfDwzlaVrFRr1QM7IrtNUt19eaulVgM&amp;redirect_uri=https%3A%2F%2Fwww.dyslexic-charactersheets.com%2Fauth%2Fpatreon-redirect">Login with Patreon</a>
+                  </p>
+          
+                  <p class="small-print">Logging in will set a cookie on your PC. This does not contain any personally identifiable information, and will not be sent to any third party.</p>
+          
+                  <h3>Become a patron</h3>
+          
+                  <p>Patrons get the ability to edit all the fields, have calculations work automatically, and save character sheets. Login with Patreon to unlock these features:</p>
+          
+                  <p>Support the site and gain access to extra features for just $1 by becoming a patron.</p>
+          
+                  <p>
+                    <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-patreon">Patreon</a>
+                  </p>
+                </nav>
+        </div>    </div>
+  </aside><aside id="contact-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'contact-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_contact  light-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="contact-menu"
+                      class="btn btn--icon " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="contact-menu"
+                      class="btn btn--light " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>es      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="contact-menu"
+                      class="btn btn--light " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Login      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Contact</h3>
+                  
+                  <form id="message-form" method="post" action="/message" class="contact-form">
+                    <p>Your message:</p>
+          
+                    <textarea name="message"></textarea>
+          
+                    <p>
+                        <label for="game">Which game is this about?</label>
+                    </p>
+                    <div class="row">
+                        <label><input type="radio" name="game" value="pf2"> Pathfinder 2e</label>
+                        <label><input type="radio" name="game" value="sf"> Starfinder</label>
+                    </div>
+                    <div class="row">
+                        <label><input type="radio" name="game" value="pf1"> Pathfinder 1e</label>
+                        <label><input type="radio" name="game" value="d35"> D&amp;D 3.5</label>
+                    </div>
+          
+                    <p>
+                        <label for="author">
+                            Your name:
+                            <input id="author" name="author" type="text" placeholder="The Internet" class="box">
+                        </label>
+                    </p>
+                    <p>
+                        <label for="email">
+                            Optionally, your email address:
+                        </label>
+                    </p>
+                    <p>
+                        <input id="email" name="email" type="email" placeholder="But only if you feel like it" class="box">
+                    </p>
+                    
+                    <button class="btn btn--primary" id="message-send">Send Message</button>
+                  </form>
+          
+                </nav>
+        </div>    </div>
+  </aside>
 <script src="/script.js"></script>
 
 </body>

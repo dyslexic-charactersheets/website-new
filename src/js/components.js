@@ -2,6 +2,13 @@ function isString(val) {
   return typeof val === 'string' || val instanceof String;
 }
 
+function isElement(val) {
+  return (
+    typeof HTMLElement === "object" ? val instanceof HTMLElement : //DOM2
+    val && typeof val === "object" && val !== null && val.nodeType === 1 && typeof val.nodeName==="string"
+  );
+}
+
 
 
 /// EVENTS
@@ -17,23 +24,23 @@ function all(query, handler) {
 function on(target, signal, handler) {
   if (isString(target)) {
     for (let elem of document.querySelectorAll(target)) {
-      ((elem) => {
+      ((elem, signal) => {
         elem.addEventListener(signal, (evt) => {
           evt.stopPropagation();
           handler.call(null, evt, elem);
         });
-      })(elem);
+      })(elem, signal);
     }
   } else if (Array.isArray(target)) {
     for (let elem of target) {
-      ((elem) => {
+      ((elem, signal) => {
         elem.addEventListener(signal, (evt) => {
           evt.stopPropagation();
           handler.call(null, evt, elem);
         });
-      })(elem);
+      })(elem, signal);
     }
-  } else {
+  } else if (isElement(target)) {
     target.addEventListener(signal, (evt) => {
       evt.stopPropagation();
       handler.call(null, evt, target);
@@ -42,10 +49,68 @@ function on(target, signal, handler) {
 }
 
 // set an element's attribute
-function set(target, variable, value) {
-  all(target, (elem) => {
-    elem.dataset[variable] = value;
-  });
+function set(target, field, value) {
+  if (isElement(target)) {
+    if (value === false || value === undefined) {
+      switch (field) {
+        case 'checked':
+        case 'disabled':
+          target[field] = false;
+          break;
+        default:
+          delete target.dataset[field];
+      }
+
+    } else {
+      switch (field) {
+        case 'content':
+          if (target.innerHTML == value) {
+            return;
+          }
+          target.innerHTML = value;
+          break;
+
+        case 'value':
+          if (target.getAttribute(field) == value) {
+            return;
+          }
+          target.setAttribute(field, value);
+          emit(target, 'change');
+          break;
+
+        case 'checked':
+        case 'disabled':
+          let checked = bool(value);
+          let existing = bool(target.getAttribute(field))
+          if (existing == checked) {
+            return;
+          }
+          target.toggleAttribute(field, checked);
+          if (field == 'checked') {
+            emit(target, 'change');
+          }
+          break;
+
+        case 'class':
+          if (target.getAttribute(field) == value) {
+            return;
+          }
+          target.setAttribute(field, value);
+          break;
+
+        default:
+          if (target.dataset[field] == value) {
+            return;
+          }
+          target.dataset[field] = value;
+      }
+      // target.dataset[field] = value;
+    }
+  } else {
+    all(target, (elem) => {
+      set(elem, field, value);
+    });
+  }
 }
 
 // watch an element's attribute for changes
@@ -60,13 +125,28 @@ function watch(target, attribute, handler) {
   observer.observe(target, {attributes: true});
 }
 
-function lookup(desc) {
-  let [target, attribute] = desc.split('.');
-  document.querySelector('[data-')
+
+function getValue(sourceElem, sourceAttr) {
+  switch (sourceAttr) {
+    case 'content':
+      return sourceElem.innerHTML;
+    default:
+      return sourceElem.dataset[sourceAttr];
+  }
 }
 
 
 /// REACTIVE
+
+function bool(val) {
+  if (val === true) return true;
+  if (val === false) return false;
+  if (val === "true") return true;
+  if (val === "false") return false;
+  if (val === undefined || val === null) return false;
+  if (val === "") return true;
+  return true;
+}
 
 function toCamelCase(str) {
   let words = str.split('-');
@@ -84,6 +164,8 @@ function toKebabCase(str) {
 
 class ElementObserver {
   constructor(element) {
+    let id = (element.hasOwnProperty("id") && element.id !== undefined && element.id !== null && element.id != "") ? "#"+element.id : element.tagName;
+
     this.bindings = {};
     let self = this;
 
@@ -95,7 +177,7 @@ class ElementObserver {
             let bindings = self.bindings[name];
             let value = element.dataset[name];
 
-            console.log("Binding value", value);
+            console.log("Observed value", id+"."+name, "=", value, "-- sending to", Object.keys(bindings).length, "observers");
             for (let binding of bindings) {
               binding(value);
             }
@@ -141,6 +223,10 @@ let pipeFunctions = {};
 function definePipe(name, bindfn) {
   pipeFunctions[name] = bindfn;
 }
+definePipe('not', (value) => {
+  value = bool(value);
+  return !value;
+});
 definePipe('isSet', (value) => value !== undefined && value !== null && value != "");
 definePipe('eq', (value, cond) => true && (value == cond));
 definePipe('default', (value, defaultValue) => {
@@ -155,7 +241,7 @@ definePipe('default', (value, defaultValue) => {
 function setupBindings(container) {
   let bindings = [];
 
-  // find all the bindings;
+  // find all the bindings
   for (let destElem of container.querySelectorAll('*[data-bind]')) {
     for (let bind of destElem.dataset.bind.split(';')) {
       let [field, rvalue] = bind.split('=', 2);
@@ -180,27 +266,37 @@ function setupBindings(container) {
 
       let bindingFunction = createBinding(destElem, field, pipes);
 
-      sourceElem.observer.addBinding(sourceAttr, bindingFunction);
-
-      // TODO start off with the right value
+      // sourceElem.observer.addBinding(sourceAttr, bindingFunction);
+      bindings.push([sourceElem, sourceAttr, bindingFunction]);
     }
 
     // 1. calculate initial values
     for (let binding of bindings) {
-
+      let [sourceElem, sourceAttr, bindingFunction] = binding;
+      let value = getValue(sourceElem, sourceAttr);
+      bindingFunction(value);
     }
 
     // 2. attach listeners
+    for (let binding of bindings) {
+      let [sourceElem, sourceAttr, bindingFunction] = binding;
+      sourceElem.observer.addBinding(sourceAttr, bindingFunction);
+    }
 
-    // 3. calculate values again
+    // 3. calculate values again, knowing it'll reflow any changes
+    for (let binding of bindings) {
+      let [sourceElem, sourceAttr, bindingFunction] = binding;
+      let value = getValue(sourceElem, sourceAttr);
+      bindingFunction(value);
+    }
   }
 }
 
 function createBinding(destElem, field, pipes) {
   return function (value) {
-    console.log(" * Binding callback");
+    // console.log(" * Binding callback");
 
-    console.log("   * Bind processing value of", field, value, pipes);
+    // console.log("   * Bind processing value of", field, value, pipes);
     for (let pipe of pipes) {
       let pipeArgs = pipe.split(' ').map((s) => s.trim());
       let pipeCommand = pipeArgs.shift();
@@ -211,19 +307,50 @@ function createBinding(destElem, field, pipes) {
     }
 
     // actually set the value
-    console.log("   * Bind setting value of", field, value, pipes);
-    switch (field) {
-      case 'content':
-        destElem.innerHTML = value;
-        break;
+    // console.log("   * Bind setting value of", field, value, pipes);
+    set(destElem, field, value);
+    // switch (field) {
+    //   case 'content':
+    //     if (destElem.innerHTML == value) {
+    //       return;
+    //     }
+    //     destElem.innerHTML = value;
+    //     break;
 
-      case 'class':
-        destElem.setAttribute(field, value);
-        break;
+    //   case 'value':
+    //     if (destElem.getAttribute(field) == value) {
+    //       return;
+    //     }
+    //     destElem.setAttribute(field, value);
+    //     emit(destElem, 'change');
+    //     break;
 
-      default:
-        destElem.dataset[field] = value;
-    }
+    //   case 'checked':
+    //   case 'disabled':
+    //     let checked = bool(value);
+    //     let existing = bool(destElem.getAttribute(field))
+    //     if (existing == checked) {
+    //       return;
+    //     }
+    //     destElem.toggleAttribute(field, checked);
+    //     if (field == 'checked') {
+    //       emit(destElem, 'change');
+    //     }
+    //     break;
+
+    //   case 'class':
+    //     if (destElem.getAttribute(field) == value) {
+    //       return;
+    //     }
+    //     destElem.setAttribute(field, value);
+    //     break;
+
+    //   default:
+    //     if (destElem.dataset[field] == value) {
+    //       return;
+    //     }
+    //     destElem.dataset[field] = value;
+    // }
   }
 }
 

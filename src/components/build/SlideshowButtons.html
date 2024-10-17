@@ -1,0 +1,56 @@
+<template>
+  <div class="slideshow-buttons"
+    data-for="{{for}}"
+  >
+    {{#> Row align="centre"}}
+      {{#> Button
+        type="icon-label"
+        on-click="emit prev-slide"
+        bind-disabled=(str "#${for}.showPrevButton | not" for=for)
+      }}
+        <span class="btn__icon">&uarr;</span>
+        <span class="btn__label">{{__ "Back"}}</span>
+      {{/Button}}
+    {{/Row}}
+    
+    {{#> Row align="centre"}}
+      {{#> Button
+        type="icon-label"
+        on-click="emit next-slide"
+        bind-disabled=(str "#${for}.showNextButton | not" for=for)
+      }}
+        <span class="btn__label">{{__ "Next"}}</span>
+        <span class="btn__icon">&darr;</span>
+      {{/Button}}
+    {{/Row}}
+  </div>
+</template>
+
+<script>
+all('.slideshow-buttons', (slideshowButtons) => {
+  let slideShow = document.getElementById(slideshowButtons.dataset.for);
+  
+  on(slideshowButtons, 'next-slide', (evt) => {
+    emit(slideShow, 'next-slide');
+  });
+
+  on(slideshowButtons, 'prev-slide', (evt) => {
+    emit(slideShow, 'prev-slide');
+  });
+});
+
+</script>
+
+<style>
+.slideshow-buttons {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 6rem;
+}
+</style>

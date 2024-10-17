@@ -1,0 +1,799 @@
+(game, gamedata)
+
+<template>
+  <form 
+    id="build-form"
+    class="build-form build-form-classic build-form-{{game}}"
+    data-game="{{game}}"
+  >
+    {{> SlideshowButtons
+      for='slides-character'
+    }}
+
+    {{#> Slideshow 
+      id='slides-character'
+      vertical=true
+    }}
+
+      {{#> Slide jump="start" first="true"}}
+        {{#> Place}}
+          {{#> Row align="centre"}}
+            {{#if (eq game "pathfinder")}}
+              {{> Picture src="/images/pathfinder.png" size="logo"}}
+            {{/if}}
+            {{#if (eq game "starfinder")}}
+              {{> Picture src="/images/starfinder.png" size="logo"}}
+            {{/if}}
+            {{#if (eq game "dnd35")}}
+              {{> Picture src="/images/dnd35.png" size="logo"}}
+            {{/if}}
+          {{/Row}}
+
+          {{#> Row pad=true}}
+            {{> Spacer}}
+            <p>
+              {{__ "Language"}}:
+              {{#> Button class="btn btn--light" on-click="body.currentMenu = language-menu"}}
+                {{> Icon icon="globe"}}{{__ (languagename lang) "languagename"}}
+              {{/Button}}
+            </p>
+          {{/Row}}
+          
+          {{#> TileGrid grid="2-2" }}
+            
+            {{#> Button 
+              type="tile"
+              on-click="#switch-milestones.current=character; #switch-character.current=character; #slides-character.jump=class"
+            }}
+              {{#if (eq game "starfinder")}}
+                {{> Picture src="/images/starfinder-single.png" size="tile"}}
+              {{else}}
+                {{> Picture src="/images/single.png" size="tile"}}
+              {{/if}}
+              <h3>{{__ "Character"}}</h3>
+            {{/Button}}
+
+            {{#> Button 
+              type="tile"
+              on-click="#switch-milestones.current=gm; #switch-character.current=gm; #slides-character.jump=gm"
+            }}
+              {{#if (eq game "starfinder")}}
+                {{> Picture src="/images/starfinder-gm.png" size="tile"}}
+              {{else}}
+                {{> Picture src="/images/gm.png" size="tile"}}
+              {{/if}}
+              <h3>{{__ "GM"}}</h3>
+            {{/Button}}
+
+            {{#if (eq game "pathfinder")}}
+              {{#> Button
+                type="tile"
+                on-click="#switch-milestones.current=kingdom; #switch-character.current=kingdom; #slides-character.jump=kingdom"
+              }}  
+                {{> Picture src="/images/kingmaker-logo2.png" size="logo"}}
+              {{/Button}}
+            {{/if}}
+
+            {{#if (eq game "starfinder")}}
+              {{#> Button
+                type="tile"
+                on-click="#switch-milestones.current=starship; #switch-character.current=starship; #slides-character.jump=starship-download"
+              }}  
+                <h3>{{__ "Starship"}}</h3>
+              {{/Button}}
+            {{/if}}
+
+            {{#> Button
+              type="tile"
+              on-click="#switch-milestones.current=mini; #switch-character.current=mini; #slides-character.jump=mini"
+            }}
+              <h3>{{__ "Map Figure"}}</h3>
+            {{/Button}}
+
+          {{/TileGrid}}
+        {{/Place}}
+      {{/Slide}}
+
+      
+
+      {{#> Switch 
+        id='switch-character'
+        current=''
+        forward='#switch-milestones.current'
+      }}
+        {{#> SwitchCase value='character'}}
+
+          {{#> Slide jump="class" slide=2 show-next=true}}
+            {{#if (eq game "starfinder")}}
+              {{#> Columns n=3}}
+                {{#> Column}}
+                  <h2>{{__ "Theme"}}</h2>
+                {{/Column}}
+                {{#> Column}}
+                  <h2>{{__ "Class"}}</h2>
+                {{/Column}}
+                {{#> Column}}
+                  <h2>{{__ "Archetype"}}</h2>
+                {{/Column}}
+              {{/Columns}}
+            {{else}}
+              <h2>{{__ "Class"}}</h2>
+            {{/if}}
+            
+            <div class="classlist">
+              {{#> Columns n=gameData.layout.length}}
+                {{#each gameData.layout as |col colIndex|}}
+                  {{#> Column}}
+                    
+                    {{#each col as |book bookIndex|}}
+                      <h3>{{__ book.displayName "book.displayName"}}</h3>
+                      <ul>
+                        {{#each book.classes as |class classIndex|}}
+                          <li>
+                          {{#if book.radio}}
+                            <input type='radio' name='switch-class' value='{{class.name}}' id='class-{{class.code}}' data-class='{{class.code}}' data-classname='{{class.name}}' />
+                          {{else}}
+                            <input type='checkbox' name='class-{{class.name}}' id='class-{{class.code}}' data-class='{{class.code}}' data-classname='{{class.name}}' />
+                          {{/if}}
+                          <label for='class-{{class.code}}'>{{__ class.name "name"}}</label>
+
+                          {{#if variants}}
+                            {{#if axes}}
+                              {{#each axes as |axis axisIndex|}}
+                                <select name='variant-{{class.code}}-axis-{{axisIndex}}' 
+                                  id='variant-{{class.name}}-axis-{{axisIndex}}' 
+                                  class='axis-select'
+                                  data-variant-for="{{class.code}}"
+                                  data-variant-axis="{{axisIndex}}"
+                                >
+                                  {{#each axis}}
+                                    <option value='{{this}}'>{{__ this "axis"}}</option>
+                                  {{/each}}
+                                </select>
+                              {{/each}}
+                            {{else}}
+                              <select name='variant-{{class.code}}' 
+                                id='variant-{{class.name}}'
+                                data-variant-for="{{class.code}}"
+                              >
+                                {{#each variants as |variant variantIndex|}}
+                                  <option value='{{name}}'>{{__ name "variant name"}}</option>
+                                {{/each}}
+                              </select>
+                            {{/if}}
+                          {{/if}}
+                          </li>
+                        {{/each}}
+                      </ul>
+                    {{/each}}
+
+                  {{/Column}}
+                {{/each}}
+              {{/Columns}}
+            </div>
+          {{/Slide}}
+
+          {{#> Slide jump="options" slide=3 show-next=true}}
+            <h2>{{__ "Options"}}</h2>
+
+            {{#> Columns}}
+              {{#> Column}}
+
+                {{#if gameData.isStarfinder}}
+                  <h3>{{__ "Beginners"}}</h3>
+                    <p><label for='buildmycharacter'><input type='checkbox' name='build-my-character' id='buildmycharacter' checked> {{__ "Build a character"}}</label><p>
+                    <p class='info'>{{__ "A sheet to help beginners with the process of building their character."}}</p>
+                {{/if}}
+
+
+                {{#if gameData.isDnd35}}
+                  <div id='simple-section'>
+                    <label for="simple"><input type="checkbox" name="simple" id="simple"> {{__ "Simpler version"}}</label>
+                    <p class="info">{{__ "The simplified version does not have a separate sheet for inventory and equipment, instead merging these onto the core sheets. This is only recommended for low-level characters, and is not compatible with the Barbarian, Ranger or Psionic characters."}}</p>
+                  </div>
+                  
+                  <label for="more"><input type="checkbox" name="more" id="more"> {{__ "More classes"}}</label>
+                  <p class="info">{{__ "Includes space for 7 classes rather than 5."}}</p>
+                {{/if}}
+
+                <h3>{{__ "Pages"}}</h3>
+                  <p><label for="spellbook-size">{{__ "Spellbook style"}}</label>
+                    <select name="spellbook-size" id="spellbook-size">
+                      <option value="small">{{__ "Small entries"}}</option>
+                      <option value="medium" selected>{{__ "Normal entries"}}</option>
+                      <option value="large">{{__ "Large entries"}}</option>
+                      <option value="none">{{__ "None"}}</option>
+                    </select></p>
+            
+                  {{#if gameData.isStarfinder}}
+                  <p><label for="inventory-style">{{__ "Inventory style"}}</label>
+                    <select name="inventory-style" id="inventory-style">
+                        <option value="normal" selected>{{__ "Normal (on the combat page)"}}</option>
+                        <option value="expanded">{{__ "Expanded (separate page)"}}</option>
+                    </select></p>
+                  {{else}}
+                  <p><label for="inventory-style">{{__ "Inventory style"}}</label>
+                    <select name="inventory-style" id="inventory-style">
+                        <option value="auto" selected>{{__ "Auto-detect"}}</option>
+                        <option value="with">{{__ "With wands, scrolls and potions"}}</option>
+                        <option value="without">{{__ "Without wands, scrolls and potions"}}</option>
+                    </select></p>
+                  {{/if}}
+
+                <h3>{{__ "Skills"}}</h3>
+                  <p><label for="skills-style">{{__ "Skills list style"}}</label>
+                      <label for="skills-list-style-normal">
+                        <input type="radio" name="skills-list-style" value="normal" id="skills-list-style-normal" checked>
+                        {{__ "Normal"}}</label> &nbsp; 
+                      {{#if gameData.isPathfinder}}
+                      <label for="skills-list-style-consolidated">
+                        <input type="radio" name="skills-list-style" value="consolidated" id="skills-list-style-consolidated"> 
+                        {{__ "Consolidated"}}</label> &nbsp; 
+                      {{/if}}
+                      <label for="skills-list-style-blank">
+                        <input type="radio" name="skills-list-style" value="blank" id="skills-list-style-blank"> 
+                        {{__ "Blank"}}</label>
+                  </p>
+
+                  {{#unless gameData.isStarfinder}}
+                    <p><label for="all-knowledge"><input type="checkbox" name="all-knowledge" id="all-knowledge" /> {{__ "Include all knowledge skills"}}</label></p>
+                    <p class='info'>{{__ "This reduces the space available for Craft, Profession and Perform skills. Bards get all knowledge skills anyway."}}</p>
+                  {{/unless}}
+
+                  <table id='flexi-skills'>
+                  {{#unless gameData.isStarfinder}}
+                    <tr><td><label for="show-perform"><input type="checkbox" name="show-perform" id="show-perform" /> {{__ "Perform"}}</label></td>
+                      <td id='perform-group'>
+                        {{#> Repeatable max=10 id="perform-skills"}}
+                          <select name="perform-skill-{{number}}">
+                            <option value="act">({{__ "act"}})</option>
+                            <option value="comedy">({{__ "comedy"}})</option>
+                            <option value="dance">({{__ "dance"}})</option>
+                            <option value="keyboard">({{__ "keyboard"}})</option>
+                            <option value="oratory">({{__ "oratory"}})</option>
+                            <option value="percussion">({{__ "percussion"}})</option>
+                            <option value="string">({{__ "string"}})</option>
+                            <option value="wind">({{__ "wind"}})</option>
+                            <option value="sing">({{__ "sing"}})</option>
+                          </select>
+                        {{/Repeatable}}
+                      </td>
+                    </tr>
+                  {{/unless}}
+
+                  {{#unless gameData.isStarfinder}}
+                    <tr><td><label for="show-craft"><input type="checkbox" name="show-craft" id="show-craft" /> {{__ "Craft"}}</label></td>
+                      <td id='craft-group'>
+                        {{#> Repeatable max=10 id="craft-skills-{{number}}"}}
+                          <select name="craft-skill-{{number}}">
+                          {{#if ../gameData.isPathfinder}}
+                            <option value="alchemy">({{__ "alchemy"}})</option>
+                            <option value="armour">({{__ "armour"}})</option>
+                            <option value="baskets">({{__ "baskets"}})</option>
+                            <option value="books">({{__ "books"}})</option>
+                            <option value="bows">({{__ "bows"}})</option>
+                            <option value="calligraphy">({{__ "calligraphy"}})</option>
+                            <option value="carpentry">({{__ "carpentry"}})</option>
+                            <option value="cloth">({{__ "cloth"}})</option>
+                            <option value="clothing">({{__ "clothing"}})</option>
+                            <option value="glass">({{__ "glass"}})</option>
+                            <option value="jewellery">({{__ "jewellery"}})</option>
+                            <option value="leather">({{__ "leather"}})</option>
+                            <option value="locks">({{__ "locks"}})</option>
+                            <option value="paintings">({{__ "paintings"}})</option>
+                            <option value="pottery">({{__ "pottery"}})</option>
+                            <option value="sculptures">({{__ "sculptures"}})</option>
+                            <option value="ships">({{__ "ships"}})</option>
+                            <option value="shoes">({{__ "shoes"}})</option>
+                            <option value="stonemasonry">({{__ "stonemasonry"}})</option>
+                            <option value="traps">({{__ "traps"}})</option>
+                            <option value="weapons">({{__ "weapons"}})</option>
+                          {{/if}}
+                          {{#if ../gameData.isDnd35}}
+                            <option value='alchemy'>({{__ "alchemy"}})</option>
+                            <option value='armourer'>({{__ "armourer"}})</option>
+                            <option value='blacksmithing'>({{__ "blacksmithing"}})</option>
+                            <option value='bookbinding'>({{__ "bookbinding"}})</option>
+                            <option value='bowmaking'>({{__ "bowmaking"}})</option>
+                            <option value='brewery'>({{__ "brewery"}})</option>
+                            <option value='calligraphy'>({{__ "calligraphy"}})</option>
+                            <option value='carpentry'>({{__ "carpentry"}})</option>
+                            <option value='carver'>({{__ "carver"}})</option>
+                            <option value='chemist'>({{__ "chemist"}})</option>
+                            <option value='founder'>({{__ "founder"}})</option>
+                            <option value='glassblowing'>({{__ "glassblowing"}})</option>
+                            <option value='cooking'>({{__ "cooking"}})</option>
+                            <option value='jeweler'>({{__ "jeweler"}})</option>
+                            <option value='leatherworking'>({{__ "leatherworking"}})</option>
+                            <option value='masonry'>({{__ "masonry"}})</option>
+                            <option value='mechanic'>({{__ "mechanic"}})</option>
+                            <option value='painting'>({{__ "painting"}})</option>
+                            <option value='pottery'>({{__ "pottery"}})</option>
+                            <option value='sculpting'>({{__ "sculpting"}})</option>
+                            <option value='stone masonry'>({{__ "stone masonry"}})</option>
+                            <option value='tailor'>({{__ "tailor"}})</option>
+                            <option value='weaving'>({{__ "weaving"}})</option>
+                            <option value='winemaking'>({{__ "winemaking"}})</option>
+                          {{/if}}
+                          </select>
+                        {{/Repeatable}}
+                      </td>
+                    </tr>
+                  {{/unless}}
+
+                  <tr><td><label for="show-profession"><input type="checkbox" name="show-profession" id="show-profession" /> {{__ "Profession"}}</label></td>
+                    <td id='profession-group'>
+                      {{#> Repeatable max=10 id="profession-skills"}}
+                        <select name="profession-skill-{{number}}">
+                          {{#if gameData.isStarfinder}}
+                            <option value="accountant">({{__ "accountant"}})</option>
+                            <option value="actor">({{__ "actor"}})</option>
+                            <option value="archaeologist">({{__ "archaeologist"}})</option>
+                            <option value="architect">({{__ "architect"}})</option>
+                            <option value="artist">({{__ "artist"}})</option>
+                            <option value="bounty hunter">({{__ "bounty hunter"}})</option>
+                            <option value="comedian">({{__ "comedian"}})</option>
+                            <option value="con artist">({{__ "con artist"}})</option>
+                            <option value="cook">({{__ "cook"}})</option>
+                            <option value="corporate">({{__ "corporate"}})</option>
+                            <option value="counselor">({{__ "counselor"}})</option>
+                            <option value="courtesan">({{__ "courtesan"}})</option>
+                            <option value="dancer">({{__ "dancer"}})</option>
+                            <option value="dockworker">({{__ "dockworker"}})</option>
+                            <option value="electrician">({{__ "electrician"}})</option>
+                            <option value="farmer">({{__ "farmer"}})</option>
+                            <option value="gambler">({{__ "gambler"}})</option>
+                            <option value="general contractor">({{__ "general contractor"}})</option>
+                            <option value="herbalist">({{__ "herbalist"}})</option>
+                            <option value="lab technician">({{__ "lab technician"}})</option>
+                            <option value="lawyer">({{__ "lawyer"}})</option>
+                            <option value="maintenance worker">({{__ "maintenance worker"}})</option>
+                            <option value="manager">({{__ "manager"}})</option>
+                            <option value="mathematician">({{__ "mathematician"}})</option>
+                            <option value="mercenary">({{__ "mercenary"}})</option>
+                            <option value="merchant">({{__ "merchant"}})</option>
+                            <option value="miner">({{__ "miner"}})</option>
+                            <option value="musician">({{__ "musician"}})</option>
+                            <option value="orator">({{__ "orator"}})</option>
+                            <option value="personality">({{__ "personality"}})</option>
+                            <option value="philosopher">({{__ "philosopher"}})</option>
+                            <option value="poet">({{__ "poet"}})</option>
+                            <option value="politician">({{__ "politician"}})</option>
+                            <option value="professional">({{__ "professional"}})</option>
+                            <option value="professor">({{__ "professor"}})</option>
+                            <option value="psychologist">({{__ "psychologist"}})</option>
+                            <option value="smuggler">({{__ "smuggler"}})</option>
+                            <option value="video">({{__ "video"}})</option>
+                            <option value="vidgamer">({{__ "vidgamer"}})</option>
+                            <option value="writer">({{__ "writer"}})</option>
+                          {{else}}
+                            <option value='architect'>({{__ "architect"}})</option>
+                            <option value='baker'>({{__ "baker"}})</option>
+                            <option value='barrister'>({{__ "barrister"}})</option>
+                            <option value='brewer'>({{__ "brewer"}})</option>
+                            <option value='butcher'>({{__ "butcher"}})</option>
+                            <option value='clerk'>({{__ "clerk"}})</option>
+                            <option value='cook'>({{__ "cook"}})</option>
+                            <option value='courtesan'>({{__ "courtesan"}})</option>
+                            <option value='driver'>({{__ "driver"}})</option>
+                            <option value='engineer'>({{__ "engineer"}})</option>
+                            <option value='farmer'>({{__ "farmer"}})</option>
+                            <option value='fisherman'>({{__ "fisherman"}})</option>
+                            <option value='gambler'>({{__ "gambler"}})</option>
+                            <option value='gardener'>({{__ "gardener"}})</option>
+                            <option value='herbalist'>({{__ "herbalist"}})</option>
+                            <option value='innkeeper'>({{__ "innkeeper"}})</option>
+                            <option value='librarian'>({{__ "librarian"}})</option>
+                            <option value='merchant'>({{__ "merchant"}})</option>
+                            <option value='midwife'>({{__ "midwife"}})</option>
+                            <option value='miller'>({{__ "miller"}})</option>
+                            <option value='miner'>({{__ "miner"}})</option>
+                            <option value='porter'>({{__ "porter"}})</option>
+                            <option value='sailor'>({{__ "sailor"}})</option>
+                            <option value='scribe'>({{__ "scribe"}})</option>
+                            <option value='shepherd'>({{__ "shepherd"}})</option>
+                            <option value='stable master'>({{__ "stable master"}})</option>
+                            <option value='soldier'>({{__ "soldier"}})</option>
+                            <option value='tanner'>({{__ "tanner"}})</option>
+                            <option value='trapper'>({{__ "trapper"}})</option>
+                            <option value='woodcutter'>({{__ "woodcutter"}})</option>
+                          {{/if}}
+                        </select>
+                      {{/Repeatable}}
+                    </td>
+                  </tr>
+                  </table>
+
+                  <p class='info'>There may be other Craft, Perform and Profession skills, depending on setting and rules. Check with your {{#if gameData.isDnd}}DM{{else}}GM{{/if}}</p>
+
+              {{/Column}}
+              {{#> Column}}
+
+                <h3>{{__ "Additional pages"}}</h3>
+                  <p><label for="include-background"><input type="checkbox" name="include-background" id="include-background" checked /> {{__ "Character background"}}</label></p>
+                  {{#if gameData.isPathfinder}}
+                    <p class='indent'><label for="include-pathfinder-society"><input type="checkbox" name="include-pathfinder-society" id="include-pathfinder-society" /> {{__ "Pathfinder Society"}}</label></p>
+                  {{/if}}
+                  {{#unless gameData.isStarfinder}}
+                    <p><label for="include-lycanthrope"><input type="checkbox" name="include-lycanthrope" id="include-lycanthrope" /> {{__ "Lycanthrope"}}</label></p>
+                    <p><label for="include-party-funds"><input type="checkbox" name="include-party-funds" id="include-party-funds" /> {{__ "Party funds"}}</label></p>
+                    <p><label for="include-animal-companion"><input type="checkbox" name="include-animal-companion" id="include-animal-companion" /> {{__ "Animal companion"}}</label></p>
+                    <p class='info'>{{__ "Wizards, Rangers, Witches etc get the animal companion automatically"}}</p>
+                  {{/unless}}
+                  {{#if gameData.isPathfinder}}
+                    <p><label for="include-intelligent-item"><input type="checkbox" name="include-intelligent-item" id="include-intelligent-item" /> {{__ "Intelligent item"}}</label></p>
+                  {{/if}}
+
+                  <p><label for="include-mini"><input type="checkbox" name="include-mini" id="include-mini" checked /> {{__ "Map figure sheet"}}</label></p>
+                  <p class='info'>{{__ "Includes stand-up map figure, square map token and stats card for initiative tracking."}}</p>
+                  <p class='indent'>{{__ "Size"}}: 
+                    <label for="mini-small"><input type="radio" name="mini-size" value="small" id="mini-small"> {{__ "Small"}}</label>&nbsp; 
+                    <label for="mini-medium"><input type="radio" name="mini-size" value="medium" id="mini-medium" checked> {{__ "Medium"}}</label>&nbsp; 
+                    <label for="mini-large"><input type="radio" name="mini-size" value="large" id="mini-large"> {{__ "Large"}}</label>
+                  </p>
+
+              {{/Column}}
+            {{/Columns}}
+          {{/Slide}}
+
+          {{#> Slide jump="picture" slide=4 show-next=true}}
+            {{#> Columns}}
+              {{#> Column}}
+
+                <h3>{{__ "Portrait"}}</h3>
+                {{> ImageDrop
+                  id="portrait"
+                  shape="portrait"
+                  label="Select or drop portrait"
+                  button="Select portrait"
+                  placeholder="/images/generic.png"
+                  imageselect="portrait"
+                }}
+
+              {{/Column}}
+              {{#> Column}}
+
+                <h3>{{__ "Logo"}}</h3>
+                {{> ImageDrop
+                  id="logo"
+                  shape="logo"
+                  label="Select or drop logo"
+                  button="Select logo"
+                  placeholder=logo
+                  imageselect="logo"
+                }}
+
+                <h3>{{__ "Watermark"}}</h3>
+                  <p><label for='has-watermark'><input type="checkbox" name="has-watermark" id="has-watermark" /> {{__ "Watermark every page"}}</label></p>
+                  <p><input type='text' name='watermark' id='watermark' class='well' placeholder='YOUR MESSAGE' /></p>
+
+              {{/Column}}
+            {{/Columns}}
+          {{/Slide}}
+          
+          {{#> Slide jump="download" slide=5}}
+            
+            <h2>{{__ "Legal"}}</h2>
+              <p><label for='gm-permission'><input type='checkbox' name='gm-permission' id='gm-permission'> {{__ "Permission to print"}}</label></p>
+              <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
+
+            <h2>{{__ "Printing Colour"}}</h2>
+              {{> BuildFormClassicColourPicker id="colour" }}
+
+            <h2>{{__ "Download"}}</h2>
+              {{#> Row align="centre" pad=true }}
+                {{#> Button type="primary" id="download-character" }}
+                  {{__ "Download"}}
+                {{/Button}}
+              {{/Row}}
+          {{/Slide}}
+
+        {{/SwitchCase}}
+
+        {{#> SwitchCase value='gm'}}
+
+          {{#> Slide jump="gm" slide=2 show-next=true}}
+            <h2>{{#if isDnd}}{{__ "Dungeon Master"}}{{else}}{{__ "Game Master"}}{{/if}}</h2>
+            <input type="hidden" name="gm-pick" id="gm-pick"/>
+
+            {{#> TileGrid grid="2-2" gap="small"}}
+
+              {{#> Button 
+                type="gm-tile"
+                on-click="#gm-pick.value=characters; #switch-gm.current=characters; #slides-character.jump=gm-options"
+              }}
+                {{#if (eq game "starfinder")}}
+                  {{> Picture src="/images/starfinder-gm-characters.png" size="gm-tile"}}
+                {{else}}
+                  {{> Picture src="/images/gm-characters.png" size="gm-tile"}}
+                {{/if}}
+                <h3>{{__ "Characters and NPCs"}}</h3>
+              {{/Button}}
+
+              {{#> Button 
+                type="gm-tile"
+                on-click="#gm-pick.value=maps; #switch-gm.current=maps; #slides-character.jump=gm-options"
+              }}
+                {{#if (eq game "starfinder")}}
+                  {{> Picture src="/images/starfinder-gm-maps.png" size="gm-tile"}}
+                {{else}}
+                  {{> Picture src="/images/gm-maps.png" size="gm-tile"}}
+                {{/if}}
+                <h3>{{__ "Exploration Maps"}}</h3>
+              {{/Button}}
+
+              {{#unless isStarfinder}}
+                {{#> Button 
+                  type="gm-tile"
+                  on-click="#gm-pick.value=campaign; #switch-gm.current=campaign; #slides-character.jump=gm-options"
+                }}
+                  {{> Picture src="/images/gm-campaign.png" size="gm-tile"}}
+                  <h3>{{__ "Campaign Planning"}}</h3>
+                {{/Button}}
+              {{/unless}}
+
+            {{/TileGrid}}
+          {{/Slide}}
+          
+          {{#> Slide jump="gm-options" slide=3 show-next=true}}
+            {{#> Switch 
+              id="switch-gm"
+              current=""
+            }}
+              {{#> SwitchCase value="characters"}}
+                <h2>{{__ "Characters"}}</h2>
+                <p>{{__ "Sheets for tracking the whole party, and NPCs."}}</p>
+                
+                <h3>{{__ "Party"}}</h3>
+                <p><label for='num-pcs'>{{__ "Party size"}}:&nbsp; 
+                  <select name='num-pcs' id='num-pcs' style='width: 60px; text-align: right;'>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option>
+                    <option value='6'>6</option>
+                    <option value='7'>7</option>
+                    <option value='8'>8</option>
+                    <option value='9'>9</option>
+                    <option value='10'>10</option>
+                  </select> 
+                  &nbsp;{{__ "player characters"}}</label></p>
+              {{/SwitchCase}}
+              
+              {{#> SwitchCase value="maps"}}
+                <h2>{{__ "Maps"}}</h2>
+                <p>{{__ "Blank hex maps, isometric maps, city maps and more."}}
+                  {{#if gameData.isPathfinder}} <span>{{__ "Goes well with Kingmaker and Ultimate Campaign"}}</span> {{/if}}</p>
+        
+                {{#unless gameData.isStarfinder}}
+                <h3>{{__ "Map style"}}</h3>
+                  <p><label for="maps-view-3d"><input type="radio" name="maps-view" value="3d" id="maps-view-3d" checked />
+                      {{__ "3D (perspective)"}}</label></p>
+                  <p><label for="maps-view-2d"><input type="radio" name="maps-view" value="2d" id="maps-view-2d"/>
+                      {{__ "2D (flat)"}}</label></p>
+                {{/unless}}
+              {{/SwitchCase}}
+              
+              {{#> SwitchCase value="campaign"}}
+                <h2>{{__ "Campaign"}}</h2>
+                <p>{{__ "History timelines and other sheets for planning a game."}}</p>
+              {{/SwitchCase}}
+              
+            {{/Switch}}
+          {{/Slide}}
+          
+          {{#> Slide jump="gm-download" slide=4}}
+            <h2>{{__ "Legal"}}</h2>
+              <p><label for='permission'><input type='checkbox' name='permission' id='permission'> {{__ "Permission to print"}}</label></p>
+              <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
+
+            <h2>{{__ "Printing Colour"}}</h2>
+              {{> BuildFormClassicColourPicker id="gm-colour" }}
+
+            <h2>{{__ "Download"}}</h2>
+              {{#> Row align="centre" pad=true }}
+                {{#> Button type="primary" id="download-gm" }}
+                  {{__ "Download"}}
+                {{/Button}}
+              {{/Row}}
+          {{/Slide}}
+        
+        {{/SwitchCase}}
+        
+
+        {{#> SwitchCase value='kingdom'}}
+
+          {{#> Slide jump="kingdom" slide=2 show-next=true}}
+            <h2>Kingdom</h2>
+            
+            <h3>{{__ "Settlement style"}}</h3>
+              <p><label for="settlement-style-normal"><input type="radio" name="settlement-style" value="normal" id="settlement-style-normal" checked />
+                {{__ "Normal"}}</label></p>
+              <p><label for="settlement-style-large"><input type="radio" name="settlement-style" value="large" id="settlement-style-large" />
+                {{__ "Large"}}</label></p>
+              <p><label for="settlement-style-plain"><input type="radio" name="settlement-style" value="plain" id="settlement-style-plain" />
+                {{__ "Without map"}}</label></p>
+          {{/Slide}}
+
+          {{#> Slide jump="kingdom-download" slide=3}}
+            <h2>{{__ "Legal"}}</h2>
+              <p><label for='permission'><input type='checkbox' name='permission' id='permission'> {{__ "Permission to print"}}</label></p>
+              <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
+
+            <h2>{{__ "Printing Colour"}}</h2>
+              {{> BuildFormClassicColourPicker id="kingdom-colour" }}
+
+            <h2>{{__ "Download"}}</h2>
+              {{#> Row align="centre" pad=true }}
+                {{#> Button type="primary" id="download-kingdom" }}
+                  {{__ "Download"}}
+                {{/Button}}
+              {{/Row}}
+          {{/Slide}}
+
+        {{/SwitchCase}}
+        
+
+        {{#> SwitchCase value='starship'}}
+
+          <h2>Starship</h2>
+
+          {{#> Slide jump="starship-download" slide=3}}
+            <h3>{{__ "Legal"}}</h3>
+              <p><label for='permission'><input type='checkbox' name='permission' id='permission'> {{__ "Permission to print"}}</label></p>
+              <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
+
+            <h3>{{__ "Printing Colour"}}</h3>
+              {{> BuildFormClassicColourPicker id="starship-colour" }}
+
+            <h3>{{__ "Download"}}</h3>
+              {{#> Row align="centre" pad=true }}
+                {{#> Button type="primary" id="download-starship" }}
+                  {{__ "Download"}}
+                {{/Button}}
+              {{/Row}}
+          {{/Slide}}
+
+        {{/SwitchCase}}
+        
+
+        {{#> SwitchCase value='mini'}}
+
+          {{#> Slide jump="mini" slide=2 show-next=true}}
+            <h2>Map Figure</h2>
+            
+            {{#> Columns}}
+              {{#> Column}}
+
+                <h3>{{__ "Portrait"}}</h3>
+                {{> ImageDrop
+                  id="mini-portrait"
+                  shape="portrait"
+                  label="Select or drop portrait"
+                  button="Select portrait"
+                  placeholder="/images/generic.png"
+                  imageselect="portrait"
+                }}
+
+              {{/Column}}
+              {{#> Column}}
+
+                <h3>{{__ "Watermark"}}</h3>
+                  <p><label for='has-watermark'><input type="checkbox" name="has-watermark" id="has-watermark" /> {{__ "Watermark every page"}}</label></p>
+                  <p><input type='text' name='watermark' id='watermark' class='well' placeholder='YOUR MESSAGE' /></p>
+
+                <h2>{{__ "Size"}}</h2>
+                <p>
+                  <label for="mini-mini-small"><input type="radio" name="mini-mini-size" value="small" id="mini-mini-small"> {{__ "Small"}}</label>&nbsp; 
+                  <label for="mini-mini-medium"><input type="radio" name="mini-mini-size" value="medium" id="mini-mini-medium" checked> {{__ "Medium"}}</label>&nbsp; 
+                  <label for="mini-mini-large"><input type="radio" name="mini-mini-size" value="large" id="mini-mini-large"> {{__ "Large"}}</label>
+                </p>
+              {{/Column}}
+            {{/Columns}}
+          {{/Slide}}
+
+          {{#> Slide jump="mini-download" slide=3}}
+            <h2>{{__ "Legal"}}</h2>
+              <p><label for='permission'><input type='checkbox' name='permission' id='permission'> {{__ "Permission to print"}}</label></p>
+              <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
+
+            <h2>{{__ "Printing Colour"}}</h2>
+              {{> BuildFormClassicColourPicker id="mini-colour" }}
+
+            <h2>{{__ "Download"}}</h2>
+              {{#> Row align="centre" pad=true }}
+                {{#> Button type="primary" id="download-mini" }}
+                  {{__ "Download"}}
+                {{/Button}}
+              {{/Row}}
+          {{/Slide}}
+
+        {{/SwitchCase}}
+
+      {{/Switch}}
+
+    {{/Slideshow}}
+  </form>
+</template>
+
+<style>
+.build-form-classic {
+  label {
+    font-size: 1rem;
+    margin: 0;
+  }
+  p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  p.info {
+    font-size: 0.9rem;
+    padding-left: 1.5rem;
+  }
+  p.indent {
+    padding-left: 1.5rem;
+  }
+
+  .classlist {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin: 0;
+        padding: 0.2rem 0;
+
+        label {
+          display: inline-block;
+          min-width: 5rem;
+        }
+
+        select {
+          font-size: 0.8rem;
+          width: 8.2rem;
+
+          &.axis-select {
+            width: 4rem;
+          }
+        }
+      }
+    }
+  }
+}
+</style>
+
+<script>
+
+on('#simple', 'change', (evt) => {
+  if (readCheckbox('simple')) {
+    set('#more', 'checked', false);
+  }
+});
+
+on('#more', 'change', (evt) => {
+  if (readCheckbox('more')) {
+    set('#simple', 'checked', false);
+  }
+});
+
+on('#download-character', 'click', (evt) => {
+  readClassicFormAndSubmit('character');
+});
+
+on('#download-gm', 'click', (evt) => {
+  readClassicFormAndSubmit('gm');
+});
+
+on('#download-kingdom', 'click', (evt) => {
+  readClassicFormAndSubmit('kingdom');
+});
+
+on('#download-starship', 'click', (evt) => {
+  readClassicFormAndSubmit('starship');
+});
+
+on('#download-mini', 'click', (evt) => {
+  readClassicFormAndSubmit('mini');
+});
+
+</script>

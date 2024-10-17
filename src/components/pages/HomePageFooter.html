@@ -1,0 +1,20 @@
+<template>
+  <div class="hero">
+    <nav class="nav--bar">
+      {{#> Button href="https://www.patreon.com/dyslexic_charactersheets" type="light" cls="btn--bgicon button-patreon"}}{{__ "Patreon"}}{{/Button}}
+      {{#> Button href="https://github.com/dyslexic-charactersheets" type="light" cls="btn--bgicon button-github"}}{{__ "GitHub"}}{{/Button}}
+      {{#> Button class="btn--min btn--icon" on-click="body.currentMenu = main-menu"}}☰ {{__ "More"}}{{/Button}}
+    </nav>
+    <!-- <nav class="nav--bar">
+      {{#> Button href="https://discord.gg/ajVTD4N" type="light" cls="btn--bgicon button-discord"}}{{__ "Discord"}}{{/Button}}
+      {{#> Button href="https://www.facebook.com/groups/dyslexiccharactersheets" type="light" cls="btn--bgicon button-facebook"}}{{__ "Facebook"}}{{/Button}}
+      {{#> Button type="light" cls="button-contact" on-click="body.currentMenu = contact-menu"}}{{__ "Contact"}}{{/Button}}
+    </nav>
+
+    <nav class="small-print nav--bar">
+      <a href="{{link lang 'open-source'}}">{{__ "Open source"}}</a> | 
+      <a href="{{link lang 'translating'}}">{{__ "Translating"}}</a> | 
+      <a href="{{link lang 'legal'}}">{{__ "Legal"}}</a>
+    </nav> -->
+  </div>
+</template>

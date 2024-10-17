@@ -10,13 +10,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 </head>
 
-<body id="body" data-current-menu="">
+<body id="body" data-current-menu="" data-language="es">
 
 
 <main class="main--layout_read">
     <section id="left">
         <div class="pane pane--bg_blue  dark-region ">
-                  <nav class="nav--row">
+                  <nav class="nav--row" id="home-link">
                       <a href="/es/" class="btn btn--min">
                         <img src="/images/favicon64.png">
                         Dyslexic Character Sheets
@@ -26,7 +26,7 @@
                           <button 
                         type="button"
                         
-                        class="btn " 
+                        class="btn btn--icon " 
                         data-on-click="body.currentMenu &#x3D; main-menu"
                         
                       >
@@ -36,7 +36,7 @@
                           <button 
                         type="button"
                         
-                        class="btn " 
+                        class="btn btn--light " 
                         data-on-click="body.currentMenu &#x3D; language-menu"
                         
                       >
@@ -46,7 +46,7 @@
                           <button 
                         type="button"
                         
-                        class="btn " 
+                        class="btn btn--light " 
                         data-on-click="body.currentMenu &#x3D; login-menu"
                         
                       >
@@ -60,39 +60,67 @@
                       <ul>
                           <li><a href="#news-" data-set="">
                               New website!
-                              <time datetime="December 18, 2023">1 Jan 2023</time>
+                              <time datetime="October 13, 2024">1 Jul 2024</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              A year on
+                              <time datetime="October 13, 2024">5 Jan 2024</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              Kineticist live
+                              <time datetime="October 13, 2024">11 Nov 2023</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              Patreon and Discord
+                              <time datetime="October 13, 2024">9 Jul 2023</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              Kingmaker
+                              <time datetime="October 13, 2024">6 May 2023</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              The OGL Fiasco
+                              <time datetime="October 13, 2024">10 Mar 2023</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              Dark archive - live!
+                              <time datetime="October 13, 2024">17 Jan 2023</time>
+                          </a></li>
+                          <li><a href="#news-" data-set="">
+                              On the OGL
+                              <time datetime="October 13, 2024">7 Jan 2023</time>
                           </a></li>
                           <li><a href="#news-" data-set="">
                               Some thoughts on One D&amp;D and the OGL
-                              <time datetime="December 18, 2023">17 Nov 2022</time>
+                              <time datetime="October 13, 2024">17 Nov 2022</time>
                           </a></li>
                           <li><a href="#news-" data-set="">
                               Edit and Save is live!
-                              <time datetime="December 18, 2023">3 Jun 2022</time>
+                              <time datetime="October 13, 2024">3 Jun 2022</time>
                           </a></li>
                           <li><a href="#news-" data-set="">
                               April 2022: 3D Character Sheets
-                              <time datetime="December 18, 2023">1 Apr 2022</time>
+                              <time datetime="October 13, 2024">1 Apr 2022</time>
                           </a></li>
                           <li><a href="#news-" data-set="">
                               The Blockchain
-                              <time datetime="December 18, 2023">31 Jan 2022</time>
+                              <time datetime="October 13, 2024">31 Jan 2022</time>
                           </a></li>
                           <li><a href="#news-" data-set="">
                               April 2021: The Perfect Character Sheet
-                              <time datetime="December 18, 2023">1 Apr 2021</time>
+                              <time datetime="October 13, 2024">1 Apr 2021</time>
                           </a></li>
                           <li><a href="#news-" data-set="">
                               April 2020: Starfinder Refresh
-                              <time datetime="December 18, 2023">1 Apr 2020</time>
+                              <time datetime="October 13, 2024">1 Apr 2020</time>
                           </a></li>
                           <li><a href="#news-" data-set="">
                               April 2018: Tails of Fallout Equestria
-                              <time datetime="December 18, 2023">1 Apr 2018</time>
+                              <time datetime="October 13, 2024">1 Apr 2018</time>
                           </a></li>
                           <li><a href="#news-" data-set="">
                               April 2017: Tails of Equestria
-                              <time datetime="December 18, 2023">1 Apr 2017</time>
+                              <time datetime="October 13, 2024">1 Apr 2017</time>
                           </a></li>
                       </ul>
                   </nav>
@@ -100,17 +128,118 @@
     <section id="right">
         <div class="pane pane--bg_parchment  light-region ">
             <div class="read-area">
-                        <img src="/images/coffee-stain.png" id="coffee-stain">
+                        <div class="responsive-small">
+                            <nav class="nav--row" id="home-link">
+                                <a href="/es/" class="btn btn--min">
+                                  <img src="/images/favicon64.png">
+                                  Dyslexic Character Sheets
+                                </a>
+                              </nav>
+                              <nav class="nav--row">
+                                    <button 
+                                  type="button"
+                                  
+                                  class="btn btn--icon " 
+                                  data-on-click="body.currentMenu &#x3D; main-menu"
+                                  
+                                >
+                                  ☰      
+                                </button>
+                            
+                                    <button 
+                                  type="button"
+                                  
+                                  class="btn btn--light " 
+                                  data-on-click="body.currentMenu &#x3D; language-menu"
+                                  
+                                >
+                                  <i class="icon icon_globe"></i>es      
+                                </button>
+                            
+                                    <button 
+                                  type="button"
+                                  
+                                  class="btn btn--light " 
+                                  data-on-click="body.currentMenu &#x3D; login-menu"
+                                  
+                                >
+                                  <i class="icon icon_user"></i>Login      
+                                </button>
+                            
+                                <div class="spacer"></div>
+                                
+                              </nav>  </div>        <img src="/images/coffee-stain.png" id="coffee-stain">
                 
                         <article class="news" id="news-">
                           <h2>New website!</h2>
-                          <time datetime="December 18, 2023"><span class="day">1</span><span class="month">Jan</span><span class="year">2023</span></time>
+                          <time datetime="October 13, 2024"><span class="day">1</span><span class="month">Jul</span><span class="year">2024</span></time>
                 
                           <p>The new website for Dyslexic Character Sheets is live!</p>
                         </article>
                         <article class="news" id="news-">
+                          <h2>A year on</h2>
+                          <time datetime="October 13, 2024"><span class="day">5</span><span class="month">Jan</span><span class="year">2024</span></time>
+                
+                          <p>It's a year now since the OGL crisis hit.</p>
+                <p>It's hard to explain just how deeply it affected everyone who creates things for TTRPGs. Just how worried, angry and betrayed it made us feel.</p>
+                <p>D&D is more than just a property that a company can own. It's a folk game, and a whole community and identity built around it. It's the product of countless people, some of them working for the hundreds of publishers, or the thousands of part-time creators, but most of all it's the many players and DMs who've made this game what it is.</p>
+                <p>It seems obscene that a profit-seeking company could have control over it, and more so that they could choose to take the whole thing away.</p>
+                <p>That nightmare was averted this time, due to the speed and scale of our reaction. Executives honestly didn't expect the reaction they got - because they don't actually know anything about the players or community. Just think on that. This catastrophic course of action was taken by people who don't care enough to get to know the people it affects.</p>
+                <p>And it wasn't even smart greed. I'm used to greed - I live in capitalism the same as the rest of you. It was incompetent, self-defeating greed, that wouldn't even have served their business interests even if it had worked entirely according to plan. And those idiots are getting million-dollar bonuses now.</p>
+                <p>I'm not going to replay the events of the crisis blow-by-blow. I expect you'll see plenty of that in the next few days. I just want you to remember why it mattered.</p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>Kineticist live</h2>
+                          <time datetime="October 13, 2024"><span class="day">11</span><span class="month">Nov</span><span class="year">2023</span></time>
+                
+                          <p>I've just released a number of things:</p>
+                <p>- Kineticist (and the Kineticist archetype)</p>
+                <p>- Variant rules: Ancestry Paragon, Automatic Bonus Progression and Proficiency Without Level</p>
+                <p>- The new PDF builder for PF1, Starfinder and D&D 3.5</p>
+                <p>- The option to hide values for print (patrons only)</p>
+                <p>- A whole load of little bug fixes</p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>Patreon and Discord</h2>
+                          <time datetime="October 13, 2024"><span class="day">9</span><span class="month">Jul</span><span class="year">2023</span></time>
+                
+                          <p>It looks like new patrons who click through to Discord aren't getting the 'Patron' role assigned properly. This is related to Discord's decision to make everyone change their username.</p>
+                <p>If you're a new patron and you want the right role, just ask and I'll fix it.</p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>Kingmaker</h2>
+                          <time datetime="October 13, 2024"><span class="day">6</span><span class="month">May</span><span class="year">2023</span></time>
+                
+                          <p>Happy coronation day!</p>
+                <p>The character sheets for Kingmaker for Pathfinder Second Edition are now live. This includes sheets for kingdoms, settlements, and armies.</p>
+                <p>There are also a number of other bug fixes and additions in this release, such as the Pine Leshy heritage from the Quest for the Frozen Flame adventure path.</p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>The OGL Fiasco</h2>
+                          <time datetime="October 13, 2024"><span class="day">10</span><span class="month">Mar</span><span class="year">2023</span></time>
+                
+                          <p>It's been a month or so now since the end of the OGL fiasco. While I was actively posting news during it, once it ended I wanted to take some time and get some perspective before posting my full thoughts.</p>
+                <p>Also this ended up being a really long post, so I've split it into three parts. You can read them on Patreon:</p>
+                <p><a href='https://www.patreon.com/posts/ogl-fiasco-part-79461831'>Part 1</a></p>
+                <p><a href='https://www.patreon.com/posts/ogl-fiasco-part-79560240'>Part 2</a></p>
+                <p><a href='https://www.patreon.com/posts/ogl-fiasco-part-79760180'>Part 3</a></p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>Dark archive - live!</h2>
+                          <time datetime="October 13, 2024"><span class="day">17</span><span class="month">Jan</span><span class="year">2023</span></time>
+                
+                          <p>The Dark Archive release is now live!</p>
+                        </article>
+                        <article class="news" id="news-">
+                          <h2>On the OGL</h2>
+                          <time datetime="October 13, 2024"><span class="day">7</span><span class="month">Jan</span><span class="year">2023</span></time>
+                
+                          <p>You've probably seen this already: <a href='https://gizmodo.com/dnd-wizards-of-the-coast-ogl-1-1-open-gaming-license-1849950634'>Dungeons & Dragons’ New License Tightens Its Grip on Competition</a>.</p>
+                <p>I was waiting to see what One D&D looked like before deciding whether to make character sheets for it. Well, if there's any truth at all to these reports (and they look pretty solid), then I won't be going anywhere near it.</p>
+                        </article>
+                        <article class="news" id="news-">
                           <h2>Some thoughts on One D&amp;D and the OGL</h2>
-                          <time datetime="December 18, 2023"><span class="day">17</span><span class="month">Nov</span><span class="year">2022</span></time>
+                          <time datetime="October 13, 2024"><span class="day">17</span><span class="month">Nov</span><span class="year">2022</span></time>
                 
                           <p>I've seen rumours that One D&D won't be getting a OGL.</p>
                 <p>If you're not familiar with it, the Open Game License is a legal document that permits anybody to use the D&D rules in their own publications provided they respect their intellectual property. It's what allows third-party publishers to make adventures and other content for the game, it's what allows games like Pathfinder to exist, and it's what allows me to make character sheets legally.</p>
@@ -121,7 +250,7 @@
                         </article>
                         <article class="news" id="news-">
                           <h2>Edit and Save is live!</h2>
-                          <time datetime="December 18, 2023"><span class="day">3</span><span class="month">Jun</span><span class="year">2022</span></time>
+                          <time datetime="October 13, 2024"><span class="day">3</span><span class="month">Jun</span><span class="year">2022</span></time>
                 
                           <p>After more than a year working on it, I've finally released some massive new features:</p>
                 <p>- Edit all the fields in the character sheet, including proficiencies, alignment, etc.</p>
@@ -134,7 +263,7 @@
                         </article>
                         <article class="news" id="news-">
                           <h2>April 2022: 3D Character Sheets</h2>
-                          <time datetime="December 18, 2023"><span class="day">1</span><span class="month">Apr</span><span class="year">2022</span></time>
+                          <time datetime="October 13, 2024"><span class="day">1</span><span class="month">Apr</span><span class="year">2022</span></time>
                 
                           <a href="/files/3D Character Sheet 2022.html">3D Character Sheet 2022.html</a>
                           <p>Our tabletop games are increasingly 3D. We have 3D VTTs with 3D animated maps, 3D printed miniatures, and of course we roll 3D dice. But we're still using the same flat old 2D character sheets we've had since the 1970s!</p>
@@ -142,35 +271,35 @@
                         </article>
                         <article class="news" id="news-">
                           <h2>The Blockchain</h2>
-                          <time datetime="December 18, 2023"><span class="day">31</span><span class="month">Jan</span><span class="year">2022</span></time>
+                          <time datetime="October 13, 2024"><span class="day">31</span><span class="month">Jan</span><span class="year">2022</span></time>
                 
                           <p>Just to head off the inevitable question, Dyslexic Character Sheets will NOT be participating in NFTs or cryptocurrencies in any way.</p>
                 <p>Anyone who'd like more details is welcome to listen to a tape of me laughing for 45 minutes, followed by a two hour lecture on how money works, what the blockchain actually is, and why your money is best kept far, far away from the whole thing.</p>
                         </article>
                         <article class="news" id="news-">
                           <h2>April 2021: The Perfect Character Sheet</h2>
-                          <time datetime="December 18, 2023"><span class="day">1</span><span class="month">Apr</span><span class="year">2021</span></time>
+                          <time datetime="October 13, 2024"><span class="day">1</span><span class="month">Apr</span><span class="year">2021</span></time>
                 
                           <a href="/files/Perfect 2021.pdf">Perfect 2021.pdf</a>
                           <p>After years of development, I'm finally ready to give you... the most perfect character sheet ever!</p>
                         </article>
                         <article class="news" id="news-">
                           <h2>April 2020: Starfinder Refresh</h2>
-                          <time datetime="December 18, 2023"><span class="day">1</span><span class="month">Apr</span><span class="year">2020</span></time>
+                          <time datetime="October 13, 2024"><span class="day">1</span><span class="month">Apr</span><span class="year">2020</span></time>
                 
                           <a href="/files/Starfinder 2020.pdf">Starfinder 2020.pdf</a>
                           <p>I'm looking to make a slight style change to the Starfinder sheets. What do people think of the attached?</p>
                         </article>
                         <article class="news" id="news-">
                           <h2>April 2018: Tails of Fallout Equestria</h2>
-                          <time datetime="December 18, 2023"><span class="day">1</span><span class="month">Apr</span><span class="year">2018</span></time>
+                          <time datetime="October 13, 2024"><span class="day">1</span><span class="month">Apr</span><span class="year">2018</span></time>
                 
                           <a href="/files/Tails of Fallout Equestria 2018.pdf">Tails of Fallout Equestria 2018.pdf</a>
                           <p>There've been a lot of interesting developments in table-top RPGs in the last year. Here's a little sneak preview of something I'm working on.</p>
                         </article>
                         <article class="news" id="news-">
                           <h2>April 2017: Tails of Equestria</h2>
-                          <time datetime="December 18, 2023"><span class="day">1</span><span class="month">Apr</span><span class="year">2017</span></time>
+                          <time datetime="October 13, 2024"><span class="day">1</span><span class="month">Apr</span><span class="year">2017</span></time>
                 
                           <a href="/files/Tails of Equestria 2017.pdf">Tails of Equestria 2017.pdf</a>
                           <p>A speak preview of a new game I'm going to be supporting.</p>
@@ -193,7 +322,7 @@
                         <button 
                       type="button"
                       id="main-menu"
-                      class="btn " 
+                      class="btn btn--icon " 
                       data-on-click="body.currentMenu &#x3D; main-menu"
                       
                     >
@@ -203,7 +332,7 @@
                         <button 
                       type="button"
                       id="main-menu"
-                      class="btn " 
+                      class="btn btn--light " 
                       data-on-click="body.currentMenu &#x3D; language-menu"
                       
                     >
@@ -213,7 +342,7 @@
                         <button 
                       type="button"
                       id="main-menu"
-                      class="btn " 
+                      class="btn btn--light " 
                       data-on-click="body.currentMenu &#x3D; login-menu"
                       
                     >
@@ -246,10 +375,23 @@
                     <li>
                       <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-github">GitHub</a>
                     </li>
+                    <li>
+                          <a 
+                id="main-menu"
+                class="btn btn--light btn--bgicon button-facebook" 
+                href="https://www.facebook.com/groups/dyslexiccharactersheets" 
+                 
+          
+                
+              >
+                Facebook      
+              </a>
+          
+                    </li>
                   </ul>
                   <ul>
                     <li>
-                      <button class="btn btn--light button-contact">Contact</button>
+                      <button class="btn btn--light button-contact" on-click="body.currentMenu = contact-menu">Contact</button>
                     </li>
                   </ul>
           
@@ -310,7 +452,7 @@
                         <button 
                       type="button"
                       id="language-menu"
-                      class="btn " 
+                      class="btn btn--icon " 
                       data-on-click="body.currentMenu &#x3D; main-menu"
                       
                     >
@@ -320,7 +462,7 @@
                         <button 
                       type="button"
                       id="language-menu"
-                      class="btn " 
+                      class="btn btn--light " 
                       data-on-click="body.currentMenu &#x3D; language-menu"
                       
                     >
@@ -330,7 +472,7 @@
                         <button 
                       type="button"
                       id="language-menu"
-                      class="btn " 
+                      class="btn btn--light " 
                       data-on-click="body.currentMenu &#x3D; login-menu"
                       
                     >
@@ -382,7 +524,155 @@
                   </ul>
                 </nav>
         </div>    </div>
-  </aside></aside>
+  </aside><!-- Login menu goes here -->
+<!-- This is the login menu -->
+<aside id="login-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'login-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="login-menu"
+                      class="btn btn--icon " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="login-menu"
+                      class="btn btn--light " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>es      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="login-menu"
+                      class="btn btn--light " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Login      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Login</h3>
+          
+                  <p>Login with Patreon to get access to patron-only features.</p>
+          
+                  <p>
+                    <a class="btn btn--light btn--bgicon button-patreon" href="https://www.patreon.com/oauth2/authorize?response_type=code&amp;client_id=0oURl0qZgYq8jpkZ0rl5KCfzpYb_Uki2bLfDwzlaVrFRr1QM7IrtNUt19eaulVgM&amp;redirect_uri=https%3A%2F%2Fwww.dyslexic-charactersheets.com%2Fauth%2Fpatreon-redirect">Login with Patreon</a>
+                  </p>
+          
+                  <p class="small-print">Logging in will set a cookie on your PC. This does not contain any personally identifiable information, and will not be sent to any third party.</p>
+          
+                  <h3>Become a patron</h3>
+          
+                  <p>Patrons get the ability to edit all the fields, have calculations work automatically, and save character sheets. Login with Patreon to unlock these features:</p>
+          
+                  <p>Support the site and gain access to extra features for just $1 by becoming a patron.</p>
+          
+                  <p>
+                    <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-patreon">Patreon</a>
+                  </p>
+                </nav>
+        </div>    </div>
+  </aside><aside id="contact-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'contact-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_contact  light-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="contact-menu"
+                      class="btn btn--icon " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="contact-menu"
+                      class="btn btn--light " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>es      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="contact-menu"
+                      class="btn btn--light " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Login      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Contact</h3>
+                  
+                  <form id="message-form" method="post" action="/message" class="contact-form">
+                    <p>Your message:</p>
+          
+                    <textarea name="message"></textarea>
+          
+                    <p>
+                        <label for="game">Which game is this about?</label>
+                    </p>
+                    <div class="row">
+                        <label><input type="radio" name="game" value="pf2"> Pathfinder 2e</label>
+                        <label><input type="radio" name="game" value="sf"> Starfinder</label>
+                    </div>
+                    <div class="row">
+                        <label><input type="radio" name="game" value="pf1"> Pathfinder 1e</label>
+                        <label><input type="radio" name="game" value="d35"> D&amp;D 3.5</label>
+                    </div>
+          
+                    <p>
+                        <label for="author">
+                            Your name:
+                            <input id="author" name="author" type="text" placeholder="The Internet" class="box">
+                        </label>
+                    </p>
+                    <p>
+                        <label for="email">
+                            Optionally, your email address:
+                        </label>
+                    </p>
+                    <p>
+                        <input id="email" name="email" type="email" placeholder="But only if you feel like it" class="box">
+                    </p>
+                    
+                    <button class="btn btn--primary" id="message-send">Send Message</button>
+                  </form>
+          
+                </nav>
+        </div>    </div>
+  </aside>
 <script src="/script.js"></script>
 
 </body>

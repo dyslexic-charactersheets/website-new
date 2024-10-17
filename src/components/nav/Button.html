@@ -1,3 +1,14 @@
+/*
+Button types:
+- primary (solid button)
+- light (menu button)
+- min (borderless menu button)
+- circle (up/down arrows)
+- icon-label (circle, but without the visible circle)
+- tile / tile-light (large translucent tile)
+- bgicon (branded icons for eg patreon, facebook, github)
+*/
+
 <template>
   {{#if href}}
     <a 
@@ -5,6 +16,10 @@
       class="btn {{#if type}}btn--{{type}} {{/if}}{{cls}}" 
       href="{{link lang href}}" 
       {{#if on-click}}data-on-click="{{on-click}}"{{/if}} 
+      {{#if bind-disabled}}
+        data-bind="data-disabled={{bind-disabled}}"
+      {{/if}}
+
       {{{dataAttributes data}}}
     >
       {{> @partial-block }}
@@ -16,6 +31,9 @@
       {{#if id}}id="{{id}}"{{/if}}
       class="btn {{#if type}}btn--{{type}} {{/if}}{{cls}}" 
       data-on-click="{{on-click}}"
+      {{#if bind-disabled}}
+        data-bind="disabled={{bind-disabled}}"
+      {{/if}}
       {{{dataAttributes data}}}
     >
       {{> @partial-block }}
@@ -24,16 +42,13 @@
   {{/if}}
 </template>
 
-<script>
-
-</script>
-
 <style>
   
 @use 'fonts';
 @use 'colours';
 
-$btn-size: 1.7rem;
+$btn-size: 1.8rem;
+$btn-size-big: 2.1rem;
 
 .btn {
   appearance: none;
@@ -46,14 +61,18 @@ $btn-size: 1.7rem;
   white-space: nowrap;
   position: relative;
 
+  &[disabled], &[data-disabled] {
+    opacity: 0.3;
+  }
+
   &.btn--primary {
     display: block;
     width: 10rem;
     text-align: center;
 
-    height: $btn-size;
-    line-height: $btn-size;
-    min-width: $btn-size;
+    height: $btn-size-big;
+    line-height: $btn-size-big;
+    min-width: $btn-size-big;
 
     @include fonts.heading;
 
@@ -62,7 +81,7 @@ $btn-size: 1.7rem;
     background: colours.$primary;
     color: colours.$primary--text;
     border-radius: 0.2rem;
-    padding: 0 1rem;
+    padding: 0rem 1rem;
   }
 
   .btn__badge {
@@ -113,6 +132,9 @@ $btn-size: 1.7rem;
     line-height: $btn-size;
     min-width: $btn-size;
 
+    @include fonts.heading;
+    /* font-weight: bold; */
+
     &.btn--icon {
       &.home-button {
         font-size: 1.4rem;
@@ -121,19 +143,28 @@ $btn-size: 1.7rem;
     }
 
     img {
-      height: 1rem;
+      height: 1.4rem;
+      vertical-align: middle;
+      margin-right: 0.4rem;
     }
   }
 
   &.btn--circle {
     height: 5rem !important;
     width: 5rem !important;
+    margin: 0.5rem;
+
     background: colours.$fieldbg;
     border-radius: 8rem;
     justify-content: center;
     box-shadow: 0 0.1rem 0.2rem 0.2rem colours.$fieldbg;
     padding: 0;
     border: 1px solid colours.$light;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   &.btn--icon-label {
@@ -143,6 +174,7 @@ $btn-size: 1.7rem;
     text-align: center;
 
     height: unset;
+    padding: 1rem;
 
     .btn__icon {
       font-size: 2rem;
@@ -151,7 +183,7 @@ $btn-size: 1.7rem;
     }
   }
 
-  &.btn--tile, &.btn--tile-light {
+  &.btn--tile, &.btn--tile-light, &.btn--gm-tile {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -170,8 +202,12 @@ $btn-size: 1.7rem;
   }
 
   &.btn--tile {
-    background: colours.$red-leather-faded;
-    border: 1px solid colours.$light;
+    background: rgba(colours.$red-leather, 0.6);
+    border: 1px solid rgba(white, 0.6);
+
+    .main--layout_home & {
+      background: rgba(colours.$red-leather, 0.8);
+    }
   }
 
   &.btn--tile-light {
@@ -180,6 +216,11 @@ $btn-size: 1.7rem;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
+  }
+
+  &.btn--gm-tile {
+    box-shadow: none;
+    padding: 0;
   }
 
   &.btn--bgicon {

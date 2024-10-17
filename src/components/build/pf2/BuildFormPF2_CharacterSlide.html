@@ -1,0 +1,159 @@
+<template>
+  
+  {{#> Row}}
+  <h2>{{__ "Character"}}</h2>
+  {{> Spacer}}
+
+  <span>
+    {{__ "Language"}}:
+    {{#> Button class="btn btn--light" on-click="body.currentMenu = language-menu"}}
+      {{> Icon icon="globe"}}{{__ (languagename lang)}}
+    {{/Button}}
+  </span>
+{{/Row}}
+  <table class="build-table">
+      <tr>
+        <th data-on-click="select ancestry">{{__ "Ancestry"}}</th>
+        <th data-on-click="select heritage">{{__ "Heritage"}}</th>
+      </tr>
+      <tr>
+        <td>
+          {{> Output name="ancestry" var="#build-form.ancestry | ancestryName" on-click="show-menu form-select-ancestry"}}
+        </td>
+        <td>
+          {{#> Switch
+            id="switch-heritage"
+            current=""
+            var="#build-form.ancestry"
+          }}
+            {{#> SwitchCase value="" }}
+              {{> Output name="heritage" var=""}}
+            {{/SwitchCase}}
+
+            {{#each pathfinder2.ancestry.values}}
+              {{#> SwitchCase value=id}}
+                {{#each selects}}
+                  {{> Output name=this var=(str "#build-form.${key} | heritageName" key=(slug this)) on-click=(str "show-menu form-select-${key}" key=(slug this)) placeholder=""}}
+                {{/each}}
+              {{/SwitchCase}}
+            {{/each}}
+          {{/Switch}}
+        </td>
+      </tr>
+
+      <tr>
+        <th>{{__ "Background"}}</th>
+      </tr>
+      <tr>
+        <td>
+          {{> Output name="background" var="#build-form.background | backgroundName" on-click="show-menu form-select-background"}}
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <h4>{{__ "Class"}}</h4>
+          {{> Output name="class" var="#build-form.class | className" on-click="show-menu form-select-class"}}
+        </td>
+        <td>
+          {{#> Switch
+            id="switch-subclass"
+            current="none"
+          }}
+            {{#> SwitchCase value="none"}}
+            <h4>&nbsp;</h4>
+              {{> Output name="subclass" var=""}}
+            {{/SwitchCase}}
+            {{#each pathfinder2.class.value}}
+              {{#> SwitchCase value=id}}
+                {{#each selects}}
+                  <h4>{{__ name}}</h4>
+                  {{> Output name=select var=(str "#build-form.${select}" select=select) on-click=(str "show-menu form-select-${code}" code=code)}}
+                {{/each}}
+              {{/SwitchCase}}
+            {{/each}}
+          {{/Switch}}
+
+
+              <!-- <div id="swap-area:subclass" class="build-table__swap swap-area">
+                  <div class="swap-option swap-option--default swap-option--show" id="swap-option:subclass:default">
+                      <h4>{{__ "Subclass"}}</h4>
+                      <output name="subclass" data-select="" class="output--select"></output>
+                  </div>
+                  
+                  {{#each pf2.selects.class.values}}
+                  <div class="swap-option" id="swap-option:subclass:{{id}}">
+                      {{#each selects}}
+                      {{#if (eq max 1)}}
+                      <h4>{{__ name}}</h4>
+                      <output name="{{select}}" data-select="{{select}}" class="output--select"></output>
+                      {{else}}
+                      <h4>{{__ name}}</h4>
+                      <div class="select-options">
+                          {{#each values}}
+                          <label for='{{id}}'><input type='checkbox' name='{{id}}' id='{{id}}'> {{__ name}}</label> 
+                          {{/each}}
+                      </div>
+                      {{/if}}
+                      {{/each}}
+                  </div>
+                  {{/each}}
+              </div> -->
+          </td>
+      </tr>
+
+      <tr id="build-multiclass-row">
+          <th>{{__ "Multiclass"}}</th>
+      </tr>
+      <tr>
+          <td colspan="2">
+              <div id="list-area:multiclass" class="list-area">
+                  <div class="list-item-template">
+                      <output class="list-item-name"></output>
+                      <output class="list-item-subitem"></output>
+                      <button class="btn btn--light btn--remove button-remove-multiclass list-item-remove" data-select="multiclass">{{__ "Remove"}}</button>
+                  </div>
+              </div>
+              <button class="btn btn--light button-add button-add-multiclass" data-select="multiclass">{{__ "Add"}}</button>
+          </td>
+      </tr>
+
+      <tr id="build-archetype-row">
+          <th>{{__ "Archetype"}}</th>
+      </tr>
+      <tr>
+          <td colspan="2">
+              <div id="list-area:archetype" class="list-area">
+                  <div class="list-item-template">
+                      <output class="list-item-name"></output>
+                      <output class="list-item-subitem"></output>
+                      <button class="btn btn--light btn--remove button-remove-multiclass list-item-remove" data-select="archetype">{{__ "Remove"}}</button>
+                  </div>
+              </div>
+              <button class="btn btn--light button-add button-add-archetype" data-select="archetype">{{__ "Add"}}</button>
+          </td>
+      </tr>
+  </table>
+
+  {{#> Columns }}
+    {{#> Column }}
+      <h4>{{__ "Options"}}</h4>
+      <fieldset>
+        {{> Checkbox name='feat-diehard' var='featDiehard' label="Diehard"}}
+        {{> Checkbox name='debug' var='debug' label="Debug layouts"}}
+      </fieldset>
+    {{/Column}}
+    {{#> Column }}
+      <h4>{{__ "Variant Rules"}}</h4>
+      <fieldset>
+        {{> Checkbox name='option-free-archetype' var='freeArchetype' label="Free Archetype"}}
+        {{> Checkbox name='option-ancestry-paragon' var='ancestryParagon' label="Ancestry Paragon"}}
+        {{> Checkbox name='option-automatic-bonus-progression' var='automaticBonusProgression' label="Automatic Bonus Progression"}}
+        <div class="indent">
+          {{> Checkbox name='option-automatic-weapon-progression' var='automaticWeaponProgression' label="Automatic Weapon Progression (Foundry)"}}
+        </div>
+        {{> Checkbox name='option-proficiency-without-level' var='proficiencyWithoutLevel' label="Proficiency Without Level"}}
+      </fieldset>
+    {{/Column}}
+  {{/Columns}}
+</template>

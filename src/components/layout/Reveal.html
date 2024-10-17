@@ -1,0 +1,28 @@
+<template>
+  <div class="reveal" id="{{id}}">
+    
+    {{> @partial-block }}
+  </div>
+</template>
+
+<style>
+.reveal {
+  display: none;
+
+  &.reveal--show {
+    display: block;
+  }
+}
+</style>
+
+<script>
+on('.reveal', 'reveal', (evt) => {
+  let reveal = evt.target;
+  
+  reveal.classList.add('reveal--show');
+});
+on('.reveal', 'close', (evt) => {
+  let reveal = evt.target;
+  reveal.classList.hide('reveal--show');
+})
+</script>

@@ -1,37 +1,77 @@
 import dyslexicCharacterSheets from 'dyslexic-charactersheets';
 import { has, slugify, log, warn, error } from './util.js';
-
+import { translate } from './i18n.js';
 
 
 export function loadGame(game) {
   return new Promise((resolve, reject) => {
     dyslexicCharacterSheets.getFormData(game).then((data) => {
-      
-      let gamedata = prepareGameData(data, [
+      // get fixed selects
+      let gamedata = extractSelects(data, [
         "ancestry",
         "background",
         "class",
-        "multiclass",
         "archetype",
       ]);
+      
+      // separate out multiclass archetypes
+      if (gamedata.archetype) {
+        let [multiclassValues, archetypeValues] = splitValues(gamedata.archetype.values, (item) => item.multiclass);
+        gamedata.multiclass = {
+          select: "multiclass",
+          name: "_{Multiclass}",
+          max: 3,
+          base: false,
+          values: multiclassValues
+        }
+        gamedata.archetype = {
+          ...gamedata.archetype,
+          values: archetypeValues
+        }
+      }
 
+      // get variable selects
       let heritages = getSubSelects(gamedata.ancestry, "ancestry");
       let subclasses = getSubSelects(gamedata['class'], "class");
       let submulticlasses = getSubSelects(gamedata.multiclass, "multiclass")
       let subarchetypes = getSubSelects(gamedata.archetype, "archetype");
 
-      gamedata = prepareGameData(data, [
-        "ancestry",
+      let gamedata2 = extractSelects(data, [
         ...heritages,
         "heritage/versatile",
-        "background",
-        "class",
         ...subclasses,
-        "multiclass",
         ...submulticlasses,
-        "archetype",
         ...subarchetypes,
       ]);
+
+      // apply versatile heritages
+      if (game == "pathfinder2") {
+        // TODO
+      }
+
+      // put them together
+      gamedata = {...gamedata, ...gamedata2};
+
+      // prepare all selects for searching
+      for (let select of gamedata) {
+        // TODO
+      }
+
+      // prepare translations
+      let strings = new Set();
+      for (let select of gamedata) {
+        prepareTranslations(select, ['name']);
+        strings.add(select.name);
+        for (let value of values) {
+          prepareTranslations(value, ['group', 'name']);
+        }
+      }
+
+      gamedata.meta = {
+        heritages,
+        subclasses,
+        submulticlasses,
+      };
 
       resolve(gamedata);
     });
@@ -51,16 +91,31 @@ function getSubSelects(select, name) {
   }).flat();
 }
 
+function splitValues(list, condition) {
+  let left = [];
+  let right = [];
+  for (let item of list) {
+    if (condition(item)) {
+      left.push(item);
+    } else {
+      right.push(item);
+    }
+  }
+  return [left, right];
+}
 
-function prepareGameData(basedata, extractSelects, opts = {}) {
+function extractSelects(basedata, extractSelects, opts = {}) {
+
   let outdata = {
     // base: basedata,
   };
 
   // grab all the selects
   for (let select of basedata.selects) {
-    select.displayGroups = groupSelectValues(select.values, select.groups, select.select);
-    outdata[select.select] = select;
+    if (extractSelects.includes(select.select)) {
+      select.displayGroups = groupSelectValues(select.values, select.groups, select.select);
+      outdata[select.select] = select;
+    }
   }
 
   return outdata;
@@ -128,6 +183,21 @@ function groupSelectValues(values, groups, name) {
   return [...tiers.core1, ...tiers.core2, ...tiers.rulebooks, ...tiers.expansions, ...tiers.adventures, ...tiers.thirdparty];
 }
 
+// Look up and store the various translations of known string values
+// eg: { name: 'Foo', 'en': { name: 'Foo' }, 'fr': { name: 'Le Foo' } }
+function prepareTranslations(object, keys, languages) {
+  for (let language of languages) {
+    object[language] = {};
+    for (let key of keys) {
+      let translation = translate(object[key], language);
+      object[language][key] = translation;
+    }
+  }
+  for (let key of keys) {
+    object[key] = translate(object[key], 'en');
+  }
+}
+
 function group2tier(group) {
   group = group.replace(/_\{(.*)\}/g, '$1');
   // console.log("Group:", group);
@@ -147,6 +217,7 @@ function group2tier(group) {
     case "Dark Archive":
     case "Rage of Elements":
     case "Gamemastery Guide":
+    case "GM Core":
       return "rulebooks";
 
     case "Lost Omens Ancestry Guide":

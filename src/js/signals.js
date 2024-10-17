@@ -1,4 +1,10 @@
+let debug = getDebug('signals');
 
+let commandFunctions = {};
+
+function defineCommand(command, func) {
+  commandFunctions[command] = func;
+}
 
 function doCommands(commands, element) {
   if (commands === undefined || commands === null || commands.length == 0) {
@@ -7,6 +13,7 @@ function doCommands(commands, element) {
 
   // do the command
   let command = commands.shift();
+  console.log("Command:", command);
   if (command.match(/=/)) {
     // set a variable
     let [dest, value] = command.split('=');
@@ -26,8 +33,8 @@ function doCommands(commands, element) {
         set('body', 'currentMenu', menu);
         break;
       default:
-        if (has(bindFunctions, command)) {
-          bindFunctions[command]();
+        if (has(commandFunctions, command)) {
+          commandFunctions[command]();
         }
         console.log("Unknown command:", command);
         break;
@@ -44,6 +51,9 @@ function emit(target, signal, args, event) {
   console.log("Emit", target, signal, args);
   if (args !== null && args instanceof Event) {
     event = args;
+    args = {};
+  }
+  if (args === null || args === undefined) {
     args = {};
   }
 

@@ -1,8 +1,15 @@
 @use 'colours';
 
+$xxlarge: 2400px;
 $xlarge: 1600px;
 $large: 1400px;
 $medium: 740px;
+
+@mixin xxlarge {
+  @media screen and (min-width: $xxlarge) {
+      @content;
+  }
+}
 
 @mixin xlarge {
   @media screen and (min-width: $xlarge) {
@@ -44,6 +51,64 @@ $medium: 740px;
     @media screen and (max-width: ($large - 1px)) {
         @content;
     }
+}
+
+// Show/hide content
+
+.responsive-xxlarge {
+  display: none;
+  @include xxlarge {
+    display: block;
+  }
+}
+
+.responsive-xlarge {
+  display: none;
+  @include xlarge {
+    display: block;
+  }
+}
+
+.responsive-large {
+  display: none;
+  @include large {
+    display: block;
+  }
+}
+
+.responsive-not-large {
+  display: block;
+  @include large {
+    display: none;
+  }
+}
+
+.responsive-medium {
+  display: none;
+  @include medium {
+    display: block;
+  }
+}
+
+.responsive-small {
+  display: none;
+  @include small {
+    display: block;
+  }
+}
+
+.responsive-medium-large {
+  display: none;
+  @include medium-large {
+    display: block;
+  }
+}
+
+.responsive-small-medium {
+  display: none;
+  @include small-medium {
+    display: block;
+  }
 }
 
 

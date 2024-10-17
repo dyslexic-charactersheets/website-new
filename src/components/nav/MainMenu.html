@@ -29,10 +29,13 @@
           <li>
             <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-github">{{__ "GitHub"}}</a>
           </li>
+          <li>
+            {{#> Button href="https://www.facebook.com/groups/dyslexiccharactersheets" type="light" cls="btn--bgicon button-facebook"}}{{__ "Facebook"}}{{/Button}}
+          </li>
         </ul>
         <ul>
           <li>
-            <button class="btn btn--light button-contact">{{__ "Contact"}}</button>
+            <button class="btn btn--light button-contact" on-click="body.currentMenu = contact-menu">{{__ "Contact"}}</button>
           </li>
         </ul>
 

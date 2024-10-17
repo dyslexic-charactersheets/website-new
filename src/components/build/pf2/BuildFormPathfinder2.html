@@ -1,0 +1,201 @@
+<template>
+  <form
+    id="build-form"
+    class="build-form"
+    data-edition=""
+    data-pick=""
+    data-ancestry=""
+    data-heritage=""
+    data-background=""
+    data-class=""
+    data-multiclass="[]"
+    data-archetype="[]"
+    data-option-diehard=""
+    data-option-debug=""
+    data-option-free-archetype=""
+    data-option-ancestry-paragon=""
+    data-option-automatic-bonus-progression=""
+    data-option-proficiency-without-level=""
+  >
+    {{#> Slideshow 
+      id='slides-character'
+      vertical=true
+    }}
+
+      {{#> Slide jump="pick" first=true}}
+        {{> BuildFormPF2_PickSlide }}
+      {{/Slide}}
+
+      {{#> Switch 
+        id='switch-character'
+        current=''
+      }}
+        {{#> SwitchCase value='character'}}
+
+          {{#> Slide jump="character" show-next=true }}
+            {{> BuildFormPF2_CharacterSlide }}
+          {{/Slide}}
+          
+          {{#> Slide jump="pages" show-next=true }}
+            {{> BuildFormPF2_PagesSlide }}
+          {{/Slide}}
+          
+          {{#> Slide jump="colours" show-next=true }}
+            {{> BuildFormPF2_AppearanceSlide }}
+          {{/Slide}}
+          
+          {{#> Slide jump="picture" show-next=true }}
+            {{> BuildFormPF2_PictureSlide }}
+          {{/Slide}}
+          
+          {{#> Slide jump="download" last=true }}
+            {{> BuildFormPF2_DownloadSlide }}
+          {{/Slide}}
+
+        {{/SwitchCase}}
+
+        {{#> SwitchCase value='gm'}}
+          
+          {{#> Slide jump="gm-pick" slide=1 }}
+          
+            {{#> TileGrid grid="2-2" }}
+              {{#> Button 
+                type="tile"
+                on-click="#switch-gm-options=npcs; #slides-character.jump=gm-options"
+              }}
+                {{__ "NPCs"}}
+              {{/Button}}
+
+              {{#> Button 
+                type="tile"
+                on-click="#switch-gm-options=maps; #slides-character.jump=gm-options"
+              }}
+                {{__ "Maps"}}
+              {{/Button}}
+
+              {{#> Button 
+                type="tile"
+                on-click="#switch-gm-options=kingdom; #slides-character.jump=gm-options"
+              }}
+                {{__ "Kingdom"}}
+              {{/Button}}
+            {{/TileGrid}}
+          {{/Slide}}
+
+          {{#> Slide jump="gm-options" slide=2 show-next=true }}
+            <h2>GM</h2>
+            {{#> Switch
+              id="switch-gm-options"
+            }}
+              {{#> SwitchCase value="npcs"}}
+                <h3>{{__ "NPCs"}}</h3>
+              {{/SwitchCase}}
+              
+              {{#> SwitchCase value="maps"}}
+                <h3>{{__ "Maps"}}</h3>
+              {{/SwitchCase}}
+              
+              {{#> SwitchCase value="kingdom"}}
+                <h3>{{__ "Kingdom"}}</h3>
+              {{/SwitchCase}}
+            {{/Switch}}
+          {{/Slide}}
+          
+          {{#> Slide jump="gm-colours" slide=3 show-next=true }}
+            <h2>Colours</h2>
+            <p>Colours</p>
+          {{/Slide}}
+          
+          {{#> Slide jump="gm-download" slide=4 last=true }}
+            <h2>Download</h2>
+            <p>Download</p>
+          {{/Slide}}
+        {{/SwitchCase}}
+
+        {{#> SwitchCase value="starship"}}
+          {{#> Slide jump="starship" slide=3 show-next=true }}
+            <h2>Starship</h2>
+            <p>Starship</p>
+          {{/Slide}}
+
+          {{#> Slide jump="starship-colours" slide=3 show-next=true }}
+            <p>Colours</p>
+          {{/Slide}}
+          
+          {{#> Slide jump="starship-download" slide=4 last=true }}
+            <h2>Download</h2>
+            <p>Download</p>
+          {{/Slide}}
+        {{/SwitchCase}}
+
+        {{#> SwitchCase value="kingmaker"}}
+          {{#> Slide jump="kingmaker" slide=3 show-next=true }}
+            <h2>Kingmaker</h2>
+            <p>Kingmaker</p>
+          {{/Slide}}
+
+          {{#> Slide jump="kingmaker-colours" slide=3 show-next=true }}
+            <h2>Colours</h2>
+            <p>Colours</p>
+          {{/Slide}}
+          
+          {{#> Slide jump="kingmaker-download" slide=4 last=true }}
+            <h2>Download</h2>
+            <p>Download</p>
+          {{/Slide}}
+        {{/SwitchCase}}
+
+        {{#> SwitchCase value="mini"}}
+          {{#> Slide jump="mini" slide=3 show-next=true }}
+            <h2>Map Figure</h2>
+            <p>Map Figure</p>
+          {{/Slide}}
+
+          {{#> Slide jump="mini-colours" slide=3 show-next=true }}
+            <h2>Colours</h2>
+            <p>Colours</p>
+          {{/Slide}}
+          
+          {{#> Slide jump="mini-download" slide=4 last=true }}
+            <h2>Download</h2>
+            <p>Download</p>
+          {{/Slide}}
+        {{/SwitchCase}}
+
+      {{/Switch}}
+    {{/Slideshow}}
+  </form>
+</template>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const edition = urlParams.get('edition');
+if (edition == "legacy") {
+  document.getElementById('build-form').dataset.edition = "pf2-legacy";
+} else if (edition == "remaster") {
+  document.getElementById('build-form').dataset.edition = "pf2-remaster";
+} else if (edition == "both") {
+  document.getElementById('build-form').dataset.edition = "all";
+} else if (window.location.pathname.match(/starfinder2/)) {
+  document.getElementById('build-form').dataset.edition = 'sf2';
+}
+
+definePipe('editionName', (value) => {
+  switch (value) {
+    case 'pathfinder':
+      return 'Pathfinder';
+    case 'starfinder':
+      return 'Starfinder';
+    case 'pf2-legacy':
+      return 'Pathfinder 2e Legacy';
+    case 'pf2-remaster':
+      return 'Pathfinder 2e Remaster';
+    case 'sf2':
+      return 'Starfinder 2e';
+    case 'all':
+      return 'Both';
+    default:
+      return "";
+  }
+});
+</script>

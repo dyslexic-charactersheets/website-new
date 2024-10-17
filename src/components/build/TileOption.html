@@ -1,0 +1,85 @@
+(field, value, title)
+
+<template>
+  <label class="tile-option" for="radio-{{field}}-{{value}}" id="tile-option-{{field}}-{{value}}">
+    <span class="tile-option__square-group">
+      <input 
+        type="radio" 
+        name="{{field}}" 
+        value="{{value}}" 
+        id="radio-{{field}}-{{value}}" 
+        {{#if checked}}checked{{/if}} 
+        data-bind="checked=#build-form.{{field}} | eq '{{value}}'"
+      >
+      <span class="tile-option__square">
+        <span class="tile-option__content">
+          {{> @partial-block }}
+        </span>
+      </span>
+    </span>
+    <span class="tile-option__title">{{label}}</span>
+  </label>
+</template>
+
+<style>
+@use 'fonts';
+
+.tile-option {
+  $size: 4.7rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  span.tile-option__square-group {
+    position: relative;
+  }
+
+  input[type=radio] {
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+
+    &:checked + span {
+      border-color: white;
+    }
+  }
+
+  span.tile-option__square {
+    display: block;
+    /* width: $size;
+    height: $size; */
+    border-radius: 0.5rem;
+    border: 3px solid rgba(255,255,255,0.4);
+  }
+
+  span.tile-option__content {
+    display: block;
+    width: $size;
+    height: $size;
+    background: black;
+    border-radius: 0.3rem;
+
+    img {
+      width: $size;
+      height: $size;
+    }
+  }
+
+  span.tile-option__title {
+    @include fonts.heading;
+  }
+
+  &#tile-option-pageBackground-white {
+    span.tile-option__content {
+      background: white;
+    }
+  }
+
+  &#tile-option-pageBackground-magnolia {
+    span.tile-option__content {
+      background: #F4E9D8;
+    }
+  }
+}
+</style>

@@ -1,0 +1,611 @@
+{
+    "game": "starfinder",
+    "name": "Starfinder",
+
+    "skills": [
+        { "name": "Acrobatics", "ability": "DEX", "useUntrained": true, "acp": true },
+        { "name": "Athletics", "ability": "STR", "useUntrained": true, "acp": true },
+        { "name": "Bluff", "ability": "CHA", "useUntrained": true },
+        { "name": "Computers", "ability": "INT", "highlight": true },
+        { "name": "Culture", "ability": "INT" },
+        { "name": "Diplomacy", "ability": "CHA", "useUntrained": true, "highlight": true },
+        { "name": "Disguise", "ability": "CHA", "useUntrained": true },
+        { "name": "Engineering", "ability": "INT", "highlight": true },
+        { "name": "Intimidate", "ability": "CHA", "useUntrained": true, "highlight": true },
+        { "name": "Life Science", "ability": "INT" },
+        { "name": "Medicine", "ability": "INT" },
+        { "name": "Mysticism", "ability": "WIS" },
+        { "name": "Perception", "ability": "WIS", "useUntrained": true },
+        { "name": "Physical Science", "ability": "INT" },
+        { "name": "Piloting", "ability": "DEX", "useUntrained": true, "highlight": true, "boxRanks": true },
+        { "name": "Sense Motive", "ability": "WIS", "useUntrained": true },
+        { "name": "Sleight of Hand", "ability": "DEX", "acp": true },
+        { "name": "Stealth", "ability": "DEX", "useUntrained": true, "acp": true },
+        { "name": "Survival", "ability": "WIS", "useUntrained": true },
+
+        { "name": "Profession (actor)", "ability": "CHA", "noRage": true, "afterFold": true },
+        { "name": "Profession (artist)", "ability": "CHA", "noRage": true, "afterFold": true },
+        { "name": "Profession (comedian)", "ability": "CHA", "noRage": true, "afterFold": true },
+        { "name": "Profession (con artist)", "ability": "CHA", "noRage": true, "afterFold": true },
+        { "name": "Profession (courtesan)", "ability": "CHA", "noRage": true, "afterFold": true },
+        { "name": "Profession (dancer)", "ability": "CHA", "noRage": true, "afterFold": true },
+        { "name": "Profession (musician)", "ability": "CHA", "noRage": true, "afterFold": true },
+        { "name": "Profession (orator)", "ability": "CHA", "noRage": true, "afterFold": true },
+        { "name": "Profession (poet)", "ability": "CHA", "noRage": true, "afterFold": true },
+        { "name": "Profession (politician)", "ability": "CHA", "noRage": true, "afterFold": true },
+        { "name": "Profession (video)", "ability": "CHA", "noRage": true, "afterFold": true },
+        { "name": "Profession (personality)", "ability": "CHA", "noRage": true, "afterFold": true },
+        { "name": "Profession (writer)", "ability": "CHA", "noRage": true, "afterFold": true },
+
+        { "name": "Profession (accountant)", "ability": "INT", "noRage": true, "afterFold": true },
+        { "name": "Profession (archaeologist)", "ability": "INT", "noRage": true, "afterFold": true },
+        { "name": "Profession (architect)", "ability": "INT", "noRage": true, "afterFold": true },
+        { "name": "Profession (corporate)", "ability": "INT", "noRage": true, "afterFold": true },
+        { "name": "Profession (professional)", "ability": "INT", "noRage": true, "afterFold": true },
+        { "name": "Profession (electrician)", "ability": "INT", "noRage": true, "afterFold": true },
+        { "name": "Profession (lab technician)", "ability": "INT", "noRage": true, "afterFold": true },
+        { "name": "Profession (lawyer)", "ability": "INT", "noRage": true, "afterFold": true },
+        { "name": "Profession (mathematician)", "ability": "INT", "noRage": true, "afterFold": true },
+        { "name": "Profession (philosopher)", "ability": "INT", "noRage": true, "afterFold": true },
+        { "name": "Profession (professor)", "ability": "INT", "noRage": true, "afterFold": true },
+        { "name": "Profession (psychologist)", "ability": "INT", "noRage": true, "afterFold": true },
+        { "name": "Profession (vidgamer)", "ability": "INT", "noRage": true, "afterFold": true },
+
+        { "name": "Profession (bounty hunter)", "ability": "WIS", "noRage": true, "afterFold": true },
+        { "name": "Profession (cook)", "ability": "WIS", "noRage": true, "afterFold": true },
+        { "name": "Profession (counselor)", "ability": "WIS", "noRage": true, "afterFold": true },
+        { "name": "Profession (dockworker)", "ability": "WIS", "noRage": true, "afterFold": true },
+        { "name": "Profession (farmer)", "ability": "WIS", "noRage": true, "afterFold": true },
+        { "name": "Profession (gambler)", "ability": "WIS", "noRage": true, "afterFold": true },
+        { "name": "Profession (general contractor)", "ability": "WIS", "noRage": true, "afterFold": true },
+        { "name": "Profession (herbalist)", "ability": "WIS", "noRage": true, "afterFold": true },
+        { "name": "Profession (maintenance worker)", "ability": "WIS", "noRage": true, "afterFold": true },
+        { "name": "Profession (manager)", "ability": "WIS", "noRage": true, "afterFold": true },
+        { "name": "Profession (mercenary)", "ability": "WIS", "noRage": true, "afterFold": true },
+        { "name": "Profession (merchant)", "ability": "WIS", "noRage": true, "afterFold": true },
+        { "name": "Profession (miner)", "ability": "WIS", "noRage": true, "afterFold": true },
+        { "name": "Profession (smuggler)", "ability": "WIS", "noRage": true, "afterFold": true }
+    ],
+
+    "coreSkills": [ "Acrobatics", "Athletics", "Bluff", "Computers", "Culture", "Diplomacy", "Disguise", 
+        "Engineering", "Intimidate", "Life Science", "Medicine", "Mysticism", "Perception", "Physical Science",
+        "Piloting", "Sense Motive", "Sleight of Hand", "Stealth", "Survival"
+    ],
+
+    "summarySkills": [ "Acrobatics", "Athletics", "Bluff", "Computers", "Culture", "Diplomacy", "Disguise", 
+        "Engineering", "Intimidate", "Life Science", "Medicine", "Mysticism", "Perception", "Physical Science",
+        "Piloting", "Sense Motive", "Sleight of Hand", "Stealth", "Survival"
+    ],
+
+    "knowledgeSkills": [
+        "Culture", "Life Science", "Mysticism", "Physical Science"
+    ],
+
+    "droneSkills": [
+        "Acrobatics", "Athletics", "Computers", "Engineering", "Perception", "Stealth"
+    ],
+
+    "pages": [
+        { "file": "Core/Build a character.pdf", "slot": "build", "name": "Build a character" },
+
+        { "file": "Core/Character Info.pdf", "slot": "core", "name": "Character Info" },
+        { "file": "Core/Combat.pdf", "slot": "combat", "name": "Combat" },
+        { "file": "Core/Combat (Expanded Inventory).pdf", "slot": "combat", "variant": "expanded", "name": "Combat" },
+        { "file": "Core/Inventory.pdf", "slot": "inventory", "name": "Inventory" },
+        { "file": "Core/Computer.pdf", "slot": "computer", "name": "Computer", "position": 65, "a5": true },
+
+        { "file": "Core/Envoy/Envoy.pdf", "slot": "envoy", "name": "Envoy" },
+            { "file": "Core/Envoy/Envoy - 2 4 6.pdf", "slot": "envoy", "variant": "2-4-6", "name": "Envoy" },
+            { "file": "Core/Envoy/Envoy - 2 4 6 9 12 18.pdf", "slot": "envoy", "variant": "2-4-6-9-12-18", "name": "Envoy" },
+        { "file": "Core/Mechanic/Mechanic.pdf", "slot": "mechanic", "name": "Mechanic" },
+            { "file": "Core/Mechanic/Drone.pdf", "slot": "drone", "name": "Drone", "a5": true },
+            { "file": "Core/Mechanic/Exocortex.pdf", "slot": "exocortex", "name": "Exocortex", "a5": true },
+        { "file": "Core/Mystic/Mystic.pdf", "slot": "mystic", "name": "Mystic" },
+        { "file": "Core/Operative/Operative.pdf", "slot": "operative", "name": "Operative" },
+        { "file": "Core/Solarian/Solarian.pdf", "slot": "solarian", "name": "Solarian" },
+        { "file": "Core/Soldier/Soldier.pdf", "slot": "soldier", "name": "Soldier" },
+        { "file": "Core/Technomancer/Technomancer.pdf", "slot": "technomancer", "name": "Technomancer" },
+        
+        { "file": "Character Operations Manual/Biohacker/Biohacker.pdf", "slot": "biohacker", "name": "Biohacker" },
+            { "file": "Character Operations Manual/Biohacker/Biohacks.pdf", "slot": "biohacker-biohacks", "name": "Biohacks" },
+        { "file": "Character Operations Manual/Vanguard/Vanguard.pdf", "slot": "vanguard", "name": "Vanguard" },
+            { "file": "Character Operations Manual/Vanguard/Vanguard 2.pdf", "slot": "vanguard2", "name": "Vanguard" },
+        { "file": "Character Operations Manual/Witchwarper/Witchwarper.pdf", "slot": "witchwarper", "name": "Witchwarper" },
+
+        { "file": "Archetypes/Arcanamirium Sage.pdf", "slot": "archetype-arcanamirium-sage", "name": "Arcanamirium Sage", "a5": true },
+        { "file": "Archetypes/Augmented.pdf", "slot": "augmentations", "variant": "archetype-augmented", "name": "Augmented", "a5": true },
+        { "file": "Archetypes/Divine Champion.pdf", "slot": "archetype-divine-champion", "name": "Divine Champion", "a5": true },
+        { "file": "Archetypes/Phrenic Adept.pdf", "slot": "archetype-phrenic-adept", "name": "Phrenic Adept", "a5": true },
+        { "file": "Archetypes/Skyfire Centurion.pdf", "slot": "archetype-skyfire-centurion", "name": "Skyfire Centurion", "a5": true },
+        { "file": "Archetypes/Star Knight.pdf", "slot": "archetype-star-knight", "name": "Star Knight", "a5": true },
+        { "file": "Archetypes/Starfinder Data Jockey.pdf", "slot": "archetype-statfinder-data-jockey", "name": "Starfinder Data Jockey", "a5": true },
+        { "file": "Archetypes/Starfinder Forerunner.pdf", "slot": "archetype-starfinder-forerunner", "name": "Starfinder Forerunner", "a5": true },
+        { "file": "Archetypes/Steward Officer.pdf", "slot": "archetype-steward-officer", "name": "Steward Officer", "a5": true },
+        
+        { "file": "Archetypes/Character Operations Manual/Android Abolitionist.pdf", "slot": "andoid-abolitionist", "name": "Android Abolitionist", "a5": true },
+        { "file": "Archetypes/Character Operations Manual/Battleflower.pdf", "slot": "battleflower", "name": "Battleflower", "a5": true },
+        { "file": "Archetypes/Character Operations Manual/Esotercist.pdf", "slot": "esotericist", "name": "Esotericist", "a5": true },
+        { "file": "Archetypes/Character Operations Manual/Espionage Specialist.pdf", "slot": "espionage-specialist", "name": "Espionage Specialist", "a5": true },
+        { "file": "Archetypes/Character Operations Manual/Fixer.pdf", "slot": "fixer", "name": "Fixer", "a5": true },
+        { "file": "Archetypes/Character Operations Manual/Free Trader.pdf", "slot": "free-trader", "name": "Free Trader", "a5": true },
+        { "file": "Archetypes/Character Operations Manual/Instructor.pdf", "slot": "instructor", "name": "Instructor", "a5": true },
+        { "file": "Archetypes/Character Operations Manual/Medic.pdf", "slot": "medic", "name": "Medic", "a5": true },
+        { "file": "Archetypes/Character Operations Manual/Powered Armour Jockey.pdf", "slot": "powered-armour-jockey", "name": "Powered Armour Jockey", "a5": true },
+        { "file": "Archetypes/Character Operations Manual/Starwright.pdf", "slot": "starwright", "name": "Starwright", "a5": true },
+
+        { "file": "Starship/Starship.pdf", "slot": "starship", "name": "Starship" },
+        { "file": "Starship/Starship Crew.pdf", "slot": "starship-crew", "name": "Starship Crew" },
+        { "file": "Starship/Starship Crew Actions.pdf", "slot": "starship-crew-actions", "name": "Starship Crew Actions" },
+        { "file": "Starship/Starship Crew Cards.pdf", "slot": "starship-crewcards", "name": "Starship Crew Cards" },
+        { "file": "Starship/Starship Crew Cards 2.pdf", "slot": "starship-crewcards 2", "name": "Starship Crew Cards 2" },
+        { "file": "Starship/Crew Funds.pdf", "slot": "starship-funds", "name": "Starship Funds" },
+        { "file": "Starship/Starship Mini.pdf", "slot": "mini-starship", "name": "Starship Mini" },
+
+        { "file": "Extra/Permission to Print.pdf", "slot": "permission", "name": "Permission to Print", "position": -1 },
+        
+        { "file": "Extra/Augmentations.pdf", "slot": "augmentations", "name": "Augmentations", "a5": true },
+
+        { "file": "Extra/Character Background.pdf", "slot": "background", "name": "Character Background" },
+        { "file": "Extra/Spell Book.pdf", "slot": "spellbook", "name": "Spellbook" },
+        { "file": "Extra/Spell Book (Large).pdf", "slot": "spellbook", "variant": "large", "name": "Spellbook" },
+        { "file": "Extra/Spell Book (Dense).pdf", "slot": "spellbook", "variant": "small", "name": "Spellbook" },
+
+        { "file": "Extra/Mini (Small).pdf", "slot": "mini", "variant": "small", "name": "Mini (Small)" },
+        { "file": "Extra/Mini (Medium).pdf", "slot": "mini", "variant": "medium", "name": "Mini (Medium)" },
+        { "file": "Extra/Mini (Large).pdf", "slot": "mini", "variant": "large", "name": "Mini (Large)" },
+        { "file": "Extra/Mini (Small).pdf", "slot": "mini-drone", "variant": "small", "name": "Drone Mini (Small)" },
+        { "file": "Extra/Mini (Medium).pdf", "slot": "mini-drone", "variant": "medium", "name": "Drone Mini (Medium)" },
+        { "file": "Extra/Mini (Large).pdf", "slot": "mini-drone", "variant": "large", "name": "Drone Mini (Large)" }
+    ],
+
+    "gm": {
+        "characters": [
+            { "file": "GM/Party 4.pdf", "name": "Party", "slot": "party", "variant": "4" },
+            { "file": "GM/Party 5.pdf", "name": "Party", "slot": "party", "variant": "5" },
+            { "file": "GM/Party 6.pdf", "name": "Party", "slot": "party", "variant": "6" },
+            { "file": "GM/Party 7.pdf", "name": "Party", "slot": "party", "variant": "7" },
+            { "file": "GM/Party 8.pdf", "name": "Party", "slot": "party", "variant": "8" },
+            { "file": "GM/Party 9.pdf", "name": "Party", "slot": "party", "variant": "9" },
+            { "file": "GM/Party 10.pdf", "name": "Party", "slot": "party", "variant": "10" },
+            { "file": "GM/NPC.pdf", "name": "NPC", "slot": "npc" },
+            { "file": "GM/NPC Fluff.pdf", "name": "NPC Fluff", "slot": "npc-fluff" },
+            { "file": "GM/NPC Minis.pdf", "name": "NPC Minis", "slot": "npc-minis" },
+            { "file": "GM/NPC Minis Large.pdf", "name": "NPC Minis (Large)", "slot": "npc-minis-large" },
+            { "file": "GM/NPC Group.pdf", "name": "NPC Group", "slot": "npc-group" }
+        ],
+        "campaign": [
+            { "file": "GM/Timeline (Portrait).pdf", "name": "Timeline (Portrait)" },
+            { "file": "GM/Timeline (Portrait - continued).pdf", "name": "Timeline (Portrait - continued)" },
+            { "file": "GM/Timeline (Landscape).pdf", "name": "Timeline (Landscape)" },
+            { "file": "GM/Timeline (Landscape - continued).pdf", "name": "Timeline (Landscape - continued)" },
+            { "file": "GM/Notes.pdf", "name": "Notes" }
+        ],
+        "maps": {
+            "2d": [
+                { "file": "Maps/Hex A4.pdf", "slot": "hex-a4", "name": "Map - Hex A4 Portrait" }
+            ],
+            "3d": [ ]
+        },
+        "kingdom": [
+        ]
+    },
+
+    "base": {
+        "pages": [ "core", "combat" ]
+    },
+
+    "layout": [
+        [ "Core Rulebook/themes", "Pact Worlds/themes", "Character Operations Manual/themes" ],
+        [ "Core Rulebook/classes", "Character Operations Manual/classes" ],
+        [ "Core Rulebook/archetypes" ]
+    ],
+
+    "languages": [
+        { "code": "english",      "short": "gb",    "name": "English",       "ready": [  1,    1,    1,    1    ] },
+        { "code": "french",       "short": "fr",    "name": "Français",      "ready": [  1,    0,    0,    0    ] },
+        { "code": "italian",      "short": "it",    "name": "Italiano",      "ready": [  1,    0,    0,    0    ] },
+        { "code": "russian",      "short": "ru",    "name": "Ру́сский",       "ready": [  1,    0,    0,    0    ] }
+    ],
+
+    "books": [
+        {
+            "name": "Races",
+            "radio": true,
+            "classes": [ "Android", "Human", "Ksatha", "Lashunta", "Shirren", "Vesk", "Ysoki" ]
+        },
+        {
+            "name": "Core Rulebook/themes",
+            "displayName": "Core Rulebook",
+            "radio": true,
+            "classes": [ "Themeless", "Ace Pilot", "Bounty Hunter", "Icon", "Mercenary", "Outlaw", "Priest", "Scholar", "Spacefarer", "Xenoseeker" ]
+        },
+        {
+            "name": "Pact Worlds/themes",
+            "displayName": "Pact Worlds",
+            "radio": true,
+            "classes": [ "Solar Disciple", "Roboticist", "Wild Warden", "Corporate Agent", "Gladiator", "Cyberborn", "Tempered Pilgrim", "Space Pirate", "Death-touched", "Dragonblood", "Dream Prophet", "Biotechnician", "Xenoarchaeologist", "Cultist" ]
+        },
+        {
+            "name": "Character Operations Manual/themes",
+            "displayName": "Character Operations Manual",
+            "radio": true,
+            "classes": [ "Athlete", "Grifter", "Guard", "Law Officer", "Noble Scion", "Sensate", "Street Rat" ]
+        },
+
+        {
+            "name": "Core Rulebook/classes",
+            "displayName": "Core Rulebook",
+            "classes": [ "Envoy", "Mechanic", "Mystic", "Operative", "Solarian", "Soldier", "Technomancer" ]
+        },
+        {
+            "name": "Character Operations Manual/classes",
+            "displayName": "Character Operations Manual",
+            "classes": [ "Biohacker", "Vanguard", "Witchwarper" ]
+        },
+
+        {
+            "name": "Core Rulebook/archetypes",
+            "displayName": "Core Rulebook",
+            "classes": [ "Arcanamirium Sage", "Augmented", "Divine Champion", "Phrenic Adept", "Skyfire Centurion", "Star Knight", "Starfinder Data Jockey", "Starfinder Forerunner", "Steward Officer" ]
+        },
+        {
+            "name": "Character Operations Manual/archetypes",
+            "displayName": "Character Operations Manual",
+            "classes": [ "Android Abolitionist", "Battleflower", "Esotericist", "Espionage Specialist", "Fixer", "Free Trader", "Instructor", "Medic", "Powered Armour Jockey", "Starwright" ]
+        }
+    ],
+
+    "classes": [
+        {
+            "name": "Starship",
+            "pages": [ "starship", "starship-crew", "starship-crew-actions", "starship-crewcards", "starship-crewcards2", "starship-funds", "mini-starship", "computer" ]
+        },
+
+        {
+            "name": "Android"
+        },
+        {
+            "name": "Human"
+        },
+        {
+            "name": "Ksatha",
+            "skillBonus": { "Culture": 2 }
+        },
+        {
+            "name": "Lashunta",
+            "variants": [
+                {
+                    "name": "Korasha"
+                },
+                {
+                    "name": "Damaya"
+                }
+            ]
+        },
+        {
+            "name": "Shirren",
+            "skillBonus": { "Culture": 2, "Diplomacy": 2 }
+        },
+        {
+            "name": "Vesk"
+        },
+        {
+            "name": "Ysoki",
+            "skillBonus": { "Engineering": 2, "Stealth": 2, "Survival": 2 }
+        },
+
+        {
+            "name": "Themeless",
+            "isTheme": true
+        },
+        {
+            "name": "Ace Pilot",
+            "isTheme": true,
+            "skills": [ "Piloting" ]
+        },
+        {
+            "name": "Bounty Hunter",
+            "isTheme": true,
+            "skills": [ "Survival" ]
+        },
+        {
+            "name": "Icon",
+            "isTheme": true,
+            "skills": [ "Culture" ]
+        },
+        {
+            "name": "Mercenary",
+            "isTheme": true,
+            "skills": [ "Athletics" ]
+        },
+        {
+            "name": "Outlaw",
+            "isTheme": true,
+            "skills": [ "Sleight of Hand" ]
+        },
+        {
+            "name": "Priest",
+            "isTheme": true,
+            "skills": [ "Mysticism" ]
+        },
+        {
+            "name": "Scholar",
+            "isTheme": true
+        },
+        {
+            "name": "Spacefarer",
+            "isTheme": true,
+            "skills": [ "Physical Science" ]
+        },
+        {
+            "name": "Xenoseeker",
+            "isTheme": true,
+            "skills": [ "Life Science" ]
+        },
+
+        {
+            "name": "Solar Disciple",
+            "isTheme": true,
+            "skills": [ "Perception" ]
+        },
+        {
+            "name": "Roboticist",
+            "isTheme": true,
+            "skills": [ "Computers" ]
+        },
+        {
+            "name": "Wild Warden",
+            "isTheme": true,
+            "skills": [ "Survival" ]
+        },
+        {
+            "name": "Corporate Agent",
+            "isTheme": true,
+            "skills": [ "Diplomacy" ]
+        },
+        {
+            "name": "Gladiator",
+            "isTheme": true,
+            "skills": [ "Intimidate" ]
+        },
+        {
+            "name": "Cyberborn",
+            "isTheme": true,
+            "skills": [ "Computers" ]
+        },
+        {
+            "name": "Tempered Pilgrim",
+            "isTheme": true,
+            "skills": [ "Culture" ]
+        },
+        {
+            "name": "Space Pirate",
+            "isTheme": true,
+            "skills": [ "Bluff" ]
+        },
+        {
+            "name": "Death-touched",
+            "isTheme": true,
+            "skills": [ "Perception" ]
+        },
+        {
+            "name": "Dragonblood",
+            "isTheme": true,
+            "skills": [ "Culture" ]
+        },
+        {
+            "name": "Dream Prophet",
+            "isTheme": true,
+            "skills": [ "Mysticism" ]
+        },
+        {
+            "name": "Biotechnician",
+            "isTheme": true,
+            "skills": [ "Medicine" ]
+        },
+        {
+            "name": "Xenoarchaeologist",
+            "isTheme": true,
+            "skills": [ "Engineering" ]
+        },
+        {
+            "name": "Cultist",
+            "isTheme": true,
+            "skills": [ "Disguise" ]
+        },
+
+        {
+            "name": "Athlete",
+            "isTheme": true,
+            "skills": [ ]
+        },
+
+        {
+            "name": "Grifter",
+            "isTheme": true,
+            "skills": [ ]
+        },
+
+        {
+            "name": "Guard",
+            "isTheme": true,
+            "skills": [ ]
+        },
+
+        {
+            "name": "Law Officer",
+            "isTheme": true,
+            "skills": [ ]
+        },
+
+        {
+            "name": "Noble Scion",
+            "isTheme": true,
+            "skills": [ ]
+        },
+
+        {
+            "name": "Sensate",
+            "isTheme": true,
+            "skills": [ ]
+        },
+
+        {
+            "name": "Street Rat",
+            "isTheme": true,
+            "skills": [ ]
+        },
+
+
+        {
+            "name": "Envoy",
+            "pages": [ "envoy" ],
+            "skills": [ "Acrobatics", "Athletics", "Bluff", "Computers", "Culture", "Diplomacy", "Disguise", "Engineering", "Intimidate", "Medicine", "Perception", "Piloting", "Profession", "Sense Motive", "Sleight of Hand", "Stealth" ]
+        },
+        {
+            "name": "Mechanic",
+            "pages": [ "mechanic", "drone", "exocortex", "computer" ],
+            "skills": [ "Athletics", "Computers", "Engineering", "Medicine", "Perception", "Physical Science", "Piloting", "Profession" ]
+        },
+        {
+            "name": "Mystic",
+            "pages": [ "mystic", "spellbook" ],
+            "skills": [ "Bluff", "Culture", "Diplomacy", "Disguise", "Intimidate", "Life Science", "Medicine", "Mysticism", "Perception", "Profession", "Sense Motive", "Survival" ]
+        },
+        {
+            "name": "Operative",
+            "pages": [ "operative" ],
+            "skills": [ "Acrobatics", "Athletics", "Bluff", "Computers", "Culture", "Disguise", "Engineering", "Intimidate", "Medicine", "Perception", "Piloting", "Profession", "Sense Motive", "Sleight of Hand", "Stealth", "Survival" ]
+        },
+        {
+            "name": "Solarian",
+            "pages": [ "solarian" ],
+            "skills": [ "Acrobatics", "Athletics", "Diplomacy", "Intimidate", "Mysticism", "Perception", "Physical Science", "Profession", "Sense Motive", "Stealth" ]
+        },
+        {
+            "name": "Soldier",
+            "pages": [ "soldier" ],
+            "skills": [ "Acrobatics", "Athletics", "Engineering", "Intimidate", "Medicine", "Piloting", "Profession", "Survival" ]
+        },
+        {
+            "name": "Technomancer",
+            "pages": [ "technomancer", "spellbook" ],
+            "skills": [ "Computers", "Engineering", "Life Science", "Mysticism", "Physical Science", "Piloting", "Profession", "Sleight of Hand" ]
+        },
+
+        {
+            "name": "Biohacker",
+            "pages": [ "biohacker", "biohacker-biohacks" ],
+            "skills": [ "Bluff", "Computers", "Culture", "Diplomacy", "Engineering", "Life Science", "Medicine", "Perception", "Physical Science", "Profession", "Sense Motive", "Sleight of Hand" ]
+        },
+        {
+            "name": "Vanguard",
+            "pages": [ "vanguard", "vanguard2" ],
+            "skills": [ "Acrobatics", "Athletics", "Culture", "Diplomacy", "Intimidate", "Life Science", "Medicine", "Mysticism", "Perception", "Profession", "Stealth", "Survival" ]
+        },
+        {
+            "name": "Witchwarper",
+            "pages": [ "witchwarper", "spellbook" ],
+            "skills": [ "Acrobatics", "Bluff", "Culture", "Diplomacy", "Intimidate", "Mysticism", "Physical Science", "Profession" ]
+        },
+
+
+        {
+            "name": "Arcanamirium Sage",
+            "pages": [ "archetype-arcanamirium-sage" ],
+            "skills": []
+        },
+        {
+            "name": "Augmented",
+            "pages": [ "archetype-augmented" ],
+            "skills": []
+        },
+        {
+            "name": "Divine Champion",
+            "pages": [ "archetype-divine-champion" ],
+            "skills": []
+        },
+        {
+            "name": "Phrenic Adept",
+            "pages": [ "archetype-phrenic-adept" ],
+            "skills": []
+        },
+        {
+            "name": "Skyfire Centurion",
+            "pages": [ "archetype-skyfire-centurion" ],
+            "skills": []
+        },
+        {
+            "name": "Star Knight",
+            "pages": [ "archetype-star-knight" ],
+            "skills": []
+        },
+        {
+            "name": "Starfinder Data Jockey",
+            "pages": [ "archetype-starfinder-data-jockey" ],
+            "skills": []
+        },
+        {
+            "name": "Starfinder Forerunner",
+            "pages": [ "archetype-starfinder-forerunner" ],
+            "skills": []
+        },
+        {
+            "name": "Steward Officer",
+            "pages": [ "archetype-steward-officer" ],
+            "skills": []
+        }
+    ],
+    "classesDisabled": [
+        {
+            "name": "Android Abolitionist",
+            "pages": [ "android-abolitionist" ],
+            "skills": []
+        },
+        {
+            "name": "Battleflower",
+            "pages": [ "battleflower" ],
+            "skills": []
+        },
+        {
+            "name": "Esotericist",
+            "pages": [ "esotericist" ],
+            "skills": []
+        },
+        {
+            "name": "Espionage Specialist",
+            "pages": [ "espionage-specialist" ],
+            "skills": []
+        },
+        {
+            "name": "Fixer",
+            "pages": [ "fixer" ],
+            "skills": []
+        },
+        {
+            "name": "Free Trader",
+            "pages": [ "free-trader" ],
+            "skills": []
+        },
+        {
+            "name": "Instructor",
+            "pages": [ "instructor" ],
+            "skills": []
+        },
+        {
+            "name": "Medic",
+            "pages": [ "medic" ],
+            "skills": []
+        },
+        {
+            "name": "Powered Armour Jockey",
+            "pages": [ "powered-armour-jockey" ],
+            "skills": []
+        },
+        {
+            "name": "Starwright",
+            "pages": [ "starwright" ],
+            "skills": []
+        }
+    ]
+}

@@ -1,23 +1,26 @@
-{{#> Base title="Pathfinder 1e - Dyslexic Character Sheets"}}
+{{#> Base title="Pathfinder - Dyslexic Character Sheets"}}
 
-{{#> BuildLayout }}
+{{#> BuildLayout theme="adventurer"}}
   {{#> Left }}
     {{#> Pane bg="parchment" shadow="left"}}
       {{> MenuButtons}}
-      
-      <img src="/images/coffee-stain.png" id="coffee-stain">
 
-      {{#> Switch id='switch-milestones' current='character'}}
+      {{#> Switch 
+        id='switch-milestones' 
+        current='character'
+        var="#build-form.pick | default 'character'"
+      }}
 
         {{#> SwitchCase value='character'}}
           {{> Milestones
             id="milestones-character"
-            forward="slides-character"
             current="start"
+            var="#slides-character.jump"
             milestones=(array 
               (item milestone="start" title="Start")
               (item milestone="class" title="Class")
               (item milestone="options" title="Options")
+              (item milestone="picture" title="Picture")
               (item milestone="download" title="Download")
             )
           }}
@@ -26,13 +29,39 @@
         {{#> SwitchCase value='gm'}}
           {{> Milestones
             id="milestones-gm"
-            forward="slides-gm"
             current="start"
+            var="#slides-character.jump"
             milestones=(array
               (item milestone="start" title="Start")
               (item milestone="gm" title="GM")
               (item milestone="gm-options" title="Options")
               (item milestone="gm-download" title="Download")
+            )
+          }}
+        {{/SwitchCase}}
+
+        {{#> SwitchCase value='kingdom'}}
+          {{> Milestones
+            id="milestones-kingdom"
+            current="start"
+            var="#slides-character.jump"
+            milestones=(array
+              (item milestone="start" title="Start")
+              (item milestone="kingdom" title="Kingdom")
+              (item milestone="kingdom-download" title="Download Kingdom")
+            )
+          }}
+        {{/SwitchCase}}
+
+        {{#> SwitchCase value='mini'}}
+          {{> Milestones
+            id="milestones-mini"
+            current="start"
+            var="#slides-character.jump"
+            milestones=(array
+              (item milestone="start" title="Start")
+              (item milestone="mini" title="Map Figure")
+              (item milestone="mini-download" title="Download")
             )
           }}
         {{/SwitchCase}}

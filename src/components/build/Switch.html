@@ -4,9 +4,8 @@
     id="{{id}}"
     {{#if var}}
     data-bind="current={{var}}"
-    {{else}}
-    data-current="{{default current 'start'}}"
     {{/if}}
+    data-current="{{default current 'start'}}"
   >
     {{> @partial-block }}
   </div>

@@ -1,4 +1,4 @@
-all: site serve
+all: site run
 
 site:
 	npm run make
@@ -9,5 +9,5 @@ run:
 debug:
 	npm run debug
 	
-serve:
+static:
 	@node_modules/.bin/light-server -s dist/htdocs/ -p 7000

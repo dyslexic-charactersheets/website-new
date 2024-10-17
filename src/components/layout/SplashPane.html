@@ -1,0 +1,27 @@
+<template>
+  <div class="splash-pane">
+    {{> @partial-block }}
+  </div>
+</template>
+
+<style>
+@use 'responsive';
+
+.splash-pane {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 2rem;
+
+  @include responsive.large {
+    min-height: 80vh;
+  }
+  @include responsive.medium {
+    min-height: 60vh;
+  }
+  @include responsive.small {
+    min-height: 50vh;
+  }
+}
+</style>

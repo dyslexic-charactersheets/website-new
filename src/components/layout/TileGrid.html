@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid--{{grid}}">
+  <div class="grid grid--{{grid}}{{#if gap}} grid--gap_{{gap}}{{/if}}">
     {{> @partial-block }}
   </div>
 </template>
@@ -12,6 +12,10 @@
   
   @include responsive.medium-large {
     display: grid;
+
+    &.grid--1 {
+      
+    }
 
     &.grid--2 {
       grid-template-areas: "a b";
@@ -37,13 +41,31 @@
     }
 
     &.grid--1-3 {
-      grid-template-areas: "a a a" "b c d";
+      grid-template-areas:
+        "a a a"
+        "b c d";
       grid-template-columns: 1fr 1fr 1fr;
     }
 
     &.grid--3-3 {
-      grid-template-areas: "a b c" "d e f";
+      grid-template-areas:
+        "a b c"
+        "d e f";
       grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    &.grid--4-2 {
+      grid-template-areas:
+        "a b"
+        "c d";
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @include responsive.xxlarge {
+    &.grid--4-2 {
+      grid-template-areas: "a b c d";
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
 
@@ -61,6 +83,10 @@
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+  }
+
+  &.grid--gap_small {
+    gap: 0.5rem !important;
   }
 }
 </style>

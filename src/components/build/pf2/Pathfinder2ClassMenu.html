@@ -1,0 +1,34 @@
+<template>
+  {{> FormSelectMenu
+    id="form-select-class"
+    code="class"
+    title="Class"
+    select=pathfinder2.class
+    show="full"
+  }}
+  {{> Data
+    id="pathfinder2.class"
+    value=pathfinder2.class.values
+    key="id"
+  }}
+</template>
+
+<script>
+
+on('#form-select-class', 'form-select:class', (evt) => {
+  let detail = evt.detail;
+  console.log('Form select: class', detail);
+  set("#build-form", "class", detail);
+});
+
+definePipe('className', (value) => {
+  console.log("class name", value);
+  
+  if (window.dataArchive['pathfinder2.class'].hasOwnProperty(value)) {
+    return window.dataArchive['pathfinder2.class'][value].name;
+  }
+  
+  return "";
+});
+
+</script>

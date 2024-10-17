@@ -1,0 +1,38 @@
+<template>
+  {{#> SideMenu 
+    id="edition-menu"
+    side="right"
+  }}
+    {{#> Pane bg="parchment"}}
+      {{#> Row}}
+        {{> CloseButton }}
+        <h3>{{__ "Edition"}}</h3>
+      {{/Row}}
+
+      <nav class="nav--menu">
+        <ul class="pick-list">
+          <li>
+            <a class="option" data-on-click="">
+              {{__ "Pathfinder 2e (Legacy)"}}
+            </a>
+          </li>
+          <li>
+            <a class="option" data-on-click="">
+              {{__ "Pathfinder 2e (Remaster)"}}
+            </a>
+          </li>
+          <!-- <li>
+            <a class="option" data-on-click="">
+              {{__ "Starfinder 2e"}}
+            </a>
+          </li> -->
+          <li>
+            <a class="option" data-on-click="">
+              {{__ "All options combined"}}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    {{/Pane}}
+  {{/SideMenu}}
+</template>

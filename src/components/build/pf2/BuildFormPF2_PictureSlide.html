@@ -1,0 +1,19 @@
+<template>
+  
+  <h2>{{__ "Picture"}}</h2>
+
+  {{#> Columns}}
+    {{#> Column}}
+      <h3>{{__ "Character Picture"}}</h3>
+      {{> ImageDrop shape="portrait" label="Drag Picture" imageselect="portrait" button="Select Picture"}}
+    {{/Column}}
+
+    {{#> Column}}
+      <h3>{{__ "Logo"}}</h3>
+      {{> ImageDrop shape="logo" label="Drag Logo" imageselect="logo" button="Select Logo"}}
+      
+      <h3>{{__ "Animal"}}</h3>
+      {{> ImageDrop shape="animal" label="Drag Animal Picture" imageselect="animal" button="Select Animal Picture"}}
+    {{/Column}}
+  {{/Columns}}
+</template>

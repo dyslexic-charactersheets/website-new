@@ -1,0 +1,57 @@
+<template>
+  {{#> Row align="centre"}}
+    {{> Picture src=(ifeq game "starfinder2" "/images/starfinder2e.png" "/images/pathfinder2e.png") size="logo"}}
+  {{/Row}}
+
+  {{#> Row pad=true}}
+    <span>
+      {{__ "Game edition"}}:
+    </span>
+    {{> Output var="#build-form.edition|editionName" on-click="body.currentMenu = edition-menu"}}
+
+    {{> Spacer}}
+      
+    <span>
+      {{__ "Language"}}:
+      {{#> Button class="btn btn--light" on-click="body.currentMenu = language-menu"}}
+        {{> Icon icon="globe"}}{{__ (languagename lang)}}
+      {{/Button}}
+    </span>
+  {{/Row}}
+
+  {{#> TileGrid grid="2-2" }}
+
+    {{#> Button 
+      type="tile"
+      on-click="#build-form.pick=character; #switch-character.current=character; #slides-character.jump=character"
+    }}
+      <div>
+        {{> Picture src=(ifeq theme "scifi" "/images/starfinder-single.png" "/images/single.png") size="tile"}}
+      </div>
+      <h3>{{__ "Character"}}</h3>
+    {{/Button}}
+
+    {{#> Button 
+      type="tile"
+      on-click="#build-form.pick=gm; #switch-character.current=gm; #slides-character.jump=gm-pick"
+    }}
+      {{> Picture src=(ifeq theme "scifi" "/images/starfinder-gm.png" "/images/gm.png") size="tile"}}
+      <h3>{{__ "GM"}}</h3>
+    {{/Button}}
+
+    {{#> Button
+      type="tile"
+      on-click="#build-form.pick=kingmaker; #switch-character.current=kingmaker; #slides-character.jump=kingmaker"
+    }}  
+      {{> Picture src="/images/kingmaker-logo2.png" size="logo"}}
+    {{/Button}}
+
+    {{#> Button
+      type="tile"
+      on-click="#build-form.pick=mini; #switch-character.current=mini; #slides-character.jump=mini"
+    }}
+      <h3>{{__ "Map Figure"}}</h3>
+    {{/Button}}
+
+  {{/TileGrid}}
+</template>

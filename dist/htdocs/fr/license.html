@@ -10,13 +10,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 </head>
 
-<body id="body" data-current-menu="">
+<body id="body" data-current-menu="" data-language="fr">
 
 
 <main class="main--layout_read">
     <section id="left">
         <div class="pane pane--bg_blue pane--shadow_left dark-region ">
-                    <nav class="nav--row">
+                    <nav class="nav--row" id="home-link">
                         <a href="/fr/" class="btn btn--min">
                           <img src="/images/favicon64.png">
                           Dyslexic Character Sheets
@@ -26,7 +26,7 @@
                             <button 
                           type="button"
                           
-                          class="btn " 
+                          class="btn btn--icon " 
                           data-on-click="body.currentMenu &#x3D; main-menu"
                           
                         >
@@ -36,7 +36,7 @@
                             <button 
                           type="button"
                           
-                          class="btn " 
+                          class="btn btn--light " 
                           data-on-click="body.currentMenu &#x3D; language-menu"
                           
                         >
@@ -46,7 +46,7 @@
                             <button 
                           type="button"
                           
-                          class="btn " 
+                          class="btn btn--light " 
                           data-on-click="body.currentMenu &#x3D; login-menu"
                           
                         >
@@ -102,7 +102,47 @@
     <section id="right">
         <div class="pane pane--bg_parchment  light-region ">
             <div class="read-area">
-                          
+                          <div class="responsive-small">
+                              <nav class="nav--row" id="home-link">
+                                  <a href="/fr/" class="btn btn--min">
+                                    <img src="/images/favicon64.png">
+                                    Dyslexic Character Sheets
+                                  </a>
+                                </nav>
+                                <nav class="nav--row">
+                                      <button 
+                                    type="button"
+                                    
+                                    class="btn btn--icon " 
+                                    data-on-click="body.currentMenu &#x3D; main-menu"
+                                    
+                                  >
+                                    ☰      
+                                  </button>
+                              
+                                      <button 
+                                    type="button"
+                                    
+                                    class="btn btn--light " 
+                                    data-on-click="body.currentMenu &#x3D; language-menu"
+                                    
+                                  >
+                                    <i class="icon icon_globe"></i>fr      
+                                  </button>
+                              
+                                      <button 
+                                    type="button"
+                                    
+                                    class="btn btn--light " 
+                                    data-on-click="body.currentMenu &#x3D; login-menu"
+                                    
+                                  >
+                                    <i class="icon icon_user"></i>Connexion      
+                                  </button>
+                              
+                                  <div class="spacer"></div>
+                                  
+                                </nav>  </div>          
                           <h1>Artistic License 2.0</h1>
                           
                           <p>Copyright © 2000-2006, The Perl Foundation.</p>
@@ -247,7 +287,7 @@
                         <button 
                       type="button"
                       id="main-menu"
-                      class="btn " 
+                      class="btn btn--icon " 
                       data-on-click="body.currentMenu &#x3D; main-menu"
                       
                     >
@@ -257,7 +297,7 @@
                         <button 
                       type="button"
                       id="main-menu"
-                      class="btn " 
+                      class="btn btn--light " 
                       data-on-click="body.currentMenu &#x3D; language-menu"
                       
                     >
@@ -267,7 +307,7 @@
                         <button 
                       type="button"
                       id="main-menu"
-                      class="btn " 
+                      class="btn btn--light " 
                       data-on-click="body.currentMenu &#x3D; login-menu"
                       
                     >
@@ -300,10 +340,23 @@
                     <li>
                       <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-github">GitHub</a>
                     </li>
+                    <li>
+                          <a 
+                id="main-menu"
+                class="btn btn--light btn--bgicon button-facebook" 
+                href="https://www.facebook.com/groups/dyslexiccharactersheets" 
+                 
+          
+                
+              >
+                Facebook      
+              </a>
+          
+                    </li>
                   </ul>
                   <ul>
                     <li>
-                      <button class="btn btn--light button-contact">Contactez</button>
+                      <button class="btn btn--light button-contact" on-click="body.currentMenu = contact-menu">Contactez</button>
                     </li>
                   </ul>
           
@@ -364,7 +417,7 @@
                         <button 
                       type="button"
                       id="language-menu"
-                      class="btn " 
+                      class="btn btn--icon " 
                       data-on-click="body.currentMenu &#x3D; main-menu"
                       
                     >
@@ -374,7 +427,7 @@
                         <button 
                       type="button"
                       id="language-menu"
-                      class="btn " 
+                      class="btn btn--light " 
                       data-on-click="body.currentMenu &#x3D; language-menu"
                       
                     >
@@ -384,7 +437,7 @@
                         <button 
                       type="button"
                       id="language-menu"
-                      class="btn " 
+                      class="btn btn--light " 
                       data-on-click="body.currentMenu &#x3D; login-menu"
                       
                     >
@@ -436,7 +489,155 @@
                   </ul>
                 </nav>
         </div>    </div>
-  </aside></aside>
+  </aside><!-- Login menu goes here -->
+<!-- This is the login menu -->
+<aside id="login-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'login-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="login-menu"
+                      class="btn btn--icon " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="login-menu"
+                      class="btn btn--light " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>fr      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="login-menu"
+                      class="btn btn--light " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Connexion      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Connexion</h3>
+          
+                  <p>Login with Patreon to get access to patron-only features.</p>
+          
+                  <p>
+                    <a class="btn btn--light btn--bgicon button-patreon" href="https://www.patreon.com/oauth2/authorize?response_type=code&amp;client_id=0oURl0qZgYq8jpkZ0rl5KCfzpYb_Uki2bLfDwzlaVrFRr1QM7IrtNUt19eaulVgM&amp;redirect_uri=https%3A%2F%2Fwww.dyslexic-charactersheets.com%2Fauth%2Fpatreon-redirect">Login with Patreon</a>
+                  </p>
+          
+                  <p class="small-print">Logging in will set a cookie on your PC. This does not contain any personally identifiable information, and will not be sent to any third party.</p>
+          
+                  <h3>Become a patron</h3>
+          
+                  <p>Patrons get the ability to edit all the fields, have calculations work automatically, and save character sheets. Login with Patreon to unlock these features:</p>
+          
+                  <p>Support the site and gain access to extra features for just $1 by becoming a patron.</p>
+          
+                  <p>
+                    <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-patreon">Patreon</a>
+                  </p>
+                </nav>
+        </div>    </div>
+  </aside><aside id="contact-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'contact-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_contact  light-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="contact-menu"
+                      class="btn btn--icon " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="contact-menu"
+                      class="btn btn--light " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>fr      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="contact-menu"
+                      class="btn btn--light " 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Connexion      
+                    </button>
+                
+                    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Contactez</h3>
+                  
+                  <form id="message-form" method="post" action="/message" class="contact-form">
+                    <p>Your message:</p>
+          
+                    <textarea name="message"></textarea>
+          
+                    <p>
+                        <label for="game">Which game is this about?</label>
+                    </p>
+                    <div class="row">
+                        <label><input type="radio" name="game" value="pf2"> Pathfinder 2e</label>
+                        <label><input type="radio" name="game" value="sf"> Starfinder</label>
+                    </div>
+                    <div class="row">
+                        <label><input type="radio" name="game" value="pf1"> Pathfinder 1e</label>
+                        <label><input type="radio" name="game" value="d35"> D&amp;D 3.5</label>
+                    </div>
+          
+                    <p>
+                        <label for="author">
+                            Your name:
+                            <input id="author" name="author" type="text" placeholder="The Internet" class="box">
+                        </label>
+                    </p>
+                    <p>
+                        <label for="email">
+                            Optionally, your email address:
+                        </label>
+                    </p>
+                    <p>
+                        <input id="email" name="email" type="email" placeholder="But only if you feel like it" class="box">
+                    </p>
+                    
+                    <button class="btn btn--primary" id="message-send">Envoyer le Message</button>
+                  </form>
+          
+                </nav>
+        </div>    </div>
+  </aside>
 <script src="/script.js"></script>
 
 </body>

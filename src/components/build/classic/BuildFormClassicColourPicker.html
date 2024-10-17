@@ -1,0 +1,103 @@
+<template>
+  <div class="colour-grid">
+    {{#> Columns n=3}}
+      {{#> Column}}
+        <label class="colour-picker-light" for="{{id}}-light"><span><input type="radio" id="{{id}}-light" name="{{id}}" value="light"/></span> {{__ "Lighter"}}</label>
+        <label class="colour-picker-normal" for="{{id}}-normal"><span><input type="radio" id="{{id}}-normal" name="{{id}}" value="normal" checked/></span> {{__ "Normal"}}</label>
+        <label class="colour-picker-dark" for="{{id}}-dark"><span><input type="radio" id="{{id}}-dark" name="{{id}}" value="dark"></span> {{__ "Darker"}}</label>
+        <label class="colour-picker-black" for="{{id}}-black"><span><input type="radio" id="{{id}}-black" name="{{id}}" value="black"></span> {{__ "Black"}}</label>
+      {{/Column}}
+      {{#> Column}}
+        <label class="colour-picker-red" for="{{id}}-red"><span><input type="radio" id="{{id}}-red" name="{{id}}" value="red"></span> {{__ "Red"}}</label>
+        <label class="colour-picker-orange" for="{{id}}-orange"><span><input type="radio" id="{{id}}-orange" name="{{id}}" value="orange"></span> {{__ "Orange"}}</label>
+        <label class="colour-picker-lime" for="{{id}}-lime"><span><input type="radio" id="{{id}}-lime" name="{{id}}" value="lime"></span> {{__ "Lime"}}</label>
+        <label class="colour-picker-green" for="{{id}}-green"><span><input type="radio" id="{{id}}-green" name="{{id}}" value="green"></span> {{__ "Green"}}</label>
+      {{/Column}}
+      {{#> Column}}
+        <label class="colour-picker-cyan" for="{{id}}-cyan"><span><input type="radio" id="{{id}}-cyan" name="{{id}}" value="cyan"></span> {{__ "Cyan"}}</label>
+        <label class="colour-picker-blue" for="{{id}}-blue"><span><input type="radio" id="{{id}}-blue" name="{{id}}" value="blue"></span> {{__ "Blue"}}</label>
+        <label class="colour-picker-purple" for="{{id}}-purple"><span><input type="radio" id="{{id}}-purple" name="{{id}}" value="purple"></span> {{__ "Purple"}}</label>
+        <label class="colour-picker-pink" for="{{id}}-pink"><span><input type="radio" id="{{id}}-pink" name="{{id}}" value="pink"></span> {{__ "Pink"}}</label>
+      {{/Column}}
+    {{/Columns}}
+  </div>
+</template>
+
+<style>
+
+.colour-grid {
+  label {
+    display: block;
+    margin: 12px 0px;
+    text-shadow: none;
+
+    span {
+      padding: 3px;
+      margin-right: 4px;
+      border-radius: 2px;
+      background-clip: padding-box;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    @mixin colour-label($text, $block) {
+      color: $text;
+      span {
+        background-color: $block;
+      }
+    }
+    
+    &.colour-picker-light {
+      @include colour-label(#555, #888);
+    }
+
+    &.colour-picker-normal {
+      @include colour-label(#333, #666);
+    }
+
+    &.colour-picker-dark {
+      @include colour-label(#111, #444);
+    }
+
+    &.colour-picker-black {
+      @include colour-label(#000, #111);
+    }
+
+    &.colour-picker-red {
+      @include colour-label(#931206, #c85a50);
+    }
+
+    &.colour-picker-orange {
+      @include colour-label(#654202, #b48732);
+    }
+
+    &.colour-picker-gold {
+      @include colour-label(#584a00, #ccaf1f);
+    }
+
+    &.colour-picker-lime {
+      @include colour-label(#365c00, #76a632);
+    }
+
+    &.colour-picker-green {
+      @include colour-label(#0d770d, #50b450);
+    }
+
+    &.colour-picker-cyan {
+      @include colour-label(#035a5a, #32aaaa);
+    }
+
+    &.colour-picker-blue {
+      @include colour-label(#023f65, #3282b4);
+    }
+
+    &.colour-picker-purple {
+      @include colour-label(#670d77, #a550b4);
+    }
+
+    &.colour-picker-pink {
+      @include colour-label(#c50096, #e164c3);
+    }
+  }
+}
+
+</style>

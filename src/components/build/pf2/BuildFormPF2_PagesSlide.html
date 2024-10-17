@@ -1,0 +1,29 @@
+<template>
+  <h2>{{__ "Pages"}}</h2>
+  <div class="row row--dense">
+    {{> PageOption page="permission" label="Permission to print"}}
+  </div>
+  <h4>{{__ "Character"}}</h4>
+  <div class="row row--dense">
+    {{> PageOption page="cover" label="Cover page" selected="true"}}
+    {{> PageOption page="level-up" label="Level up" selected="true"}}
+    {{> PageOption page="reference" label="Action Reference"}}
+    {{> PageOption page="actions" label="Actions"}}
+    {{> PageOption page="character-background" label="Character Background"}}
+  </div>
+
+  <h4>{{__ "Inventory"}}</h4>
+  <div class="row row--dense">
+    {{> PageOption size="small" page="inventory-half" label="Half" radio="true" name="inventory" value="half"}}
+    {{> PageOption page="inventory-full" label="Full" selected="true" radio="true" name="inventory" value="full"}}
+    {{> PageOption page="inventory-extra" label="Extra page"}}
+  </div>
+  
+
+  <h4>{{__ "Companions"}}</h4>
+  <div class="row row--dense">
+    {{> PageOption page="animal-companion" label="Animal Companion"}}
+    {{> PageOption page="familiar" label="Familiar"}}
+    {{> PageOption page="construct" label="Construct"}}
+  </div>
+</template>

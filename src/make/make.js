@@ -20,7 +20,7 @@ Error.stackTraceLimit = Infinity;
 let hasError = false;
 
 // init handlebars
-var helpers = HandlebarsHelpers({
+const helpers = HandlebarsHelpers({
     handlebars: Handlebars
 });
 
@@ -29,7 +29,7 @@ var helpers = HandlebarsHelpers({
 
 Handlebars.registerHelper('slug', function (str, obj) {
   if (!isString(str)) {
-    error("slug", "Slugify:".red, str, obj);
+    // error("slug", "Slugify:".red, str, obj);
     return '';
   }
   return slugify(str);
@@ -39,11 +39,11 @@ Handlebars.registerHelper('dump', function (obj) {
   return "<!-- "+JSON.stringify(obj, null, 2)+" -->";
 });
 
-Handlebars.registerHelper('ifeq', function (term1, term2, options) {
+Handlebars.registerHelper('ifeq', function (term1, term2, thenValue, elseValue) {
   if (term1 == term2) {
-    return options.fn(this);
-  } else if (options.reverse) {
-    return options.reverse(this);
+    return thenValue;
+  } else {
+    return elseValue;
   }
 });
 
@@ -92,7 +92,16 @@ Handlebars.registerHelper('isDark', function (bg) {
     default:
       return false;
   }
-})
+});
+
+Handlebars.registerHelper('times', function (n, block) {
+  let accum = '';
+  for(let i = 0; i < n; ++i)
+      accum += block.fn({
+        i: i+1
+      });
+  return accum;
+});
 
 Handlebars.registerHelper('array', function (...items) {
   items.pop();
@@ -101,6 +110,14 @@ Handlebars.registerHelper('array', function (...items) {
 
 Handlebars.registerHelper('item', function (options) {
   return options.hash;
+});
+
+Handlebars.registerHelper('range', function (from, to) {
+  let array = [];
+  for (let i = from; i < to; i++) {
+    array.push(i);
+  }
+  return array;
 });
 
 
@@ -115,7 +132,7 @@ function loadComponents(dir) {
     } else if (file.match(/\.html$/)) {
       let content = fs.readFileSync(filepath, { encoding: 'utf8' });
       let name = file.replace(/\.html$/, '');
-      log("components", "Component loaded:".green, name);
+      // log("components", "Component loaded:".green, name);
       // fs.writeFile('../debug/components/'+name+'.html', content, 'utf-8', (err) => {});
 
       try {
@@ -132,7 +149,30 @@ function loadComponents(dir) {
         let js = getContentParts(/<script>((.|[\r\n])*?)<\/script>/g);
         let scss = getContentParts(/<style>((.|[\r\n])*?)<\/style>/g);
 
-        Handlebars.registerPartial(name, template);
+        // Handlebars.registerPartial(name, template);
+
+        ((name, template) => {
+          let partial = Handlebars.compile(template);
+          Handlebars.registerPartial(name, function (...args) {
+            // console.log("partial", "Partial", name, ...args);
+            try {
+              let stack = [];
+              if (Array.isArray(args[1].data.currentComponent)) {
+                stack = args[1].data.currentComponent;
+              }
+              let data = {
+                ...args[1].data,
+                currentComponent: [...stack, name]
+              };
+              args[1].data = data;
+              return partial(...args);
+            } catch (x) {
+              error(name, "Error", x);
+              return "";
+            }
+          });
+        })(name, template);
+
         // fs.writeFile('../debug/components/'+name+'-template.html', template, 'utf-8', (err) => {});
         // fs.writeFile('../debug/components/'+name+'-js.html', js, 'utf-8', (err) => {});
         // fs.writeFile('../debug/components/'+name+'-scss.html', scss, 'utf-8', (err) => {});
@@ -141,7 +181,7 @@ function loadComponents(dir) {
           name,
           js,
           scss
-        })
+        });
       } catch (e) {
         error("make", "Error parsing component:".red, file, e);
         hasError = true;
@@ -153,8 +193,18 @@ loadComponents('components');
 
 Handlebars.registerHelper('__', function (content, ...attribs) {
   if (content === null || content === undefined) {
-    error("__", "Cannot translate nothing".red);
+    let context = [];
+    if (attribs.length > 0 && isString(attribs[0])) {
+      context.push(attribs.shift());
+    }
+    error("__", "Cannot translate nothing".red, ...context,
+      attribs[0].data.root.page, attribs[0].data.root.lang,
+      attribs[0].data.currentComponent, 
+      attribs[0].loc
+      // attribs[0]
+    );
     return "";
+    // throw new Error("Cannot translate nothing"+JSON.stringify(attribs[0].loc));
   }
 
   // find the current language
@@ -177,10 +227,18 @@ Handlebars.registerHelper('link', function (lang, page, options) {
   if (page.match(/^http/)) {
       return page;
   }
+
+  let query = '';
+  let parts = page.match(/(.*)\?(.*)/);
+  if (parts) {
+    page = parts[1];
+    query = '?'+parts[2];
+  }
+
   if (page == "index") {
-      return '/'+lang+'/';
+      return '/'+lang+'/'+query;
   } else {
-      return '/'+lang+'/'+page+'.html';
+      return '/'+lang+'/'+page+'.html'+query;
   }
 });
 
@@ -230,7 +288,7 @@ Handlebars.registerHelper('str', function (template, options) {
 let partials = fs.readdirSync('partials');
 for (let partial of partials) {
     let name = partial.replace(/\.html\.hbs$/, '');
-    log("partial", "Partial loaded:".green, name);
+    warn("partial", "Partial loaded:".green, name);
     let partialBody = fs.readFileSync('partials/'+partial, { encoding: 'utf8' });
     Handlebars.registerPartial(name, partialBody);
 }
@@ -268,12 +326,12 @@ fs.writeFile('../dist/htdocs/style.css', stylesheet.css, (err) => {
 // Build the script
 log("make", "Compiling script");
 let scripts = [
+    'debug',
     'script',
     'components',
     'signals',
     'build',
-    'build-pathfinder2',
-    'build-starfinder'
+    'build-classic',
 ].map((name) => {
   let file = 'js/'+name+'.js';
   let content = fs.readFileSync(file, { encoding: 'utf8' });
@@ -336,8 +394,8 @@ loadReady().then((gameData) => {
     dnd35: gameData.dnd35,
   };
 
-  // fs.writeFile('../debug/pf2.json', JSON.stringify(gameData.pathfinder2, null, 2), 'utf-8', () => {
-  // });
+  fs.writeFile('../debug/pf2.json', JSON.stringify(gameData.pathfinder2, null, 2), 'utf-8', () => {
+  });
   
   let pages = fs.readdirSync('pages');
   for (let lang of languages) {
@@ -367,7 +425,7 @@ loadReady().then((gameData) => {
             error("make", "Page ERROR".red, name+" ("+lang+")", err);
             hasError = true;
           } else {
-            log("make", "Page OK".green, name+" ("+lang+")");
+            // log("make", "Page OK".green, name+" ("+lang+")");
           }
         });
       } catch (e) {
@@ -388,6 +446,15 @@ fse.copy('static', '../dist/htdocs', (err) => {
     } else {
         log("make", "Static files copied".green);
     }
+});
+
+fse.copy('app', '../dist/app', (err) => {
+  if (err) {
+      error("make", "App ERROR".red, err);
+      hasError = true;
+  } else {
+      log("make", "App files copied".green);
+  }
 });
 
 setTimeout(() => {
