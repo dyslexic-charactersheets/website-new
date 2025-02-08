@@ -1,5 +1,5 @@
 import { loadGame as loadGameLegacy } from './gamedata-legacy.js';
-import { loadGame as loadGameLib } from './gamedata-lib.js';
+import { loadGame as loadGameLib, combineGames, getPageData as getPageDataLib } from './gamedata-lib.js';
 
 import { error } from './util.js';
 
@@ -11,6 +11,9 @@ let pf1promise = loadGameLegacy("pathfinder");
 let sf1promise = loadGameLegacy("starfinder");
 let dnd35promise = loadGameLegacy("dnd35");
 
+export function getPageData(gameData, language) {
+  return getPageDataLib(gameData, language);
+}
 
 export function loadReady() {
     return Promise.all([
@@ -28,10 +31,13 @@ export function loadReady() {
       sf1data,
       dnd35data,
     ]) => {
+      let combo = combineGames([pf2data]);
+
       return {
         pathfinder2: pf2data,
         // pathfinder2r: pf2Rdata,
         // starfinder2: sf2data,
+        combo,
         pathfinder1: pf1data,
         starfinder1: sf1data,
         dnd35: dnd35data,

@@ -1,0 +1,24 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <div 
+    class="tab-region__tab-pane" 
+    id="tab-pane--{{regionid}}--{{code}}"
+    data-bind="active = #tab-bar--{{regionid}}.current | eq '{{code}}'"
+  >
+    {{> @partial-block }}
+  </div>
+</template>
+
+<style>
+
+.tab-region__tab-pane {
+  display: none;
+  &[data-active='true'] {
+    display: block;
+  }
+}
+</style>

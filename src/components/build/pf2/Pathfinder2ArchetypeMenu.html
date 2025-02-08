@@ -1,0 +1,32 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  {{> FormSelectMenu
+    id=(str "form-select-${key}" key=key)
+    code=key
+    title=title
+    select=select
+    show="small"
+  }}
+</template>
+
+<script>
+
+on('body', 'form-select:multiclass', (evt) => {
+  let detail = evt.detail;
+  let num = document.getElementById('build-form').dataset.multiclassNum;
+  console.log('Form select: multiclass', detail);
+  set('#build-form', `multiclass_${num}`, detail.value);
+});
+
+on('body', 'form-select:archetype', (evt) => {
+  let detail = evt.detail;
+  let num = document.getElementById('build-form').dataset.archetypeNum;
+  console.log('Form select: archetype', detail);
+  set('#build-form', `archetype_${num}`, detail.value);
+});
+
+</script>

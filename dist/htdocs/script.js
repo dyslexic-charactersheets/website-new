@@ -1,31 +1,98 @@
 let debugSettings = {};
 
 function getDebug(zone) {
+  let indentlevel = 0;
+
+  function pad(str) {
+    let minwidth = 16 + indentlevel * 4;
+    return str.padEnd(minwidth);
+  }
+
+  function prefix(message) {
+    return pad('%c['+zone+'] ')+message;
+  }
+
   function log(message, ...args) {
     if (debugSettings[zone]) {
-      console.log('%c['+zone+'] '+message, 'color: cyan', ...args);
+      console.log(prefix(message), 'color: cyan', ...args);
     }
   }
   
   function warn(message, ...args) {
     if (debugSettings[zone]) {
-      console.log('%c['+zone+'] '+message, 'color: orange', ...args);
+      console.log(prefix(message), 'color: orange', ...args);
     }
   }
 
   function error(message, ...args) {
-    if (debugSettings[zone]) {
-      console.log('%c['+zone+'] '+message, 'color: red', ...args);
+    console.log(prefix(message), 'color: red', ...args);
+  }
+
+  function indent() {
+    indentlevel++;
+  }
+
+  function outdent() {
+    indentlevel--;
+    if (indentlevel < 0) {
+      indentlevel = 0;
     }
   }
 
   return {
-    log, warn, error
+    log, warn, error, indent, outdent
   }
 }
 
 function enableDebug(zone) {
   debugSettings[zone] = true;
+}
+function bool(val) {
+  if (val === true) return true;
+  if (val === false) return false;
+  if (val === "true") return true;
+  if (val === "false") return false;
+  if (val === undefined || val === null) return false;
+  if (val === "") return true;
+  return true;
+}
+
+function toCamelCase(str) {
+  let words = str.split('-');
+  words = words.map(word => word.charAt(0).toUpperCase() + word.substr(1).toLowerCase());
+  words[0] = words[0].toLowerCase();
+  return words.join('');
+}
+
+function toKebabCase(str) {
+  let words = str.split(/([A-Z][a-z]+)/);
+  words = words.map(word => word.toLowerCase());
+  words = words.filter(word => word != '');
+  return words.join('-');
+}
+
+function isArray(val) {
+  if (val === null || val === undefined) {
+    return false;
+  }
+  return Array.isArray(val);
+}
+
+function isString(val) {
+  if (val === null || val === undefined) {
+    return false;
+  }
+  return typeof val === 'string' || val instanceof String;
+}
+
+function isElement(val) {
+  if (val === null || val === undefined) {
+    return false;
+  }
+  return (
+    typeof HTMLElement === "object" ? val instanceof HTMLElement : //DOM2
+    val && typeof val === "object" && val.nodeType === 1 && typeof val.nodeName === "string"
+  );
 }
 function generateId() {
   return Math.floor(Math.random() * 10000000000).toString(16);
@@ -35,17 +102,8 @@ function isLoggedIn() {
   // TODO login
   return false;
 }
-function isString(val) {
-  return typeof val === 'string' || val instanceof String;
-}
-
-function isElement(val) {
-  return (
-    typeof HTMLElement === "object" ? val instanceof HTMLElement : //DOM2
-    val && typeof val === "object" && val !== null && val.nodeType === 1 && typeof val.nodeName==="string"
-  );
-}
-
+let componentLogger = getDebug('components');
+// enableDebug('components');
 
 
 /// EVENTS
@@ -85,8 +143,35 @@ function on(target, signal, handler) {
   }
 }
 
+function get(target, field) {
+  componentLogger.log("Get ", target, field);
+  if (isElement(target)) {
+    switch (field) {
+      case 'checked':
+        return bool(target.checked);
+      case 'disabled':
+        return bool(target.disabled);
+      case 'content':
+        return target.innerHTML;
+      case 'value':
+        return target.value;
+      case 'class':
+        return target.className;
+      default:
+        return target.dataset[field];
+    }
+  } else {
+    let value = null;
+    all(target, (elem) => {
+      value = get(elem, field);
+    });
+    return value;
+  }
+}
+
 // set an element's attribute
 function set(target, field, value) {
+  componentLogger.log("Set ", target, field, value);
   if (isElement(target)) {
     if (value === false || value === undefined) {
       switch (field) {
@@ -111,7 +196,7 @@ function set(target, field, value) {
           if (target.getAttribute(field) == value) {
             return;
           }
-          target.setAttribute(field, value);
+          target.value = value; // target.setAttribute(field, value);
           emit(target, 'change');
           break;
 
@@ -141,7 +226,6 @@ function set(target, field, value) {
           }
           target.dataset[field] = value;
       }
-      // target.dataset[field] = value;
     }
   } else {
     all(target, (elem) => {
@@ -150,6 +234,49 @@ function set(target, field, value) {
   }
 }
 
+function setToggleInList(target, field, value, enable) {
+  let existing = get(target, field);
+  let toggleSet = (existing === undefined || existing == null) ? new Set() : new Set(existing.split(';'));
+
+  if (enable) {
+    toggleSet.add(value);
+  } else {
+    toggleSet.delete(value);
+  }
+
+  let newvalue = [...toggleSet].sort().join(';');
+  if (newvalue != existing) {
+    set(target, field, newvalue);
+  }
+}
+
+function deepReplace(element, original, replacement) {
+  // attributes
+  if (element.hasAttributes()) {
+    let attribs = element.getAttributeNames();
+    for (let attrib of attribs) {
+      if (element.getAttribute(attrib).match(original)) {
+        let newValue = element.getAttribute(attrib).replaceAll(original, replacement)
+        element.setAttribute(attrib, newValue);
+      }
+    }
+  }
+
+  // data
+
+  // text content
+
+  // children
+  for (let child of element.children) {
+    if (child instanceof HTMLElement) {
+      deepReplace(child, original, replacement);
+    } else if (child instanceof TextNode) {
+      if (child.innerText.match(original)) {
+        child.innerText = child.innerText.replaceAll(original, replacement);
+      }
+    }
+  }
+}
 // watch an element's attribute for changes
 function watch(target, attribute, handler) {
   let observer = new MutationObserver(function (mutations) {
@@ -162,46 +289,103 @@ function watch(target, attribute, handler) {
   observer.observe(target, {attributes: true});
 }
 
+// Pipe functions
 
-function getValue(sourceElem, sourceAttr) {
-  switch (sourceAttr) {
-    case 'content':
-      return sourceElem.innerHTML;
-    default:
-      return sourceElem.dataset[sourceAttr];
+let pipeFunctions = {};
+function definePipe(name, bindfn) {
+  pipeFunctions[name] = bindfn;
+}
+definePipe('not', (value) => {
+  value = bool(value);
+  return !value;
+});
+definePipe('isSet', (value) => value !== undefined && value !== null && value != "");
+definePipe('eq', (value, cond) => true && (value == cond));
+definePipe('default', (value, defaultValue) => {
+  if (value !== undefined && value !== null && value != "") {
+    return value;
+  }
+  return defaultValue;
+});
+
+
+// Translated names
+
+let pageData = {
+  names: []
+};
+function readTextFile(file, callback) {
+  var rawFile = new XMLHttpRequest();
+  rawFile.overrideMimeType("application/json");
+  rawFile.open("GET", file, true);
+  rawFile.onreadystatechange = function() {
+      if (rawFile.readyState === 4 && rawFile.status == "200") {
+          callback(rawFile.responseText);
+      }
+  }
+  rawFile.send(null);
+}
+
+readTextFile("data.json", function(text){
+  pageData = JSON.parse(text);
+});
+
+definePipe('displayName', (id, selectKey) => {
+  if (id === null || id === undefined || id === "") {
+    return "";
+  }
+  if (pageData.names.hasOwnProperty(selectKey) && pageData.names[selectKey].hasOwnProperty(id)) {
+    return pageData.names[selectKey][id];
+  }
+  componentLogger.warn("Unknown unit translation:", selectKey, id);
+  return "";
+});
+
+// Pipes
+
+function applyPipes(value, pipes) {
+  if (pipes.length >= 2 && pipes[0] == "each" && value !== undefined && value !== null) {
+    pipes = pipes.slice(1);
+    if (isString(value)) {
+      value = value.split(';');
+    }
+    return value.map((item) => applyPipes(item, pipes)).join(", ");
+  }
+
+  for (let pipe of pipes) {
+    let pipeArgs = pipe.split(' ').map((s) => s.trim());
+    let pipeCommand = pipeArgs.shift();
+    pipeArgs = pipeArgs.map((s) => s.replace(/'(.*)'/, '$1'));
+    if (pipeFunctions.hasOwnProperty(pipeCommand)) {
+      value = pipeFunctions[pipeCommand](value, ...pipeArgs);
+    }
+  }
+  return value;
+}
+
+function createBinding(destElem, field, pipes) {
+  return function (value) {
+    // componentLogger.log("Binding callback");
+    componentLogger.indent();
+
+    // componentLogger.log("Processing value of", field, ":", value, pipes);
+    value = applyPipes(value, pipes);
+
+    // actually set the value
+    // componentLogger.log("Setting value of", field, "=", value);
+    componentLogger.indent();
+    set(destElem, field, value);
+    componentLogger.outdent();
+    componentLogger.outdent();
   }
 }
 
 
 /// REACTIVE
 
-function bool(val) {
-  if (val === true) return true;
-  if (val === false) return false;
-  if (val === "true") return true;
-  if (val === "false") return false;
-  if (val === undefined || val === null) return false;
-  if (val === "") return true;
-  return true;
-}
-
-function toCamelCase(str) {
-  let words = str.split('-');
-  words = words.map(word => word.charAt(0).toUpperCase() + word.substr(1).toLowerCase());
-  words[0] = words[0].toLowerCase();
-  return words.join('');
-}
-
-function toKebabCase(str) {
-  let words = str.split(/([A-Z][a-z]+)/);
-  words = words.map(word => word.toLowerCase());
-  words = words.filter(word => word != '');
-  return words.join('-');
-}
-
 class ElementObserver {
   constructor(element) {
-    let id = (element.hasOwnProperty("id") && element.id !== undefined && element.id !== null && element.id != "") ? "#"+element.id : element.tagName;
+    let id = (element.id !== undefined && element.id !== null && element.id != "") ? "#"+element.id : element.tagName;
 
     this.bindings = {};
     let self = this;
@@ -214,7 +398,7 @@ class ElementObserver {
             let bindings = self.bindings[name];
             let value = element.dataset[name];
 
-            console.log("Observed value", id+"."+name, "=", value, "-- sending to", Object.keys(bindings).length, "observers");
+            componentLogger.log("Observed value", id+"."+name, "=", value, "-- sending to", Object.keys(bindings).length, "observers");
             for (let binding of bindings) {
               binding(value);
             }
@@ -235,6 +419,9 @@ class ElementObserver {
 
 function initObserver(target) {
   if (isString(target)) {
+    if (target == "#") {
+      componentLogger.error("Bad target", target);
+    }
     for (let elem of document.querySelectorAll(target)) {
       if (!('observer' in elem)) {
         elem.observer = new ElementObserver(elem);
@@ -256,39 +443,31 @@ function initObserver(target) {
   }
 }
 
-let pipeFunctions = {};
-function definePipe(name, bindfn) {
-  pipeFunctions[name] = bindfn;
-}
-definePipe('not', (value) => {
-  value = bool(value);
-  return !value;
-});
-definePipe('isSet', (value) => value !== undefined && value !== null && value != "");
-definePipe('eq', (value, cond) => true && (value == cond));
-definePipe('default', (value, defaultValue) => {
-  if (value !== undefined && value !== null && value != "") {
-    return value;
-  }
-  return defaultValue;
-})
-
 
 // SETUP
 function setupBindings(container) {
-  let bindings = [];
+  let nbindings = 0;
 
-  // find all the bindings
+  // find all the bindings for this element
   for (let destElem of container.querySelectorAll('*[data-bind]')) {
+    let elementBindings = [];
+
     for (let bind of destElem.dataset.bind.split(';')) {
+      if (bind == "") {
+        continue;
+      }
       let [field, rvalue] = bind.split('=', 2);
+      if (field === null || field === undefined || rvalue === null || rvalue === undefined) {
+        componentLogger.error("BIND ERROR:", bind, destElem);
+        continue;
+      }
       field = field.trim();
       rvalue = rvalue.trim();
       let lvalue = field;
-      if (destElem.id !== undefined && destElem !== null && destElem != "") {
+      if (isElement(destElem) && destElem.id !== undefined && destElem.id != "") {
         lvalue = "#"+destElem.id+"."+field;
       }
-      console.log(" * Binding:", lvalue, "to", rvalue);
+      componentLogger.log("Binding:", lvalue, "to", rvalue);
           
       let pipes = rvalue.split('|').map((s) => s.trim());
       let source = pipes.shift();
@@ -297,114 +476,57 @@ function setupBindings(container) {
       let [sourceSelector, sourceAttr] = source.split('.');
       let sourceElem = initObserver(sourceSelector);
       if (sourceElem === undefined || sourceElem === null) {
-        console.log("   * Source element not found:", sourceSelector);
+        componentLogger.log("Source element not found:", sourceSelector);
         continue;
       }
 
       let bindingFunction = createBinding(destElem, field, pipes);
 
       // sourceElem.observer.addBinding(sourceAttr, bindingFunction);
-      bindings.push([sourceElem, sourceAttr, bindingFunction]);
+      elementBindings.push([sourceElem, sourceAttr, bindingFunction]);
+      nbindings++;
     }
 
     // 1. calculate initial values
-    for (let binding of bindings) {
+    for (let binding of elementBindings) {
       let [sourceElem, sourceAttr, bindingFunction] = binding;
-      let value = getValue(sourceElem, sourceAttr);
+      let value = get(sourceElem, sourceAttr);
       bindingFunction(value);
     }
 
     // 2. attach listeners
-    for (let binding of bindings) {
+    for (let binding of elementBindings) {
       let [sourceElem, sourceAttr, bindingFunction] = binding;
       sourceElem.observer.addBinding(sourceAttr, bindingFunction);
     }
 
     // 3. calculate values again, knowing it'll reflow any changes
-    for (let binding of bindings) {
+    for (let binding of elementBindings) {
       let [sourceElem, sourceAttr, bindingFunction] = binding;
-      let value = getValue(sourceElem, sourceAttr);
+      let value = get(sourceElem, sourceAttr);
       bindingFunction(value);
     }
   }
+
+  componentLogger.log("Bound", nbindings, "values");
 }
 
-function createBinding(destElem, field, pipes) {
-  return function (value) {
-    // console.log(" * Binding callback");
-
-    // console.log("   * Bind processing value of", field, value, pipes);
-    for (let pipe of pipes) {
-      let pipeArgs = pipe.split(' ').map((s) => s.trim());
-      let pipeCommand = pipeArgs.shift();
-      pipeArgs = pipeArgs.map((s) => s.replace(/'(.*)'/, '$1'));
-      if (pipeFunctions.hasOwnProperty(pipeCommand)) {
-        value = pipeFunctions[pipeCommand](value, ...pipeArgs);
-      }
-    }
-
-    // actually set the value
-    // console.log("   * Bind setting value of", field, value, pipes);
-    set(destElem, field, value);
-    // switch (field) {
-    //   case 'content':
-    //     if (destElem.innerHTML == value) {
-    //       return;
-    //     }
-    //     destElem.innerHTML = value;
-    //     break;
-
-    //   case 'value':
-    //     if (destElem.getAttribute(field) == value) {
-    //       return;
-    //     }
-    //     destElem.setAttribute(field, value);
-    //     emit(destElem, 'change');
-    //     break;
-
-    //   case 'checked':
-    //   case 'disabled':
-    //     let checked = bool(value);
-    //     let existing = bool(destElem.getAttribute(field))
-    //     if (existing == checked) {
-    //       return;
-    //     }
-    //     destElem.toggleAttribute(field, checked);
-    //     if (field == 'checked') {
-    //       emit(destElem, 'change');
-    //     }
-    //     break;
-
-    //   case 'class':
-    //     if (destElem.getAttribute(field) == value) {
-    //       return;
-    //     }
-    //     destElem.setAttribute(field, value);
-    //     break;
-
-    //   default:
-    //     if (destElem.dataset[field] == value) {
-    //       return;
-    //     }
-    //     destElem.dataset[field] = value;
-    // }
+function getValue(sourceElem, sourceAttr) {
+  switch (sourceAttr) {
+    case 'content':
+      return sourceElem.innerHTML;
+    default:
+      return sourceElem.dataset[sourceAttr];
   }
 }
 
-// SETUP
+/// SETUP
 
 window.addEventListener('load', () => {
   setupBindings(body);
 });
-
-
-on('*[data-on-click]', 'click', (evt, element) => {
-  if (element.dataset.onClick) {
-    let commands = element.dataset.onClick.split(';');
-    doCommands(commands, element);
-  }
-});
-let debug = getDebug('signals');
+let signalsLogger = getDebug('signals');
+// enableDebug('signals');
 
 let commandFunctions = {};
 
@@ -418,8 +540,8 @@ function doCommands(commands, element) {
   }
 
   // do the command
-  let command = commands.shift();
-  console.log("Command:", command);
+  let command = commands.shift().trim();
+  signalsLogger.log("Command:", command);
   if (command.match(/=/)) {
     // set a variable
     let [dest, value] = command.split('=');
@@ -439,10 +561,10 @@ function doCommands(commands, element) {
         set('body', 'currentMenu', menu);
         break;
       default:
-        if (has(commandFunctions, command)) {
+        if (commandFunctions.hasOwnProperty(command)) {
           commandFunctions[command]();
         }
-        console.log("Unknown command:", command);
+        signalsLogger.warn("Unknown command:", command);
         break;
     }
   }
@@ -454,7 +576,7 @@ function doCommands(commands, element) {
 
 // dispatch a new event (or several, separated by a comma) on a target element
 function emit(target, signal, args, event) {
-  console.log("Emit", target, signal, args);
+  signalsLogger.log("Emit", target, signal, args);
   if (args !== null && args instanceof Event) {
     event = args;
     args = {};
@@ -479,10 +601,49 @@ function emit(target, signal, args, event) {
       cancelable: true,
       detail: args
     });
-    console.log("  Emit: event", evt);
+    signalsLogger.log("  Emit: event", evt);
     target.dispatchEvent(evt);
   }
 }
+
+let windowLoaded = false;
+window.addEventListener('load', () => {
+  windowLoaded = true;
+});
+function onloaded(fn) {
+  if (windowLoaded) {
+    setTimeout(fn, 1);
+  } else {
+    window.addEventListener('load', fn);
+  }
+}
+
+
+/// SETUP
+
+function setupSignals(container) {
+  for (let element of container.querySelectorAll('*[data-on-click]')) {
+    ((element) => {
+      element.addEventListener('click', (evt) => {
+        let commands = element.dataset.onClick.split(';');
+        doCommands(commands, element);
+      });
+    })(element);
+  }
+
+  for (let element of container.querySelectorAll('*[data-on-change]')) {
+    ((element) => {
+      element.addEventListener('change', (evt) => {
+        let commands = element.dataset.onChange.split(';');
+        doCommands(commands, element);
+      })
+    })(element);
+  }
+}
+
+window.addEventListener('load', () => {
+  setupSignals(body);
+});
 //  -- BUILD WIZARD --  //
 
 let downloadDisabled = false;
@@ -517,36 +678,50 @@ function downloadCharacterSheet(request) {
     case 'dnd35':
       url = '/download/dnd35';
       break;
+
+    case 'pathfinder2':
+    case 'starfinder2':
+      url = '/download/pathfinder2';
+      break;
   }
 
-  let xhr = new XMLHttpRequest();
-  xhr.open('POST', url, true);
-  // xhr.setRequestHeader('X-CSRFToken', csrftoken);
-  xhr.setRequestHeader('Content-Type', 'application/javascript');
-  xhr.responseType = 'blob';
-
-  xhr.onload = function (e) {
-    let blob = e.currentTarget.response;
-    let fileName = 'file.html';
-    let contentDispo = e.currentTarget.getResponseHeader('Content-Disposition');
-    if (contentDispo) {
-      fileName = contentDispo.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/)[1];
-      if (fileName.startsWith('"') && fileName.endsWith('"')) {
-        fileName = fileName.substring(1, fileName.length - 1);
-      }
+  const options = {
+    method: 'POST',
+    body: doc,
+    headers: {
+      'Content-Type': 'application/json'
     }
-    
-    let a = document.createElement('a');
-    a.href = window.URL.createObjectURL(blob);
-    a.download = fileName;
-    a.dispatchEvent(new MouseEvent('click'));
-  }
-  xhr.send(doc);
+  };
+
+  fetch(url, options)
+    .then((res) => {
+      // get the filename from the headers
+      let fileName = 'file.html';
+      let contentDispo = res.headers.get('Content-Disposition');
+      if (contentDispo) {
+        fileName = contentDispo.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/)[1];
+        if (fileName.startsWith('"') && fileName.endsWith('"')) {
+          fileName = fileName.substring(1, fileName.length - 1);
+        }
+      }
+      
+      // download the file
+      res.blob().then((data) => {
+        let a = document.createElement('a');
+        a.href = window.URL.createObjectURL(data);
+        a.download = fileName;
+        a.dispatchEvent(new MouseEvent('click'));
+      });
+    })
+    .catch((err) => console.log(err));
+
   
   downloadDisabled = false;
 }
+let logger = getDebug('build-classic');
+
 function readClassicFormAndSubmit(type) {
-  console.log("Download");
+  logger.log("Download");
   
   let request = readClassicForm(type);
   if (isLoggedIn()) {
@@ -797,6 +972,132 @@ function readClassicForm(type) {
   };
 
   return request;
+}
+let pf2logger = getDebug('build-pf2');
+
+function readPf2FormAndSubmit(type) {
+  pf2logger.log("Download");
+  
+  let request = readPf2Form(type);
+  if (isLoggedIn()) {
+    saveCharacter(request);
+  }
+  downloadCharacterSheet(request);
+}
+
+function readPf2Form(type) {
+  var form = document.getElementById("build-form");
+
+  let dataset = form.dataset;
+  var edition = dataset.edition;
+  var id = generateId();
+
+  var character = {
+    type,
+    id,
+    attributes: {
+      game: 'pathfinder2',
+      edition: edition,
+      language: document.getElementById("body").dataset.language,
+      classes: []
+    }
+  };
+
+  function readMultiselect(code) {
+    let values = [];
+    for (let i = 0; i <= dataset[`${code}Num`]; i++) {
+      let index = `${code}_${i}`;
+      if (dataset.hasOwnProperty(index)) {
+        let value = dataset[index];
+        if (value !== undefined && value !== null && value != "") {
+          values.push(value);
+        }
+      }
+    }
+    return values;
+  }
+
+  function readBoolean(code) {
+    let value = dataset[code];
+    return value == "true";
+  }
+
+  // attach images
+  let attachments = [];
+  function mapImage(name, value) {
+    if (value === undefined || value === null || value == "") {
+      return;
+    }
+    
+    if (value.startsWith("data:")) {
+      imageId = generateId();
+      
+      attachments.push({
+        type: "image",
+        id: imageId,
+        data: value
+      });
+
+      character.attributes[name] = {
+        type: "image",
+        id: imageId
+      };
+    } else {
+      character.attributes[name] = value;
+    }
+  }
+
+  switch (type) {
+    // Character pages
+    case 'character':
+      // basic properties
+      character.attributes.ancestry = dataset.ancestry;
+      character.attributes.heritage = dataset.heritage;
+      character.attributes.background = dataset.background;
+      character.attributes['class'] = dataset.cls;
+
+      // subclass and/or feats
+      for (let sel of dataset.clsSelects.split(',')) {
+        let selectkey = toCamelCase(sel.replaceAll('/', '-'));
+        character.attributes[sel] = dataset[selectkey];
+      }
+
+      character.attributes.multiclass = readMultiselect("multiclass");
+      // TODO sub-multiclass
+      character.attributes.archetypes = readMultiselect("archetype");
+      // TODO sub-archetype
+      
+      // character.optionCover = 
+      character.attributes.feats = [];
+      if (readBoolean("featDiehard")) {
+        character.attributes.feats.push("diehard");
+      }
+
+      // character.attributes.optionPermission: true,
+      // character.attributes.optionCover = readBoolean(""),
+      // character.attributes.optionReference": true,
+      // character.attributes.optionBuild": true,
+      // character.attributes.optionMinis": true,
+      // character.attributes.optionBackground: true,
+      // character.attributes.optionLevelUp: true,
+      // character.attributes.optionColourful: true,
+      // character.attributes.optionPfs: false,
+      character.attributes.optionFreeArchetype = readBoolean("optionFreeArchetype");
+      character.attributes.optionAncestryParagon = readBoolean("ancestry-paragon");
+      character.attributes.optionAutomaticBonusProgression = readBoolean("automaticBonusProgression");
+      character.attributes.optionAutomaticWeaponProgression = readBoolean("automaticWeaponProgression");
+      character.attributes.optionProficiencyWithoutLevel = readBoolean("proficiencyWithoutLevel");
+      break;
+  }
+
+  // make the full request object
+  var request = {
+    "version": 0,
+    "data": character,
+    "included": attachments
+  };
+
+  return request;
 };
 addEventListener('load', () => {
   try {
@@ -808,41 +1109,6 @@ on("input[type='checkbox']", "change", (evt) => {
 });
 } catch (e) { 
   console.log("Error in Checkbox", e)
-}
-try {
-on('#simple', 'change', (evt) => {
-  if (readCheckbox('simple')) {
-    set('#more', 'checked', false);
-  }
-});
-
-on('#more', 'change', (evt) => {
-  if (readCheckbox('more')) {
-    set('#simple', 'checked', false);
-  }
-});
-
-on('#download-character', 'click', (evt) => {
-  readClassicFormAndSubmit('character');
-});
-
-on('#download-gm', 'click', (evt) => {
-  readClassicFormAndSubmit('gm');
-});
-
-on('#download-kingdom', 'click', (evt) => {
-  readClassicFormAndSubmit('kingdom');
-});
-
-on('#download-starship', 'click', (evt) => {
-  readClassicFormAndSubmit('starship');
-});
-
-on('#download-mini', 'click', (evt) => {
-  readClassicFormAndSubmit('mini');
-});
-} catch (e) { 
-  console.log("Error in BuildFormClassic", e)
 }
 try {
 function colourValue(colour) {
@@ -954,24 +1220,6 @@ definePipe('colourName', (name) => {
   console.log("Error in ColourSelectMenu", e)
 }
 try {
-window.dataArchive = {};
-
-all('data', (dataElem) => {
-  let id = dataElem.id;
-  let data = JSON.parse(dataElem.dataset.value);
-  let key = dataElem.dataset.key;
-
-  let dataByKey = {};
-  for (let item of data) {
-    dataByKey[item[key]] = item;
-  }
-
-  window.dataArchive[id] = dataByKey;
-});
-} catch (e) { 
-  console.log("Error in Data", e)
-}
-try {
 on("input[type='search']", "change", (evt) => {
   console.log("Search");
 });
@@ -981,7 +1229,10 @@ all('.form-select-menu', (menu) => {
   let fieldCode = menu.dataset.code;
 
   on(menu, 'form-select', (evt) => {
-    let detail = evt.detail;
+    let detail = {
+      value: evt.detail[0],
+      select: evt.target.dataset.select
+    };
     console.log("Form select", menuId, detail, evt);
     emit(menu, 'form-select:'+fieldCode, detail, evt);
   })
@@ -1049,6 +1300,115 @@ on(".image-drop", "drop", (evt) => {
   console.log("Error in ImageDrop", e)
 }
 try {
+let pageEdition = '';
+onloaded(() => {
+  pageEdition = get('#build-form', 'edition');
+  all('.facet-edition', (elem) => {
+    set(elem, 'value', pageEdition);
+  });
+  
+  all('.facet-search-bar', (elem) => {
+    emit(elem, 'facet-change');
+  })
+});
+
+
+on('.facet-search-bar', 'facet-change', (evt) => {
+  let searchBar = evt.currentTarget;
+  if (!searchBar.classList.contains('facet-search-bar')) {
+    searchBar = searchBar.closest('.facet-search-bar');
+  }
+
+  let searchParams = {
+    edition: pageEdition,
+    source: '',
+    rarity: '',
+    search: '',
+  };
+
+  for (let facet of searchBar.querySelectorAll('.facet-select')) {
+    let value = get(facet, 'value');
+    if (facet.classList.contains('facet-edition')) {
+      searchParams.edition = value;
+    } else if (facet.classList.contains('facet-source')) {
+      searchParams.source = value;
+    } else if (facet.classList.contains('facet-rarity')) {
+      searchParams.rarity = value;
+    }
+  }
+  for (let searchBox of searchBar.querySelectorAll('.facet-search-box')) {
+    searchParams.search = searchWords(searchBox.value);
+  }
+
+  let listId = searchBar.dataset.list;
+  let list = document.getElementById(listId);
+  updateItemList(list, searchParams);
+});
+
+function searchWords(str) {
+  if (str === undefined || str === null || str == "") {
+    return [];
+  }
+  let words = str.toLowerCase().split(' ');
+  words = words.map((word) => word.trim());
+  words = words.filter((word) => word != "");
+  return words;
+}
+} catch (e) { 
+  console.log("Error in ItemFacetSearchBar", e)
+}
+try {
+function updateItemList(list, searchParams) {
+  if (list === null) {
+    return;
+  }
+  // hide buttons that don't match the query params
+  for (let btn of list.querySelectorAll('.btn')) {
+    let meta = btn.dataset;
+    let visible = itemMatchesSearchParams(meta, searchParams);
+    btn.classList.toggle('btn--hidden', !visible);
+  }
+  // hide groups with no visible results
+  for (let grp of list.querySelectorAll('.item-list__group')) {
+    let hasAny = false;
+    for (let btn of grp.querySelectorAll('.btn')) {
+      if (!btn.classList.contains('btn--hidden')) {
+        hasAny = true;
+      }
+    }
+    grp.classList.toggle('item-list__group--hidden', !hasAny);
+    grp.previousElementSibling.classList.toggle('h3--hidden', !hasAny);
+  }
+}
+
+function itemMatchesSearchParams(item, params) {
+  if ('edition' in params && params.edition != "" && 'edition' in item && item.edition != params.edition) {
+    return false;
+  }
+
+  if ('source' in params && params.source != "" && 'source' in item && item.source != params.source) {
+    return false;
+  }
+
+  if ('rarity' in params && params.rarity != "" && 'rarity' in item && item.rarity != params.rarity) {
+    return false;
+  }
+
+  if ('search' in params && params.search != "") {
+    let content = item.name.toLowerCase();
+    for (let word of params.search) {
+      if (content.match(word)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  return true;
+}
+} catch (e) { 
+  console.log("Error in ItemList", e)
+}
+try {
 on("#new-character-menu", "reveal-pf2", (evt) => {
   emit("#pf2-edition", "reveal", evt);
 });
@@ -1075,157 +1435,45 @@ on(".page-option input[type=radio]", "change", (evt) => {
   console.log("Error in PageOption", e)
 }
 try {
-const urlParams = new URLSearchParams(window.location.search);
-const edition = urlParams.get('edition');
-if (edition == "legacy") {
-  document.getElementById('build-form').dataset.edition = "pf2-legacy";
-} else if (edition == "remaster") {
-  document.getElementById('build-form').dataset.edition = "pf2-remaster";
-} else if (edition == "both") {
-  document.getElementById('build-form').dataset.edition = "all";
-} else if (window.location.pathname.match(/starfinder2/)) {
-  document.getElementById('build-form').dataset.edition = 'sf2';
-}
-
-definePipe('editionName', (value) => {
-  switch (value) {
-    case 'pathfinder':
-      return 'Pathfinder';
-    case 'starfinder':
-      return 'Starfinder';
-    case 'pf2-legacy':
-      return 'Pathfinder 2e Legacy';
-    case 'pf2-remaster':
-      return 'Pathfinder 2e Remaster';
-    case 'sf2':
-      return 'Starfinder 2e';
-    case 'all':
-      return 'Both';
-    default:
-      return "";
-  }
-});
-} catch (e) { 
-  console.log("Error in BuildFormPathfinder2", e)
-}
-try {
-// on()
-on('.dyslexic-preset-button', 'click', (evt) => {
-  console.log("Dyslexic preset");
-  
-  // set('#build-form', );
-  set('#build-form', 'baseColour', 'blue2');
-  set('#build-form', 'accentColour', 'magenta');
-  set('#build-form', 'pageBackground', 'magnolia');
-  set('#build-form', 'underlay', false);
-  set('#build-form', 'colourful', true);
-});
-} catch (e) { 
-  console.log("Error in BuildFormPF2_AppearanceSlide", e)
-}
-try {
-on('.button-download', 'click', (evt) => {
-
-});
-} catch (e) { 
-  console.log("Error in BuildFormPF2_DownloadSlide", e)
-}
-try {
-on('#form-select-ancestry', 'form-select:ancestry', (evt) => {
-  let detail = evt.detail;
-  console.log('Form select: Ancestry', detail);
-  set("#build-form", "ancestry", detail);
-});
-
-definePipe('ancestryName', (value) => {
-  console.log("Ancestry name", value);
-  
-  if (window.dataArchive['pathfinder2.ancestry'].hasOwnProperty(value)) {
-    return window.dataArchive['pathfinder2.ancestry'][value].name;
-  }
-  
-  return "";
-});
-} catch (e) { 
-  console.log("Error in Pathfinder2AncestryMenu", e)
-}
-try {
-on('#form-select-background', 'form-select:background', (evt) => {
-    let detail = evt.detail;
-    console.log('Form select: Background', detail);
-    set("#build-form", "background", detail);
-  });
-  
-  definePipe('backgroundName', (value) => {
-    console.log("Background name", value);
-    
-    if (window.dataArchive['pathfinder2.background'].hasOwnProperty(value)) {
-      return window.dataArchive['pathfinder2.background'][value].name;
-    }
-    
-    return "";
-  });
-} catch (e) { 
-  console.log("Error in Pathfinder2BackgroundMenu", e)
-}
-try {
-on('#form-select-class', 'form-select:class', (evt) => {
-  let detail = evt.detail;
-  console.log('Form select: class', detail);
-  set("#build-form", "class", detail);
-});
-
-definePipe('className', (value) => {
-  console.log("class name", value);
-  
-  if (window.dataArchive['pathfinder2.class'].hasOwnProperty(value)) {
-    return window.dataArchive['pathfinder2.class'][value].name;
-  }
-  
-  return "";
-});
-} catch (e) { 
-  console.log("Error in Pathfinder2ClassMenu", e)
-}
-try {
-// on('#form-select-', 'form-select:ancestry', (evt) => {
-//   let detail = evt.detail;
-//   console.log('Form select: Ancestry', detail);
-//   set("#build-form", "ancestry", detail);
-// });
-
-definePipe('heritageName', (value) => {
-  if (value === null || value === undefined || value == "null" || value == "undefined") {
-    return "";
-  }
-  console.log("Heritage name", value);
-  
-  if (window.dataArchive['pathfinder2.heritage'].hasOwnProperty(value)) {
-    return window.dataArchive['pathfinder2.heritage'][value].name;
-  }
-  
-  return "";
-});
-} catch (e) { 
-  console.log("Error in Pathfinder2HeritageMenu", e)
-}
-try {
 on('.repeatable__more', 'click', (evt) => {
   let repeatable = evt.target.closest('.repeatable');
-  let visible = repeatable.dataset.visible;
-  for (let instance of repeatable.querySelectorAll('.repeatable__instance')) {
-    if (instance.dataset.instance == visible) {
-      instance.classList.add('repeatable__instance--visible');
-    }
+  let max = repeatable.dataset.max;
+  let count = repeatable.querySelectorAll('.repeatable__instance').length;
+
+  if (count >= max) {
+    return;
   }
-  repeatable.dataset.visible = 1 + parseInt(visible);
+
+  let next = parseInt(repeatable.dataset.next);
+  repeatable.dataset.next = next + 1;
+
+  let template = repeatable.querySelector("template");
+  let newInstance = template.content.cloneNode(true).firstElementChild;
+  newInstance.dataset.instance = next;
+  deepReplace(newInstance, '%%', next);
+  let removeButton = newInstance.querySelector('.repeatable__remove');
+
+  let repeatableArea = repeatable.querySelector('.repeatable__area');
+  repeatableArea.appendChild(newInstance);
+
+  setupBindings(newInstance);
+  setupSignals(newInstance);
+
+  on(removeButton, 'click', (evt) => {
+    newInstance.remove();
+  });
 });
+
+on('.repeatable__remove', 'click', (evt) => {
+  let instance = evt.target.closest('.repeatable__instance');
+  instance.remove();
+})
 } catch (e) { 
   console.log("Error in Repeatable", e)
 }
 try {
-let debug = getDebug('Slideshow');
-enableDebug('Slideshow');
+let slideshowDebug = getDebug('Slideshow');
+// enableDebug('Slideshow');
 
 all('.slideshow', (slideshow) => {
   const dolly = slideshow.querySelector('.slideshow__dolly');
@@ -1245,7 +1493,7 @@ all('.slideshow', (slideshow) => {
   if (slideshow.classList.contains('slideshow--auto')) {
     setTimeout(() => {
       setInterval(() => {
-        debug.log("Auto next slide");
+        slideshowDebug.log("Auto next slide");
         emit(slideshow, 'next-slide');
       }, 2000);
     }, 5000);
@@ -1258,9 +1506,9 @@ all('.slideshow', (slideshow) => {
 
   // Scroll to a slide
   function snapScroll() {
-    debug.log("snapScroll");
+    slideshowDebug.log("snapScroll");
     let jumpto = slideshow.dataset.jump;
-    debug.warn("Jump to slide", jumpto);
+    slideshowDebug.log("Jump to slide", jumpto);
 
     let scrollStart = isVertical ? slideshow.scrollTop : slideshow.scrollLeft;
     let scrollEnd = scrollStart + (isVertical ? slideshow.clientHeight : slideshow.clientWidth);
@@ -1272,31 +1520,31 @@ all('.slideshow', (slideshow) => {
 
     // snap the scroll position
     if (scrollStart < slideStart) {
-      debug.log("  Scrolling to", jumpto, "at", slideStart);
+      slideshowDebug.log("  Scrolling to", jumpto, "at", slideStart);
       if (isVertical) {
         slideshow.scrollTo(0, slideStart - slideshow.offsetTop);
       } else {
         slideshow.scrollTo(slideStart - slideshow.offsetLeft, 0);
       }
     } else if (scrollEnd > slideEnd) {
-      debug.log("  Scrolling to end of", jumpto);
+      slideshowDebug.log("  Scrolling to end of", jumpto);
       if (isVertical) {
         let to = slideEnd - slideshow.offsetHeight;
-        debug.log("    ", slideEnd, "-", slideshow.offsetHeight, "=", to);
+        slideshowDebug.log("    ", slideEnd, "-", slideshow.offsetHeight, "=", to);
         if (to < slideStart) {
-          debug.log("    Adjusting!", to, "<", slideStart);
+          slideshowDebug.log("    Adjusting!", to, "<", slideStart);
           to = slideStart;
         }
-        debug.log("    Bottom", to);
+        slideshowDebug.log("    Bottom", to);
         slideshow.scrollTo(0, to - slideshow.offsetTop);
       } else {
         let to = slideEnd - slideshow.offsetWidth;
-        debug.log("    ", slideEnd, "-", slideshow.offsetWidth, "=", to);
+        slideshowDebug.log("    ", slideEnd, "-", slideshow.offsetWidth, "=", to);
         if (to < slideStart) {
-          debug.log("    Adjusting!", to, "<", slideStart);
+          slideshowDebug.log("    Adjusting!", to, "<", slideStart);
           to = slideStart;
         }
-        debug.log("    Right", to);
+        slideshowDebug.log("    Right", to);
         slideshow.scrollTo(to - slideshow.offsetLeft, 0);
       }
     }
@@ -1314,13 +1562,13 @@ all('.slideshow', (slideshow) => {
   // Scroll behaviour
   let scrollTimeout = null;
   function endScroll() {
-    debug.log("endScroll");
+    slideshowDebug.log("endScroll");
     clearTimeout(scrollTimeout);
     let oldSlide = slideshow.dataset.jump;
 
     let scrollStart = isVertical ? (slideshow.scrollTop + slideshow.offsetTop) : (slideshow.scrollLeft + slideshow.offsetLeft);
     let scrollMiddle = scrollStart + (isVertical ? slideshow.clientHeight : slideshow.clientWidth) / 2;
-    debug.log(`Finished scroll ${scrollStart} ${scrollMiddle}`);
+    slideshowDebug.log(`Finished scroll ${scrollStart} ${scrollMiddle}`);
 
     // find the landing slide
     let newSlide = slides[0];
@@ -1338,10 +1586,10 @@ all('.slideshow', (slideshow) => {
       let slideStart = isVertical ? slideElem.offsetTop : slideElem.offsetLeft;
       let slideMiddle = slideStart + (isVertical ? slideElem.clientHeight : slideElem.clientWidth) / 2;
       let slideEnd = slideStart + (isVertical ? slideElem.clientHeight : slideElem.clientWidth);
-      debug.log(`  Slide '${slide}' range ${slideStart} ${slideEnd}`);
+      slideshowDebug.log(`  Slide '${slide}' range ${slideStart} ${slideEnd}`);
       if (slideEnd > slideStart && scrollMiddle >= slideStart && scrollMiddle <= slideEnd) {
         let distance = Math.abs(scrollMiddle - slideMiddle);
-        debug.log(`    Slide middle ${slideMiddle} distance ${distance}`);
+        slideshowDebug.log(`    Slide middle ${slideMiddle} distance ${distance}`);
         if (distance < smallestdistance) {
           smallestdistance = distance;
           newSlide = slide;
@@ -1350,7 +1598,7 @@ all('.slideshow', (slideshow) => {
     }
     
     // snap to it
-    debug.warn("Finished on slide", newSlide);
+    slideshowDebug.log("Finished on slide", newSlide);
     if (newSlide !== undefined && newSlide !== null) {
       slideshow.dataset.jump = newSlide;
     }
@@ -1364,7 +1612,7 @@ all('.slideshow', (slideshow) => {
 
   // Buttons
   on(slideshow, 'prev-slide', (evt) => {
-    debug.log("Prev slide");
+    slideshowDebug.log("Prev slide");
     if (isVertical) {
       let to = slideshow.scrollTop - slideshow.clientHeight;
       slideshow.scrollTo(0, to);
@@ -1375,7 +1623,7 @@ all('.slideshow', (slideshow) => {
   });
 
   on(slideshow, 'next-slide', (evt) => {
-    debug.log("Next slide");
+    slideshowDebug.log("Next slide");
     let jumpto = slideshow.dataset.jump;
     let slideElem = slideshow.querySelector('.slide[data-jump="'+jumpto+'"]');
     let nextSlide = slideElem.nextSibling;
@@ -1450,6 +1698,181 @@ on('.switch', 'switch', (event, sw) => {
   console.log("Error in Switch", e)
 }
 try {
+on('#simple', 'change', (evt) => {
+  if (readCheckbox('simple')) {
+    set('#more', 'checked', false);
+  }
+});
+
+on('#more', 'change', (evt) => {
+  if (readCheckbox('more')) {
+    set('#simple', 'checked', false);
+  }
+});
+
+on('#download-character', 'click', (evt) => {
+  readClassicFormAndSubmit('character');
+});
+
+on('#download-gm', 'click', (evt) => {
+  readClassicFormAndSubmit('gm');
+});
+
+on('#download-kingdom', 'click', (evt) => {
+  readClassicFormAndSubmit('kingdom');
+});
+
+on('#download-starship', 'click', (evt) => {
+  readClassicFormAndSubmit('starship');
+});
+
+on('#download-mini', 'click', (evt) => {
+  readClassicFormAndSubmit('mini');
+});
+} catch (e) { 
+  console.log("Error in BuildFormClassic", e)
+}
+try {
+// on()
+on('.dyslexic-preset-button', 'click', (evt) => {
+  console.log("Dyslexic preset");
+  
+  // set('#build-form', );
+  set('#build-form', 'baseColour', 'blue2');
+  set('#build-form', 'accentColour', 'magenta');
+  set('#build-form', 'pageBackground', 'magnolia');
+  set('#build-form', 'underlay', false);
+  set('#build-form', 'colourful', true);
+});
+} catch (e) { 
+  console.log("Error in BuildFormPF2_AppearanceSlide", e)
+}
+try {
+on('.button-download-pf2', 'click', (evt) => {
+  evt.preventDefault();
+
+  // TODO not all characters the same!
+  readPf2FormAndSubmit('character');
+});
+} catch (e) { 
+  console.log("Error in BuildFormPF2_DownloadSlide", e)
+}
+try {
+const urlParams = new URLSearchParams(window.location.search);
+const edition = urlParams.get('edition');
+if (edition == "pathfinder2") {
+  document.getElementById('build-form').dataset.edition = "pathfinder2";
+} else if (edition == "pathfinder2remaster") {
+  document.getElementById('build-form').dataset.edition = "pathfinder2remaster";
+} else if (edition == "both") {
+  document.getElementById('build-form').dataset.edition = "all";
+} else if (window.location.pathname.match(/starfinder2/)) {
+  document.getElementById('build-form').dataset.edition = 'starfinder2';
+}
+
+definePipe('editionName', (value) => {
+  switch (value) {
+    case 'pathfinder':
+      return 'Pathfinder';
+    case 'starfinder':
+      return 'Starfinder';
+    case 'pathfinder2':
+      return 'Pathfinder 2e Legacy';
+    case 'pathfinder2remaster':
+      return 'Pathfinder 2e Remaster';
+    case 'starfinder2':
+      return 'Starfinder 2e';
+    case 'all':
+      return 'Both';
+    default:
+      return "";
+  }
+});
+} catch (e) { 
+  console.log("Error in BuildFormPathfinder2", e)
+}
+try {
+on('#form-select-ancestry', 'form-select:ancestry', (evt) => {
+  let detail = evt.detail;
+  console.log('Form select: Ancestry', detail);
+  set("#build-form", "ancestry", detail.value);
+});
+} catch (e) { 
+  console.log("Error in Pathfinder2AncestryMenu", e)
+}
+try {
+on('body', 'form-select:multiclass', (evt) => {
+  let detail = evt.detail;
+  let num = document.getElementById('build-form').dataset.multiclassNum;
+  console.log('Form select: multiclass', detail);
+  set('#build-form', `multiclass_${num}`, detail.value);
+});
+
+on('body', 'form-select:archetype', (evt) => {
+  let detail = evt.detail;
+  let num = document.getElementById('build-form').dataset.archetypeNum;
+  console.log('Form select: archetype', detail);
+  set('#build-form', `archetype_${num}`, detail.value);
+});
+} catch (e) { 
+  console.log("Error in Pathfinder2ArchetypeMenu", e)
+}
+try {
+on('#form-select-background', 'form-select:background', (evt) => {
+  let detail = evt.detail;
+  console.log('Form select: Background', detail);
+  set("#build-form", "background", detail.value);
+});
+} catch (e) { 
+  console.log("Error in Pathfinder2BackgroundMenu", e)
+}
+try {
+on('#form-select-cls', 'form-select:cls', (evt) => {
+  let detail = evt.detail;
+  console.log('Form select: class', detail);
+  set("#build-form", "cls", detail.value);
+
+  for (let btn of document.querySelectorAll(`button[data-id='${detail.value}']`)) {
+    let selects = btn.dataset.selects;
+    set("#build-form", "clsSelects", selects);
+    break;
+  }
+});
+} catch (e) { 
+  console.log("Error in Pathfinder2ClassMenu", e)
+}
+try {
+on('body', 'form-select:heritage', (evt) => {
+  let detail = evt.detail;
+  console.log('Form select: Heritage', detail);
+  set("#build-form", "heritage", detail.value);
+});
+} catch (e) { 
+  console.log("Error in Pathfinder2HeritageMenu", e)
+}
+try {
+on('body', 'form-select:subclass', (evt) => {
+  let detail = evt.detail;
+  console.log('Form select: Subclass', detail);
+  let selectCode = toCamelCase(detail.select.replaceAll('/', '-'));
+  set("#build-form", selectCode, detail.value);
+});
+} catch (e) { 
+  console.log("Error in Pathfinder2SubclassMenu", e)
+}
+try {
+on('.form-select-menu-options input[type=checkbox]', 'change', (evt) => {
+  let checkbox = evt.target;
+  let menu = checkbox.closest('.form-select-menu');
+
+  let selectCode = menu.dataset.selectcode;
+  let value = checkbox.dataset.value;
+  setToggleInList("#build-form", selectCode, value, checkbox.checked);
+});
+} catch (e) { 
+  console.log("Error in Pathfinder2SubclassOptionsMenu", e)
+}
+try {
 for (let block of document.getElementsByClassName('quote')) {
   let quote = quotes[Math.floor(Math.random() * quotes.length)];
   // console.log("Quote ready", quote);
@@ -1496,5 +1919,17 @@ on('#blanket', 'click', (event) => {
 });
 } catch (e) { 
   console.log("Error in SideMenu", e)
+}
+try {
+on('.tab-bar__tab', 'click', (evt) => {
+  let tab = evt.target;
+  let tabCode = tab.dataset.tab;
+  console.log("Selecting tab", tabCode);
+  
+  let tabBar = tab.closest('.tab-bar');
+  set(tabBar, 'current', tabCode);
+});
+} catch (e) { 
+  console.log("Error in TabBar", e)
 }
 });

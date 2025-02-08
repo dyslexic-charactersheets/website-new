@@ -1,3 +1,8 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
 <template>
   <form
     id="build-form"
@@ -7,16 +12,20 @@
     data-ancestry=""
     data-heritage=""
     data-background=""
-    data-class=""
+    data-cls=""
     data-multiclass="[]"
     data-archetype="[]"
-    data-option-diehard=""
+    data-diehard=""
     data-option-debug=""
-    data-option-free-archetype=""
-    data-option-ancestry-paragon=""
-    data-option-automatic-bonus-progression=""
-    data-option-proficiency-without-level=""
+    data-free-archetype=""
+    data-ancestry-paragon=""
+    data-automatic-bonus-progression=""
+    data-proficiency-without-level=""
   >
+    {{> SlideshowButtons
+      for='slides-character'
+    }}
+
     {{#> Slideshow 
       id='slides-character'
       vertical=true
@@ -170,14 +179,14 @@
 <script>
 const urlParams = new URLSearchParams(window.location.search);
 const edition = urlParams.get('edition');
-if (edition == "legacy") {
-  document.getElementById('build-form').dataset.edition = "pf2-legacy";
-} else if (edition == "remaster") {
-  document.getElementById('build-form').dataset.edition = "pf2-remaster";
+if (edition == "pathfinder2") {
+  document.getElementById('build-form').dataset.edition = "pathfinder2";
+} else if (edition == "pathfinder2remaster") {
+  document.getElementById('build-form').dataset.edition = "pathfinder2remaster";
 } else if (edition == "both") {
   document.getElementById('build-form').dataset.edition = "all";
 } else if (window.location.pathname.match(/starfinder2/)) {
-  document.getElementById('build-form').dataset.edition = 'sf2';
+  document.getElementById('build-form').dataset.edition = 'starfinder2';
 }
 
 definePipe('editionName', (value) => {
@@ -186,11 +195,11 @@ definePipe('editionName', (value) => {
       return 'Pathfinder';
     case 'starfinder':
       return 'Starfinder';
-    case 'pf2-legacy':
+    case 'pathfinder2':
       return 'Pathfinder 2e Legacy';
-    case 'pf2-remaster':
+    case 'pathfinder2remaster':
       return 'Pathfinder 2e Remaster';
-    case 'sf2':
+    case 'starfinder2':
       return 'Starfinder 2e';
     case 'all':
       return 'Both';

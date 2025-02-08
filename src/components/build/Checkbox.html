@@ -1,8 +1,14 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
 <template>
   <p><label for="{{name}}">
     <input type='checkbox' name='{{name}}' id='{{name}}'
       data-bind="checked=#build-form.{{var}}"
       data-var="{{var}}"
+      autocomplete="off"
     > {{__ label}}</label></label></p>
 </template>
 

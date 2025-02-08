@@ -26,8 +26,11 @@ import { pathfinder2init, pathfinder2formData, pathfinder2render } from '#src/pa
 
 const app = express();
 app.use(cookieParser());
-app.use(express.urlencoded({ limit: '100mb', extended: true }));
-app.use(express.text({ limit: '100mb', type: '*/*' }));
+// app.use(express.urlencoded({ limit: '100mb', extended: true }));
+// app.use(express.text({ limit: '100mb', type: '*/*' }));
+
+app.use(express.json());
+
 // app.use(bodyParser.text({type: '*/*'}));
 // app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
 // app.use(bodyParser.formData());

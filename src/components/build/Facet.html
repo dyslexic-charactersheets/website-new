@@ -1,15 +1,23 @@
 <!-- 
-  Copyright 2023 Marcus Downing
+  Copyright 2025 Marcus Downing
   Licensed under the Artistic License 2.0
 -->
+
 <template>
   <div class="facet">
     <label>{{__ label}}</label>
 
     {{#if (eq type "select")}}
-      <select id="{{id}}" data-on-change="">
+      <select 
+        id="{{id}}--facet-{{facet}}" 
+        class="facet-select facet-{{facet}}" 
+        data-on-change="emit facet-change"
+        autocomplete="off"
+      >
         {{#each options}}
-          <option value="{{code}}" {{#if (eq code ../selected)}}selected{{/if}}>{{name}}</option>
+          <option 
+            value="{{code}}" {{#if (eq code ../selected)}}selected{{/if}}
+          >{{name}}</option>
         {{/each}}
       </select>
     {{/if}}
@@ -34,10 +42,6 @@
   padding: 0;
   background: none;
   border: 0 none;
-
-  label {
-    margin-top: -0.4rem;
-  }
 
   select {
     background: colours.$off-white;

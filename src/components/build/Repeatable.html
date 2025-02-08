@@ -1,50 +1,72 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<!--
+WARNING:
+Do not put a Repeatable inside another Repeatable
+-->
+
 <template>
-  <div class="repeatable" id="{{id}}" data-visible="1">
-    {{#each (range 0 max)}}
-      <div class="repeatable__instance {{#if (eq 0 this)}}repeatable__instance--visible{{/if}}" data-instance="{{this}}">
-        {{> @partial-block number=this }}
+  <div class="repeatable" id="{{id}}" data-max="{{default max 10}}" data-next="{{plus (default visible 1) 1}}">
+    <div class="repeatable__area">
+      {{#each (range 0 (default visible 1))}}
+        <div class="repeatable__instance" data-instance="{{this}}">
+          {{#> Row}}
+            {{#> Button type="ui" cls="repeatable__remove"}}&times;{{/Button}}
+            {{> @partial-block number=this }}
+          {{/Row}}
+        </div>
+      {{/each}}
+    </div>
+    <TEMPLATE>
+      <div class="repeatable__instance" data-instance="">
+        {{#> Row}}
+          {{#> Button type="ui" cls="repeatable__remove"}}&times;{{/Button}}
+          {{> @partial-block number="%%" }}
+        {{/Row}}
       </div>
-    {{/each}}
-    {{#> Button type="light" cls="repeatable__more"}}+{{/Button}}
+    </TEMPLATE>
+    {{#> Row}}
+      {{#> Button type="ui" cls="repeatable__more"}}+{{/Button}}
+      <label id="repeatble__more-label">{{__ addlabel}}</label>
+    {{/Row}}
   </div>
 </template>
 
 <script>
 on('.repeatable__more', 'click', (evt) => {
   let repeatable = evt.target.closest('.repeatable');
-  let visible = repeatable.dataset.visible;
-  for (let instance of repeatable.querySelectorAll('.repeatable__instance')) {
-    if (instance.dataset.instance == visible) {
-      instance.classList.add('repeatable__instance--visible');
-    }
+  let max = repeatable.dataset.max;
+  let count = repeatable.querySelectorAll('.repeatable__instance').length;
+
+  if (count >= max) {
+    return;
   }
-  repeatable.dataset.visible = 1 + parseInt(visible);
+
+  let next = parseInt(repeatable.dataset.next);
+  repeatable.dataset.next = next + 1;
+
+  let template = repeatable.querySelector("template");
+  let newInstance = template.content.cloneNode(true).firstElementChild;
+  newInstance.dataset.instance = next;
+  deepReplace(newInstance, '%%', next);
+  let removeButton = newInstance.querySelector('.repeatable__remove');
+
+  let repeatableArea = repeatable.querySelector('.repeatable__area');
+  repeatableArea.appendChild(newInstance);
+
+  setupBindings(newInstance);
+  setupSignals(newInstance);
+
+  on(removeButton, 'click', (evt) => {
+    newInstance.remove();
+  });
 });
+
+on('.repeatable__remove', 'click', (evt) => {
+  let instance = evt.target.closest('.repeatable__instance');
+  instance.remove();
+})
 </script>
-
-<style>
-.repeatable {
-  display: block;
-  position: relative;
-
-  padding: 0.5rem 3rem 0.5rem 0;
-
-  .repeatable__instance {
-    display: none;
-    &.repeatable__instance--visible {
-      display: block;
-    }
-  }
-
-  .repeatable__more {
-    position: absolute;
-    bottom: 0.5rem;
-    right: 0;
-    width: 2.5rem !important;
-    text-align: center;
-    height: 1.5rem !important;
-    line-height: 1.5rem !important;
-    font-weight: bold;
-  }
-}
-</style>

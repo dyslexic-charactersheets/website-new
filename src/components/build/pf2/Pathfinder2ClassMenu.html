@@ -1,34 +1,30 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
 <template>
   {{> FormSelectMenu
-    id="form-select-class"
-    code="class"
+    id="form-select-cls"
+    code="cls"
     title="Class"
-    select=pathfinder2.class
+    select=pathfinder2.selects.class
     show="full"
-  }}
-  {{> Data
-    id="pathfinder2.class"
-    value=pathfinder2.class.values
-    key="id"
   }}
 </template>
 
 <script>
 
-on('#form-select-class', 'form-select:class', (evt) => {
+on('#form-select-cls', 'form-select:cls', (evt) => {
   let detail = evt.detail;
   console.log('Form select: class', detail);
-  set("#build-form", "class", detail);
-});
+  set("#build-form", "cls", detail.value);
 
-definePipe('className', (value) => {
-  console.log("class name", value);
-  
-  if (window.dataArchive['pathfinder2.class'].hasOwnProperty(value)) {
-    return window.dataArchive['pathfinder2.class'][value].name;
+  for (let btn of document.querySelectorAll(`button[data-id='${detail.value}']`)) {
+    let selects = btn.dataset.selects;
+    set("#build-form", "clsSelects", selects);
+    break;
   }
-  
-  return "";
 });
 
 </script>

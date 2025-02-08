@@ -1,38 +1,28 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
 <template>
-  {{{dump select}}}
-  {{> FormSelectMenu
-    id=(str "form-select-${key}" key=key)
-    code=key
-    title=(str '${name}' name=select.name)
-    select=select
+  {{> FormSelectTabbedMenu
+    id=(str "form-select-${key}" key=(slug key))
+    cls="form-select-heritage"
+    code="heritage"
+    tabs=(array
+      (item code="ancestry" name=select.name select=select)
+      (item code="versatile" name="Versatile" select=versatile)
+    )
+    current="ancestry"
     show="small"
-  }}
-  {{> Data
-    id=(str "pathfinder2.${key}" key=key)
-    value=select.values
-    key="id"
   }}
 </template>
 
 <script>
 
-// on('#form-select-', 'form-select:ancestry', (evt) => {
-//   let detail = evt.detail;
-//   console.log('Form select: Ancestry', detail);
-//   set("#build-form", "ancestry", detail);
-// });
-
-definePipe('heritageName', (value) => {
-  if (value === null || value === undefined || value == "null" || value == "undefined") {
-    return "";
-  }
-  console.log("Heritage name", value);
-  
-  if (window.dataArchive['pathfinder2.heritage'].hasOwnProperty(value)) {
-    return window.dataArchive['pathfinder2.heritage'][value].name;
-  }
-  
-  return "";
+on('body', 'form-select:heritage', (evt) => {
+  let detail = evt.detail;
+  console.log('Form select: Heritage', detail);
+  set("#build-form", "heritage", detail.value);
 });
 
 </script>

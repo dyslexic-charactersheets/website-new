@@ -1,0 +1,65 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <div class="tab-bar {{cls}}" 
+    id="tab-bar--{{regionid}}"
+    data-tab-region="{{regionid}}" 
+    data-current="{{default current tabs.0.code}}"
+  >
+    {{#each tabs}}
+      <button 
+        id="tab-bar--{{../regionid}}--{{code}}"
+        class="tab-bar__tab" data-tab="{{code}}" 
+        data-bind="active = #tab-bar--{{../regionid}}.current | eq '{{code}}'"
+        >
+        {{__ name}}
+      </button>
+    {{/each}}
+  </div>
+</template>
+
+<script>
+
+on('.tab-bar__tab', 'click', (evt) => {
+  let tab = evt.target;
+  let tabCode = tab.dataset.tab;
+  console.log("Selecting tab", tabCode);
+  
+  let tabBar = tab.closest('.tab-bar');
+  set(tabBar, 'current', tabCode);
+});
+
+</script>
+
+<style>
+
+@use 'fonts';
+@use 'colours';
+
+.tab-bar {
+  min-height: 2.2rem;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid colours.$red-leather;
+}
+
+button.tab-bar__tab {
+  background: none;
+  border-width: 0.3rem 0;
+  border-color: transparent;
+  height: 2.2rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+
+  @include fonts.heading;
+
+  &[data-active='true'] {
+    border-bottom-color: colours.$red-leather;
+    color: colours.$red-leather;
+  }
+}
+
+</style>

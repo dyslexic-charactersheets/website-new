@@ -1,5 +1,7 @@
+let logger = getDebug('build-classic');
+
 function readClassicFormAndSubmit(type) {
-  console.log("Download");
+  logger.log("Download");
   
   let request = readClassicForm(type);
   if (isLoggedIn()) {

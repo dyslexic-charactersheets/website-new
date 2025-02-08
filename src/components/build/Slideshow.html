@@ -1,3 +1,8 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
 <template>
   <div 
     class="slideshow
@@ -15,8 +20,8 @@
 
 <script>
 
-let debug = getDebug('Slideshow');
-enableDebug('Slideshow');
+let slideshowDebug = getDebug('Slideshow');
+// enableDebug('Slideshow');
 
 all('.slideshow', (slideshow) => {
   const dolly = slideshow.querySelector('.slideshow__dolly');
@@ -36,7 +41,7 @@ all('.slideshow', (slideshow) => {
   if (slideshow.classList.contains('slideshow--auto')) {
     setTimeout(() => {
       setInterval(() => {
-        debug.log("Auto next slide");
+        slideshowDebug.log("Auto next slide");
         emit(slideshow, 'next-slide');
       }, 2000);
     }, 5000);
@@ -49,9 +54,9 @@ all('.slideshow', (slideshow) => {
 
   // Scroll to a slide
   function snapScroll() {
-    debug.log("snapScroll");
+    slideshowDebug.log("snapScroll");
     let jumpto = slideshow.dataset.jump;
-    debug.warn("Jump to slide", jumpto);
+    slideshowDebug.log("Jump to slide", jumpto);
 
     let scrollStart = isVertical ? slideshow.scrollTop : slideshow.scrollLeft;
     let scrollEnd = scrollStart + (isVertical ? slideshow.clientHeight : slideshow.clientWidth);
@@ -63,31 +68,31 @@ all('.slideshow', (slideshow) => {
 
     // snap the scroll position
     if (scrollStart < slideStart) {
-      debug.log("  Scrolling to", jumpto, "at", slideStart);
+      slideshowDebug.log("  Scrolling to", jumpto, "at", slideStart);
       if (isVertical) {
         slideshow.scrollTo(0, slideStart - slideshow.offsetTop);
       } else {
         slideshow.scrollTo(slideStart - slideshow.offsetLeft, 0);
       }
     } else if (scrollEnd > slideEnd) {
-      debug.log("  Scrolling to end of", jumpto);
+      slideshowDebug.log("  Scrolling to end of", jumpto);
       if (isVertical) {
         let to = slideEnd - slideshow.offsetHeight;
-        debug.log("    ", slideEnd, "-", slideshow.offsetHeight, "=", to);
+        slideshowDebug.log("    ", slideEnd, "-", slideshow.offsetHeight, "=", to);
         if (to < slideStart) {
-          debug.log("    Adjusting!", to, "<", slideStart);
+          slideshowDebug.log("    Adjusting!", to, "<", slideStart);
           to = slideStart;
         }
-        debug.log("    Bottom", to);
+        slideshowDebug.log("    Bottom", to);
         slideshow.scrollTo(0, to - slideshow.offsetTop);
       } else {
         let to = slideEnd - slideshow.offsetWidth;
-        debug.log("    ", slideEnd, "-", slideshow.offsetWidth, "=", to);
+        slideshowDebug.log("    ", slideEnd, "-", slideshow.offsetWidth, "=", to);
         if (to < slideStart) {
-          debug.log("    Adjusting!", to, "<", slideStart);
+          slideshowDebug.log("    Adjusting!", to, "<", slideStart);
           to = slideStart;
         }
-        debug.log("    Right", to);
+        slideshowDebug.log("    Right", to);
         slideshow.scrollTo(to - slideshow.offsetLeft, 0);
       }
     }
@@ -105,13 +110,13 @@ all('.slideshow', (slideshow) => {
   // Scroll behaviour
   let scrollTimeout = null;
   function endScroll() {
-    debug.log("endScroll");
+    slideshowDebug.log("endScroll");
     clearTimeout(scrollTimeout);
     let oldSlide = slideshow.dataset.jump;
 
     let scrollStart = isVertical ? (slideshow.scrollTop + slideshow.offsetTop) : (slideshow.scrollLeft + slideshow.offsetLeft);
     let scrollMiddle = scrollStart + (isVertical ? slideshow.clientHeight : slideshow.clientWidth) / 2;
-    debug.log(`Finished scroll ${scrollStart} ${scrollMiddle}`);
+    slideshowDebug.log(`Finished scroll ${scrollStart} ${scrollMiddle}`);
 
     // find the landing slide
     let newSlide = slides[0];
@@ -129,10 +134,10 @@ all('.slideshow', (slideshow) => {
       let slideStart = isVertical ? slideElem.offsetTop : slideElem.offsetLeft;
       let slideMiddle = slideStart + (isVertical ? slideElem.clientHeight : slideElem.clientWidth) / 2;
       let slideEnd = slideStart + (isVertical ? slideElem.clientHeight : slideElem.clientWidth);
-      debug.log(`  Slide '${slide}' range ${slideStart} ${slideEnd}`);
+      slideshowDebug.log(`  Slide '${slide}' range ${slideStart} ${slideEnd}`);
       if (slideEnd > slideStart && scrollMiddle >= slideStart && scrollMiddle <= slideEnd) {
         let distance = Math.abs(scrollMiddle - slideMiddle);
-        debug.log(`    Slide middle ${slideMiddle} distance ${distance}`);
+        slideshowDebug.log(`    Slide middle ${slideMiddle} distance ${distance}`);
         if (distance < smallestdistance) {
           smallestdistance = distance;
           newSlide = slide;
@@ -141,7 +146,7 @@ all('.slideshow', (slideshow) => {
     }
     
     // snap to it
-    debug.warn("Finished on slide", newSlide);
+    slideshowDebug.log("Finished on slide", newSlide);
     if (newSlide !== undefined && newSlide !== null) {
       slideshow.dataset.jump = newSlide;
     }
@@ -155,7 +160,7 @@ all('.slideshow', (slideshow) => {
 
   // Buttons
   on(slideshow, 'prev-slide', (evt) => {
-    debug.log("Prev slide");
+    slideshowDebug.log("Prev slide");
     if (isVertical) {
       let to = slideshow.scrollTop - slideshow.clientHeight;
       slideshow.scrollTo(0, to);
@@ -166,7 +171,7 @@ all('.slideshow', (slideshow) => {
   });
 
   on(slideshow, 'next-slide', (evt) => {
-    debug.log("Next slide");
+    slideshowDebug.log("Next slide");
     let jumpto = slideshow.dataset.jump;
     let slideElem = slideshow.querySelector('.slide[data-jump="'+jumpto+'"]');
     let nextSlide = slideElem.nextSibling;

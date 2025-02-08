@@ -8,6 +8,20 @@ export function slugify(str) {
     return str;
 }
 
+export function toCamelCase(str) {
+  let words = str.split('-');
+  words = words.map(word => word.charAt(0).toUpperCase() + word.substr(1).toLowerCase());
+  words[0] = words[0].toLowerCase();
+  return words.join('');
+}
+
+export function toKebabCase(str) {
+  let words = str.split(/([A-Z][a-z]+)/);
+  words = words.map(word => word.toLowerCase());
+  words = words.filter(word => word != '');
+  return words.join('-');
+}
+
 export function stringify(obj) {
   let cache = [];
   let str = JSON.stringify(obj, function(key, value) {

@@ -10,11 +10,12 @@ import HandlebarsHelpers from 'handlebars-helpers';
 import { parse } from 'node-html-parser';
 import Sass from 'sass';
 
-import { loadReady } from './gamedata.js';
-import { languages, languageNames, translate } from './i18n.js';
+import { loadReady, getPageData } from './gamedata.js';
+import { languages, languageNames, translate, de_i18n } from './i18n.js';
 import { getNews } from './news.js'
-import { getQuotes } from './quotes.js'
-import { slugify, isString, stringify, isObject, log, warn, error } from './util.js';
+// import { getQuotes } from './quotes.js'
+import { slugify, isString, stringify, isObject, toKebabCase, toCamelCase, log, warn, error } from './util.js';
+import { translateObject } from './i18n.js';
 
 Error.stackTraceLimit = Infinity;
 let hasError = false;
@@ -35,6 +36,24 @@ Handlebars.registerHelper('slug', function (str, obj) {
   return slugify(str);
 });
 
+Handlebars.registerHelper('kebabCase', function (str, obj) {
+  if (!isString(str)) {
+    // error("slug", "Kebab case:".red, str, obj);
+    return '';
+  }
+  str = str.replaceAll('/', '-');
+  return toKebabCase(str);
+});
+
+Handlebars.registerHelper('camelCase', function (str, obj) {
+  if (!isString(str)) {
+    // error("slug", "Camel case:".red, str, obj);
+    return '';
+  }
+  str = str.replaceAll('/', '-');
+  return toCamelCase(str);
+});
+
 Handlebars.registerHelper('dump', function (obj) {
   return "<!-- "+JSON.stringify(obj, null, 2)+" -->";
 });
@@ -45,6 +64,28 @@ Handlebars.registerHelper('ifeq', function (term1, term2, thenValue, elseValue) 
   } else {
     return elseValue;
   }
+});
+
+Handlebars.registerHelper('plus', function (term1, term2) {
+  return parseInt(term1) + parseInt(term2);
+});
+
+Handlebars.registerHelper('when', function (operand_1, operator, operand_2, options) {
+  let operators = {
+   'eq': function(l,r) { return l == r; },
+   'noteq': function(l,r) { return l != r; },
+   'gt': function(l,r) { return Number(l) > Number(r); },
+   'lt': function(l,r) { return Number(l) < Number(r); },
+   'gte': function(l,r) { return Number(l) >= Number(r); },
+   'lte': function(l,r) { return Number(l) <= Number(r); },
+   'or': function(l,r) { return l || r; },
+   'and': function(l,r) { return l && r; },
+   '%': function(l,r) { return (l % r) === 0; }
+  }
+  let result = operators[operator](operand_1,operand_2);
+
+  if (result) return options.fn(this);
+  else  return options.inverse(this);
 });
 
 Handlebars.registerHelper('nextSelect', function (next) {
@@ -60,7 +101,7 @@ Handlebars.registerHelper('nextSelect', function (next) {
 });
 
 Handlebars.registerHelper('default', function (value, defaultValue) {
-  if (value === undefined || value === null || value == "") {
+  if (value === undefined || value === null || value === "") {
     return defaultValue;
   }
   return value;
@@ -118,6 +159,10 @@ Handlebars.registerHelper('range', function (from, to) {
     array.push(i);
   }
   return array;
+});
+
+Handlebars.registerHelper('de_i18n', function (content) {
+  return de_i18n(content);
 });
 
 
@@ -212,6 +257,11 @@ Handlebars.registerHelper('__', function (content, ...attribs) {
   let lang = options.data.root.lang;
 
   return translate(content, lang, attribs);
+});
+
+Handlebars.registerHelper('translateCollapse', function (object, ...attribs) {
+  let lang = attribs[0].data.root.lang;
+  return translateObject(object, lang);
 });
 
 Handlebars.registerHelper('languagename', function (lang) {
@@ -327,11 +377,14 @@ fs.writeFile('../dist/htdocs/style.css', stylesheet.css, (err) => {
 log("make", "Compiling script");
 let scripts = [
     'debug',
+    'util',
     'script',
     'components',
+    'bind',
     'signals',
     'build',
     'build-classic',
+    'build-pf2',
 ].map((name) => {
   let file = 'js/'+name+'.js';
   let content = fs.readFileSync(file, { encoding: 'utf8' });
@@ -368,22 +421,6 @@ fs.writeFile('../dist/htdocs/script.js', scripts, (err) => {
 // Build pages
 
 loadReady().then((gameData) => {
-
-  // dynamic script
-  let dataScriptContent = fs.readFileSync('js/data.js', { encoding: 'utf8' });
-  let dataScriptTemplate = Handlebars.compile(dataScriptContent);
-  let dataScript = dataScriptTemplate({
-      quotes: JSON.stringify(getQuotes())
-  });
-  fs.writeFile('../dist/htdocs/data.js', dataScript, (err) => {
-    if (err) {
-      error("make", "Data ERROR".red, err);
-      hasError = true;
-    } else {
-      log("make", "Data OK".green);
-    }
-  });
-
   let templateOptions = {
     languages,
     currentYear: new Date().getFullYear(),
@@ -406,6 +443,18 @@ loadReady().then((gameData) => {
       }
     });
 
+    // write language-specific data file
+    let pageData = JSON.stringify(getPageData(gameData.combo, lang));
+    fs.writeFile('../dist/htdocs/'+lang+'/data.json', pageData, (err) => {
+      if (err) {
+        error("make", "Data ERROR".red, err);
+        hasError = true;
+      } else {
+        log("make", "Data OK".green);
+      }
+    });
+
+    // write translated pages
     for (let page of pages) {
       let name = page.replace(/\.html\.hbs$/, '');
       let pageBody = fs.readFileSync('pages/'+page, { encoding: 'utf8' });

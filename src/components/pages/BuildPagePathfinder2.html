@@ -1,3 +1,8 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
 <template>
   
 {{#> BuildLayout game="pathfinder2" theme=theme}}
@@ -99,29 +104,28 @@
 {{> EditionMenu }}
 {{> Pathfinder2AncestryMenu }}
 {{#each pathfinder2.meta.heritages}}
-  {{{dump this}}}
-  {{> Pathfinder2HeritageMenu key=this select=(lookup pathfinder2 this) }}
+  {{> Pathfinder2HeritageMenu key=this 
+    select=(lookup ../pathfinder2.selects this) 
+    versatile=(lookup ../pathfinder2.selects "heritage/versatile") 
+  }}
 {{/each}}
 {{> Pathfinder2BackgroundMenu }}
 {{> Pathfinder2ClassMenu }}
+{{#each pathfinder2.selects.class.values}}
+  {{#each subselects}}
+    {{#when max 'gt' 1}}
+      {{> Pathfinder2SubclassOptionsMenu key=select select=this}}
+    {{/when}}
+    {{#when max 'eq' 1}}
+      {{> Pathfinder2SubclassMenu key=select select=this}}
+    {{/when}}
+  {{/each}}
+{{/each}}
+{{> Pathfinder2ArchetypeMenu title="Multiclass" key="multiclass" select=pathfinder2.selects.multiclass}}
+{{> Pathfinder2ArchetypeMenu title="Archetype" key="archetype" select=pathfinder2.selects.archetype}}
 
 {{> ColourSelectMenu id="base-colour-menu" field="baseColour" title="Base Colour" }}
 {{> ColourSelectMenu id="accent-colour-menu" field="accentColour" title="Accent Colour" }}
-
-{{!-- {{> pathfinder2-ancestry-menu }}
-{{#each pf2.subselects.ancestry}}
-{{> pathfinder2-heritage-menu key=this.select items=this}}
-{{/each}}
-{{> pathfinder2-background-menu }}
-{{> pathfinder2-class-menu }}
-{{#each pf2.subselects.class}}
-{{> pathfinder2-subclass-menu key=this.select items=this}}
-{{/each}}
-{{> pathfinder2-multiclass-menu }}
-{{> pathfinder2-archetype-menu }}
-
-{{> colour-picker-menu id="base" name="Base Colour" }}
-{{> colour-picker-menu id="accent" name="Accent Colour" }} --}}
 
 </template>
 

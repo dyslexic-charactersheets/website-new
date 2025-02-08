@@ -1,0 +1,25 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  {{> FormSelectMenu
+    id=(str "form-select-${key}" key=(slug key))
+    code="subclass"
+    title=select.name
+    select=select
+    show="small"
+  }}
+</template>
+
+<script>
+
+on('body', 'form-select:subclass', (evt) => {
+  let detail = evt.detail;
+  console.log('Form select: Subclass', detail);
+  let selectCode = toCamelCase(detail.select.replaceAll('/', '-'));
+  set("#build-form", selectCode, detail.value);
+});
+
+</script>

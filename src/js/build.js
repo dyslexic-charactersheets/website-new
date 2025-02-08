@@ -32,31 +32,43 @@ function downloadCharacterSheet(request) {
     case 'dnd35':
       url = '/download/dnd35';
       break;
+
+    case 'pathfinder2':
+    case 'starfinder2':
+      url = '/download/pathfinder2';
+      break;
   }
 
-  let xhr = new XMLHttpRequest();
-  xhr.open('POST', url, true);
-  // xhr.setRequestHeader('X-CSRFToken', csrftoken);
-  xhr.setRequestHeader('Content-Type', 'application/javascript');
-  xhr.responseType = 'blob';
-
-  xhr.onload = function (e) {
-    let blob = e.currentTarget.response;
-    let fileName = 'file.html';
-    let contentDispo = e.currentTarget.getResponseHeader('Content-Disposition');
-    if (contentDispo) {
-      fileName = contentDispo.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/)[1];
-      if (fileName.startsWith('"') && fileName.endsWith('"')) {
-        fileName = fileName.substring(1, fileName.length - 1);
-      }
+  const options = {
+    method: 'POST',
+    body: doc,
+    headers: {
+      'Content-Type': 'application/json'
     }
-    
-    let a = document.createElement('a');
-    a.href = window.URL.createObjectURL(blob);
-    a.download = fileName;
-    a.dispatchEvent(new MouseEvent('click'));
-  }
-  xhr.send(doc);
+  };
+
+  fetch(url, options)
+    .then((res) => {
+      // get the filename from the headers
+      let fileName = 'file.html';
+      let contentDispo = res.headers.get('Content-Disposition');
+      if (contentDispo) {
+        fileName = contentDispo.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/)[1];
+        if (fileName.startsWith('"') && fileName.endsWith('"')) {
+          fileName = fileName.substring(1, fileName.length - 1);
+        }
+      }
+      
+      // download the file
+      res.blob().then((data) => {
+        let a = document.createElement('a');
+        a.href = window.URL.createObjectURL(data);
+        a.download = fileName;
+        a.dispatchEvent(new MouseEvent('click'));
+      });
+    })
+    .catch((err) => console.log(err));
+
   
   downloadDisabled = false;
 }

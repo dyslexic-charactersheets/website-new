@@ -504,7 +504,7 @@ export function pathfinder2formData(data, lang) {
 
 export function pathfinder2render(req, res, lang) {
     log("pathfinder2", "Pathfinder 2e Character");
-    var data = JSON.parse(req.body.request);
+    var data = req.body;
 
     // console.log("[pathfinder2]   Request", data);
 

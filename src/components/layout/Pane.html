@@ -1,3 +1,8 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
 <template>
   <div class="pane pane--bg_{{bg}} {{#if shadow}}pane--shadow_{{shadow}}{{/if}} {{#if (isDark bg)}}dark-region{{else}}light-region{{/if}} {{#if nopad}}pane--nopad{{/if}}">
     {{#if spotlight}}
@@ -62,6 +67,13 @@
     @include background(colours.$red-leather, 'red-leather');
     > .pane__inner.pane__inner--spotlight {
       @include spotlight(colours.$red-leather-spotlight, colours.$red-leather-shadow);
+    }
+  }
+
+  &.pane--bg_green {
+    @include background(colours.$green-leather, 'green-leather');
+    > .pane__inner.pane__inner--spotlight {
+      @include spotlight(colours.$green-leather-spotlight, colours.$green-leather-shadow);
     }
   }
 

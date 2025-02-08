@@ -1,0 +1,53 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  {{!-- {{{dump select}}} --}}
+  {{#> SideMenu
+    id=(str "form-select-${key}" key=(slug key))
+    cls="form-select-menu form-select-menu-options"
+    side="right"
+    wide=false
+    data=(item selectcode=(camelCase select.select))
+  }}
+    {{#> Pane bg="parchment" nopad=true}}
+      {{#> HeaderRow}}
+        {{#> Row}}
+          {{> CloseButton }}
+          <h3>{{__ select.name "Menu title"}}</h3>
+        {{/Row}}
+      {{/HeaderRow}}
+
+      {{#> ScrollPane}}
+        {{#> CentrePane}}
+          {{#each select.values}}
+            <p><label for="subclass--{{kebabCase ../select}}--{{code}}">
+              <input type="checkbox" 
+                id="subclass--{{kebabCase ../select}}--{{code}}"
+                data-select="{{../select}}"
+                data-value="{{id}}"
+                autocomplete="off"
+              >
+              {{__ name}}
+            </label></p>
+          {{/each}}
+        {{/CentrePane}}
+      {{/ScrollPane}}
+    {{/Pane}}
+  {{/SideMenu}}
+</template>
+
+<script>
+
+on('.form-select-menu-options input[type=checkbox]', 'change', (evt) => {
+  let checkbox = evt.target;
+  let menu = checkbox.closest('.form-select-menu');
+
+  let selectCode = menu.dataset.selectcode;
+  let value = checkbox.dataset.value;
+  setToggleInList("#build-form", selectCode, value, checkbox.checked);
+});
+
+</script>

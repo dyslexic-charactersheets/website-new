@@ -1,3 +1,8 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
 <template>
   <h2>{{__ "Download"}}</h2>
 
@@ -44,12 +49,15 @@
   </fieldset>
 
   {{#> Row align="centre"}}
-    <button class="place btn btn--primary button-download">{{__ "Download"}}</button>
+    <button type="submit" class="place btn btn--primary button-download button-download-pf2" id="download-pf2">{{__ "Download"}}</button>
   {{/Row}}
 </template>
 
 <script>
-on('.button-download', 'click', (evt) => {
+on('.button-download-pf2', 'click', (evt) => {
+  evt.preventDefault();
 
+  // TODO not all characters the same!
+  readPf2FormAndSubmit('character');
 });
 </script>

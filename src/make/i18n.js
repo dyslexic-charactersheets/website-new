@@ -1,6 +1,7 @@
 import fs from 'fs';
 
-import { isString, isArray, isObject, log, warn, error } from './util.js';
+import { isString, isArray, isObject, log, warn, error, has } from './util.js';
+import { isatty } from 'tty';
 
 export const languages = ['en', 'fr', 'es', 'de', 'pl'];
 export const languageNames = {
@@ -13,6 +14,20 @@ export const languageNames = {
 
 let translationsFileContent = fs.readFileSync('data/translations.json', { encoding: 'utf8' });
 let translations = JSON.parse(translationsFileContent);
+
+export function translateObject(object, lang) {
+  if (isArray(object)) {
+    return object.map((obj) => translateObject(obj, lang));
+  }
+
+  if (has(object, lang)) {
+    let subs = object[lang];
+    for (let key of Object.keys(subs)) {
+      object[key] = subs[key];
+    }
+  }
+  return object;
+}
 
 export function translate(content, lang, attribs) {
   if (!isString(content)) {
@@ -52,6 +67,26 @@ export function translate(content, lang, attribs) {
       number = parseInt(number);
       return attribs[number];
   });
+
+  return content;
+}
+
+export function de_i18n(content) {
+  if (isString(content)) {
+    content = content.replace(/_\{(.+?)\}/g, (match, part) => {
+      return part;
+    });
+  }
+
+  if (isObject(content)) {
+    let res = {...content};
+    delete res.en;
+    delete res.it;
+    delete res.fr;
+    delete res.es;
+    delete res.pl;
+    return res;
+  }
 
   return content;
 }

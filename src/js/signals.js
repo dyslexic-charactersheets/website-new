@@ -1,4 +1,5 @@
-let debug = getDebug('signals');
+let signalsLogger = getDebug('signals');
+// enableDebug('signals');
 
 let commandFunctions = {};
 
@@ -12,8 +13,8 @@ function doCommands(commands, element) {
   }
 
   // do the command
-  let command = commands.shift();
-  console.log("Command:", command);
+  let command = commands.shift().trim();
+  signalsLogger.log("Command:", command);
   if (command.match(/=/)) {
     // set a variable
     let [dest, value] = command.split('=');
@@ -33,10 +34,10 @@ function doCommands(commands, element) {
         set('body', 'currentMenu', menu);
         break;
       default:
-        if (has(commandFunctions, command)) {
+        if (commandFunctions.hasOwnProperty(command)) {
           commandFunctions[command]();
         }
-        console.log("Unknown command:", command);
+        signalsLogger.warn("Unknown command:", command);
         break;
     }
   }
@@ -48,7 +49,7 @@ function doCommands(commands, element) {
 
 // dispatch a new event (or several, separated by a comma) on a target element
 function emit(target, signal, args, event) {
-  console.log("Emit", target, signal, args);
+  signalsLogger.log("Emit", target, signal, args);
   if (args !== null && args instanceof Event) {
     event = args;
     args = {};
@@ -73,7 +74,46 @@ function emit(target, signal, args, event) {
       cancelable: true,
       detail: args
     });
-    console.log("  Emit: event", evt);
+    signalsLogger.log("  Emit: event", evt);
     target.dispatchEvent(evt);
   }
 }
+
+let windowLoaded = false;
+window.addEventListener('load', () => {
+  windowLoaded = true;
+});
+function onloaded(fn) {
+  if (windowLoaded) {
+    setTimeout(fn, 1);
+  } else {
+    window.addEventListener('load', fn);
+  }
+}
+
+
+/// SETUP
+
+function setupSignals(container) {
+  for (let element of container.querySelectorAll('*[data-on-click]')) {
+    ((element) => {
+      element.addEventListener('click', (evt) => {
+        let commands = element.dataset.onClick.split(';');
+        doCommands(commands, element);
+      });
+    })(element);
+  }
+
+  for (let element of container.querySelectorAll('*[data-on-change]')) {
+    ((element) => {
+      element.addEventListener('change', (evt) => {
+        let commands = element.dataset.onChange.split(';');
+        doCommands(commands, element);
+      })
+    })(element);
+  }
+}
+
+window.addEventListener('load', () => {
+  setupSignals(body);
+});

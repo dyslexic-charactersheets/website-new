@@ -1,0 +1,112 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <div class="facet-search-bar"
+    data-list="{{for}}">
+    {{#> Row}}
+      {{> Facet
+        facet="edition"
+        label="Edition"
+        type="select"
+        options=(array
+          (item code="all" name="Any")
+          (item code="pathfinder2" name="Pathfinder 2e Legacy")
+          (item code="pathfinder2remaster" name="Pathfinder 2e Remaster")
+        )
+      }}
+
+      {{> Facet
+        facet="source"
+        label="Source"
+        type="select"
+        options=(array
+          (item code="" name="Any")
+          (item code="core" name="Core")
+          (item code="expansions" name="Expansions")
+          (item code="advetures" name="Adventures")
+          (item code="thirdparty" name="Third-party")
+        )
+      }}
+
+      {{> Facet
+        facet="rarity"
+        label="Rarity"
+        type="select"
+        options=(array
+          (item code="" name="Any")
+          (item code="common" name="Common")
+          (item code="uncommon" name="Uncommon")
+          (item code="rare" name="Rare")
+          (item code="unique" name="Unique")
+        )
+        selected=""
+      }}
+      
+      <input type="search" class="facet-search-box" 
+        id="search-{{id}}"
+        autocomplete="off"
+        data-on-change="emit facet-change">
+    {{/Row}}
+  </div>
+</template>
+
+<script>
+let pageEdition = '';
+onloaded(() => {
+  pageEdition = get('#build-form', 'edition');
+  all('.facet-edition', (elem) => {
+    set(elem, 'value', pageEdition);
+  });
+  
+  all('.facet-search-bar', (elem) => {
+    emit(elem, 'facet-change');
+  })
+});
+
+
+on('.facet-search-bar', 'facet-change', (evt) => {
+  let searchBar = evt.currentTarget;
+  if (!searchBar.classList.contains('facet-search-bar')) {
+    searchBar = searchBar.closest('.facet-search-bar');
+  }
+
+  let searchParams = {
+    edition: pageEdition,
+    source: '',
+    rarity: '',
+    search: '',
+  };
+
+  for (let facet of searchBar.querySelectorAll('.facet-select')) {
+    let value = get(facet, 'value');
+    if (facet.classList.contains('facet-edition')) {
+      searchParams.edition = value;
+    } else if (facet.classList.contains('facet-source')) {
+      searchParams.source = value;
+    } else if (facet.classList.contains('facet-rarity')) {
+      searchParams.rarity = value;
+    }
+  }
+  for (let searchBox of searchBar.querySelectorAll('.facet-search-box')) {
+    searchParams.search = searchWords(searchBox.value);
+  }
+
+  let listId = searchBar.dataset.list;
+  let list = document.getElementById(listId);
+  updateItemList(list, searchParams);
+});
+
+function searchWords(str) {
+  if (str === undefined || str === null || str == "") {
+    return [];
+  }
+  let words = str.toLowerCase().split(' ');
+  words = words.map((word) => word.trim());
+  words = words.filter((word) => word != "");
+  return words;
+}
+
+</script>

@@ -1,30 +1,27 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
 <template>
   {{#> Button 
     id=(str "item-${id}" id=(slug item.id item))
     type="tile-light"
     on-click=(str "emit form-select,close-menu ${id}" id=item.id)
-    data=item
+    data=(de_i18n item.meta)
   }}
-    {{{dump item}}}
+    {{{dump ../item}}}
     {{{dump show}}}
-    {{#if (eq show "full")}}
+    {{#if (eq (default show "small") "full")}}
       {{> Picture src=(str "/images/options/${id}.png" id=item.id) size="tile" transparent=true}}
 
       <h4>{{__ item.name}}</h4>
-      
-      <!-- {{#if item.badge}}
-        <span class="option__badge">{{__ item.badge}}</span>
-      {{/if}} -->
     {{/if}}
-    {{#if (eq show "small")}}
+    {{#if (eq (default show "small") "small")}}
       <h4>{{__ item.name}}</h4>
     {{/if}}
   {{/Button}}
 </template>
-
-<script>
-
-</script>
 
 <style>
 

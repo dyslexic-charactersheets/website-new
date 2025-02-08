@@ -1,3 +1,8 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
 <template>
   {{#> Row align="centre"}}
     {{> Picture src="/images/pathfinder2e.png" size="logo"}}
@@ -17,7 +22,7 @@
   {{#> TileGrid grid="2-1"}}
     {{#> Button
       type="tile"
-      on-click="#build-form.edition=pf2-legacy;#slides-character.jump=pick"
+      on-click="#build-form.edition=pathfinder2legacy;#slides-character.jump=pick"
     }}
       {{> Picture src="/images/pathfinder2e-classic.png" size="tile"}}
       <h2>Legacy</h2>

@@ -1,5 +1,9 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
 <template>
-  
   {{#> Row}}
   <h2>{{__ "Character"}}</h2>
   {{> Spacer}}
@@ -18,7 +22,7 @@
       </tr>
       <tr>
         <td>
-          {{> Output name="ancestry" var="#build-form.ancestry | ancestryName" on-click="show-menu form-select-ancestry"}}
+          {{> Output name="ancestry" var="#build-form.ancestry | displayName 'ancestry'" on-click="show-menu form-select-ancestry"}}
         </td>
         <td>
           {{#> Switch
@@ -30,10 +34,10 @@
               {{> Output name="heritage" var=""}}
             {{/SwitchCase}}
 
-            {{#each pathfinder2.ancestry.values}}
+            {{#each pathfinder2.selects.ancestry.values}}
               {{#> SwitchCase value=id}}
                 {{#each selects}}
-                  {{> Output name=this var=(str "#build-form.${key} | heritageName" key=(slug this)) on-click=(str "show-menu form-select-${key}" key=(slug this)) placeholder=""}}
+                  {{> Output name=this var=(str "#build-form.heritage | displayName 'heritage'" key=(slug this)) on-click=(str "show-menu form-select-${key}" key=(slug this)) placeholder=""}}
                 {{/each}}
               {{/SwitchCase}}
             {{/each}}
@@ -46,93 +50,110 @@
       </tr>
       <tr>
         <td>
-          {{> Output name="background" var="#build-form.background | backgroundName" on-click="show-menu form-select-background"}}
+          {{> Output name="background" var="#build-form.background | displayName 'background'" on-click="show-menu form-select-background"}}
         </td>
       </tr>
 
       <tr>
         <td>
           <h4>{{__ "Class"}}</h4>
-          {{> Output name="class" var="#build-form.class | className" on-click="show-menu form-select-class"}}
+          {{> Output name="class" var="#build-form.cls | displayName 'class'" on-click="show-menu form-select-cls"}}
         </td>
         <td>
           {{#> Switch
             id="switch-subclass"
-            current="none"
+            current=""
+            var="#build-form.cls"
           }}
             {{#> SwitchCase value="none"}}
             <h4>&nbsp;</h4>
               {{> Output name="subclass" var=""}}
             {{/SwitchCase}}
-            {{#each pathfinder2.class.value}}
+            {{#each pathfinder2.selects.class.values}}
               {{#> SwitchCase value=id}}
-                {{#each selects}}
-                  <h4>{{__ name}}</h4>
-                  {{> Output name=select var=(str "#build-form.${select}" select=select) on-click=(str "show-menu form-select-${code}" code=code)}}
+                {{#each subselects}}
+                  {{#if (eq max 1)}}
+                    <h4>{{__ name}}</h4>
+                    {{> Output name=select 
+                        var=(str "#build-form.${varcode} | displayName '${code}'" varcode=(camelCase select) code=select) 
+                        on-click=(str "show-menu form-select-${code}" code=(slug select))}}
+                  {{else}}
+                    {{#when values.length 'gt' 0}}
+                      <h4>{{__ name}}</h4>
+                      {{> Output name=select 
+                          var=(str "#build-form.${varcode} | each | displayName '${code}'" varcode=(camelCase select) code=select) 
+                          on-click=(str "show-menu form-select-${code}" code=(slug select))}}
+                    {{/when}}
+                  {{/if}}
                 {{/each}}
               {{/SwitchCase}}
             {{/each}}
           {{/Switch}}
-
-
-              <!-- <div id="swap-area:subclass" class="build-table__swap swap-area">
-                  <div class="swap-option swap-option--default swap-option--show" id="swap-option:subclass:default">
-                      <h4>{{__ "Subclass"}}</h4>
-                      <output name="subclass" data-select="" class="output--select"></output>
-                  </div>
-                  
-                  {{#each pf2.selects.class.values}}
-                  <div class="swap-option" id="swap-option:subclass:{{id}}">
-                      {{#each selects}}
-                      {{#if (eq max 1)}}
-                      <h4>{{__ name}}</h4>
-                      <output name="{{select}}" data-select="{{select}}" class="output--select"></output>
-                      {{else}}
-                      <h4>{{__ name}}</h4>
-                      <div class="select-options">
-                          {{#each values}}
-                          <label for='{{id}}'><input type='checkbox' name='{{id}}' id='{{id}}'> {{__ name}}</label> 
-                          {{/each}}
-                      </div>
-                      {{/if}}
-                      {{/each}}
-                  </div>
-                  {{/each}}
-              </div> -->
-          </td>
+        </td>
       </tr>
 
       <tr id="build-multiclass-row">
           <th>{{__ "Multiclass"}}</th>
       </tr>
       <tr>
-          <td colspan="2">
-              <div id="list-area:multiclass" class="list-area">
-                  <div class="list-item-template">
-                      <output class="list-item-name"></output>
-                      <output class="list-item-subitem"></output>
-                      <button class="btn btn--light btn--remove button-remove-multiclass list-item-remove" data-select="multiclass">{{__ "Remove"}}</button>
-                  </div>
-              </div>
-              <button class="btn btn--light button-add button-add-multiclass" data-select="multiclass">{{__ "Add"}}</button>
-          </td>
+        <td colspan="2">
+          {{#> Repeatable id="repeatable-multiclass" max=5 visible=0 addlabel="Add multiclass"}}
+            {{#> Columns}}
+              {{#> Column}}
+                {{> Output 
+                  name=(str "multiclass-${num}" num=number) 
+                  var=(str "#build-form.multiclass_${num} | displayName 'multiclass'" num=number) 
+                  on-click=(str "#build-form.multiclassNum=${num}; show-menu form-select-multiclass" num=number)
+                }}
+              {{/Column}}
+              {{#> Column}}
+                  <!--
+                  <output class="list-item-subitem"></output>
+                  -->
+              {{/Column}}
+            {{/Columns}}
+          {{/Repeatable}}
+        </td>
       </tr>
 
       <tr id="build-archetype-row">
-          <th>{{__ "Archetype"}}</th>
+        <th>{{__ "Archetype"}}</th>
       </tr>
       <tr>
           <td colspan="2">
-              <div id="list-area:archetype" class="list-area">
-                  <div class="list-item-template">
-                      <output class="list-item-name"></output>
-                      <output class="list-item-subitem"></output>
-                      <button class="btn btn--light btn--remove button-remove-multiclass list-item-remove" data-select="archetype">{{__ "Remove"}}</button>
-                  </div>
-              </div>
-              <button class="btn btn--light button-add button-add-archetype" data-select="archetype">{{__ "Add"}}</button>
+            {{#> Repeatable id="repeatable-archetype" max=5 visible=0 addlabel="Add archetype"}}
+              {{#> Columns}}
+                {{#> Column}}
+                  {{> Output 
+                    name=(str "archetype-${num}" num=number) 
+                    var=(str "#build-form.archetype_${num} | displayName 'archetype'" num=number) 
+                    on-click=(str "#build-form.archetypeNum=${num}; show-menu form-select-archetype" num=number)
+                  }}
+                {{/Column}}
+                {{#> Column}}
+                    <!--
+                    <output class="list-item-subitem"></output>
+                    -->
+                {{/Column}}
+              {{/Columns}}
+            {{/Repeatable}}
           </td>
       </tr>
+
+      <!-- <tr id="build-mythic-row">
+          <th></th>
+          <th data-on-click="select mythic-destiny">{{__ "Mythic Destiny"}}</th>
+      </tr>
+      <tr>
+          <td>
+              <label for="mythic">
+                <input type="checkbox" id="mythic" name="mythic"> {{__ "Mythic Calling"}}
+              </label>
+          </td>
+          <td>
+              {{> Output name="mythic-destiny" var="#build-form.mythic-destiny | mythicDestinyName" on-click="show-menu form-select-mythic-destiny"}}
+          </td>
+      </tr> -->
   </table>
 
   {{#> Columns }}

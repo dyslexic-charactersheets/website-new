@@ -1,6 +1,12 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
 /*
 Button types:
 - primary (solid button)
+- ui (small solid button)
 - light (menu button)
 - min (borderless menu button)
 - circle (up/down arrows)
@@ -65,6 +71,10 @@ $btn-size-big: 2.1rem;
     opacity: 0.3;
   }
 
+  &.btn--hidden {
+    display: none !important;
+  }
+
   &.btn--primary {
     display: block;
     width: 10rem;
@@ -78,10 +88,34 @@ $btn-size-big: 2.1rem;
 
     box-shadow: 0 0.1rem 0.2rem colours.$light;
 
-    background: colours.$primary;
+    /* background: colours.$primary; */
+    background: linear-gradient(colours.$primary, colours.$primary-shadow);
     color: colours.$primary--text;
     border-radius: 0.2rem;
     padding: 0rem 1rem;
+    border: 1px solid rgba(white, 0.6);
+  }
+
+  &.btn--ui {
+    min-width: $btn-size;
+    border-radius: $btn-size;
+    text-align: center;
+    
+    height: $btn-size;
+    line-height: $btn-size;
+    min-width: $btn-size;
+    font-size: 0.75 * $btn-size;
+    
+    @include fonts.heading;
+
+    box-shadow: 0 0.1rem 0.2rem colours.$light;
+
+    background: colours.$primary;
+    color: colours.$primary--text;
+    padding: 0;
+    
+    box-shadow: 0 0 1px 1px rgba(0,0,0,0.6);
+    margin: 0.2rem 0;
   }
 
   .btn__badge {
