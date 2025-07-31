@@ -1,3 +1,17 @@
+function has(container, property) {
+  if (isNull(container)) return false;
+  return Object.prototype.hasOwnProperty.call(container, property) && !isNull(container[property]);
+}
+
+function str(val) {
+  if (val === undefined || val === null) return "";
+  if (typeof val === 'string' || val instanceof String) return val;
+  if (val === false) return "false";
+  if (val === true) return "true";
+  
+  console.log("How to make a string?", val);
+  return "?";
+}
 
 function bool(val) {
   if (val === true) return true;
@@ -21,6 +35,10 @@ function toKebabCase(str) {
   words = words.map(word => word.toLowerCase());
   words = words.filter(word => word != '');
   return words.join('-');
+}
+
+function isNull(val) {
+  return val === null || val === undefined;
 }
 
 function isArray(val) {

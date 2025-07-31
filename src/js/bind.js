@@ -93,7 +93,7 @@ function createBinding(destElem, field, pipes) {
     value = applyPipes(value, pipes);
 
     // actually set the value
-    // componentLogger.log("Setting value of", field, "=", value);
+    componentLogger.log("Setting value of", field, "=", value);
     componentLogger.indent();
     set(destElem, field, value);
     componentLogger.outdent();
@@ -201,6 +201,31 @@ function setupBindings(container) {
         continue;
       }
 
+      // pre-fill data from inputs
+      if (destElem.tagName == "INPUT") {
+        if (destElem.type == "checkbox") {
+          if (destElem.checked) {
+            componentLogger.log("Pre-fill checkbox", sourceElem, sourceAttr, "=", true);
+            componentLogger.indent();
+            set(sourceElem, sourceAttr, "true");
+            componentLogger.outdent();
+          }
+        } else if (destElem.type == "radio") {
+          if (destElem.checked) {
+            componentLogger.log("Pre-fill radio", sourceElem, sourceAttr, "=", destElem.value);
+            componentLogger.indent();
+            set(sourceElem, sourceAttr, destElem.value);
+            componentLogger.outdent();
+          }
+        } else {
+          componentLogger.log("Pre-fill value", sourceElem, sourceAttr, "=", destElem.value);
+          componentLogger.indent();
+          set(sourceElem, sourceAttr, destElem.value);
+          componentLogger.outdent();
+        }
+      }
+
+      // make the function to call on data changes
       let bindingFunction = createBinding(destElem, field, pipes);
 
       // sourceElem.observer.addBinding(sourceAttr, bindingFunction);

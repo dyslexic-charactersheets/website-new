@@ -13,18 +13,30 @@
           <img src="/images/favicon64.png">
           {{__ "Dyslexic Character Sheets"}}
         </h1>
+      </div>
 
+      {{!--
+      {{#> CentrePane}}
         {{#> Slideshow 
           id='slides-features'
+          cls="slideshow--box slideshow--square"
           auto=true
           jump="custom"
+          fade=true
         }}
 
           {{#> Slide jump='custom'}}
-            <h2>Totally custom</h2>
-            <p>Class-specific, ancestry-specific, background-specific, archetype-specific, these character sheets are unique to your character in every way</p>
+            {{#> Pane}}
+              {{#> PaneBackground }}
+                {{> Picture size="bg" src="/images/home-bg.jpg"}}
+              {{/PaneBackground}}
+
+              <h2>Totally custom</h2>
+              <p>Class-specific, ancestry-specific, background-specific, archetype-specific, these character sheets are unique to your character in every way</p>
+            {{/Pane}}
           {{/Slide}}
           
+          {{ !--
           {{#> Slide jump='print'}}
             <h2>Made for print</h2>
             <p>You can fill these in on the PC, but they're really made for printing</p>
@@ -59,6 +71,7 @@
             <h2>Open source</h2>
             <p>The entire source of this project is on GitHub and released under an open license</p>
           {{/Slide}}
+          -- }}
 
         {{/Slideshow}}
 
@@ -66,13 +79,13 @@
           num=8
           var="#slides-features.jump"
         }}
-        
 
-        {{#> Row align=centre}}
+        {{#> Row align="centre" }}
           {{#> Button href="tour" id="tour-button" type="primary"}}{{__ "Tour"}}{{/Button}}
         {{/Row}}
+      {{/CentrePane}}
+      --}}
 
-      </div>
       <div class="spacer"></div>
       {{> HomePageFooter }}
     {{/Pane}}
@@ -81,14 +94,19 @@
   {{#> Right}}
     {{#> Pane bg="red" shadow="right" nopad=true spotlight=true}}
       {{#> PaneBackground }}
-        {{> Picture size="bg" src="/images/home-bg-a.png"}}
+        {{#> Picture size="bg" src="/images/home-bg.jpg" credit=true}}
+          Art by 
+          <a href='https://stormypegasusartprices.carrd.co/'>Stormy Pegasus</a> 
+          and 
+          <a href='https://www.tiktok.com/@blankdem'>BlankDem</a>
+        {{/Picture}}
       {{/PaneBackground}}
       {{#> CentrePane }}
 
         {{#> SplashPane }}
 
           {{#> Row}}
-            {{#> Button type="tile" on-click="body.currentMenu = new-character-menu"}}
+            {{#> Button type="tile" cls="home-action" on-click="body.currentMenu = new-character-menu"}}
               <h2>{{__ "New character sheet"}}</h2>
             {{/Button}}
             

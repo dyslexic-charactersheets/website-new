@@ -9,15 +9,49 @@
   {{#> Columns}}
     {{#> Column}}
       <h3>{{__ "Character Picture"}}</h3>
-      {{> ImageDrop shape="portrait" label="Drag Picture" imageselect="portrait" button="Select Picture"}}
+      {{> ImageDrop 
+        id="portrait"
+        shape="portrait" 
+        label="Drag Picture" 
+        imageselect="portrait" 
+        button="Select Picture"
+        placeholder="/images/generic.png"
+      }}
     {{/Column}}
 
     {{#> Column}}
       <h3>{{__ "Logo"}}</h3>
-      {{> ImageDrop shape="logo" label="Drag Logo" imageselect="logo" button="Select Logo"}}
+      {{> ImageDrop 
+        id="logo" 
+        shape="logo" 
+        label="Drag Logo" 
+        imageselect="logo" 
+        button="Select Logo"
+      }}
       
-      <h3>{{__ "Animal"}}</h3>
-      {{> ImageDrop shape="animal" label="Drag Animal Picture" imageselect="animal" button="Select Animal Picture"}}
+      {{!-- <h3>{{__ "Animal"}}</h3>
+      {{> ImageDrop 
+        id="animal" 
+        shape="animal" 
+        label="Drag Animal Picture" 
+        imageselect="animal" 
+        button="Select Animal Picture"}} --}}
     {{/Column}}
   {{/Columns}}
 </template>
+
+<script>
+on('#portrait', 'select-image', (evt) => {
+  // console.log('Select image (portrait)');
+  // let target = evt.currentTarget;
+  set('body', 'currentMenu', 'portrait-menu');
+  // emit('#portrait-menu .lazy', 'reveal');
+});
+
+on('#logo', 'select-image', (evt) => {
+  // console.log('Select image (logo)');
+  // let target = evt.currentTarget;
+  set('body', 'currentMenu', 'logo-menu');
+  // emit('#logo-menu .lazy', 'reveal');
+});
+</script>

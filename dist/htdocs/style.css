@@ -817,6 +817,10 @@ table.build-table label {
   margin-right: 1rem;
 }
 
+label {
+  user-select: none;
+}
+
 fieldset {
   border: 0 none;
   padding: 0.2rem 0.2rem 0.2rem 1rem;
@@ -847,11 +851,12 @@ fieldset .indent {
   padding-left: 1.25rem;
 }
 
-#font-dyslexie {
+label[for=option-dyslexic-font_dyslexie] {
   font-family: "Dyslexie", sans-serif;
+  font-size: 0.8rem;
 }
 
-#font-lexend {
+label[for=option-dyslexic-font_lexend] {
   font-family: "Lexend", sans-serif;
 }
 
@@ -1126,52 +1131,6 @@ fieldset .indent {
 
 .list-area .list-item .list-item-remove {
   flex: 0 0 auto;
-}
-
-.page-option {
-  width: 10rem;
-  display: block;
-}
-
-.page-option.page-option--selected picture {
-  opacity: 1;
-}
-
-.page-option picture {
-  opacity: 0.7;
-  width: 8rem;
-  height: 8rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.page-option picture img {
-  max-width: 100%;
-  max-height: 100%;
-  box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
-
-.page-option label {
-  display: block;
-  padding: 0.2rem 1.1rem;
-  font-family: "Roboto Slab", "Roboto";
-  font-weight: 500;
-  font-size: 0.9rem;
-}
-
-.page-option label input[type=checkbox], .page-option label input[type=radio] {
-  float: left;
-  margin-top: 0.3rem;
-  margin-left: -1.1rem;
-}
-
-.page-option.page-option--size_small picture {
-  padding: 1rem;
-  width: 6rem;
-  height: 6rem;
 }
 
 article.news {
@@ -1492,460 +1451,6 @@ article.news time .year {
 .colour-wheel input[type=radio][value=magenta2] {
   top: 67px;
   left: 95px;
-}
-
-.dark-region {
-  color: white;
-  text-shadow: 0 0.5px 1px black;
-}
-
-.dark-region h3, .dark-region nav.nav--menu h3, .dark-region h4 {
-  border-bottom-color: rgba(255, 255, 255, 0.8);
-}
-
-.dark-region a, .dark-region a:active, .dark-region a:visited, .dark-region button, .dark-region button:active, .dark-region button:visited, .dark-region .btn, .dark-region .btn:active, .dark-region .btn:visited, .dark-region .btn.btn--light, .dark-region .btn.btn--light:active, .dark-region .btn.btn--light:visited, .dark-region .btn.btn--selected, .dark-region .btn.btn--selected:active, .dark-region .btn.btn--selected:visited, .dark-region .btn.btn--min, .dark-region .btn.btn--min:active, .dark-region .btn.btn--min:visited, .dark-region .badge, .dark-region .badge:active, .dark-region .badge:visited {
-  color: white;
-}
-
-.dark-region .btn.btn--light {
-  border-color: white;
-  background-color: transparent;
-}
-
-.dark-region a.btn--selected, .dark-region button.btn--selected, .dark-region .btn.btn--selected, .dark-region .badge.btn--selected {
-  background: white;
-  color: #1030a0;
-}
-
-.dark-region .badge {
-  color: white;
-  border-color: white;
-}
-
-.light-region {
-  color: black;
-  text-shadow: 0 0 0.5px white;
-}
-
-.facet {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  background: none;
-  border: 0 none;
-}
-
-.facet select {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 0.2rem;
-  box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.5);
-  padding: 0.1rem 0.3rem;
-  color: black;
-  min-width: 10rem;
-}
-
-.facet label {
-  font-size: 0.7rem;
-}
-
-.btn--tile-light picture img {
-  height: 16rem;
-}
-
-input[type=search] {
-  border-radius: 2rem;
-  padding: 0.4rem 0.8rem 0.4rem 2rem;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0 0.05rem 0.15rem rgba(0, 0, 0, 0.5);
-  background-color: white;
-  background-image: url(/images/search.png);
-  background-position: 5% 50%;
-  background-size: 1rem;
-  background-repeat: no-repeat;
-}
-
-.dark-region {
-  color: white;
-  text-shadow: 0 0.5px 1px black;
-}
-
-.dark-region h3, .dark-region nav.nav--menu h3, .dark-region h4 {
-  border-bottom-color: rgba(255, 255, 255, 0.8);
-}
-
-.dark-region a, .dark-region a:active, .dark-region a:visited, .dark-region button, .dark-region button:active, .dark-region button:visited, .dark-region .btn, .dark-region .btn:active, .dark-region .btn:visited, .dark-region .btn.btn--light, .dark-region .btn.btn--light:active, .dark-region .btn.btn--light:visited, .dark-region .btn.btn--selected, .dark-region .btn.btn--selected:active, .dark-region .btn.btn--selected:visited, .dark-region .btn.btn--min, .dark-region .btn.btn--min:active, .dark-region .btn.btn--min:visited, .dark-region .badge, .dark-region .badge:active, .dark-region .badge:visited {
-  color: white;
-}
-
-.dark-region .btn.btn--light {
-  border-color: white;
-  background-color: transparent;
-}
-
-.dark-region a.btn--selected, .dark-region button.btn--selected, .dark-region .btn.btn--selected, .dark-region .badge.btn--selected {
-  background: white;
-  color: #1030a0;
-}
-
-.dark-region .badge {
-  color: white;
-  border-color: white;
-}
-
-.light-region {
-  color: black;
-  text-shadow: 0 0 0.5px white;
-}
-
-/* latin-ext */
-@font-face {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/Lato-Regular-A.woff2) format("woff2");
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/Lato-Regular-B.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Regular-A.woff2) format("woff2");
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Regular-B.woff2) format("woff2");
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek-ext */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Regular-C.woff2) format("woff2");
-  unicode-range: U+1F00-1FFF;
-}
-/* greek */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Regular-D.woff2) format("woff2");
-  unicode-range: U+0370-03FF;
-}
-/* vietnamese */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Regular-E.woff2) format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Regular-F.woff2) format("woff2");
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Regular-G.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Medium-A.woff2) format("woff2");
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Medium-B.woff2) format("woff2");
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek-ext */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Medium-C.woff2) format("woff2");
-  unicode-range: U+1F00-1FFF;
-}
-/* greek */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Medium-D.woff2) format("woff2");
-  unicode-range: U+0370-03FF;
-}
-/* vietnamese */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Medium-E.woff2) format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Medium-F.woff2) format("woff2");
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/RobotoSlab-Medium-G.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin */
-@font-face {
-  font-family: "Indie Flower";
-  font-style: normal;
-  font-weight: 400;
-  src: url(/fonts/IndieFlower-Regular.woff2) format("woff2");
-}
-/* latin */
-@font-face {
-  font-family: "Dyslexie";
-  font-style: normal;
-  font-weight: 400;
-  src: url(/fonts/DyslexieRegular.woff) format("woff");
-}
-/* latin */
-@font-face {
-  font-family: "Lexend";
-  font-style: normal;
-  font-weight: 400;
-  src: url(/fonts/LexendDeca.woff) format("woff");
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: "Exo 2";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/Exo2-A.woff2) format("woff2");
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: "Exo 2";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/Exo2-B.woff2) format("woff2");
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* vietnamese */
-@font-face {
-  font-family: "Exo 2";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/Exo2-C.woff2) format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: "Exo 2";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/Exo2-D.woff2) format("woff2");
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: "Exo 2";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/Exo2-E.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-html {
-  font-family: "Lato";
-  font-weight: normal;
-}
-
-p {
-  margin: 1rem 0;
-}
-
-h1, h2, h3 {
-  font-family: "Roboto Slab", "Roboto";
-  font-weight: 500;
-}
-
-h1 {
-  font-size: 2.3rem;
-  line-height: 3rem;
-}
-
-h2 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  line-height: 1.5rem;
-}
-
-h3 {
-  font-size: 1.05rem;
-  margin-bottom: 0.3rem;
-  line-height: 1.4rem;
-}
-
-h4 {
-  font-family: "Roboto Slab", "Roboto";
-  font-weight: 500;
-  font-size: 0.9rem;
-  line-height: 1.3rem;
-  margin: 0.3rem 0 0 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-.small-print, .small-print p, .small-print a {
-  font-size: 0.8rem;
-}
-
-input, output, select {
-  font-size: 1rem;
-}
-
-ol {
-  margin: 0.5rem 0;
-}
-
-ol li + li {
-  margin-top: 0.5rem;
-}
-
-ol li.unnumbered {
-  list-style: none;
-}
-
-dl {
-  margin: 0.5rem 0;
-  padding: 0 2rem;
-}
-
-dl dt {
-  font-weight: bold;
-}
-
-dl dd + dt {
-  margin-top: 0.5rem;
-}
-
-.image-drop {
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 0.4rem;
-  padding: 1rem;
-  box-shadow: inset 0 0.1rem 0.25rem rgba(0, 0, 0, 0.5);
-  background-color: rgba(255, 255, 255, 0.6);
-  background-image: url(/images/white-spot.png);
-  background-repeat: no-repeat;
-  background-size: 130% 130%;
-  background-position: 50% 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.image-drop--shape_portrait {
-  height: 30rem;
-}
-
-.image-drop--shape_logo {
-  height: 12rem;
-}
-
-.image-drop--shape_animal {
-  height: 13rem;
-}
-
-.image-drop p {
-  color: black;
-  text-shadow: 0 0 20px white;
-  font-weight: bold;
-  pointer-events: none;
-}
-
-.image-drop img {
-  pointer-events: none;
-  mix-blend-mode: darken;
-  min-width: 60%;
-  min-height: 60%;
-  max-height: 90%;
-  max-width: 90%;
-}
-
-.image-drop.image-drop--ready {
-  background: rgba(120, 220, 255, 0.9) url(/images/white-spot.png) 50% 50% no-repeat;
-}
-
-.item-list .item-list__group {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 1rem;
-  gap: 1rem;
-}
-
-.item-list .item-list__group.item-list__group--hidden {
-  display: none !important;
-}
-
-.item-list h3.h3--hidden {
-  display: none !important;
 }
 
 .dark-region {
@@ -2480,6 +1985,10 @@ table.build-table label {
   margin-right: 1rem;
 }
 
+label {
+  user-select: none;
+}
+
 fieldset {
   border: 0 none;
   padding: 0.2rem 0.2rem 0.2rem 1rem;
@@ -2510,11 +2019,12 @@ fieldset .indent {
   padding-left: 1.25rem;
 }
 
-#font-dyslexie {
+label[for=option-dyslexic-font_dyslexie] {
   font-family: "Dyslexie", sans-serif;
+  font-size: 0.8rem;
 }
 
-#font-lexend {
+label[for=option-dyslexic-font_lexend] {
   font-family: "Lexend", sans-serif;
 }
 
@@ -2791,52 +2301,6 @@ fieldset .indent {
   flex: 0 0 auto;
 }
 
-.page-option {
-  width: 10rem;
-  display: block;
-}
-
-.page-option.page-option--selected picture {
-  opacity: 1;
-}
-
-.page-option picture {
-  opacity: 0.7;
-  width: 8rem;
-  height: 8rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.page-option picture img {
-  max-width: 100%;
-  max-height: 100%;
-  box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
-
-.page-option label {
-  display: block;
-  padding: 0.2rem 1.1rem;
-  font-family: "Roboto Slab", "Roboto";
-  font-weight: 500;
-  font-size: 0.9rem;
-}
-
-.page-option label input[type=checkbox], .page-option label input[type=radio] {
-  float: left;
-  margin-top: 0.3rem;
-  margin-left: -1.1rem;
-}
-
-.page-option.page-option--size_small picture {
-  padding: 1rem;
-  width: 6rem;
-  height: 6rem;
-}
-
 nav.nav--milestones {
   flex: 2 1 auto;
   display: flex;
@@ -3094,6 +2558,368 @@ output.output--bare {
   text-shadow: 0 0 0.5px white;
 }
 
+/* latin-ext */
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Lato-Regular-A.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Lato-Regular-B.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-A.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-B.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-C.woff2) format("woff2");
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-D.woff2) format("woff2");
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-E.woff2) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-F.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-G.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-A.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-B.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-C.woff2) format("woff2");
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-D.woff2) format("woff2");
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-E.woff2) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-F.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-G.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Indie Flower";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/IndieFlower-Regular.woff2) format("woff2");
+}
+/* latin */
+@font-face {
+  font-family: "Dyslexie";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/DyslexieRegular.woff) format("woff");
+}
+/* latin */
+@font-face {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/LexendDeca.woff) format("woff");
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-A.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-B.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-C.woff2) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-D.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-E.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+html {
+  font-family: "Lato";
+  font-weight: normal;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+h1, h2, h3 {
+  font-family: "Roboto Slab", "Roboto";
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 2.3rem;
+  line-height: 3rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.4rem;
+}
+
+h4 {
+  font-family: "Roboto Slab", "Roboto";
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  margin: 0.3rem 0 0 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.small-print, .small-print p, .small-print a {
+  font-size: 0.8rem;
+}
+
+input, output, select {
+  font-size: 1rem;
+}
+
+ol {
+  margin: 0.5rem 0;
+}
+
+ol li + li {
+  margin-top: 0.5rem;
+}
+
+ol li.unnumbered {
+  list-style: none;
+}
+
+dl {
+  margin: 0.5rem 0;
+  padding: 0 2rem;
+}
+
+dl dt {
+  font-weight: bold;
+}
+
+dl dd + dt {
+  margin-top: 0.5rem;
+}
+
+.page-option {
+  /* width: 10rem; */
+  display: block;
+}
+
+.page-option[data-page-selected] picture {
+  opacity: 1;
+}
+
+.page-option picture {
+  opacity: 0.7;
+  width: 8rem;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-option picture img {
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.page-option label {
+  display: block;
+  padding: 0.2rem 1.1rem;
+  font-family: "Roboto Slab", "Roboto";
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.page-option label input[type=checkbox], .page-option label input[type=radio] {
+  float: left;
+  margin-top: 0.3rem;
+  margin-left: -1.1rem;
+}
+
+.page-option.page-option--size_small picture {
+  padding: 1rem;
+  width: 6rem;
+  height: 6rem;
+}
+
+.dark-region {
+  color: white;
+  text-shadow: 0 0.5px 1px black;
+}
+
+.dark-region h3, .dark-region nav.nav--menu h3, .dark-region h4 {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-region a, .dark-region a:active, .dark-region a:visited, .dark-region button, .dark-region button:active, .dark-region button:visited, .dark-region .btn, .dark-region .btn:active, .dark-region .btn:visited, .dark-region .btn.btn--light, .dark-region .btn.btn--light:active, .dark-region .btn.btn--light:visited, .dark-region .btn.btn--selected, .dark-region .btn.btn--selected:active, .dark-region .btn.btn--selected:visited, .dark-region .btn.btn--min, .dark-region .btn.btn--min:active, .dark-region .btn.btn--min:visited, .dark-region .badge, .dark-region .badge:active, .dark-region .badge:visited {
+  color: white;
+}
+
+.dark-region .btn.btn--light {
+  border-color: white;
+  background-color: transparent;
+}
+
+.dark-region a.btn--selected, .dark-region button.btn--selected, .dark-region .btn.btn--selected, .dark-region .badge.btn--selected {
+  background: white;
+  color: #1030a0;
+}
+
+.dark-region .badge {
+  color: white;
+  border-color: white;
+}
+
+.light-region {
+  color: black;
+  text-shadow: 0 0 0.5px white;
+}
+
 .pips {
   display: flex;
   flex-direction: row;
@@ -3130,6 +2956,39 @@ output.output--bare {
 
 .slide__inner.width_full {
   max-width: none;
+}
+
+.dark-region {
+  color: white;
+  text-shadow: 0 0.5px 1px black;
+}
+
+.dark-region h3, .dark-region nav.nav--menu h3, .dark-region h4 {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-region a, .dark-region a:active, .dark-region a:visited, .dark-region button, .dark-region button:active, .dark-region button:visited, .dark-region .btn, .dark-region .btn:active, .dark-region .btn:visited, .dark-region .btn.btn--light, .dark-region .btn.btn--light:active, .dark-region .btn.btn--light:visited, .dark-region .btn.btn--selected, .dark-region .btn.btn--selected:active, .dark-region .btn.btn--selected:visited, .dark-region .btn.btn--min, .dark-region .btn.btn--min:active, .dark-region .btn.btn--min:visited, .dark-region .badge, .dark-region .badge:active, .dark-region .badge:visited {
+  color: white;
+}
+
+.dark-region .btn.btn--light {
+  border-color: white;
+  background-color: transparent;
+}
+
+.dark-region a.btn--selected, .dark-region button.btn--selected, .dark-region .btn.btn--selected, .dark-region .badge.btn--selected {
+  background: white;
+  color: #1030a0;
+}
+
+.dark-region .badge {
+  color: white;
+  border-color: white;
+}
+
+.light-region {
+  color: black;
+  text-shadow: 0 0 0.5px white;
 }
 
 .slideshow {
@@ -3182,6 +3041,20 @@ output.output--bare {
 .slideshow.slideshow--h .slide {
   display: inline-block;
   flex: 0 0 auto;
+}
+
+.slideshow.slideshow--box {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+
+.slideshow.slideshow--square {
+  min-width: 36rem;
+  min-height: 32rem;
+  width: calc(10vh + 10vw);
+  height: calc(10vh + 10vw);
+  max-width: 70vw;
+  max-height: 50vh;
 }
 
 .slideshow.slideshow--fullscreen .slide {
@@ -3755,12 +3628,544 @@ dl dd + dt {
   background-color: #e164c3;
 }
 
+.dark-region {
+  color: white;
+  text-shadow: 0 0.5px 1px black;
+}
+
+.dark-region h3, .dark-region nav.nav--menu h3, .dark-region h4 {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-region a, .dark-region a:active, .dark-region a:visited, .dark-region button, .dark-region button:active, .dark-region button:visited, .dark-region .btn, .dark-region .btn:active, .dark-region .btn:visited, .dark-region .btn.btn--light, .dark-region .btn.btn--light:active, .dark-region .btn.btn--light:visited, .dark-region .btn.btn--selected, .dark-region .btn.btn--selected:active, .dark-region .btn.btn--selected:visited, .dark-region .btn.btn--min, .dark-region .btn.btn--min:active, .dark-region .btn.btn--min:visited, .dark-region .badge, .dark-region .badge:active, .dark-region .badge:visited {
+  color: white;
+}
+
+.dark-region .btn.btn--light {
+  border-color: white;
+  background-color: transparent;
+}
+
+.dark-region a.btn--selected, .dark-region button.btn--selected, .dark-region .btn.btn--selected, .dark-region .badge.btn--selected {
+  background: white;
+  color: #1030a0;
+}
+
+.dark-region .badge {
+  color: white;
+  border-color: white;
+}
+
+.light-region {
+  color: black;
+  text-shadow: 0 0 0.5px white;
+}
+
+.facet {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0 none;
+  cursor: pointer;
+}
+
+.facet select {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 0.2rem;
+  box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.5);
+  padding: 0.1rem 0.3rem;
+  color: black;
+  min-width: 10rem;
+}
+
+.facet label {
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.facet label.facet-checkbox {
+  font-size: 1rem;
+}
+
+.btn--tile-light picture img {
+  height: 16rem;
+}
+
+input[type=search] {
+  border-radius: 2rem;
+  padding: 0.4rem 0.8rem 0.4rem 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0.05rem 0.15rem rgba(0, 0, 0, 0.5);
+  background-color: white;
+  background-image: url(/images/search.png);
+  background-position: 5% 50%;
+  background-size: 1rem;
+  background-repeat: no-repeat;
+}
+
+.item-list .item-list__group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.item-list .item-list__group.item-list__group--hidden {
+  display: none !important;
+}
+
+.item-list h3.h3--hidden {
+  display: none !important;
+}
+
 .build-form .large-print label {
   font-size: 1.3rem;
 }
 
 .build-form .large-print p.info {
   font-size: 1.1rem;
+}
+
+.colour-coded {
+  display: inline-block;
+  height: 2em;
+  font-size: 110%;
+  line-height: 2em;
+  width: 2.5em;
+  background: white;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.5);
+}
+
+.colour-coded.colour-coded_str {
+  border-bottom: 1px solid #970;
+  color: #970;
+}
+
+.colour-coded.colour-coded_dex {
+  border-bottom: 1px solid #369;
+  color: #369;
+}
+
+.colour-coded.colour-coded_con {
+  border-bottom: 1px solid #a20;
+  color: #a20;
+}
+
+.colour-coded.colour-coded_int {
+  border-bottom: 1px solid #925;
+  color: #925;
+}
+
+.colour-coded.colour-coded_wis {
+  border-bottom: 1px solid #471;
+  color: #471;
+}
+
+.colour-coded.colour-coded_cha {
+  border-bottom: 1px solid #529;
+  color: #529;
+}
+
+a.jump-link {
+  display: block;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+a.jump-link.indent-1 {
+  margin-left: 2rem;
+}
+
+a.jump-link.indent-2 {
+  margin-left: 3rem;
+}
+
+a.jump-link.indent-3 {
+  margin-left: 4rem;
+}
+
+a.jump-link.indent-4 {
+  margin-left: 5rem;
+}
+
+a.jump-link.indent-5 {
+  margin-left: 6rem;
+}
+
+a.jump-link.indent-6 {
+  margin-left: 7rem;
+}
+
+.dark-region {
+  color: white;
+  text-shadow: 0 0.5px 1px black;
+}
+
+.dark-region h3, .dark-region nav.nav--menu h3, .dark-region h4 {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-region a, .dark-region a:active, .dark-region a:visited, .dark-region button, .dark-region button:active, .dark-region button:visited, .dark-region .btn, .dark-region .btn:active, .dark-region .btn:visited, .dark-region .btn.btn--light, .dark-region .btn.btn--light:active, .dark-region .btn.btn--light:visited, .dark-region .btn.btn--selected, .dark-region .btn.btn--selected:active, .dark-region .btn.btn--selected:visited, .dark-region .btn.btn--min, .dark-region .btn.btn--min:active, .dark-region .btn.btn--min:visited, .dark-region .badge, .dark-region .badge:active, .dark-region .badge:visited {
+  color: white;
+}
+
+.dark-region .btn.btn--light {
+  border-color: white;
+  background-color: transparent;
+}
+
+.dark-region a.btn--selected, .dark-region button.btn--selected, .dark-region .btn.btn--selected, .dark-region .badge.btn--selected {
+  background: white;
+  color: #1030a0;
+}
+
+.dark-region .badge {
+  color: white;
+  border-color: white;
+}
+
+.light-region {
+  color: black;
+  text-shadow: 0 0 0.5px white;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Lato-Regular-A.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Lato-Regular-B.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-A.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-B.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-C.woff2) format("woff2");
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-D.woff2) format("woff2");
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-E.woff2) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-F.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-G.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-A.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-B.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-C.woff2) format("woff2");
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-D.woff2) format("woff2");
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-E.woff2) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-F.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-G.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Indie Flower";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/IndieFlower-Regular.woff2) format("woff2");
+}
+/* latin */
+@font-face {
+  font-family: "Dyslexie";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/DyslexieRegular.woff) format("woff");
+}
+/* latin */
+@font-face {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/LexendDeca.woff) format("woff");
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-A.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-B.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-C.woff2) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-D.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-E.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+html {
+  font-family: "Lato";
+  font-weight: normal;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+h1, h2, h3 {
+  font-family: "Roboto Slab", "Roboto";
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 2.3rem;
+  line-height: 3rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.4rem;
+}
+
+h4 {
+  font-family: "Roboto Slab", "Roboto";
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  margin: 0.3rem 0 0 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.small-print, .small-print p, .small-print a {
+  font-size: 0.8rem;
+}
+
+input, output, select {
+  font-size: 1rem;
+}
+
+ol {
+  margin: 0.5rem 0;
+}
+
+ol li + li {
+  margin-top: 0.5rem;
+}
+
+ol li.unnumbered {
+  list-style: none;
+}
+
+dl {
+  margin: 0.5rem 0;
+  padding: 0 2rem;
+}
+
+dl dt {
+  font-weight: bold;
+}
+
+dl dd + dt {
+  margin-top: 0.5rem;
+}
+
+.image-drop {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.4rem;
+  padding: 1rem;
+  box-shadow: inset 0 0.1rem 0.25rem rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
+  background-image: url(/images/white-spot.png);
+  background-repeat: no-repeat;
+  background-size: 130% 130%;
+  background-position: 50% 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image-drop--shape_portrait {
+  height: 30rem;
+}
+
+.image-drop--shape_logo {
+  height: 16rem;
+}
+
+.image-drop--shape_animal {
+  height: 20rem;
+}
+
+.image-drop p {
+  color: black;
+  text-shadow: 0 0 20px white;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.image-drop img {
+  pointer-events: none;
+  mix-blend-mode: darken;
+  min-width: 60%;
+  min-height: 60%;
+  max-height: 90%;
+  max-width: 90%;
+}
+
+.image-drop.image-drop--ready {
+  background: rgba(120, 220, 255, 0.9) url(/images/white-spot.png) 50% 50% no-repeat;
 }
 
 .dark-region {
@@ -3830,8 +4235,12 @@ button .icon.icon_user {
   background-image: url(/images/user-icon-white.png);
 }
 
-.dark-region .btn--selected .icon.icon_user {
+.dark-region .btn--selected .icon.icon_user, .dark-region .btn--borderless:hover .icon.icon_user {
   background-image: url(/images/user-icon-dark.png);
+}
+
+.light-region .btn--selected .icon.icon_user, .light-region .btn--borderless:hover .icon.icon_user {
+  background-image: url(/images/user-icon-white.png);
 }
 
 .icon.icon_globe {
@@ -3853,8 +4262,49 @@ button .icon.icon_globe {
   background-image: url(/images/globe-white.png);
 }
 
-.dark-region .btn--selected .icon.icon_globe {
+.dark-region .btn--selected .icon.icon_globe, .dark-region .btn--borderless:hover .icon.icon_globe {
   background-image: url(/images/globe-dark.png);
+}
+
+.light-region .btn--selected .icon.icon_globe, .light-region .btn--borderless:hover .icon.icon_globe {
+  background-image: url(/images/globe-white.png);
+}
+
+.lazy {
+  display: none;
+}
+
+.dark-region {
+  color: white;
+  text-shadow: 0 0.5px 1px black;
+}
+
+.dark-region h3, .dark-region nav.nav--menu h3, .dark-region h4 {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-region a, .dark-region a:active, .dark-region a:visited, .dark-region button, .dark-region button:active, .dark-region button:visited, .dark-region .btn, .dark-region .btn:active, .dark-region .btn:visited, .dark-region .btn.btn--light, .dark-region .btn.btn--light:active, .dark-region .btn.btn--light:visited, .dark-region .btn.btn--selected, .dark-region .btn.btn--selected:active, .dark-region .btn.btn--selected:visited, .dark-region .btn.btn--min, .dark-region .btn.btn--min:active, .dark-region .btn.btn--min:visited, .dark-region .badge, .dark-region .badge:active, .dark-region .badge:visited {
+  color: white;
+}
+
+.dark-region .btn.btn--light {
+  border-color: white;
+  background-color: transparent;
+}
+
+.dark-region a.btn--selected, .dark-region button.btn--selected, .dark-region .btn.btn--selected, .dark-region .badge.btn--selected {
+  background: white;
+  color: #1030a0;
+}
+
+.dark-region .badge {
+  color: white;
+  border-color: white;
+}
+
+.light-region {
+  color: black;
+  text-shadow: 0 0 0.5px white;
 }
 
 picture {
@@ -3862,6 +4312,7 @@ picture {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 picture img, .btn picture .img {
@@ -3896,6 +4347,11 @@ picture.picture--size_tile-large {
   max-height: 22rem;
 }
 
+picture.picture--size_tile-small {
+  max-width: 12rem;
+  max-height: 12rem;
+}
+
 picture.picture--transparent {
   mix-blend-mode: darken;
 }
@@ -3913,6 +4369,20 @@ picture.picture--size_bg img {
   height: 100%;
   object-fit: cover;
   object-position: 50% 50%;
+}
+
+picture .picture__credit {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #d0d0d0;
+}
+
+picture .picture__credit a {
+  color: #f0f0f0;
 }
 
 button > picture {
@@ -4650,6 +5120,10 @@ article + article {
   font-weight: bold;
 }
 
+.column {
+  flex: 1 1 auto;
+}
+
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -4773,6 +5247,9 @@ article + article {
   .columns.columns--n_4 .column {
     width: 25%;
     flex: 1 1 25%;
+  }
+  .columns.columns--layout_folders > .column:first-child {
+    max-width: 15rem;
   }
 }
 .flow {
@@ -5167,6 +5644,7 @@ article + article {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
+  max-height: 100vh;
   padding: 0.5rem;
   position: relative;
   /* Backgrounds */
@@ -5702,6 +6180,14 @@ article + article {
 
 .row.align_right {
   justify-content: flex-end;
+}
+
+.row.valign_top {
+  align-items: flex-start;
+}
+
+.row.valign_bottom {
+  align-items: flex-end;
 }
 
 .row.pad {
@@ -6630,7 +7116,7 @@ dl dd + dt {
 
 .btn.btn--primary {
   display: block;
-  width: 10rem;
+  min-width: 10rem;
   text-align: center;
   height: 2.1rem;
   line-height: 2.1rem;
@@ -6697,6 +7183,40 @@ dl dd + dt {
 
 .btn.btn--light:visited, .btn.btn--light:active {
   color: black;
+}
+
+.btn.btn--borderless {
+  padding: 0 0.5rem;
+  font-family: "Roboto Slab", "Roboto";
+  font-weight: 500;
+  font-size: 0.9rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  min-width: 0.8rem;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn.btn--borderless:hover {
+  border-radius: 0.2rem;
+}
+
+.light-region .btn.btn--borderless:hover {
+  background: #7a1200;
+  color: white;
+}
+
+.dark-region .btn.btn--borderless:hover {
+  background: white;
+  color: #7a1200;
+}
+
+.dark-region.pane--bg_blue .btn.btn--borderless:hover {
+  background: white;
+  color: #1030a0;
 }
 
 .btn.btn--min {
@@ -6777,7 +7297,7 @@ dl dd + dt {
 }
 
 .main--layout_home .btn.btn--tile {
-  background: rgba(128, 16, 27, 0.8);
+  background: rgba(119, 25, 36, 0.8);
 }
 
 .btn.btn--tile-light {
@@ -6850,6 +7370,54 @@ dl dd + dt {
   object-fit: contain;
 }
 
+.dark-region {
+  color: white;
+  text-shadow: 0 0.5px 1px black;
+}
+
+.dark-region h3, .dark-region nav.nav--menu h3, .dark-region h4 {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-region a, .dark-region a:active, .dark-region a:visited, .dark-region button, .dark-region button:active, .dark-region button:visited, .dark-region .btn, .dark-region .btn:active, .dark-region .btn:visited, .dark-region .btn.btn--light, .dark-region .btn.btn--light:active, .dark-region .btn.btn--light:visited, .dark-region .btn.btn--selected, .dark-region .btn.btn--selected:active, .dark-region .btn.btn--selected:visited, .dark-region .btn.btn--min, .dark-region .btn.btn--min:active, .dark-region .btn.btn--min:visited, .dark-region .badge, .dark-region .badge:active, .dark-region .badge:visited {
+  color: white;
+}
+
+.dark-region .btn.btn--light {
+  border-color: white;
+  background-color: transparent;
+}
+
+.dark-region a.btn--selected, .dark-region button.btn--selected, .dark-region .btn.btn--selected, .dark-region .badge.btn--selected {
+  background: white;
+  color: #1030a0;
+}
+
+.dark-region .badge {
+  color: white;
+  border-color: white;
+}
+
+.light-region {
+  color: black;
+  text-shadow: 0 0 0.5px white;
+}
+
+/* .main-nav {
+  background-color: colours.$pale;
+  border: 1px solid colours.$shade;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px colours.$shade;
+
+  margin-right: -20px;
+  z-index: 100;
+  padding: 2px 10px 6px;
+} */
+/* #main-menu .main-nav {
+  background-color: transparent;
+  border: 0 none;
+  box-shadow: none;
+} */
 #home-link {
   padding-bottom: 10px;
 }

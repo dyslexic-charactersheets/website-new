@@ -5,30 +5,48 @@
 
 <template>
   <h2>{{__ "Pages"}}</h2>
-  <div class="row row--dense">
+  {{#> Row valign="top"}}
     {{> PageOption page="permission" label="Permission to print"}}
-  </div>
+    {{> PageOption page="build" label="Build a character"}}
+  {{/Row}}
+
   <h4>{{__ "Character"}}</h4>
-  <div class="row row--dense">
-    {{> PageOption page="cover" label="Cover page" selected="true"}}
-    {{> PageOption page="level-up" label="Level up" selected="true"}}
-    {{> PageOption page="reference" label="Action Reference"}}
+  {{#> Row valign="top"}}
+    {{> PageOption page="cover" label="Cover page" checked=true}}
+    {{> PageOption page="level-up" label="Level up" checked=true}}
+    {{> PageOption page="reference" label="Action/Class Reference"}}
     {{> PageOption page="actions" label="Actions"}}
     {{> PageOption page="character-background" label="Character Background"}}
-  </div>
+  {{/Row}}
 
-  <h4>{{__ "Inventory"}}</h4>
-  <div class="row row--dense">
-    {{> PageOption size="small" page="inventory-half" label="Half" radio="true" name="inventory" value="half"}}
-    {{> PageOption page="inventory-full" label="Full" selected="true" radio="true" name="inventory" value="full"}}
-    {{> PageOption page="inventory-extra" label="Extra page"}}
-  </div>
-  
+  {{#> Row valign="top"}}
+    {{#> Column}}
+      <h4>{{__ "Inventory"}}</h4>
+      <div class="row row--dense">
+        {{> PageOption size="small" page="inventory-half" label="Half" radio=true name="inventory" value="half"}}
+        {{> PageOption page="inventory-full" label="Full" checked=true radio=true name="inventory" value="full"}}
+        {{> PageOption page="inventory-extra" label="Extra page"}}
+      </div>
+    {{/Column}}
+    {{#> Column}}
+      <h4>{{__ "Map Minis"}}</h4>
+      {{#> Row valign="top"}}
+        {{> PageOption page="minis" label="Map Minis"}}
+        <div>
+          <h5>{{__ "Size"}}</h5>
+          {{> Radio var="pageSizeMini" name="page-size-mini" value="small" label="Small"}}
+          {{> Radio var="pageSizeMini" name="page-size-mini" value="medium" label="Medium" checked=true}}
+          {{> Radio var="pageSizeMini" name="page-size-mini" value="large" label="Large"}}
+        </div>
+      {{/Row}}
+    {{/Column}}
+  {{/Row}}
 
   <h4>{{__ "Companions"}}</h4>
-  <div class="row row--dense">
-    {{> PageOption page="animal-companion" label="Animal Companion"}}
-    {{> PageOption page="familiar" label="Familiar"}}
-    {{> PageOption page="construct" label="Construct"}}
-  </div>
+  {{#> Row valign="top"}}
+    {{> PageOption page="animal-companion" size="landscape" label="Animal Companion"}}
+    {{> PageOption page="familiar" size="landscape" label="Familiar"}}
+    {{> PageOption page="construct" size="landscape" label="Construct"}}
+  {{/Row}}
+
 </template>

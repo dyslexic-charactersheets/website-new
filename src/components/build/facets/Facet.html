@@ -1,0 +1,76 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <div class="facet">
+    {{#if (eq type "select")}}
+      <label>{{__ label}}</label>
+      <select 
+        id="{{id}}--facet-{{facet}}" 
+        class="facet-select facet-{{facet}}" 
+        data-on-change="emit facet-change"
+        autocomplete="off"
+      >
+        {{#each options}}
+          <option 
+            value="{{code}}" {{#if (eq code ../selected)}}selected{{/if}}
+          >{{name}}</option>
+        {{/each}}
+      </select>
+    {{/if}}
+
+    {{#if (eq type "menu")}}
+      <label>{{__ label}}</label>
+      <output
+        data-on-click=""
+      ></output>
+    {{/if}}
+
+    {{#if (eq type "checkbox")}}
+      <label for="{{id}}--facet-{{facet}}" class="facet-checkbox">
+        <input type="checkbox" id="{{id}}--facet-{{facet}}" autocomplete="off"/>
+        {{__ label}}
+      </label>
+    {{/if}}
+
+  </div>
+</template>
+
+<style>
+
+@use 'colours';
+
+.facet {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0 none;
+  cursor: pointer;
+
+  select {
+    background: colours.$off-white;
+    border: 1px solid colours.$shade;
+    border-radius: 0.2rem;
+
+    box-shadow: 0 0.1rem 0.25rem colours.$shade;
+    padding: 0.1rem 0.3rem;
+    color: black;
+
+    min-width: 10rem;
+  }
+
+  label {
+    font-size: 0.7rem;
+    cursor: pointer;
+
+    &.facet-checkbox {
+      font-size: 1rem;
+    }
+  }
+}
+
+</style>

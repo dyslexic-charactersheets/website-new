@@ -14,7 +14,9 @@
         value="{{value}}" 
         id="radio-{{field}}-{{value}}" 
         {{#if checked}}checked{{/if}} 
-        data-bind="checked=#build-form.{{field}} | eq '{{value}}'"
+        data-bind="checked=#build-form.{{var}} | eq '{{value}}'"
+        data-var="{{var}}"
+        autocomplete="off"
       >
       <span class="tile-option__square">
         <span class="tile-option__content">

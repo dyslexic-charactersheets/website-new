@@ -4,7 +4,7 @@
 -->
 
 <template>
-  <div class="columns columns--n_{{default n 2}}">
+  <div class="columns columns--n_{{default n 2}}{{#if layout}} columns--layout_{{layout}}{{/if}}">
     {{> @partial-block }}
   </div>
 </template>
@@ -38,6 +38,12 @@
       .column {
         width: 25%;
         flex: 1 1 25%;
+      }
+    }
+
+    &.columns--layout_folders {
+      > .column:first-child {
+        max-width: 15rem;
       }
     }
   }

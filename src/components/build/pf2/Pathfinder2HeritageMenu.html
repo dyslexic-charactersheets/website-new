@@ -4,6 +4,7 @@
 -->
 
 <template>
+  {{!-- {{{dump select}}} --}}
   {{> FormSelectTabbedMenu
     id=(str "form-select-${key}" key=(slug key))
     cls="form-select-heritage"
@@ -14,7 +15,7 @@
     )
     current="ancestry"
     show="small"
-  }}
+  }} 
 </template>
 
 <script>

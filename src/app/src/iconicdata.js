@@ -1,5 +1,4 @@
 const fs = require('fs');
-const _ = require('lodash');
 const path = require('path');
 
 function createId(code) {
@@ -13,7 +12,7 @@ function createId(code) {
 function loadAssets(data, base) {
     var assets = [];
     var lines = data.split(/\n/);
-    _.each(lines, (line) => {
+    for (let line of lines) {
         var parts = line.split(/=/);
         if (parts.length < 2) return;
         var code = parts[0].trim();
@@ -39,17 +38,17 @@ function loadAssets(data, base) {
             value: value,
             path: path
         });
-    });
+    }
     return assets;
 }
 
 function groupAssets(assets) {
     var groups = {};
 
-    _.each(assets, (asset) => {
+    for (let asset of assets) {
         var groupCode = asset.code.replace(/\/[^/]*$/, '');
 
-        if (!_.has(groups, groupCode)) {
+        if (!has(groups, groupCode)) {
             var groupPath = asset.path.replace(/\/[^/]*$/, '');
             var groupName = groupPath.replace(/^.*\//, '').replace(/^[0-9]+ /, '');
             var folderName = groupPath.replace(/\/[^/]*$/, '').replace(/^[0-9]+ /, '');
@@ -66,7 +65,7 @@ function groupAssets(assets) {
         }
 
         groups[groupCode].assets.push(asset);
-    });
+    }
 
     return groups;
 }
@@ -85,7 +84,7 @@ fs.readFile(assetsDir+'/iconics/iconics.txt', 'utf-8', (err, data) => {
     iconics = loadAssets(data, '/iconics/');
     iconicGroups = groupAssets(iconics);
 
-    console.log("[data]          Loaded", iconics.length, "iconics in", _.size(iconicGroups), "groups");
+    console.log("[data]          Loaded", iconics.length, "iconics in", Object.keys(iconicGroups).length, "groups");
 });
 
 // Logos
@@ -101,7 +100,7 @@ fs.readFile(assetsDir+'/logos/logos.txt', 'utf-8', (err, data) => {
     logos = loadAssets(data, '/logos/');
     logoGroups = groupAssets(logos);
 
-    console.log("[data]          Loaded", logos.length, "logos in", _.size(logoGroups), "groups");
+    console.log("[data]          Loaded", logos.length, "logos in", Object.keys(logoGroups).length, "groups");
 });
 
 

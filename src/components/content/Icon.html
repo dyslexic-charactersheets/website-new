@@ -28,8 +28,12 @@
     background-image: url(/images/#{$icon}-white.png);
   }
 
-  .dark-region .btn--selected & {
+  .dark-region .btn--selected &, .dark-region .btn--borderless:hover & {
     background-image: url(/images/#{$icon}-dark.png);
+  }
+
+  .light-region .btn--selected &, .light-region .btn--borderless:hover & {
+    background-image: url(/images/#{$icon}-white.png);
   }
 }
 

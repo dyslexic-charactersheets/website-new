@@ -1,0 +1,79 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  {{#> SideMenu
+    id=id
+    side="right"
+    wide=true
+  }}
+    {{#> Pane bg="parchment" nopad=true}}
+      {{#> HeaderRow}}
+        {{#> Row}}
+          {{> CloseButton }}
+          <h3>{{__ (default selectbtn "Select Picture")}}</h3>
+        {{/Row}}
+        {{> PortraitSearchTools }}
+      {{/HeaderRow}}
+
+      {{#> ScrollPane}}
+        {{#> Columns n=2 layout="folders"}}
+          {{#> Column}}
+
+            {{#each items.folders}}
+              <a data-zoom="{{code}}" class="jump-link indent-{{depth}}">
+                {{__ name "Asset Group"}}
+              </a>
+            {{/each}}
+
+          {{/Column}}
+          {{#> Column}}
+
+            {{#> ItemList id=(str "item-list-${id}" id=id)}}
+              {{#each items.displayGroups}}
+                <h3 id="jump--{{code}}">{{__ name "Asset Group"}}</h3>
+                <div class="item-list__group">
+                  {{#each values}}
+                    {{> AssetSelectItem item=this folder=../../folder}}
+                  {{/each}}
+                </div>
+              {{/each}}
+            {{/ItemList}}
+
+          {{/Column}}
+        {{/Columns}}
+      {{/ScrollPane}}
+      
+    {{/Pane}}
+  {{/SideMenu}}
+</template>
+
+<style>
+
+a.jump-link {
+  display: block;
+  margin: 0.5rem;
+  cursor: pointer;
+
+  @for $i from 1 through 6 {
+    &.indent-#{$i} {
+      margin-left: #{$i+1}rem;
+    }
+  }
+}
+
+</style>
+
+<script>
+
+on('.jump-link', 'click', (evt) => {
+  let link = evt.target;
+  let id = `jump--${link.dataset.zoom}`;
+  // let scrollpane = link.closest('.scroll-pane');
+  // scrollpane.scrollTo(0, top);
+  document.getElementById(id).scrollIntoView();
+});
+
+</script>

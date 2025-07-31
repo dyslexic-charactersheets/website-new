@@ -1,0 +1,21 @@
+<template>
+  <div class="lazy">
+    <![CDATA[
+      {{> @partial-block }}
+    ]]>
+  </div>
+</template>
+
+<script>
+all('.lazy', (lazy) => {
+  on(lazy, 'reveal', (evt) => {
+    componentLogger.log("Reveal lazy section");
+  });
+});
+</script>
+
+<style>
+.lazy {
+  display: none;
+}
+</style>

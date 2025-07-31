@@ -20,11 +20,13 @@ on('#form-select-cls', 'form-select:cls', (evt) => {
   console.log('Form select: class', detail);
   set("#build-form", "cls", detail.value);
 
-  for (let btn of document.querySelectorAll(`button[data-id='${detail.value}']`)) {
-    let selects = btn.dataset.selects;
-    set("#build-form", "clsSelects", selects);
-    break;
-  }
+  let selects = detail.meta.selects;
+  set("#build-form", "clsSelects", selects);
+  // for (let btn of document.querySelectorAll(`button[data-id='${detail.value}']`)) {
+  //   let selects = btn.dataset.selects;
+  //   set("#build-form", "clsSelects", selects);
+  //   break;
+  // }
 });
 
 </script>

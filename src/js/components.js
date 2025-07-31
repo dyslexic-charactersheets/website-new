@@ -1,5 +1,5 @@
 let componentLogger = getDebug('components');
-// enableDebug('components');
+enableDebug('components');
 
 
 /// EVENTS
@@ -80,6 +80,7 @@ function set(target, field, value) {
       }
 
     } else {
+      value = str(value);
       switch (field) {
         case 'content':
           if (target.innerHTML == value) {
@@ -98,12 +99,13 @@ function set(target, field, value) {
 
         case 'checked':
         case 'disabled':
-          let checked = bool(value);
-          let existing = bool(target.getAttribute(field))
-          if (existing == checked) {
+          value = bool(value);
+          let existing = bool(target[field])
+          if (existing == value) {
             return;
           }
-          target.toggleAttribute(field, checked);
+          target[field] = value;
+          // target.toggleAttribute(field, value);
           if (field == 'checked') {
             emit(target, 'change');
           }
@@ -121,12 +123,15 @@ function set(target, field, value) {
             return;
           }
           target.dataset[field] = value;
+          break;
       }
     }
   } else {
+    componentLogger.indent();
     all(target, (elem) => {
       set(elem, field, value);
     });
+    componentLogger.outdent();
   }
 }
 
@@ -172,4 +177,20 @@ function deepReplace(element, original, replacement) {
       }
     }
   }
+}
+
+// cf https://stackoverflow.com/a/44670818
+function respondToVisibility(element, callback) {
+  var options = {
+    root: document.documentElement,
+  };
+
+  var observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      callback(entry.intersectionRatio > 0);
+    });
+    observer.disconnect(); // stop observing
+  }, options);
+
+  observer.observe(element);
 }

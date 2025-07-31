@@ -1,0 +1,118 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <div class="portrait-search-tools"
+    data-list="{{for}}">
+    {{#> Row}}
+      {{!--
+      {{> Facet
+        facet="edition"
+        label="Edition"
+        type="select"
+        options=(array
+          (item code="all" name="Any")
+          (item code="pathfinder2" name="Pathfinder 2e Legacy")
+          (item code="pathfinder2remaster" name="Pathfinder 2e Remaster")
+        )
+      }}
+
+      {{> Facet
+        facet="source"
+        label="Source"
+        type="select"
+        options=(array
+          (item code="" name="Any")
+          (item code="core" name="Core")
+          (item code="expansions" name="Expansions")
+          (item code="advetures" name="Adventures")
+          (item code="thirdparty" name="Third-party")
+        )
+      }}
+
+      {{> Facet
+        facet="rarity"
+        label="Rarity"
+        type="select"
+        options=(array
+          (item code="" name="Any")
+          (item code="common" name="Common")
+          (item code="uncommon" name="Uncommon")
+          (item code="rare" name="Rare")
+          (item code="unique" name="Unique")
+        )
+        selected=""
+      }}
+
+      <input type="search" class="facet-search-box" 
+        id="search-{{id}}"
+        autocomplete="off"
+        data-on-change="emit facet-change">
+      --}}
+
+      {{> Facet
+        facet="ancestry"
+        label="Ancestry"
+        type="select"
+        options=portraitData.ancestries
+      }}
+
+      {{> Facet
+        facet="iconic"
+        label="Iconic"
+        type="checkbox"
+      }}
+      
+      <input type="search" class="asset-search-box" 
+        id="search-{{id}}"
+        autocomplete="off"
+        data-on-change="emit facet-change">
+      
+    {{/Row}}
+  </div>
+</template>
+
+<script>
+
+on('.portrait-search-tools', 'change', (evt) => {
+  let searchTools = evt.currentTarget;
+  if (!searchTools.classList.contains('facet-search-tools')) {
+    searchTools = searchTools.closest('.facet-search-tools');
+  }
+
+  let searchParams = {
+    ancestry: '',
+  };
+
+  for (let facet of searchTools.querySelectorAll('.facet-select')) {
+    let value = get(facet, 'value');
+    if (facet.classList.contains('facet-ancestry')) {
+      searchParams.ancestry = value;
+    } else if (facet.classList.contains('facet-source')) {
+      searchParams.source = value;
+    } else if (facet.classList.contains('facet-rarity')) {
+      searchParams.rarity = value;
+    }
+  }
+  for (let searchBox of searchTools.querySelectorAll('.facet-search-box')) {
+    searchParams.search = searchWords(searchBox.value);
+  }
+
+  let listId = searchTools.dataset.list;
+  let list = document.getElementById(listId);
+  updateItemList(list, searchParams);
+});
+
+function searchWords(str) {
+  if (str === undefined || str === null || str == "") {
+    return [];
+  }
+  let words = str.toLowerCase().split(' ');
+  words = words.map((word) => word.trim());
+  words = words.filter((word) => word != "");
+  return words;
+}
+
+</script>

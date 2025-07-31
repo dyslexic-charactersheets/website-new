@@ -1,5 +1,4 @@
 const fs = require('fs');
-const _ = require('lodash');
 const path = require('path');
 
 // quotes
@@ -15,7 +14,7 @@ fs.readFile(assetsDir+'/quotes.txt', 'utf-8', (err, data) => {
     }
     
     var lines = data.split(/\n/);
-    quotes = _(lines).map(line => line.trim())
+    quotes = lines.map(line => line.trim())
         .filter(line => line != "" && !line.match(/^--/) && line.match(/ --by-- /))
         .map(line => {
             var split = line.split(/ --by-- /);
@@ -28,8 +27,7 @@ fs.readFile(assetsDir+'/quotes.txt', 'utf-8', (err, data) => {
                 quote: quote,
                 author: author
             }
-        })
-        .value();
+        });
 
     console.log("[quotes]        Loaded "+quotes.length+" quotes");
 });

@@ -4,28 +4,100 @@
 -->
 
 <template>
-  <div class="page-option{{#if selected}} page-option--selected{{/if}}{{#if size}} page-option--size_{{size}}{{/if}}">
+  <div
+    class="page-option{{#if size}} page-option--size_{{size}}{{/if}}"
+    {{#if radio}}
+    data-bind="pageSelected=#build-form.{{camelCase (str "page-${page}" page=name)}} | eq {{value}}"
+    {{else}}
+    data-bind="pageSelected=#build-form.{{camelCase (str "page-${page}" page=page)}}"
+    {{/if}}
+  >
     <picture>
       <img src="/images/pages/thumb-{{page}}.png">
     </picture>
-    <label>
-      {{#if radio}}
-        <input type="radio" id="page-{{name}}-{{value}}" name="{{name}}" value="{{value}}" {{#if selected}} checked{{/if}}>
-      {{else}}
-        <input type="checkbox" id="page-{{page}}" {{#if selected}} checked{{/if}}>
-      {{/if}}
-      {{label}}
-    </label>
+    {{#if radio}}
+      {{> Radio name=(str "page-${page}" page=(kebabCase name)) var=(camelCase (str "page-${page}" page=name)) value=value checked=checked}}
+    {{else}}
+      {{> Checkbox name=(str "page-${page}" page=(kebabCase page)) var=(camelCase (str "page-${page}" page=page)) checked=checked}}
+    {{/if}}
   </div>
 </template>
 
 <script>
-on(".page-option input[type=checkbox]", "change", (evt) => {
-  let checkbox = evt.target;
-  set("#build-form", checkbox.name, checkbox.checked);
+
+all(".page-option input[type=checkbox]", (checkbox) => {
+  set("#build-form", toCamelCase(checkbox.name), checkbox.checked);
 });
-on(".page-option input[type=radio]", "change", (evt) => {
-  // let radio = evt.target;
-  // set("#build-form", radio.name, value);
+
+on(".page-option img", "click", (evt) => {
+  let img = evt.target;
+  let pageOption = img.closest('.page-option');
+  for (let input of pageOption.querySelectorAll('input')) {
+    input.click();
+  }
 });
 </script>
+
+<style>
+
+@use 'colours';
+@use 'fonts';
+  
+.page-option {
+    /* width: 10rem; */
+    $size: 8rem;
+
+    display: block;
+
+    &[data-page-selected] {
+        picture {
+            opacity: 1;
+        }
+    }
+
+    picture {
+        opacity: 0.7;
+
+        width: $size;
+        height: $size;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            box-shadow: 0 0.1rem 0.25rem colours.$shade;
+            cursor: pointer;
+        }
+    }
+
+    label {
+        display: block;
+        padding: 0.2rem 1.1rem;
+        // text-align: center;
+        @include fonts.small-heading;
+
+        input[type=checkbox], input[type=radio] {
+            float: left;
+            margin-top: 0.3rem;
+            margin-left: -1.1rem;
+        }
+    }
+
+    &.page-option--size_small {
+        picture {
+            padding: 1rem;
+            width: $size - 2rem;
+            height: $size - 2rem;
+        }
+    }
+
+    &.page-option--size_landscape {
+
+    }
+}
+
+</style>

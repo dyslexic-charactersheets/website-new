@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const _ = require('lodash');
+const { has } = require('./util.js');
 
 const games = [
     "pathfinder",
@@ -52,10 +52,10 @@ games.forEach(game => {
                 json.layout = json.layout.map((col) => {
                     return col.map((bk) => {
                         var book = books[bk];
-                        if (!_.has(book, "displayName"))
+                        if (!has(book, "displayName"))
                             book.displayName = book.name;
                         book.classes = book.classes.map((cls) => {
-                            if (!_.has(classes, cls)) {
+                            if (!has(classes, cls)) {
                                 console.log("[data]          Missing class: "+cls);
                                 return null;
                             } else {
@@ -89,7 +89,7 @@ games.forEach(game => {
 });
 
 module.exports = function (game) {
-    if (_.has(gameData, game))
+    if (has(gameData, game))
         return gameData[game];
     return {
         

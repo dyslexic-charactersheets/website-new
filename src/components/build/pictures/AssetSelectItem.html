@@ -1,0 +1,17 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  {{#> Button 
+    id=(str "item-${code}" code=item.code)
+    type="tile-light"
+    on-click=(str "emit form-select,close-menu ${code}" code=item.code)
+    data=(de_i18n item.meta)
+  }}
+    {{{dump ../item}}}
+    {{> Picture src=(str "/${folder}/${code}.png" code=item.code folder=folder) size="tile" transparent=true lazy=true}}
+    <h4>{{__ item.name}}</h4>
+  {{/Button}}
+</template>

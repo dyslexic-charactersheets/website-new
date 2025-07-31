@@ -28,19 +28,24 @@
 
           {{#> Reveal id="pf2-edition"}}
             {{#> Row align="centre"}}
-              {{#> Button type="primary" href="build-pathfinder2?edition=pathfinder2"}}
-                {{__ "Legacy"}}
-              {{/Button}}
-              {{#> Button type="primary" href="build-pathfinder2?edition=pathfinder2remaster"}}
-                {{__ "Remaster"}}
-              {{/Button}}
+              <div>
+                {{> Picture src="/images/pathfinder2e-legacy.png" size="tile-small"}}
+                {{#> Button type="primary" href="build-pathfinder2?edition=pathfinder2"}}
+                  {{__ "Legacy"}}
+                {{/Button}}
+              </div><div>
+                {{> Picture src="/images/pathfinder2e-remaster.png" size="tile-small"}}
+                {{#> Button type="primary" href="build-pathfinder2?edition=pathfinder2remaster"}}
+                  {{__ "Remaster"}}
+                {{/Button}}
+              </div>
             {{/Row}}
             
-            {{#> Row align="centre" pad=true}}
+            {{!-- {{#> Row align="centre" pad=true}}
               {{#> Button type="primary" href="build-pathfinder2?edition=both"}}
                 {{__ "Both"}}
               {{/Button}}
-            {{/Row}}
+            {{/Row}} --}}
           {{/Reveal}}
 
           {{#> Button type="tile" href="build-starfinder1" badge="1e"}}

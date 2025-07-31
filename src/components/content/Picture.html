@@ -4,18 +4,26 @@
 -->
 
 <template>
-  <picture class="{{#if size}}picture--size_{{size}}{{/if}} {{#if transparent}}picture--transparent{{/if}}">
-    <img src="{{src}}">
+  <picture class="{{#if size}}picture--size_{{size}}{{/if}} {{#if lazy}}picture--lazy{{/if}} {{#if transparent}}picture--transparent{{/if}}">
+    <img {{#if lazy}}data-src="{{src}}"{{else}}src="{{src}}"{{/if}}>
+    {{#if credit}}
+    <div class="picture__credit">
+      {{> @partial-block }}
+    </div>
+    {{/if}}
   </picture>
 </template>
 
 <style>
+
+@use 'colours';
 
 picture {
   flex: 1 1 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   
   img, .btn & .img {
     flex: 1 1 auto;
@@ -49,6 +57,11 @@ picture {
     max-height: 22rem;
   }
 
+  &.picture--size_tile-small {
+    max-width: 12rem;
+    max-height: 12rem;
+  }
+
   &.picture--transparent {
     mix-blend-mode: darken;
   }
@@ -67,9 +80,34 @@ picture {
       object-position: 50% 50%;
     }
   }
+
+  .picture__credit {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 3px;
+    background: colours.$light;
+    color: colours.$light-text;
+
+    a {
+      color: colours.$v-light-text;
+    }
+  }
 }
 
 button > picture {
   /* width: 100%; */
 }
 </style>
+
+<script>
+all('.picture--lazy', (picture) => {
+  let img = picture.querySelector('img');
+  respondToVisibility(picture, () => {
+    img.src = img.dataset.src;
+    delete img.dataset.src;
+    picture.classList.remove('picture--lazy');
+  });
+});
+</script>

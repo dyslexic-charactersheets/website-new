@@ -4,16 +4,16 @@
 -->
 
 <template>
-  {{#if (not (or inmenu (eq page "index")))}}<nav class="nav--row" id="home-link">
+  {{#if (not (or inmenu (eq page "index")))}}<nav class="nav--row" id="home-link" aria-label="">
     <a href="/{{lang}}/" class="btn btn--min">
-      <img src="/images/favicon64.png">
+      <img src="/images/favicon64.png" alt="D20 logo">
       Dyslexic Character Sheets
     </a>
   </nav>{{/if}}
   <nav class="nav--row">
-    {{#> Button type="icon" on-click="body.currentMenu = main-menu"}}☰{{/Button}}
-    {{#> Button type="light" on-click="body.currentMenu = language-menu"}}{{> Icon icon="globe"}}{{ lang }}{{/Button}}
-    {{#> Button type="light" on-click="body.currentMenu = login-menu"}}{{> Icon icon="user"}}{{__ "Login"}}{{/Button}}
+    {{#> Button type="borderless" on-click="body.currentMenu = main-menu"}}☰{{/Button}}
+    {{#> Button type="borderless" on-click="body.currentMenu = language-menu"}}{{> Icon icon="globe"}}{{ upperCase lang }}{{/Button}}
+    {{#> Button type="borderless" on-click="body.currentMenu = login-menu" cls="login-menu-button"}}{{> Icon icon="user"}}{{__ "Login"}}{{/Button}}
     <div class="spacer"></div>
     {{#if inmenu}}{{> CloseButton }}{{/if}}
   </nav>
@@ -21,8 +21,34 @@
 
 <style>
 
+@use 'colours';
+
+/* .main-nav {
+  background-color: colours.$pale;
+  border: 1px solid colours.$shade;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px colours.$shade;
+
+  margin-right: -20px;
+  z-index: 100;
+  padding: 2px 10px 6px;
+} */
+
+/* #main-menu .main-nav {
+  background-color: transparent;
+  border: 0 none;
+  box-shadow: none;
+} */
+
 #home-link {
   padding-bottom: 10px;
 }
 
 </style>
+
+<script>
+// replace the Login button after page load if we're logged in
+if (isLoggedIn()) {
+  console.log("Logged in!");
+}
+</script>

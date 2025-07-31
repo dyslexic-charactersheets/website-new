@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title>D&amp;D 3.5e - Dyslexic Character Sheets</title>
@@ -16,9 +16,9 @@
 <main class="main--layout_build main--theme_adventurer">
     <section id="left">
         <div class="pane pane--bg_parchment pane--shadow_left light-region ">
-                  <nav class="nav--row" id="home-link">
+                  <nav class="nav--row" id="home-link" aria-label="">
                       <a href="/es/" class="btn btn--min">
-                        <img src="/images/favicon64.png">
+                        <img src="/images/favicon64.png" alt="D20 logo">
                         Dyslexic Character Sheets
                       </a>
                     </nav>
@@ -26,7 +26,7 @@
                           <button 
                         type="button"
                         
-                        class="btn btn--icon " 
+                        class="btn btn--borderless " 
                         data-on-click="body.currentMenu &#x3D; main-menu"
                         
                       >
@@ -36,17 +36,17 @@
                           <button 
                         type="button"
                         
-                        class="btn btn--light " 
+                        class="btn btn--borderless " 
                         data-on-click="body.currentMenu &#x3D; language-menu"
                         
                       >
-                        <i class="icon icon_globe"></i>es      
+                        <i class="icon icon_globe"></i>ES      
                       </button>
                   
                           <button 
                         type="button"
                         
-                        class="btn btn--light " 
+                        class="btn btn--borderless login-menu-button" 
                         data-on-click="body.currentMenu &#x3D; login-menu"
                         
                       >
@@ -209,7 +209,9 @@
                       <div class="slideshow-buttons"
                           data-for="slides-character"
                         >
-                      <div class="row align_centre">
+                      <div 
+                          class="row align_centre"
+                        >
                               <button 
                                 type="button"
                                 
@@ -223,7 +225,9 @@
                                 
                               </button>
                         </div>    
-                      <div class="row align_centre">
+                      <div 
+                          class="row align_centre"
+                        >
                               <button 
                                 type="button"
                                 
@@ -241,6 +245,8 @@
                       class="slideshow
                         slideshow--v
                         
+                        
+                        
                         "
                       id="slides-character" 
                       data-jump="start"
@@ -253,11 +259,15 @@
                             
                           >
                             <div class="slide__inner ">
-                              <div class="row align_centre">
-                                                <picture class="picture--size_logo ">
+                              <div 
+                                  class="row align_centre"
+                                >
+                                                <picture class="picture--size_logo  ">
                                                     <img src="/images/dnd35.png">
                                                   </picture>  </div>
-                              <div class="row pad">
+                              <div 
+                                  class="row pad"
+                                >
                                               <div class="spacer"></div>            <p>
                                                 Language:
                                       <button 
@@ -281,7 +291,7 @@
                                         data-on-click="#switch-milestones.current&#x3D;character; #switch-character.current&#x3D;character; #slides-character.jump&#x3D;class"
                                         
                                       >
-                                                        <picture class="picture--size_tile ">
+                                                        <picture class="picture--size_tile  ">
                                                             <img src="/images/single.png">
                                                           </picture>              <h3>Character</h3>
                                         
@@ -294,7 +304,7 @@
                                         data-on-click="#switch-milestones.current&#x3D;gm; #switch-character.current&#x3D;gm; #slides-character.jump&#x3D;gm"
                                         
                                       >
-                                                        <picture class="picture--size_tile ">
+                                                        <picture class="picture--size_tile  ">
                                                             <img src="/images/gm.png">
                                                           </picture>              <h3>GM</h3>
                                         
@@ -701,7 +711,9 @@
                                                                     </ul>
                                               
                                             </div>  </div>            </div>
-                                <div class="row align_right">
+                                <div 
+                                    class="row align_right"
+                                  >
                                         <button 
                                           type="button"
                                           id="switch-character"
@@ -771,7 +783,9 @@
                                               <div class="repeatable" id="perform-skills" data-max="10" data-next="2">
                                                   <div class="repeatable__area">
                                                       <div class="repeatable__instance" data-instance="0">
-                                              <div class="row">
+                                              <div 
+                                                  class="row"
+                                                >
                                                                   <button 
                                                         type="button"
                                                         
@@ -797,7 +811,9 @@
                                                   </div>
                                                   <TEMPLATE>
                                                     <div class="repeatable__instance" data-instance="">
-                                              <div class="row">
+                                              <div 
+                                                  class="row"
+                                                >
                                                                 <button 
                                                         type="button"
                                                         id="perform-skills"
@@ -821,7 +837,9 @@
                                                                                       </select>
                                                 </div>      </div>
                                                   </TEMPLATE>
-                                              <div class="row">
+                                              <div 
+                                                  class="row"
+                                                >
                                                             <button 
                                                         type="button"
                                                         id="perform-skills"
@@ -832,7 +850,7 @@
                                                         +      
                                                       </button>
                                                   
-                                                        <label id="repeatble__more-label"></label>
+                                                        <label id="repeatable__more-label">+</label>
                                                 </div>  </div>                      </td>
                                                                   </tr>
                                               
@@ -841,7 +859,9 @@
                                               <div class="repeatable" id="craft-skills-{{number}}" data-max="10" data-next="2">
                                                   <div class="repeatable__area">
                                                       <div class="repeatable__instance" data-instance="0">
-                                              <div class="row">
+                                              <div 
+                                                  class="row"
+                                                >
                                                                   <button 
                                                         type="button"
                                                         
@@ -882,7 +902,9 @@
                                                   </div>
                                                   <TEMPLATE>
                                                     <div class="repeatable__instance" data-instance="">
-                                              <div class="row">
+                                              <div 
+                                                  class="row"
+                                                >
                                                                 <button 
                                                         type="button"
                                                         id="craft-skills-{{number}}"
@@ -921,7 +943,9 @@
                                                                                       </select>
                                                 </div>      </div>
                                                   </TEMPLATE>
-                                              <div class="row">
+                                              <div 
+                                                  class="row"
+                                                >
                                                             <button 
                                                         type="button"
                                                         id="craft-skills-{{number}}"
@@ -932,7 +956,7 @@
                                                         +      
                                                       </button>
                                                   
-                                                        <label id="repeatble__more-label"></label>
+                                                        <label id="repeatable__more-label">+</label>
                                                 </div>  </div>                      </td>
                                                                   </tr>
                                               
@@ -941,7 +965,9 @@
                                               <div class="repeatable" id="profession-skills" data-max="10" data-next="2">
                                                   <div class="repeatable__area">
                                                       <div class="repeatable__instance" data-instance="0">
-                                              <div class="row">
+                                              <div 
+                                                  class="row"
+                                                >
                                                                   <button 
                                                         type="button"
                                                         
@@ -988,7 +1014,9 @@
                                                   </div>
                                                   <TEMPLATE>
                                                     <div class="repeatable__instance" data-instance="">
-                                              <div class="row">
+                                              <div 
+                                                  class="row"
+                                                >
                                                                 <button 
                                                         type="button"
                                                         id="profession-skills"
@@ -1033,7 +1061,9 @@
                                                                                     </select>
                                                 </div>      </div>
                                                   </TEMPLATE>
-                                              <div class="row">
+                                              <div 
+                                                  class="row"
+                                                >
                                                             <button 
                                                         type="button"
                                                         id="profession-skills"
@@ -1044,7 +1074,7 @@
                                                         +      
                                                       </button>
                                                   
-                                                        <label id="repeatble__more-label"></label>
+                                                        <label id="repeatable__more-label">+</label>
                                                 </div>  </div>                    </td>
                                                                 </tr>
                                                                 </table>
@@ -1068,7 +1098,9 @@
                                                                   <label for="mini-large"><input type="radio" name="mini-size" value="large" id="mini-large"> Large</label>
                                                                 </p>
                                               
-                                            </div>  </div><div class="row align_right">
+                                            </div>  </div><div 
+                                    class="row align_right"
+                                  >
                                         <button 
                                           type="button"
                                           id="switch-character"
@@ -1093,14 +1125,14 @@
                                               
                                                               <h3>Portrait</h3>
                                                               <div class="image-drop image-drop--shape_portrait" id="portrait">
-                                                                  <input type="hidden" name="portrait" id="data-portrait"/>
+                                                                  <input type="hidden" name="portrait" id="data-image-portrait" autocomplete="off"/>
                                                                     <p>Select or drop portrait</p>
                                                                   <img src="/images/generic.png">
                                                                   <button 
                                                                     type="button"
                                                                     id="portrait"
                                                                     class="btn btn--primary " 
-                                                                    data-on-click="select-image"
+                                                                    data-on-click="emit select-image"
                                                                     
                                                                   >
                                                                             Select portrait
@@ -1111,14 +1143,14 @@
                                               
                                                               <h3>Logo</h3>
                                                               <div class="image-drop image-drop--shape_logo" id="logo">
-                                                                  <input type="hidden" name="logo" id="data-logo"/>
+                                                                  <input type="hidden" name="logo" id="data-image-logo" autocomplete="off"/>
                                                                     <p>Select or drop logo</p>
                                                                   <img src="">
                                                                   <button 
                                                                     type="button"
                                                                     id="logo"
                                                                     class="btn btn--primary " 
-                                                                    data-on-click="select-image"
+                                                                    data-on-click="emit select-image"
                                                                     
                                                                   >
                                                                             Select logo
@@ -1129,7 +1161,9 @@
                                                                 <p><label for='has-watermark'><input type="checkbox" name="has-watermark" id="has-watermark" /> Watermark every page</label></p>
                                                                 <p><input type='text' name='watermark' id='watermark' class='well' placeholder='YOUR MESSAGE' /></p>
                                               
-                                            </div>  </div><div class="row align_right">
+                                            </div>  </div><div 
+                                    class="row align_right"
+                                  >
                                         <button 
                                           type="button"
                                           id="switch-character"
@@ -1155,7 +1189,7 @@
                                                     <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
                                       
                                                   <h2>Printing Colour</h2>
-                                                    <div class="colour-grid">
+                                                    <div class="colour-picker">
                                                     <div class="columns columns--n_3">
                                                         <div class="column">
                                                                     <label class="colour-picker-light" for="colour-light"><span><input type="radio" id="colour-light" name="colour" value="light"/></span> Lighter</label>
@@ -1174,7 +1208,9 @@
                                                                     <label class="colour-picker-pink" for="colour-pink"><span><input type="radio" id="colour-pink" name="colour" value="pink"></span> Pink</label>
                                                           </div>  </div>  </div>
                                                   <h2>Download</h2>
-                                      <div class="row align_centre pad">
+                                      <div 
+                                          class="row align_centre pad"
+                                        >
                                               <button 
                                                 type="button"
                                                 id="download-character"
@@ -1208,7 +1244,7 @@
                                                 data-on-click="#gm-pick.value&#x3D;characters; #switch-gm.current&#x3D;characters; #slides-character.jump&#x3D;gm-options"
                                                 
                                               >
-                                                                  <picture class="picture--size_gm-tile ">
+                                                                  <picture class="picture--size_gm-tile  ">
                                                                       <img src="/images/gm-characters.png">
                                                                     </picture>                <h3>Characters and NPCs</h3>
                                                 
@@ -1221,7 +1257,7 @@
                                                 data-on-click="#gm-pick.value&#x3D;maps; #switch-gm.current&#x3D;maps; #slides-character.jump&#x3D;gm-options"
                                                 
                                               >
-                                                                  <picture class="picture--size_gm-tile ">
+                                                                  <picture class="picture--size_gm-tile  ">
                                                                       <img src="/images/gm-maps.png">
                                                                     </picture>                <h3>Exploration Maps</h3>
                                                 
@@ -1234,13 +1270,15 @@
                                                 data-on-click="#gm-pick.value&#x3D;campaign; #switch-gm.current&#x3D;campaign; #slides-character.jump&#x3D;gm-options"
                                                 
                                               >
-                                                                  <picture class="picture--size_gm-tile ">
+                                                                  <picture class="picture--size_gm-tile  ">
                                                                       <img src="/images/gm-campaign.png">
                                                                     </picture>                  <h3>Campaign Planning</h3>
                                                 
                                               </button>
                                           
-                                        </div><div class="row align_right">
+                                        </div><div 
+                                    class="row align_right"
+                                  >
                                         <button 
                                           type="button"
                                           id="switch-character"
@@ -1297,7 +1335,9 @@
                                                               <h2>Campaign</h2>
                                                               <p>History timelines and other sheets for planning a game.</p>
                                             </div>              
-                                        </div><div class="row align_right">
+                                        </div><div 
+                                    class="row align_right"
+                                  >
                                         <button 
                                           type="button"
                                           id="switch-character"
@@ -1322,7 +1362,7 @@
                                                     <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
                                       
                                                   <h2>Printing Colour</h2>
-                                                    <div class="colour-grid">
+                                                    <div class="colour-picker">
                                                     <div class="columns columns--n_3">
                                                         <div class="column">
                                                                     <label class="colour-picker-light" for="gm-colour-light"><span><input type="radio" id="gm-colour-light" name="gm-colour" value="light"/></span> Lighter</label>
@@ -1341,7 +1381,9 @@
                                                                     <label class="colour-picker-pink" for="gm-colour-pink"><span><input type="radio" id="gm-colour-pink" name="gm-colour" value="pink"></span> Pink</label>
                                                           </div>  </div>  </div>
                                                   <h2>Download</h2>
-                                      <div class="row align_centre pad">
+                                      <div 
+                                          class="row align_centre pad"
+                                        >
                                               <button 
                                                 type="button"
                                                 id="download-gm"
@@ -1373,7 +1415,9 @@
                                                       Large</label></p>
                                                     <p><label for="settlement-style-plain"><input type="radio" name="settlement-style" value="plain" id="settlement-style-plain" />
                                                       Without map</label></p>
-                                <div class="row align_right">
+                                <div 
+                                    class="row align_right"
+                                  >
                                         <button 
                                           type="button"
                                           id="switch-character"
@@ -1398,7 +1442,7 @@
                                                     <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
                                       
                                                   <h2>Printing Colour</h2>
-                                                    <div class="colour-grid">
+                                                    <div class="colour-picker">
                                                     <div class="columns columns--n_3">
                                                         <div class="column">
                                                                     <label class="colour-picker-light" for="kingdom-colour-light"><span><input type="radio" id="kingdom-colour-light" name="kingdom-colour" value="light"/></span> Lighter</label>
@@ -1417,7 +1461,9 @@
                                                                     <label class="colour-picker-pink" for="kingdom-colour-pink"><span><input type="radio" id="kingdom-colour-pink" name="kingdom-colour" value="pink"></span> Pink</label>
                                                           </div>  </div>  </div>
                                                   <h2>Download</h2>
-                                      <div class="row align_centre pad">
+                                      <div 
+                                          class="row align_centre pad"
+                                        >
                                               <button 
                                                 type="button"
                                                 id="download-kingdom"
@@ -1447,7 +1493,7 @@
                                                     <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
                                       
                                                   <h3>Printing Colour</h3>
-                                                    <div class="colour-grid">
+                                                    <div class="colour-picker">
                                                     <div class="columns columns--n_3">
                                                         <div class="column">
                                                                     <label class="colour-picker-light" for="starship-colour-light"><span><input type="radio" id="starship-colour-light" name="starship-colour" value="light"/></span> Lighter</label>
@@ -1466,7 +1512,9 @@
                                                                     <label class="colour-picker-pink" for="starship-colour-pink"><span><input type="radio" id="starship-colour-pink" name="starship-colour" value="pink"></span> Pink</label>
                                                           </div>  </div>  </div>
                                                   <h3>Download</h3>
-                                      <div class="row align_centre pad">
+                                      <div 
+                                          class="row align_centre pad"
+                                        >
                                               <button 
                                                 type="button"
                                                 id="download-starship"
@@ -1496,14 +1544,14 @@
                                               
                                                               <h3>Portrait</h3>
                                                               <div class="image-drop image-drop--shape_portrait" id="mini-portrait">
-                                                                  <input type="hidden" name="mini-portrait" id="data-mini-portrait"/>
+                                                                  <input type="hidden" name="mini-portrait" id="data-image-mini-portrait" autocomplete="off"/>
                                                                     <p>Select or drop portrait</p>
                                                                   <img src="/images/generic.png">
                                                                   <button 
                                                                     type="button"
                                                                     id="mini-portrait"
                                                                     class="btn btn--primary " 
-                                                                    data-on-click="select-image"
+                                                                    data-on-click="emit select-image"
                                                                     
                                                                   >
                                                                             Select portrait
@@ -1522,7 +1570,9 @@
                                                                 <label for="mini-mini-medium"><input type="radio" name="mini-mini-size" value="medium" id="mini-mini-medium" checked> Medium</label>&nbsp; 
                                                                 <label for="mini-mini-large"><input type="radio" name="mini-mini-size" value="large" id="mini-mini-large"> Large</label>
                                                               </p>
-                                            </div>  </div><div class="row align_right">
+                                            </div>  </div><div 
+                                    class="row align_right"
+                                  >
                                         <button 
                                           type="button"
                                           id="switch-character"
@@ -1547,7 +1597,7 @@
                                                     <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
                                       
                                                   <h2>Printing Colour</h2>
-                                                    <div class="colour-grid">
+                                                    <div class="colour-picker">
                                                     <div class="columns columns--n_3">
                                                         <div class="column">
                                                                     <label class="colour-picker-light" for="mini-colour-light"><span><input type="radio" id="mini-colour-light" name="mini-colour" value="light"/></span> Lighter</label>
@@ -1566,7 +1616,9 @@
                                                                     <label class="colour-picker-pink" for="mini-colour-pink"><span><input type="radio" id="mini-colour-pink" name="mini-colour" value="pink"></span> Pink</label>
                                                           </div>  </div>  </div>
                                                   <h2>Download</h2>
-                                      <div class="row align_centre pad">
+                                      <div 
+                                          class="row align_centre pad"
+                                        >
                                               <button 
                                                 type="button"
                                                 id="download-mini"
@@ -1599,7 +1651,7 @@
                         <button 
                       type="button"
                       id="main-menu"
-                      class="btn btn--icon " 
+                      class="btn btn--borderless " 
                       data-on-click="body.currentMenu &#x3D; main-menu"
                       
                     >
@@ -1609,17 +1661,17 @@
                         <button 
                       type="button"
                       id="main-menu"
-                      class="btn btn--light " 
+                      class="btn btn--borderless " 
                       data-on-click="body.currentMenu &#x3D; language-menu"
                       
                     >
-                      <i class="icon icon_globe"></i>es      
+                      <i class="icon icon_globe"></i>ES      
                     </button>
                 
                         <button 
                       type="button"
                       id="main-menu"
-                      class="btn btn--light " 
+                      class="btn btn--borderless login-menu-button" 
                       data-on-click="body.currentMenu &#x3D; login-menu"
                       
                     >
@@ -1729,7 +1781,7 @@
                         <button 
                       type="button"
                       id="language-menu"
-                      class="btn btn--icon " 
+                      class="btn btn--borderless " 
                       data-on-click="body.currentMenu &#x3D; main-menu"
                       
                     >
@@ -1739,17 +1791,17 @@
                         <button 
                       type="button"
                       id="language-menu"
-                      class="btn btn--light " 
+                      class="btn btn--borderless " 
                       data-on-click="body.currentMenu &#x3D; language-menu"
                       
                     >
-                      <i class="icon icon_globe"></i>es      
+                      <i class="icon icon_globe"></i>ES      
                     </button>
                 
                         <button 
                       type="button"
                       id="language-menu"
-                      class="btn btn--light " 
+                      class="btn btn--borderless login-menu-button" 
                       data-on-click="body.currentMenu &#x3D; login-menu"
                       
                     >
@@ -1814,7 +1866,7 @@
                         <button 
                       type="button"
                       id="login-menu"
-                      class="btn btn--icon " 
+                      class="btn btn--borderless " 
                       data-on-click="body.currentMenu &#x3D; main-menu"
                       
                     >
@@ -1824,17 +1876,17 @@
                         <button 
                       type="button"
                       id="login-menu"
-                      class="btn btn--light " 
+                      class="btn btn--borderless " 
                       data-on-click="body.currentMenu &#x3D; language-menu"
                       
                     >
-                      <i class="icon icon_globe"></i>es      
+                      <i class="icon icon_globe"></i>ES      
                     </button>
                 
                         <button 
                       type="button"
                       id="login-menu"
-                      class="btn btn--light " 
+                      class="btn btn--borderless login-menu-button" 
                       data-on-click="body.currentMenu &#x3D; login-menu"
                       
                     >
@@ -1878,7 +1930,7 @@
                         <button 
                       type="button"
                       id="contact-menu"
-                      class="btn btn--icon " 
+                      class="btn btn--borderless " 
                       data-on-click="body.currentMenu &#x3D; main-menu"
                       
                     >
@@ -1888,17 +1940,17 @@
                         <button 
                       type="button"
                       id="contact-menu"
-                      class="btn btn--light " 
+                      class="btn btn--borderless " 
                       data-on-click="body.currentMenu &#x3D; language-menu"
                       
                     >
-                      <i class="icon icon_globe"></i>es      
+                      <i class="icon icon_globe"></i>ES      
                     </button>
                 
                         <button 
                       type="button"
                       id="contact-menu"
-                      class="btn btn--light " 
+                      class="btn btn--borderless login-menu-button" 
                       data-on-click="body.currentMenu &#x3D; login-menu"
                       
                     >

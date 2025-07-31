@@ -4,12 +4,18 @@
 -->
 
 <template>
-  <p><label for="{{name}}">
-    <input type='checkbox' name='{{name}}' id='{{name}}'
-      data-bind="checked=#build-form.{{var}}"
-      data-var="{{var}}"
-      autocomplete="off"
-    > {{__ label}}</label></label></p>
+  {{#if (default p true)}}<p>{{/if}}
+    <label for="{{name}}">
+      <input
+        type="checkbox"
+        name="{{name}}"
+        id="{{name}}"
+        {{#if checked}}checked{{/if}}
+        data-bind="checked=#build-form.{{var}}"
+        data-var="{{var}}"
+        autocomplete="off"
+      > {{__ label}}</label>
+  {{#if (default p true)}}</p>{{/if}}
 </template>
 
 <script>
@@ -20,5 +26,13 @@ on("input[type='checkbox']", "change", (evt) => {
     set("#build-form", checkbox.dataset.var, checkbox.checked);
   }
 });
+
+// pre-fill form data with current selection for all radio groups
+// all("input[type='checkbox']:checked", (checkbox) => {
+//   let rvar = checkbox.dataset.var;
+//   if (isString(rvar) && rvar != "") {
+//     set("#build-form", rvar, true);
+//   }
+// });
 
 </script>

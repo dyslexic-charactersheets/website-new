@@ -21,12 +21,21 @@ function readPf2Form(type) {
     type,
     id,
     attributes: {
-      game: 'pathfinder2',
+      game: edition,
+      isLoggedIn: isLoggedIn(),
       edition: edition,
       language: document.getElementById("body").dataset.language,
       classes: []
     }
   };
+
+  function getInputValue(id) {
+    let input = document.getElementById(id);
+    if (input === undefined || input === null) {
+      return null;
+    }
+    return input.value;
+  }
 
   function readMultiselect(code) {
     let values = [];
@@ -82,9 +91,11 @@ function readPf2Form(type) {
       character.attributes['class'] = dataset.cls;
 
       // subclass and/or feats
-      for (let sel of dataset.clsSelects.split(',')) {
-        let selectkey = toCamelCase(sel.replaceAll('/', '-'));
-        character.attributes[sel] = dataset[selectkey];
+      if ('clsSelects' in dataset) {
+        for (let sel of dataset.clsSelects.split(',')) {
+          let selectkey = toCamelCase(sel.replaceAll('/', '-'));
+          character.attributes[sel] = dataset[selectkey];
+        }
       }
 
       character.attributes.multiclass = readMultiselect("multiclass");
@@ -92,27 +103,97 @@ function readPf2Form(type) {
       character.attributes.archetypes = readMultiselect("archetype");
       // TODO sub-archetype
       
-      // character.optionCover = 
       character.attributes.feats = [];
       if (readBoolean("featDiehard")) {
         character.attributes.feats.push("diehard");
       }
 
-      // character.attributes.optionPermission: true,
-      // character.attributes.optionCover = readBoolean(""),
-      // character.attributes.optionReference": true,
-      // character.attributes.optionBuild": true,
-      // character.attributes.optionMinis": true,
-      // character.attributes.optionBackground: true,
-      // character.attributes.optionLevelUp: true,
-      // character.attributes.optionColourful: true,
+      character.attributes.optionPermission = readBoolean("pagePermission");
+      character.attributes.optionCover = readBoolean("pageCover");
+      character.attributes.optionReference = readBoolean("pageReference"),
+      character.attributes.optionActions = readBoolean("pageActions");
+      character.attributes.optionBuild = readBoolean("pageBuild"),
+      character.attributes.optionMinis = readBoolean("pageMinis");
+      character.attributes.miniSize = dataset["pageSizeMini"];
+
+      character.attributes.optionCharacterBackground = readBoolean("pageCharacterBackground");
+      character.attributes.optionLevelUp = readBoolean("pageLevelUp");
       // character.attributes.optionPfs: false,
+
+      // character.attributes.optionInventory = dataset["pageInventory"];
+      character.attributes.inventoryStyle = dataset["pageInventory"];
+      character.attributes.optionInventoryExtra = readBoolean("pageInventoryExtra");
+      character.attributes.optionAnimalCompanion = readBoolean("pageAnimalCompanion");
+      character.attributes.optionFamiliar = readBoolean("pageFamiliar");
+      character.attributes.optionConstruct = readBoolean("pageConstruct");
+
       character.attributes.optionFreeArchetype = readBoolean("optionFreeArchetype");
-      character.attributes.optionAncestryParagon = readBoolean("ancestry-paragon");
+      character.attributes.optionAncestryParagon = readBoolean("ancestryParagon");
       character.attributes.optionAutomaticBonusProgression = readBoolean("automaticBonusProgression");
       character.attributes.optionAutomaticWeaponProgression = readBoolean("automaticWeaponProgression");
       character.attributes.optionProficiencyWithoutLevel = readBoolean("proficiencyWithoutLevel");
       break;
+
+    case 'gm':
+      break;
+
+    case 'kingmaker':
+      break;
+
+    case 'mini':
+      break;
+
+    default:
+      return null;
+  }
+
+  // appearance
+  switch (dataset.pageBackground) {
+    case 'magnolia':
+      character.attributes.printBackground = 'magnolia';
+      break;
+    case 'parchment':
+      character.attributes.printBackground = 'backgrounds/paper3.jpg';
+      break;
+    case 'frost':
+      character.attributes.printBackground = 'backgrounds/frost1.jpg';
+      break;
+  }
+
+  character.attributes.printColour = dataset.baseColour;
+  character.attributes.accentColour = dataset.accentColour;
+  character.attributes.printBrightness = dataset.printBrightness;
+  character.attributes.printWatermark = dataset.watermark;
+
+  // accessibility
+  character.attributes.printHighContrast = readBoolean("highContrast");
+  character.attributes.printLarge = readBoolean("largePrint");
+  character.attributes.optionColourful = readBoolean("colourful");
+  character.attributes.printDyslexic = readBoolean("dyslexic");
+  if (character.attributes.printDyslexic) {
+    character.attributes.printDyslexicFont = dataset.dyslexicFont;
+  }
+
+  // images
+  switch (type) {
+    // Character pages
+    case 'character':
+      mapImage('printPortrait', getInputValue('data-image-portrait'));
+      mapImage('printLogo', getInputValue('data-image-logo'));
+      mapImage('printAnimal', getInputValue('data-image-animal'));
+      break;
+
+    case 'gm':
+      break;
+
+    case 'kingmaker':
+      break;
+
+    case 'mini':
+      break;
+
+    default:
+      return null;
   }
 
   // make the full request object

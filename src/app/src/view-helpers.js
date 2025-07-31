@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const message = require('./message');
 module.exports = function (conf, i18n, quotes) {
     var msg = message(conf);
@@ -109,7 +108,7 @@ module.exports = function (conf, i18n, quotes) {
 
         pdfUrl: function (game) {
             var url = conf('build_url');
-            if (_.isNull(url)) url = conf('url');
+            if (isNull(url)) url = conf('url');
             return url+'download/'+game;
         },
 

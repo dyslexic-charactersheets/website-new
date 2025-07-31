@@ -1,0 +1,85 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <div class="item-list {{#if show}}item-list--{{default show 'small'}}{{/if}}" id="{{id}}">
+    {{> @partial-block }}
+  </div>
+</template>
+
+<script>
+  
+function updateItemList(list, searchParams) {
+  if (list === null) {
+    return;
+  }
+  // hide buttons that don't match the query params
+  for (let btn of list.querySelectorAll('.btn')) {
+    let meta = btn.dataset;
+    let visible = itemMatchesSearchParams(meta, searchParams);
+    btn.classList.toggle('btn--hidden', !visible);
+  }
+  // hide groups with no visible results
+  for (let grp of list.querySelectorAll('.item-list__group')) {
+    let hasAny = false;
+    for (let btn of grp.querySelectorAll('.btn')) {
+      if (!btn.classList.contains('btn--hidden')) {
+        hasAny = true;
+      }
+    }
+    grp.classList.toggle('item-list__group--hidden', !hasAny);
+    grp.previousElementSibling.classList.toggle('h3--hidden', !hasAny);
+  }
+}
+
+function itemMatchesSearchParams(item, params) {
+  if ('edition' in params && params.edition != "" && params.edition != "all" && 'edition' in item && item.edition != params.edition) {
+    return false;
+  }
+
+  if ('source' in params && params.source != "" && 'source' in item && item.source != params.source) {
+    return false;
+  }
+
+  if ('rarity' in params && params.rarity != "" && 'rarity' in item && item.rarity != params.rarity) {
+    return false;
+  }
+
+  if ('search' in params && params.search != "" && 'name' in item) {
+    let content = item.name.toLowerCase();
+    for (let word of params.search) {
+      if (content.match(word)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  return true;
+}
+
+</script>
+
+<style>
+.item-list {
+  .item-list__group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 1rem;
+    gap: 1rem;
+
+    &.item-list__group--hidden {
+      display: none !important;
+    }
+  }
+
+  h3.h3--hidden {
+    display: none !important;
+  }
+}
+</style>

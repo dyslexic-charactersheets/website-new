@@ -47,6 +47,21 @@ function getDebug(zone) {
 function enableDebug(zone) {
   debugSettings[zone] = true;
 }
+function has(container, property) {
+  if (isNull(container)) return false;
+  return Object.prototype.hasOwnProperty.call(container, property) && !isNull(container[property]);
+}
+
+function str(val) {
+  if (val === undefined || val === null) return "";
+  if (typeof val === 'string' || val instanceof String) return val;
+  if (val === false) return "false";
+  if (val === true) return "true";
+  
+  console.log("How to make a string?", val);
+  return "?";
+}
+
 function bool(val) {
   if (val === true) return true;
   if (val === false) return false;
@@ -69,6 +84,10 @@ function toKebabCase(str) {
   words = words.map(word => word.toLowerCase());
   words = words.filter(word => word != '');
   return words.join('-');
+}
+
+function isNull(val) {
+  return val === null || val === undefined;
 }
 
 function isArray(val) {
@@ -94,16 +113,49 @@ function isElement(val) {
     val && typeof val === "object" && val.nodeType === 1 && typeof val.nodeName === "string"
   );
 }
-function generateId() {
-  return Math.floor(Math.random() * 10000000000).toString(16);
+function checkSignature(message, signature, salt) {
+    const hash = crypto.createHash('sha256');
+    hash.update(message);
+    hash.update(salt);
+    var signature2 = hash.digest('hex');
+
+    return signature == signature2;
 }
+
+function initIsLoggedIn() {
+  body.dataset.loggedIn = false;
+
+  // get the cookie value
+  let cookieValue = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("login="))
+    ?.split("=")[1];
+
+  if (cookieValue === undefined) {
+    return;
+  }
+  
+  let cookieParts = cookieValue.split(/:/);
+  let loginToken = cookieParts[0];
+  let signature = cookieParts[1];
+
+  if (checkSignature(loginToken, signature, sessionKey)) {
+    body.dataset.loggedIn = true;
+  }
+}
+
+// async init
+setTimeout(initIsLoggedIn, 1);
 
 function isLoggedIn() {
   // TODO login
-  return false;
+  return bool(body.dataset.loggedIn);
+}
+function generateId() {
+  return Math.floor(Math.random() * 10000000000).toString(16);
 }
 let componentLogger = getDebug('components');
-// enableDebug('components');
+enableDebug('components');
 
 
 /// EVENTS
@@ -184,6 +236,7 @@ function set(target, field, value) {
       }
 
     } else {
+      value = str(value);
       switch (field) {
         case 'content':
           if (target.innerHTML == value) {
@@ -202,12 +255,13 @@ function set(target, field, value) {
 
         case 'checked':
         case 'disabled':
-          let checked = bool(value);
-          let existing = bool(target.getAttribute(field))
-          if (existing == checked) {
+          value = bool(value);
+          let existing = bool(target[field])
+          if (existing == value) {
             return;
           }
-          target.toggleAttribute(field, checked);
+          target[field] = value;
+          // target.toggleAttribute(field, value);
           if (field == 'checked') {
             emit(target, 'change');
           }
@@ -225,12 +279,15 @@ function set(target, field, value) {
             return;
           }
           target.dataset[field] = value;
+          break;
       }
     }
   } else {
+    componentLogger.indent();
     all(target, (elem) => {
       set(elem, field, value);
     });
+    componentLogger.outdent();
   }
 }
 
@@ -276,6 +333,22 @@ function deepReplace(element, original, replacement) {
       }
     }
   }
+}
+
+// cf https://stackoverflow.com/a/44670818
+function respondToVisibility(element, callback) {
+  var options = {
+    root: document.documentElement,
+  };
+
+  var observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      callback(entry.intersectionRatio > 0);
+    });
+    observer.disconnect(); // stop observing
+  }, options);
+
+  observer.observe(element);
 }
 // watch an element's attribute for changes
 function watch(target, attribute, handler) {
@@ -372,7 +445,7 @@ function createBinding(destElem, field, pipes) {
     value = applyPipes(value, pipes);
 
     // actually set the value
-    // componentLogger.log("Setting value of", field, "=", value);
+    componentLogger.log("Setting value of", field, "=", value);
     componentLogger.indent();
     set(destElem, field, value);
     componentLogger.outdent();
@@ -480,6 +553,31 @@ function setupBindings(container) {
         continue;
       }
 
+      // pre-fill data from inputs
+      if (destElem.tagName == "INPUT") {
+        if (destElem.type == "checkbox") {
+          if (destElem.checked) {
+            componentLogger.log("Pre-fill checkbox", sourceElem, sourceAttr, "=", true);
+            componentLogger.indent();
+            set(sourceElem, sourceAttr, "true");
+            componentLogger.outdent();
+          }
+        } else if (destElem.type == "radio") {
+          if (destElem.checked) {
+            componentLogger.log("Pre-fill radio", sourceElem, sourceAttr, "=", destElem.value);
+            componentLogger.indent();
+            set(sourceElem, sourceAttr, destElem.value);
+            componentLogger.outdent();
+          }
+        } else {
+          componentLogger.log("Pre-fill value", sourceElem, sourceAttr, "=", destElem.value);
+          componentLogger.indent();
+          set(sourceElem, sourceAttr, destElem.value);
+          componentLogger.outdent();
+        }
+      }
+
+      // make the function to call on data changes
       let bindingFunction = createBinding(destElem, field, pipes);
 
       // sourceElem.observer.addBinding(sourceAttr, bindingFunction);
@@ -680,6 +778,7 @@ function downloadCharacterSheet(request) {
       break;
 
     case 'pathfinder2':
+    case 'pathfinder2remaster':
     case 'starfinder2':
       url = '/download/pathfinder2';
       break;
@@ -731,13 +830,12 @@ function readClassicFormAndSubmit(type) {
 }
 
 function readCheckbox(name) {
-  let checked = false;
   for (let checkbox of document.getElementsByName(name)) {
     if (checkbox.checked) {
-      checked = true;
+      return true;
     }
   }
-  return checked;
+  return false;
 }
 
 function readRadio(name) {
@@ -778,6 +876,7 @@ function readClassicForm(type) {
     id,
     attributes: {
       game: game,
+      isLoggedIn: isLoggedIn(),
       language: document.getElementById("body").dataset.language,
       classes: []
     }
@@ -996,12 +1095,21 @@ function readPf2Form(type) {
     type,
     id,
     attributes: {
-      game: 'pathfinder2',
+      game: edition,
+      isLoggedIn: isLoggedIn(),
       edition: edition,
       language: document.getElementById("body").dataset.language,
       classes: []
     }
   };
+
+  function getInputValue(id) {
+    let input = document.getElementById(id);
+    if (input === undefined || input === null) {
+      return null;
+    }
+    return input.value;
+  }
 
   function readMultiselect(code) {
     let values = [];
@@ -1057,9 +1165,11 @@ function readPf2Form(type) {
       character.attributes['class'] = dataset.cls;
 
       // subclass and/or feats
-      for (let sel of dataset.clsSelects.split(',')) {
-        let selectkey = toCamelCase(sel.replaceAll('/', '-'));
-        character.attributes[sel] = dataset[selectkey];
+      if ('clsSelects' in dataset) {
+        for (let sel of dataset.clsSelects.split(',')) {
+          let selectkey = toCamelCase(sel.replaceAll('/', '-'));
+          character.attributes[sel] = dataset[selectkey];
+        }
       }
 
       character.attributes.multiclass = readMultiselect("multiclass");
@@ -1067,27 +1177,97 @@ function readPf2Form(type) {
       character.attributes.archetypes = readMultiselect("archetype");
       // TODO sub-archetype
       
-      // character.optionCover = 
       character.attributes.feats = [];
       if (readBoolean("featDiehard")) {
         character.attributes.feats.push("diehard");
       }
 
-      // character.attributes.optionPermission: true,
-      // character.attributes.optionCover = readBoolean(""),
-      // character.attributes.optionReference": true,
-      // character.attributes.optionBuild": true,
-      // character.attributes.optionMinis": true,
-      // character.attributes.optionBackground: true,
-      // character.attributes.optionLevelUp: true,
-      // character.attributes.optionColourful: true,
+      character.attributes.optionPermission = readBoolean("pagePermission");
+      character.attributes.optionCover = readBoolean("pageCover");
+      character.attributes.optionReference = readBoolean("pageReference"),
+      character.attributes.optionActions = readBoolean("pageActions");
+      character.attributes.optionBuild = readBoolean("pageBuild"),
+      character.attributes.optionMinis = readBoolean("pageMinis");
+      character.attributes.miniSize = dataset["pageSizeMini"];
+
+      character.attributes.optionCharacterBackground = readBoolean("pageCharacterBackground");
+      character.attributes.optionLevelUp = readBoolean("pageLevelUp");
       // character.attributes.optionPfs: false,
+
+      // character.attributes.optionInventory = dataset["pageInventory"];
+      character.attributes.inventoryStyle = dataset["pageInventory"];
+      character.attributes.optionInventoryExtra = readBoolean("pageInventoryExtra");
+      character.attributes.optionAnimalCompanion = readBoolean("pageAnimalCompanion");
+      character.attributes.optionFamiliar = readBoolean("pageFamiliar");
+      character.attributes.optionConstruct = readBoolean("pageConstruct");
+
       character.attributes.optionFreeArchetype = readBoolean("optionFreeArchetype");
-      character.attributes.optionAncestryParagon = readBoolean("ancestry-paragon");
+      character.attributes.optionAncestryParagon = readBoolean("ancestryParagon");
       character.attributes.optionAutomaticBonusProgression = readBoolean("automaticBonusProgression");
       character.attributes.optionAutomaticWeaponProgression = readBoolean("automaticWeaponProgression");
       character.attributes.optionProficiencyWithoutLevel = readBoolean("proficiencyWithoutLevel");
       break;
+
+    case 'gm':
+      break;
+
+    case 'kingmaker':
+      break;
+
+    case 'mini':
+      break;
+
+    default:
+      return null;
+  }
+
+  // appearance
+  switch (dataset.pageBackground) {
+    case 'magnolia':
+      character.attributes.printBackground = 'magnolia';
+      break;
+    case 'parchment':
+      character.attributes.printBackground = 'backgrounds/paper3.jpg';
+      break;
+    case 'frost':
+      character.attributes.printBackground = 'backgrounds/frost1.jpg';
+      break;
+  }
+
+  character.attributes.printColour = dataset.baseColour;
+  character.attributes.accentColour = dataset.accentColour;
+  character.attributes.printBrightness = dataset.printBrightness;
+  character.attributes.printWatermark = dataset.watermark;
+
+  // accessibility
+  character.attributes.printHighContrast = readBoolean("highContrast");
+  character.attributes.printLarge = readBoolean("largePrint");
+  character.attributes.optionColourful = readBoolean("colourful");
+  character.attributes.printDyslexic = readBoolean("dyslexic");
+  if (character.attributes.printDyslexic) {
+    character.attributes.printDyslexicFont = dataset.dyslexicFont;
+  }
+
+  // images
+  switch (type) {
+    // Character pages
+    case 'character':
+      mapImage('printPortrait', getInputValue('data-image-portrait'));
+      mapImage('printLogo', getInputValue('data-image-logo'));
+      mapImage('printAnimal', getInputValue('data-image-animal'));
+      break;
+
+    case 'gm':
+      break;
+
+    case 'kingmaker':
+      break;
+
+    case 'mini':
+      break;
+
+    default:
+      return null;
   }
 
   // make the full request object
@@ -1107,6 +1287,14 @@ on("input[type='checkbox']", "change", (evt) => {
     set("#build-form", checkbox.dataset.var, checkbox.checked);
   }
 });
+
+// pre-fill form data with current selection for all radio groups
+// all("input[type='checkbox']:checked", (checkbox) => {
+//   let rvar = checkbox.dataset.var;
+//   if (isString(rvar) && rvar != "") {
+//     set("#build-form", rvar, true);
+//   }
+// });
 } catch (e) { 
   console.log("Error in Checkbox", e)
 }
@@ -1220,193 +1408,12 @@ definePipe('colourName', (name) => {
   console.log("Error in ColourSelectMenu", e)
 }
 try {
-on("input[type='search']", "change", (evt) => {
-  console.log("Search");
-});
-
-all('.form-select-menu', (menu) => {
-  let menuId = menu.id;
-  let fieldCode = menu.dataset.code;
-
-  on(menu, 'form-select', (evt) => {
-    let detail = {
-      value: evt.detail[0],
-      select: evt.target.dataset.select
-    };
-    console.log("Form select", menuId, detail, evt);
-    emit(menu, 'form-select:'+fieldCode, detail, evt);
-  })
+on("input[type='text'][data-var]", "change", (evt) => {
+  let input = evt.target;
+  set("#build-form", input.dataset.var, input.value);
 });
 } catch (e) { 
-  console.log("Error in FormSelectMenu", e)
-}
-try {
-let debug = getDebug('ImageDrop');
-enableDebug('ImageDrop');
-
-on(".image-drop", "dragover", (evt) => {
-  evt.preventDefault();
-  evt.stopPropagation();
-  evt.target.classList.add('image-drop--ready');
-  debug.log("Drag on");
-});
-
-on(".image-drop", "dragleave", (evt) => {
-  evt.preventDefault();
-  evt.stopPropagation();
-  evt.target.classList.remove('image-drop--ready');
-  debug.log("Drag off");
-});
-
-on(".image-drop", "drop", (evt) => {
-  debug.log("Image dropped");
-
-  // TODO check image size! 20MB limit
-  // TODO encode the image
-  // TODO send the image with the request
-  
-  evt.preventDefault();
-  evt.stopPropagation();
-
-  let imageDrop = evt.target;
-  imageDrop.classList.remove('image-drop--ready');
-
-  var files = evt.dataTransfer.files;
-  if (files.length > 0) {
-    var file = files[0];
-    switch (file.type) {
-      case 'image/png':
-      case 'image/jpeg':
-      case 'image/webp':
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          var data = e.target.result;
-          debug.log("I have data!");
-
-          let input = imageDrop.querySelector('input');
-          input.value = data;
-
-          for (let img of imageDrop.querySelectorAll('img')) {
-            img.src = data;
-          }
-        }
-        reader.readAsDataURL(file);
-
-        break;
-    }
-  }
-});
-} catch (e) { 
-  console.log("Error in ImageDrop", e)
-}
-try {
-let pageEdition = '';
-onloaded(() => {
-  pageEdition = get('#build-form', 'edition');
-  all('.facet-edition', (elem) => {
-    set(elem, 'value', pageEdition);
-  });
-  
-  all('.facet-search-bar', (elem) => {
-    emit(elem, 'facet-change');
-  })
-});
-
-
-on('.facet-search-bar', 'facet-change', (evt) => {
-  let searchBar = evt.currentTarget;
-  if (!searchBar.classList.contains('facet-search-bar')) {
-    searchBar = searchBar.closest('.facet-search-bar');
-  }
-
-  let searchParams = {
-    edition: pageEdition,
-    source: '',
-    rarity: '',
-    search: '',
-  };
-
-  for (let facet of searchBar.querySelectorAll('.facet-select')) {
-    let value = get(facet, 'value');
-    if (facet.classList.contains('facet-edition')) {
-      searchParams.edition = value;
-    } else if (facet.classList.contains('facet-source')) {
-      searchParams.source = value;
-    } else if (facet.classList.contains('facet-rarity')) {
-      searchParams.rarity = value;
-    }
-  }
-  for (let searchBox of searchBar.querySelectorAll('.facet-search-box')) {
-    searchParams.search = searchWords(searchBox.value);
-  }
-
-  let listId = searchBar.dataset.list;
-  let list = document.getElementById(listId);
-  updateItemList(list, searchParams);
-});
-
-function searchWords(str) {
-  if (str === undefined || str === null || str == "") {
-    return [];
-  }
-  let words = str.toLowerCase().split(' ');
-  words = words.map((word) => word.trim());
-  words = words.filter((word) => word != "");
-  return words;
-}
-} catch (e) { 
-  console.log("Error in ItemFacetSearchBar", e)
-}
-try {
-function updateItemList(list, searchParams) {
-  if (list === null) {
-    return;
-  }
-  // hide buttons that don't match the query params
-  for (let btn of list.querySelectorAll('.btn')) {
-    let meta = btn.dataset;
-    let visible = itemMatchesSearchParams(meta, searchParams);
-    btn.classList.toggle('btn--hidden', !visible);
-  }
-  // hide groups with no visible results
-  for (let grp of list.querySelectorAll('.item-list__group')) {
-    let hasAny = false;
-    for (let btn of grp.querySelectorAll('.btn')) {
-      if (!btn.classList.contains('btn--hidden')) {
-        hasAny = true;
-      }
-    }
-    grp.classList.toggle('item-list__group--hidden', !hasAny);
-    grp.previousElementSibling.classList.toggle('h3--hidden', !hasAny);
-  }
-}
-
-function itemMatchesSearchParams(item, params) {
-  if ('edition' in params && params.edition != "" && 'edition' in item && item.edition != params.edition) {
-    return false;
-  }
-
-  if ('source' in params && params.source != "" && 'source' in item && item.source != params.source) {
-    return false;
-  }
-
-  if ('rarity' in params && params.rarity != "" && 'rarity' in item && item.rarity != params.rarity) {
-    return false;
-  }
-
-  if ('search' in params && params.search != "") {
-    let content = item.name.toLowerCase();
-    for (let word of params.search) {
-      if (content.match(word)) {
-        return true;
-      }
-    }
-    return false;
-  }
-  return true;
-}
-} catch (e) { 
-  console.log("Error in ItemList", e)
+  console.log("Error in Input", e)
 }
 try {
 on("#new-character-menu", "reveal-pf2", (evt) => {
@@ -1423,16 +1430,40 @@ try {
   console.log("Error in Output", e)
 }
 try {
-on(".page-option input[type=checkbox]", "change", (evt) => {
-  let checkbox = evt.target;
-  set("#build-form", checkbox.name, checkbox.checked);
+all(".page-option input[type=checkbox]", (checkbox) => {
+  set("#build-form", toCamelCase(checkbox.name), checkbox.checked);
 });
-on(".page-option input[type=radio]", "change", (evt) => {
-  // let radio = evt.target;
-  // set("#build-form", radio.name, value);
+
+on(".page-option img", "click", (evt) => {
+  let img = evt.target;
+  let pageOption = img.closest('.page-option');
+  for (let input of pageOption.querySelectorAll('input')) {
+    input.click();
+  }
 });
 } catch (e) { 
   console.log("Error in PageOption", e)
+}
+try {
+on("input[type='radio']", "change", (evt) => {
+  let radio = evt.target;
+  let rvar = radio.dataset.var;
+  let value = radio.value;
+  if (radio.checked && isString(rvar) && rvar && isString(value) && value) {
+    set("#build-form", rvar, value);
+  }
+});
+
+// pre-fill form data with current selection for all radio groups
+// all("input[type='radio']:checked", (radio) => {
+//   let rvar = radio.dataset.var;
+//   let value = radio.value;
+//   if (isString(rvar) && rvar != "" && isString(value) && value != "") {
+//     set("#build-form", rvar, value);
+//   }
+// });
+} catch (e) { 
+  console.log("Error in Radio", e)
 }
 try {
 on('.repeatable__more', 'click', (evt) => {
@@ -1733,16 +1764,164 @@ on('#download-mini', 'click', (evt) => {
   console.log("Error in BuildFormClassic", e)
 }
 try {
+on("input[type='search']", "change", (evt) => {
+  console.log("Search");
+});
+
+all('.form-select-menu', (menu) => {
+  let menuId = menu.id;
+  let fieldCode = menu.dataset.code;
+
+  on(menu, 'form-select', (evt) => {
+    let detail = {
+      value: evt.detail[0],
+      select: evt.target.dataset.select,
+      meta: evt.target.dataset
+    };
+    console.log("Form select", menuId, "field:", fieldCode, "value:", detail, "event:", evt);
+    emit(menu, 'form-select:'+fieldCode, detail, evt);
+  })
+});
+} catch (e) { 
+  console.log("Error in FormSelectMenu", e)
+}
+try {
+let pageEdition = '';
+onloaded(() => {
+  pageEdition = get('#build-form', 'edition');
+  all('.facet-edition', (elem) => {
+    set(elem, 'value', pageEdition);
+  });
+  
+  all('.facet-search-tools', (elem) => {
+    emit(elem, 'facet-change');
+  })
+});
+
+
+on('.facet-search-tools', 'facet-change', (evt) => {
+  let searchBar = evt.currentTarget;
+  if (!searchBar.classList.contains('facet-search-tools')) {
+    searchBar = searchBar.closest('.facet-search-tools');
+  }
+
+  let searchParams = {
+    edition: pageEdition,
+    source: '',
+    rarity: '',
+    search: '',
+  };
+
+  for (let facet of searchBar.querySelectorAll('.facet-select')) {
+    let value = get(facet, 'value');
+    if (facet.classList.contains('facet-edition')) {
+      searchParams.edition = value;
+    } else if (facet.classList.contains('facet-source')) {
+      searchParams.source = value;
+    } else if (facet.classList.contains('facet-rarity')) {
+      searchParams.rarity = value;
+    }
+  }
+  for (let searchBox of searchBar.querySelectorAll('.facet-search-box')) {
+    searchParams.search = searchWords(searchBox.value);
+  }
+
+  let listId = searchBar.dataset.list;
+  let list = document.getElementById(listId);
+  updateItemList(list, searchParams);
+});
+
+function searchWords(str) {
+  if (str === undefined || str === null || str == "") {
+    return [];
+  }
+  let words = str.toLowerCase().split(' ');
+  words = words.map((word) => word.trim());
+  words = words.filter((word) => word != "");
+  return words;
+}
+} catch (e) { 
+  console.log("Error in ItemFacetSearchTools", e)
+}
+try {
+function updateItemList(list, searchParams) {
+  if (list === null) {
+    return;
+  }
+  // hide buttons that don't match the query params
+  for (let btn of list.querySelectorAll('.btn')) {
+    let meta = btn.dataset;
+    let visible = itemMatchesSearchParams(meta, searchParams);
+    btn.classList.toggle('btn--hidden', !visible);
+  }
+  // hide groups with no visible results
+  for (let grp of list.querySelectorAll('.item-list__group')) {
+    let hasAny = false;
+    for (let btn of grp.querySelectorAll('.btn')) {
+      if (!btn.classList.contains('btn--hidden')) {
+        hasAny = true;
+      }
+    }
+    grp.classList.toggle('item-list__group--hidden', !hasAny);
+    grp.previousElementSibling.classList.toggle('h3--hidden', !hasAny);
+  }
+}
+
+function itemMatchesSearchParams(item, params) {
+  if ('edition' in params && params.edition != "" && params.edition != "all" && 'edition' in item && item.edition != params.edition) {
+    return false;
+  }
+
+  if ('source' in params && params.source != "" && 'source' in item && item.source != params.source) {
+    return false;
+  }
+
+  if ('rarity' in params && params.rarity != "" && 'rarity' in item && item.rarity != params.rarity) {
+    return false;
+  }
+
+  if ('search' in params && params.search != "" && 'name' in item) {
+    let content = item.name.toLowerCase();
+    for (let word of params.search) {
+      if (content.match(word)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  return true;
+}
+} catch (e) { 
+  console.log("Error in ItemList", e)
+}
+try {
 // on()
+on('.pretty-preset-button', 'click', (evt) => {
+  console.log("Pretty preset");
+
+  set('#build-form', 'baseColour', 'blue2');
+  set('#build-form', 'accentColour', 'magenta');
+  set('#build-form', 'pageBackground', 'parchment');
+
+  set('#build-form', 'underlay', true);
+  set('#build-form', 'colourful', true);
+  set('#build-form', 'largePrint', false);
+  set('#build-form', 'dyslexicFonts', false);
+  set('#build-form', 'highContrast', false);
+});
+
 on('.dyslexic-preset-button', 'click', (evt) => {
   console.log("Dyslexic preset");
   
-  // set('#build-form', );
   set('#build-form', 'baseColour', 'blue2');
   set('#build-form', 'accentColour', 'magenta');
   set('#build-form', 'pageBackground', 'magnolia');
+
   set('#build-form', 'underlay', false);
   set('#build-form', 'colourful', true);
+  set('#build-form', 'largePrint', false);
+  set('#build-form', 'dyslexicFonts', true);
+  set('#build-form', 'highContrast', false);
 });
 } catch (e) { 
   console.log("Error in BuildFormPF2_AppearanceSlide", e)
@@ -1756,6 +1935,23 @@ on('.button-download-pf2', 'click', (evt) => {
 });
 } catch (e) { 
   console.log("Error in BuildFormPF2_DownloadSlide", e)
+}
+try {
+on('#portrait', 'select-image', (evt) => {
+  // console.log('Select image (portrait)');
+  // let target = evt.currentTarget;
+  set('body', 'currentMenu', 'portrait-menu');
+  // emit('#portrait-menu .lazy', 'reveal');
+});
+
+on('#logo', 'select-image', (evt) => {
+  // console.log('Select image (logo)');
+  // let target = evt.currentTarget;
+  set('body', 'currentMenu', 'logo-menu');
+  // emit('#logo-menu .lazy', 'reveal');
+});
+} catch (e) { 
+  console.log("Error in BuildFormPF2_PictureSlide", e)
 }
 try {
 const urlParams = new URLSearchParams(window.location.search);
@@ -1832,11 +2028,13 @@ on('#form-select-cls', 'form-select:cls', (evt) => {
   console.log('Form select: class', detail);
   set("#build-form", "cls", detail.value);
 
-  for (let btn of document.querySelectorAll(`button[data-id='${detail.value}']`)) {
-    let selects = btn.dataset.selects;
-    set("#build-form", "clsSelects", selects);
-    break;
-  }
+  let selects = detail.meta.selects;
+  set("#build-form", "clsSelects", selects);
+  // for (let btn of document.querySelectorAll(`button[data-id='${detail.value}']`)) {
+  //   let selects = btn.dataset.selects;
+  //   set("#build-form", "clsSelects", selects);
+  //   break;
+  // }
 });
 } catch (e) { 
   console.log("Error in Pathfinder2ClassMenu", e)
@@ -1871,6 +2069,139 @@ on('.form-select-menu-options input[type=checkbox]', 'change', (evt) => {
 });
 } catch (e) { 
   console.log("Error in Pathfinder2SubclassOptionsMenu", e)
+}
+try {
+on('.jump-link', 'click', (evt) => {
+  let link = evt.target;
+  let id = `jump--${link.dataset.zoom}`;
+  // let scrollpane = link.closest('.scroll-pane');
+  // scrollpane.scrollTo(0, top);
+  document.getElementById(id).scrollIntoView();
+});
+} catch (e) { 
+  console.log("Error in AssetMenu", e)
+}
+try {
+let debug = getDebug('ImageDrop');
+enableDebug('ImageDrop');
+
+on(".image-drop", "dragover", (evt) => {
+  evt.preventDefault();
+  evt.stopPropagation();
+  evt.target.classList.add('image-drop--ready');
+  debug.log("Drag on");
+});
+
+on(".image-drop", "dragleave", (evt) => {
+  evt.preventDefault();
+  evt.stopPropagation();
+  evt.target.classList.remove('image-drop--ready');
+  debug.log("Drag off");
+});
+
+on(".image-drop", "drop", (evt) => {
+  debug.log("Image dropped");
+
+  // TODO check image size! 20MB limit
+  // TODO encode the image
+  // TODO send the image with the request
+  
+  evt.preventDefault();
+  evt.stopPropagation();
+
+  let imageDrop = evt.target;
+  imageDrop.classList.remove('image-drop--ready');
+
+  var files = evt.dataTransfer.files;
+  if (files.length > 0) {
+    var file = files[0];
+    switch (file.type) {
+      case 'image/png':
+      case 'image/jpeg':
+      case 'image/webp':
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          var data = e.target.result;
+          debug.log("I have data!");
+
+          let input = imageDrop.querySelector('input');
+          input.value = data;
+
+          for (let img of imageDrop.querySelectorAll('img')) {
+            img.src = data;
+          }
+        }
+        reader.readAsDataURL(file);
+
+        break;
+    }
+  }
+});
+} catch (e) { 
+  console.log("Error in ImageDrop", e)
+}
+try {
+on('.portrait-search-tools', 'change', (evt) => {
+  let searchTools = evt.currentTarget;
+  if (!searchTools.classList.contains('facet-search-tools')) {
+    searchTools = searchTools.closest('.facet-search-tools');
+  }
+
+  let searchParams = {
+    ancestry: '',
+  };
+
+  for (let facet of searchTools.querySelectorAll('.facet-select')) {
+    let value = get(facet, 'value');
+    if (facet.classList.contains('facet-ancestry')) {
+      searchParams.ancestry = value;
+    } else if (facet.classList.contains('facet-source')) {
+      searchParams.source = value;
+    } else if (facet.classList.contains('facet-rarity')) {
+      searchParams.rarity = value;
+    }
+  }
+  for (let searchBox of searchTools.querySelectorAll('.facet-search-box')) {
+    searchParams.search = searchWords(searchBox.value);
+  }
+
+  let listId = searchTools.dataset.list;
+  let list = document.getElementById(listId);
+  updateItemList(list, searchParams);
+});
+
+function searchWords(str) {
+  if (str === undefined || str === null || str == "") {
+    return [];
+  }
+  let words = str.toLowerCase().split(' ');
+  words = words.map((word) => word.trim());
+  words = words.filter((word) => word != "");
+  return words;
+}
+} catch (e) { 
+  console.log("Error in PortraitSearchTools", e)
+}
+try {
+all('.lazy', (lazy) => {
+  on(lazy, 'reveal', (evt) => {
+    componentLogger.log("Reveal lazy section");
+  });
+});
+} catch (e) { 
+  console.log("Error in Lazy", e)
+}
+try {
+all('.picture--lazy', (picture) => {
+  let img = picture.querySelector('img');
+  respondToVisibility(picture, () => {
+    img.src = img.dataset.src;
+    delete img.dataset.src;
+    picture.classList.remove('picture--lazy');
+  });
+});
+} catch (e) { 
+  console.log("Error in Picture", e)
 }
 try {
 for (let block of document.getElementsByClassName('quote')) {
@@ -1908,6 +2239,14 @@ on('.reveal', 'close', (evt) => {
 })
 } catch (e) { 
   console.log("Error in Reveal", e)
+}
+try {
+// replace the Login button after page load if we're logged in
+if (isLoggedIn()) {
+  console.log("Logged in!");
+}
+} catch (e) { 
+  console.log("Error in MenuButtons", e)
 }
 try {
 on('aside.menu', 'close-menu', (event, elem) => {

@@ -11,13 +11,12 @@ function readClassicFormAndSubmit(type) {
 }
 
 function readCheckbox(name) {
-  let checked = false;
   for (let checkbox of document.getElementsByName(name)) {
     if (checkbox.checked) {
-      checked = true;
+      return true;
     }
   }
-  return checked;
+  return false;
 }
 
 function readRadio(name) {
@@ -58,6 +57,7 @@ function readClassicForm(type) {
     id,
     attributes: {
       game: game,
+      isLoggedIn: isLoggedIn(),
       language: document.getElementById("body").dataset.language,
       classes: []
     }

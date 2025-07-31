@@ -8,7 +8,9 @@
     class="slideshow
       {{#if vertical}}slideshow--v{{else}}slideshow--h{{/if}}
       {{#if auto}}slideshow--auto{{/if}}
-      {{#if fullscreen}}slideshow--fullscreen{{/if}}"
+      {{#if fullscreen}}slideshow--fullscreen{{/if}}
+      {{#if cls}}{{cls}}{{/if}}
+      "
     id="{{ id }}" 
     data-jump="{{default jump 'start'}}"
   >
@@ -207,6 +209,8 @@ all('.slideshow', (slideshow) => {
 
 <style>
 
+@use 'colours';
+
 .slideshow {
   flex: 1 1 auto;
   scroll-behavior: smooth;
@@ -261,6 +265,20 @@ all('.slideshow', (slideshow) => {
       display: inline-block;
       flex: 0 0 auto;
     }
+  }
+
+  &.slideshow--box {
+    border: 1px solid colours.$shade;
+    border-radius: 3px;
+  }
+
+  &.slideshow--square {
+    min-width: 36rem;
+    min-height: 32rem;
+    width: calc(10vh + 10vw);
+    height: calc(10vh + 10vw);
+    max-width: 70vw;
+    max-height: 50vh;
   }
 
   &.slideshow--fullscreen {

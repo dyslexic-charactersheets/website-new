@@ -36,6 +36,13 @@ Handlebars.registerHelper('slug', function (str, obj) {
   return slugify(str);
 });
 
+Handlebars.registerHelper('upperCase', function (str, obj) {
+  if (!isString(str)) {
+    return '';
+  }
+  return str.toUpperCase();
+});
+
 Handlebars.registerHelper('kebabCase', function (str, obj) {
   if (!isString(str)) {
     // error("slug", "Kebab case:".red, str, obj);
@@ -378,6 +385,7 @@ log("make", "Compiling script");
 let scripts = [
     'debug',
     'util',
+    'login',
     'script',
     'components',
     'bind',
@@ -429,9 +437,12 @@ loadReady().then((gameData) => {
     pathfinder1: gameData.pathfinder1,
     starfinder1: gameData.starfinder1,
     dnd35: gameData.dnd35,
+    assets: gameData.assets,
   };
 
   fs.writeFile('../debug/pf2.json', JSON.stringify(gameData.pathfinder2, null, 2), 'utf-8', () => {
+  });
+  fs.writeFile('../debug/assets.json', JSON.stringify(gameData.assets, null, 2), 'utf-8', () => {
   });
   
   let pages = fs.readdirSync('pages');
@@ -444,7 +455,7 @@ loadReady().then((gameData) => {
     });
 
     // write language-specific data file
-    let pageData = JSON.stringify(getPageData(gameData.combo, lang));
+    let pageData = JSON.stringify(getPageData(gameData.pathfinder2, lang));
     fs.writeFile('../dist/htdocs/'+lang+'/data.json', pageData, (err) => {
       if (err) {
         error("make", "Data ERROR".red, err);

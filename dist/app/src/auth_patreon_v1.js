@@ -1,7 +1,7 @@
 // Patreon login
 const url = require('url');
-const _ = require('lodash');
 const patreon = require('patreon');
+const { has, isNull } = require('./util.js');
 
 // const pledgeSchema = require('patreon/dist/schemas/pledge');
 // const jsonApiURL = require('patreon/dist/jsonapi-url');
@@ -63,11 +63,11 @@ module.exports = {
                 console.log("[patreon] Raw result:", result.rawJson);
                 console.log("[patreon] Pledges:", result.rawJson.data.relationships.pledges);
 
-                var pledges = (_.has(result.rawJson, "data") && _.has(result.rawJson.data, "relationships") && _.has(result.rawJson.data.relationships, "pledges") && _.has(result.rawJson.data.relationships.pledges, "data")) ? result.rawJson.data.relationships.pledges.data : [];
-                pledges = _.filter(pledges, function (pledge) {
-                    if (!_.has(pledge, "type") || pledge.type != "pledge")
+                var pledges = (has(result.rawJson, "data") && has(result.rawJson.data, "relationships") && has(result.rawJson.data.relationships, "pledges") && has(result.rawJson.data.relationships.pledges, "data")) ? result.rawJson.data.relationships.pledges.data : [];
+                pledges = pledges.filter((pledge) => {
+                    if (!has(pledge, "type") || pledge.type != "pledge")
                         return;
-                    if (_.has(pledge, "attributes") && _.has(pledge.attributes, "declined_since") && !_.isNull(pledge.attributes.declined_since))
+                    if (has(pledge, "attributes") && has(pledge.attributes, "declined_since") && !isNull(pledge.attributes.declined_since))
                         return false;
                     return true;
                 });

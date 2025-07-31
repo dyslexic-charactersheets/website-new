@@ -26,47 +26,62 @@
 
       <h4>{{__ "Dyslexia"}}</h4>
       <fieldset>
-        <p class='dyslexic-fonts'><input type='checkbox' id='option-dyslexic' name='option-dyslexic'> <label for='option-dyslexic'>{{__ "Dyslexic fonts"}}</label></p>
+        <p class='dyslexic-fonts'>
+          {{> Checkbox name="option-dyslexic" var="dyslexic" label="Change fonts"}}
+        </p>
         <p class='info'>{{__ "Uses easy-to-read fonts, disables all-caps."}}</p>
         
         <div class="indent">
-          <p><label for='option-dyslexic-font-dyslexie' id='font-dyslexie'><input type='radio' name='option-dyslexic-font' value='dyslexie' id='option-dyslexic-font-dyslexie' checked> Dyslexie</label> (<a href='https://dyslexiefont.com/'>dyslexiefont.com</a>)</p>
-          <p><label for='option-dyslexic-font-lexend' id='font-lexend'><input type='radio' name='option-dyslexic-font' value='lexend' id='option-dyslexic-font-lexend'> Lexend Deca</label> (<a href='https://www.lexend.com/'>lexend.com</a>)</p>
-          <p><label for='option-dyslexic-font-sans' id='font-sans'><input type='radio' name='option-dyslexic-font' value='sans' id='option-dyslexic-font-sans'> Sans-serif</label></p>
+          <p>
+            {{> Radio name="option-dyslexic-font" var="dyslexicFont" value="dyslexie" label="Dyslexie" checked=true p=false}}
+            (<a href='https://dyslexiefont.com/'>dyslexiefont.com</a>)
+          </p>
+          <p>
+            {{> Radio name="option-dyslexic-font" var="dyslexicFont" value="lexend" label="Lexend Deca" p=false}}
+            (<a href='https://www.lexend.com/'>lexend.com</a>)
+          </p>
+          <p>
+            {{> Radio name="option-dyslexic-font" var="dyslexicFont" value="sans" label="Sans-serif" p=false}}
+          </p>
         </dev>
       </fieldset>
 
       <h4>{{__ "Colours"}}</h4>
       <fieldset class="high-contrast">
-        <p><input type='checkbox' id='option-high-contrast' name='option-high-contrast'> <label for='option-high-contrast'>{{__ "High contrast"}}</label></p>
-        <p class='info'>{{__ "Makes colours darker, removes white text."}}</p>
+        <p>
+          {{> Checkbox name="option-high-contrast" var="highContrast" label="High contrast"}}
+        </p>
+        <p class="info">{{__ "Makes colours darker, removes white text."}}</p>
       </fieldset>
       <fieldset>
-        <p><input type='checkbox' id='option-colourful'> <label for='option-colourful'>{{__ "Colour coded"}}</label></p>
-        <p class='info'>{{__ "Colours fields and calculations by their ability score."}}</p>
-        <p class='info'>
-          <span style="display: inline-block; height: 2em; font-size: 110%; line-height: 2em; width: 2.5em; background: white; border-bottom: 1px solid #970; text-align: center; color: #970; font-weight: bold;">STR</span>
-          <span style="display: inline-block; height: 2em; font-size: 110%; line-height: 2em; width: 2.5em; background: white; border-bottom: 1px solid #369; text-align: center; color: #369; font-weight: bold;">DEX</span>
-          <span style="display: inline-block; height: 2em; font-size: 110%; line-height: 2em; width: 2.5em; background: white; border-bottom: 1px solid #a20; text-align: center; color: #a20; font-weight: bold;">CON</span>
-          <span style="display: inline-block; height: 2em; font-size: 110%; line-height: 2em; width: 2.5em; background: white; border-bottom: 1px solid #925; text-align: center; color: #925; font-weight: bold;">INT</span>
-          <span style="display: inline-block; height: 2em; font-size: 110%; line-height: 2em; width: 2.5em; background: white; border-bottom: 1px solid #471; text-align: center; color: #471; font-weight: bold;">WIS</span>
-          <span style="display: inline-block; height: 2em; font-size: 110%; line-height: 2em; width: 2.5em; background: white; border-bottom: 1px solid #529; text-align: center; color: #529; font-weight: bold;">CHA</span>
+        <p>
+          {{> Checkbox name="option-colourful" var="colourful" label="Colour coded" }}
+        </p>
+        <p class="info">{{__ "Colours fields and calculations by their ability score."}}</p>
+        <p class="info">
+          <span class="colour-coded colour-coded_str">{{__ "STR"}}</span>
+          <span class="colour-coded colour-coded_dex">{{__ "DEX"}}</span>
+          <span class="colour-coded colour-coded_con">{{__ "CON"}}</span>
+          <span class="colour-coded colour-coded_int">{{__ "INT"}}</span>
+          <span class="colour-coded colour-coded_wis">{{__ "WIS"}}</span>
+          <span class="colour-coded colour-coded_cha">{{__ "CHA"}}</span>
         </p>
       </fieldset>
 
       <h4>{{__ "Large print"}}</h4>
       <fieldset>
-        <p class='large-print'><input type='checkbox' id='option-large-print' name='option-large-print'> <label for='option-large-print'>{{__ "Large print"}}</label></p>   
+        <p class='large-print'>
+          {{> Checkbox name='option-large-print' var='largePrint' label="Large print"}}</p>
         <p class='info'>{{__ "Enlarges text and fields, omits some elements to fit on the page."}}</p>
       </fieldset>
     {{/Column}}
     
     {{#> Column}}
-      <!-- <h2>{{__ "Theme"}}</h2>
+      {{!-- <h2>{{__ "Theme"}}</h2>
       {{#> TilePicker field="theme"}}
         {{#> TileOption field="theme" value="Adventurer" label=(__ "Adventurer") checked=true}}{{/TileOption}}
         {{#> TileOption field="theme" value="Spacefarer" label=(__ "Spacefarer")}}{{/TileOption}}
-      {{/TilePicker}} -->
+      {{/TilePicker}} --}}
 
       <h3>{{__ "Colours"}}</h3>
 
@@ -75,26 +90,30 @@
         {{> ColourOutput id="accentColour" name="Accent colour" select="accent-colour-menu" }}
       </div>
 
-      <div class="brightness-picker">
+      {{!-- <div class="brightness-picker">
         <label>{{__ "Print darkness"}}</label>
         <div class="brightness-picker__inner">
           <div class="brightness-picker__inner2">
-            <input type="range" min="1" max="9" value="5" name="colour-brightness">
+            <input type="range" min="1" max="9" value="5"
+              name="colour-brightness" 
+              autocomplete="off"
+              data-bind="value=#build-form.printBrightness"
+              data-var="printBrightness">
             <span class="brightness-picker__notch"></span>
           </div>
         </div>
-      </div>
+      </div> --}}
 
       <h3>{{__ "Page Background"}}</h3>
       {{#> TilePicker field="pageBackground"}}
-        {{#> TileOption field="pageBackground" value="white" label=(__ "White") checked=true}}{{/TileOption}}
-        {{#> TileOption field="pageBackground" value="magnolia" label=(__ "Magnolia")}}{{/TileOption}}
-        {{#> TileOption field="pageBackground" value="parchment" label=(__ "Parchment")}}<img src="/images/print-background-parchment.png">{{/TileOption}}
-        {{#> TileOption field="pageBackground" value="frost" label=(__ "Frost")}}<img src="/images/print-background-frost.png">{{/TileOption}}
+        {{#> TileOption var="pageBackground" value="white" label=(__ "White") checked=true}}{{/TileOption}}
+        {{#> TileOption var="pageBackground" value="magnolia" label=(__ "Magnolia")}}{{/TileOption}}
+        {{#> TileOption var="pageBackground" value="parchment" label=(__ "Parchment")}}<img src="/images/print-background-parchment.png">{{/TileOption}}
+        {{#> TileOption var="pageBackground" value="frost" label=(__ "Frost")}}<img src="/images/print-background-frost.png">{{/TileOption}}
       {{/TilePicker}}
 
       <h3>{{__ "Watermark"}}</h3>
-      <input name="watermark">
+      {{> Input name="{{watermark}}" var="watermark"}}
 
     {{/Column}}
   {{/Columns}}
@@ -109,18 +128,77 @@
     font-size: 1.1rem;
   }
 }
+
+.colour-coded {
+  display: inline-block;
+  height: 2em;
+  font-size: 110%;
+  line-height: 2em;
+  width: 2.5em;
+  background: white;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 0 1px 1.5px rgba(0,0,0,0.5);
+
+  &.colour-coded_str {
+    border-bottom: 1px solid #970;
+    color: #970;
+  }
+
+  &.colour-coded_dex {
+    border-bottom: 1px solid #369;
+    color: #369;
+  }
+
+  &.colour-coded_con {
+    border-bottom: 1px solid #a20;
+    color: #a20;
+  }
+
+  &.colour-coded_int {
+    border-bottom: 1px solid #925;
+    color: #925;
+  }
+
+  &.colour-coded_wis {
+    border-bottom: 1px solid #471;
+    color: #471;
+  }
+
+  &.colour-coded_cha {
+    border-bottom: 1px solid #529;
+    color: #529;
+  }
+}
 </style>
 
 <script>
 // on()
+on('.pretty-preset-button', 'click', (evt) => {
+  console.log("Pretty preset");
+
+  set('#build-form', 'baseColour', 'blue2');
+  set('#build-form', 'accentColour', 'magenta');
+  set('#build-form', 'pageBackground', 'parchment');
+
+  set('#build-form', 'underlay', true);
+  set('#build-form', 'colourful', true);
+  set('#build-form', 'largePrint', false);
+  set('#build-form', 'dyslexicFonts', false);
+  set('#build-form', 'highContrast', false);
+});
+
 on('.dyslexic-preset-button', 'click', (evt) => {
   console.log("Dyslexic preset");
   
-  // set('#build-form', );
   set('#build-form', 'baseColour', 'blue2');
   set('#build-form', 'accentColour', 'magenta');
   set('#build-form', 'pageBackground', 'magnolia');
+
   set('#build-form', 'underlay', false);
   set('#build-form', 'colourful', true);
+  set('#build-form', 'largePrint', false);
+  set('#build-form', 'dyslexicFonts', true);
+  set('#build-form', 'highContrast', false);
 });
 </script>

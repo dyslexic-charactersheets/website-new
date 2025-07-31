@@ -2,6 +2,7 @@
 
 import url from 'url';
 import { resolve } from 'path';
+import 'colors';
 
 // set up the http engine
 import express from 'express';
@@ -29,7 +30,7 @@ app.use(cookieParser());
 // app.use(express.urlencoded({ limit: '100mb', extended: true }));
 // app.use(express.text({ limit: '100mb', type: '*/*' }));
 
-app.use(express.json());
+app.use(express.json({ limit: '100mb' }));
 
 // app.use(bodyParser.text({type: '*/*'}));
 // app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
@@ -55,6 +56,12 @@ app.get('/build/dnd35', (req, res) => res.redirect('/en/build-dnd35.html'));
 // static files
 log("server", "Static dir:", resolve('htdocs'));
 app.use(express.static('htdocs'));
+
+log("server", "Iconics dir:", resolve('../../assets/iconics/small'));
+app.use('/iconics', express.static('../../assets/iconics/small'));
+
+log("server", "Logos dir:", resolve('../../assets/logos'));
+app.use('/logos', express.static('../../assets/logos'));
 
 function renderLogin(req, res, lang) {
   auth.setup();
@@ -106,6 +113,6 @@ onConfigLoaded(() => {
   pathfinder2init();
   setTimeout(() => {
     var listen_port = conf('listen_port');
-    app.listen(listen_port, () => log("server", `Listening on port ${listen_port}\n\n`));
+    app.listen(listen_port, () => log("server", `██  Listening on port ${listen_port}\n\n`.green));
   }, 200);
 });

@@ -5,16 +5,117 @@ import { createSearchIndex } from './search.js';
 
 // Combine multiple lib-based games
 export function combineGames(games) {
-  // let selectKeys = new Set();
-  // for (let game of games) {
-  //   let gameSelectKeys = Object.keys(game.selects);
-  //   for (let key of gameSelectKeys) {
-  //     selectKeys.add(key);
+  function combineArray(getter) {
+    let values = new Set();
+    for (let game of games) {
+      let arr = getter(game);
+      if (arr !== null && arr !== undefined && Array.isArray(arr)) {
+        for (let item of arr) {
+          values.add(item);
+        }
+      }
+    }
+    return [...values];
+  }
+
+  // combine the selects
+  let selectKeys = new Set();
+  for (let game of games) {
+    let gameSelectKeys = Object.keys(game.selects);
+    for (let key of gameSelectKeys) {
+      selectKeys.add(key);
+    }
+  }
+  let selects = {};
+  for (let selectKey of selectKeys) {
+    // get the various copies of this select
+    let selectCopies = [];
+    for (let game of games) {
+      if (game.selects.hasOwnProperty(selectKey)) {
+        let selectCopy = {
+          ...game.selects[selectKey],
+          edition: game.edition
+        };
+        selectCopies.push(selectCopy);
+      }
+    }
+
+    let select = combineSelect(selectKey, selectCopies);
+    // console.log(select);
+    selects[selectKey] = select;
+  }
+
+  // combine the game metadata
+  let combo = {
+    selects,
+    meta: {
+      heritages: combineArray((g) => g.meta.heritages),
+      subclasses: combineArray((g) => g.meta.subclasses),
+      submulticlasses: combineArray((g) => g.meta.submulticlasses),
+    }
+  }
+
+  // console.log("COMBINED");
+  // console.log(combo);
+  return combo;
+}
+
+function combineSelect(selectKey, selectCopies) {
+  // console.log(selectKey, "- merging", selectCopies.length, "selects");
+  let select = {
+    ...selectCopies[0],
+    values: [],
+    edition: undefined
+  };
+
+  // combine the select values
+  for (let selectCopy of selectCopies) {
+    for (let value of selectCopy.values) {
+      value.meta = {
+        ...value.meta,
+        edition: selectCopy.edition,
+        select: selectKey,
+        selects: value.selects,
+      };
+      select.values.push(value);
+    }
+  }
+
+  // combine sub-selects?
+  // let subselectKeys = new Set();
+  // for (let value of select.values) {
+  //   if ('selects' in value) {
+  //     for (let subselectKey in value.selects) {
+  //       subselectKeys.add(subselectKey);
+  //     }
   //   }
   // }
+  // console.log(selectKey, "- subselects:", subselectKeys);
+  // for (let subselectKey of subselectKeys) {
+  //   let subselectCopies = [];
+  //   for (let selectCopy of selectCopies) {
+      
+  //   }
+  //   combineSelect(subselectKey, subselectCopies);
+  // }
 
-  return games[0];
+  // fix up sub-selects
+  for (let value of select.values) {
+    if (has(value, 'subselects')) {
+      for (let subselect of value.subselects) {
+        subselect.displayGroups = groupSelectValues(subselect.values, subselect.select);
+      }
+    }
+  }
+
+  // finish the groups for display
+  select.displayGroups = groupSelectValues(select.values, select.select);
+
+  return select;
 }
+
+
+
 
 
 // Extract 
@@ -110,6 +211,7 @@ export function loadGame(game) {
 
       // put them together
       let gamedata = {
+        edition: data.edition,
         selects: {...coreSelects, ...heritageSelects, ...moreSelects}
       };
       let selectKeys = Object.keys(gamedata.selects);
@@ -124,36 +226,22 @@ export function loadGame(game) {
       }
 
       // prepare translations
-      for (let selectKey of selectKeys) {
-        prepareTranslations(gamedata.selects[selectKey], ['name'], languages);
-        for (let value of gamedata.selects[selectKey].values) {
-          prepareTranslations(value, ['group', 'name'], languages);
-          if (has(value, "subselects")) {
-            for (let subselect of value.subselects) {
-              prepareTranslations(subselect, ['name'], languages);
-            }
-          }
-        }
-      }
+      // for (let selectKey of selectKeys) {
+      //   prepareTranslations(gamedata.selects[selectKey], ['name'], languages);
+      //   for (let value of gamedata.selects[selectKey].values) {
+      //     prepareTranslations(value, ['group', 'name'], languages);
+      //     if (has(value, "subselects")) {
+      //       for (let subselect of value.subselects) {
+      //         prepareTranslations(subselect, ['name'], languages);
+      //       }
+      //     }
+      //   }
+      // }
 
       // prepare metadata
       for (let selectKey of selectKeys) {
         prepareSelectMetadata(gamedata.selects[selectKey]);
       }
-
-      // prepare all selects for searching
-      let searchIndex = createSearchIndex(languages);
-      for (let selectKey of selectKeys) {
-        searchIndex.addCategory(selectKey);
-        let select = gamedata.selects[selectKey];
-        for (let value of select.values) {
-          let content = value.name; // TODO i18n
-          for (let language of languages) {
-            searchIndex.addItem(selectKey, language, content, value);
-          }
-        }
-      }
-      gamedata.searchIndex = searchIndex.finish();
 
       // note other information
       gamedata.meta = {
@@ -202,7 +290,7 @@ function extractSelects(basedata, extractSelects, opts = {}) {
   // grab all the selects
   for (let select of basedata.selects) {
     if (extractSelects.includes(select.select)) {
-      select.displayGroups = groupSelectValues(select.values, select.groups, select.select);
+      // select.displayGroups = groupSelectValues(select.values, select.groups, select.select);
       outdata[select.select] = select;
     }
   }
@@ -210,8 +298,9 @@ function extractSelects(basedata, extractSelects, opts = {}) {
   return outdata;
 }
 
-function groupSelectValues(values, groups, name) {
+function groupSelectValues(values, name) {
   let valuesById = {};
+  let groupNames = new Set();
   for (let value of values) {
     value.select = name;
     valuesById[value.id] = value;
@@ -220,25 +309,21 @@ function groupSelectValues(values, groups, name) {
     valuesById[slugId] = value;
     let shortId = value.id.replace(/^.*\//, '');
     valuesById[shortId] = value;
+    groupNames.add(value.group);
   }
 
   // embed values into groups
-  for (let groupName in groups) {
-    groups[groupName].groupValues = [];
-    if (!has(groups, groupName)) {
-      error("gamedata-lib", "Group not found".red, groupName);
-    }
-    for (let value of groups[groupName]) {
-      if (!has(valuesById, value)) {
-        error("gamedata-lib", "Value not found".red, value);
-      } else if (valuesById[value] === undefined) {
-        error("gamedata-lib", "Value is undefined".red, value);
-      } else if (valuesById[value] === null) {
-        error("gamedata-lib", "Value is null".red, value);
-      } else {
-        groups[groupName].groupValues.push(valuesById[value]);
-      }
-    }
+  // console.log("Group names", groupNames);
+  let groups = {};
+  for (let groupName of groupNames) {
+    groups[groupName] = [];
+  }
+
+  // console.log("Empty groups", groups);
+
+  for (let value of values) {
+    // console.log("Putting in a group", value);
+    groups[value.group].push(value);
   }
 
   // put groups in tiers
@@ -250,12 +335,12 @@ function groupSelectValues(values, groups, name) {
     "adventures": [],
     "thirdparty": []
   };
-  for (let groupName in groups) {
-    if (groups[groupName].groupValues.length > 0) {
+  for (let groupName of groupNames) {
+    if (groups[groupName].length > 0) {
       let tier = group2tier(groupName, false);
       tiers[tier].push({
         group: groupName,
-        values: groups[groupName].groupValues,
+        values: groups[groupName],
       });
     }
   }
@@ -284,9 +369,11 @@ function prepareSelectMetadata(select) {
 
 function prepareValueMetadata(value) {
   value.meta = {
+    select: value.select,
+    name: value.name,
     rarity: 'common',
     source: group2tier(value.group, true),
-    ...value.meta
+    ...value.meta,
   };
 }
 

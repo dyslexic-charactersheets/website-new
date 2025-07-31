@@ -1,0 +1,42 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  {{#if (default p true)}}<p>{{/if}}
+    <label for="{{name}}_{{camelCase value}}">
+      <input 
+        type="radio" 
+        name="{{name}}" 
+        value="{{value}}"
+        id="{{name}}_{{camelCase value}}"
+        {{#if checked}}checked{{/if}}
+        data-bind="checked=#build-form.{{var}} | eq '{{value}}'"
+        data-var="{{var}}"
+        autocomplete="off"
+      > {{__ label}}</label>
+  {{#if (default p true)}}</p>{{/if}}
+</template>
+
+<script>
+  
+on("input[type='radio']", "change", (evt) => {
+  let radio = evt.target;
+  let rvar = radio.dataset.var;
+  let value = radio.value;
+  if (radio.checked && isString(rvar) && rvar && isString(value) && value) {
+    set("#build-form", rvar, value);
+  }
+});
+
+// pre-fill form data with current selection for all radio groups
+// all("input[type='radio']:checked", (radio) => {
+//   let rvar = radio.dataset.var;
+//   let value = radio.value;
+//   if (isString(rvar) && rvar != "" && isString(value) && value != "") {
+//     set("#build-form", rvar, value);
+//   }
+// });
+
+</script>

@@ -75,9 +75,13 @@ $btn-size-big: 2.1rem;
     display: none !important;
   }
 
+  &.btn--home-action {
+
+  }
+
   &.btn--primary {
     display: block;
-    width: 10rem;
+    min-width: 10rem;
     text-align: center;
 
     height: $btn-size-big;
@@ -152,6 +156,39 @@ $btn-size-big: 2.1rem;
 
     &:visited, &:active {
       color: black;
+    }
+  }
+
+  &.btn--borderless {
+    $pad: 0.5rem;
+    padding: 0 $pad;
+
+    @include fonts.small-heading;
+    
+    height: $btn-size;
+    line-height: $btn-size;
+    min-width: $btn-size - ($pad * 2);
+    white-space: nowrap;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      .light-region & {
+        background: colours.$primary;
+        color: white;
+      }
+      .dark-region & {
+        background: white;
+        color: colours.$primary;
+      }
+      .dark-region.pane--bg_blue & {
+        background: white;
+        color: colours.$blue-cloth;
+      }
+      border-radius: 0.2rem;
     }
   }
 
@@ -240,7 +277,7 @@ $btn-size-big: 2.1rem;
     border: 1px solid rgba(white, 0.6);
 
     .main--layout_home & {
-      background: rgba(colours.$red-leather, 0.8);
+      background: rgba(colours.$red-home-button, 0.8);
     }
   }
 

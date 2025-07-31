@@ -1,0 +1,24 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  {{#if (default p true)}}<p>{{/if}}
+    {{#if label}}<label for="{{name}}">{{__ label}}</label>{{/if}}
+    <input type="text" name="{{name}}" id="{{name}}"
+      data-bind="value=#build-form.{{var}}"
+      data-var="{{var}}"
+      autocomplete="off"
+    />
+  {{#if (default p true)}}</p>{{/if}}
+</template>
+
+<script>
+  
+on("input[type='text'][data-var]", "change", (evt) => {
+  let input = evt.target;
+  set("#build-form", input.dataset.var, input.value);
+});
+
+</script>

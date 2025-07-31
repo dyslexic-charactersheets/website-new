@@ -65,8 +65,8 @@
             current=""
             var="#build-form.cls"
           }}
-            {{#> SwitchCase value="none"}}
-            <h4>&nbsp;</h4>
+            {{#> SwitchCase value=""}}
+              <h4>&nbsp;</h4>
               {{> Output name="subclass" var=""}}
             {{/SwitchCase}}
             {{#each pathfinder2.selects.class.values}}
@@ -92,8 +92,18 @@
         </td>
       </tr>
 
+      {{!-- <tr id="build-dual-class-row">
+        <td>
+          <h4>{{__ "Second Class"}}</h4>
+          {{> Output name="second-class" var="#build-form.secondCls | displayName 'class'" on-click="show-menu form-select-cls"}}
+        </td>
+        <td>
+
+        </td>
+      </tr> --}}
+
       <tr id="build-multiclass-row">
-          <th>{{__ "Multiclass"}}</th>
+        <th>{{__ "Multiclass"}}</th>
       </tr>
       <tr>
         <td colspan="2">
@@ -140,7 +150,7 @@
           </td>
       </tr>
 
-      <!-- <tr id="build-mythic-row">
+      {{!-- <tr id="build-mythic-row">
           <th></th>
           <th data-on-click="select mythic-destiny">{{__ "Mythic Destiny"}}</th>
       </tr>
@@ -153,7 +163,7 @@
           <td>
               {{> Output name="mythic-destiny" var="#build-form.mythic-destiny | mythicDestinyName" on-click="show-menu form-select-mythic-destiny"}}
           </td>
-      </tr> -->
+      </tr> --}}
   </table>
 
   {{#> Columns }}
@@ -168,6 +178,7 @@
       <h4>{{__ "Variant Rules"}}</h4>
       <fieldset>
         {{> Checkbox name='option-free-archetype' var='freeArchetype' label="Free Archetype"}}
+        {{!-- {{> Checkbox name='option-dual-class' var='dualClass' label="Dual Class"}} --}}
         {{> Checkbox name='option-ancestry-paragon' var='ancestryParagon' label="Ancestry Paragon"}}
         {{> Checkbox name='option-automatic-bonus-progression' var='automaticBonusProgression' label="Automatic Bonus Progression"}}
         <div class="indent">

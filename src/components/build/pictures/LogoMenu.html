@@ -1,0 +1,36 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  {{#> SideMenu
+    id="logo-menu"
+    side="right"
+    wide=true
+  }}
+    {{#> Pane bg="parchment" nopad=true}}
+      {{#> HeaderRow}}
+        {{#> Row}}
+          {{> CloseButton }}
+          <h3>{{__ "Select Logo"}}</h3>
+        {{/Row}}
+        {{> PortraitSearchTools }}
+      {{/HeaderRow}}
+
+      {{#> ScrollPane}}
+        {{#> ItemList id="item-list-logo"}}
+          {{#each logos.displayGroups}}
+            <h3>{{__ name "Display Group"}}</h3>
+            <div class="item-list__group">
+              {{#each values}}
+                {{> AssetSelectItem item=this folder="logos"}}
+              {{/each}}
+            </div>
+          {{/each}}
+        {{/ItemList}}
+      {{/ScrollPane}}
+      
+    {{/Pane}}
+  {{/SideMenu}}
+</template>

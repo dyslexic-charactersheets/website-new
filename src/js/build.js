@@ -34,6 +34,7 @@ function downloadCharacterSheet(request) {
       break;
 
     case 'pathfinder2':
+    case 'pathfinder2remaster':
     case 'starfinder2':
       url = '/download/pathfinder2';
       break;
