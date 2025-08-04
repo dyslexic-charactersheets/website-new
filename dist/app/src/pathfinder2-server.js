@@ -1,4 +1,5 @@
 import { createWriteStream } from 'fs';
+import path from 'path';
 import CharacterSheets from 'dyslexic-charactersheets';
 
 import puppeteer from 'puppeteer';
@@ -77,7 +78,9 @@ function slugify(str) {
 }
 
 // Log
-var logStream = createWriteStream('./../../../pathfinder2.log', { flags: 'a' });
+let logfile = path.resolve('./../../pathfinder2.log');
+log("pathfinder2", "Character log file", logfile);
+var logStream = createWriteStream(logfile, { flags: 'a' });
 CharacterSheets.on('request', function (request) {
     var date = new Date();
     var ts = date.getTime();
