@@ -108,7 +108,6 @@ function readPf2Form(type) {
         character.attributes.feats.push("diehard");
       }
 
-      character.attributes.optionPermission = readBoolean("pagePermission");
       character.attributes.optionCover = readBoolean("pageCover");
       character.attributes.optionReference = readBoolean("pageReference"),
       character.attributes.optionActions = readBoolean("pageActions");
@@ -120,7 +119,6 @@ function readPf2Form(type) {
       character.attributes.optionLevelUp = readBoolean("pageLevelUp");
       // character.attributes.optionPfs: false,
 
-      // character.attributes.optionInventory = dataset["pageInventory"];
       character.attributes.inventoryStyle = dataset["pageInventory"];
       character.attributes.optionInventoryExtra = readBoolean("pageInventoryExtra");
       character.attributes.optionAnimalCompanion = readBoolean("pageAnimalCompanion");
@@ -135,6 +133,19 @@ function readPf2Form(type) {
       break;
 
     case 'gm':
+      character.attributes.gm = dataset["gm"];
+
+      switch (character.attributes.gm) {
+        case 'characters':
+          character.attributes.optionGmParty = readBoolean("pageGmParty");
+          character.attributes.optionGmNpcParty = readBoolean("pageGmNpcGroup");
+          character.attributes.optionGmNpc = readBoolean("pageGmNpc");
+          break;
+
+        case 'maps':
+          character.attributes.mapView = dataset["pageGmMaps"];
+          break;
+      }
       break;
 
     case 'kingmaker':
@@ -146,6 +157,9 @@ function readPf2Form(type) {
     default:
       return null;
   }
+  
+  // common fields
+  character.attributes.optionPermission = readBoolean("pagePermission");
 
   // appearance
   switch (dataset.pageBackground) {

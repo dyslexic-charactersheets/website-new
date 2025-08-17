@@ -1,0 +1,19 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <h3>{{__ "NPCs"}}</h3>
+
+  {{#> Row valign="top"}}
+    {{> PageOption page="gm-party" size="landscape" label="Party" checked=true}}
+    {{> PageOption page="gm-npc-party" size="landscape" label="NPC Group" checked=true}}
+    {{> PageOption page="gm-npc" size="landscape" label="NPC" checked=true}}
+  {{/Row}}
+
+  <h4>{{__ "Legal"}}</h4>
+  {{#> Row valign="top"}}
+    {{> PageOption page="permission" label="Permission to print"}}
+  {{/Row}}
+</template>

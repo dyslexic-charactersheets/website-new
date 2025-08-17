@@ -27,7 +27,7 @@
     }}
 
     {{#> Slideshow 
-      id='slides-character'
+      id="slides-character"
       vertical=true
     }}
 
@@ -36,8 +36,8 @@
       {{/Slide}}
 
       {{#> Switch 
-        id='switch-character'
-        current=''
+        id="switch-character"
+        current=""
       }}
         {{#> SwitchCase value='character'}}
 
@@ -58,7 +58,9 @@
           {{/Slide}}
           
           {{#> Slide jump="download" last=true }}
-            {{> BuildFormPF2_DownloadSlide }}
+            {{> BuildFormPF2_DownloadSlide
+              type="character"
+            }}
           {{/Slide}}
 
         {{/SwitchCase}}
@@ -70,24 +72,24 @@
             {{#> TileGrid grid="2-2" }}
               {{#> Button 
                 type="tile"
-                on-click="#switch-gm-options=npcs; #slides-character.jump=gm-options"
+                on-click="#switch-gm-options.current=npcs; #build-form.gm=characters; #slides-character.jump=gm-options"
               }}
                 {{__ "NPCs"}}
               {{/Button}}
 
               {{#> Button 
                 type="tile"
-                on-click="#switch-gm-options=maps; #slides-character.jump=gm-options"
+                on-click="#switch-gm-options.current=maps; #build-form.gm=maps; #slides-character.jump=gm-options"
               }}
                 {{__ "Maps"}}
               {{/Button}}
 
-              {{#> Button 
+              {{!-- {{#> Button 
                 type="tile"
-                on-click="#switch-gm-options=kingdom; #slides-character.jump=gm-options"
+                on-click="#switch-gm-options.current=kingdom; #build-form.gm=kingmaker; #slides-character.jump=gm-options"
               }}
                 {{__ "Kingdom"}}
-              {{/Button}}
+              {{/Button}} --}}
             {{/TileGrid}}
           {{/Slide}}
 
@@ -95,29 +97,30 @@
             <h2>GM</h2>
             {{#> Switch
               id="switch-gm-options"
+              current=""
             }}
               {{#> SwitchCase value="npcs"}}
-                <h3>{{__ "NPCs"}}</h3>
+                {{> BuildFormPF2_GM_NPC }}
               {{/SwitchCase}}
               
               {{#> SwitchCase value="maps"}}
-                <h3>{{__ "Maps"}}</h3>
+                {{> BuildFormPF2_GM_Maps }}
               {{/SwitchCase}}
               
               {{#> SwitchCase value="kingdom"}}
-                <h3>{{__ "Kingdom"}}</h3>
+                {{> BuildFormPF2_Kingmaker }}
               {{/SwitchCase}}
             {{/Switch}}
           {{/Slide}}
           
           {{#> Slide jump="gm-colours" slide=3 show-next=true }}
-            <h2>Colours</h2>
-            <p>Colours</p>
+            {{> BuildFormPF2_AppearanceSlide }}
           {{/Slide}}
           
           {{#> Slide jump="gm-download" slide=4 last=true }}
-            <h2>Download</h2>
-            <p>Download</p>
+            {{> BuildFormPF2_DownloadSlide
+              type="gm"
+            }}
           {{/Slide}}
         {{/SwitchCase}}
 
@@ -132,25 +135,25 @@
           {{/Slide}}
           
           {{#> Slide jump="starship-download" slide=4 last=true }}
-            <h2>Download</h2>
-            <p>Download</p>
+            {{> BuildFormPF2_DownloadSlide
+              type="starship"
+            }}
           {{/Slide}}
         {{/SwitchCase}}
 
         {{#> SwitchCase value="kingmaker"}}
           {{#> Slide jump="kingmaker" slide=3 show-next=true }}
-            <h2>Kingmaker</h2>
-            <p>Kingmaker</p>
+            {{> BuildFormPF2_Kingmaker }}
           {{/Slide}}
 
           {{#> Slide jump="kingmaker-colours" slide=3 show-next=true }}
-            <h2>Colours</h2>
-            <p>Colours</p>
+            {{> BuildFormPF2_AppearanceSlide }}
           {{/Slide}}
           
           {{#> Slide jump="kingmaker-download" slide=4 last=true }}
-            <h2>Download</h2>
-            <p>Download</p>
+            {{> BuildFormPF2_DownloadSlide
+              type="kingmaker"
+            }}
           {{/Slide}}
         {{/SwitchCase}}
 
@@ -166,8 +169,9 @@
           {{/Slide}}
           
           {{#> Slide jump="mini-download" slide=4 last=true }}
-            <h2>Download</h2>
-            <p>Download</p>
+            {{> BuildFormPF2_DownloadSlide
+              type="mini"
+            }}
           {{/Slide}}
         {{/SwitchCase}}
 

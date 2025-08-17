@@ -1,0 +1,18 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <h3>{{__ "Maps"}}</h3>
+
+  {{#> Row valign="top"}}
+    {{> PageOption page="gm-maps-2d" label="2D (Flat)" radio=true name="gm-maps" value="2d"}}
+    {{> PageOption page="gm-maps-3d" label="3D (Perspective)" checked=true radio=true name="gm-maps" value="3d"}}
+  {{/Row}}
+  
+  <h4>{{__ "Legal"}}</h4>
+  {{#> Row valign="top"}}
+    {{> PageOption page="permission" label="Permission to print"}}
+  {{/Row}}
+</template>

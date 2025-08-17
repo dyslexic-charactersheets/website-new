@@ -2841,6 +2841,10 @@ dl dd + dt {
   margin-top: 0.5rem;
 }
 
+h4 + .row {
+  margin-top: 1rem;
+}
+
 .page-option {
   /* width: 10rem; */
   display: block;
@@ -2885,6 +2889,10 @@ dl dd + dt {
   padding: 1rem;
   width: 6rem;
   height: 6rem;
+}
+
+.page-option.page-option--size_landscape picture {
+  height: auto;
 }
 
 .dark-region {

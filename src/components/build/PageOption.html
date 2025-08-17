@@ -42,7 +42,11 @@ on(".page-option img", "click", (evt) => {
 
 @use 'colours';
 @use 'fonts';
-  
+
+h4 + .row {
+  margin-top: 1rem;
+}
+
 .page-option {
     /* width: 10rem; */
     $size: 8rem;
@@ -96,7 +100,9 @@ on(".page-option img", "click", (evt) => {
     }
 
     &.page-option--size_landscape {
-
+      picture {
+        height: auto;
+      }
     }
 }
 

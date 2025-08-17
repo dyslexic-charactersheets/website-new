@@ -49,7 +49,7 @@
   </fieldset>
 
   {{#> Row align="centre"}}
-    <button type="submit" class="place btn btn--primary button-download button-download-pf2" id="download-pf2">{{__ "Download"}}</button>
+    <button type="submit" class="place btn btn--primary button-download button-download-pf2" data-type="{{ type }}">{{__ "Download"}}</button>
   {{/Row}}
 </template>
 
@@ -57,7 +57,8 @@
 on('.button-download-pf2', 'click', (evt) => {
   evt.preventDefault();
 
-  // TODO not all characters the same!
-  readPf2FormAndSubmit('character');
+  let btn = evt.target;
+  let type = btn.dataset.type;
+  readPf2FormAndSubmit(type);
 });
 </script>
