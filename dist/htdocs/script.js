@@ -1266,9 +1266,9 @@ function readPf2Form(type) {
   switch (type) {
     // Character pages
     case 'character':
-      mapImage('printPortrait', getInputValue('data-image-portrait'));
-      mapImage('printLogo', getInputValue('data-image-logo'));
-      mapImage('printAnimal', getInputValue('data-image-animal'));
+      mapImage('printPortrait', getInputValue('data-image-character-portrait'));
+      mapImage('printLogo', getInputValue('data-image-character-logo'));
+      mapImage('printAnimal', getInputValue('data-image-character-animal'));
       break;
 
     case 'gm':
@@ -1278,6 +1278,7 @@ function readPf2Form(type) {
       break;
 
     case 'mini':
+      mapImage('printPortrait', getInputValue('data-image-mini-portrait'));
       break;
 
     default:

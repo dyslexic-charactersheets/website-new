@@ -10,7 +10,7 @@
     {{#> Column}}
       <h3>{{__ "Character Picture"}}</h3>
       {{> ImageDrop 
-        id="portrait"
+        id=(str "${type}-portrait" type=type)
         shape="portrait" 
         label="Drag Picture" 
         imageselect="portrait" 
@@ -20,22 +20,26 @@
     {{/Column}}
 
     {{#> Column}}
-      <h3>{{__ "Logo"}}</h3>
-      {{> ImageDrop 
-        id="logo" 
-        shape="logo" 
-        label="Drag Logo" 
-        imageselect="logo" 
-        button="Select Logo"
-      }}
+      {{#if (default show-logo true)}}
+        <h3>{{__ "Logo"}}</h3>
+        {{> ImageDrop 
+          id=(str "${type}-logo" type=type)
+          shape="logo" 
+          label="Drag Logo" 
+          imageselect="logo" 
+          button="Select Logo"
+        }}
+      {{/if}}
       
-      {{!-- <h3>{{__ "Animal"}}</h3>
-      {{> ImageDrop 
-        id="animal" 
-        shape="animal" 
-        label="Drag Animal Picture" 
-        imageselect="animal" 
-        button="Select Animal Picture"}} --}}
+      {{#if (default show-animal false)}}
+        <h3>{{__ "Animal"}}</h3>
+        {{> ImageDrop 
+          id=(str "${type}-animal" type=type)
+          shape="animal" 
+          label="Drag Animal Picture" 
+          imageselect="animal" 
+          button="Select Animal Picture"}}
+      {{/if}}
     {{/Column}}
   {{/Columns}}
 </template>

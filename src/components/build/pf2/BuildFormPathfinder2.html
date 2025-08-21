@@ -54,7 +54,7 @@
           {{/Slide}}
           
           {{#> Slide jump="picture" show-next=true }}
-            {{> BuildFormPF2_PictureSlide }}
+            {{> BuildFormPF2_PictureSlide type="character" }}
           {{/Slide}}
           
           {{#> Slide jump="download" last=true }}
@@ -159,13 +159,11 @@
 
         {{#> SwitchCase value="mini"}}
           {{#> Slide jump="mini" slide=3 show-next=true }}
-            <h2>Map Figure</h2>
-            <p>Map Figure</p>
+            {{> BuildFormPF2_Mini show-logo=false }}
           {{/Slide}}
 
           {{#> Slide jump="mini-colours" slide=3 show-next=true }}
-            <h2>Colours</h2>
-            <p>Colours</p>
+            {{> BuildFormPF2_AppearanceSlide }}
           {{/Slide}}
           
           {{#> Slide jump="mini-download" slide=4 last=true }}
