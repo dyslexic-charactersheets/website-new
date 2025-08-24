@@ -129,45 +129,49 @@
                   {{#> Column}}
                     
                     {{#each col as |book bookIndex|}}
-                      <h3>{{__ book.displayName "book.displayName"}}</h3>
+                      <h4>{{__ book.displayName "book.displayName"}}</h4>
+                      <fieldset>
                       <ul>
                         {{#each book.classes as |class classIndex|}}
                           <li>
-                          {{#if book.radio}}
-                            <input type='radio' name='switch-class' value='{{class.name}}' id='class-{{class.code}}' data-class='{{class.code}}' data-classname='{{class.name}}' />
-                          {{else}}
-                            <input type='checkbox' name='class-{{class.name}}' id='class-{{class.code}}' data-class='{{class.code}}' data-classname='{{class.name}}' />
-                          {{/if}}
-                          <label for='class-{{class.code}}'>{{__ class.name (str "class name ${code}" code=code)}}</label>
-
-                          {{#if variants}}
-                            {{#if axes}}
-                              {{#each axes as |axis axisIndex|}}
-                                <select name='variant-{{class.code}}-axis-{{axisIndex}}' 
-                                  id='variant-{{class.name}}-axis-{{axisIndex}}' 
-                                  class='axis-select'
-                                  data-variant-for="{{class.code}}"
-                                  data-variant-axis="{{axisIndex}}"
-                                >
-                                  {{#each axis}}
-                                    <option value='{{this}}'>{{__ this "axis"}}</option>
-                                  {{/each}}
-                                </select>
-                              {{/each}}
+                            {{#if book.radio}}
+                              <input type='radio' name='switch-class' value='{{class.name}}' id='class-{{class.code}}' data-class='{{class.code}}' data-classname='{{class.name}}' autocomplete="off" />
                             {{else}}
-                              <select name='variant-{{class.code}}' 
-                                id='variant-{{class.name}}'
-                                data-variant-for="{{class.code}}"
-                              >
-                                {{#each variants as |variant variantIndex|}}
-                                  <option value='{{name}}'>{{__ name "variant name"}}</option>
-                                {{/each}}
-                              </select>
+                              <input type='checkbox' class="class-checkbox" name='class-{{class.name}}' id='class-{{class.code}}' data-class='{{class.code}}' data-classname='{{class.name}}' autocomplete="off" />
                             {{/if}}
-                          {{/if}}
+                            <label for='class-{{class.code}}'>{{__ class.name (str "class name ${code}" code=code)}}</label>
+
+                            {{#if variants}}
+                              {{#> Reveal id=(str "variants-${cls}" cls=class.name)}}
+                                {{#if axes}}
+                                  {{#each axes as |axis axisIndex|}}
+                                    <select name='variant-{{class.code}}-axis-{{axisIndex}}' 
+                                      id='variant-{{class.name}}-axis-{{axisIndex}}' 
+                                      class='axis-select'
+                                      data-variant-for="{{class.code}}"
+                                      data-variant-axis="{{axisIndex}}"
+                                    >
+                                      {{#each axis}}
+                                        <option value='{{this}}'>{{__ this "axis"}}</option>
+                                      {{/each}}
+                                    </select>
+                                  {{/each}}
+                                {{else}}
+                                  <select name='variant-{{class.code}}' 
+                                    id='variant-{{class.name}}'
+                                    data-variant-for="{{class.code}}"
+                                  >
+                                    {{#each variants as |variant variantIndex|}}
+                                      <option value='{{name}}'>{{__ name "variant name"}}</option>
+                                    {{/each}}
+                                  </select>
+                                {{/if}}
+                              {{/Reveal}}
+                            {{/if}}
                           </li>
                         {{/each}}
                       </ul>
+                      </fieldset>
                     {{/each}}
 
                   {{/Column}}
@@ -183,9 +187,11 @@
               {{#> Column}}
 
                 {{#if gameData.isStarfinder}}
-                  <h3>{{__ "Beginners"}}</h3>
+                  <h4>{{__ "Beginners"}}</h4>
+                  <fieldset>
                     <p><label for='buildmycharacter'><input type='checkbox' name='build-my-character' id='buildmycharacter' checked> {{__ "Build a character"}}</label><p>
                     <p class='info'>{{__ "A sheet to help beginners with the process of building their character."}}</p>
+                  </fieldset>
                 {{/if}}
 
 
@@ -199,7 +205,8 @@
                   <p class="info">{{__ "Includes space for 7 classes rather than 5."}}</p>
                 {{/if}}
 
-                <h3>{{__ "Pages"}}</h3>
+                <h4>{{__ "Pages"}}</h4>
+                <fieldset>
                   <p><label for="spellbook-size">{{__ "Spellbook style"}}</label>
                     <select name="spellbook-size" id="spellbook-size">
                       <option value="small">{{__ "Small entries"}}</option>
@@ -222,28 +229,32 @@
                         <option value="without">{{__ "Without wands, scrolls and potions"}}</option>
                     </select></p>
                   {{/if}}
+                </fieldset>
 
-                <h3>{{__ "Skills"}}</h3>
-                  <p><label for="skills-style">{{__ "Skills list style"}}</label>
-                      <label for="skills-list-style-normal">
-                        <input type="radio" name="skills-list-style" value="normal" id="skills-list-style-normal" checked>
-                        {{__ "Normal"}}</label> &nbsp; 
-                      {{#if gameData.isPathfinder}}
-                      <label for="skills-list-style-consolidated">
-                        <input type="radio" name="skills-list-style" value="consolidated" id="skills-list-style-consolidated"> 
-                        {{__ "Consolidated"}}</label> &nbsp; 
-                      {{/if}}
-                      <label for="skills-list-style-blank">
-                        <input type="radio" name="skills-list-style" value="blank" id="skills-list-style-blank"> 
-                        {{__ "Blank"}}</label>
+                <h4>{{__ "Skills"}}</h4>
+                <fieldset>
+                  <p><label for="skills-style">{{__ "Skills list style"}}</label></p>
+                  <p>
+                    <label for="skills-list-style-normal">
+                      <input type="radio" name="skills-list-style" value="normal" id="skills-list-style-normal" checked>
+                      {{__ "Normal"}}</label> &nbsp; 
+                    {{#if gameData.isPathfinder}}
+                    <label for="skills-list-style-consolidated">
+                      <input type="radio" name="skills-list-style" value="consolidated" id="skills-list-style-consolidated"> 
+                      {{__ "Consolidated"}}</label> &nbsp; 
+                    {{/if}}
+                    <label for="skills-list-style-blank">
+                      <input type="radio" name="skills-list-style" value="blank" id="skills-list-style-blank"> 
+                      {{__ "Blank"}}</label>
                   </p>
 
-                  {{#unless gameData.isStarfinder}}
-                    <p><label for="all-knowledge"><input type="checkbox" name="all-knowledge" id="all-knowledge" /> {{__ "Include all knowledge skills"}}</label></p>
-                    <p class='info'>{{__ "This reduces the space available for Craft, Profession and Perform skills. Bards get all knowledge skills anyway."}}</p>
-                  {{/unless}}
-
                   <table id='flexi-skills'>
+                  {{#unless gameData.isStarfinder}}
+                    <tr><td colspan="2">
+                      <p><label for="all-knowledge"><input type="checkbox" name="all-knowledge" id="all-knowledge" /> {{__ "Include all knowledge skills"}}</label></p>
+                      <p class='info'>{{__ "This reduces the space available for Craft, Profession and Perform skills. Bards get all knowledge skills anyway."}}</p>
+                    </td></tr>
+                  {{/unless}}
                   {{#unless gameData.isStarfinder}}
                     <tr><td><label for="show-perform"><input type="checkbox" name="show-perform" id="show-perform" /> {{__ "Perform"}}</label></td>
                       <td id='perform-group'>
@@ -407,12 +418,14 @@
                   </tr>
                   </table>
 
-                  <p class='info'>There may be other Craft, Perform and Profession skills, depending on setting and rules. Check with your {{#if gameData.isDnd}}DM{{else}}GM{{/if}}</p>
+                  <p class='info'>There may be other Craft, Perform and Profession skills, depending on setting and rules. Check with your {{#if gameData.isDnd}}DM{{else}}GM{{/if}}.</p>  
+                </fieldset>
 
               {{/Column}}
               {{#> Column}}
 
-                <h3>{{__ "Additional pages"}}</h3>
+                <h4>{{__ "Additional pages"}}</h4>
+                <fieldset>
                   <p><label for="include-background"><input type="checkbox" name="include-background" id="include-background" checked /> {{__ "Character background"}}</label></p>
                   {{#if gameData.isPathfinder}}
                     <p class='indent'><label for="include-pathfinder-society"><input type="checkbox" name="include-pathfinder-society" id="include-pathfinder-society" /> {{__ "Pathfinder Society"}}</label></p>
@@ -434,6 +447,7 @@
                     <label for="mini-medium"><input type="radio" name="mini-size" value="medium" id="mini-medium" checked> {{__ "Medium"}}</label>&nbsp; 
                     <label for="mini-large"><input type="radio" name="mini-size" value="large" id="mini-large"> {{__ "Large"}}</label>
                   </p>
+                </fieldset>
 
               {{/Column}}
             {{/Columns}}
@@ -475,20 +489,24 @@
           {{/Slide}}
           
           {{#> Slide jump="download" slide=5}}
-            
-            <h2>{{__ "Legal"}}</h2>
-              <p><label for='gm-permission'><input type='checkbox' name='gm-permission' id='gm-permission'> {{__ "Permission to print"}}</label></p>
-              <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
+            {{#> Columns}}
+              {{#> Column}}
+                <h4>{{__ "Legal"}}</h4>
+                  <p><label for='permission'><input type='checkbox' name='permission' id='permission'> {{__ "Permission to print"}}</label></p>
+                  <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
+              {{/Column}}
 
-            <h2>{{__ "Printing Colour"}}</h2>
-              {{> BuildFormClassicColourPicker id="colour" }}
+              {{#> Column}}
+                <h4>{{__ "Printing Colour"}}</h4>
+                {{> BuildFormClassicColourPicker id="colour" }}
+              {{/Column}}
+            {{/Columns}}
 
-            <h2>{{__ "Download"}}</h2>
-              {{#> Row align="centre" pad=true }}
-                {{#> Button type="primary" id="download-character" }}
-                  {{__ "Download"}}
-                {{/Button}}
-              {{/Row}}
+            {{#> Row align="centre" pad=true }}
+              {{#> Button type="primary" id="download-character" }}
+                {{__ "Download"}}
+              {{/Button}}
+            {{/Row}}
           {{/Slide}}
 
         {{/SwitchCase}}
@@ -585,7 +603,7 @@
           
           {{#> Slide jump="gm-download" slide=4}}
             <h2>{{__ "Legal"}}</h2>
-              <p><label for='permission'><input type='checkbox' name='permission' id='permission'> {{__ "Permission to print"}}</label></p>
+              <p><label for='gm-permission'><input type='checkbox' name='gm-permission' id='gm-permission'> {{__ "Permission to print"}}</label></p>
               <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
 
             <h2>{{__ "Printing Colour"}}</h2>
@@ -607,18 +625,20 @@
           {{#> Slide jump="kingdom" slide=2 show-next=true}}
             <h2>Kingdom</h2>
             
-            <h3>{{__ "Settlement style"}}</h3>
+            <h4>{{__ "Settlement style"}}</h4>
+            <fieldset>
               <p><label for="settlement-style-normal"><input type="radio" name="settlement-style" value="normal" id="settlement-style-normal" checked />
                 {{__ "Normal"}}</label></p>
               <p><label for="settlement-style-large"><input type="radio" name="settlement-style" value="large" id="settlement-style-large" />
                 {{__ "Large"}}</label></p>
               <p><label for="settlement-style-plain"><input type="radio" name="settlement-style" value="plain" id="settlement-style-plain" />
                 {{__ "Without map"}}</label></p>
+            </fieldset>
           {{/Slide}}
 
           {{#> Slide jump="kingdom-download" slide=3}}
             <h2>{{__ "Legal"}}</h2>
-              <p><label for='permission'><input type='checkbox' name='permission' id='permission'> {{__ "Permission to print"}}</label></p>
+              <p><label for='kingdom-permission'><input type='checkbox' name='kingdom-permission' id='kingdom-permission'> {{__ "Permission to print"}}</label></p>
               <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
 
             <h2>{{__ "Printing Colour"}}</h2>
@@ -641,7 +661,7 @@
 
           {{#> Slide jump="starship-download" slide=3}}
             <h3>{{__ "Legal"}}</h3>
-              <p><label for='permission'><input type='checkbox' name='permission' id='permission'> {{__ "Permission to print"}}</label></p>
+              <p><label for='starship-permission'><input type='checkbox' name='starship-permission' id='starship-permission'> {{__ "Permission to print"}}</label></p>
               <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
 
             <h3>{{__ "Printing Colour"}}</h3>
@@ -695,7 +715,7 @@
 
           {{#> Slide jump="mini-download" slide=3}}
             <h2>{{__ "Legal"}}</h2>
-              <p><label for='permission'><input type='checkbox' name='permission' id='permission'> {{__ "Permission to print"}}</label></p>
+              <p><label for='mini-permission'><input type='checkbox' name='mini-permission' id='mini-permission'> {{__ "Permission to print"}}</label></p>
               <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
 
             <h2>{{__ "Printing Colour"}}</h2>
@@ -762,10 +782,35 @@
       }
     }
   }
+
+  #flexi-skills {
+    border-collapse: collapse;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+
+    th, td {
+      padding: 3px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    tr:nth-child(2n+1) {
+      th, td {
+        background: rgba(0,0,0,0.2);
+      }
+    }
+  }
 }
 </style>
 
 <script>
+
+on('.class-checkbox', 'change', (evt) => {
+  let checkbox = evt.target;
+  let signal = checkbox.checked ? 'reveal' : 'close';
+  let surround = checkbox.closest('li');
+  for (let reveal of surround.querySelectorAll('.reveal')) {
+    emit(reveal, signal);
+  }
+});
 
 on('#simple', 'change', (evt) => {
   if (readCheckbox('simple')) {

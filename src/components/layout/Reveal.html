@@ -5,7 +5,6 @@
 
 <template>
   <div class="reveal" id="{{id}}">
-    
     {{> @partial-block }}
   </div>
 </template>
@@ -28,6 +27,6 @@ on('.reveal', 'reveal', (evt) => {
 });
 on('.reveal', 'close', (evt) => {
   let reveal = evt.target;
-  reveal.classList.hide('reveal--show');
+  reveal.classList.remove('reveal--show');
 })
 </script>

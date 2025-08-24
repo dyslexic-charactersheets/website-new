@@ -1048,20 +1048,25 @@ function readClassicForm(type) {
       break;
 
     case 'kingdom':
+      mapCheckbox("kingdom-permission", "permission");
       mapRadio("settlement-style", "settlementStyle");
       mapRadio("kingdom-colour", "printColour");
       break;
 
     case 'starship':
+      mapCheckbox("starship-permission", "permission");
       mapRadio("starship-colour", "printColour");
       break;
 
     case 'mini':
+      mapCheckbox("mini-permission", "permission");
       mapRadio("mini-colour", "printColour");
       mapRadio("mini-mini-size", "miniSize");
       mapImage("portrait", readInput("mini-portrait"));
       break;
   }
+
+  // appearance
 
   // make the full request object
   var request = {
@@ -1744,6 +1749,15 @@ on('.switch', 'switch', (event, sw) => {
   console.log("Error in Switch", e)
 }
 try {
+on('.class-checkbox', 'change', (evt) => {
+  let checkbox = evt.target;
+  let signal = checkbox.checked ? 'reveal' : 'close';
+  let surround = checkbox.closest('li');
+  for (let reveal of surround.querySelectorAll('.reveal')) {
+    emit(reveal, signal);
+  }
+});
+
 on('#simple', 'change', (evt) => {
   if (readCheckbox('simple')) {
     set('#more', 'checked', false);
@@ -2251,7 +2265,7 @@ on('.reveal', 'reveal', (evt) => {
 });
 on('.reveal', 'close', (evt) => {
   let reveal = evt.target;
-  reveal.classList.hide('reveal--show');
+  reveal.classList.remove('reveal--show');
 })
 } catch (e) { 
   console.log("Error in Reveal", e)

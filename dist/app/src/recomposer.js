@@ -1,10 +1,11 @@
 // const fs = require('fs');
 const Recomposer = require('./recomposer/lib');
+const { log, warn, error } = require('./log.js');
 
 function parseCharacter(req, game) {
   let values = {...req.body};
   let properties = Object.keys(req.body);
-  console.log("[recomposer]    Request properties:", values);
+  log("recomposer", "Request properties:", values);
 
   function get(property, defaultValue = '') {
     if (values.hasOwnProperty(property) && values[property] !== null && values[property] != "") {
@@ -122,10 +123,10 @@ function parseCharacter(req, game) {
   // parse a character
   let matchClasses = getMatching(/^class-/, true);
   let switchClasses = getMatching(/^switch-/, true, true, true)
-  console.log("[recomposer]    Classes (match):", matchClasses);
-  console.log("[recomposer]    Classes (switch):", switchClasses);
+  log("recomposer", "Classes (match):", matchClasses);
+  log("recomposer", "Classes (switch):", switchClasses);
   let classes = [...matchClasses, ...switchClasses];
-  console.log("[recomposer]    Classes:", classes);
+  log("recomposer", "Classes:", classes);
 
   classes = classes.map((cls) => {
     let variant = get(`variant-${cls}`, false);
@@ -214,25 +215,26 @@ function parseDnD35(req) {
 }
 
 function buildPdf(characterRequest, res) {
+
   Recomposer.createCharacterSheet(characterRequest)
     .then((result) => {
       if (result.err) {
-        console.log("[recomposer]    Error:", result.err);
+        error("recomposer", "Error:", result.err);
         res.status(500);
         res.send("Error");
         return;
       }
   
-      console.log("[recomposer]    Data length", result.data.length);
+      log("recomposer", "Data length", result.data.length);
       res.set('Content-Type', 'application/pdf');
       res.set('Content-Length', result.data.length);
       res.set('Content-Disposition', 'attachment');
       res.set('Content-Disposition', 'attachment; filename="' + result.filename + '"');
       res.send(Buffer.from(result.data));
-      console.log("[recomposer]    Sent");
+      log("recomposer", "Sent");
     })
     .catch((x) => {
-      console.log("[recomposer]    Error:", x);
+      error("recomposer", "Error:", x);
       res.status(500);
       res.send("Error");
     });

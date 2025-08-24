@@ -346,369 +346,408 @@
                                       <div class="columns columns--n_3">
                                           <div class="column">
                                                                   
-                                                                    <h3>Player&#x27;s Handbook</h3>
+                                                                    <h4>Player&#x27;s Handbook</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Barbarian' id='class-barbarian' data-class='barbarian' data-classname='Barbarian' />
-                                                                        <label for='class-barbarian'>Barbarian</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Barbarian' id='class-barbarian' data-class='barbarian' data-classname='Barbarian' autocomplete="off" />
+                                                                          <label for='class-barbarian'>Barbarian</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Bard' id='class-bard' data-class='bard' data-classname='Bard' />
-                                                                        <label for='class-bard'>Bard</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Bard' id='class-bard' data-class='bard' data-classname='Bard' autocomplete="off" />
+                                                                          <label for='class-bard'>Bard</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Cleric' id='class-cleric' data-class='cleric' data-classname='Cleric' />
-                                                                        <label for='class-cleric'>Cleric</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Cleric' id='class-cleric' data-class='cleric' data-classname='Cleric' autocomplete="off" />
+                                                                          <label for='class-cleric'>Cleric</label>
                                               
-                                                                            <select name='variant-cleric' 
-                                                                              id='variant-Cleric'
-                                                                              data-variant-for="cleric"
-                                                                            >
-                                                                                <option value='Cleric'>Cleric</option>
-                                                                                <option value='Extended Cleric'>Extended Cleric</option>
-                                                                            </select>
-                                                                        </li>
+                                              <div class="reveal" id="variants-Cleric">
+                                                                                    <select name='variant-cleric' 
+                                                                                      id='variant-Cleric'
+                                                                                      data-variant-for="cleric"
+                                                                                    >
+                                                                                        <option value='Cleric'>Cleric</option>
+                                                                                        <option value='Extended Cleric'>Extended Cleric</option>
+                                                                                    </select>
+                                                </div>                          </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Druid' id='class-druid' data-class='druid' data-classname='Druid' />
-                                                                        <label for='class-druid'>Druid</label>
-                                              
-                                                                        </li>
-                                                                        <li>
-                                                                          <input type='checkbox' name='class-Fighter' id='class-fighter' data-class='fighter' data-classname='Fighter' />
-                                                                        <label for='class-fighter'>Fighter</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Druid' id='class-druid' data-class='druid' data-classname='Druid' autocomplete="off" />
+                                                                          <label for='class-druid'>Druid</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Monk' id='class-monk' data-class='monk' data-classname='Monk' />
-                                                                        <label for='class-monk'>Monk</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Fighter' id='class-fighter' data-class='fighter' data-classname='Fighter' autocomplete="off" />
+                                                                          <label for='class-fighter'>Fighter</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Paladin' id='class-paladin' data-class='paladin' data-classname='Paladin' />
-                                                                        <label for='class-paladin'>Paladin</label>
-                                              
-                                                                            <select name='variant-paladin' 
-                                                                              id='variant-Paladin'
-                                                                              data-variant-for="paladin"
-                                                                            >
-                                                                                <option value='Paladin'>Paladin</option>
-                                                                                <option value='Extended Paladin'>Extended Paladin</option>
-                                                                            </select>
-                                                                        </li>
-                                                                        <li>
-                                                                          <input type='checkbox' name='class-Ranger' id='class-ranger' data-class='ranger' data-classname='Ranger' />
-                                                                        <label for='class-ranger'>Ranger</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Monk' id='class-monk' data-class='monk' data-classname='Monk' autocomplete="off" />
+                                                                          <label for='class-monk'>Monk</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Rogue' id='class-rogue' data-class='rogue' data-classname='Rogue' />
-                                                                        <label for='class-rogue'>Rogue</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Paladin' id='class-paladin' data-class='paladin' data-classname='Paladin' autocomplete="off" />
+                                                                          <label for='class-paladin'>Paladin</label>
+                                              
+                                              <div class="reveal" id="variants-Paladin">
+                                                                                    <select name='variant-paladin' 
+                                                                                      id='variant-Paladin'
+                                                                                      data-variant-for="paladin"
+                                                                                    >
+                                                                                        <option value='Paladin'>Paladin</option>
+                                                                                        <option value='Extended Paladin'>Extended Paladin</option>
+                                                                                    </select>
+                                                </div>                          </li>
+                                                                        <li>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Ranger' id='class-ranger' data-class='ranger' data-classname='Ranger' autocomplete="off" />
+                                                                          <label for='class-ranger'>Ranger</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Sorcerer' id='class-sorcerer' data-class='sorcerer' data-classname='Sorcerer' />
-                                                                        <label for='class-sorcerer'>Sorcerer</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Rogue' id='class-rogue' data-class='rogue' data-classname='Rogue' autocomplete="off" />
+                                                                          <label for='class-rogue'>Rogue</label>
                                               
-                                                                            <select name='variant-sorcerer' 
-                                                                              id='variant-Sorcerer'
-                                                                              data-variant-for="sorcerer"
-                                                                            >
-                                                                                <option value='Sorcerer'>Sorcerer</option>
-                                                                                <option value='Sorcerer (Metamagic Specialist)'>Sorcerer (Metamagic Specialist)</option>
-                                                                            </select>
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Wizard' id='class-wizard' data-class='wizard' data-classname='Wizard' />
-                                                                        <label for='class-wizard'>Wizard</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Sorcerer' id='class-sorcerer' data-class='sorcerer' data-classname='Sorcerer' autocomplete="off" />
+                                                                          <label for='class-sorcerer'>Sorcerer</label>
                                               
-                                                                            <select name='variant-wizard' 
-                                                                              id='variant-Wizard'
-                                                                              data-variant-for="wizard"
-                                                                            >
-                                                                                <option value='Wizard'>Wizard</option>
-                                                                                <option value='Wizard (Focus Specialist)'>Wizard (Focus Specialist)</option>
-                                                                            </select>
-                                                                        </li>
+                                              <div class="reveal" id="variants-Sorcerer">
+                                                                                    <select name='variant-sorcerer' 
+                                                                                      id='variant-Sorcerer'
+                                                                                      data-variant-for="sorcerer"
+                                                                                    >
+                                                                                        <option value='Sorcerer'>Sorcerer</option>
+                                                                                        <option value='Sorcerer (Metamagic Specialist)'>Sorcerer (Metamagic Specialist)</option>
+                                                                                    </select>
+                                                </div>                          </li>
+                                                                        <li>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Wizard' id='class-wizard' data-class='wizard' data-classname='Wizard' autocomplete="off" />
+                                                                          <label for='class-wizard'>Wizard</label>
+                                              
+                                              <div class="reveal" id="variants-Wizard">
+                                                                                    <select name='variant-wizard' 
+                                                                                      id='variant-Wizard'
+                                                                                      data-variant-for="wizard"
+                                                                                    >
+                                                                                        <option value='Wizard'>Wizard</option>
+                                                                                        <option value='Wizard (Focus Specialist)'>Wizard (Focus Specialist)</option>
+                                                                                    </select>
+                                                </div>                          </li>
                                                                     </ul>
-                                                                    <h3>Player&#x27;s Handbook II</h3>
+                                                                    </fieldset>
+                                                                    <h4>Player&#x27;s Handbook II</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Beguiler' id='class-beguiler' data-class='beguiler' data-classname='Beguiler' />
-                                                                        <label for='class-beguiler'>Beguiler</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Beguiler' id='class-beguiler' data-class='beguiler' data-classname='Beguiler' autocomplete="off" />
+                                                                          <label for='class-beguiler'>Beguiler</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Dragon Shaman' id='class-dragon-shaman' data-class='dragon-shaman' data-classname='Dragon Shaman' />
-                                                                        <label for='class-dragon-shaman'>Dragon Shaman</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Dragon Shaman' id='class-dragon-shaman' data-class='dragon-shaman' data-classname='Dragon Shaman' autocomplete="off" />
+                                                                          <label for='class-dragon-shaman'>Dragon Shaman</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Duskblade' id='class-duskblade' data-class='duskblade' data-classname='Duskblade' />
-                                                                        <label for='class-duskblade'>Duskblade</label>
-                                              
-                                                                        </li>
-                                                                    </ul>
-                                                                    <h3>Complete Adventurer</h3>
-                                                                    <ul>
-                                                                        <li>
-                                                                          <input type='checkbox' name='class-Ninja' id='class-ninja' data-class='ninja' data-classname='Ninja' />
-                                                                        <label for='class-ninja'>Ninja</label>
-                                              
-                                                                        </li>
-                                                                        <li>
-                                                                          <input type='checkbox' name='class-Spellthief' id='class-spellthief' data-class='spellthief' data-classname='Spellthief' />
-                                                                        <label for='class-spellthief'>Spellthief</label>
-                                              
-                                                                        </li>
-                                                                        <li>
-                                                                          <input type='checkbox' name='class-Scout' id='class-scout' data-class='scout' data-classname='Scout' />
-                                                                        <label for='class-scout'>Scout</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Duskblade' id='class-duskblade' data-class='duskblade' data-classname='Duskblade' autocomplete="off" />
+                                                                          <label for='class-duskblade'>Duskblade</label>
                                               
                                                                         </li>
                                                                     </ul>
-                                                                    <h3>Complete Arcane</h3>
+                                                                    </fieldset>
+                                                                    <h4>Complete Adventurer</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Warlock' id='class-warlock' data-class='warlock' data-classname='Warlock' />
-                                                                        <label for='class-warlock'>Warlock</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Ninja' id='class-ninja' data-class='ninja' data-classname='Ninja' autocomplete="off" />
+                                                                          <label for='class-ninja'>Ninja</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Warmage' id='class-warmage' data-class='warmage' data-classname='Warmage' />
-                                                                        <label for='class-warmage'>Warmage</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Spellthief' id='class-spellthief' data-class='spellthief' data-classname='Spellthief' autocomplete="off" />
+                                                                          <label for='class-spellthief'>Spellthief</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Wu Jen' id='class-wu-jen' data-class='wu-jen' data-classname='Wu Jen' />
-                                                                        <label for='class-wu-jen'>Wu Jen</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Scout' id='class-scout' data-class='scout' data-classname='Scout' autocomplete="off" />
+                                                                          <label for='class-scout'>Scout</label>
                                               
                                                                         </li>
                                                                     </ul>
+                                                                    </fieldset>
+                                                                    <h4>Complete Arcane</h4>
+                                                                    <fieldset>
+                                                                    <ul>
+                                                                        <li>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Warlock' id='class-warlock' data-class='warlock' data-classname='Warlock' autocomplete="off" />
+                                                                          <label for='class-warlock'>Warlock</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Warmage' id='class-warmage' data-class='warmage' data-classname='Warmage' autocomplete="off" />
+                                                                          <label for='class-warmage'>Warmage</label>
+                                              
+                                                                        </li>
+                                                                        <li>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Wu Jen' id='class-wu-jen' data-class='wu-jen' data-classname='Wu Jen' autocomplete="off" />
+                                                                          <label for='class-wu-jen'>Wu Jen</label>
+                                              
+                                                                        </li>
+                                                                    </ul>
+                                                                    </fieldset>
                                               
                                             </div><div class="column">
                                                                   
-                                                                    <h3>Complete Divine</h3>
+                                                                    <h4>Complete Divine</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Favoured Soul' id='class-favoured-soul' data-class='favoured-soul' data-classname='Favoured Soul' />
-                                                                        <label for='class-favoured-soul'>Favoured Soul</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Favoured Soul' id='class-favoured-soul' data-class='favoured-soul' data-classname='Favoured Soul' autocomplete="off" />
+                                                                          <label for='class-favoured-soul'>Favoured Soul</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Shugenja' id='class-shugenja' data-class='shugenja' data-classname='Shugenja' />
-                                                                        <label for='class-shugenja'>Shugenja</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Shugenja' id='class-shugenja' data-class='shugenja' data-classname='Shugenja' autocomplete="off" />
+                                                                          <label for='class-shugenja'>Shugenja</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Spirit Shaman' id='class-spirit-shaman' data-class='spirit-shaman' data-classname='Spirit Shaman' />
-                                                                        <label for='class-spirit-shaman'>Spirit Shaman</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Spirit Shaman' id='class-spirit-shaman' data-class='spirit-shaman' data-classname='Spirit Shaman' autocomplete="off" />
+                                                                          <label for='class-spirit-shaman'>Spirit Shaman</label>
                                               
                                                                         </li>
                                                                     </ul>
-                                                                    <h3>Complete Psionic</h3>
+                                                                    </fieldset>
+                                                                    <h4>Complete Psionic</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Ardent' id='class-ardent' data-class='ardent' data-classname='Ardent' />
-                                                                        <label for='class-ardent'>Ardent</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Ardent' id='class-ardent' data-class='ardent' data-classname='Ardent' autocomplete="off" />
+                                                                          <label for='class-ardent'>Ardent</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Divine Mind' id='class-divine-mind' data-class='divine-mind' data-classname='Divine Mind' />
-                                                                        <label for='class-divine-mind'>Divine Mind</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Divine Mind' id='class-divine-mind' data-class='divine-mind' data-classname='Divine Mind' autocomplete="off" />
+                                                                          <label for='class-divine-mind'>Divine Mind</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Lurk' id='class-lurk' data-class='lurk' data-classname='Lurk' />
-                                                                        <label for='class-lurk'>Lurk</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Lurk' id='class-lurk' data-class='lurk' data-classname='Lurk' autocomplete="off" />
+                                                                          <label for='class-lurk'>Lurk</label>
                                               
                                                                         </li>
                                                                     </ul>
-                                                                    <h3>Complete Warrior</h3>
+                                                                    </fieldset>
+                                                                    <h4>Complete Warrior</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Hexblade' id='class-hexblade' data-class='hexblade' data-classname='Hexblade' />
-                                                                        <label for='class-hexblade'>Hexblade</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Hexblade' id='class-hexblade' data-class='hexblade' data-classname='Hexblade' autocomplete="off" />
+                                                                          <label for='class-hexblade'>Hexblade</label>
                                               
                                                                         </li>
                                                                     </ul>
-                                                                    <h3>Dragon Compendium</h3>
+                                                                    </fieldset>
+                                                                    <h4>Dragon Compendium</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Battle Dancer' id='class-battle-dancer' data-class='battle-dancer' data-classname='Battle Dancer' />
-                                                                        <label for='class-battle-dancer'>Battle Dancer</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Battle Dancer' id='class-battle-dancer' data-class='battle-dancer' data-classname='Battle Dancer' autocomplete="off" />
+                                                                          <label for='class-battle-dancer'>Battle Dancer</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Death Master' id='class-death-master' data-class='death-master' data-classname='Death Master' />
-                                                                        <label for='class-death-master'>Death Master</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Death Master' id='class-death-master' data-class='death-master' data-classname='Death Master' autocomplete="off" />
+                                                                          <label for='class-death-master'>Death Master</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Jester' id='class-jester' data-class='jester' data-classname='Jester' />
-                                                                        <label for='class-jester'>Jester</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Jester' id='class-jester' data-class='jester' data-classname='Jester' autocomplete="off" />
+                                                                          <label for='class-jester'>Jester</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Mountebank' id='class-mountebank' data-class='mountebank' data-classname='Mountebank' />
-                                                                        <label for='class-mountebank'>Mountebank</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Mountebank' id='class-mountebank' data-class='mountebank' data-classname='Mountebank' autocomplete="off" />
+                                                                          <label for='class-mountebank'>Mountebank</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Savant' id='class-savant' data-class='savant' data-classname='Savant' />
-                                                                        <label for='class-savant'>Savant</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Savant' id='class-savant' data-class='savant' data-classname='Savant' autocomplete="off" />
+                                                                          <label for='class-savant'>Savant</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Sha&#x27;ir' id='class-sha-ir' data-class='sha-ir' data-classname='Sha&#x27;ir' />
-                                                                        <label for='class-sha-ir'>Sha&#x27;ir</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Sha&#x27;ir' id='class-sha-ir' data-class='sha-ir' data-classname='Sha&#x27;ir' autocomplete="off" />
+                                                                          <label for='class-sha-ir'>Sha&#x27;ir</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Urban Druid' id='class-urban-druid' data-class='urban-druid' data-classname='Urban Druid' />
-                                                                        <label for='class-urban-druid'>Urban Druid</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Urban Druid' id='class-urban-druid' data-class='urban-druid' data-classname='Urban Druid' autocomplete="off" />
+                                                                          <label for='class-urban-druid'>Urban Druid</label>
                                               
                                                                         </li>
                                                                     </ul>
-                                                                    <h3>Dragon Magic</h3>
+                                                                    </fieldset>
+                                                                    <h4>Dragon Magic</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Dragonfire Adept' id='class-dragonfire-adept' data-class='dragonfire-adept' data-classname='Dragonfire Adept' />
-                                                                        <label for='class-dragonfire-adept'>Dragonfire Adept</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Dragonfire Adept' id='class-dragonfire-adept' data-class='dragonfire-adept' data-classname='Dragonfire Adept' autocomplete="off" />
+                                                                          <label for='class-dragonfire-adept'>Dragonfire Adept</label>
                                               
                                                                         </li>
                                                                     </ul>
-                                                                    <h3>Dungeonscape</h3>
+                                                                    </fieldset>
+                                                                    <h4>Dungeonscape</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Factotum' id='class-factotum' data-class='factotum' data-classname='Factotum' />
-                                                                        <label for='class-factotum'>Factotum</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Factotum' id='class-factotum' data-class='factotum' data-classname='Factotum' autocomplete="off" />
+                                                                          <label for='class-factotum'>Factotum</label>
                                               
                                                                         </li>
                                                                     </ul>
-                                                                    <h3>Eberron Campaign Setting</h3>
+                                                                    </fieldset>
+                                                                    <h4>Eberron Campaign Setting</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Artificer' id='class-artificer' data-class='artificer' data-classname='Artificer' />
-                                                                        <label for='class-artificer'>Artificer</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Artificer' id='class-artificer' data-class='artificer' data-classname='Artificer' autocomplete="off" />
+                                                                          <label for='class-artificer'>Artificer</label>
                                               
                                                                         </li>
                                                                     </ul>
+                                                                    </fieldset>
                                               
                                             </div><div class="column">
                                                                   
-                                                                    <h3>Heroes of Horror</h3>
+                                                                    <h4>Heroes of Horror</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Archivist' id='class-archivist' data-class='archivist' data-classname='Archivist' />
-                                                                        <label for='class-archivist'>Archivist</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Archivist' id='class-archivist' data-class='archivist' data-classname='Archivist' autocomplete="off" />
+                                                                          <label for='class-archivist'>Archivist</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Dread Necromancer' id='class-dread-necromancer' data-class='dread-necromancer' data-classname='Dread Necromancer' />
-                                                                        <label for='class-dread-necromancer'>Dread Necromancer</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Dread Necromancer' id='class-dread-necromancer' data-class='dread-necromancer' data-classname='Dread Necromancer' autocomplete="off" />
+                                                                          <label for='class-dread-necromancer'>Dread Necromancer</label>
                                               
                                                                         </li>
                                                                     </ul>
-                                                                    <h3>Magic of Incarnum</h3>
+                                                                    </fieldset>
+                                                                    <h4>Magic of Incarnum</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Incarnate' id='class-incarnate' data-class='incarnate' data-classname='Incarnate' />
-                                                                        <label for='class-incarnate'>Incarnate</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Incarnate' id='class-incarnate' data-class='incarnate' data-classname='Incarnate' autocomplete="off" />
+                                                                          <label for='class-incarnate'>Incarnate</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Soulborn' id='class-soulborn' data-class='soulborn' data-classname='Soulborn' />
-                                                                        <label for='class-soulborn'>Soulborn</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Soulborn' id='class-soulborn' data-class='soulborn' data-classname='Soulborn' autocomplete="off" />
+                                                                          <label for='class-soulborn'>Soulborn</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Totemist' id='class-totemist' data-class='totemist' data-classname='Totemist' />
-                                                                        <label for='class-totemist'>Totemist</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Totemist' id='class-totemist' data-class='totemist' data-classname='Totemist' autocomplete="off" />
+                                                                          <label for='class-totemist'>Totemist</label>
                                               
                                                                         </li>
                                                                     </ul>
-                                                                    <h3>Psionics Handbook</h3>
+                                                                    </fieldset>
+                                                                    <h4>Psionics Handbook</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Psion' id='class-psion' data-class='psion' data-classname='Psion' />
-                                                                        <label for='class-psion'>Psion</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Psion' id='class-psion' data-class='psion' data-classname='Psion' autocomplete="off" />
+                                                                          <label for='class-psion'>Psion</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Psychic Warrior' id='class-psychic-warrior' data-class='psychic-warrior' data-classname='Psychic Warrior' />
-                                                                        <label for='class-psychic-warrior'>Psychic Warrior</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Psychic Warrior' id='class-psychic-warrior' data-class='psychic-warrior' data-classname='Psychic Warrior' autocomplete="off" />
+                                                                          <label for='class-psychic-warrior'>Psychic Warrior</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Soulknife' id='class-soulknife' data-class='soulknife' data-classname='Soulknife' />
-                                                                        <label for='class-soulknife'>Soulknife</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Soulknife' id='class-soulknife' data-class='soulknife' data-classname='Soulknife' autocomplete="off" />
+                                                                          <label for='class-soulknife'>Soulknife</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Wilder' id='class-wilder' data-class='wilder' data-classname='Wilder' />
-                                                                        <label for='class-wilder'>Wilder</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Wilder' id='class-wilder' data-class='wilder' data-classname='Wilder' autocomplete="off" />
+                                                                          <label for='class-wilder'>Wilder</label>
                                               
                                                                         </li>
                                                                     </ul>
-                                                                    <h3>Tome of Battle</h3>
+                                                                    </fieldset>
+                                                                    <h4>Tome of Battle</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Crusader' id='class-crusader' data-class='crusader' data-classname='Crusader' />
-                                                                        <label for='class-crusader'>Crusader</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Crusader' id='class-crusader' data-class='crusader' data-classname='Crusader' autocomplete="off" />
+                                                                          <label for='class-crusader'>Crusader</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Swordsage' id='class-swordsage' data-class='swordsage' data-classname='Swordsage' />
-                                                                        <label for='class-swordsage'>Swordsage</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Swordsage' id='class-swordsage' data-class='swordsage' data-classname='Swordsage' autocomplete="off" />
+                                                                          <label for='class-swordsage'>Swordsage</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Warblade' id='class-warblade' data-class='warblade' data-classname='Warblade' />
-                                                                        <label for='class-warblade'>Warblade</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Warblade' id='class-warblade' data-class='warblade' data-classname='Warblade' autocomplete="off" />
+                                                                          <label for='class-warblade'>Warblade</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-' id='class-' data-class='' data-classname='' />
-                                                                        <label for='class-'></label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-' id='class-' data-class='' data-classname='' autocomplete="off" />
+                                                                          <label for='class-'></label>
                                               
                                                                         </li>
                                                                     </ul>
-                                                                    <h3>Tome of Magic</h3>
+                                                                    </fieldset>
+                                                                    <h4>Tome of Magic</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Binder' id='class-binder' data-class='binder' data-classname='Binder' />
-                                                                        <label for='class-binder'>Binder</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Binder' id='class-binder' data-class='binder' data-classname='Binder' autocomplete="off" />
+                                                                          <label for='class-binder'>Binder</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Shadowcaster' id='class-shadowcaster' data-class='shadowcaster' data-classname='Shadowcaster' />
-                                                                        <label for='class-shadowcaster'>Shadowcaster</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Shadowcaster' id='class-shadowcaster' data-class='shadowcaster' data-classname='Shadowcaster' autocomplete="off" />
+                                                                          <label for='class-shadowcaster'>Shadowcaster</label>
                                               
                                                                         </li>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Truenamer' id='class-truenamer' data-class='truenamer' data-classname='Truenamer' />
-                                                                        <label for='class-truenamer'>Truenamer</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Truenamer' id='class-truenamer' data-class='truenamer' data-classname='Truenamer' autocomplete="off" />
+                                                                          <label for='class-truenamer'>Truenamer</label>
                                               
                                                                         </li>
                                                                     </ul>
-                                                                    <h3>Generic</h3>
+                                                                    </fieldset>
+                                                                    <h4>Generic</h4>
+                                                                    <fieldset>
                                                                     <ul>
                                                                         <li>
-                                                                          <input type='checkbox' name='class-Spellcaster' id='class-spellcaster' data-class='spellcaster' data-classname='Spellcaster' />
-                                                                        <label for='class-spellcaster'>Spellcaster</label>
+                                                                            <input type='checkbox' class="class-checkbox" name='class-Spellcaster' id='class-spellcaster' data-class='spellcaster' data-classname='Spellcaster' autocomplete="off" />
+                                                                          <label for='class-spellcaster'>Spellcaster</label>
                                               
-                                                                            <select name='variant-spellcaster' 
-                                                                              id='variant-Spellcaster'
-                                                                              data-variant-for="spellcaster"
-                                                                            >
-                                                                                <option value='Spontaneous Caster'>Spontaneous Caster</option>
-                                                                                <option value='Vancian Caster'>Vancian Caster</option>
-                                                                                <option value='Lesser Caster'>Lesser Caster</option>
-                                                                            </select>
-                                                                        </li>
+                                              <div class="reveal" id="variants-Spellcaster">
+                                                                                    <select name='variant-spellcaster' 
+                                                                                      id='variant-Spellcaster'
+                                                                                      data-variant-for="spellcaster"
+                                                                                    >
+                                                                                        <option value='Spontaneous Caster'>Spontaneous Caster</option>
+                                                                                        <option value='Vancian Caster'>Vancian Caster</option>
+                                                                                        <option value='Lesser Caster'>Lesser Caster</option>
+                                                                                    </select>
+                                                </div>                          </li>
                                                                     </ul>
+                                                                    </fieldset>
                                               
                                             </div>  </div>            </div>
                                 <div 
@@ -748,7 +787,8 @@
                                                                 <label for="more"><input type="checkbox" name="more" id="more"> More classes</label>
                                                                 <p class="info">Includes space for 7 classes rather than 5.</p>
                                               
-                                                              <h3>Pages</h3>
+                                                              <h4>Pages</h4>
+                                                              <fieldset>
                                                                 <p><label for="spellbook-size">Spellbook style</label>
                                                                   <select name="spellbook-size" id="spellbook-size">
                                                                     <option value="small">Small entries</option>
@@ -763,21 +803,25 @@
                                                                       <option value="with">With wands, scrolls and potions</option>
                                                                       <option value="without">Without wands, scrolls and potions</option>
                                                                   </select></p>
+                                                              </fieldset>
                                               
-                                                              <h3>Skills</h3>
-                                                                <p><label for="skills-style">Skills list style</label>
-                                                                    <label for="skills-list-style-normal">
-                                                                      <input type="radio" name="skills-list-style" value="normal" id="skills-list-style-normal" checked>
-                                                                      Normal</label> &nbsp; 
-                                                                    <label for="skills-list-style-blank">
-                                                                      <input type="radio" name="skills-list-style" value="blank" id="skills-list-style-blank"> 
-                                                                      Blank</label>
+                                                              <h4>Skills</h4>
+                                                              <fieldset>
+                                                                <p><label for="skills-style">Skills list style</label></p>
+                                                                <p>
+                                                                  <label for="skills-list-style-normal">
+                                                                    <input type="radio" name="skills-list-style" value="normal" id="skills-list-style-normal" checked>
+                                                                    Normal</label> &nbsp; 
+                                                                  <label for="skills-list-style-blank">
+                                                                    <input type="radio" name="skills-list-style" value="blank" id="skills-list-style-blank"> 
+                                                                    Blank</label>
                                                                 </p>
                                               
-                                                                  <p><label for="all-knowledge"><input type="checkbox" name="all-knowledge" id="all-knowledge" /> Include all knowledge skills</label></p>
-                                                                  <p class='info'>This reduces the space available for Craft, Profession and Perform skills. Bards get all knowledge skills anyway.</p>
-                                              
                                                                 <table id='flexi-skills'>
+                                                                  <tr><td colspan="2">
+                                                                    <p><label for="all-knowledge"><input type="checkbox" name="all-knowledge" id="all-knowledge" /> Include all knowledge skills</label></p>
+                                                                    <p class='info'>This reduces the space available for Craft, Profession and Perform skills. Bards get all knowledge skills anyway.</p>
+                                                                  </td></tr>
                                                                   <tr><td><label for="show-perform"><input type="checkbox" name="show-perform" id="show-perform" /> Perform</label></td>
                                                                     <td id='perform-group'>
                                               <div class="repeatable" id="perform-skills" data-max="10" data-next="2">
@@ -1079,11 +1123,13 @@
                                                                 </tr>
                                                                 </table>
                                               
-                                                                <p class='info'>There may be other Craft, Perform and Profession skills, depending on setting and rules. Check with your DM</p>
+                                                                <p class='info'>There may be other Craft, Perform and Profession skills, depending on setting and rules. Check with your DM.</p>  
+                                                              </fieldset>
                                               
                                             </div><div class="column">
                                               
-                                                              <h3>Additional pages</h3>
+                                                              <h4>Additional pages</h4>
+                                                              <fieldset>
                                                                 <p><label for="include-background"><input type="checkbox" name="include-background" id="include-background" checked /> Character background</label></p>
                                                                   <p><label for="include-lycanthrope"><input type="checkbox" name="include-lycanthrope" id="include-lycanthrope" /> Lycanthrope</label></p>
                                                                   <p><label for="include-party-funds"><input type="checkbox" name="include-party-funds" id="include-party-funds" /> Party funds</label></p>
@@ -1097,6 +1143,7 @@
                                                                   <label for="mini-medium"><input type="radio" name="mini-size" value="medium" id="mini-medium" checked> Medium</label>&nbsp; 
                                                                   <label for="mini-large"><input type="radio" name="mini-size" value="large" id="mini-large"> Large</label>
                                                                 </p>
+                                                              </fieldset>
                                               
                                             </div>  </div><div 
                                     class="row align_right"
@@ -1183,31 +1230,32 @@
                                     
                                   >
                                     <div class="slide__inner ">
-                                                  
-                                                  <h2>Legal</h2>
-                                                    <p><label for='gm-permission'><input type='checkbox' name='gm-permission' id='gm-permission'> Permission to print</label></p>
-                                                    <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
-                                      
-                                                  <h2>Printing Colour</h2>
-                                                    <div class="colour-picker">
-                                                    <div class="columns columns--n_3">
-                                                        <div class="column">
-                                                                    <label class="colour-picker-light" for="colour-light"><span><input type="radio" id="colour-light" name="colour" value="light"/></span> Lighter</label>
-                                                                    <label class="colour-picker-normal" for="colour-normal"><span><input type="radio" id="colour-normal" name="colour" value="normal" checked/></span> Normal</label>
-                                                                    <label class="colour-picker-dark" for="colour-dark"><span><input type="radio" id="colour-dark" name="colour" value="dark"></span> Darker</label>
-                                                                    <label class="colour-picker-black" for="colour-black"><span><input type="radio" id="colour-black" name="colour" value="black"></span> Black</label>
-                                                          </div><div class="column">
-                                                                    <label class="colour-picker-red" for="colour-red"><span><input type="radio" id="colour-red" name="colour" value="red"></span> Red</label>
-                                                                    <label class="colour-picker-orange" for="colour-orange"><span><input type="radio" id="colour-orange" name="colour" value="orange"></span> Orange</label>
-                                                                    <label class="colour-picker-lime" for="colour-lime"><span><input type="radio" id="colour-lime" name="colour" value="lime"></span> Lime</label>
-                                                                    <label class="colour-picker-green" for="colour-green"><span><input type="radio" id="colour-green" name="colour" value="green"></span> Green</label>
-                                                          </div><div class="column">
-                                                                    <label class="colour-picker-cyan" for="colour-cyan"><span><input type="radio" id="colour-cyan" name="colour" value="cyan"></span> Cyan</label>
-                                                                    <label class="colour-picker-blue" for="colour-blue"><span><input type="radio" id="colour-blue" name="colour" value="blue"></span> Blue</label>
-                                                                    <label class="colour-picker-purple" for="colour-purple"><span><input type="radio" id="colour-purple" name="colour" value="purple"></span> Purple</label>
-                                                                    <label class="colour-picker-pink" for="colour-pink"><span><input type="radio" id="colour-pink" name="colour" value="pink"></span> Pink</label>
-                                                          </div>  </div>  </div>
-                                                  <h2>Download</h2>
+                                      <div class="columns columns--n_2">
+                                          <div class="column">
+                                                              <h4>Legal</h4>
+                                                                <p><label for='permission'><input type='checkbox' name='permission' id='permission'> Permission to print</label></p>
+                                                                <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
+                                            </div>
+                                          <div class="column">
+                                                              <h4>Printing Colour</h4>
+                                                              <div class="colour-picker">
+                                                              <div class="columns columns--n_3">
+                                                                  <div class="column">
+                                                                              <label class="colour-picker-light" for="colour-light"><span><input type="radio" id="colour-light" name="colour" value="light"/></span> Lighter</label>
+                                                                              <label class="colour-picker-normal" for="colour-normal"><span><input type="radio" id="colour-normal" name="colour" value="normal" checked/></span> Normal</label>
+                                                                              <label class="colour-picker-dark" for="colour-dark"><span><input type="radio" id="colour-dark" name="colour" value="dark"></span> Darker</label>
+                                                                              <label class="colour-picker-black" for="colour-black"><span><input type="radio" id="colour-black" name="colour" value="black"></span> Black</label>
+                                                                    </div><div class="column">
+                                                                              <label class="colour-picker-red" for="colour-red"><span><input type="radio" id="colour-red" name="colour" value="red"></span> Red</label>
+                                                                              <label class="colour-picker-orange" for="colour-orange"><span><input type="radio" id="colour-orange" name="colour" value="orange"></span> Orange</label>
+                                                                              <label class="colour-picker-lime" for="colour-lime"><span><input type="radio" id="colour-lime" name="colour" value="lime"></span> Lime</label>
+                                                                              <label class="colour-picker-green" for="colour-green"><span><input type="radio" id="colour-green" name="colour" value="green"></span> Green</label>
+                                                                    </div><div class="column">
+                                                                              <label class="colour-picker-cyan" for="colour-cyan"><span><input type="radio" id="colour-cyan" name="colour" value="cyan"></span> Cyan</label>
+                                                                              <label class="colour-picker-blue" for="colour-blue"><span><input type="radio" id="colour-blue" name="colour" value="blue"></span> Blue</label>
+                                                                              <label class="colour-picker-purple" for="colour-purple"><span><input type="radio" id="colour-purple" name="colour" value="purple"></span> Purple</label>
+                                                                              <label class="colour-picker-pink" for="colour-pink"><span><input type="radio" id="colour-pink" name="colour" value="pink"></span> Pink</label>
+                                                                    </div>  </div>  </div>  </div>  </div>
                                       <div 
                                           class="row align_centre pad"
                                         >
@@ -1218,7 +1266,7 @@
                                                 data-on-click=""
                                                 
                                               >
-                                                                  Download
+                                                                Download
                                                 
                                               </button>
                                         </div>    </div>
@@ -1358,7 +1406,7 @@
                                   >
                                     <div class="slide__inner ">
                                                   <h2>Legal</h2>
-                                                    <p><label for='permission'><input type='checkbox' name='permission' id='permission'> Permission to print</label></p>
+                                                    <p><label for='gm-permission'><input type='checkbox' name='gm-permission' id='gm-permission'> Permission to print</label></p>
                                                     <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
                                       
                                                   <h2>Printing Colour</h2>
@@ -1408,13 +1456,15 @@
                                     <div class="slide__inner ">
                                                   <h2>Kingdom</h2>
                                                   
-                                                  <h3>Settlement style</h3>
+                                                  <h4>Settlement style</h4>
+                                                  <fieldset>
                                                     <p><label for="settlement-style-normal"><input type="radio" name="settlement-style" value="normal" id="settlement-style-normal" checked />
                                                       Normal</label></p>
                                                     <p><label for="settlement-style-large"><input type="radio" name="settlement-style" value="large" id="settlement-style-large" />
                                                       Large</label></p>
                                                     <p><label for="settlement-style-plain"><input type="radio" name="settlement-style" value="plain" id="settlement-style-plain" />
                                                       Without map</label></p>
+                                                  </fieldset>
                                 <div 
                                     class="row align_right"
                                   >
@@ -1438,7 +1488,7 @@
                                   >
                                     <div class="slide__inner ">
                                                   <h2>Legal</h2>
-                                                    <p><label for='permission'><input type='checkbox' name='permission' id='permission'> Permission to print</label></p>
+                                                    <p><label for='kingdom-permission'><input type='checkbox' name='kingdom-permission' id='kingdom-permission'> Permission to print</label></p>
                                                     <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
                                       
                                                   <h2>Printing Colour</h2>
@@ -1489,7 +1539,7 @@
                                   >
                                     <div class="slide__inner ">
                                                   <h3>Legal</h3>
-                                                    <p><label for='permission'><input type='checkbox' name='permission' id='permission'> Permission to print</label></p>
+                                                    <p><label for='starship-permission'><input type='checkbox' name='starship-permission' id='starship-permission'> Permission to print</label></p>
                                                     <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
                                       
                                                   <h3>Printing Colour</h3>
@@ -1593,7 +1643,7 @@
                                   >
                                     <div class="slide__inner ">
                                                   <h2>Legal</h2>
-                                                    <p><label for='permission'><input type='checkbox' name='permission' id='permission'> Permission to print</label></p>
+                                                    <p><label for='mini-permission'><input type='checkbox' name='mini-permission' id='mini-permission'> Permission to print</label></p>
                                                     <p class='indent'>For detailed licensing information, see <a href='/legal'>Legal Info</a>.</p>
                                       
                                                   <h2>Printing Colour</h2>

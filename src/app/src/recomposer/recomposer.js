@@ -1,11 +1,13 @@
 import { createCharacterSheet } from '#src/recomposer/create.js';
 
 import { log, error } from '#src/log.js';
-import { isArray } from './util.js';
+import { isArray, isString } from './util.js';
 
 function buildPdf(req, res, game) {
   try {
-    let body = JSON.parse(req.body);
+    let body = isString(req.body) ? JSON.parse(req.body) : req.body;
+    log("recomposer", "Request:", body);
+    
     // log("recomposer", "Request:", body.data, "and", isArray(body.included) ? body.included.length : "no", "attachments");
     if (body.data.attributes.game != game) {
       error("recomposer", `Game ${body.data.game} != ${game}`);

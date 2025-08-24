@@ -1274,6 +1274,7 @@ article.news time .year {
   font-family: "Exo 2";
   font-weight: normal;
   text-shadow: 0 0 0.3rem black;
+  background: rgba(40, 40, 117, 0.6) !important;
 }
 
 .main--theme_scifi .btn.btn--ui {
@@ -3518,13 +3519,34 @@ dl dd + dt {
   width: 4rem;
 }
 
-.colour-grid label {
+.build-form-classic #flexi-skills {
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.build-form-classic #flexi-skills th, .build-form-classic #flexi-skills td {
+  padding: 3px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.build-form-classic #flexi-skills tr:nth-child(2n+1) th, .build-form-classic #flexi-skills tr:nth-child(2n+1) td {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.colour-picker {
+  padding: 1px 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0 0 3px 3px;
+}
+
+.colour-picker label {
   display: block;
   margin: 12px 0px;
   text-shadow: none;
 }
 
-.colour-grid label span {
+.colour-picker label span {
   padding: 3px;
   margin-right: 4px;
   border-radius: 2px;
@@ -3532,107 +3554,107 @@ dl dd + dt {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.colour-grid label.colour-picker-light {
+.colour-picker label.colour-picker-light {
   color: #555;
 }
 
-.colour-grid label.colour-picker-light span {
+.colour-picker label.colour-picker-light span {
   background-color: #888;
 }
 
-.colour-grid label.colour-picker-normal {
+.colour-picker label.colour-picker-normal {
   color: #333;
 }
 
-.colour-grid label.colour-picker-normal span {
+.colour-picker label.colour-picker-normal span {
   background-color: #666;
 }
 
-.colour-grid label.colour-picker-dark {
+.colour-picker label.colour-picker-dark {
   color: #111;
 }
 
-.colour-grid label.colour-picker-dark span {
+.colour-picker label.colour-picker-dark span {
   background-color: #444;
 }
 
-.colour-grid label.colour-picker-black {
+.colour-picker label.colour-picker-black {
   color: #000;
 }
 
-.colour-grid label.colour-picker-black span {
+.colour-picker label.colour-picker-black span {
   background-color: #111;
 }
 
-.colour-grid label.colour-picker-red {
+.colour-picker label.colour-picker-red {
   color: #931206;
 }
 
-.colour-grid label.colour-picker-red span {
+.colour-picker label.colour-picker-red span {
   background-color: #c85a50;
 }
 
-.colour-grid label.colour-picker-orange {
+.colour-picker label.colour-picker-orange {
   color: #654202;
 }
 
-.colour-grid label.colour-picker-orange span {
+.colour-picker label.colour-picker-orange span {
   background-color: #b48732;
 }
 
-.colour-grid label.colour-picker-gold {
+.colour-picker label.colour-picker-gold {
   color: #584a00;
 }
 
-.colour-grid label.colour-picker-gold span {
+.colour-picker label.colour-picker-gold span {
   background-color: #ccaf1f;
 }
 
-.colour-grid label.colour-picker-lime {
+.colour-picker label.colour-picker-lime {
   color: #365c00;
 }
 
-.colour-grid label.colour-picker-lime span {
+.colour-picker label.colour-picker-lime span {
   background-color: #76a632;
 }
 
-.colour-grid label.colour-picker-green {
+.colour-picker label.colour-picker-green {
   color: #0d770d;
 }
 
-.colour-grid label.colour-picker-green span {
+.colour-picker label.colour-picker-green span {
   background-color: #50b450;
 }
 
-.colour-grid label.colour-picker-cyan {
+.colour-picker label.colour-picker-cyan {
   color: #035a5a;
 }
 
-.colour-grid label.colour-picker-cyan span {
+.colour-picker label.colour-picker-cyan span {
   background-color: #32aaaa;
 }
 
-.colour-grid label.colour-picker-blue {
+.colour-picker label.colour-picker-blue {
   color: #023f65;
 }
 
-.colour-grid label.colour-picker-blue span {
+.colour-picker label.colour-picker-blue span {
   background-color: #3282b4;
 }
 
-.colour-grid label.colour-picker-purple {
+.colour-picker label.colour-picker-purple {
   color: #670d77;
 }
 
-.colour-grid label.colour-picker-purple span {
+.colour-picker label.colour-picker-purple span {
   background-color: #a550b4;
 }
 
-.colour-grid label.colour-picker-pink {
+.colour-picker label.colour-picker-pink {
   color: #c50096;
 }
 
-.colour-grid label.colour-picker-pink span {
+.colour-picker label.colour-picker-pink span {
   background-color: #e164c3;
 }
 

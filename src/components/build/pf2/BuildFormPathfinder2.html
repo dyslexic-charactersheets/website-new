@@ -68,8 +68,36 @@
         {{#> SwitchCase value='gm'}}
           
           {{#> Slide jump="gm-pick" slide=1 }}
+            <h2>{{__ "Game Master"}}</h2>
           
             {{#> TileGrid grid="2-2" }}
+              {{#> Button 
+                type="gm-tile"
+                on-click="#gm-pick.value=characters; #switch-gm.current=characters; #slides-character.jump=gm-options"
+              }}
+                {{#if (eq game "starfinder2")}}
+                  {{> Picture src="/images/starfinder-gm-characters.png" size="gm-tile"}}
+                {{else}}
+                  {{> Picture src="/images/gm-characters.png" size="gm-tile"}}
+                {{/if}}
+                <h3>{{__ "Characters and NPCs"}}</h3>
+              {{/Button}}
+              
+              {{#> Button 
+                type="gm-tile"
+                on-click="#switch-gm-options.current=maps; #build-form.gm=maps; #slides-character.jump=gm-options"
+              }}
+                {{#if (eq game "starfinder")}}
+                  {{> Picture src="/images/starfinder-gm-maps.png" size="gm-tile"}}
+                {{else}}
+                  {{> Picture src="/images/gm-maps.png" size="gm-tile"}}
+                {{/if}}
+                <h3>{{__ "Exploration Maps"}}</h3>
+              {{/Button}}
+
+
+            
+              {{!--
               {{#> Button 
                 type="tile"
                 on-click="#switch-gm-options.current=npcs; #build-form.gm=characters; #slides-character.jump=gm-options"
@@ -84,12 +112,13 @@
                 {{__ "Maps"}}
               {{/Button}}
 
-              {{!-- {{#> Button 
+              {{#> Button 
                 type="tile"
                 on-click="#switch-gm-options.current=kingdom; #build-form.gm=kingmaker; #slides-character.jump=gm-options"
               }}
                 {{__ "Kingdom"}}
-              {{/Button}} --}}
+              {{/Button}} 
+              --}}
             {{/TileGrid}}
           {{/Slide}}
 

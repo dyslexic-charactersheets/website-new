@@ -229,20 +229,25 @@ function readClassicForm(type) {
       break;
 
     case 'kingdom':
+      mapCheckbox("kingdom-permission", "permission");
       mapRadio("settlement-style", "settlementStyle");
       mapRadio("kingdom-colour", "printColour");
       break;
 
     case 'starship':
+      mapCheckbox("starship-permission", "permission");
       mapRadio("starship-colour", "printColour");
       break;
 
     case 'mini':
+      mapCheckbox("mini-permission", "permission");
       mapRadio("mini-colour", "printColour");
       mapRadio("mini-mini-size", "miniSize");
       mapImage("portrait", readInput("mini-portrait"));
       break;
   }
+
+  // appearance
 
   // make the full request object
   var request = {

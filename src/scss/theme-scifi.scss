@@ -98,6 +98,8 @@
   .btn.btn--primary {
     @include glow-border;
     @include fonts.scifi;
+    
+    background: colours.$scifi-raised !important;
   }
 
   .btn.btn--ui {
