@@ -489,15 +489,17 @@
           {{/Slide}}
           
           {{#> Slide jump="download" slide=5}}
+            <h2>{{__ "Download"}}</h2>
+            
             {{#> Columns}}
               {{#> Column}}
-                <h4>{{__ "Legal"}}</h4>
-                  <p><label for='permission'><input type='checkbox' name='permission' id='permission'> {{__ "Permission to print"}}</label></p>
-                  <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
+                <h3>{{__ "Legal"}}</h3>
+                <p><label for='permission'><input type='checkbox' name='permission' id='permission'> {{__ "Permission to print"}}</label></p>
+                <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
               {{/Column}}
 
               {{#> Column}}
-                <h4>{{__ "Printing Colour"}}</h4>
+                <h3>{{__ "Printing Colour"}}</h3>
                 {{> BuildFormClassicColourPicker id="colour" }}
               {{/Column}}
             {{/Columns}}
@@ -510,6 +512,7 @@
           {{/Slide}}
 
         {{/SwitchCase}}
+
 
         {{#> SwitchCase value='gm'}}
 
@@ -562,7 +565,7 @@
               current=""
             }}
               {{#> SwitchCase value="characters"}}
-                <h2>{{__ "Characters"}}</h2>
+                <h2>{{__ "Characters and NPCs"}}</h2>
                 <p>{{__ "Sheets for tracking the whole party, and NPCs."}}</p>
                 
                 <h3>{{__ "Party"}}</h3>
@@ -594,7 +597,7 @@
               {{/SwitchCase}}
               
               {{#> SwitchCase value="campaign"}}
-                <h2>{{__ "Campaign"}}</h2>
+                <h2>{{__ "Campaign Planning"}}</h2>
                 <p>{{__ "History timelines and other sheets for planning a game."}}</p>
               {{/SwitchCase}}
               
@@ -602,19 +605,26 @@
           {{/Slide}}
           
           {{#> Slide jump="gm-download" slide=4}}
-            <h2>{{__ "Legal"}}</h2>
-              <p><label for='gm-permission'><input type='checkbox' name='gm-permission' id='gm-permission'> {{__ "Permission to print"}}</label></p>
-              <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
-
-            <h2>{{__ "Printing Colour"}}</h2>
-              {{> BuildFormClassicColourPicker id="gm-colour" }}
-
             <h2>{{__ "Download"}}</h2>
-              {{#> Row align="centre" pad=true }}
-                {{#> Button type="primary" id="download-gm" }}
-                  {{__ "Download"}}
-                {{/Button}}
-              {{/Row}}
+            
+            {{#> Columns}}
+              {{#> Column}}
+                <h3>{{__ "Legal"}}</h3>
+                <p><label for='gm-permission'><input type='checkbox' name='permission' id='gm-permission'> {{__ "Permission to print"}}</label></p>
+                <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
+              {{/Column}}
+
+              {{#> Column}}
+                <h3>{{__ "Printing Colour"}}</h3>
+                {{> BuildFormClassicColourPicker id="gm-colour" }}
+              {{/Column}}
+            {{/Columns}}
+
+            {{#> Row align="centre" pad=true }}
+              {{#> Button type="primary" id="download-gm" }}
+                {{__ "Download"}}
+              {{/Button}}
+            {{/Row}}
           {{/Slide}}
         
         {{/SwitchCase}}
@@ -637,19 +647,26 @@
           {{/Slide}}
 
           {{#> Slide jump="kingdom-download" slide=3}}
-            <h2>{{__ "Legal"}}</h2>
-              <p><label for='kingdom-permission'><input type='checkbox' name='kingdom-permission' id='kingdom-permission'> {{__ "Permission to print"}}</label></p>
-              <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
-
-            <h2>{{__ "Printing Colour"}}</h2>
-              {{> BuildFormClassicColourPicker id="kingdom-colour" }}
-
             <h2>{{__ "Download"}}</h2>
-              {{#> Row align="centre" pad=true }}
-                {{#> Button type="primary" id="download-kingdom" }}
-                  {{__ "Download"}}
-                {{/Button}}
-              {{/Row}}
+
+            {{#> Columns}}
+              {{#> Column}}
+                <h3>{{__ "Legal"}}</h3>
+                <p><label for='kingdom-permission'><input type='checkbox' name='permission' id='kingdom-permission'> {{__ "Permission to print"}}</label></p>
+                <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
+              {{/Column}}
+
+              {{#> Column}}
+                <h3>{{__ "Printing Colour"}}</h3>
+                {{> BuildFormClassicColourPicker id="kingdom-colour" }}
+              {{/Column}}
+            {{/Columns}}
+
+            {{#> Row align="centre" pad=true }}
+              {{#> Button type="primary" id="download-kingdom" }}
+                {{__ "Download"}}
+              {{/Button}}
+            {{/Row}}
           {{/Slide}}
 
         {{/SwitchCase}}
@@ -657,22 +674,27 @@
 
         {{#> SwitchCase value='starship'}}
 
-          <h2>Starship</h2>
-
           {{#> Slide jump="starship-download" slide=3}}
-            <h3>{{__ "Legal"}}</h3>
-              <p><label for='starship-permission'><input type='checkbox' name='starship-permission' id='starship-permission'> {{__ "Permission to print"}}</label></p>
-              <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
+            <h2>Starship</h2>
 
-            <h3>{{__ "Printing Colour"}}</h3>
-              {{> BuildFormClassicColourPicker id="starship-colour" }}
+            {{#> Columns}}
+              {{#> Column}}
+                <h3>{{__ "Legal"}}</h3>
+                <p><label for='starship-permission'><input type='checkbox' name='permission' id='starship-permission'> {{__ "Permission to print"}}</label></p>
+                <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
+              {{/Column}}
 
-            <h3>{{__ "Download"}}</h3>
-              {{#> Row align="centre" pad=true }}
-                {{#> Button type="primary" id="download-starship" }}
-                  {{__ "Download"}}
-                {{/Button}}
-              {{/Row}}
+              {{#> Column}}
+                <h3>{{__ "Printing Colour"}}</h3>
+                {{> BuildFormClassicColourPicker id="starship-colour" }}
+              {{/Column}}
+            {{/Columns}}
+
+            {{#> Row align="centre" pad=true }}
+              {{#> Button type="primary" id="download-starship" }}
+                {{__ "Download"}}
+              {{/Button}}
+            {{/Row}}
           {{/Slide}}
 
         {{/SwitchCase}}
@@ -699,34 +721,42 @@
               {{/Column}}
               {{#> Column}}
 
-                <h3>{{__ "Watermark"}}</h3>
-                  <p><label for='has-watermark'><input type="checkbox" name="has-watermark" id="has-watermark" /> {{__ "Watermark every page"}}</label></p>
-                  <p><input type='text' name='watermark' id='watermark' class='well' placeholder='YOUR MESSAGE' /></p>
-
-                <h2>{{__ "Size"}}</h2>
+                <h3>{{__ "Size"}}</h3>
                 <p>
                   <label for="mini-mini-small"><input type="radio" name="mini-mini-size" value="small" id="mini-mini-small"> {{__ "Small"}}</label>&nbsp; 
                   <label for="mini-mini-medium"><input type="radio" name="mini-mini-size" value="medium" id="mini-mini-medium" checked> {{__ "Medium"}}</label>&nbsp; 
                   <label for="mini-mini-large"><input type="radio" name="mini-mini-size" value="large" id="mini-mini-large"> {{__ "Large"}}</label>
                 </p>
+
+                <h3>{{__ "Watermark"}}</h3>
+                  <p><label for='has-watermark'><input type="checkbox" name="has-watermark" id="has-watermark" /> {{__ "Watermark every page"}}</label></p>
+                  <p><input type='text' name='watermark' id='watermark' class='well' placeholder='YOUR MESSAGE' /></p>
+
               {{/Column}}
             {{/Columns}}
           {{/Slide}}
 
           {{#> Slide jump="mini-download" slide=3}}
-            <h2>{{__ "Legal"}}</h2>
-              <p><label for='mini-permission'><input type='checkbox' name='mini-permission' id='mini-permission'> {{__ "Permission to print"}}</label></p>
-              <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
-
-            <h2>{{__ "Printing Colour"}}</h2>
-              {{> BuildFormClassicColourPicker id="mini-colour" }}
-
             <h2>{{__ "Download"}}</h2>
-              {{#> Row align="centre" pad=true }}
-                {{#> Button type="primary" id="download-mini" }}
-                  {{__ "Download"}}
-                {{/Button}}
-              {{/Row}}
+
+            {{#> Columns}}
+              {{#> Column}}
+                <h3>{{__ "Legal"}}</h3>
+                <p><label for='mini-permission'><input type='checkbox' name='permission' id='mini-permission'> {{__ "Permission to print"}}</label></p>
+                <p class='indent'>{{{__ "For detailed licensing information, see <a href='/legal'>Legal Info</a>"}}}.</p>
+              {{/Column}}
+
+              {{#> Column}}
+                <h3>{{__ "Printing Colour"}}</h3>
+                {{> BuildFormClassicColourPicker id="mini-colour" }}
+              {{/Column}}
+            {{/Columns}}
+
+            {{#> Row align="centre" pad=true }}
+              {{#> Button type="primary" id="download-mini" }}
+                {{__ "Download"}}
+              {{/Button}}
+            {{/Row}}
           {{/Slide}}
 
         {{/SwitchCase}}
