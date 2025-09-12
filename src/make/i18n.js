@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 import fs from 'fs';
 
 import { isString, isArray, isObject, log, warn, error, has } from './util.js';

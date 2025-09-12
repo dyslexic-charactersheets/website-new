@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 import { readdir, readFile } from 'fs';
 import { normalize, resolve } from 'path';
 

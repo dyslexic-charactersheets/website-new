@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 function partition(array, check) {
     return array.reduce(([pass, fail], elem) => {
         return check(elem) ? [[...pass, elem], fail] : [pass, [...fail, elem]];

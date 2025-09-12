@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 export function slugify(str) {
     str = str.replace(/_\{(.*?)\}/, '$1');
     str = str.replace('\'', '');

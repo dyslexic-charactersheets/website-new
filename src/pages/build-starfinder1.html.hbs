@@ -1,3 +1,7 @@
+{{!--
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+--}}
 {{#> Base title="Starfinder - Dyslexic Character Sheets"}}
 
 {{#> BuildLayout theme="scifi"}}
@@ -71,9 +75,12 @@
 
   {{#> Right dark=true }}
     {{#> Pane bg="scifi"}}
-      {{> BuildFormClassic game="starfinder" gameData=starfinder1 }}
+      {{> BuildFormClassic game="starfinder" gameData=starfinder1 logo="/images/starfinder.png" }}
     {{/Pane}}
   {{/Right}}
 {{/BuildLayout}}
+
+{{> PortraitMenu iconics=assets.iconics }}
+{{> LogoMenu logos=assets.logos }}
 
 {{/Base}}

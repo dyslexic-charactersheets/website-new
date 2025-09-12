@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 export function isString(val) {
   return typeof val === 'string' || val instanceof String;
 }

@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 // watch an element's attribute for changes
 function watch(target, attribute, handler) {
   let observer = new MutationObserver(function (mutations) {

@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 let debugSettings = {};
 
 function getDebug(zone) {
@@ -47,6 +52,11 @@ function getDebug(zone) {
 function enableDebug(zone) {
   debugSettings[zone] = true;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 function has(container, property) {
   if (isNull(container)) return false;
   return Object.prototype.hasOwnProperty.call(container, property) && !isNull(container[property]);
@@ -113,6 +123,11 @@ function isElement(val) {
     val && typeof val === "object" && val.nodeType === 1 && typeof val.nodeName === "string"
   );
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 function checkSignature(message, signature, salt) {
     const hash = crypto.createHash('sha256');
     hash.update(message);
@@ -151,9 +166,19 @@ function isLoggedIn() {
   // TODO login
   return bool(body.dataset.loggedIn);
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 function generateId() {
   return Math.floor(Math.random() * 10000000000).toString(16);
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 let componentLogger = getDebug('components');
 enableDebug('components');
 
@@ -350,6 +375,11 @@ function respondToVisibility(element, callback) {
 
   observer.observe(element);
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 // watch an element's attribute for changes
 function watch(target, attribute, handler) {
   let observer = new MutationObserver(function (mutations) {
@@ -623,8 +653,13 @@ function getValue(sourceElem, sourceAttr) {
 window.addEventListener('load', () => {
   setupBindings(body);
 });
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 let signalsLogger = getDebug('signals');
-// enableDebug('signals');
+enableDebug('signals');
 
 let commandFunctions = {};
 
@@ -675,6 +710,7 @@ function doCommands(commands, element) {
 // dispatch a new event (or several, separated by a comma) on a target element
 function emit(target, signal, args, event) {
   signalsLogger.log("Emit", target, signal, args);
+  signalsLogger.indent();
   if (args !== null && args instanceof Event) {
     event = args;
     args = {};
@@ -690,6 +726,22 @@ function emit(target, signal, args, event) {
     return;
   }
 
+  if (isString(args)) {
+    if (args.startsWith("'") && args.endsWith("'")) {
+      args = args.substring(1, args.length - 1);
+    }
+  } else if (Array.isArray(args)) {
+    for (let i in args) {
+      let arg = args[i];
+      if (isString(arg)) {
+        if (arg.startsWith("'") && arg.endsWith("'")) {
+          arg = arg.substring(1, arg.length - 1);
+          args[i] = arg;
+        }
+      }
+    }
+  }
+
   let signals = signal.split(',');
   for (let sgn of signals) {
     let evt = new CustomEvent(sgn, {
@@ -699,9 +751,10 @@ function emit(target, signal, args, event) {
       cancelable: true,
       detail: args
     });
-    signalsLogger.log("  Emit: event", evt);
+    signalsLogger.log("Emit: event", evt);
     target.dispatchEvent(evt);
   }
+  signalsLogger.outdent();
 }
 
 let windowLoaded = false;
@@ -742,6 +795,11 @@ function setupSignals(container) {
 window.addEventListener('load', () => {
   setupSignals(body);
 });
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 //  -- BUILD WIZARD --  //
 
 let downloadDisabled = false;
@@ -817,6 +875,11 @@ function downloadCharacterSheet(request) {
   
   downloadDisabled = false;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 let logger = getDebug('build-classic');
 
 function readClassicFormAndSubmit(type) {
@@ -852,6 +915,7 @@ function readInput(name) {
   for (let input of document.getElementsByName(name)) {
     return input.value;
   }
+  return '';
 }
 
 function readSelect(name) {
@@ -1019,8 +1083,16 @@ function readClassicForm(type) {
           break;
       }
 
-      mapImage("portrait", readInput("portrait"));
-      mapImage("logo", readInput("logo"));
+      if (!readCheckbox('no-portrait')) {
+        mapImage("portrait", readInput("data-image-portrait"));
+      } else {
+        mapImage("portrait", "-");
+      }
+      if (!readCheckbox('no-logo')) {
+        mapImage("logo", readInput("data-image-logo"));
+      } else {
+        mapImage("logo", "-");
+      }
       break;
     
     // GM Downloads
@@ -1077,6 +1149,11 @@ function readClassicForm(type) {
 
   return request;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 let pf2logger = getDebug('build-pf2');
 
 function readPf2FormAndSubmit(type) {
@@ -2112,6 +2189,48 @@ on('.jump-link', 'click', (evt) => {
   console.log("Error in AssetMenu", e)
 }
 try {
+on('.portrait-search-tools', 'change', (evt) => {
+  let searchTools = evt.currentTarget;
+  if (!searchTools.classList.contains('facet-search-tools')) {
+    searchTools = searchTools.closest('.facet-search-tools');
+  }
+
+  let searchParams = {
+    ancestry: '',
+  };
+
+  for (let facet of searchTools.querySelectorAll('.facet-select')) {
+    let value = get(facet, 'value');
+    if (facet.classList.contains('facet-ancestry')) {
+      searchParams.ancestry = value;
+    } else if (facet.classList.contains('facet-source')) {
+      searchParams.source = value;
+    } else if (facet.classList.contains('facet-rarity')) {
+      searchParams.rarity = value;
+    }
+  }
+  for (let searchBox of searchTools.querySelectorAll('.facet-search-box')) {
+    searchParams.search = searchWords(searchBox.value);
+  }
+
+  let listId = searchTools.dataset.list;
+  let list = document.getElementById(listId);
+  updateItemList(list, searchParams);
+});
+
+function searchWords(str) {
+  if (str === undefined || str === null || str == "") {
+    return [];
+  }
+  let words = str.toLowerCase().split(' ');
+  words = words.map((word) => word.trim());
+  words = words.filter((word) => word != "");
+  return words;
+}
+} catch (e) { 
+  console.log("Error in AssetSearchTools", e)
+}
+try {
 let debug = getDebug('ImageDrop');
 enableDebug('ImageDrop');
 
@@ -2171,46 +2290,50 @@ on(".image-drop", "drop", (evt) => {
   console.log("Error in ImageDrop", e)
 }
 try {
-on('.portrait-search-tools', 'change', (evt) => {
-  let searchTools = evt.currentTarget;
-  if (!searchTools.classList.contains('facet-search-tools')) {
-    searchTools = searchTools.closest('.facet-search-tools');
+on('#logo-menu', 'asset-select', (evt) => {
+  let assetCode = evt.detail;
+  if (Array.isArray(assetCode)) {
+    assetCode = assetCode[0];
+  }
+  let btn = document.getElementById('item-'+assetCode);
+  let imgsrc = '';
+  for (let img of btn.getElementsByTagName('img')) {
+    imgsrc = img.src;
   }
 
-  let searchParams = {
-    ancestry: '',
-  };
-
-  for (let facet of searchTools.querySelectorAll('.facet-select')) {
-    let value = get(facet, 'value');
-    if (facet.classList.contains('facet-ancestry')) {
-      searchParams.ancestry = value;
-    } else if (facet.classList.contains('facet-source')) {
-      searchParams.source = value;
-    } else if (facet.classList.contains('facet-rarity')) {
-      searchParams.rarity = value;
+  all('#data-image-logo', (input) => {
+    input.value = assetCode;
+    let imageDrop = input.closest('.image-drop');
+    for (let img of imageDrop.querySelectorAll('img')) {
+      img.src = imgsrc;
     }
-  }
-  for (let searchBox of searchTools.querySelectorAll('.facet-search-box')) {
-    searchParams.search = searchWords(searchBox.value);
-  }
-
-  let listId = searchTools.dataset.list;
-  let list = document.getElementById(listId);
-  updateItemList(list, searchParams);
+  });
 });
-
-function searchWords(str) {
-  if (str === undefined || str === null || str == "") {
-    return [];
-  }
-  let words = str.toLowerCase().split(' ');
-  words = words.map((word) => word.trim());
-  words = words.filter((word) => word != "");
-  return words;
-}
 } catch (e) { 
-  console.log("Error in PortraitSearchTools", e)
+  console.log("Error in LogoMenu", e)
+}
+try {
+on('#portrait-menu', 'asset-select', (evt) => {
+  let assetCode = evt.detail;
+  if (Array.isArray(assetCode)) {
+    assetCode = assetCode[0];
+  }
+  let btn = document.getElementById('item-'+assetCode);
+  let imgsrc = '';
+  for (let img of btn.getElementsByTagName('img')) {
+    imgsrc = img.src;
+  }
+  
+  all('#data-image-portrait', (input) => {
+    input.value = assetCode;
+    let imageDrop = input.closest('.image-drop');
+    for (let img of imageDrop.querySelectorAll('img')) {
+      img.src = imgsrc;
+    }
+  });
+});
+} catch (e) { 
+  console.log("Error in PortraitMenu", e)
 }
 try {
 all('.lazy', (lazy) => {

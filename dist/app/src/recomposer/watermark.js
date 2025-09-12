@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 import { degrees } from 'pdf-lib';
 // import { log, warn, error } from './log.js';
 

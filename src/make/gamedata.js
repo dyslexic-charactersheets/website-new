@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 import { loadAssets } from './gamedata-assets.js';
 import { loadGame as loadGameLegacy } from './gamedata-legacy.js';
 import { loadGame as loadGameLib, combineGames, getPageData as getPageDataLib } from './gamedata-lib.js';

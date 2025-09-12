@@ -7,11 +7,11 @@
   {{#> Button 
     id=(str "item-${code}" code=item.code)
     type="tile-light"
-    on-click=(str "emit form-select,close-menu ${code}" code=item.code)
+    on-click=(str "emit asset-select,close-menu '${code}'" code=item.code)
     data=(de_i18n item.meta)
   }}
     {{{dump ../item}}}
-    {{> Picture src=(str "/${folder}/${code}.png" code=item.code folder=folder) size="tile" transparent=true lazy=true}}
+    {{> Picture src=(str "/${folder}/${path}.png" path=item.shortpath folder=folder) size="tile" transparent=true lazy=true}}
     <h4>{{__ item.name}}</h4>
   {{/Button}}
 </template>

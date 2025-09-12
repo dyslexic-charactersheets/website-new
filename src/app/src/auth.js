@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 import crypto from 'crypto';
 
 import { setupPatreonAuth, patreonRedirect, patreonLoginURL, patreonRedirectURL } from '#src/auth_patreon_api.js';

@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 import { log } from '#src/log.js';
 import { Character } from './cls/Character.js';
 import { GM } from './cls/GM.js';

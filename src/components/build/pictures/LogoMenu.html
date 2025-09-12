@@ -4,33 +4,32 @@
 -->
 
 <template>
-  {{#> SideMenu
-    id="logo-menu"
-    side="right"
-    wide=true
+  {{> AssetMenu 
+    id="logo-menu" 
+    items=logos 
+    folder="logos" 
+    selectbtn="Select Logo"
   }}
-    {{#> Pane bg="parchment" nopad=true}}
-      {{#> HeaderRow}}
-        {{#> Row}}
-          {{> CloseButton }}
-          <h3>{{__ "Select Logo"}}</h3>
-        {{/Row}}
-        {{> PortraitSearchTools }}
-      {{/HeaderRow}}
-
-      {{#> ScrollPane}}
-        {{#> ItemList id="item-list-logo"}}
-          {{#each logos.displayGroups}}
-            <h3>{{__ name "Display Group"}}</h3>
-            <div class="item-list__group">
-              {{#each values}}
-                {{> AssetSelectItem item=this folder="logos"}}
-              {{/each}}
-            </div>
-          {{/each}}
-        {{/ItemList}}
-      {{/ScrollPane}}
-      
-    {{/Pane}}
-  {{/SideMenu}}
 </template>
+
+<script>
+on('#logo-menu', 'asset-select', (evt) => {
+  let assetCode = evt.detail;
+  if (Array.isArray(assetCode)) {
+    assetCode = assetCode[0];
+  }
+  let btn = document.getElementById('item-'+assetCode);
+  let imgsrc = '';
+  for (let img of btn.getElementsByTagName('img')) {
+    imgsrc = img.src;
+  }
+
+  all('#data-image-logo', (input) => {
+    input.value = assetCode;
+    let imageDrop = input.closest('.image-drop');
+    for (let img of imageDrop.querySelectorAll('img')) {
+      img.src = imgsrc;
+    }
+  });
+});
+</script>

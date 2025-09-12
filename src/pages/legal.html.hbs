@@ -1,16 +1,23 @@
+{{!--
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+--}}
 {{#> Base title="Legal - Dyslexic Character Sheets" }}
 
 {{#> ContentLayout page="legal"}}
 
 <h1>{{__ "Legal Information"}}</h1>
 
-<h2>{{__ "Copyright"}}</h2>
-<p>{{__ "Copyright © 2013–{{0}} Marcus Downing." currentYear}}</p>
 
+{{#> Box}}
+<h2>Dyslexic Character Sheets</h2>
 {{#> Columns}}
 {{#> Column}}
 
-<h2>License</h2>
+  <h3>{{__ "Copyright"}}</h3>
+  <p>{{__ "Copyright © 2013–{{0}} Marcus Downing." currentYear}}</p>
+
+  <h3>Artistic License</h3>
   <p>This work is released under the <a href='/{{0}}/license.html'>Artistic License 2.0</a>, excluding those parts licensed from other owners.</p>
   {{#> Well}}
   <p>You can take any part of this project, keep it, modify it, share it, and even charge money for it. The only condition is that you must honestly state where it came from by linking back to this website.</p>
@@ -20,23 +27,24 @@
 {{/Column}}
 {{#> Column}}
 
-  <h2>{{__ "Fonts"}}</h2>
+  <h3>{{__ "Fonts"}}</h3>
   <p>These character sheets use the fonts <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> (released under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>) and <a href="https://fonts.google.com/specimen/Merriweather">Merriweather</a> (released under the <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>).</p>
   <p>This website uses the fonts <a href="https://fonts.google.com/specimen/Roboto+Slab">Roboto Slab</a> (released under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>) and <a href="https://fonts.google.com/specimen/Lato">Lato</a> (released under the <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL">Open Font License</a>).</p>
   <p><a href="https://dyslexiefont.com/">Dyslexie</a> is used with permission from Dyslexie Font B.V., Netherlands.</p>
   
 {{/Column}}
 {{/Columns}}
+{{/Box}}
 
 {{#> Box}}
-  <h2>Pathfinder Second Edition</h2>
+  <h2>{{__ "Pathfinder Second Edition"}}</h2>
   {{#> Columns}}
   {{#> Column}}
 
-    <h3>ORC License</h3>
+    <h3>{{__ "ORC License"}}</h3>
     <p>A part of Pathfinder Second Edition (those works published from November 2023 on, as well as select third-party material) is published under the <a href='/{{lang}}/orc.html'>OpenRPG Creative License (ORC License)</a>. These character sheets use properties owned by Paizo Inc. and others, used under the ORC License.</p>
 
-    <h3>Open Game Licence</h3>
+    <h3>{{__ "Open Game Licence"}}</h3>
     <p>A part of Pathfinder Second Edition (those works published prior to November 2023, as well as select third-party material) uses the <a href='/{{lang}}/ogl.html'>Open Game License (OGL)</a>; see Section 15 of the OGL declaration for a list of publications. These character sheets use properties owned by Paizo Inc. and others, used under the Open Game License.</p>
     
   {{/Column}}

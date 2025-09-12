@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 // import { log } from "./util";
 import { normalize, dirname } from 'path';
 import { fileURLToPath } from 'url';

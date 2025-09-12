@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 // const { StandardFonts, rgb } = require('pdf-lib');
 
 // const { inferSkills, getGameData } = require('./cls/GameData.js');

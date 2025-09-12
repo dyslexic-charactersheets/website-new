@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 import { readFileSync } from 'fs';
 
 import { drawImage, PDFFont, decodeFromBase64DataUri } from 'pdf-lib';

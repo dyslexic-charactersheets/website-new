@@ -1,10 +1,14 @@
+{{!--
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+--}}
+
 {{#> Base title="Dyslexic Character Sheets" }}
 
 {{#> HomeLayout }}
   {{#> Left }}
     {{#> Pane bg="parchment"}}
       {{> MenuButtons }}
-      {{!-- {{> Quote }} --}}
 
       <div class="spacer"></div>
 
@@ -13,6 +17,14 @@
           <img src="/images/favicon64.png">
           {{__ "Dyslexic Character Sheets"}}
         </h1>
+
+        <p>
+          Unique, customised character sheets for your Pathfinder or D&amp;D game.
+        </p>
+        
+        {{#> Row align="centre" }}
+          {{#> Button href="tour" id="tour-button" type="primary"}}{{__ "Tour"}}{{/Button}}
+        {{/Row}}
       </div>
 
       {{!--
@@ -94,7 +106,7 @@
   {{#> Right}}
     {{#> Pane bg="red" shadow="right" nopad=true spotlight=true}}
       {{#> PaneBackground }}
-        {{#> Picture size="bg" src="/images/home-bg.jpg" credit=true}}
+        {{#> Picture size="bg" src="/images/home-bg-v2.jpg" credit=true}}
           Art by 
           <a href='https://stormypegasusartprices.carrd.co/'>Stormy Pegasus</a> 
           and 

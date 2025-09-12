@@ -1,3 +1,7 @@
+{{!--
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+--}}
 {{#> Base title="D&D 3.5e - Dyslexic Character Sheets"}}
 
 {{#> BuildLayout theme="adventurer"}}
@@ -59,9 +63,12 @@
 
   {{#> Right }}
     {{#> Pane bg="red"}}
-      {{> BuildFormClassic game="dnd35" gameData=dnd35 }}
+      {{> BuildFormClassic game="dnd35" gameData=dnd35 logo="/images/dnd35.png" }}
     {{/Pane}}
   {{/Right}}
 {{/BuildLayout}}
+
+{{> PortraitMenu iconics=assets.iconics }}
+{{> LogoMenu logos=assets.logos }}
 
 {{/Base}}

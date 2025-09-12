@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 import { createCharacterSheet } from '#src/recomposer/create.js';
 
 import { log, error } from '#src/log.js';

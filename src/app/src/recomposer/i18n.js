@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 import { log, warn } from '#src/log.js';
 
 import { getAssetPath, loadAsset } from './assets.js';

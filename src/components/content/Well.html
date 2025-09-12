@@ -4,8 +4,7 @@
 -->
 
 <template>
-  <blockquote class="well">
-    {{#if title}}<div class="well__title"><span>{{title}}</span></div>{{/if}}
+  <blockquote class="blockquote--well">
     {{> @partial-block }}
   </blockquote>
 </template>
@@ -15,7 +14,7 @@
 @use 'colours';
 @use 'fonts';
 
-.well {
+.blockquote--well {
   border-radius: 0.2rem;
   padding: 0.8rem 1rem;
   margin: 0.5rem 0;
@@ -30,7 +29,7 @@
   > *:last-child {
     margin-bottom: 0;
   }
-
+/* 
   .well__title {
     margin-top: -1.4rem;
 
@@ -42,7 +41,7 @@
 
       @include fonts.heading;
     }
-  }
+  } */
 }
 
 </style>

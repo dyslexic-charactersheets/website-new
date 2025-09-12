@@ -1,4 +1,8 @@
 @charset "UTF-8";
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   font-size: calc(15px + 0.1 * (1vw + 1vh));
 }
@@ -7,6 +11,10 @@ body, p, a, nav, button {
   font-size: 1rem;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -40,6 +48,10 @@ body, p, a, nav, button {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin-ext */
 @font-face {
   font-family: "Lato";
@@ -58,6 +70,10 @@ body, p, a, nav, button {
   src: url(/fonts/Lato-Regular-B.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Roboto Slab";
@@ -184,6 +200,10 @@ body, p, a, nav, button {
   src: url(/fonts/RobotoSlab-Medium-G.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Indie Flower";
@@ -191,6 +211,10 @@ body, p, a, nav, button {
   font-weight: 400;
   src: url(/fonts/IndieFlower-Regular.woff2) format("woff2");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Dyslexie";
@@ -198,6 +222,10 @@ body, p, a, nav, button {
   font-weight: 400;
   src: url(/fonts/DyslexieRegular.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Lexend";
@@ -205,6 +233,10 @@ body, p, a, nav, button {
   font-weight: 400;
   src: url(/fonts/LexendDeca.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Exo 2";
@@ -250,6 +282,10 @@ body, p, a, nav, button {
   src: url(/fonts/Exo2-E.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   font-family: "Lato";
   font-weight: normal;
@@ -323,6 +359,14 @@ dl dd + dt {
   margin-top: 0.5rem;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .responsive-xxlarge {
   display: none;
 }
@@ -395,6 +439,10 @@ dl dd + dt {
     display: block;
   }
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   padding: 0;
   margin: 0;
@@ -477,6 +525,10 @@ article + article {
   border-top: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .badge {
   height: 1.7rem;
   line-height: 1.7rem;
@@ -587,6 +639,10 @@ article + article {
   background-image: url(/images/pick-gm-kingdom.jpg);
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 nav.nav--row {
   display: flex;
   flex-direction: row;
@@ -763,6 +819,10 @@ nav.nav--scrollable {
   box-shadow: 0 10rem 10rem -10rem rgba(40, 25, 0, 0.6);
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .hero {
   width: 24rem;
   padding-left: 4rem;
@@ -783,6 +843,10 @@ nav.nav--scrollable {
   width: 3rem;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 table.build-table {
   margin-bottom: 0.5rem;
 }
@@ -1133,6 +1197,10 @@ label[for=option-dyslexic-font_lexend] {
   flex: 0 0 auto;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 article.news {
   clear: both;
 }
@@ -1176,6 +1244,10 @@ article.news time .year {
     margin-left: -5rem;
   }
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .main--theme_adventurer #left .section__inner {
   background-image: url(/images/bg-hex.png);
   background-size: 30rem;
@@ -1188,6 +1260,10 @@ article.news time .year {
   box-shadow: inset 0 0.1rem 0.25rem rgba(0, 0, 0, 0.5);
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .main--theme_scifi nav.nav--milestones button.nav--milestones__milestone:after {
   content: "🞫";
   color: white;
@@ -1198,6 +1274,7 @@ article.news time .year {
   font-weight: normal;
   text-shadow: 0 0 0.3rem black;
   line-height: 0.8rem;
+  color: white;
 }
 
 .main--theme_scifi nav.nav--milestones button.nav--milestones__milestone:nth-of-type(1) + .arrow, .main--theme_scifi nav.nav--milestones button.nav--milestones__milestone:nth-of-type(7) + .arrow {
@@ -1311,6 +1388,18 @@ article.news time .year {
   padding: 1px 0;
 }
 
+.main--theme_scifi fieldset {
+  background: rgba(0, 10, 30, 0.6);
+}
+
+.main--theme_scifi output {
+  background: rgba(0, 10, 30, 0.6);
+}
+
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .colour-wheel {
   margin: 1rem auto;
   position: relative;
@@ -1454,6 +1543,10 @@ article.news time .year {
   left: 95px;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -1487,6 +1580,10 @@ article.news time .year {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin-ext */
 @font-face {
   font-family: "Lato";
@@ -1505,6 +1602,10 @@ article.news time .year {
   src: url(/fonts/Lato-Regular-B.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Roboto Slab";
@@ -1631,6 +1732,10 @@ article.news time .year {
   src: url(/fonts/RobotoSlab-Medium-G.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Indie Flower";
@@ -1638,6 +1743,10 @@ article.news time .year {
   font-weight: 400;
   src: url(/fonts/IndieFlower-Regular.woff2) format("woff2");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Dyslexie";
@@ -1645,6 +1754,10 @@ article.news time .year {
   font-weight: 400;
   src: url(/fonts/DyslexieRegular.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Lexend";
@@ -1652,6 +1765,10 @@ article.news time .year {
   font-weight: 400;
   src: url(/fonts/LexendDeca.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Exo 2";
@@ -1697,6 +1814,10 @@ article.news time .year {
   src: url(/fonts/Exo2-E.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   font-family: "Lato";
   font-weight: normal;
@@ -1770,6 +1891,10 @@ dl dd + dt {
   margin-top: 0.5rem;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .responsive-xxlarge {
   display: none;
 }
@@ -1842,6 +1967,10 @@ dl dd + dt {
     display: block;
   }
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .badge {
   height: 1.7rem;
   line-height: 1.7rem;
@@ -1952,6 +2081,10 @@ dl dd + dt {
   background-image: url(/images/pick-gm-kingdom.jpg);
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 table.build-table {
   margin-bottom: 0.5rem;
 }
@@ -2471,6 +2604,10 @@ nav.nav--milestones .arrow {
   min-height: 6rem;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -2527,6 +2664,10 @@ output.output--bare {
   background: none;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -2560,6 +2701,10 @@ output.output--bare {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin-ext */
 @font-face {
   font-family: "Lato";
@@ -2578,6 +2723,10 @@ output.output--bare {
   src: url(/fonts/Lato-Regular-B.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Roboto Slab";
@@ -2704,6 +2853,10 @@ output.output--bare {
   src: url(/fonts/RobotoSlab-Medium-G.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Indie Flower";
@@ -2711,6 +2864,10 @@ output.output--bare {
   font-weight: 400;
   src: url(/fonts/IndieFlower-Regular.woff2) format("woff2");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Dyslexie";
@@ -2718,6 +2875,10 @@ output.output--bare {
   font-weight: 400;
   src: url(/fonts/DyslexieRegular.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Lexend";
@@ -2725,6 +2886,10 @@ output.output--bare {
   font-weight: 400;
   src: url(/fonts/LexendDeca.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Exo 2";
@@ -2770,6 +2935,10 @@ output.output--bare {
   src: url(/fonts/Exo2-E.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   font-family: "Lato";
   font-weight: normal;
@@ -2897,6 +3066,10 @@ h4 + .row {
   height: auto;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -2968,6 +3141,10 @@ h4 + .row {
   max-width: none;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -3098,6 +3275,10 @@ h4 + .row {
   flex-direction: column;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -3131,6 +3312,10 @@ h4 + .row {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin-ext */
 @font-face {
   font-family: "Lato";
@@ -3149,6 +3334,10 @@ h4 + .row {
   src: url(/fonts/Lato-Regular-B.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Roboto Slab";
@@ -3275,6 +3464,10 @@ h4 + .row {
   src: url(/fonts/RobotoSlab-Medium-G.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Indie Flower";
@@ -3282,6 +3475,10 @@ h4 + .row {
   font-weight: 400;
   src: url(/fonts/IndieFlower-Regular.woff2) format("woff2");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Dyslexie";
@@ -3289,6 +3486,10 @@ h4 + .row {
   font-weight: 400;
   src: url(/fonts/DyslexieRegular.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Lexend";
@@ -3296,6 +3497,10 @@ h4 + .row {
   font-weight: 400;
   src: url(/fonts/LexendDeca.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Exo 2";
@@ -3341,6 +3546,10 @@ h4 + .row {
   src: url(/fonts/Exo2-E.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   font-family: "Lato";
   font-weight: normal;
@@ -3535,6 +3744,10 @@ dl dd + dt {
   background: rgba(0, 0, 0, 0.2);
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -3694,6 +3907,10 @@ dl dd + dt {
   background-color: #e164c3;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -3870,6 +4087,10 @@ a.jump-link.indent-6 {
   margin-left: 7rem;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -3903,6 +4124,10 @@ a.jump-link.indent-6 {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin-ext */
 @font-face {
   font-family: "Lato";
@@ -3921,6 +4146,10 @@ a.jump-link.indent-6 {
   src: url(/fonts/Lato-Regular-B.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Roboto Slab";
@@ -4047,6 +4276,10 @@ a.jump-link.indent-6 {
   src: url(/fonts/RobotoSlab-Medium-G.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Indie Flower";
@@ -4054,6 +4287,10 @@ a.jump-link.indent-6 {
   font-weight: 400;
   src: url(/fonts/IndieFlower-Regular.woff2) format("woff2");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Dyslexie";
@@ -4061,6 +4298,10 @@ a.jump-link.indent-6 {
   font-weight: 400;
   src: url(/fonts/DyslexieRegular.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Lexend";
@@ -4068,6 +4309,10 @@ a.jump-link.indent-6 {
   font-weight: 400;
   src: url(/fonts/LexendDeca.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Exo 2";
@@ -4113,6 +4358,10 @@ a.jump-link.indent-6 {
   src: url(/fonts/Exo2-E.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   font-family: "Lato";
   font-weight: normal;
@@ -4202,18 +4451,6 @@ dl dd + dt {
   justify-content: space-between;
 }
 
-.image-drop--shape_portrait {
-  height: 30rem;
-}
-
-.image-drop--shape_logo {
-  height: 16rem;
-}
-
-.image-drop--shape_animal {
-  height: 20rem;
-}
-
 .image-drop p {
   color: black;
   text-shadow: 0 0 20px white;
@@ -4234,6 +4471,28 @@ dl dd + dt {
   background: rgba(120, 220, 255, 0.9) url(/images/white-spot.png) 50% 50% no-repeat;
 }
 
+.image-drop.image-drop--shape_portrait {
+  height: 30rem;
+}
+
+.image-drop.image-drop--shape_logo {
+  height: 12rem;
+}
+
+.image-drop.image-drop--shape_logo img {
+  max-width: 100%;
+  min-width: 80%;
+  min-height: auto;
+}
+
+.image-drop.image-drop--shape_animal {
+  height: 20rem;
+}
+
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -4340,6 +4599,10 @@ button .icon.icon_globe {
   display: none;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -4455,6 +4718,10 @@ button > picture {
   /* width: 100%; */
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -4488,6 +4755,10 @@ button > picture {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .responsive-xxlarge {
   display: none;
 }
@@ -4616,6 +4887,10 @@ button > picture {
   margin: -1rem;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -4649,6 +4924,10 @@ button > picture {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin-ext */
 @font-face {
   font-family: "Lato";
@@ -4667,6 +4946,10 @@ button > picture {
   src: url(/fonts/Lato-Regular-B.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Roboto Slab";
@@ -4793,6 +5076,10 @@ button > picture {
   src: url(/fonts/RobotoSlab-Medium-G.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Indie Flower";
@@ -4800,6 +5087,10 @@ button > picture {
   font-weight: 400;
   src: url(/fonts/IndieFlower-Regular.woff2) format("woff2");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Dyslexie";
@@ -4807,6 +5098,10 @@ button > picture {
   font-weight: 400;
   src: url(/fonts/DyslexieRegular.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Lexend";
@@ -4814,6 +5109,10 @@ button > picture {
   font-weight: 400;
   src: url(/fonts/LexendDeca.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Exo 2";
@@ -4859,6 +5158,10 @@ button > picture {
   src: url(/fonts/Exo2-E.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   font-family: "Lato";
   font-weight: normal;
@@ -4932,36 +5235,40 @@ dl dd + dt {
   margin-top: 0.5rem;
 }
 
-.well {
+.blockquote--well {
   border-radius: 0.2rem;
   padding: 0.8rem 1rem;
   margin: 0.5rem 0;
   background: rgba(80, 40, 0, 0.1);
   border-bottom: 0.05rem solid rgba(255, 255, 255, 0.5);
   box-shadow: inset 0 2px 3px rgba(20, 10, 0, 0.5);
+  /* 
+    .well__title {
+      margin-top: -1.4rem;
+
+      span {
+        background: colours.$parchment;
+        box-shadow: 0 1px 2px colours.$shadow;
+        border-radius: 2px;
+        padding: 1px 4px;
+
+        @include fonts.heading;
+      }
+    } */
 }
 
-.well > *:first-child {
+.blockquote--well > *:first-child {
   margin-top: 0;
 }
 
-.well > *:last-child {
+.blockquote--well > *:last-child {
   margin-bottom: 0;
 }
 
-.well .well__title {
-  margin-top: -1.4rem;
-}
-
-.well .well__title span {
-  background: #ddd4c0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  border-radius: 2px;
-  padding: 1px 4px;
-  font-family: "Roboto Slab", "Roboto";
-  font-weight: 500;
-}
-
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -4995,6 +5302,10 @@ dl dd + dt {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .responsive-xxlarge {
   display: none;
 }
@@ -5067,6 +5378,10 @@ dl dd + dt {
     display: block;
   }
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   padding: 0;
   margin: 0;
@@ -5190,6 +5505,10 @@ article + article {
   flex: 1 1 auto;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -5223,6 +5542,10 @@ article + article {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .responsive-xxlarge {
   display: none;
 }
@@ -5334,6 +5657,10 @@ article + article {
   justify-content: flex-end;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -5372,6 +5699,10 @@ article + article {
   box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.5);
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -5405,6 +5736,10 @@ article + article {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .responsive-xxlarge {
   display: none;
 }
@@ -5477,6 +5812,10 @@ article + article {
     display: block;
   }
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   padding: 0;
   margin: 0;
@@ -5601,6 +5940,10 @@ article + article {
     flex: 1 1 auto;
   }
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -5634,6 +5977,10 @@ article + article {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .responsive-xxlarge {
   display: none;
 }
@@ -5710,7 +6057,7 @@ article + article {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
+  /* max-height: 100vh; */
   padding: 0.5rem;
   position: relative;
   /* Backgrounds */
@@ -5728,6 +6075,7 @@ article + article {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 @media screen and (min-width: 740px) {
@@ -5745,6 +6093,7 @@ article + article {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 @media screen and (min-width: 740px) {
@@ -5768,6 +6117,7 @@ article + article {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 @media screen and (min-width: 740px) {
@@ -5791,16 +6141,17 @@ article + article {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 @media screen and (min-width: 740px) {
   .pane.pane--bg_parchment {
-    background-image: url(/images/bg-parchment.jpg);
+    background-image: url(/images/bg-parchment-v2.jpg);
   }
 }
 @media screen and (max-width: 739px) {
   .pane.pane--bg_parchment {
-    background-image: url(/images/bg-parchment-small.jpg);
+    background-image: url(/images/bg-parchment-v2-small.jpg);
   }
 }
 .pane.pane--bg_contact {
@@ -5808,6 +6159,7 @@ article + article {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 @media screen and (min-width: 740px) {
@@ -5825,6 +6177,7 @@ article + article {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 @media screen and (min-width: 740px) {
@@ -5842,6 +6195,7 @@ article + article {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   background-size: 25em;
   background-repeat: repeat;
 }
@@ -5906,10 +6260,14 @@ article + article {
 }
 
 .read-area .blockquote--well, .read-area .blockquote--box {
-  margin-left: -1rem;
-  margin-right: -1rem;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -5943,6 +6301,10 @@ article + article {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .responsive-xxlarge {
   display: none;
 }
@@ -6015,6 +6377,10 @@ article + article {
     display: block;
   }
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   padding: 0;
   margin: 0;
@@ -6129,6 +6495,10 @@ article + article {
   display: block;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -6162,6 +6532,10 @@ article + article {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .responsive-xxlarge {
   display: none;
 }
@@ -6287,6 +6661,10 @@ article + article {
   margin-bottom: 0;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -6344,6 +6722,10 @@ article + article {
   flex: 100 10 auto;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -6377,6 +6759,10 @@ article + article {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .responsive-xxlarge {
   display: none;
 }
@@ -6471,6 +6857,10 @@ article + article {
     min-height: 50vh;
   }
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -6504,6 +6894,10 @@ article + article {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .responsive-xxlarge {
   display: none;
 }
@@ -6637,6 +7031,10 @@ article + article {
   gap: 0.5rem !important;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -6670,6 +7068,10 @@ article + article {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .responsive-xxlarge {
   display: none;
 }
@@ -6742,6 +7144,10 @@ article + article {
     display: block;
   }
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   padding: 0;
   margin: 0;
@@ -6845,6 +7251,10 @@ article + article {
     flex: 1 1 auto;
   }
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -6878,6 +7288,10 @@ article + article {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin-ext */
 @font-face {
   font-family: "Lato";
@@ -6896,6 +7310,10 @@ article + article {
   src: url(/fonts/Lato-Regular-B.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Roboto Slab";
@@ -7022,6 +7440,10 @@ article + article {
   src: url(/fonts/RobotoSlab-Medium-G.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Indie Flower";
@@ -7029,6 +7451,10 @@ article + article {
   font-weight: 400;
   src: url(/fonts/IndieFlower-Regular.woff2) format("woff2");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Dyslexie";
@@ -7036,6 +7462,10 @@ article + article {
   font-weight: 400;
   src: url(/fonts/DyslexieRegular.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Lexend";
@@ -7043,6 +7473,10 @@ article + article {
   font-weight: 400;
   src: url(/fonts/LexendDeca.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Exo 2";
@@ -7088,6 +7522,10 @@ article + article {
   src: url(/fonts/Exo2-E.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   font-family: "Lato";
   font-weight: normal;
@@ -7436,6 +7874,10 @@ dl dd + dt {
   object-fit: contain;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -7488,6 +7930,10 @@ dl dd + dt {
   padding-bottom: 10px;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -7521,6 +7967,10 @@ dl dd + dt {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .responsive-xxlarge {
   display: none;
 }
@@ -7722,6 +8172,10 @@ aside.menu .btn.btn--light {
   background-color: transparent;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -7755,6 +8209,10 @@ aside.menu .btn.btn--light {
   text-shadow: 0 0 0.5px white;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin-ext */
 @font-face {
   font-family: "Lato";
@@ -7773,6 +8231,10 @@ aside.menu .btn.btn--light {
   src: url(/fonts/Lato-Regular-B.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Roboto Slab";
@@ -7899,6 +8361,10 @@ aside.menu .btn.btn--light {
   src: url(/fonts/RobotoSlab-Medium-G.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Indie Flower";
@@ -7906,6 +8372,10 @@ aside.menu .btn.btn--light {
   font-weight: 400;
   src: url(/fonts/IndieFlower-Regular.woff2) format("woff2");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Dyslexie";
@@ -7913,6 +8383,10 @@ aside.menu .btn.btn--light {
   font-weight: 400;
   src: url(/fonts/DyslexieRegular.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* latin */
 @font-face {
   font-family: "Lexend";
@@ -7920,6 +8394,10 @@ aside.menu .btn.btn--light {
   font-weight: 400;
   src: url(/fonts/LexendDeca.woff) format("woff");
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 /* cyrillic-ext */
 @font-face {
   font-family: "Exo 2";
@@ -7965,6 +8443,10 @@ aside.menu .btn.btn--light {
   src: url(/fonts/Exo2-E.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
 html {
   font-family: "Lato";
   font-weight: normal;

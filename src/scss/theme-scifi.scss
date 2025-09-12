@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 @use 'colours';
 @use 'fonts';
 @use 'build';
@@ -23,6 +28,7 @@
       span {
         @include fonts.scifi;
         line-height: 0.8rem;
+        color: white;
       }
 
       &:nth-of-type(1), &:nth-of-type(7) {
@@ -126,5 +132,13 @@
       box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
       padding: 1px 0;
     }
+  }
+
+  fieldset {
+    background: rgba(0, 10, 30, 0.6);
+  }
+
+  output {
+    background: rgba(0, 10, 30, 0.6);
   }
 }

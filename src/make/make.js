@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 import fs from 'fs';
 import path from 'path';
 import crypto from "crypto";
@@ -339,16 +345,6 @@ Handlebars.registerHelper('str', function (template, options) {
   
   return str;
 });
-
-
-// Register partials
-let partials = fs.readdirSync('partials');
-for (let partial of partials) {
-    let name = partial.replace(/\.html\.hbs$/, '');
-    warn("partial", "Partial loaded:".green, name);
-    let partialBody = fs.readFileSync('partials/'+partial, { encoding: 'utf8' });
-    Handlebars.registerPartial(name, partialBody);
-}
 
     
 // Build the stylesheet

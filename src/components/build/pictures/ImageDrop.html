@@ -5,7 +5,7 @@
 
 <template>
   <div class="image-drop image-drop--shape_{{shape}}" id="{{id}}">
-    <input type="hidden" name="{{id}}" id="data-image-{{id}}" autocomplete="off"/>
+    <input type="hidden" name="data-image-{{id}}" id="data-image-{{id}}" autocomplete="off"/>
     {{#if label}}
       <p>{{__ label}}</p>
     {{/if}}
@@ -14,6 +14,12 @@
       {{#> Button type="primary" on-click="emit select-image"}}
         {{__ button}}
       {{/Button}}
+    {{/if}}
+    {{#if skippable}}
+      <label for="no-{{id}}">
+        <input type="checkbox" id="no-{{id}}" name="no-{{id}}" data-var="no-{{id}}">
+        {{__ skippable}}
+      </label>
     {{/if}}
   </div>
 </template>
@@ -101,19 +107,6 @@ on(".image-drop", "drop", (evt) => {
   align-items: center;
   justify-content: space-between;
 
-
-  &--shape_portrait {
-    height: 30rem;
-  }
-
-  &--shape_logo {
-    height: 16rem;
-  }
-
-  &--shape_animal {
-    height: 20rem;
-  }
-
   p {
     color: black;
     text-shadow: 0 0 20px white;
@@ -133,6 +126,24 @@ on(".image-drop", "drop", (evt) => {
 
   &.image-drop--ready {
     background: rgba(120, 220, 255, 0.9) url(/images/white-spot.png) 50% 50% no-repeat;
+  }
+
+  &.image-drop--shape_portrait {
+    height: 30rem;
+  }
+
+  &.image-drop--shape_logo {
+    height: 12rem;
+
+    img {
+      max-width: 100%;
+      min-width: 80%;
+      min-height: auto;
+    }
+  }
+
+  &.image-drop--shape_animal {
+    height: 20rem;
   }
 }
 

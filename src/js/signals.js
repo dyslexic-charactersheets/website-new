@@ -1,5 +1,10 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 let signalsLogger = getDebug('signals');
-// enableDebug('signals');
+enableDebug('signals');
 
 let commandFunctions = {};
 
@@ -50,6 +55,7 @@ function doCommands(commands, element) {
 // dispatch a new event (or several, separated by a comma) on a target element
 function emit(target, signal, args, event) {
   signalsLogger.log("Emit", target, signal, args);
+  signalsLogger.indent();
   if (args !== null && args instanceof Event) {
     event = args;
     args = {};
@@ -65,6 +71,22 @@ function emit(target, signal, args, event) {
     return;
   }
 
+  if (isString(args)) {
+    if (args.startsWith("'") && args.endsWith("'")) {
+      args = args.substring(1, args.length - 1);
+    }
+  } else if (Array.isArray(args)) {
+    for (let i in args) {
+      let arg = args[i];
+      if (isString(arg)) {
+        if (arg.startsWith("'") && arg.endsWith("'")) {
+          arg = arg.substring(1, arg.length - 1);
+          args[i] = arg;
+        }
+      }
+    }
+  }
+
   let signals = signal.split(',');
   for (let sgn of signals) {
     let evt = new CustomEvent(sgn, {
@@ -74,9 +96,10 @@ function emit(target, signal, args, event) {
       cancelable: true,
       detail: args
     });
-    signalsLogger.log("  Emit: event", evt);
+    signalsLogger.log("Emit: event", evt);
     target.dispatchEvent(evt);
   }
+  signalsLogger.outdent();
 }
 
 let windowLoaded = false;

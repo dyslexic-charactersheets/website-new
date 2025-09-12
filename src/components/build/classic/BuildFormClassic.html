@@ -33,6 +33,20 @@
           {{/Row}}
 
           {{#> Row pad=true}}
+            <span>
+              {{__ "Game edition"}}:
+            </span>
+            <output>
+              {{#if (eq game "pathfinder")}}
+                {{__ "Pathfinder 1e"}}
+              {{/if}}
+              {{#if (eq game "starfinder")}}
+                {{__ "Starfinder 1e"}}
+              {{/if}}
+              {{#if (eq game "dnd35")}}
+                {{__ "D&D 3.5"}}
+              {{/if}}
+            </output>
             {{> Spacer}}
             <p>
               {{__ "Language"}}:
@@ -465,6 +479,7 @@
                   button="Select portrait"
                   placeholder="/images/generic.png"
                   imageselect="portrait"
+                  skippable="No portrait"
                 }}
 
               {{/Column}}
@@ -478,6 +493,7 @@
                   button="Select logo"
                   placeholder=logo
                   imageselect="logo"
+                  skippable="No logo"
                 }}
 
                 <h3>{{__ "Watermark"}}</h3>
@@ -551,7 +567,11 @@
                   type="gm-tile"
                   on-click="#gm-pick.value=campaign; #switch-gm.current=campaign; #slides-character.jump=gm-options"
                 }}
-                  {{> Picture src="/images/gm-campaign.png" size="gm-tile"}}
+                  {{#if (eq game "starfinder")}}
+                    {{> Picture src="/images/starfinder-gm-campaign.png" size="gm-tile"}}
+                  {{else}}
+                    {{> Picture src="/images/gm-campaign.png" size="gm-tile"}}
+                  {{/if}}
                   <h3>{{__ "Campaign Planning"}}</h3>
                 {{/Button}}
               {{/unless}}
@@ -716,6 +736,7 @@
                   button="Select portrait"
                   placeholder="/images/generic.png"
                   imageselect="portrait"
+                  skippable="No portrait"
                 }}
 
               {{/Column}}

@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 import dyslexicCharacterSheets from 'dyslexic-charactersheets';
 import { has, slugify, log, warn, error } from './util.js';
 import { languages, translate, de_i18n } from './i18n.js';

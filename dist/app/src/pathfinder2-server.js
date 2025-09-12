@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 import { createWriteStream } from 'fs';
 import path from 'path';
 import CharacterSheets from 'dyslexic-charactersheets';

@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 let logger = getDebug('build-classic');
 
 function readClassicFormAndSubmit(type) {
@@ -33,6 +38,7 @@ function readInput(name) {
   for (let input of document.getElementsByName(name)) {
     return input.value;
   }
+  return '';
 }
 
 function readSelect(name) {
@@ -200,8 +206,16 @@ function readClassicForm(type) {
           break;
       }
 
-      mapImage("portrait", readInput("portrait"));
-      mapImage("logo", readInput("logo"));
+      if (!readCheckbox('no-portrait')) {
+        mapImage("portrait", readInput("data-image-portrait"));
+      } else {
+        mapImage("portrait", "-");
+      }
+      if (!readCheckbox('no-logo')) {
+        mapImage("logo", readInput("data-image-logo"));
+      } else {
+        mapImage("logo", "-");
+      }
       break;
     
     // GM Downloads

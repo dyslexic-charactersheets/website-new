@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 import { access, existsSync, readFile, constants as fsConstants, readFileSync } from 'fs';
 import { resolve, normalize, dirname, basename } from 'path';
 
@@ -30,9 +35,10 @@ function loadAssetDir(subdir, innerdir, indexfile) {
       // console.log(data);
       let assets = data.split('\n').filter((line) => line != "").map((line) => {
         let [code, path] = line.split('=');
-        code = code.trim();
+        let shortpath = code.trim();
+        code = code.trim().toLowerCase().replaceAll(' ', '-').replaceAll('/', '-');
         path = path.trim();
-        return {code, path};
+        return {code, shortpath, path};
       });
   
       // Find all the folders

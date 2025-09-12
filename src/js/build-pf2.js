@@ -1,3 +1,8 @@
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 let pf2logger = getDebug('build-pf2');
 
 function readPf2FormAndSubmit(type) {

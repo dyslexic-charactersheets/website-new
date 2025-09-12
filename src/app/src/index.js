@@ -1,4 +1,10 @@
-#!/usr/bin/env nodejs
+#!/usr/bin/env node
+
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+
 
 import url from 'url';
 import { resolve } from 'path';

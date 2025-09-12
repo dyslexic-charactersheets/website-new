@@ -25,6 +25,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 
     @include responsive.medium-large {
         background-image: url(/images/bg-#{$bg}.jpg);
@@ -48,7 +49,7 @@
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
+  /* max-height: 100vh; */
 
   padding: 0.5rem;
   position: relative;
@@ -79,7 +80,7 @@
   }
 
   &.pane--bg_parchment {
-    @include background(colours.$parchment, 'parchment');
+    @include background(colours.$parchment, 'parchment-v2');
   }
 
   &.pane--bg_contact {
