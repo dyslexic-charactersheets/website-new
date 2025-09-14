@@ -55,6 +55,9 @@ export function getPortraitProfile(pageInfo, settings) {
       break;
 
     case "inventory":
+      if (settings.isStarfinder) {
+        break;
+      }
       return [new PortraitProfile({
         x: 315,
         y: 522,
@@ -66,7 +69,7 @@ export function getPortraitProfile(pageInfo, settings) {
       return [new PortraitProfile({
         x: 127,
         // y: 425,
-        y: 540,
+        y: 532,
         width: 180,
         height: 215
       })];

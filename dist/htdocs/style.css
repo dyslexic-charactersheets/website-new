@@ -4467,6 +4467,10 @@ dl dd + dt {
   max-width: 90%;
 }
 
+.image-drop.image-drop--no-image img {
+  opacity: 20%;
+}
+
 .image-drop.image-drop--ready {
   background: rgba(120, 220, 255, 0.9) url(/images/white-spot.png) 50% 50% no-repeat;
 }

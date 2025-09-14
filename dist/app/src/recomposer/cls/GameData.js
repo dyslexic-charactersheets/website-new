@@ -368,6 +368,13 @@ export class GameData {
             }
           }
         }
+        
+        if (settings.allKnowledge) {
+          addSkills(this.data.knowledgeSkills);
+        }
+        addDynamicSkills("Perform", settings.performSkills);
+        addDynamicSkills("Craft", settings.craftSkills);
+        addDynamicSkills("Profession", settings.professionSkills);
         break;
 
       // pathfinder
@@ -397,12 +404,6 @@ export class GameData {
         break;
     }
 
-    if (settings.allKnowledge) {
-      addSkills(this.data.knowledgeSkills);
-    }
-    addDynamicSkills("Perform", settings.performSkills);
-    addDynamicSkills("Craft", settings.craftSkills);
-    addDynamicSkills("Profession", settings.professionSkills);
 
     // add bonuses per class/variant
     /*

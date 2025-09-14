@@ -2252,14 +2252,16 @@ on(".image-drop", "drop", (evt) => {
   debug.log("Image dropped");
 
   // TODO check image size! 20MB limit
-  // TODO encode the image
-  // TODO send the image with the request
   
   evt.preventDefault();
   evt.stopPropagation();
 
   let imageDrop = evt.target;
   imageDrop.classList.remove('image-drop--ready');
+  
+  let noImageCheckbox = imageDrop.querySelector('.image-drop__no-image');
+  noImageCheckbox.checked = false;
+  imageDrop.classList.remove('image-drop--no-image');
 
   var files = evt.dataTransfer.files;
   if (files.length > 0) {
@@ -2286,6 +2288,13 @@ on(".image-drop", "drop", (evt) => {
     }
   }
 });
+
+on('.image-drop__no-image', 'change', (evt) => {
+  let checkbox = evt.target;
+  let noImage = checkbox.checked;
+  let imageDrop = checkbox.closest('.image-drop');
+  imageDrop.classList.toggle('image-drop--no-image', noImage);
+})
 } catch (e) { 
   console.log("Error in ImageDrop", e)
 }
