@@ -226,6 +226,10 @@ let iconicFiles = {};
 })();
 
 export function getPortraitPath(portrait) {
+  if (portrait == "-") {
+    return null;
+  }
+  
   if (!isEmpty(portrait)) {
     log("PortraitProfile", "Looking for portrait", portrait);
     if (has(iconicFiles, portrait)) {

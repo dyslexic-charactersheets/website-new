@@ -92,6 +92,10 @@ readFile(getAssetPath("logos/logos.txt"), (err, data) => {
 });
 
 export function getLogoPath(settings) {
+  if (settings.logo == "-") {
+    return null;
+  }
+  
   // custom logo
   if (!isEmpty(settings.logo)) {
     if (has(logoData, settings.logo)) {
