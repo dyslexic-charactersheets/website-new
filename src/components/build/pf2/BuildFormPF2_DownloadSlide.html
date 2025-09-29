@@ -24,7 +24,7 @@
     <div class="columns">
       <div class="column">
         <p>
-          <input type='radio' name='download-format' value='html' id='download-format-html' checked>
+          <input type='radio' name='download-format' value='html' id='download-format-html' checked autocomplete="off">
           <label for='download-format-html'><b>{{__ "HTML"}}</b></label>
         </p>
         <p class='info'>{{__ "Allows values to be filled in"}}</p>
@@ -32,16 +32,16 @@
       </div>
       <div class="column">
         <p>
-          <input type='radio' name='download-format' value='pdf' id='download-format-pdf'>
+          <input type='radio' name='download-format' value='pdf' id='download-format-pdf' autocomplete="off">
           <label for='download-format-pdf'><b>{{__ "PDF"}}</b></label>
         </p>
         <p class='info'>{{__ "Use this if you have trouble printing HTML"}}</p>
         <p class='info'>
           <b>{{__ "Paper size:"}}</b>
-          <input type='radio' name='download-paper' value='Letter' id='download-letter' checked>
+          <input type='radio' name='download-paper' value='Letter' id='download-letter' checked autocomplete="off">
           <label for='download-letter'>{{__ "US Letter"}}</label>
 
-          <input type='radio' name='download-paper' value='A4' id='download-a4'>
+          <input type='radio' name='download-paper' value='A4' id='download-a4' autocomplete="off">
           <label for='download-a4'>{{__ "A4"}}</label>
         </p>
       </div>

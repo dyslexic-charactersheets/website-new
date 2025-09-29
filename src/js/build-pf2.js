@@ -93,7 +93,7 @@ function readPf2Form(type) {
       character.attributes.ancestry = dataset.ancestry;
       character.attributes.heritage = dataset.heritage;
       character.attributes.background = dataset.background;
-      character.attributes['class'] = dataset.cls;
+      character.attributes.classes.push(dataset.cls);
 
       // subclass and/or feats
       if ('clsSelects' in dataset) {
