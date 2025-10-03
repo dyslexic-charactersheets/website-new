@@ -6075,11 +6075,11 @@ article + article {
 }
 
 .pane.pane--bg_blue {
-  background: #1030a0;
+  background-color: #1030a0;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 
 @media screen and (min-width: 740px) {
@@ -6093,11 +6093,11 @@ article + article {
   }
 }
 .pane.pane--bg_red {
-  background: #80101b;
+  background-color: #80101b;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 
 @media screen and (min-width: 740px) {
@@ -6117,11 +6117,11 @@ article + article {
 }
 
 .pane.pane--bg_green {
-  background: #178010;
+  background-color: #178010;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 
 @media screen and (min-width: 740px) {
@@ -6141,11 +6141,11 @@ article + article {
 }
 
 .pane.pane--bg_parchment {
-  background: #ddd4c0;
+  background-color: #ddd4c0;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 
 @media screen and (min-width: 740px) {
@@ -6159,11 +6159,11 @@ article + article {
   }
 }
 .pane.pane--bg_contact {
-  background: #e4e090;
+  background-color: #e4e090;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 
 @media screen and (min-width: 740px) {
@@ -6177,11 +6177,11 @@ article + article {
   }
 }
 .pane.pane--bg_starfield {
-  background: black;
+  background-color: black;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 
 @media screen and (min-width: 740px) {
@@ -6195,11 +6195,11 @@ article + article {
   }
 }
 .pane.pane--bg_scifi {
-  background: #101030;
+  background-color: #101030;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   background-size: 25em;
   background-repeat: repeat;
 }
