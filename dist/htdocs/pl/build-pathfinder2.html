@@ -2192,26 +2192,61 @@
                                                       <div class="columns">
                                                         <div class="column">
                                                           <p>
-                                                            <input type='radio' name='download-format' value='html' id='download-format-html' checked autocomplete="off">
-                                                            <label for='download-format-html'><b>HTML</b></label>
-                                                          </p>
-                                                          <p class='info'>Allows values to be filled in</p>
+                                                              <label for="character-download-format_html">
+                                                                <input 
+                                                                  type="radio" 
+                                                                  name="character-download-format" 
+                                                                  value="html"
+                                                                  id="character-download-format_html"
+                                                                  checked
+                                                                  data-bind="checked=#build-form.characterDownloadFormat | eq 'html'"
+                                                                  data-var="characterDownloadFormat"
+                                                                  autocomplete="off"
+                                                                > HTML</label>
+                                                            </p>        <p class='info'>Allows values to be filled in</p>
                                                           <p class='info'>Adjusts to fit your paper size</p>
                                                         </div>
                                                         <div class="column">
                                                           <p>
-                                                            <input type='radio' name='download-format' value='pdf' id='download-format-pdf' autocomplete="off">
-                                                            <label for='download-format-pdf'><b>PDF</b></label>
-                                                          </p>
-                                                          <p class='info'>Use this if you have trouble printing HTML</p>
+                                                              <label for="character-download-format_pdf">
+                                                                <input 
+                                                                  type="radio" 
+                                                                  name="character-download-format" 
+                                                                  value="pdf"
+                                                                  id="character-download-format_pdf"
+                                                                  
+                                                                  data-bind="checked=#build-form.characterDownloadFormat | eq 'pdf'"
+                                                                  data-var="characterDownloadFormat"
+                                                                  autocomplete="off"
+                                                                > PDF</label>
+                                                            </p>        <p class='info'>Use this if you have trouble printing HTML</p>
                                                           <p class='info'>
                                                             <b>Paper size:</b>
-                                                            <input type='radio' name='download-paper' value='Letter' id='download-letter' checked autocomplete="off">
-                                                            <label for='download-letter'>US Letter</label>
-                                                  
-                                                            <input type='radio' name='download-paper' value='A4' id='download-a4' autocomplete="off">
-                                                            <label for='download-a4'>A4</label>
-                                                          </p>
+                                                            
+                                                                <label for="character-download-paper_letter">
+                                                                  <input 
+                                                                    type="radio" 
+                                                                    name="character-download-paper" 
+                                                                    value="Letter"
+                                                                    id="character-download-paper_letter"
+                                                                    checked
+                                                                    data-bind="checked=#build-form.characterDownloadPaper | eq 'Letter'"
+                                                                    data-var="characterDownloadPaper"
+                                                                    autocomplete="off"
+                                                                  > US Letter</label>
+                                                                        
+                                                                <label for="character-download-paper_a4">
+                                                                  <input 
+                                                                    type="radio" 
+                                                                    name="character-download-paper" 
+                                                                    value="A4"
+                                                                    id="character-download-paper_a4"
+                                                                    
+                                                                    data-bind="checked=#build-form.characterDownloadPaper | eq 'A4'"
+                                                                    data-var="characterDownloadPaper"
+                                                                    autocomplete="off"
+                                                                  > A4</label>
+                                                                      </p>
                                                         </div>
                                                       </div>
                                                     </fieldset>
@@ -2843,26 +2878,61 @@
                                                       <div class="columns">
                                                         <div class="column">
                                                           <p>
-                                                            <input type='radio' name='download-format' value='html' id='download-format-html' checked autocomplete="off">
-                                                            <label for='download-format-html'><b>HTML</b></label>
-                                                          </p>
-                                                          <p class='info'>Allows values to be filled in</p>
+                                                              <label for="gm-download-format_html">
+                                                                <input 
+                                                                  type="radio" 
+                                                                  name="gm-download-format" 
+                                                                  value="html"
+                                                                  id="gm-download-format_html"
+                                                                  checked
+                                                                  data-bind="checked=#build-form.gmDownloadFormat | eq 'html'"
+                                                                  data-var="gmDownloadFormat"
+                                                                  autocomplete="off"
+                                                                > HTML</label>
+                                                            </p>        <p class='info'>Allows values to be filled in</p>
                                                           <p class='info'>Adjusts to fit your paper size</p>
                                                         </div>
                                                         <div class="column">
                                                           <p>
-                                                            <input type='radio' name='download-format' value='pdf' id='download-format-pdf' autocomplete="off">
-                                                            <label for='download-format-pdf'><b>PDF</b></label>
-                                                          </p>
-                                                          <p class='info'>Use this if you have trouble printing HTML</p>
+                                                              <label for="gm-download-format_pdf">
+                                                                <input 
+                                                                  type="radio" 
+                                                                  name="gm-download-format" 
+                                                                  value="pdf"
+                                                                  id="gm-download-format_pdf"
+                                                                  
+                                                                  data-bind="checked=#build-form.gmDownloadFormat | eq 'pdf'"
+                                                                  data-var="gmDownloadFormat"
+                                                                  autocomplete="off"
+                                                                > PDF</label>
+                                                            </p>        <p class='info'>Use this if you have trouble printing HTML</p>
                                                           <p class='info'>
                                                             <b>Paper size:</b>
-                                                            <input type='radio' name='download-paper' value='Letter' id='download-letter' checked autocomplete="off">
-                                                            <label for='download-letter'>US Letter</label>
-                                                  
-                                                            <input type='radio' name='download-paper' value='A4' id='download-a4' autocomplete="off">
-                                                            <label for='download-a4'>A4</label>
-                                                          </p>
+                                                            
+                                                                <label for="gm-download-paper_letter">
+                                                                  <input 
+                                                                    type="radio" 
+                                                                    name="gm-download-paper" 
+                                                                    value="Letter"
+                                                                    id="gm-download-paper_letter"
+                                                                    checked
+                                                                    data-bind="checked=#build-form.gmDownloadPaper | eq 'Letter'"
+                                                                    data-var="gmDownloadPaper"
+                                                                    autocomplete="off"
+                                                                  > US Letter</label>
+                                                                        
+                                                                <label for="gm-download-paper_a4">
+                                                                  <input 
+                                                                    type="radio" 
+                                                                    name="gm-download-paper" 
+                                                                    value="A4"
+                                                                    id="gm-download-paper_a4"
+                                                                    
+                                                                    data-bind="checked=#build-form.gmDownloadPaper | eq 'A4'"
+                                                                    data-var="gmDownloadPaper"
+                                                                    autocomplete="off"
+                                                                  > A4</label>
+                                                                      </p>
                                                         </div>
                                                       </div>
                                                     </fieldset>
@@ -2946,26 +3016,61 @@
                                                       <div class="columns">
                                                         <div class="column">
                                                           <p>
-                                                            <input type='radio' name='download-format' value='html' id='download-format-html' checked autocomplete="off">
-                                                            <label for='download-format-html'><b>HTML</b></label>
-                                                          </p>
-                                                          <p class='info'>Allows values to be filled in</p>
+                                                              <label for="starship-download-format_html">
+                                                                <input 
+                                                                  type="radio" 
+                                                                  name="starship-download-format" 
+                                                                  value="html"
+                                                                  id="starship-download-format_html"
+                                                                  checked
+                                                                  data-bind="checked=#build-form.starshipDownloadFormat | eq 'html'"
+                                                                  data-var="starshipDownloadFormat"
+                                                                  autocomplete="off"
+                                                                > HTML</label>
+                                                            </p>        <p class='info'>Allows values to be filled in</p>
                                                           <p class='info'>Adjusts to fit your paper size</p>
                                                         </div>
                                                         <div class="column">
                                                           <p>
-                                                            <input type='radio' name='download-format' value='pdf' id='download-format-pdf' autocomplete="off">
-                                                            <label for='download-format-pdf'><b>PDF</b></label>
-                                                          </p>
-                                                          <p class='info'>Use this if you have trouble printing HTML</p>
+                                                              <label for="starship-download-format_pdf">
+                                                                <input 
+                                                                  type="radio" 
+                                                                  name="starship-download-format" 
+                                                                  value="pdf"
+                                                                  id="starship-download-format_pdf"
+                                                                  
+                                                                  data-bind="checked=#build-form.starshipDownloadFormat | eq 'pdf'"
+                                                                  data-var="starshipDownloadFormat"
+                                                                  autocomplete="off"
+                                                                > PDF</label>
+                                                            </p>        <p class='info'>Use this if you have trouble printing HTML</p>
                                                           <p class='info'>
                                                             <b>Paper size:</b>
-                                                            <input type='radio' name='download-paper' value='Letter' id='download-letter' checked autocomplete="off">
-                                                            <label for='download-letter'>US Letter</label>
-                                                  
-                                                            <input type='radio' name='download-paper' value='A4' id='download-a4' autocomplete="off">
-                                                            <label for='download-a4'>A4</label>
-                                                          </p>
+                                                            
+                                                                <label for="starship-download-paper_letter">
+                                                                  <input 
+                                                                    type="radio" 
+                                                                    name="starship-download-paper" 
+                                                                    value="Letter"
+                                                                    id="starship-download-paper_letter"
+                                                                    checked
+                                                                    data-bind="checked=#build-form.starshipDownloadPaper | eq 'Letter'"
+                                                                    data-var="starshipDownloadPaper"
+                                                                    autocomplete="off"
+                                                                  > US Letter</label>
+                                                                        
+                                                                <label for="starship-download-paper_a4">
+                                                                  <input 
+                                                                    type="radio" 
+                                                                    name="starship-download-paper" 
+                                                                    value="A4"
+                                                                    id="starship-download-paper_a4"
+                                                                    
+                                                                    data-bind="checked=#build-form.starshipDownloadPaper | eq 'A4'"
+                                                                    data-var="starshipDownloadPaper"
+                                                                    autocomplete="off"
+                                                                  > A4</label>
+                                                                      </p>
                                                         </div>
                                                       </div>
                                                     </fieldset>
@@ -3397,26 +3502,61 @@
                                                       <div class="columns">
                                                         <div class="column">
                                                           <p>
-                                                            <input type='radio' name='download-format' value='html' id='download-format-html' checked autocomplete="off">
-                                                            <label for='download-format-html'><b>HTML</b></label>
-                                                          </p>
-                                                          <p class='info'>Allows values to be filled in</p>
+                                                              <label for="kingmaker-download-format_html">
+                                                                <input 
+                                                                  type="radio" 
+                                                                  name="kingmaker-download-format" 
+                                                                  value="html"
+                                                                  id="kingmaker-download-format_html"
+                                                                  checked
+                                                                  data-bind="checked=#build-form.kingmakerDownloadFormat | eq 'html'"
+                                                                  data-var="kingmakerDownloadFormat"
+                                                                  autocomplete="off"
+                                                                > HTML</label>
+                                                            </p>        <p class='info'>Allows values to be filled in</p>
                                                           <p class='info'>Adjusts to fit your paper size</p>
                                                         </div>
                                                         <div class="column">
                                                           <p>
-                                                            <input type='radio' name='download-format' value='pdf' id='download-format-pdf' autocomplete="off">
-                                                            <label for='download-format-pdf'><b>PDF</b></label>
-                                                          </p>
-                                                          <p class='info'>Use this if you have trouble printing HTML</p>
+                                                              <label for="kingmaker-download-format_pdf">
+                                                                <input 
+                                                                  type="radio" 
+                                                                  name="kingmaker-download-format" 
+                                                                  value="pdf"
+                                                                  id="kingmaker-download-format_pdf"
+                                                                  
+                                                                  data-bind="checked=#build-form.kingmakerDownloadFormat | eq 'pdf'"
+                                                                  data-var="kingmakerDownloadFormat"
+                                                                  autocomplete="off"
+                                                                > PDF</label>
+                                                            </p>        <p class='info'>Use this if you have trouble printing HTML</p>
                                                           <p class='info'>
                                                             <b>Paper size:</b>
-                                                            <input type='radio' name='download-paper' value='Letter' id='download-letter' checked autocomplete="off">
-                                                            <label for='download-letter'>US Letter</label>
-                                                  
-                                                            <input type='radio' name='download-paper' value='A4' id='download-a4' autocomplete="off">
-                                                            <label for='download-a4'>A4</label>
-                                                          </p>
+                                                            
+                                                                <label for="kingmaker-download-paper_letter">
+                                                                  <input 
+                                                                    type="radio" 
+                                                                    name="kingmaker-download-paper" 
+                                                                    value="Letter"
+                                                                    id="kingmaker-download-paper_letter"
+                                                                    checked
+                                                                    data-bind="checked=#build-form.kingmakerDownloadPaper | eq 'Letter'"
+                                                                    data-var="kingmakerDownloadPaper"
+                                                                    autocomplete="off"
+                                                                  > US Letter</label>
+                                                                        
+                                                                <label for="kingmaker-download-paper_a4">
+                                                                  <input 
+                                                                    type="radio" 
+                                                                    name="kingmaker-download-paper" 
+                                                                    value="A4"
+                                                                    id="kingmaker-download-paper_a4"
+                                                                    
+                                                                    data-bind="checked=#build-form.kingmakerDownloadPaper | eq 'A4'"
+                                                                    data-var="kingmakerDownloadPaper"
+                                                                    autocomplete="off"
+                                                                  > A4</label>
+                                                                      </p>
                                                         </div>
                                                       </div>
                                                     </fieldset>
@@ -3860,26 +4000,61 @@
                                                       <div class="columns">
                                                         <div class="column">
                                                           <p>
-                                                            <input type='radio' name='download-format' value='html' id='download-format-html' checked autocomplete="off">
-                                                            <label for='download-format-html'><b>HTML</b></label>
-                                                          </p>
-                                                          <p class='info'>Allows values to be filled in</p>
+                                                              <label for="mini-download-format_html">
+                                                                <input 
+                                                                  type="radio" 
+                                                                  name="mini-download-format" 
+                                                                  value="html"
+                                                                  id="mini-download-format_html"
+                                                                  checked
+                                                                  data-bind="checked=#build-form.miniDownloadFormat | eq 'html'"
+                                                                  data-var="miniDownloadFormat"
+                                                                  autocomplete="off"
+                                                                > HTML</label>
+                                                            </p>        <p class='info'>Allows values to be filled in</p>
                                                           <p class='info'>Adjusts to fit your paper size</p>
                                                         </div>
                                                         <div class="column">
                                                           <p>
-                                                            <input type='radio' name='download-format' value='pdf' id='download-format-pdf' autocomplete="off">
-                                                            <label for='download-format-pdf'><b>PDF</b></label>
-                                                          </p>
-                                                          <p class='info'>Use this if you have trouble printing HTML</p>
+                                                              <label for="mini-download-format_pdf">
+                                                                <input 
+                                                                  type="radio" 
+                                                                  name="mini-download-format" 
+                                                                  value="pdf"
+                                                                  id="mini-download-format_pdf"
+                                                                  
+                                                                  data-bind="checked=#build-form.miniDownloadFormat | eq 'pdf'"
+                                                                  data-var="miniDownloadFormat"
+                                                                  autocomplete="off"
+                                                                > PDF</label>
+                                                            </p>        <p class='info'>Use this if you have trouble printing HTML</p>
                                                           <p class='info'>
                                                             <b>Paper size:</b>
-                                                            <input type='radio' name='download-paper' value='Letter' id='download-letter' checked autocomplete="off">
-                                                            <label for='download-letter'>US Letter</label>
-                                                  
-                                                            <input type='radio' name='download-paper' value='A4' id='download-a4' autocomplete="off">
-                                                            <label for='download-a4'>A4</label>
-                                                          </p>
+                                                            
+                                                                <label for="mini-download-paper_letter">
+                                                                  <input 
+                                                                    type="radio" 
+                                                                    name="mini-download-paper" 
+                                                                    value="Letter"
+                                                                    id="mini-download-paper_letter"
+                                                                    checked
+                                                                    data-bind="checked=#build-form.miniDownloadPaper | eq 'Letter'"
+                                                                    data-var="miniDownloadPaper"
+                                                                    autocomplete="off"
+                                                                  > US Letter</label>
+                                                                        
+                                                                <label for="mini-download-paper_a4">
+                                                                  <input 
+                                                                    type="radio" 
+                                                                    name="mini-download-paper" 
+                                                                    value="A4"
+                                                                    id="mini-download-paper_a4"
+                                                                    
+                                                                    data-bind="checked=#build-form.miniDownloadPaper | eq 'A4'"
+                                                                    data-var="miniDownloadPaper"
+                                                                    autocomplete="off"
+                                                                  > A4</label>
+                                                                      </p>
                                                         </div>
                                                       </div>
                                                     </fieldset>

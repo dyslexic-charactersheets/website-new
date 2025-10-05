@@ -72,7 +72,10 @@ function get(target, field) {
 
 // set an element's attribute
 function set(target, field, value) {
-  componentLogger.log("Set ", target, field, value);
+  componentLogger.log("Set", target, field, value);
+  if (field === null || field === undefined) {
+    componentLogger.error("Invalid field:", field);
+  }
   if (isElement(target)) {
     if (value === false || value === undefined) {
       switch (field) {
@@ -112,6 +115,7 @@ function set(target, field, value) {
           target[field] = value;
           // target.toggleAttribute(field, value);
           if (field == 'checked') {
+            componentLogger.log("Emit change", target, field, value);
             emit(target, 'change');
           }
           break;

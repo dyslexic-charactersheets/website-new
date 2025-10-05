@@ -248,7 +248,10 @@ function get(target, field) {
 
 // set an element's attribute
 function set(target, field, value) {
-  componentLogger.log("Set ", target, field, value);
+  componentLogger.log("Set", target, field, value);
+  if (field === null || field === undefined) {
+    componentLogger.error("Invalid field:", field);
+  }
   if (isElement(target)) {
     if (value === false || value === undefined) {
       switch (field) {
@@ -288,6 +291,7 @@ function set(target, field, value) {
           target[field] = value;
           // target.toggleAttribute(field, value);
           if (field == 'checked') {
+            componentLogger.log("Emit change", target, field, value);
             emit(target, 'change');
           }
           break;
@@ -1212,6 +1216,16 @@ function readPf2Form(type) {
     return value == "true";
   }
 
+  function readRadio(name) {
+    let value = false;
+    for (let radio of document.getElementsByName(name)) {
+      if (radio.checked) {
+        value = radio.value;
+      }
+    }
+    return value;
+  }
+
   // attach images
   let attachments = [];
   function mapImage(name, value) {
@@ -1286,6 +1300,9 @@ function readPf2Form(type) {
       character.attributes.optionAutomaticBonusProgression = readBoolean("automaticBonusProgression");
       character.attributes.optionAutomaticWeaponProgression = readBoolean("automaticWeaponProgression");
       character.attributes.optionProficiencyWithoutLevel = readBoolean("proficiencyWithoutLevel");
+      
+      character.attributes.downloadPDF = dataset["characterDownloadFormat"] == "pdf";
+      character.attributes.downloadPaperSize = dataset["characterDownloadPaper"];
       break;
 
     case 'gm':
@@ -1302,12 +1319,27 @@ function readPf2Form(type) {
           character.attributes.mapView = dataset["pageGmMaps"];
           break;
       }
+      
+      character.attributes.downloadPDF = readRadio("gmDownloadFormat") == "pdf";
+      character.attributes.downloadPaperSize = readRadio("gmDownloadPaper");
+      break;
+
+    case 'starship':
+      
+      character.attributes.downloadPDF = readRadio("starshipDownloadFormat") == "pdf";
+      character.attributes.downloadPaperSize = readRadio("starshipDownloadPaper");
       break;
 
     case 'kingmaker':
+      
+      character.attributes.downloadPDF = readRadio("kingmakerDownloadFormat") == "pdf";
+      character.attributes.downloadPaperSize = readRadio("kingmakerDownloadPaper");
       break;
 
     case 'mini':
+      
+      character.attributes.downloadPDF = readRadio("miniDownloadFormat") == "pdf";
+      character.attributes.downloadPaperSize = readRadio("miniDownloadPaper");
       break;
 
     default:
@@ -1316,6 +1348,8 @@ function readPf2Form(type) {
   
   // common fields
   character.attributes.optionPermission = readBoolean("pagePermission");
+  // character.attributes.downloadPDF = readRadio("downloadFormat") == "pdf";
+  // character.attributes.downloadPaperSize = readRadio("downloadPaper");
 
   // appearance
   switch (dataset.pageBackground) {

@@ -529,16 +529,17 @@ export function pathfinder2render(req, res, lang) {
             var paperSize = data.data.attributes.downloadPaperSize;
             (async () => {
                 log("pathfinder2", "Writing PDF...");
-                // console.log("Browser:", browser);
+                console.log("Browser:", browser);
                 let page = await browser.newPage();
-                // console.log("Page", page);
+                console.log("Page", page);
                 await page.setContent(result.data);
 
                 var pdfdata = await page.pdf({ format: paperSize });
+                console.log("PDF data", pdfdata);
                 res.set('Content-Type', 'application/pdf');
                 res.set('Content-Length', pdfdata.length);
                 res.set('Content-Disposition', 'attachment; filename="' + result.filename.replace(/\.html$/, '') + '.pdf"');
-                res.send(pdfdata);
+                res.send(Buffer.from(pdfdata));
                 log("pathfinder2", "Done");
                 page.close();
             })();
