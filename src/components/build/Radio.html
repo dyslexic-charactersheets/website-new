@@ -5,12 +5,11 @@
 
 <template>
   {{#if (default p true)}}<p>{{/if}}
-    <label for="{{name}}_{{camelCase value}}">
-      <input 
-        type="radio" 
-        name="{{name}}" 
+    <label for="radio-{{name}}_{{camelCase value}}">
+      <input
+        type="radio"
         value="{{value}}"
-        id="{{name}}_{{camelCase value}}"
+        id="radio-{{name}}_{{camelCase value}}"
         {{#if checked}}checked{{/if}}
         data-bind="checked=#build-form.{{var}} | eq '{{value}}'"
         data-var="{{var}}"

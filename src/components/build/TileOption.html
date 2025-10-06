@@ -6,14 +6,13 @@
 (field, value, title)
 
 <template>
-  <label class="tile-option" for="radio-{{field}}-{{value}}" id="tile-option-{{field}}-{{value}}">
+  <label class="tile-option" for="radio-{{field}}_{{value}}" id="tile-option-{{field}}-{{value}}">
     <span class="tile-option__square-group">
-      <input 
-        type="radio" 
-        name="{{field}}" 
-        value="{{value}}" 
-        id="radio-{{field}}-{{value}}" 
-        {{#if checked}}checked{{/if}} 
+      <input
+        type="radio"
+        value="{{value}}"
+        id="radio-{{field}}_{{camelCase value}}"
+        {{#if checked}}checked{{/if}}
         data-bind="checked=#build-form.{{var}} | eq '{{value}}'"
         data-var="{{var}}"
         autocomplete="off"
