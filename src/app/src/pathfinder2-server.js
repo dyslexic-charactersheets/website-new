@@ -31,10 +31,10 @@ CharacterSheets.loadDefaultTranslations();
 let chromePDF = false;
 
 // Assets
-// var assetsDir = __dirname + '/../../../assets/iconics/large';
-// CharacterSheets.addAssetsDir(assetsDir);
-// var logosDir = __dirname + '/../../../assets/logos';
-// CharacterSheets.addAssetsDir(logosDir);
+var assetsDir = path.resolve('./../../assets/iconics/large');
+CharacterSheets.addAssetsDir(assetsDir);
+var logosDir = path.resolve('./../../assets/logos');
+CharacterSheets.addAssetsDir(logosDir);
 
 
 // Utility funcitons

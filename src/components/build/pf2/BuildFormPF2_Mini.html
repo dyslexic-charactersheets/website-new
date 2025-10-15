@@ -10,10 +10,12 @@
     {{#> Column}}
       {{> ImageDrop 
         id="mini-portrait"
-        shape="portrait" 
-        label="Drag Picture" 
-        imageselect="mini" 
+        shape="portrait"
+        target="portrait"
+        label="Drag Picture"
+        imageselect="mini"
         button="Select Picture"
+        button-action="#body.currentMenu=portrait-menu"
         placeholder="/images/generic.png"
       }}
     {{/Column}}

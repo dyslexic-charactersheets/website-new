@@ -2078,23 +2078,6 @@ on('.button-download-pf2', 'click', (evt) => {
   console.log("Error in BuildFormPF2_DownloadSlide", e)
 }
 try {
-on('#portrait', 'select-image', (evt) => {
-  // console.log('Select image (portrait)');
-  // let target = evt.currentTarget;
-  set('body', 'currentMenu', 'portrait-menu');
-  // emit('#portrait-menu .lazy', 'reveal');
-});
-
-on('#logo', 'select-image', (evt) => {
-  // console.log('Select image (logo)');
-  // let target = evt.currentTarget;
-  set('body', 'currentMenu', 'logo-menu');
-  // emit('#logo-menu .lazy', 'reveal');
-});
-} catch (e) { 
-  console.log("Error in BuildFormPF2_PictureSlide", e)
-}
-try {
 const urlParams = new URLSearchParams(window.location.search);
 const edition = urlParams.get('edition');
 if (edition == "pathfinder2") {
@@ -2294,8 +2277,10 @@ on(".image-drop", "drop", (evt) => {
   imageDrop.classList.remove('image-drop--ready');
   
   let noImageCheckbox = imageDrop.querySelector('.image-drop__no-image');
-  noImageCheckbox.checked = false;
-  imageDrop.classList.remove('image-drop--no-image');
+  if (noImageCheckbox) {
+    noImageCheckbox.checked = false;
+    imageDrop.classList.remove('image-drop--no-image');
+  }
 
   var files = evt.dataTransfer.files;
   if (files.length > 0) {
@@ -2334,21 +2319,14 @@ on('.image-drop__no-image', 'change', (evt) => {
 }
 try {
 on('#logo-menu', 'asset-select', (evt) => {
-  let assetCode = evt.detail;
-  if (Array.isArray(assetCode)) {
-    assetCode = assetCode[0];
-  }
-  let btn = document.getElementById('item-'+assetCode);
-  let imgsrc = '';
-  for (let img of btn.getElementsByTagName('img')) {
-    imgsrc = img.src;
-  }
+  let [assetCode, assetPath, assetSrc] = evt.detail;
 
-  all('#data-image-logo', (input) => {
-    input.value = assetCode;
-    let imageDrop = input.closest('.image-drop');
+  all('.image-drop--target_logo', (imageDrop) => {
+    for (let input of imageDrop.querySelectorAll('input')) {
+      input.value = assetPath;
+    }
     for (let img of imageDrop.querySelectorAll('img')) {
-      img.src = imgsrc;
+      img.src = assetSrc;
     }
   });
 });
@@ -2357,21 +2335,14 @@ on('#logo-menu', 'asset-select', (evt) => {
 }
 try {
 on('#portrait-menu', 'asset-select', (evt) => {
-  let assetCode = evt.detail;
-  if (Array.isArray(assetCode)) {
-    assetCode = assetCode[0];
-  }
-  let btn = document.getElementById('item-'+assetCode);
-  let imgsrc = '';
-  for (let img of btn.getElementsByTagName('img')) {
-    imgsrc = img.src;
-  }
-  
-  all('#data-image-portrait', (input) => {
-    input.value = assetCode;
-    let imageDrop = input.closest('.image-drop');
+  let [assetCode, assetPath, assetSrc] = evt.detail;
+
+  all('.image-drop--target_portrait', (imageDrop) => {
+    for (let input of imageDrop.querySelectorAll('input')) {
+      input.value = assetPath;
+    }
     for (let img of imageDrop.querySelectorAll('img')) {
-      img.src = imgsrc;
+      img.src = assetSrc;
     }
   });
 });

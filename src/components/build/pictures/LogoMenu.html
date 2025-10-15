@@ -14,21 +14,14 @@
 
 <script>
 on('#logo-menu', 'asset-select', (evt) => {
-  let assetCode = evt.detail;
-  if (Array.isArray(assetCode)) {
-    assetCode = assetCode[0];
-  }
-  let btn = document.getElementById('item-'+assetCode);
-  let imgsrc = '';
-  for (let img of btn.getElementsByTagName('img')) {
-    imgsrc = img.src;
-  }
+  let [assetCode, assetPath, assetSrc] = evt.detail;
 
-  all('#data-image-logo', (input) => {
-    input.value = assetCode;
-    let imageDrop = input.closest('.image-drop');
+  all('.image-drop--target_logo', (imageDrop) => {
+    for (let input of imageDrop.querySelectorAll('input')) {
+      input.value = assetPath;
+    }
     for (let img of imageDrop.querySelectorAll('img')) {
-      img.src = imgsrc;
+      img.src = assetSrc;
     }
   });
 });

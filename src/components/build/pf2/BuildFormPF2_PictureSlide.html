@@ -11,11 +11,14 @@
       <h3>{{__ "Character Picture"}}</h3>
       {{> ImageDrop 
         id=(str "${type}-portrait" type=type)
-        shape="portrait" 
-        label="Drag Picture" 
-        imageselect="portrait" 
+        shape="portrait"
+        target="portrait"
+        label="Drag Picture"
+        imageselect="portrait"
         button="Select Picture"
+        button-action="#body.currentMenu=portrait-menu"
         placeholder="/images/generic.png"
+        skippable="No picture"
       }}
     {{/Column}}
 
@@ -25,9 +28,12 @@
         {{> ImageDrop 
           id=(str "${type}-logo" type=type)
           shape="logo" 
+          target="logo"
           label="Drag Logo" 
           imageselect="logo" 
           button="Select Logo"
+          button-action="#body.currentMenu=logo-menu"
+          skippable="No logo"
         }}
       {{/if}}
       
@@ -36,26 +42,13 @@
         {{> ImageDrop 
           id=(str "${type}-animal" type=type)
           shape="animal" 
+          target="animal"
           label="Drag Animal Picture" 
           imageselect="animal" 
-          button="Select Animal Picture"}}
+          button="Select Animal Picture"
+          button-action="#body.currentMenu=animal-menu"
+        }}
       {{/if}}
     {{/Column}}
   {{/Columns}}
 </template>
-
-<script>
-on('#portrait', 'select-image', (evt) => {
-  // console.log('Select image (portrait)');
-  // let target = evt.currentTarget;
-  set('body', 'currentMenu', 'portrait-menu');
-  // emit('#portrait-menu .lazy', 'reveal');
-});
-
-on('#logo', 'select-image', (evt) => {
-  // console.log('Select image (logo)');
-  // let target = evt.currentTarget;
-  set('body', 'currentMenu', 'logo-menu');
-  // emit('#logo-menu .lazy', 'reveal');
-});
-</script>

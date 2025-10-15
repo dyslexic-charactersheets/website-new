@@ -14,21 +14,14 @@
 
 <script>
 on('#portrait-menu', 'asset-select', (evt) => {
-  let assetCode = evt.detail;
-  if (Array.isArray(assetCode)) {
-    assetCode = assetCode[0];
-  }
-  let btn = document.getElementById('item-'+assetCode);
-  let imgsrc = '';
-  for (let img of btn.getElementsByTagName('img')) {
-    imgsrc = img.src;
-  }
-  
-  all('#data-image-portrait', (input) => {
-    input.value = assetCode;
-    let imageDrop = input.closest('.image-drop');
+  let [assetCode, assetPath, assetSrc] = evt.detail;
+
+  all('.image-drop--target_portrait', (imageDrop) => {
+    for (let input of imageDrop.querySelectorAll('input')) {
+      input.value = assetPath;
+    }
     for (let img of imageDrop.querySelectorAll('img')) {
-      img.src = imgsrc;
+      img.src = assetSrc;
     }
   });
 });

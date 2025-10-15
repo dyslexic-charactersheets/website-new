@@ -7,7 +7,12 @@
   {{#> Button 
     id=(str "item-${code}" code=item.code)
     type="tile-light"
-    on-click=(str "emit asset-select,close-menu '${code}'" code=item.code)
+    on-click=(str 
+      "emit asset-select,close-menu '${code}' '${path}.png' '${src}'"
+      code=item.code
+      path=item.shortpath
+      src=(str "/${folder}/${path}.png" path=item.shortpath folder=folder)
+    )
     data=(de_i18n item.meta)
   }}
     {{{dump ../item}}}
