@@ -915,12 +915,12 @@ fieldset .indent {
   padding-left: 1.25rem;
 }
 
-label[for=option-dyslexic-font_dyslexie] {
+label[for=radio-option-dyslexic-font_dyslexie] {
   font-family: "Dyslexie", sans-serif;
   font-size: 0.8rem;
 }
 
-label[for=option-dyslexic-font_lexend] {
+label[for=radio-option-dyslexic-font_lexend] {
   font-family: "Lexend", sans-serif;
 }
 
@@ -2153,12 +2153,12 @@ fieldset .indent {
   padding-left: 1.25rem;
 }
 
-label[for=option-dyslexic-font_dyslexie] {
+label[for=radio-option-dyslexic-font_dyslexie] {
   font-family: "Dyslexie", sans-serif;
   font-size: 0.8rem;
 }
 
-label[for=option-dyslexic-font_lexend] {
+label[for=radio-option-dyslexic-font_lexend] {
   font-family: "Lexend", sans-serif;
 }
 

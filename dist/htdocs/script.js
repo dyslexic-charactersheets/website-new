@@ -2063,6 +2063,13 @@ on('.dyslexic-preset-button', 'click', (evt) => {
   set('#build-form', 'dyslexicFonts', true);
   set('#build-form', 'highContrast', false);
 });
+
+on('[name="option-dyslexic"]', 'change', (evt) => {
+  let isDyslexic = bool(get('#build-form', 'dyslexic'));
+  all('input.dyslexic-font', (input) => {
+    input.disabled = !isDyslexic;
+  });
+});
 } catch (e) { 
   console.log("Error in BuildFormPF2_AppearanceSlide", e)
 }

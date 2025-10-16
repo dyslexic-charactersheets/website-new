@@ -82,12 +82,12 @@ fieldset {
     }
 }
 
-label[for='option-dyslexic-font_dyslexie'] {
+label[for='radio-option-dyslexic-font_dyslexie'] {
     @include fonts.dyslexie;
     font-size: 0.8rem;
 }
 
-label[for='option-dyslexic-font_lexend'] {
+label[for='radio-option-dyslexic-font_lexend'] {
     @include fonts.lexend;
 }
 

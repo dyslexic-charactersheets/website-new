@@ -33,15 +33,15 @@
         
         <div class="indent">
           <p>
-            {{> Radio name="option-dyslexic-font" var="dyslexicFont" value="dyslexie" label="Dyslexie" checked=true p=false}}
+            {{> Radio name="option-dyslexic-font" var="dyslexicFont" value="dyslexie" label="Dyslexie" checked=true p=false disabled=true cls="dyslexic-font"}}
             (<a href='https://dyslexiefont.com/'>dyslexiefont.com</a>)
           </p>
           <p>
-            {{> Radio name="option-dyslexic-font" var="dyslexicFont" value="lexend" label="Lexend Deca" p=false}}
+            {{> Radio name="option-dyslexic-font" var="dyslexicFont" value="lexend" label="Lexend Deca" p=false disabled=true cls="dyslexic-font"}}
             (<a href='https://www.lexend.com/'>lexend.com</a>)
           </p>
           <p>
-            {{> Radio name="option-dyslexic-font" var="dyslexicFont" value="sans" label="Sans-serif" p=false}}
+            {{> Radio name="option-dyslexic-font" var="dyslexicFont" value="sans" label="Sans-serif" p=false disabled=true cls="dyslexic-font"}}
           </p>
         </dev>
       </fieldset>
@@ -200,5 +200,12 @@ on('.dyslexic-preset-button', 'click', (evt) => {
   set('#build-form', 'largePrint', false);
   set('#build-form', 'dyslexicFonts', true);
   set('#build-form', 'highContrast', false);
+});
+
+on('[name="option-dyslexic"]', 'change', (evt) => {
+  let isDyslexic = bool(get('#build-form', 'dyslexic'));
+  all('input.dyslexic-font', (input) => {
+    input.disabled = !isDyslexic;
+  });
 });
 </script>

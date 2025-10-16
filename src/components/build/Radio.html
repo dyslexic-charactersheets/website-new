@@ -8,9 +8,11 @@
     <label for="radio-{{name}}_{{camelCase value}}">
       <input
         type="radio"
+        {{#if cls}}class="{{cls}}"{{/if}}
         value="{{value}}"
         id="radio-{{name}}_{{camelCase value}}"
         {{#if checked}}checked{{/if}}
+        {{#if disabled}}disabled{{/if}}
         data-bind="checked=#build-form.{{var}} | eq '{{value}}'"
         data-var="{{var}}"
         autocomplete="off"
