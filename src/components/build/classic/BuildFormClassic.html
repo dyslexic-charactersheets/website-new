@@ -148,12 +148,13 @@
                       <ul>
                         {{#each book.classes as |class classIndex|}}
                           <li>
+                            {{{dump book}}}
                             {{#if book.radio}}
                               <input type='radio' name='switch-class' value='{{class.name}}' id='class-{{class.code}}' data-class='{{class.code}}' data-classname='{{class.name}}' autocomplete="off" />
                             {{else}}
                               <input type='checkbox' class="class-checkbox" name='class-{{class.name}}' id='class-{{class.code}}' data-class='{{class.code}}' data-classname='{{class.name}}' autocomplete="off" />
                             {{/if}}
-                            <label for='class-{{class.code}}'>{{__ class.name (str "class name ${code}" code=code)}}</label>
+                            <label for='class-{{class.code}}'>{{__ class.name (str "class name '${code}' in ${book}" code=code book=book.displayName)}}</label>
 
                             {{#if variants}}
                               {{#> Reveal id=(str "variants-${cls}" cls=class.name)}}
@@ -532,7 +533,7 @@
 
         {{#> SwitchCase value='gm'}}
 
-          {{#> Slide jump="gm" slide=2 show-next=false}}
+          {{#> Slide jump="gm" slide=2 }}
             <h2>{{#if isDnd}}{{__ "Dungeon Master"}}{{else}}{{__ "Game Master"}}{{/if}}</h2>
             <input type="hidden" name="gm-pick" id="gm-pick"/>
 

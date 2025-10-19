@@ -338,7 +338,7 @@
 
         {
             "name": "Tome of Battle",
-            "classes": [ "Crusader", "Swordsage", "Warblade", "Blank Tome of Battle" ]
+            "classes": [ "Crusader", "Swordsage", "Warblade" ]
         },
 
         {

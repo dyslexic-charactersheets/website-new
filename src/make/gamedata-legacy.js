@@ -14,7 +14,7 @@ const __filename = fileURLToPath(import.meta.url);
 
 export function loadGame(game) {
   return new Promise((resolve, reject) => {
-    var filename = normalize(dirname(__filename)+'/../../../assets/data/'+game+'.json');
+    var filename = normalize(dirname(__filename)+'/../app/data/'+game+'.json');
     access(filename, fsConstants.R_OK, err => {
       if (err) {
         error("gamedata", "File not found, or not readable:", filename, err);
