@@ -20,6 +20,7 @@ function doCommands(commands, element) {
   // do the command
   let command = commands.shift().trim();
   signalsLogger.log("Command:", command);
+  signalsLogger.indent();
   if (command.match(/=/)) {
     // set a variable
     let [dest, value] = command.split('=');
@@ -46,6 +47,7 @@ function doCommands(commands, element) {
         break;
     }
   }
+  signalsLogger.outdent();
 
   // let the DOM catch up before we do the next command
   setTimeout(() => doCommands(commands, element), 5);

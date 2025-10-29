@@ -6,17 +6,39 @@
 <template>
   {{#> Button 
     id=(str "item-${code}" code=item.code)
+    cls="asset-select-item-button"
     type="tile-light"
-    on-click=(str 
+    x-on-click=(str 
       "emit asset-select,close-menu '${code}' '${path}.png' '${src}'"
       code=item.code
       path=item.shortpath
       src=(str "/${folder}/${path}.png" path=item.shortpath folder=folder)
     )
-    data=(de_i18n item.meta)
+    data=(item
+      path=(str "${path}.png" path=item.shortpath)
+      src=(str "/${folder}/${path}.png" path=item.shortpath folder=folder)
+      meta=(de_i18n item.meta)
+    )
   }}
     {{{dump ../item}}}
     {{> Picture src=(str "/${folder}/${path}.png" path=item.shortpath folder=folder) size="tile" transparent=true lazy=true}}
     <h4>{{__ item.name}}</h4>
   {{/Button}}
 </template>
+
+<script>
+on('.asset-select-item-button', 'click', (evt) => {
+  let btn = evt.currentTarget;
+
+  let path = btn.dataset.path;
+  let src = btn.dataset.src;
+
+  let args = {
+    path,
+    src
+  };
+
+  emit(btn, 'asset-select', args, evt);
+  emit(btn, 'close-menu');
+})
+</script>

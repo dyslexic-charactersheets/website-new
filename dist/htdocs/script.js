@@ -679,6 +679,7 @@ function doCommands(commands, element) {
   // do the command
   let command = commands.shift().trim();
   signalsLogger.log("Command:", command);
+  signalsLogger.indent();
   if (command.match(/=/)) {
     // set a variable
     let [dest, value] = command.split('=');
@@ -705,6 +706,7 @@ function doCommands(commands, element) {
         break;
     }
   }
+  signalsLogger.outdent();
 
   // let the DOM catch up before we do the next command
   setTimeout(() => doCommands(commands, element), 5);
@@ -1088,12 +1090,12 @@ function readClassicForm(type) {
       }
 
       if (!readCheckbox('no-portrait')) {
-        mapImage("portrait", readInput("data-image-portrait"));
+        mapImage("portrait", readInput('data-image-character-portrait'));
       } else {
         mapImage("portrait", "-");
       }
       if (!readCheckbox('no-logo')) {
-        mapImage("logo", readInput("data-image-logo"));
+        mapImage("logo", readInput('data-image-logo'));
       } else {
         mapImage("logo", "-");
       }
@@ -1138,7 +1140,7 @@ function readClassicForm(type) {
       mapCheckbox("mini-permission", "permission");
       mapRadio("mini-colour", "printColour");
       mapRadio("mini-mini-size", "miniSize");
-      mapImage("portrait", readInput("mini-portrait"));
+      mapImage("portrait", readInput('data-image-mini-portrait'));
       break;
   }
 
@@ -1635,7 +1637,7 @@ on('.repeatable__remove', 'click', (evt) => {
 }
 try {
 let slideshowDebug = getDebug('Slideshow');
-// enableDebug('Slideshow');
+enableDebug('Slideshow');
 
 all('.slideshow', (slideshow) => {
   const dolly = slideshow.querySelector('.slideshow__dolly');
@@ -1661,12 +1663,15 @@ all('.slideshow', (slideshow) => {
     }, 5000);
   }
 
-  function getCurrentSlide() {
-    let jumpto = slideshow.dataset.jump;
-    let slideElem = slideshow.querySelector('.slide[data-jump="'+slide+'"]');
-  }
+  // function getCurrentSlide() {
+  //   let jumpto = slideshow.dataset.jump;
+  //   let slideElem = slideshow.querySelector('.slide[data-jump="'+slide+'"]');
+  // }
 
-  // Scroll to a slide
+
+  /*
+  // snapScroll
+  // Scroll so the current slide is centred, or to the nearest edge of it
   function snapScroll() {
     slideshowDebug.log("snapScroll");
     let jumpto = slideshow.dataset.jump;
@@ -1718,27 +1723,104 @@ all('.slideshow', (slideshow) => {
     set(slideshow, 'showPrevButton', bool(slideElem.dataset.showPrevButton) && !isFirstSlide);
     set(slideshow, 'showNextButton', bool(slideElem.dataset.showNextButton) && !isLastSlide);
   }
+  */
+ 
+  function getCurrentSlide() {
+    let scrollStart = isVertical ? slideshow.scrollTop : slideshow.scrollLeft;
+    let scrollMiddle = scrollStart + (isVertical ? slideshow.clientHeight : slideshow.clientWidth) / 2;
 
-  watch(slideshow, 'data-jump', snapScroll);
+    let smallestdistance = 100000;
+    let closestSlide = slides[0];
+    for (let slideElem of slides) {
+      // skip invisible slides
+      if (!slideElem.offsetParent === null) {
+        continue;
+      }
+
+      // find the slide middle
+      let slideStart = isVertical ? slideElem.offsetTop : slideElem.offsetLeft;
+      let slideMiddle = slideStart + (isVertical ? slideElem.clientHeight : slideElem.clientWidth) / 2;
+      
+      let distance = Math.abs(scrollMiddle - slideMiddle);
+      
+      if (distance < smallestdistance) {
+        smallestdistance = distance;
+        closestSlide = slideElem;
+      }
+    }
+    return closestSlide;
+  }
+ 
+  on(slideshow, 'scrollsnapchange', afterScroll);
+  on(slideshow, 'scrollend', afterScroll);
+
+  function afterScroll(evt) {
+    slideshowDebug.log("After scroll");
+    // find the current slide
+    let currentSlideElem = getCurrentSlide();
+    // let slideElem = slideshow.querySelector('.slide[data-jump="'+currentSlide+'"]');
+
+    // use physical offset to determine first and last slide, not prev/next-child, to account for invisible slides
+    let slideStart = isVertical ? currentSlideElem.offsetTop : currentSlideElem.offsetLeft;
+    let slideEnd = slideStart + (isVertical ? currentSlideElem.clientHeight : currentSlideElem.clientWidth);
+    let slideshowExtent = isVertical ? dolly.offsetHeight : dolly.offsetWidth;
+    let isFirstSlide = slideStart <= 0;
+    let isLastSlide = slideEnd >= slideshowExtent;
+
+    // adjust nav buttons
+    set(slideshow, 'showPrevButton', bool(currentSlideElem.dataset.showPrevButton) && !isFirstSlide);
+    set(slideshow, 'showNextButton', bool(currentSlideElem.dataset.showNextButton) && !isLastSlide);
+  }
+
+  on(slideshow, 'scrollto', (evt) => {
+    let targetId = evt.detail[0];
+    let targetElem = slideshow.querySelector('#'+targetId);
+
+    if (targetElem == null) {
+      let target = slideshow.dataset.jump;
+      targetElem = slideshow.querySelector('.slide[data-jump="'+target+'"]');
+      if (targetElem == null) {
+        slideshowDebug.error("Cannot scroll, target not found.");
+        return;
+      }
+    }
+
+    slideshowDebug.log("Scroll to:", targetElem);
+    let top = targetElem.offsetTop;
+    let left = targetElem.offsetLeft;
+    slideshow.scrollTo(left, top);
+  });
 
   // Scroll behaviour
   let scrollTimeout = null;
+
+  /*
+  // endScroll
+  // called when a user finishes scrolling
+  // picks a slide to jump to
   function endScroll() {
     slideshowDebug.log("endScroll");
     clearTimeout(scrollTimeout);
+    
+    // our starting slide
     let oldSlide = slideshow.dataset.jump;
+    let oldSlideElem = slideshow.querySelector('.slide[data-jump="'+oldSlide+'"]');
+    let oldSlideStart = isVertical ? oldSlideElem.offsetTop : oldSlideElem.offsetLeft;
 
+    // the point we scrolled to
     let scrollStart = isVertical ? (slideshow.scrollTop + slideshow.offsetTop) : (slideshow.scrollLeft + slideshow.offsetLeft);
     let scrollMiddle = scrollStart + (isVertical ? slideshow.clientHeight : slideshow.clientWidth) / 2;
+    let scrollEnd = scrollStart + (isVertical ? slideshow.clientHeight : slideshow.clientWidth);
     slideshowDebug.log(`Finished scroll ${scrollStart} ${scrollMiddle}`);
 
-    // find the landing slide
+    // find the landing slide (default to the first slide)
     let newSlide = slides[0];
 
+    / *
+    // closest slide v1: compare centre
     let smallestdistance = 100000;
     for (let slideElem of slides) {
       let slide = slideElem.dataset.jump;
-      // let slideElem = slideshow.querySelector('.slide[data-jump="'+slide+'"]');
 
       // skip invisible slides
       if (!slideElem.offsetParent === null) {
@@ -1749,7 +1831,9 @@ all('.slideshow', (slideshow) => {
       let slideMiddle = slideStart + (isVertical ? slideElem.clientHeight : slideElem.clientWidth) / 2;
       let slideEnd = slideStart + (isVertical ? slideElem.clientHeight : slideElem.clientWidth);
       slideshowDebug.log(`  Slide '${slide}' range ${slideStart} ${slideEnd}`);
+
       if (slideEnd > slideStart && scrollMiddle >= slideStart && scrollMiddle <= slideEnd) {
+        // how close is the middle of this slide to the scroll end point
         let distance = Math.abs(scrollMiddle - slideMiddle);
         slideshowDebug.log(`    Slide middle ${slideMiddle} distance ${distance}`);
         if (distance < smallestdistance) {
@@ -1758,19 +1842,65 @@ all('.slideshow', (slideshow) => {
         }
       }
     }
+    * /
+
+    // closest slide v2: compare top/bottom of scroll window, lean to furthest from current
+    let smallestDistance = 100000;
+    for (let slideElem of slides) {
+      let slide = slideElem.dataset.jump;
+
+      // skip invisible slides
+      if (!slideElem.offsetParent === null) {
+        continue;
+      }
+
+      let slideStart = isVertical ? slideElem.offsetTop : slideElem.offsetLeft;
+      let slideMiddle = slideStart + (isVertical ? slideElem.clientHeight : slideElem.clientWidth) / 2;
+      let slideEnd = slideStart + (isVertical ? slideElem.clientHeight : slideElem.clientWidth);
+      slideshowDebug.log(`  Slide '${slide}' range ${slideStart} ${slideEnd}`);
+
+      let isCurrentSlide = slide == oldSlide;
+      // let isBeforeCurrent = 
+      let isAfterCurrent = slideStart > oldSlideStart;
+
+      // compare start/end
+      let distance;
+      if (scrollStart < slideStart) {
+        distance = slideStart - scrollStart;
+      } else if (scrollEnd > slideEnd) {
+        distance = scrollEnd - slideEnd;
+      }
+
+      // adjust
+      if (isCurrentSlide) {
+ 
+      } else if (isBeforeSlide) {
+
+      } else {
+
+      }
+
+      // worthy?
+      if (distance < smallestDistance) {
+        smallestDistance = distance;
+        newSlide = slide;
+      }
+    }
     
+
     // snap to it
     slideshowDebug.log("Finished on slide", newSlide);
     if (newSlide !== undefined && newSlide !== null) {
       slideshow.dataset.jump = newSlide;
     }
   }
+  */
 
   // When scrolling is finished, wait a beat then snap to the nearest slide
-  on(slideshow, 'scroll', (evt) => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(endScroll, 200);
-  });
+  // on(slideshow, 'scroll', (evt) => {
+  //   clearTimeout(scrollTimeout);
+  //   scrollTimeout = setTimeout(endScroll, 200);
+  // });
 
   // Buttons
   on(slideshow, 'prev-slide', (evt) => {
@@ -1786,30 +1916,30 @@ all('.slideshow', (slideshow) => {
 
   on(slideshow, 'next-slide', (evt) => {
     slideshowDebug.log("Next slide");
-    let jumpto = slideshow.dataset.jump;
-    let slideElem = slideshow.querySelector('.slide[data-jump="'+jumpto+'"]');
-    let nextSlide = slideElem.nextSibling;
-    while (!(nextSlide instanceof Element)) {
-      nextSlide = nextSlide.nextSibling;
-      // circle back round to the first element
-      if (nextSlide === null) {
-        nextSlide = dolly.children[0];
-      }
-      // if we get back to where we started, give up rather than loop forever
-      if (nextSlide == slideElem) {
-        return;
-      }
-    }
-    slideshow.scrollTo(nextSlide.offsetLeft - slideshow.offsetLeft, nextSlide.offsetTop - slideshow.offsetTop);
-
-    // if (isVertical) {
-    //   let currentSlide
-    //   let to = slideshow.scrollTop + slideshow.clientHeight;
-    //   slideshow.scrollTo(0, to);
-    // } else {
-    //   let to = slideshow.scrollLeft + slideshow.clientWidth;
-    //   slideshow.scrollTo(to, 0);
+    // let jumpto = slideshow.dataset.jump;
+    // let slideElem = slideshow.querySelector('.slide[data-jump="'+jumpto+'"]');
+    // let nextSlide = slideElem.nextSibling;
+    // while (!(nextSlide instanceof Element)) {
+    //   nextSlide = nextSlide.nextSibling;
+    //   // circle back round to the first element
+    //   if (nextSlide === null) {
+    //     nextSlide = dolly.children[0];
+    //   }
+    //   // if we get back to where we started, give up rather than loop forever
+    //   if (nextSlide == slideElem) {
+    //     return;
+    //   }
     // }
+
+    // slideshow.scrollTo(nextSlide.offsetLeft - slideshow.offsetLeft, nextSlide.offsetTop - slideshow.offsetTop);
+
+    if (isVertical) {
+      let to = slideshow.scrollTop + slideshow.clientHeight;
+      slideshow.scrollTo(0, to);
+    } else {
+      let to = slideshow.scrollLeft + slideshow.clientWidth;
+      slideshow.scrollTo(to, 0);
+    }
   });
 
   // on(slideshow, 'jump-to-slide', (evt) => {
@@ -2255,6 +2385,24 @@ function searchWords(str) {
   console.log("Error in AssetSearchTools", e)
 }
 try {
+on('.asset-select-item-button', 'click', (evt) => {
+  let btn = evt.currentTarget;
+
+  let path = btn.dataset.path;
+  let src = btn.dataset.src;
+
+  let args = {
+    path,
+    src
+  };
+
+  emit(btn, 'asset-select', args, evt);
+  emit(btn, 'close-menu');
+})
+} catch (e) { 
+  console.log("Error in AssetSelectItem", e)
+}
+try {
 let debug = getDebug('ImageDrop');
 enableDebug('ImageDrop');
 
@@ -2326,14 +2474,14 @@ on('.image-drop__no-image', 'change', (evt) => {
 }
 try {
 on('#logo-menu', 'asset-select', (evt) => {
-  let [assetCode, assetPath, assetSrc] = evt.detail;
+  let {path, src} = evt.detail;
 
   all('.image-drop--target_logo', (imageDrop) => {
     for (let input of imageDrop.querySelectorAll('input')) {
-      input.value = assetPath;
+      input.value = path;
     }
     for (let img of imageDrop.querySelectorAll('img')) {
-      img.src = assetSrc;
+      img.src = src;
     }
   });
 });
@@ -2342,14 +2490,14 @@ on('#logo-menu', 'asset-select', (evt) => {
 }
 try {
 on('#portrait-menu', 'asset-select', (evt) => {
-  let [assetCode, assetPath, assetSrc] = evt.detail;
+  let {path, src} = evt.detail;
 
   all('.image-drop--target_portrait', (imageDrop) => {
     for (let input of imageDrop.querySelectorAll('input')) {
-      input.value = assetPath;
+      input.value = path;
     }
     for (let img of imageDrop.querySelectorAll('img')) {
-      img.src = assetSrc;
+      img.src = src;
     }
   });
 });

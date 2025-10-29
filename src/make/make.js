@@ -131,7 +131,11 @@ Handlebars.registerHelper('dataAttributes', function (data) {
 
   let attrs = [];
   for (let key of Object.keys(data)) {
-    attrs.push(`data-${key}="${data[key]}"`);
+    let value = data[key];
+    if (value === undefined) {
+      continue;
+    }
+    attrs.push(`data-${key}="${value}"`);
   }
   return attrs.join(" ");
 });

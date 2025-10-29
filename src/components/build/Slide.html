@@ -5,6 +5,7 @@
 
 <template>
   <div class="slide"
+    id="{{slideshowid}}-slide-{{jump}}"
     data-jump="{{jump}}"
     {{#if (and (not first) vertical)}}data-show-prev-button="true"{{/if}}
     {{#if (and (not last) show-next)}}data-show-next-button="true"{{/if}}

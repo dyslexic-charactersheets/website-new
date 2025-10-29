@@ -207,12 +207,12 @@ function readClassicForm(type) {
       }
 
       if (!readCheckbox('no-portrait')) {
-        mapImage("portrait", readInput("data-image-portrait"));
+        mapImage("portrait", readInput('data-image-character-portrait'));
       } else {
         mapImage("portrait", "-");
       }
       if (!readCheckbox('no-logo')) {
-        mapImage("logo", readInput("data-image-logo"));
+        mapImage("logo", readInput('data-image-logo'));
       } else {
         mapImage("logo", "-");
       }
@@ -257,7 +257,7 @@ function readClassicForm(type) {
       mapCheckbox("mini-permission", "permission");
       mapRadio("mini-colour", "printColour");
       mapRadio("mini-mini-size", "miniSize");
-      mapImage("portrait", readInput("mini-portrait"));
+      mapImage("portrait", readInput('data-image-mini-portrait'));
       break;
   }
 

@@ -3181,6 +3181,7 @@ h4 + .row {
 .slideshow {
   flex: 1 1 auto;
   scroll-behavior: smooth;
+  scroll-snap-type: mandatory;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
 }
@@ -3192,12 +3193,14 @@ h4 + .row {
 
 .slideshow .slide {
   flex: 0 0 auto;
+  scroll-snap-align: start end;
 }
 
 .slideshow.slideshow--v {
   overflow-x: clip;
   overflow-y: auto;
   height: 100vh;
+  scroll-snap-type: y mandatory;
   display: flex;
   flex-direction: column;
 }
@@ -3215,6 +3218,7 @@ h4 + .row {
 .slideshow.slideshow--h {
   overflow-x: hidden;
   overflow-y: clip;
+  scroll-snap-type: x mandatory;
   display: flex;
   flex-direction: row;
 }
@@ -7706,6 +7710,7 @@ dl dd + dt {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  color: black;
 }
 
 .btn.btn--borderless:hover {
@@ -7725,6 +7730,16 @@ dl dd + dt {
 .dark-region.pane--bg_blue .btn.btn--borderless:hover {
   background: white;
   color: #1030a0;
+}
+
+.btn.btn--borderless:hover img {
+  filter: saturate(0) brightness(2.6);
+}
+
+.btn.btn--borderless img {
+  height: 1.4rem;
+  vertical-align: middle;
+  margin-right: 0.4rem;
 }
 
 .btn.btn--min {

@@ -5,7 +5,9 @@
 
 <template>
   {{#> Row align="centre"}}
-    {{> Picture src="/images/pathfinder2e.png" size="logo"}}
+    {{#> Button type="blank" on-click="body.currentMenu = new-character-menu"}}
+      {{> Picture src="/images/pathfinder2e.png" size="logo"}}
+    {{/Button}}
   {{/Row}}
 
   {{#> Row pad=true}}
@@ -22,7 +24,7 @@
   {{#> TileGrid grid="2-1"}}
     {{#> Button
       type="tile"
-      on-click="#build-form.edition=pathfinder2legacy;#slides-character.jump=pick"
+      on-click="#build-form.edition=pathfinder2legacy; emit scrollto slides-character-slide-pick"
     }}
       {{> Picture src="/images/pathfinder2e-classic.png" size="tile"}}
       <h2>Legacy</h2>
@@ -31,7 +33,7 @@
 
     {{#> Button
       type="tile"
-      on-click="#build-form.edition=pf2-remaster;#slides-character.jump=pick"
+      on-click="#build-form.edition=pf2-remaster; emit scrollto slides-character-slide-pick"
     }}
       {{> Picture src="/images/pathfinder2e-remaster.png" size="tile"}}
       <h2>Remaster</h2>
@@ -40,7 +42,7 @@
 
     {{#> Button
       type="tile"
-      on-click="#build-form.edition=all;#slides-character.jump=pick"
+      on-click="#build-form.edition=all; emit scrollto slides-character-slide-pick"
     }}
       <h3>Use both</h3>
     {{/Button}}

@@ -21,15 +21,17 @@
       {{#> Slide jump="start" first="true"}}
         {{#> Place}}
           {{#> Row align="centre"}}
-            {{#if (eq game "pathfinder")}}
-              {{> Picture src="/images/pathfinder.png" size="logo"}}
-            {{/if}}
-            {{#if (eq game "starfinder")}}
-              {{> Picture src="/images/starfinder.png" size="logo"}}
-            {{/if}}
-            {{#if (eq game "dnd35")}}
-              {{> Picture src="/images/dnd35.png" size="logo"}}
-            {{/if}}
+            {{#> Button type="blank" on-click="body.currentMenu = new-character-menu"}}
+              {{#if (eq game "pathfinder")}}
+                {{> Picture src="/images/pathfinder.png" size="logo"}}
+              {{/if}}
+              {{#if (eq game "starfinder")}}
+                {{> Picture src="/images/starfinder.png" size="logo"}}
+              {{/if}}
+              {{#if (eq game "dnd35")}}
+                {{> Picture src="/images/dnd35.png" size="logo"}}
+              {{/if}}
+            {{/Button}}
           {{/Row}}
 
           {{#> Row pad=true}}
@@ -474,10 +476,12 @@
 
                 <h3>{{__ "Portrait"}}</h3>
                 {{> ImageDrop
-                  id="portrait"
+                  id="character-portrait"
                   shape="portrait"
+                  target="portrait"
                   label="Select or drop portrait"
                   button="Select portrait"
+                  button-action="#body.currentMenu=portrait-menu"
                   placeholder="/images/generic.png"
                   imageselect="portrait"
                   skippable="No portrait"
@@ -490,8 +494,10 @@
                 {{> ImageDrop
                   id="logo"
                   shape="logo"
+                  target="logo"
                   label="Select or drop logo"
                   button="Select logo"
+                  button-action="#body.currentMenu=logo-menu"
                   placeholder=logo
                   imageselect="logo"
                   skippable="No logo"
@@ -733,8 +739,10 @@
                 {{> ImageDrop
                   id="mini-portrait"
                   shape="portrait"
+                  target="portrait"
                   label="Select or drop portrait"
                   button="Select portrait"
+                  button-action="#body.currentMenu=portrait-menu"
                   placeholder="/images/generic.png"
                   imageselect="portrait"
                   skippable="No portrait"

@@ -14,14 +14,14 @@
 
 <script>
 on('#portrait-menu', 'asset-select', (evt) => {
-  let [assetCode, assetPath, assetSrc] = evt.detail;
+  let {path, src} = evt.detail;
 
   all('.image-drop--target_portrait', (imageDrop) => {
     for (let input of imageDrop.querySelectorAll('input')) {
-      input.value = assetPath;
+      input.value = path;
     }
     for (let img of imageDrop.querySelectorAll('img')) {
-      img.src = assetSrc;
+      img.src = src;
     }
   });
 });

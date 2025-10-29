@@ -5,7 +5,9 @@
 
 <template>
   {{#> Row align="centre"}}
-    {{> Picture src=(ifeq game "starfinder2" "/images/starfinder2e.png" "/images/pathfinder2e.png") size="logo"}}
+    {{#> Button type="blank" on-click="body.currentMenu = new-character-menu"}}
+      {{> Picture src=(ifeq game "starfinder2" "/images/starfinder2e.png" "/images/pathfinder2e.png") size="logo"}}
+    {{/Button}}
   {{/Row}}
 
   {{#> Row pad=true}}
@@ -28,7 +30,7 @@
 
     {{#> Button 
       type="tile"
-      on-click="#build-form.pick=character; #switch-character.current=character; #slides-character.jump=character"
+      on-click="#build-form.pick=character; #switch-character.current=character; emit scrollto slides-character-slide-character"
     }}
       <div>
         {{> Picture src=(ifeq theme "scifi" "/images/starfinder-single.png" "/images/single.png") size="tile"}}
@@ -38,7 +40,7 @@
 
     {{#> Button 
       type="tile"
-      on-click="#build-form.pick=gm; #switch-character.current=gm; #slides-character.jump=gm-pick"
+      on-click="#build-form.pick=gm; #switch-character.current=gm; emit scrollto slides-character-slide-gm-pick"
     }}
       {{> Picture src=(ifeq theme "scifi" "/images/starfinder-gm.png" "/images/gm.png") size="tile"}}
       <h3>{{__ "GM"}}</h3>
@@ -46,14 +48,14 @@
 
     {{#> Button
       type="tile"
-      on-click="#build-form.pick=kingmaker; #switch-character.current=kingmaker; #slides-character.jump=kingmaker"
+      on-click="#build-form.pick=kingmaker; #switch-character.current=kingmaker; emit scrollto slides-character-slide-kingmaker"
     }}  
       {{> Picture src="/images/kingmaker-logo2.png" size="logo"}}
     {{/Button}}
 
     {{#> Button
       type="tile"
-      on-click="#build-form.pick=mini; #switch-character.current=mini; #slides-character.jump=mini"
+      on-click="#build-form.pick=mini; #switch-character.current=mini; emit scrollto slides-character-slide-mini"
     }}
       <h3>{{__ "Map Figure"}}</h3>
     {{/Button}}
