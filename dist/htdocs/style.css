@@ -3681,6 +3681,10 @@ dl dd + dt {
   background: #F4E9D8;
 }
 
+.tile-option#tile-option-pageBackground-lilac span.tile-option__content {
+  background: #D3B9E8;
+}
+
 .tile-picker {
   display: flex;
   flex-direction: row;

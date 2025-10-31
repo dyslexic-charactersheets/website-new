@@ -59,14 +59,13 @@
                   class="switch" 
                   id="switch-milestones"
                   data-bind="current=#build-form.pick | default &#x27;character&#x27;"
-                  data-current="character"
+                  data-current="pick"
                 >
                   
                   <div class="switch__case" data-value="character" data-show="">
                               <nav 
                                   class="nav--milestones"
                                   id="milestones-character"
-                                  data-bind="current=#slides-character.jump"
                                   data-current="pick"
                                 >
                                   <div class="spacer spacer--min"></div>
@@ -75,7 +74,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="pick"
                                         data-bind="pick = #milestones-character.current | eq 'pick'"
-                                        data-on-click="#slides-character.jump=pick"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-pick"
                                         data-pick="true"
                                       > 
                                         <span>Start</span>
@@ -84,7 +83,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="character"
                                         data-bind="pick = #milestones-character.current | eq 'character'"
-                                        data-on-click="#slides-character.jump=character"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-character"
                                       > 
                                         <span>Character</span>
                                       </button>
@@ -92,7 +91,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="pages"
                                         data-bind="pick = #milestones-character.current | eq 'pages'"
-                                        data-on-click="#slides-character.jump=pages"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-pages"
                                       > 
                                         <span>Pages</span>
                                       </button>
@@ -100,7 +99,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="colours"
                                         data-bind="pick = #milestones-character.current | eq 'colours'"
-                                        data-on-click="#slides-character.jump=colours"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-colours"
                                       > 
                                         <span>Appearance</span>
                                       </button>
@@ -108,7 +107,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="picture"
                                         data-bind="pick = #milestones-character.current | eq 'picture'"
-                                        data-on-click="#slides-character.jump=picture"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-picture"
                                       > 
                                         <span>Picture</span>
                                       </button>
@@ -116,7 +115,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="download"
                                         data-bind="pick = #milestones-character.current | eq 'download'"
-                                        data-on-click="#slides-character.jump=download"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-download"
                                       > 
                                         <span>Download</span>
                                       </button>
@@ -127,7 +126,6 @@
                               <nav 
                                   class="nav--milestones"
                                   id="milestones-gm"
-                                  data-bind="current=#slides-character.jump"
                                   data-current="gm-pick"
                                 >
                                   <div class="spacer spacer--min"></div>
@@ -136,7 +134,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="pick"
                                         data-bind="pick = #milestones-gm.current | eq 'pick'"
-                                        data-on-click="#slides-character.jump=pick"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-pick"
                                       > 
                                         <span>Start</span>
                                       </button>
@@ -144,7 +142,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="gm-pick"
                                         data-bind="pick = #milestones-gm.current | eq 'gm-pick'"
-                                        data-on-click="#slides-character.jump=gm-pick"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-gm-pick"
                                         data-pick="true"
                                       > 
                                         <span>GM</span>
@@ -153,7 +151,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="gm-options"
                                         data-bind="pick = #milestones-gm.current | eq 'gm-options'"
-                                        data-on-click="#slides-character.jump=gm-options"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-gm-options"
                                       > 
                                         <span>Options</span>
                                       </button>
@@ -161,7 +159,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="gm-colours"
                                         data-bind="pick = #milestones-gm.current | eq 'gm-colours'"
-                                        data-on-click="#slides-character.jump=gm-colours"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-gm-colours"
                                       > 
                                         <span>Appearance</span>
                                       </button>
@@ -169,7 +167,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="gm-download"
                                         data-bind="pick = #milestones-gm.current | eq 'gm-download'"
-                                        data-on-click="#slides-character.jump=gm-download"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-gm-download"
                                       > 
                                         <span>Download</span>
                                       </button>
@@ -180,7 +178,6 @@
                               <nav 
                                   class="nav--milestones"
                                   id="milestones-starship"
-                                  data-bind="current=#slides-character.jump"
                                   data-current="starship"
                                 >
                                   <div class="spacer spacer--min"></div>
@@ -189,7 +186,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="pick"
                                         data-bind="pick = #milestones-starship.current | eq 'pick'"
-                                        data-on-click="#slides-character.jump=pick"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-pick"
                                       > 
                                         <span>Start</span>
                                       </button>
@@ -197,7 +194,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="starship"
                                         data-bind="pick = #milestones-starship.current | eq 'starship'"
-                                        data-on-click="#slides-character.jump=starship"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-starship"
                                         data-pick="true"
                                       > 
                                         <span>Starship</span>
@@ -206,7 +203,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="starship-colours"
                                         data-bind="pick = #milestones-starship.current | eq 'starship-colours'"
-                                        data-on-click="#slides-character.jump=starship-colours"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-starship-colours"
                                       > 
                                         <span>Appearance</span>
                                       </button>
@@ -214,7 +211,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="starship-download"
                                         data-bind="pick = #milestones-starship.current | eq 'starship-download'"
-                                        data-on-click="#slides-character.jump=starship-download"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-starship-download"
                                       > 
                                         <span>Download</span>
                                       </button>
@@ -225,7 +222,6 @@
                               <nav 
                                   class="nav--milestones"
                                   id="milestones-kingmaker"
-                                  data-bind="current=#slides-character.jump"
                                   data-current="kingmaker"
                                 >
                                   <div class="spacer spacer--min"></div>
@@ -234,7 +230,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="pick"
                                         data-bind="pick = #milestones-kingmaker.current | eq 'pick'"
-                                        data-on-click="#slides-character.jump=pick"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-pick"
                                       > 
                                         <span>Start</span>
                                       </button>
@@ -242,7 +238,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="kingmaker"
                                         data-bind="pick = #milestones-kingmaker.current | eq 'kingmaker'"
-                                        data-on-click="#slides-character.jump=kingmaker"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-kingmaker"
                                         data-pick="true"
                                       > 
                                         <span>Kingmaker</span>
@@ -251,7 +247,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="kingmaker-colours"
                                         data-bind="pick = #milestones-kingmaker.current | eq 'kingmaker-colours'"
-                                        data-on-click="#slides-character.jump=kingmaker-colours"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-kingmaker-colours"
                                       > 
                                         <span>Appearance</span>
                                       </button>
@@ -259,7 +255,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="kingmaker-download"
                                         data-bind="pick = #milestones-kingmaker.current | eq 'kingmaker-download'"
-                                        data-on-click="#slides-character.jump=kingmaker-download"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-kingmaker-download"
                                       > 
                                         <span>Download</span>
                                       </button>
@@ -270,7 +266,6 @@
                               <nav 
                                   class="nav--milestones"
                                   id="milestones-mini"
-                                  data-bind="current=#slides-character.jump"
                                   data-current="pick"
                                 >
                                   <div class="spacer spacer--min"></div>
@@ -279,7 +274,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="pick"
                                         data-bind="pick = #milestones-mini.current | eq 'pick'"
-                                        data-on-click="#slides-character.jump=pick"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-pick"
                                         data-pick="true"
                                       > 
                                         <span>Start</span>
@@ -288,7 +283,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="mini"
                                         data-bind="pick = #milestones-mini.current | eq 'mini'"
-                                        data-on-click="#slides-character.jump=mini"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-mini"
                                       > 
                                         <span>Map Figure</span>
                                       </button>
@@ -296,7 +291,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="mini-colours"
                                         data-bind="pick = #milestones-mini.current | eq 'mini-colours'"
-                                        data-on-click="#slides-character.jump=mini-colours"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-mini-colours"
                                       > 
                                         <span>Appearance</span>
                                       </button>
@@ -304,7 +299,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="mini-download"
                                         data-bind="pick = #milestones-mini.current | eq 'mini-download'"
-                                        data-on-click="#slides-character.jump=mini-download"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-mini-download"
                                       > 
                                         <span>Download</span>
                                       </button>
@@ -373,10 +368,9 @@
                         slideshow--v
                         
                         
-                        
                         "
+                        data-forwardto=".nav--milestones"
                       id="slides-character" 
-                      data-jump="start"
                     >
                       <div class="slideshow__dolly">
                         
@@ -2063,6 +2057,24 @@
                                                                   </span>
                                                                   <span class="tile-option__title">Magnolia</span>
                                                                 </label>
+                                                                      <label class="tile-option" for="radio-pageBackground_lilac" id="tile-option-pageBackground-lilac">
+                                                                  <span class="tile-option__square-group">
+                                                                    <input
+                                                                      type="radio"
+                                                                      value="lilac"
+                                                                      id="radio-pageBackground_lilac"
+                                                                      
+                                                                      data-bind="checked=#build-form.pageBackground | eq 'lilac'"
+                                                                      data-var="pageBackground"
+                                                                      autocomplete="off"
+                                                                    >
+                                                                    <span class="tile-option__square">
+                                                                      <span class="tile-option__content">
+                                                                      </span>
+                                                                    </span>
+                                                                  </span>
+                                                                  <span class="tile-option__title">Lilac</span>
+                                                                </label>
                                                                       <label class="tile-option" for="radio-pageBackground_parchment" id="tile-option-pageBackground-parchment">
                                                                   <span class="tile-option__square-group">
                                                                     <input
@@ -2825,6 +2837,24 @@
                                                                   </span>
                                                                   <span class="tile-option__title">Magnolia</span>
                                                                 </label>
+                                                                      <label class="tile-option" for="radio-pageBackground_lilac" id="tile-option-pageBackground-lilac">
+                                                                  <span class="tile-option__square-group">
+                                                                    <input
+                                                                      type="radio"
+                                                                      value="lilac"
+                                                                      id="radio-pageBackground_lilac"
+                                                                      
+                                                                      data-bind="checked=#build-form.pageBackground | eq 'lilac'"
+                                                                      data-var="pageBackground"
+                                                                      autocomplete="off"
+                                                                    >
+                                                                    <span class="tile-option__square">
+                                                                      <span class="tile-option__content">
+                                                                      </span>
+                                                                    </span>
+                                                                  </span>
+                                                                  <span class="tile-option__title">Lilac</span>
+                                                                </label>
                                                                       <label class="tile-option" for="radio-pageBackground_parchment" id="tile-option-pageBackground-parchment">
                                                                   <span class="tile-option__square-group">
                                                                     <input
@@ -3464,6 +3494,24 @@
                                                                   </span>
                                                                   <span class="tile-option__title">Magnolia</span>
                                                                 </label>
+                                                                      <label class="tile-option" for="radio-pageBackground_lilac" id="tile-option-pageBackground-lilac">
+                                                                  <span class="tile-option__square-group">
+                                                                    <input
+                                                                      type="radio"
+                                                                      value="lilac"
+                                                                      id="radio-pageBackground_lilac"
+                                                                      
+                                                                      data-bind="checked=#build-form.pageBackground | eq 'lilac'"
+                                                                      data-var="pageBackground"
+                                                                      autocomplete="off"
+                                                                    >
+                                                                    <span class="tile-option__square">
+                                                                      <span class="tile-option__content">
+                                                                      </span>
+                                                                    </span>
+                                                                  </span>
+                                                                  <span class="tile-option__title">Lilac</span>
+                                                                </label>
                                                                       <label class="tile-option" for="radio-pageBackground_parchment" id="tile-option-pageBackground-parchment">
                                                                   <span class="tile-option__square-group">
                                                                     <input
@@ -3970,6 +4018,24 @@
                                                                     </span>
                                                                   </span>
                                                                   <span class="tile-option__title">Magnolia</span>
+                                                                </label>
+                                                                      <label class="tile-option" for="radio-pageBackground_lilac" id="tile-option-pageBackground-lilac">
+                                                                  <span class="tile-option__square-group">
+                                                                    <input
+                                                                      type="radio"
+                                                                      value="lilac"
+                                                                      id="radio-pageBackground_lilac"
+                                                                      
+                                                                      data-bind="checked=#build-form.pageBackground | eq 'lilac'"
+                                                                      data-var="pageBackground"
+                                                                      autocomplete="off"
+                                                                    >
+                                                                    <span class="tile-option__square">
+                                                                      <span class="tile-option__content">
+                                                                      </span>
+                                                                    </span>
+                                                                  </span>
+                                                                  <span class="tile-option__title">Lilac</span>
                                                                 </label>
                                                                       <label class="tile-option" for="radio-pageBackground_parchment" id="tile-option-pageBackground-parchment">
                                                                   <span class="tile-option__square-group">
@@ -31581,8 +31647,8 @@
               "apg-toxicologist"
             ],
             "_{Core Rulebook}": [
-              "bomber",
               "mutagenist",
+              "bomber",
               "chirurgeon"
             ]
           },
@@ -31951,10 +32017,10 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "empiricism",
-              "interrogation",
               "alchemical-sciences",
-              "forensic-medicine"
+              "interrogation",
+              "forensic-medicine",
+              "empiricism"
             ]
           },
           "displayGroups": [
@@ -32289,14 +32355,14 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "ancestors",
               "cosmos",
-              "battle",
-              "tempest",
-              "flames",
               "bones",
+              "ancestors",
+              "battle",
+              "life",
+              "flames",
               "lore",
-              "life"
+              "tempest"
             ]
           },
           "displayGroups": [
@@ -32686,8 +32752,8 @@
           "groups": {
             "_{Advanced Player's Guide}": [
               "gymnast",
-              "battledancer",
               "wit",
+              "battledancer",
               "fencer",
               "braggart"
             ]
@@ -33423,9 +33489,9 @@
             ],
             "_{Core Rulebook}": [
               "fury",
-              "giant",
               "animal",
               "dragon",
+              "giant",
               "spirit"
             ]
           },
@@ -33764,9 +33830,9 @@
               "apg-warrior"
             ],
             "_{Core Rulebook}": [
+              "maestro",
               "enigma",
-              "polymath",
-              "maestro"
+              "polymath"
             ]
           },
           "displayGroups": [
@@ -34111,14 +34177,14 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "apg-tyrant",
               "apg-antipaladin",
+              "apg-tyrant",
               "apg-desecrator"
             ],
             "_{Core Rulebook}": [
               "liberator",
-              "paladin",
-              "redeemer"
+              "redeemer",
+              "paladin"
             ]
           },
           "displayGroups": [
@@ -34680,8 +34746,8 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "cloistered",
-              "warpriest"
+              "warpriest",
+              "cloistered"
             ]
           },
           "displayGroups": [
@@ -35071,12 +35137,12 @@
           ],
           "groups": {
             "_{Dark Archive}": [
+              "oscillating-wave",
+              "infinite-eye",
               "silent-whisper",
               "distant-grasp",
-              "infinite-eye",
               "tangible-dream",
-              "unbound-step",
-              "oscillating-wave"
+              "unbound-step"
             ]
           },
           "displayGroups": [
@@ -35403,10 +35469,10 @@
           ],
           "groups": {
             "_{Dark Archive}": [
-              "gathered-lore",
               "precise-discipline",
-              "unbound-step",
-              "wandering-reverie"
+              "gathered-lore",
+              "wandering-reverie",
+              "unbound-step"
             ]
           },
           "displayGroups": [
@@ -35755,14 +35821,14 @@
           ],
           "groups": {
             "_{Dark Archive}": [
-              "chalice",
-              "bell",
-              "lantern",
               "amulet",
+              "bell",
+              "chalice",
+              "lantern",
               "mirror",
+              "regalia",
               "wand",
               "tome",
-              "regalia",
               "weapon"
             ]
           },
@@ -36162,10 +36228,10 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
+              "wild",
               "animal",
-              "leaf",
               "storm",
-              "wild"
+              "leaf"
             ]
           },
           "displayGroups": [
@@ -36534,8 +36600,8 @@
           ],
           "groups": {
             "_{Guns and Gears}": [
-              "sniper",
               "drifter",
+              "sniper",
               "vanguard",
               "pistolero"
             ]
@@ -36802,8 +36868,8 @@
           ],
           "groups": {
             "_{Guns and Gears}": [
-              "construct",
               "armour",
+              "construct",
               "weapon"
             ]
           },
@@ -37270,8 +37336,8 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "flurry",
               "precision",
+              "flurry",
               "outwit"
             ]
           },
@@ -37891,8 +37957,8 @@
           "groups": {
             "_{Secrets of Magic}": [
               "inexorable-iron",
-              "starlit-span",
               "sparkling-targe",
+              "starlit-span",
               "laughing-shadow",
               "twisting-tree"
             ]
@@ -38281,14 +38347,14 @@
           ],
           "groups": {
             "_{Secrets of Magic}": [
-              "angel",
               "beast",
+              "angel",
               "demon",
-              "construct",
               "anger-phantom",
+              "construct",
+              "devotion-phantom",
               "dragon",
               "fey",
-              "devotion-phantom",
               "psychopomp",
               "plant"
             ]
@@ -38928,22 +38994,22 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "apg-psychopomp",
               "apg-genie",
               "apg-shadow",
-              "apg-nymph"
+              "apg-nymph",
+              "apg-psychopomp"
             ],
             "_{Core Rulebook}": [
-              "angelic",
               "aberrant",
               "demonic",
+              "angelic",
               "draconic",
               "diabolic",
               "elemental",
-              "hag",
-              "imperial",
+              "fey",
               "undead",
-              "fey"
+              "hag",
+              "imperial"
             ]
           },
           "displayGroups": [
@@ -39634,14 +39700,14 @@
           "groups": {
             "_{Core Rulebook}": [
               "enchantment",
-              "divination",
               "abjuration",
-              "evocation",
+              "divination",
               "illusion",
-              "necromancy",
-              "transmutation",
               "conjuration",
-              "universalist"
+              "evocation",
+              "universalist",
+              "transmutation",
+              "necromancy"
             ]
           },
           "displayGroups": [
@@ -40057,8 +40123,8 @@
               "apg-staff-nexus"
             ],
             "_{Core Rulebook}": [
-              "improved-familiar-attunement",
               "metamagical-experimentation",
+              "improved-familiar-attunement",
               "spell-blending",
               "spell-substitution"
             ]
@@ -41006,10 +41072,10 @@
           ],
           "groups": {
             "_{Player Core}": [
-              "remaster-storm",
-              "remaster-animal",
+              "remaster-leaf",
               "remaster-untamed",
-              "remaster-leaf"
+              "remaster-storm",
+              "remaster-animal"
             ]
           },
           "displayGroups": [
@@ -41628,13 +41694,13 @@
           ],
           "groups": {
             "_{Player Core}": [
+              "faiths-flamekeeper",
               "silence-in-snow",
               "resentment",
               "inscribed-one",
-              "faiths-flamekeeper",
+              "wilding-steward",
               "starless-shadow",
-              "spinner-of-threads",
-              "wilding-steward"
+              "spinner-of-threads"
             ]
           },
           "displayGroups": [
@@ -42040,11 +42106,11 @@
           ],
           "groups": {
             "_{Player Core}": [
-              "civic-wizardry",
               "mentalism",
-              "battle-magic",
-              "unified-magical-theory",
               "ars-grammatica",
+              "battle-magic",
+              "civic-wizardry",
+              "unified-magical-theory",
               "protean-form"
             ]
           },
@@ -42386,11 +42452,11 @@
           ],
           "groups": {
             "_{Player Core}": [
+              "improved-familiar-attunement",
               "staff-nexus",
-              "experimental-spellshaping",
               "spell-substitution",
-              "spell-blending",
-              "improved-familiar-attunement"
+              "experimental-spellshaping",
+              "spell-blending"
             ]
           },
           "displayGroups": [

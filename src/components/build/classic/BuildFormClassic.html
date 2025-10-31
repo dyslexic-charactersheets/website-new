@@ -16,6 +16,7 @@
     {{#> Slideshow 
       id='slides-character'
       vertical=true
+      forwardto=".nav--milestones"
     }}
 
       {{#> Slide jump="start" first="true"}}
@@ -62,7 +63,7 @@
             
             {{#> Button 
               type="tile"
-              on-click="#switch-milestones.current=character; #switch-character.current=character; #slides-character.jump=class"
+              on-click="#switch-milestones.current=character; #switch-character.current=character; emit scrollto slides-character-slide-class"
             }}
               {{#if (eq game "starfinder")}}
                 {{> Picture src="/images/starfinder-single.png" size="tile"}}
@@ -74,7 +75,7 @@
 
             {{#> Button 
               type="tile"
-              on-click="#switch-milestones.current=gm; #switch-character.current=gm; #slides-character.jump=gm"
+              on-click="#switch-milestones.current=gm; #switch-character.current=gm; emit scrollto slides-character-slide-gm"
             }}
               {{#if (eq game "starfinder")}}
                 {{> Picture src="/images/starfinder-gm.png" size="tile"}}
@@ -87,7 +88,7 @@
             {{#if (eq game "pathfinder")}}
               {{#> Button
                 type="tile"
-                on-click="#switch-milestones.current=kingdom; #switch-character.current=kingdom; #slides-character.jump=kingdom"
+                on-click="#switch-milestones.current=kingdom; #switch-character.current=kingdom; emit scrollto slides-character-slide-kingdom"
               }}  
                 {{> Picture src="/images/kingmaker-logo2.png" size="logo"}}
               {{/Button}}
@@ -96,7 +97,7 @@
             {{#if (eq game "starfinder")}}
               {{#> Button
                 type="tile"
-                on-click="#switch-milestones.current=starship; #switch-character.current=starship; #slides-character.jump=starship-download"
+                on-click="#switch-milestones.current=starship; #switch-character.current=starship; emit scrollto slides-character-slide-starship-download"
               }}  
                 <h3>{{__ "Starship"}}</h3>
               {{/Button}}
@@ -104,7 +105,7 @@
 
             {{#> Button
               type="tile"
-              on-click="#switch-milestones.current=mini; #switch-character.current=mini; #slides-character.jump=mini"
+              on-click="#switch-milestones.current=mini; #switch-character.current=mini; emit scrollto slides-character-slide-mini"
             }}
               <h3>{{__ "Map Figure"}}</h3>
             {{/Button}}
@@ -547,7 +548,7 @@
 
               {{#> Button 
                 type="gm-tile"
-                on-click="#gm-pick.value=characters; #switch-gm.current=characters; #slides-character.jump=gm-options"
+                on-click="#gm-pick.value=characters; #switch-gm.current=characters; emit scrollto slides-character-slide-character-gm-options"
               }}
                 {{#if (eq game "starfinder")}}
                   {{> Picture src="/images/starfinder-gm-characters.png" size="gm-tile"}}
@@ -559,7 +560,7 @@
 
               {{#> Button 
                 type="gm-tile"
-                on-click="#gm-pick.value=maps; #switch-gm.current=maps; #slides-character.jump=gm-options"
+                on-click="#gm-pick.value=maps; #switch-gm.current=maps; emit scrollto slides-character-slide-gm-options"
               }}
                 {{#if (eq game "starfinder")}}
                   {{> Picture src="/images/starfinder-gm-maps.png" size="gm-tile"}}
@@ -572,7 +573,7 @@
               {{#unless isStarfinder}}
                 {{#> Button 
                   type="gm-tile"
-                  on-click="#gm-pick.value=campaign; #switch-gm.current=campaign; #slides-character.jump=gm-options"
+                  on-click="#gm-pick.value=campaign; #switch-gm.current=campaign; emit scrollto slides-character-slide-gm-options"
                 }}
                   {{#if (eq game "starfinder")}}
                     {{> Picture src="/images/starfinder-gm-campaign.png" size="gm-tile"}}

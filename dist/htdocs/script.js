@@ -687,12 +687,17 @@ function doCommands(commands, element) {
     set(target.trim(), variable.trim(), value.trim());
   } else {
     // some other command
-    let args = command.split(' ');
+    let args = command.split(/ +/);
     let commandWord = args.shift();
     switch (commandWord) {
       case "emit":
+        let target = element;
+        if (args[0].startsWith('#')) {
+          let targetid = args.shift();
+          target = document.querySelector(targetid);
+        }
         let signal = args.shift();
-        emit(element, signal, args);
+        emit(target, signal, args);
         break;
       case "show-menu":
         let menu = args.shift();
@@ -729,6 +734,8 @@ function emit(target, signal, args, event) {
     target = document.querySelector(target);
   }
   if (target === null) {
+    signalsLogger.warn("Emit: target null");
+    signalsLogger.outdent();
     return;
   }
 
@@ -1356,7 +1363,8 @@ function readPf2Form(type) {
   // appearance
   switch (dataset.pageBackground) {
     case 'magnolia':
-      character.attributes.printBackground = 'magnolia';
+    case 'lilac':
+      character.attributes.printBackground = dataset.pageBackground;
       break;
     case 'parchment':
       character.attributes.printBackground = 'backgrounds/paper3.jpg';
@@ -1547,6 +1555,13 @@ on("input[type='text'][data-var]", "change", (evt) => {
 });
 } catch (e) { 
   console.log("Error in Input", e)
+}
+try {
+on('.nav--milestones', 'scrollto', (evt) => {
+  set(evt.target, 'current', evt.detail);
+});
+} catch (e) { 
+  console.log("Error in Milestones", e)
 }
 try {
 on("#new-character-menu", "reveal-pf2", (evt) => {
@@ -1754,11 +1769,12 @@ all('.slideshow', (slideshow) => {
   on(slideshow, 'scrollsnapchange', afterScroll);
   on(slideshow, 'scrollend', afterScroll);
 
+  const forwardto = slideshow.dataset.forwardto;
+
   function afterScroll(evt) {
     slideshowDebug.log("After scroll");
-    // find the current slide
+    
     let currentSlideElem = getCurrentSlide();
-    // let slideElem = slideshow.querySelector('.slide[data-jump="'+currentSlide+'"]');
 
     // use physical offset to determine first and last slide, not prev/next-child, to account for invisible slides
     let slideStart = isVertical ? currentSlideElem.offsetTop : currentSlideElem.offsetLeft;
@@ -1770,6 +1786,15 @@ all('.slideshow', (slideshow) => {
     // adjust nav buttons
     set(slideshow, 'showPrevButton', bool(currentSlideElem.dataset.showPrevButton) && !isFirstSlide);
     set(slideshow, 'showNextButton', bool(currentSlideElem.dataset.showNextButton) && !isLastSlide);
+
+    // forward info
+    let currentSlide = currentSlideElem.dataset.jump;
+    if (currentSlide !== null && currentSlide !== undefined && forwardto !== undefined) {
+      slideshowDebug.log("Scrolled to:", currentSlide);
+      all(forwardto, (forwardElem) => {
+        emit(forwardElem, "scrollto", currentSlide);
+      });
+    }
   }
 
   on(slideshow, 'scrollto', (evt) => {

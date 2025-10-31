@@ -9,10 +9,9 @@
       {{#if vertical}}slideshow--v{{else}}slideshow--h{{/if}}
       {{#if auto}}slideshow--auto{{/if}}
       {{#if fullscreen}}slideshow--fullscreen{{/if}}
-      {{#if cls}}{{cls}}{{/if}}
-      "
+      {{#if cls}}{{cls}}{{/if}}"
+      {{#if forwardto}}data-forwardto="{{forwardto}}"{{/if}}
     id="{{ id }}" 
-    data-jump="{{default jump 'start'}}"
   >
     <div class="slideshow__dolly">
       {{> @partial-block slideshowid=id }}
@@ -140,11 +139,12 @@ all('.slideshow', (slideshow) => {
   on(slideshow, 'scrollsnapchange', afterScroll);
   on(slideshow, 'scrollend', afterScroll);
 
+  const forwardto = slideshow.dataset.forwardto;
+
   function afterScroll(evt) {
     slideshowDebug.log("After scroll");
-    // find the current slide
+    
     let currentSlideElem = getCurrentSlide();
-    // let slideElem = slideshow.querySelector('.slide[data-jump="'+currentSlide+'"]');
 
     // use physical offset to determine first and last slide, not prev/next-child, to account for invisible slides
     let slideStart = isVertical ? currentSlideElem.offsetTop : currentSlideElem.offsetLeft;
@@ -156,6 +156,15 @@ all('.slideshow', (slideshow) => {
     // adjust nav buttons
     set(slideshow, 'showPrevButton', bool(currentSlideElem.dataset.showPrevButton) && !isFirstSlide);
     set(slideshow, 'showNextButton', bool(currentSlideElem.dataset.showNextButton) && !isLastSlide);
+
+    // forward info
+    let currentSlide = currentSlideElem.dataset.jump;
+    if (currentSlide !== null && currentSlide !== undefined && forwardto !== undefined) {
+      slideshowDebug.log("Scrolled to:", currentSlide);
+      all(forwardto, (forwardElem) => {
+        emit(forwardElem, "scrollto", currentSlide);
+      });
+    }
   }
 
   on(slideshow, 'scrollto', (evt) => {

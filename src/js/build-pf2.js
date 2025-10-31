@@ -199,7 +199,8 @@ function readPf2Form(type) {
   // appearance
   switch (dataset.pageBackground) {
     case 'magnolia':
-      character.attributes.printBackground = 'magnolia';
+    case 'lilac':
+      character.attributes.printBackground = dataset.pageBackground;
       break;
     case 'parchment':
       character.attributes.printBackground = 'backgrounds/paper3.jpg';

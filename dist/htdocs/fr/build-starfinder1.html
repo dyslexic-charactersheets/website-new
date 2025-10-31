@@ -60,14 +60,13 @@
                 class="switch" 
                 id="switch-milestones"
                 data-bind="current=#build-form.pick | default &#x27;character&#x27;"
-                data-current="character"
+                data-current="start"
               >
                 
                 <div class="switch__case" data-value="character" data-show="">
                               <nav 
                                   class="nav--milestones"
                                   id="milestones-character"
-                                  data-bind="current=#slides-character.jump"
                                   data-current="start"
                                 >
                                   <div class="spacer spacer--min"></div>
@@ -76,7 +75,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="start"
                                         data-bind="pick = #milestones-character.current | eq 'start'"
-                                        data-on-click="#slides-character.jump=start"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-start"
                                         data-pick="true"
                                       > 
                                         <span>Début</span>
@@ -85,7 +84,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="class"
                                         data-bind="pick = #milestones-character.current | eq 'class'"
-                                        data-on-click="#slides-character.jump=class"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-class"
                                       > 
                                         <span>Class</span>
                                       </button>
@@ -93,7 +92,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="options"
                                         data-bind="pick = #milestones-character.current | eq 'options'"
-                                        data-on-click="#slides-character.jump=options"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-options"
                                       > 
                                         <span>Options</span>
                                       </button>
@@ -101,7 +100,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="picture"
                                         data-bind="pick = #milestones-character.current | eq 'picture'"
-                                        data-on-click="#slides-character.jump=picture"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-picture"
                                       > 
                                         <span>Dessin</span>
                                       </button>
@@ -109,7 +108,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="download"
                                         data-bind="pick = #milestones-character.current | eq 'download'"
-                                        data-on-click="#slides-character.jump=download"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-download"
                                       > 
                                         <span>Télécharger</span>
                                       </button>
@@ -120,7 +119,6 @@
                               <nav 
                                   class="nav--milestones"
                                   id="milestones-gm"
-                                  data-bind="current=#slides-character.jump"
                                   data-current="start"
                                 >
                                   <div class="spacer spacer--min"></div>
@@ -129,7 +127,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="start"
                                         data-bind="pick = #milestones-gm.current | eq 'start'"
-                                        data-on-click="#slides-character.jump=start"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-start"
                                         data-pick="true"
                                       > 
                                         <span>Début</span>
@@ -138,7 +136,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="gm"
                                         data-bind="pick = #milestones-gm.current | eq 'gm'"
-                                        data-on-click="#slides-character.jump=gm"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-gm"
                                       > 
                                         <span>GM</span>
                                       </button>
@@ -146,7 +144,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="gm-options"
                                         data-bind="pick = #milestones-gm.current | eq 'gm-options'"
-                                        data-on-click="#slides-character.jump=gm-options"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-gm-options"
                                       > 
                                         <span>Options</span>
                                       </button>
@@ -154,7 +152,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="gm-download"
                                         data-bind="pick = #milestones-gm.current | eq 'gm-download'"
-                                        data-on-click="#slides-character.jump=gm-download"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-gm-download"
                                       > 
                                         <span>Télécharger</span>
                                       </button>
@@ -165,7 +163,6 @@
                               <nav 
                                   class="nav--milestones"
                                   id="milestones-starship"
-                                  data-bind="current=#slides-character.jump"
                                   data-current="start"
                                 >
                                   <div class="spacer spacer--min"></div>
@@ -174,7 +171,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="start"
                                         data-bind="pick = #milestones-starship.current | eq 'start'"
-                                        data-on-click="#slides-character.jump=start"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-start"
                                         data-pick="true"
                                       > 
                                         <span>Début</span>
@@ -183,7 +180,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="starship-download"
                                         data-bind="pick = #milestones-starship.current | eq 'starship-download'"
-                                        data-on-click="#slides-character.jump=starship-download"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-starship-download"
                                       > 
                                         <span>Starship</span>
                                       </button>
@@ -194,7 +191,6 @@
                               <nav 
                                   class="nav--milestones"
                                   id="milestones-mini"
-                                  data-bind="current=#slides-character.jump"
                                   data-current="start"
                                 >
                                   <div class="spacer spacer--min"></div>
@@ -203,7 +199,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="start"
                                         data-bind="pick = #milestones-mini.current | eq 'start'"
-                                        data-on-click="#slides-character.jump=start"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-start"
                                         data-pick="true"
                                       > 
                                         <span>Début</span>
@@ -212,7 +208,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="mini"
                                         data-bind="pick = #milestones-mini.current | eq 'mini'"
-                                        data-on-click="#slides-character.jump=mini"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-mini"
                                       > 
                                         <span>Map Figure</span>
                                       </button>
@@ -220,7 +216,7 @@
                                       <button class="nav--milestones__milestone"
                                         data-milestone="mini-download"
                                         data-bind="pick = #milestones-mini.current | eq 'mini-download'"
-                                        data-on-click="#slides-character.jump=mini-download"
+                                        data-on-click="emit #slides-character scrollto slides-character-slide-mini-download"
                                       > 
                                         <span>Télécharger</span>
                                       </button>
@@ -275,10 +271,9 @@
                         slideshow--v
                         
                         
-                        
                         "
+                        data-forwardto=".nav--milestones"
                       id="slides-character" 
-                      data-jump="start"
                     >
                       <div class="slideshow__dolly">
                         
@@ -333,7 +328,7 @@
                                         type="button"
                                         id="slides-character"
                                         class="btn btn--tile " 
-                                        data-on-click="#switch-milestones.current&#x3D;character; #switch-character.current&#x3D;character; #slides-character.jump&#x3D;class"
+                                        data-on-click="#switch-milestones.current&#x3D;character; #switch-character.current&#x3D;character; emit scrollto slides-character-slide-class"
                                         
                                       >
                                                         <picture class="picture--size_tile  ">
@@ -346,7 +341,7 @@
                                         type="button"
                                         id="slides-character"
                                         class="btn btn--tile " 
-                                        data-on-click="#switch-milestones.current&#x3D;gm; #switch-character.current&#x3D;gm; #slides-character.jump&#x3D;gm"
+                                        data-on-click="#switch-milestones.current&#x3D;gm; #switch-character.current&#x3D;gm; emit scrollto slides-character-slide-gm"
                                         
                                       >
                                                         <picture class="picture--size_tile  ">
@@ -360,7 +355,7 @@
                                         type="button"
                                         id="slides-character"
                                         class="btn btn--tile " 
-                                        data-on-click="#switch-milestones.current&#x3D;starship; #switch-character.current&#x3D;starship; #slides-character.jump&#x3D;starship-download"
+                                        data-on-click="#switch-milestones.current&#x3D;starship; #switch-character.current&#x3D;starship; emit scrollto slides-character-slide-starship-download"
                                         
                                       >
                                                         <h3>Starship</h3>
@@ -371,7 +366,7 @@
                                         type="button"
                                         id="slides-character"
                                         class="btn btn--tile " 
-                                        data-on-click="#switch-milestones.current&#x3D;mini; #switch-character.current&#x3D;mini; #slides-character.jump&#x3D;mini"
+                                        data-on-click="#switch-milestones.current&#x3D;mini; #switch-character.current&#x3D;mini; emit scrollto slides-character-slide-mini"
                                         
                                       >
                                                       <h3>Map Figure</h3>
@@ -5858,7 +5853,7 @@
                                                 type="button"
                                                 id="switch-character"
                                                 class="btn btn--gm-tile " 
-                                                data-on-click="#gm-pick.value&#x3D;characters; #switch-gm.current&#x3D;characters; #slides-character.jump&#x3D;gm-options"
+                                                data-on-click="#gm-pick.value&#x3D;characters; #switch-gm.current&#x3D;characters; emit scrollto slides-character-slide-character-gm-options"
                                                 
                                               >
                                                                   <picture class="picture--size_gm-tile  ">
@@ -5871,7 +5866,7 @@
                                                 type="button"
                                                 id="switch-character"
                                                 class="btn btn--gm-tile " 
-                                                data-on-click="#gm-pick.value&#x3D;maps; #switch-gm.current&#x3D;maps; #slides-character.jump&#x3D;gm-options"
+                                                data-on-click="#gm-pick.value&#x3D;maps; #switch-gm.current&#x3D;maps; emit scrollto slides-character-slide-gm-options"
                                                 
                                               >
                                                                   <picture class="picture--size_gm-tile  ">
@@ -5884,7 +5879,7 @@
                                                 type="button"
                                                 id="switch-character"
                                                 class="btn btn--gm-tile " 
-                                                data-on-click="#gm-pick.value&#x3D;campaign; #switch-gm.current&#x3D;campaign; #slides-character.jump&#x3D;gm-options"
+                                                data-on-click="#gm-pick.value&#x3D;campaign; #switch-gm.current&#x3D;campaign; emit scrollto slides-character-slide-gm-options"
                                                 
                                               >
                                                                     <picture class="picture--size_gm-tile  ">

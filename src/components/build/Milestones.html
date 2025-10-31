@@ -7,9 +7,6 @@
   <nav 
     class="nav--milestones"
     id="{{id}}"
-    {{#if var}}
-    data-bind="current={{var}}"
-    {{/if}}
     data-current="{{default current 'start'}}"
   >
     <div class="spacer spacer--min"></div>
@@ -19,8 +16,12 @@
         <button class="nav--milestones__milestone"
           data-milestone="{{milestone}}"
           data-bind="pick = #{{../id}}.current | eq '{{milestone}}'"
-          {{#if ../var}}
-          data-on-click="{{../var}}={{milestone}}"
+          {{#if scrollto}}
+          data-on-click="emit {{../scroll-target}} scrollto {{scrollto}}"
+          {{else}}
+            {{#if ../var}}
+            data-on-click="{{../var}}={{milestone}}"
+            {{/if}}
           {{/if}}
           {{#if (eq milestone (default ../current 'start'))}}
           data-pick="true"
@@ -33,6 +34,12 @@
     <div class="spacer spacer--min"></div>
   </nav>    
 </template>
+
+<script>
+on('.nav--milestones', 'scrollto', (evt) => {
+  set(evt.target, 'current', evt.detail);
+});
+</script>
 
 <style>
 

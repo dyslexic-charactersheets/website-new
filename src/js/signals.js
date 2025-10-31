@@ -28,12 +28,17 @@ function doCommands(commands, element) {
     set(target.trim(), variable.trim(), value.trim());
   } else {
     // some other command
-    let args = command.split(' ');
+    let args = command.split(/ +/);
     let commandWord = args.shift();
     switch (commandWord) {
       case "emit":
+        let target = element;
+        if (args[0].startsWith('#')) {
+          let targetid = args.shift();
+          target = document.querySelector(targetid);
+        }
         let signal = args.shift();
-        emit(element, signal, args);
+        emit(target, signal, args);
         break;
       case "show-menu":
         let menu = args.shift();
@@ -70,6 +75,8 @@ function emit(target, signal, args, event) {
     target = document.querySelector(target);
   }
   if (target === null) {
+    signalsLogger.warn("Emit: target null");
+    signalsLogger.outdent();
     return;
   }
 

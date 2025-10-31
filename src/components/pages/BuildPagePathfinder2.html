@@ -12,7 +12,7 @@
 
     {{#> Switch
       id="switch-milestones"
-      current="character"
+      current="pick"
       var="#build-form.pick | default 'character'"
     }}
 
@@ -20,14 +20,14 @@
         {{> Milestones
           id="milestones-character"
           current="pick"
-          var="#slides-character.jump"
+          scroll-target="#slides-character"
           milestones=(array 
-            (item milestone="pick" title="Start")
-            (item milestone="character" title="Character")
-            (item milestone="pages" title="Pages")
-            (item milestone="colours" title="Appearance")
-            (item milestone="picture" title="Picture")
-            (item milestone="download" title="Download")
+            (item milestone="pick" title="Start" scrollto="slides-character-slide-pick")
+            (item milestone="character" title="Character" scrollto="slides-character-slide-character")
+            (item milestone="pages" title="Pages" scrollto="slides-character-slide-pages")
+            (item milestone="colours" title="Appearance" scrollto="slides-character-slide-colours")
+            (item milestone="picture" title="Picture" scrollto="slides-character-slide-picture")
+            (item milestone="download" title="Download" scrollto="slides-character-slide-download")
           )
         }}
       {{/SwitchCase}}
@@ -36,13 +36,13 @@
         {{> Milestones
           id="milestones-gm"
           current="gm-pick"
-          var="#slides-character.jump"
+          scroll-target="#slides-character"
           milestones=(array
-            (item milestone="pick" title="Start")
-            (item milestone="gm-pick" title="GM")
-            (item milestone="gm-options" title="Options")
-            (item milestone="gm-colours" title="Appearance")
-            (item milestone="gm-download" title="Download")
+            (item milestone="pick" title="Start" scrollto="slides-character-slide-pick")
+            (item milestone="gm-pick" title="GM" scrollto="slides-character-slide-gm-pick")
+            (item milestone="gm-options" title="Options" scrollto="slides-character-slide-gm-options")
+            (item milestone="gm-colours" title="Appearance" scrollto="slides-character-slide-gm-colours")
+            (item milestone="gm-download" title="Download" scrollto="slides-character-slide-gm-download")
           )
         }}
       {{/SwitchCase}}
@@ -51,12 +51,12 @@
         {{> Milestones
           id="milestones-starship"
           current="starship"
-          var="#slides-character.jump"
+          scroll-target="#slides-character"
           milestones=(array
-            (item milestone="pick" title="Start")
-            (item milestone="starship" title="Starship")
-            (item milestone="starship-colours" title="Appearance")
-            (item milestone="starship-download" title="Download")
+            (item milestone="pick" title="Start" scrollto="slides-character-slide-pick")
+            (item milestone="starship" title="Starship" scrollto="slides-character-slide-starship")
+            (item milestone="starship-colours" title="Appearance" scrollto="slides-character-slide-starship-colours")
+            (item milestone="starship-download" title="Download" scrollto="slides-character-slide-starship-download")
           )
         }}
       {{/SwitchCase}}
@@ -65,12 +65,12 @@
         {{> Milestones
           id="milestones-kingmaker"
           current="kingmaker"
-          var="#slides-character.jump"
+          scroll-target="#slides-character"
           milestones=(array
-            (item milestone="pick" title="Start")
-            (item milestone="kingmaker" title="Kingmaker")
-            (item milestone="kingmaker-colours" title="Appearance")
-            (item milestone="kingmaker-download" title="Download")
+            (item milestone="pick" title="Start" scrollto="slides-character-slide-pick")
+            (item milestone="kingmaker" title="Kingmaker" scrollto="slides-character-slide-kingmaker")
+            (item milestone="kingmaker-colours" title="Appearance" scrollto="slides-character-slide-kingmaker-colours")
+            (item milestone="kingmaker-download" title="Download" scrollto="slides-character-slide-kingmaker-download")
           )
         }}
       {{/SwitchCase}}
@@ -79,12 +79,12 @@
         {{> Milestones
           id="milestones-mini"
           current="pick"
-          var="#slides-character.jump"
+          scroll-target="#slides-character"
           milestones=(array
-            (item milestone="pick" title="Start")
-            (item milestone="mini" title="Map Figure")
-            (item milestone="mini-colours" title="Appearance")
-            (item milestone="mini-download" title="Download")
+            (item milestone="pick" title="Start" scrollto="slides-character-slide-pick")
+            (item milestone="mini" title="Map Figure" scrollto="slides-character-slide-mini")
+            (item milestone="mini-colours" title="Appearance" scrollto="slides-character-slide-mini-colours")
+            (item milestone="mini-download" title="Download" scrollto="slides-character-slide-mini-download")
           )
         }}
       {{/SwitchCase}}
