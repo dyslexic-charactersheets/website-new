@@ -4,8 +4,8 @@
 -->
 
 <template>
-  <div class="portrait-search-tools"
-    data-list="{{for}}">
+  <div class="asset-search-tools"
+    data-list="{{for}}-items">
     {{#> Row}}
       {{!--
       {{#if portrait}}
@@ -24,21 +24,18 @@
       {{/if}}
       --}}
       
-      <input type="search" class="asset-search-box" 
-        id="search-{{id}}"
-        autocomplete="off"
-        data-on-change="emit facet-change">
-      
+      {{> SearchBox id=id }}
     {{/Row}}
   </div>
 </template>
 
 <script>
 
-on('.portrait-search-tools', 'change', (evt) => {
+on('.asset-search-tools', 'facet-change', (evt) => {
+  console.log("Asset search");
   let searchTools = evt.currentTarget;
-  if (!searchTools.classList.contains('facet-search-tools')) {
-    searchTools = searchTools.closest('.facet-search-tools');
+  if (!searchTools.classList.contains('asset-search-tools')) {
+    searchTools = searchTools.closest('.asset-search-tools');
   }
 
   let searchParams = {
@@ -58,6 +55,7 @@ on('.portrait-search-tools', 'change', (evt) => {
   for (let searchBox of searchTools.querySelectorAll('.facet-search-box')) {
     searchParams.search = searchWords(searchBox.value);
   }
+  console.log("Asset search:", searchParams);
 
   let listId = searchTools.dataset.list;
   let list = document.getElementById(listId);

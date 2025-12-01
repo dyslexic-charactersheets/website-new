@@ -2175,19 +2175,29 @@ function itemMatchesSearchParams(item, params) {
     return false;
   }
 
-  if ('search' in params && params.search != "" && 'name' in item) {
-    let content = item.name.toLowerCase();
-    for (let word of params.search) {
-      if (content.match(word)) {
-        return true;
+  if ('search' in params && 'name' in item) {
+    if (params.search.length > 0) {
+      let content = item.name.toLowerCase();
+      for (let word of params.search) {
+        if (content.match(word)) {
+          return true;
+        }
       }
+      return false;
     }
-    return false;
   }
   return true;
 }
 } catch (e) { 
   console.log("Error in ItemList", e)
+}
+try {
+on('.facet-search-box', 'input', (evt) => {
+  let searchbox = evt.target;
+  emit(searchbox, 'change');
+});
+} catch (e) { 
+  console.log("Error in SearchBox", e)
 }
 try {
 // on()
@@ -2362,16 +2372,20 @@ on('.jump-link', 'click', (evt) => {
   let id = `jump--${link.dataset.zoom}`;
   // let scrollpane = link.closest('.scroll-pane');
   // scrollpane.scrollTo(0, top);
-  document.getElementById(id).scrollIntoView();
+  let element = document.getElementById(id);
+  if (element !== null) {
+    element.scrollIntoView();
+  }
 });
 } catch (e) { 
   console.log("Error in AssetMenu", e)
 }
 try {
-on('.portrait-search-tools', 'change', (evt) => {
+on('.asset-search-tools', 'facet-change', (evt) => {
+  console.log("Asset search");
   let searchTools = evt.currentTarget;
-  if (!searchTools.classList.contains('facet-search-tools')) {
-    searchTools = searchTools.closest('.facet-search-tools');
+  if (!searchTools.classList.contains('asset-search-tools')) {
+    searchTools = searchTools.closest('.asset-search-tools');
   }
 
   let searchParams = {
@@ -2391,6 +2405,7 @@ on('.portrait-search-tools', 'change', (evt) => {
   for (let searchBox of searchTools.querySelectorAll('.facet-search-box')) {
     searchParams.search = searchWords(searchBox.value);
   }
+  console.log("Asset search:", searchParams);
 
   let listId = searchTools.dataset.list;
   let list = document.getElementById(listId);

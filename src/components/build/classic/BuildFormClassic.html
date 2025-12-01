@@ -357,7 +357,7 @@
                     <td id='profession-group'>
                       {{#> Repeatable max=10 id="profession-skills" addlabel="+"}}
                         <select name="profession-skill-{{number}}">
-                          {{#if gameData.isStarfinder}}
+                          {{#if ../gameData.isStarfinder}}
                             <option value="accountant">({{__ "accountant"}})</option>
                             <option value="actor">({{__ "actor"}})</option>
                             <option value="archaeologist">({{__ "archaeologist"}})</option>

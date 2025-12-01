@@ -7,11 +7,10 @@
   {{#> Button 
     id=(str "item-${id}" id=(slug item.id item))
     type="tile-light"
+    cls=(str "${cls} form-select-item-button ${size}" cls=(default cls '') size=(default item.size ''))
     on-click=(str "emit form-select,close-menu ${id}" id=item.id)
     data=(de_i18n item.meta)
   }}
-    {{!-- {{{dump ../item}}} --}}
-    {{!-- {{{dump show}}} --}}
     {{#if (eq (default show "small") "full")}}
       {{> Picture src=(str "/images/options/${id}.png" id=item.id) size="tile" transparent=true lazy=true}}
 
@@ -20,15 +19,74 @@
     {{#if (eq (default show "small") "small")}}
       <h4>{{__ item.name}}</h4>
     {{/if}}
+    {{#if showbadge}}
+      <span class="button__badge">
+        <img src="{{str '/images/options/badge/${id}.png' id=item.id}}">
+      </span>
+    {{/if}}
   {{/Button}}
 </template>
 
 <style>
 
 .btn--tile-light {
+  min-width: 11rem;
+  position: relative;
+
   picture {
     img {
-      height: 16rem;
+      height: 12rem;
+    }
+  }
+
+  &.small-figure {
+    picture {
+      img {
+        height: 8rem;
+        margin-top: 4rem;
+      }
+    }
+  }
+
+  &.medium-figure {
+    picture {
+      img {
+        height: 10rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  /* &[data-select=class] {
+    picture {
+      img {
+        height: 6rem;
+      }
+    }
+  } */
+
+  .button__badge {
+    display: flex;
+    position: absolute;
+    bottom: -0.5rem;
+    left: -0.5rem;
+
+    overflow: hidden;
+    background: #f7f4ef;
+    border-radius: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.5);
+
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+      mix-blend-mode: darken;
     }
   }
 }

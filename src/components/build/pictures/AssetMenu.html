@@ -15,7 +15,7 @@
           {{> CloseButton }}
           <h3>{{__ (default selectbtn "Select Picture")}}</h3>
         {{/Row}}
-        {{> AssetSearchTools portrait=(eq id "portrait-menu")}}
+        {{> AssetSearchTools for=id portrait=(eq id "portrait-menu")}}
       {{/HeaderRow}}
 
       {{#> ScrollPane}}
@@ -31,8 +31,9 @@
           {{/Column}}
           {{#> Column}}
 
-            {{#> ItemList id=(str "item-list-${id}" id=id)}}
+            {{#> ItemList id=(str "${id}-items" id=id)}}
               {{#each items.displayGroups}}
+                {{{dump this}}}
                 <h3 id="jump--{{code}}">{{__ name "Asset Group"}}</h3>
                 <div class="item-list__group">
                   {{#each values}}
@@ -73,7 +74,10 @@ on('.jump-link', 'click', (evt) => {
   let id = `jump--${link.dataset.zoom}`;
   // let scrollpane = link.closest('.scroll-pane');
   // scrollpane.scrollTo(0, top);
-  document.getElementById(id).scrollIntoView();
+  let element = document.getElementById(id);
+  if (element !== null) {
+    element.scrollIntoView();
+  }
 });
 
 </script>

@@ -1,0 +1,18 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <input type="search" class="facet-search-box" 
+    id="search-{{id}}"
+    autocomplete="off"
+    data-on-change="emit facet-change">
+</template>
+
+<script>
+on('.facet-search-box', 'input', (evt) => {
+  let searchbox = evt.target;
+  emit(searchbox, 'change');
+});
+</script>

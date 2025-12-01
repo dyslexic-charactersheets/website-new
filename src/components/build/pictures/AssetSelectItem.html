@@ -6,21 +6,21 @@
 <template>
   {{#> Button 
     id=(str "item-${code}" code=item.code)
-    cls="asset-select-item-button"
+    cls=(str "${cls} asset-select-item-button ${size}" cls=(default cls '') size=(default item.size ''))
     type="tile-light"
     x-on-click=(str 
-      "emit asset-select,close-menu '${code}' '${path}.png' '${src}'"
+      "emit asset-select,close-menu '${code}' '${imgpath}' '${src}'"
       code=item.code
       path=item.shortpath
       src=(str "/${folder}/${path}.png" path=item.shortpath folder=folder)
     )
     data=(item
-      path=(str "${path}.png" path=item.shortpath)
-      src=(str "/${folder}/${path}.png" path=item.shortpath folder=folder)
+      name=item.name
+      path=(str "${imgpath}" path=item.shortpath)
+      src=(str "/${folder}/${imgpath}" path=item.shortpath folder=folder)
       meta=(de_i18n item.meta)
     )
   }}
-    {{{dump ../item}}}
     {{> Picture src=(str "/${folder}/${path}.png" path=item.shortpath folder=folder) size="tile" transparent=true lazy=true}}
     <h4>{{__ item.name}}</h4>
   {{/Button}}

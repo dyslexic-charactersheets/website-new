@@ -45,10 +45,7 @@
         selected=""
       }}
       
-      <input type="search" class="facet-search-box" 
-        id="search-{{id}}"
-        autocomplete="off"
-        data-on-change="emit facet-change">
+      {{> SearchBox id=id }}
     {{/Row}}
   </div>
 </template>

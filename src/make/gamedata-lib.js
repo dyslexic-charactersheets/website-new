@@ -7,6 +7,7 @@ import dyslexicCharacterSheets from 'dyslexic-charactersheets';
 import { has, slugify, log, warn, error } from './util.js';
 import { languages, translate, de_i18n } from './i18n.js';
 import { createSearchIndex } from './search.js';
+import { assert } from 'console';
 
 // Combine multiple lib-based games
 export function combineGames(games) {
@@ -296,7 +297,7 @@ function extractSelects(basedata, extractSelects, opts = {}) {
   for (let select of basedata.selects) {
     if (extractSelects.includes(select.select)) {
       // select.displayGroups = groupSelectValues(select.values, select.groups, select.select);
-      outdata[select.select] = select;
+      outdata[select.select] = enrichSelect(select);
     }
   }
 
@@ -455,4 +456,71 @@ function group2tier(group, flatten) {
     default:
       return "thirdparty";
   }
+}
+
+function enrichSelect(select) {
+  select.values = select.values
+    .filter((val) => isValueEnabled(val))
+    .map((val) => enrichValue(val, select.select));
+  return select;
+}
+
+function isValueEnabled(value) {
+  if (has(value, 'enabled')) {
+    return !!value.enabled;
+  }
+  return true;
+}
+
+function enrichValue(value, select) {
+  value.size = '';
+  let id = value.id;
+  let code = value.code;
+
+  switch (select) {
+    case 'ancestry':
+      if (
+        code.match('halfling')
+        || code.match('gnome')
+        || (code.match('goblin')
+            && !code.match('hobgoblin')
+          )
+        || code.match('kobold')
+        || code.match('ratfolk')
+        || code.match('ysoki')
+        || code.match('leshy')
+        || code.match('poppet')
+        || code.match('sprite')
+      ) {
+        value.size = 'small-figure';
+      }
+
+      else if (
+        code.match('dwarf')
+      ) {
+        value.size = 'medium-figure';
+      }
+      break;
+
+    case 'class':
+      if (
+        id.match('class/alchemist')
+        || id.match('class/bard')
+        || id.match('class/remaster/bard')
+        || id.match('class-druid')
+        || id.match('class/remaster/druid')
+      ) {
+        value.size = 'small-figure';
+      }
+      
+      else if (
+        id.match('class/ranger')
+        || id.match('class/remaster/ranger')
+      ) {
+        value.size = 'medium-figure';
+      }
+      break;
+  }
+
+  return value;
 }

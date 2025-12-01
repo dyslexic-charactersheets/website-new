@@ -47,14 +47,16 @@ function itemMatchesSearchParams(item, params) {
     return false;
   }
 
-  if ('search' in params && params.search != "" && 'name' in item) {
-    let content = item.name.toLowerCase();
-    for (let word of params.search) {
-      if (content.match(word)) {
-        return true;
+  if ('search' in params && 'name' in item) {
+    if (params.search.length > 0) {
+      let content = item.name.toLowerCase();
+      for (let word of params.search) {
+        if (content.match(word)) {
+          return true;
+        }
       }
+      return false;
     }
-    return false;
   }
   return true;
 }
