@@ -16,8 +16,10 @@ let sessionKey;
 let baseURL = false;
 
 function setupAuth() {
-    if (baseURL)
+    if (baseURL) {
+        console.log("[auth]          Auth already setup:  ", baseURL);
         return;
+    }
     baseURL = conf('url');
     
     console.log("[auth]          Base URL:  ", baseURL);
