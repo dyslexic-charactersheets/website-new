@@ -27,7 +27,6 @@ function readPf2Form(type) {
     id,
     attributes: {
       game: edition,
-      isLoggedIn: isLoggedIn(),
       edition: edition,
       language: document.getElementById("body").dataset.language,
       classes: []

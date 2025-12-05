@@ -6000,6 +6000,14 @@ article + article {
     flex: 1 1 auto;
   }
 }
+.if {
+  display: none;
+}
+
+.if[data-reveal=true] {
+  display: block;
+}
+
 /**
  * Copyright 2025 Marcus Downing
  * Licensed under the Artistic License 2.0
@@ -7659,6 +7667,386 @@ dl dd + dt {
   margin-top: 0.5rem;
 }
 
+.badge {
+  height: 1.8rem;
+  line-height: 1.8rem;
+  min-width: 1.8rem;
+  margin: 0 0.5rem;
+  padding: 0 1rem;
+  border-radius: 4rem;
+  font-family: "Roboto Slab", "Roboto";
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.badge .icon {
+  margin-right: 0.5rem;
+}
+
+.badge.badge--colour_red {
+  background-color: #80101b;
+}
+
+.badge.badge--colour_green {
+  background-color: #178010;
+}
+
+.badge.badge--colour_blue {
+  background-color: #1030a0;
+}
+
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+.dark-region {
+  color: white;
+  text-shadow: 0 0.5px 1px black;
+}
+
+.dark-region h3, .dark-region nav.nav--menu h3, .dark-region h4 {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-region a, .dark-region a:active, .dark-region a:visited, .dark-region button, .dark-region button:active, .dark-region button:visited, .dark-region .btn, .dark-region .btn:active, .dark-region .btn:visited, .dark-region .btn.btn--light, .dark-region .btn.btn--light:active, .dark-region .btn.btn--light:visited, .dark-region .btn.btn--selected, .dark-region .btn.btn--selected:active, .dark-region .btn.btn--selected:visited, .dark-region .btn.btn--min, .dark-region .btn.btn--min:active, .dark-region .btn.btn--min:visited, .dark-region .badge, .dark-region .badge:active, .dark-region .badge:visited {
+  color: white;
+}
+
+.dark-region .btn.btn--light {
+  border-color: white;
+  background-color: transparent;
+}
+
+.dark-region a.btn--selected, .dark-region button.btn--selected, .dark-region .btn.btn--selected, .dark-region .badge.btn--selected {
+  background: white;
+  color: #1030a0;
+}
+
+.dark-region .badge {
+  color: white;
+  border-color: white;
+}
+
+.light-region {
+  color: black;
+  text-shadow: 0 0 0.5px white;
+}
+
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+/* latin-ext */
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Lato-Regular-A.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Lato-Regular-B.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+/* cyrillic-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-A.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-B.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-C.woff2) format("woff2");
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-D.woff2) format("woff2");
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-E.woff2) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-F.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Regular-G.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-A.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-B.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-C.woff2) format("woff2");
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-D.woff2) format("woff2");
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-E.woff2) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-F.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/RobotoSlab-Medium-G.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+/* latin */
+@font-face {
+  font-family: "Indie Flower";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/IndieFlower-Regular.woff2) format("woff2");
+}
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+/* latin */
+@font-face {
+  font-family: "Dyslexie";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/DyslexieRegular.woff) format("woff");
+}
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+/* latin */
+@font-face {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/LexendDeca.woff) format("woff");
+}
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+/* cyrillic-ext */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-A.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-B.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-C.woff2) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-D.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Exo2-E.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+html {
+  font-family: "Lato";
+  font-weight: normal;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+h1, h2, h3 {
+  font-family: "Roboto Slab", "Roboto";
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 2.3rem;
+  line-height: 3rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.4rem;
+}
+
+h4 {
+  font-family: "Roboto Slab", "Roboto";
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  margin: 0.3rem 0 0 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.small-print, .small-print p, .small-print a {
+  font-size: 0.8rem;
+}
+
+input, output, select {
+  font-size: 1rem;
+}
+
+ol {
+  margin: 0.5rem 0;
+}
+
+ol li + li {
+  margin-top: 0.5rem;
+}
+
+ol li.unnumbered {
+  list-style: none;
+}
+
+dl {
+  margin: 0.5rem 0;
+  padding: 0 2rem;
+}
+
+dl dt {
+  font-weight: bold;
+}
+
+dl dd + dt {
+  margin-top: 0.5rem;
+}
+
 .btn {
   appearance: none;
   text-decoration: none;
@@ -7982,21 +8370,6 @@ dl dd + dt {
   text-shadow: 0 0 0.5px white;
 }
 
-/* .main-nav {
-  background-color: colours.$pale;
-  border: 1px solid colours.$shade;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px colours.$shade;
-
-  margin-right: -20px;
-  z-index: 100;
-  padding: 2px 10px 6px;
-} */
-/* #main-menu .main-nav {
-  background-color: transparent;
-  border: 0 none;
-  box-shadow: none;
-} */
 #home-link {
   padding-bottom: 10px;
 }

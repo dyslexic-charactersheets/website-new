@@ -43,17 +43,21 @@
                         <i class="icon icon_globe"></i>FR      
                       </button>
                   
-                          <button 
-                        type="button"
-                        
-                        class="btn btn--borderless login-menu-button" 
-                        data-on-click="body.currentMenu &#x3D; login-menu"
-                        
-                      >
-                        <i class="icon icon_user"></i>Connexion      
-                      </button>
-                  
-                      <div class="spacer"></div>
+                  <span class="if" data-bind="reveal=body.isLoggedIn">
+                            <span class="badge badge--colour_green dark-region">
+                          <i class="icon icon_user"></i>Logged In  </span>
+                    </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                                <button 
+                            type="button"
+                            
+                            class="btn btn--borderless login-menu-button" 
+                            data-on-click="body.currentMenu &#x3D; login-menu"
+                            
+                          >
+                            <i class="icon icon_user"></i>Connexion      
+                          </button>
+                      
+                    </span>    <div class="spacer"></div>
                       
                     </nav>      
             <div 
@@ -41373,17 +41377,21 @@
                       <i class="icon icon_globe"></i>FR      
                     </button>
                 
-                        <button 
-                      type="button"
-                      id="main-menu"
-                      class="btn btn--borderless login-menu-button" 
-                      data-on-click="body.currentMenu &#x3D; login-menu"
-                      
-                    >
-                      <i class="icon icon_user"></i>Connexion      
-                    </button>
-                
-                    <div class="spacer"></div>
+                <span class="if" data-bind="reveal=body.isLoggedIn">
+                          <span class="badge badge--colour_green dark-region">
+                        <i class="icon icon_user"></i>Logged In  </span>
+                  </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                              <button 
+                          type="button"
+                          id="main-menu"
+                          class="btn btn--borderless login-menu-button" 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Connexion      
+                        </button>
+                    
+                  </span>    <div class="spacer"></div>
                     <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
                   </nav>
                 <nav class="nav--menu">
@@ -41503,17 +41511,21 @@
                       <i class="icon icon_globe"></i>FR      
                     </button>
                 
-                        <button 
-                      type="button"
-                      id="language-menu"
-                      class="btn btn--borderless login-menu-button" 
-                      data-on-click="body.currentMenu &#x3D; login-menu"
-                      
-                    >
-                      <i class="icon icon_user"></i>Connexion      
-                    </button>
-                
-                    <div class="spacer"></div>
+                <span class="if" data-bind="reveal=body.isLoggedIn">
+                          <span class="badge badge--colour_green dark-region">
+                        <i class="icon icon_user"></i>Logged In  </span>
+                  </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                              <button 
+                          type="button"
+                          id="language-menu"
+                          class="btn btn--borderless login-menu-button" 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Connexion      
+                        </button>
+                    
+                  </span>    <div class="spacer"></div>
                     <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
                   </nav>
                 <nav class="nav--menu">
@@ -41588,17 +41600,21 @@
                       <i class="icon icon_globe"></i>FR      
                     </button>
                 
-                        <button 
-                      type="button"
-                      id="login-menu"
-                      class="btn btn--borderless login-menu-button" 
-                      data-on-click="body.currentMenu &#x3D; login-menu"
-                      
-                    >
-                      <i class="icon icon_user"></i>Connexion      
-                    </button>
-                
-                    <div class="spacer"></div>
+                <span class="if" data-bind="reveal=body.isLoggedIn">
+                          <span class="badge badge--colour_green dark-region">
+                        <i class="icon icon_user"></i>Logged In  </span>
+                  </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                              <button 
+                          type="button"
+                          id="login-menu"
+                          class="btn btn--borderless login-menu-button" 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Connexion      
+                        </button>
+                    
+                  </span>    <div class="spacer"></div>
                     <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
                   </nav>
                 <nav class="nav--menu">
@@ -41652,17 +41668,21 @@
                       <i class="icon icon_globe"></i>FR      
                     </button>
                 
-                        <button 
-                      type="button"
-                      id="contact-menu"
-                      class="btn btn--borderless login-menu-button" 
-                      data-on-click="body.currentMenu &#x3D; login-menu"
-                      
-                    >
-                      <i class="icon icon_user"></i>Connexion      
-                    </button>
-                
-                    <div class="spacer"></div>
+                <span class="if" data-bind="reveal=body.isLoggedIn">
+                          <span class="badge badge--colour_green dark-region">
+                        <i class="icon icon_user"></i>Logged In  </span>
+                  </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                              <button 
+                          type="button"
+                          id="contact-menu"
+                          class="btn btn--borderless login-menu-button" 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Connexion      
+                        </button>
+                    
+                  </span>    <div class="spacer"></div>
                     <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
                   </nav>
                 <nav class="nav--menu">

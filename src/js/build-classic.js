@@ -63,7 +63,6 @@ function readClassicForm(type) {
     id,
     attributes: {
       game: game,
-      isLoggedIn: isLoggedIn(),
       language: document.getElementById("body").dataset.language,
       classes: []
     }

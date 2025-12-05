@@ -6,8 +6,9 @@
 // Translators login
 import crypto from 'crypto';
 
+import { setLogin, failLogin } from '#src/auth.js';
+
 var sharedSecret;
-var auth;
 
 function checkSignature(token, signature, salt) {
     const hash = crypto.createHash('sha256');
@@ -20,9 +21,8 @@ function checkSignature(token, signature, salt) {
     return signature == signature2;
 }
 
-export function setupTranslatorsAuth (conf, a) {
+export function setupTranslatorsAuth (conf) {
     sharedSecret = conf('shared_secret');
-    auth = a;
 }
 
 export const loginURL = "https://translate.dyslexic-charactersheets.com/authorize";
@@ -41,14 +41,14 @@ export function translatorsLogin (req, res) {
 
         if (!checkSignature(id, signature, sharedSecret)) {
             console.log("[auth]          Signature doesn't match");
-            auth.failLogin(res, true);
+            failLogin(res, true);
             return;
         }
         console.log("[auth]          Translator login now");
-        auth.setLogin(res, true);
+        setLogin(res, true);
     } catch (e) {
         console.log("[auth]          Translator's login: Error:", e);
         // res.redirect('/login');
-        auth.failLogin(res, true);
+        failLogin(res, true);
     }
 }

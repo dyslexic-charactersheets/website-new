@@ -6,6 +6,8 @@
 // Patreon login
 import url from 'url';
 import patreon from 'patreon';
+
+import { setLogin, failLogin } from '#src/auth.js';
 // import { response } from 'express';
 
 let auth;
@@ -81,8 +83,7 @@ export function patreonRedirectURL() {
   return redirectURL;
 }
     
-export function setupPatreonAuth (conf, a) {
-  auth = a;
+export function setupPatreonAuth (conf) {
   patreonCampaignID = conf('patreon_v1_campaign_id');
   var client_id = conf('patreon_v1_client_id');
   var client_secret = conf('patreon_v1_client_secret');
@@ -102,24 +103,24 @@ export function patreonRedirect (req, res) {
     getCurrentPledge(api).then((pledge) => {
       console.log("[patreon]       Pledge:", pledge);
       if (pledge === null) {
-        auth.failLogin(res, true);
+        failLogin(res, true);
         return;
       }
       
       var pledgeValue = pledge.amount_cents;
       if (pledgeValue === null || pledgeValue == 0) {
-        auth.failLogin(res, true);
+        failLogin(res, true);
         return;
       }
-      auth.setLogin(res, true);
+      setLogin(res, true);
     }).catch((err) => {
       console.error('[patreon]       Error!', err);
-      auth.failLogin(res, true);
+      failLogin(res, true);
     });
 
   }).catch((err) => {
     console.error('[patreon]       Error!', err);
-    auth.failLogin(res, true);
+    failLogin(res, true);
   });
 }
 

@@ -3,6 +3,9 @@
  * Licensed under the Artistic License 2.0
  */
 
+let authLogger = getDebug('auth');
+enableDebug('auth');
+
 function checkSignature(message, signature, salt) {
     const hash = crypto.createHash('sha256');
     hash.update(message);
@@ -12,25 +15,18 @@ function checkSignature(message, signature, salt) {
     return signature == signature2;
 }
 
-function initIsLoggedIn() {
+async function initIsLoggedIn() {
   body.dataset.loggedIn = false;
 
-  // get the cookie value
-  let cookieValue = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("login="))
-    ?.split("=")[1];
-
-  if (cookieValue === undefined) {
+  let response = await fetch('/auth/check');
+  if (!response.ok) {
     return;
   }
-  
-  let cookieParts = cookieValue.split(/:/);
-  let loginToken = cookieParts[0];
-  let signature = cookieParts[1];
 
-  if (checkSignature(loginToken, signature, sessionKey)) {
-    body.dataset.loggedIn = true;
+  let msg = await response.text();
+  if (msg == "YES") {
+    authLogger.warn("Logged in!");
+    body.dataset.isLoggedIn = true;
   }
 }
 
@@ -38,6 +34,5 @@ function initIsLoggedIn() {
 setTimeout(initIsLoggedIn, 1);
 
 function isLoggedIn() {
-  // TODO login
   return bool(body.dataset.loggedIn);
 }

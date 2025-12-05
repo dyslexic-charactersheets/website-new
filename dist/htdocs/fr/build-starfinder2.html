@@ -42,17 +42,21 @@
                         <i class="icon icon_globe"></i>FR      
                       </button>
                   
-                          <button 
-                        type="button"
-                        
-                        class="btn btn--borderless login-menu-button" 
-                        data-on-click="body.currentMenu &#x3D; login-menu"
-                        
-                      >
-                        <i class="icon icon_user"></i>Connexion      
-                      </button>
-                  
-                      <div class="spacer"></div>
+                  <span class="if" data-bind="reveal=body.isLoggedIn">
+                            <span class="badge badge--colour_green dark-region">
+                          <i class="icon icon_user"></i>Logged In  </span>
+                    </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                                <button 
+                            type="button"
+                            
+                            class="btn btn--borderless login-menu-button" 
+                            data-on-click="body.currentMenu &#x3D; login-menu"
+                            
+                          >
+                            <i class="icon icon_user"></i>Connexion      
+                          </button>
+                      
+                    </span>    <div class="spacer"></div>
                       
                     </nav>
               <div 
@@ -31670,9 +31674,9 @@
               "apg-toxicologist"
             ],
             "_{Core Rulebook}": [
-              "chirurgeon",
               "bomber",
-              "mutagenist"
+              "mutagenist",
+              "chirurgeon"
             ]
           },
           "displayGroups": [
@@ -32049,8 +32053,8 @@
             "_{Advanced Player's Guide}": [
               "alchemical-sciences",
               "forensic-medicine",
-              "interrogation",
-              "empiricism"
+              "empiricism",
+              "interrogation"
             ]
           },
           "displayGroups": [
@@ -32396,14 +32400,14 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "bones",
-              "battle",
               "ancestors",
               "cosmos",
-              "flames",
-              "life",
+              "bones",
+              "battle",
               "lore",
-              "tempest"
+              "life",
+              "tempest",
+              "flames"
             ]
           },
           "displayGroups": [
@@ -32804,10 +32808,10 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "gymnast",
-              "fencer",
               "battledancer",
               "braggart",
+              "fencer",
+              "gymnast",
               "wit"
             ]
           },
@@ -33164,8 +33168,8 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "fate",
               "curse",
+              "fate",
               "rune",
               "fervor",
               "night",
@@ -33565,10 +33569,10 @@
             ],
             "_{Core Rulebook}": [
               "animal",
-              "fury",
-              "dragon",
               "giant",
-              "spirit"
+              "fury",
+              "spirit",
+              "dragon"
             ]
           },
           "displayGroups": [
@@ -33915,9 +33919,9 @@
               "apg-warrior"
             ],
             "_{Core Rulebook}": [
+              "enigma",
               "maestro",
-              "polymath",
-              "enigma"
+              "polymath"
             ]
           },
           "displayGroups": [
@@ -34277,8 +34281,8 @@
             ],
             "_{Core Rulebook}": [
               "liberator",
-              "paladin",
-              "redeemer"
+              "redeemer",
+              "paladin"
             ]
           },
           "displayGroups": [
@@ -34620,8 +34624,8 @@
           "groups": {
             "_{Core Rulebook}": [
               "blade",
-              "steed",
-              "shield"
+              "shield",
+              "steed"
             ]
           },
           "displayGroups": [
@@ -35137,12 +35141,12 @@
           ],
           "groups": {
             "_{Dark Archive}": [
-              "silent-whisper",
-              "distant-grasp",
               "infinite-eye",
               "oscillating-wave",
-              "tangible-dream",
-              "unbound-step"
+              "distant-grasp",
+              "silent-whisper",
+              "unbound-step",
+              "tangible-dream"
             ]
           },
           "displayGroups": [
@@ -35478,8 +35482,8 @@
           ],
           "groups": {
             "_{Dark Archive}": [
-              "unbound-step",
               "gathered-lore",
+              "unbound-step",
               "wandering-reverie",
               "precise-discipline"
             ]
@@ -35842,15 +35846,15 @@
           ],
           "groups": {
             "_{Dark Archive}": [
+              "bell",
               "amulet",
               "chalice",
               "lantern",
-              "regalia",
-              "bell",
               "mirror",
+              "regalia",
               "tome",
-              "wand",
-              "weapon"
+              "weapon",
+              "wand"
             ]
           },
           "displayGroups": [
@@ -36261,9 +36265,9 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "storm",
               "animal",
               "wild",
+              "storm",
               "leaf"
             ]
           },
@@ -36641,8 +36645,8 @@
           "groups": {
             "_{Guns and Gears}": [
               "drifter",
-              "sniper",
               "pistolero",
+              "sniper",
               "vanguard"
             ]
           },
@@ -37387,9 +37391,9 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
+              "precision",
               "flurry",
-              "outwit",
-              "precision"
+              "outwit"
             ]
           },
           "displayGroups": [
@@ -37688,8 +37692,8 @@
             ],
             "_{Core Rulebook}": [
               "ruffian",
-              "thief",
-              "scoundrel"
+              "scoundrel",
+              "thief"
             ]
           },
           "displayGroups": [
@@ -38023,11 +38027,11 @@
           ],
           "groups": {
             "_{Secrets of Magic}": [
+              "sparkling-targe",
               "starlit-span",
               "inexorable-iron",
-              "laughing-shadow",
-              "sparkling-targe",
-              "twisting-tree"
+              "twisting-tree",
+              "laughing-shadow"
             ]
           },
           "displayGroups": [
@@ -38428,16 +38432,16 @@
           ],
           "groups": {
             "_{Secrets of Magic}": [
-              "beast",
               "angel",
+              "beast",
               "construct",
+              "devotion-phantom",
               "demon",
               "anger-phantom",
-              "devotion-phantom",
               "dragon",
-              "fey",
+              "psychopomp",
               "plant",
-              "psychopomp"
+              "fey"
             ]
           },
           "displayGroups": [
@@ -39100,15 +39104,15 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "apg-shadow",
               "apg-psychopomp",
-              "apg-nymph",
-              "apg-genie"
+              "apg-genie",
+              "apg-shadow",
+              "apg-nymph"
             ],
             "_{Core Rulebook}": [
-              "aberrant",
-              "demonic",
               "angelic",
+              "demonic",
+              "aberrant",
               "draconic",
               "elemental",
               "diabolic",
@@ -39829,13 +39833,13 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "enchantment",
               "abjuration",
-              "conjuration",
-              "evocation",
-              "necromancy",
               "divination",
+              "conjuration",
+              "enchantment",
+              "evocation",
               "illusion",
+              "necromancy",
               "transmutation",
               "universalist"
             ]
@@ -40266,9 +40270,9 @@
               "apg-staff-nexus"
             ],
             "_{Core Rulebook}": [
-              "spell-blending",
-              "improved-familiar-attunement",
               "metamagical-experimentation",
+              "improved-familiar-attunement",
+              "spell-blending",
               "spell-substitution"
             ]
           },
@@ -40588,10 +40592,10 @@
           ],
           "groups": {
             "_{Player Core}": [
-              "remaster-maestro",
               "remaster-enigma",
-              "remaster-bard-muse-polymath",
-              "remaster-warrior"
+              "remaster-maestro",
+              "remaster-warrior",
+              "remaster-bard-muse-polymath"
             ]
           },
           "displayGroups": [
@@ -41122,8 +41126,8 @@
             "_{Player Core}": [
               "remaster-untamed",
               "remaster-animal",
-              "remaster-storm",
-              "remaster-leaf"
+              "remaster-leaf",
+              "remaster-storm"
             ]
           },
           "displayGroups": [
@@ -41751,12 +41755,12 @@
           "groups": {
             "_{Player Core}": [
               "faiths-flamekeeper",
-              "inscribed-one",
               "resentment",
-              "spinner-of-threads",
+              "inscribed-one",
+              "silence-in-snow",
               "starless-shadow",
-              "wilding-steward",
-              "silence-in-snow"
+              "spinner-of-threads",
+              "wilding-steward"
             ]
           },
           "displayGroups": [
@@ -42174,12 +42178,12 @@
           ],
           "groups": {
             "_{Player Core}": [
+              "mentalism",
               "ars-grammatica",
               "battle-magic",
-              "mentalism",
+              "protean-form",
               "unified-magical-theory",
-              "civic-wizardry",
-              "protean-form"
+              "civic-wizardry"
             ]
           },
           "displayGroups": [
@@ -42530,11 +42534,11 @@
           ],
           "groups": {
             "_{Player Core}": [
-              "experimental-spellshaping",
               "improved-familiar-attunement",
+              "experimental-spellshaping",
               "spell-blending",
-              "spell-substitution",
-              "staff-nexus"
+              "staff-nexus",
+              "spell-substitution"
             ]
           },
           "displayGroups": [
@@ -78904,17 +78908,21 @@
                       <i class="icon icon_globe"></i>FR      
                     </button>
                 
-                        <button 
-                      type="button"
-                      id="main-menu"
-                      class="btn btn--borderless login-menu-button" 
-                      data-on-click="body.currentMenu &#x3D; login-menu"
-                      
-                    >
-                      <i class="icon icon_user"></i>Connexion      
-                    </button>
-                
-                    <div class="spacer"></div>
+                <span class="if" data-bind="reveal=body.isLoggedIn">
+                          <span class="badge badge--colour_green dark-region">
+                        <i class="icon icon_user"></i>Logged In  </span>
+                  </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                              <button 
+                          type="button"
+                          id="main-menu"
+                          class="btn btn--borderless login-menu-button" 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Connexion      
+                        </button>
+                    
+                  </span>    <div class="spacer"></div>
                     <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
                   </nav>
                 <nav class="nav--menu">
@@ -79034,17 +79042,21 @@
                       <i class="icon icon_globe"></i>FR      
                     </button>
                 
-                        <button 
-                      type="button"
-                      id="language-menu"
-                      class="btn btn--borderless login-menu-button" 
-                      data-on-click="body.currentMenu &#x3D; login-menu"
-                      
-                    >
-                      <i class="icon icon_user"></i>Connexion      
-                    </button>
-                
-                    <div class="spacer"></div>
+                <span class="if" data-bind="reveal=body.isLoggedIn">
+                          <span class="badge badge--colour_green dark-region">
+                        <i class="icon icon_user"></i>Logged In  </span>
+                  </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                              <button 
+                          type="button"
+                          id="language-menu"
+                          class="btn btn--borderless login-menu-button" 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Connexion      
+                        </button>
+                    
+                  </span>    <div class="spacer"></div>
                     <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
                   </nav>
                 <nav class="nav--menu">
@@ -79119,17 +79131,21 @@
                       <i class="icon icon_globe"></i>FR      
                     </button>
                 
-                        <button 
-                      type="button"
-                      id="login-menu"
-                      class="btn btn--borderless login-menu-button" 
-                      data-on-click="body.currentMenu &#x3D; login-menu"
-                      
-                    >
-                      <i class="icon icon_user"></i>Connexion      
-                    </button>
-                
-                    <div class="spacer"></div>
+                <span class="if" data-bind="reveal=body.isLoggedIn">
+                          <span class="badge badge--colour_green dark-region">
+                        <i class="icon icon_user"></i>Logged In  </span>
+                  </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                              <button 
+                          type="button"
+                          id="login-menu"
+                          class="btn btn--borderless login-menu-button" 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Connexion      
+                        </button>
+                    
+                  </span>    <div class="spacer"></div>
                     <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
                   </nav>
                 <nav class="nav--menu">
@@ -79183,17 +79199,21 @@
                       <i class="icon icon_globe"></i>FR      
                     </button>
                 
-                        <button 
-                      type="button"
-                      id="contact-menu"
-                      class="btn btn--borderless login-menu-button" 
-                      data-on-click="body.currentMenu &#x3D; login-menu"
-                      
-                    >
-                      <i class="icon icon_user"></i>Connexion      
-                    </button>
-                
-                    <div class="spacer"></div>
+                <span class="if" data-bind="reveal=body.isLoggedIn">
+                          <span class="badge badge--colour_green dark-region">
+                        <i class="icon icon_user"></i>Logged In  </span>
+                  </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                              <button 
+                          type="button"
+                          id="contact-menu"
+                          class="btn btn--borderless login-menu-button" 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Connexion      
+                        </button>
+                    
+                  </span>    <div class="spacer"></div>
                     <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
                   </nav>
                 <nav class="nav--menu">

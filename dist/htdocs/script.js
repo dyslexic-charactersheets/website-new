@@ -128,6 +128,9 @@ function isElement(val) {
  * Licensed under the Artistic License 2.0
  */
 
+let authLogger = getDebug('auth');
+enableDebug('auth');
+
 function checkSignature(message, signature, salt) {
     const hash = crypto.createHash('sha256');
     hash.update(message);
@@ -137,25 +140,18 @@ function checkSignature(message, signature, salt) {
     return signature == signature2;
 }
 
-function initIsLoggedIn() {
+async function initIsLoggedIn() {
   body.dataset.loggedIn = false;
 
-  // get the cookie value
-  let cookieValue = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("login="))
-    ?.split("=")[1];
-
-  if (cookieValue === undefined) {
+  let response = await fetch('/auth/check');
+  if (!response.ok) {
     return;
   }
-  
-  let cookieParts = cookieValue.split(/:/);
-  let loginToken = cookieParts[0];
-  let signature = cookieParts[1];
 
-  if (checkSignature(loginToken, signature, sessionKey)) {
-    body.dataset.loggedIn = true;
+  let msg = await response.text();
+  if (msg == "YES") {
+    authLogger.warn("Logged in!");
+    body.dataset.isLoggedIn = true;
   }
 }
 
@@ -163,7 +159,6 @@ function initIsLoggedIn() {
 setTimeout(initIsLoggedIn, 1);
 
 function isLoggedIn() {
-  // TODO login
   return bool(body.dataset.loggedIn);
 }
 /**
@@ -953,7 +948,6 @@ function readClassicForm(type) {
     id,
     attributes: {
       game: game,
-      isLoggedIn: isLoggedIn(),
       language: document.getElementById("body").dataset.language,
       classes: []
     }
@@ -1191,7 +1185,6 @@ function readPf2Form(type) {
     id,
     attributes: {
       game: edition,
-      isLoggedIn: isLoggedIn(),
       edition: edition,
       language: document.getElementById("body").dataset.language,
       classes: []
@@ -2601,14 +2594,6 @@ on('.reveal', 'close', (evt) => {
 })
 } catch (e) { 
   console.log("Error in Reveal", e)
-}
-try {
-// replace the Login button after page load if we're logged in
-if (isLoggedIn()) {
-  console.log("Logged in!");
-}
-} catch (e) { 
-  console.log("Error in MenuButtons", e)
 }
 try {
 on('aside.menu', 'close-menu', (event, elem) => {

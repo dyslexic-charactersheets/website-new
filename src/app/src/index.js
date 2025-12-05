@@ -24,7 +24,7 @@ import { conf, onConfigLoaded } from '#src/conf.js';
 import { renderDnD35, renderPathfinder1, renderStarfinder1 } from '#src/recomposer/recomposer.js';
 
 // login
-import { auth } from '#src/auth.js';
+import { setupAuth, checkAuth, patreonRedirect, tokenLogin, translatorsLogin, logout } from '#src/auth.js';
 
 // engines
 // const gameData = require('./src/gamedata.js');
@@ -69,39 +69,40 @@ app.use('/iconics', express.static('../../assets/iconics/small'));
 log("server", "Logos dir:", resolve('../../assets/logos'));
 app.use('/logos', express.static('../../assets/logos'));
 
-function renderLogin(req, res, lang) {
-  auth.setup();
-  var no_login = !!url.parse(req.url, true).query.no_login;
-  var patreon_login_url = auth.patreonLoginURL();
-  var translators_login_url = auth.translatorsLoginURL();
+// function renderLogin(req, res, lang) {
+//   var no_login = !!url.parse(req.url, true).query.no_login;
+//   var patreon_login_url = patreonLoginURL();
+//   var translators_login_url = translatorsLoginURL();
 
-  return res.render('login', {
-    title: 'Login - Dyslexic Character Sheets',
-    lang: lang,
-    translators_login_url: translators_login_url,
-    patreon_login_url: patreon_login_url,
-    allow_just_login: auth.allowJustLogin,
-    scriptFile: "charsheets.js",
-    no_login: no_login,
-    isLoggedIn: auth.isLoggedIn(req),
-  });
-}
+//   return res.render('login', {
+//     title: 'Login - Dyslexic Character Sheets',
+//     lang: lang,
+//     translators_login_url: translators_login_url,
+//     patreon_login_url: patreon_login_url,
+//     allow_just_login: allowJustLogin,
+//     scriptFile: "charsheets.js",
+//     no_login: no_login,
+//     isLoggedIn: isLoggedIn(req),
+//   });
+// }
 
-app.get('/auth/patreon-redirect', auth.patreonRedirect);
+app.get('/auth/check', checkAuth);
+
+app.get('/auth/patreon-redirect', patreonRedirect);
 
 // app.get('/auth/login', (req, res) => renderLogin(req, res, 'en'));
 
-app.get('/auth/translators-login', auth.translatorsLogin);
-app.get('/auth/token-login', auth.tokenLogin);
+app.get('/auth/translators-login', translatorsLogin);
+app.get('/auth/token-login', tokenLogin);
 
-app.get('/auth/logout', (req, res) => auth.logout(res));
+app.get('/auth/logout', logout);
 
-var loginGuard = function (req, res, lang, fn) {
-  if (conf('require_login') && !auth.isLoggedIn(req)) {
-    return renderLogin(req, res, lang);
-  }
-  return fn();
-};
+// var loginGuard = function (req, res, lang, fn) {
+//   if (conf('require_login') && !isLoggedIn(req)) {
+//     return renderLogin(req, res, lang);
+//   }
+//   return fn();
+// };
 
 app.post('/message', (req, res) => {
   message.sendMessage(req, res);
@@ -109,13 +110,14 @@ app.post('/message', (req, res) => {
 
 
 // go!
-app.post('/download/pathfinder2', upload.any(), (req, res) => pathfinder2render(req, res, 'en'));
+app.post('/download/pathfinder2', upload.any(), (req, res) => pathfinder2render(req, res));
 
 app.post('/download/pathfinder1', upload.any(), (req, res) => renderPathfinder1(req, res));
 app.post('/download/starfinder1', upload.any(), (req, res) => renderStarfinder1(req, res));
 app.post('/download/dnd35', upload.any(), (req, res) => renderDnD35(req, res));
 
 onConfigLoaded(() => {
+  setupAuth(conf);
   pathfinder2init();
   setTimeout(() => {
     var listen_port = conf('listen_port');

@@ -12,6 +12,7 @@ import puppeteer from 'puppeteer';
 import { log, warn, error } from '#src/log.js';
 import { conf } from '#src/conf.js';
 import { applyTranslation } from '#src/i18n.js';
+import { isLoggedIn } from '#src/auth.js';
 // const formdata = require('../../../lib-charactersheets/src/make/formdata');
 var browser;
 
@@ -510,9 +511,10 @@ export function pathfinder2formData(data, lang) {
     return data;
 }
 
-export function pathfinder2render(req, res, lang) {
+export function pathfinder2render(req, res) {
     log("pathfinder2", "Pathfinder 2e Character");
     var data = req.body;
+    data.data.isLoggedIn = isLoggedIn(req);
 
     // console.log("[pathfinder2]   Request", data);
 
