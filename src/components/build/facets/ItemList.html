@@ -20,6 +20,7 @@ function updateItemList(list, searchParams) {
     let meta = btn.dataset;
     let visible = itemMatchesSearchParams(meta, searchParams);
     btn.classList.toggle('btn--hidden', !visible);
+    console.log("Toggled", btn.classList.contains('btn--hidden'));
   }
   // hide groups with no visible results
   for (let grp of list.querySelectorAll('.item-list__group')) {

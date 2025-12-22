@@ -7,7 +7,6 @@ import dyslexicCharacterSheets from 'dyslexic-charactersheets';
 import { has, slugify, log, warn, error } from './util.js';
 import { languages, translate, de_i18n } from './i18n.js';
 import { createSearchIndex } from './search.js';
-import { assert } from 'console';
 
 // Combine multiple lib-based games
 export function combineGames(games) {
@@ -32,6 +31,7 @@ export function combineGames(games) {
       selectKeys.add(key);
     }
   }
+
   let selects = {};
   for (let selectKey of selectKeys) {
     // get the various copies of this select
@@ -47,7 +47,6 @@ export function combineGames(games) {
     }
 
     let select = combineSelect(selectKey, selectCopies);
-    // console.log(select);
     selects[selectKey] = select;
   }
 
@@ -61,8 +60,6 @@ export function combineGames(games) {
     }
   }
 
-  // console.log("COMBINED");
-  // console.log(combo);
   return combo;
 }
 
@@ -215,12 +212,16 @@ export function loadGame(game) {
         ...subarchetypes,
       ]);
 
+
       // put them together
       let gamedata = {
         edition: data.edition,
         selects: {...coreSelects, ...heritageSelects, ...moreSelects}
       };
       let selectKeys = Object.keys(gamedata.selects);
+
+      // console.log("Select keys:", selectKeys);
+      // console.log("Rogue rackets", gamedata.selects['rogue/racket']);
 
       // embed subselects
       for (let selectKey of selectKeys) {
@@ -248,6 +249,8 @@ export function loadGame(game) {
       for (let selectKey of selectKeys) {
         prepareSelectMetadata(gamedata.selects[selectKey]);
       }
+      
+      // console.log("Rogue rackets", gamedata.selects['rogue/racket']);
 
       // note other information
       gamedata.meta = {

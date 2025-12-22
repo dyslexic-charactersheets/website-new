@@ -110,16 +110,23 @@
 {{/each}}
 {{> Pathfinder2BackgroundMenu }}
 {{> Pathfinder2ClassMenu }}
-{{#each pathfinder2.selects.class.values}}
-  {{#each subselects}}
+{{#each pathfinder2.meta.subclasses}}
+  {{#each (array (lookup ../pathfinder2.selects this))}}
     {{#when max 'gt' 1}}
-      {{> Pathfinder2SubclassOptionsMenu key=select select=this}}
+      {{> Pathfinder2SubclassOptionsMenu
+        key=select
+        select=(lookup ../../pathfinder2.selects this.select)
+      }}
     {{/when}}
     {{#when max 'eq' 1}}
-      {{> Pathfinder2SubclassMenu key=select select=this}}
+      {{> Pathfinder2SubclassMenu 
+        key=select 
+        select=(lookup ../../pathfinder2.selects this.select)
+      }}
     {{/when}}
   {{/each}}
 {{/each}}
+
 {{> Pathfinder2ArchetypeMenu title="Multiclass" key="multiclass" select=pathfinder2.selects.multiclass}}
 {{> Pathfinder2ArchetypeMenu title="Archetype" key="archetype" select=pathfinder2.selects.archetype}}
 

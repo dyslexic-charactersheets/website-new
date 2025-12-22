@@ -42,6 +42,8 @@ export function loadReady() {
     ]) => {
       let pathfinder2 = combineGames([pf2data, pf2Rdata]);
 
+      // console.log("FINAL Rogue's Racket", pathfinder2.selects['rogue/racket']);
+
       return {
         pathfinder2,
         pathfinder1: pf1data,
