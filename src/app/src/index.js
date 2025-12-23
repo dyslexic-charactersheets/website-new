@@ -20,34 +20,23 @@ import { log } from '#src/log.js';
 
 // my own data
 import { conf, onConfigLoaded } from '#src/conf.js';
-// const message = require('./src/message')(conf);
 import { renderDnD35, renderPathfinder1, renderStarfinder1 } from '#src/recomposer/recomposer.js';
 
 // login
 import { setupAuth, checkAuth, patreonRedirect, tokenLogin, translatorsLogin, logout } from '#src/auth.js';
 
 // engines
-// const gameData = require('./src/gamedata.js');
-// const iconicData = require('./src/iconicdata');
 import { pathfinder2init, pathfinder2formData, pathfinder2render } from '#src/pathfinder2-server.js';
 
 const app = express();
 app.use(cookieParser());
-// app.use(express.urlencoded({ limit: '100mb', extended: true }));
-// app.use(express.text({ limit: '100mb', type: '*/*' }));
 
 app.use(express.json({ limit: '100mb' }));
-
-// app.use(bodyParser.text({type: '*/*'}));
-// app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
-// app.use(bodyParser.formData());
-// app.use(express.json({ type: 'application/json' }));
 
 let upload = multer({
   // allow post/upload up to 100MB
   limits: { fieldSize: 100 * 1024 * 1024 }
 });
-// app.use(bodyParser());
 
 
 // === Endpoints ===
@@ -69,53 +58,28 @@ app.use('/iconics', express.static('../../assets/iconics/small'));
 log("server", "Logos dir:", resolve('../../assets/logos'));
 app.use('/logos', express.static('../../assets/logos'));
 
-// function renderLogin(req, res, lang) {
-//   var no_login = !!url.parse(req.url, true).query.no_login;
-//   var patreon_login_url = patreonLoginURL();
-//   var translators_login_url = translatorsLoginURL();
-
-//   return res.render('login', {
-//     title: 'Login - Dyslexic Character Sheets',
-//     lang: lang,
-//     translators_login_url: translators_login_url,
-//     patreon_login_url: patreon_login_url,
-//     allow_just_login: allowJustLogin,
-//     scriptFile: "charsheets.js",
-//     no_login: no_login,
-//     isLoggedIn: isLoggedIn(req),
-//   });
-// }
-
 app.get('/auth/check', checkAuth);
 
 app.get('/auth/patreon-redirect', patreonRedirect);
-
-// app.get('/auth/login', (req, res) => renderLogin(req, res, 'en'));
 
 app.get('/auth/translators-login', translatorsLogin);
 app.get('/auth/token-login', tokenLogin);
 
 app.get('/auth/logout', logout);
 
-// var loginGuard = function (req, res, lang, fn) {
-//   if (conf('require_login') && !isLoggedIn(req)) {
-//     return renderLogin(req, res, lang);
-//   }
-//   return fn();
-// };
-
 app.post('/message', (req, res) => {
   message.sendMessage(req, res);
 });
 
 
-// go!
+// build
 app.post('/download/pathfinder2', upload.any(), (req, res) => pathfinder2render(req, res));
-
+// app.post('/download/starfinder2', upload.any(), (req, res) => pathfinder2render(req, res));
 app.post('/download/pathfinder1', upload.any(), (req, res) => renderPathfinder1(req, res));
 app.post('/download/starfinder1', upload.any(), (req, res) => renderStarfinder1(req, res));
 app.post('/download/dnd35', upload.any(), (req, res) => renderDnD35(req, res));
 
+// go!
 onConfigLoaded(() => {
   setupAuth(conf);
   pathfinder2init();

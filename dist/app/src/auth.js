@@ -5,7 +5,7 @@
 
 import crypto from 'crypto';
 
-import { setupPatreonAuth, patreonRedirect } from '#src/auth_patreon_api.js';
+import { setupPatreonAuth, patreonRedirect, patreonLoginURL } from '#src/auth_patreon_api.js';
 import { setupTranslatorsAuth, translatorsLogin } from '#src/auth_translators.js';
 import { setupTokenAuth, tokenLogin } from '#src/auth_token.js';
 import e from 'express';
@@ -66,11 +66,13 @@ export function isLoggedIn(req) {
 }
 
 export function checkAuth(req, res) {
-    if (isLoggedIn(req)) {
-        res.send('YES');
-    } else {
-        res.send('NO');
+    let result = {
+        isLoggedIn: isLoggedIn(req),
+        patreonLoginURL: patreonLoginURL()
     }
+    
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(result));
 }
 
 export function setLogin(res, redirect = false) {

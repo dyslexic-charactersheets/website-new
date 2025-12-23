@@ -140,23 +140,26 @@ function checkSignature(message, signature, salt) {
     return signature == signature2;
 }
 
-async function initIsLoggedIn() {
+async function initLogin() {
   body.dataset.loggedIn = false;
-
   let response = await fetch('/auth/check');
   if (!response.ok) {
     return;
   }
 
-  let msg = await response.text();
-  if (msg == "YES") {
+  let msg = await response.json();
+  if (msg.isLoggedIn) {
     authLogger.warn("Logged in!");
     body.dataset.isLoggedIn = true;
+  }
+
+  for (let loginLink of document.getElementsByClassName('auth-login-link')) {
+    loginLink.href = msg.patreonLoginURL;
   }
 }
 
 // async init
-setTimeout(initIsLoggedIn, 1);
+setTimeout(initLogin, 1);
 
 function isLoggedIn() {
   return bool(body.dataset.loggedIn);

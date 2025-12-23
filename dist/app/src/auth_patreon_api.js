@@ -10,29 +10,28 @@ import patreon from 'patreon';
 import { setLogin, failLogin } from '#src/auth.js';
 // import { response } from 'express';
 
-let auth;
-let patreonCampaignID;
+// let patreonCampaignID;
 let patreonOAuthClient;
 
 let loginURL = "";
 let redirectURL = "";
 
-function getCurrentUser(api) {
-    return new Promise((resolve, reject) => {
-        api('/current_user')
-            .then(({store}) => {
-                var users = store.findAll('user');
-                if (users.length == 0) {
-                    resolve(null);
-                    return;
-                }
-                resolve(users[0]);
-            })
-            .catch((err) => {
-                resolve(null);
-            });
-    });
-}
+// function getCurrentUser(api) {
+//     return new Promise((resolve, reject) => {
+//         api('/current_user')
+//             .then(({store}) => {
+//                 var users = store.findAll('user');
+//                 if (users.length == 0) {
+//                     resolve(null);
+//                     return;
+//                 }
+//                 resolve(users[0]);
+//             })
+//             .catch((err) => {
+//                 resolve(null);
+//             });
+//     });
+// }
 
 function getCurrentPledge(api) {
     let fields = 'fields[memberships]=status,currently_entitled_amount_cents';
@@ -49,18 +48,18 @@ function getCurrentPledge(api) {
     });
 }
 
-function getCampaignPledges(api) {
-    return new Promise((resolve, reject) => {
-        api(`/campaigns/${patreonCampaignID}/members`)
-            .then(({store}) => {
-                var pledges = store.findAll('pledge');
-                resolve(pledges);
-            })
-            .catch((err) => {
-                reject(err);
-            });
-    });
-}
+// function getCampaignPledges(api) {
+//     return new Promise((resolve, reject) => {
+//         api(`/campaigns/${patreonCampaignID}/members`)
+//             .then(({store}) => {
+//                 var pledges = store.findAll('pledge');
+//                 resolve(pledges);
+//             })
+//             .catch((err) => {
+//                 reject(err);
+//             });
+//     });
+// }
 
 function getAPI(oauthGrantCode) {
     return new Promise((resolve, reject) => {
@@ -84,7 +83,7 @@ export function patreonRedirectURL() {
 }
     
 export function setupPatreonAuth (conf) {
-  patreonCampaignID = conf('patreon_v1_campaign_id');
+  // patreonCampaignID = conf('patreon_v1_campaign_id');
   var client_id = conf('patreon_v1_client_id');
   var client_secret = conf('patreon_v1_client_secret');
   // var creator_access_token = conf('patreon_v1_creator_access_token');
@@ -93,7 +92,10 @@ export function setupPatreonAuth (conf) {
   // console.log("[patreon]       Patreon OAuth Client", patreonOAuthClient);
   
   redirectURL = conf('url')+'auth/patreon-redirect';
-  loginURL = `https://www.patreon.com/oauth2/authorize?response_type=code&client_id=${encodeURIComponent(client_id)}&redirect_uri=${encodeURIComponent(patreonRedirectURL)}`;
+  // redirectURL = '%URL%/auth/patreon-redirect';
+  console.log("[patreon]       Patreon redirect URL:    ", redirectURL);
+  loginURL = `https://www.patreon.com/oauth2/authorize?response_type=code&client_id=${encodeURIComponent(client_id)}&redirect_uri=${encodeURIComponent(redirectURL)}`;
+  console.log("[patreon]       Patreon login URL:       ", loginURL);
 }
 
 export function patreonRedirect (req, res) {
