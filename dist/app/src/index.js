@@ -6,13 +6,11 @@
  */
 
 
-import url from 'url';
 import { resolve } from 'path';
 import 'colors';
 
 // set up the http engine
 import express from 'express';
-import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import multer from 'multer';
 
@@ -26,7 +24,7 @@ import { renderDnD35, renderPathfinder1, renderStarfinder1 } from '#src/recompos
 import { setupAuth, checkAuth, patreonRedirect, tokenLogin, translatorsLogin, logout } from '#src/auth.js';
 
 // engines
-import { pathfinder2init, pathfinder2formData, pathfinder2render } from '#src/pathfinder2-server.js';
+import { pathfinder2init, pathfinder2render } from '#src/pathfinder2-server.js';
 
 const app = express();
 app.use(cookieParser());
@@ -79,7 +77,9 @@ app.post('/download/pathfinder1', upload.any(), (req, res) => renderPathfinder1(
 app.post('/download/starfinder1', upload.any(), (req, res) => renderStarfinder1(req, res));
 app.post('/download/dnd35', upload.any(), (req, res) => renderDnD35(req, res));
 
-// go!
+
+// === Run Server ===
+
 onConfigLoaded(() => {
   setupAuth(conf);
   pathfinder2init();

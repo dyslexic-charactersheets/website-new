@@ -8,6 +8,7 @@ import crypto from 'crypto';
 import moment from 'moment';
 
 import { setLogin, failLogin } from '#src/auth.js';
+import { log, error } from '#src/log.js';
 
 const dateFormat = 'YYYY-MM';
 
@@ -30,7 +31,7 @@ function updateTimedTokens() {
             hash.update(d);
             let token = hash.digest('hex').substring(0, 32);
 
-            console.log(`[token]         Timed token (${i}):`, token);
+            log("token", `Timed token (${i}):`, token);
             tt.push(token);
         }
         timedTokens = tt;
@@ -41,14 +42,14 @@ export function setupTokenAuth(conf) {
     loginTokens = conf('login_tokens');
     loginTokens.forEach(token => {
         let url = conf('url')+'auth/token-login?token='+token;
-        console.log("[token]         Token login URL:        ", url);
+        log("token", "Token login URL:        ", url);
     });
-    console.log("[token]         Tokens:", loginTokens);
+    // log("token", "Tokens:", loginTokens);
 
     timedTokenBase = conf('timed_token_base');
     updateTimedTokens();
     let url = conf('url')+'auth/token-login?token='+timedTokens[2];
-    console.log("[token]         Timed token login URL:  ", url);
+    log("token", "Timed token login URL:  ", url);
 }
 
 export function getTimedLoginToken() {
@@ -56,14 +57,14 @@ export function getTimedLoginToken() {
 }
 
 export function tokenLogin(req, res) {
-    console.log("[token]         Login");
+    log("token", "Login");
     try {
         let token = req.query.token;
-        console.log("[token]         Token =", token);
+        log("token", "Token =", token);
 
         // static tokens
         if (loginTokens.indexOf(token) != -1) {
-            console.log("[token]         Login now");
+            log("token", "Static token OK! Login now");
             setLogin(res, true);
             return;
         }
@@ -71,7 +72,7 @@ export function tokenLogin(req, res) {
         // timed tokens
         updateTimedTokens();
         if (timedTokens.indexOf(token) != -1) {
-            console.log("[token]         Login now");
+            log("token", "Timed token OK! Login now");
             setLogin(res, true);
             return;
         }
@@ -79,7 +80,7 @@ export function tokenLogin(req, res) {
         // Nope.
         failLogin(res, true);
     } catch (e) {
-        console.log("[token]         Error:", e);
+        error("token", "Error:", e);
         failLogin(res, true);
     }
 }

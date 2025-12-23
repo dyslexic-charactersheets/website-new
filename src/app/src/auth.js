@@ -8,7 +8,7 @@ import crypto from 'crypto';
 import { setupPatreonAuth, patreonRedirect, patreonLoginURL } from '#src/auth_patreon_api.js';
 import { setupTranslatorsAuth, translatorsLogin } from '#src/auth_translators.js';
 import { setupTokenAuth, tokenLogin } from '#src/auth_token.js';
-import e from 'express';
+import { log, error } from '#src/log.js';
 
 // general
 let conf;
@@ -19,14 +19,13 @@ let allowJustLogin = false;
 
 export function setupAuth(c) {
     conf = c;
-    console.log("[auth]          Auth");
     if (baseURL) {
-        console.log("[auth]          Auth already setup:  ", baseURL);
+        log("auth", "Auth already setup:  ", baseURL);
         return;
     }
     baseURL = conf('url');
     
-    console.log("[auth]          Base URL:  ", baseURL);
+    log("auth", "Base URL:  ", baseURL);
     sessionKey = conf('session_key');
     allowJustLogin = conf('allow_just_login');
 
@@ -43,14 +42,14 @@ function checkSignature(message, signature, salt) {
     hash.update(salt);
     let expectSignature = hash.digest('hex').toString();
 
-    console.log("[auth]          check signature:", signature, "==", expectSignature);
+    log("auth", "Check signature:", signature, "==", expectSignature);
     return signature == expectSignature;
 }
 
 export function isLoggedIn(req) {
     try {
-        console.log("[auth]          isLoggedIn: cookie =", req.cookies);
-        if (req.cookies.hasOwnProperty('login')) {
+        log("auth", "isLoggedIn: cookie =", req.cookies);
+        if (req.cookies != null && req.cookies.hasOwnProperty('login')) {
             let cookieParts = req.cookies.login.split(/:/);
             let loginToken = cookieParts[0];
             let signature = cookieParts[1];

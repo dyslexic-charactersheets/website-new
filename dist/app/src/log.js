@@ -23,7 +23,6 @@ export function error(area, message, ...args) {
 }
 
 export function trace(registry, area, message, ...args) {
-  // log("log", "Registry", registry);
   const prefix = `[${area}] `.padEnd(INDENT).yellow;
   const trace = JSON.stringify(registry.stack, function (key, value) {
     if (value === undefined) {

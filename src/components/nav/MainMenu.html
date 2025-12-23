@@ -17,9 +17,9 @@
           <li>
             <a class="btn btn--light" href="/{{lang}}/">{{__ "Home"}}</a>
           </li>
-          <li>
+          <!-- <li>
             <a class="btn btn--light" href="/{{lang}}/tour.html">{{__ "Tour"}}</a>
-          </li>
+          </li> -->
           <li>
             <a class="btn btn--light" href="/{{lang}}/news.html">{{__ "News"}}</a>
           </li>
@@ -37,6 +37,9 @@
           <li>
             {{#> Button href="https://www.facebook.com/groups/dyslexiccharactersheets" type="light" cls="btn--bgicon button-facebook"}}{{__ "Facebook"}}{{/Button}}
           </li>
+          <li>
+            {{#> Button href="https://www.reddit.com/r/dyslexic_charsheets/" type="light" cls="btn--bgicon button-reddit"}}{{__ "Reddit"}}{{/Button}}
+          </li>
         </ul>
         <ul>
           <li>
@@ -47,10 +50,16 @@
         <h3>{{__ "Build a character"}}</h3>
         <ul>
           <li>
-            <a class="btn btn--light" href="/{{lang}}/build-pathfinder2.html">{{__ "Pathfinder 2e"}}</a>
+            <a class="btn btn--light" href="/{{lang}}/build-pathfinder2.html?edition=pathfinder2">{{__ "Pathfinder 2e (Legacy)"}}</a>
           </li>
           <li>
-            <a class="btn btn--light" href="/{{lang}}/build-starfinder.html">{{__ "Starfinder"}}</a>
+            <a class="btn btn--light" href="/{{lang}}/build-pathfinder2.html?edition=pathfinder2remaster">{{__ "Pathfinder 2e (Remaster)"}}</a>
+          </li>
+        </ul>
+
+        <ul>
+          <li>
+            <a class="btn btn--light" href="/{{lang}}/build-starfinder.html">{{__ "Starfinder 1e"}}</a>
           </li>
           <li>
             <a class="btn btn--light" href="/{{lang}}/build-pathfinder1.html">{{__ "Pathfinder 1e"}}</a>

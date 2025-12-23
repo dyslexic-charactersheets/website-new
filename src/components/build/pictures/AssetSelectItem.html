@@ -17,7 +17,7 @@
     data=(item
       name=item.name
       path=(str "${imgpath}" path=item.shortpath)
-      src=(str "/${folder}/${imgpath}" path=item.shortpath folder=folder)
+      src=(str "/${folder}/${path}.png" path=item.shortpath folder=folder)
       meta=(de_i18n item.meta)
     )
   }}
