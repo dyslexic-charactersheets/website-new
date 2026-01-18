@@ -96,9 +96,9 @@ CharacterSheets.on('request', function (request) {
   var data = Object.assign({ date: isoDate, ts: ts }, cloneDeep(request));
 
   // truncate embedded data like images
-  if (data.request.hasOwnProperty("included")) {
+  if (has(data.request, "included")) {
     data.request.included.forEach(inc => {
-      if (inc.type == "image" && inc.hasOwnProperty("attributes") && inc.attributes.hasOwnProperty("data")) {
+      if (inc.type == "image" && has(inc, "attributes") && has(inc.attributes, "data")) {
         inc.attributes.data = "...";
       }
     });
@@ -514,7 +514,7 @@ export function pathfinder2render(req, res) {
         return;
       }
 
-      let pdf = data.hasOwnProperty("data") && data.data.hasOwnProperty("attributes") && data.data.attributes.hasOwnProperty("downloadPDF") && data.data.attributes.downloadPDF;
+      let pdf = has(data, "data") && has(data.data, "attributes") && has(data.data.attributes, "downloadPDF") && data.data.attributes.downloadPDF;
       if (chromePDF && pdf) {
         var paperSize = data.data.attributes.downloadPaperSize;
         (async () => {

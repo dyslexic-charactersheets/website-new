@@ -87,7 +87,7 @@ readdir(i18ndir, (err, files) => {
                 }
 
                 var lang = file.replace(/.po$/, '');
-                if (!translations.hasOwnProperty(lang))
+                if (!has(translations, lang))
                     translations[lang] = {};
 
                 translations[lang] = parsePO(data);
@@ -103,9 +103,9 @@ readdir(i18ndir, (err, files) => {
 export function translateFixed(str, lang) {
     // console.log(`[i18n]          Translate: "${str}" (${lang})`);
     // console.log(`[i18n]          Known languages: ${_.keys(translations).join(", ")}`);
-    if (translations.hasOwnProperty(lang)) {
+    if (has(translations, lang)) {
         // console.log(`[i18n]          - ${_.size(translations[lang])} translations`);
-        if (translations[lang].hasOwnProperty(str)) {
+        if (has(translations[lang], str)) {
             // console.log(`[i18n]          - Translation: "${translations[lang][str]}"`);
             return translations[lang][str];
         }

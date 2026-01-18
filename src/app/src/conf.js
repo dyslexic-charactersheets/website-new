@@ -8,6 +8,7 @@ import { resolve } from 'path';
 import yaml from 'js-yaml';
 
 import { log } from '#src/log.js';
+import { has } from '#src/util.js';
 
 // config
 // load config from a YAML file
@@ -26,8 +27,9 @@ let confLoadPromise = new Promise((promiseResolve, promiseReject) => {
 });
 
 export function conf(key) {
-	if (config.hasOwnProperty(key))
+	if (has(config, key)) {
 		return config[key];
+  }
 	return null;
 }
 

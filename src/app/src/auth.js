@@ -9,6 +9,7 @@ import { setupPatreonAuth, patreonRedirect, patreonLoginURL } from '#src/auth_pa
 import { setupTranslatorsAuth, translatorsLogin } from '#src/auth_translators.js';
 import { setupTokenAuth, tokenLogin } from '#src/auth_token.js';
 import { log, error } from '#src/log.js';
+import { has } from '#src/util.js';
 
 // general
 let conf;
@@ -49,7 +50,7 @@ function checkSignature(message, signature, salt) {
 export function isLoggedIn(req) {
     try {
         log("auth", "isLoggedIn: cookie =", req.cookies);
-        if (req.cookies != null && req.cookies.hasOwnProperty('login')) {
+        if (has(req.cookies, 'login')) {
             let cookieParts = req.cookies.login.split(/:/);
             let loginToken = cookieParts[0];
             let signature = cookieParts[1];

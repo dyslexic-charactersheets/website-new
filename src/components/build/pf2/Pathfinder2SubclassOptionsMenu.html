@@ -22,17 +22,25 @@
 
       {{#> ScrollPane}}
         {{#> CentrePane}}
-          {{#each select.values}}
-            <p><label for="subclass--{{kebabCase ../select}}--{{code}}">
-              <input type="checkbox" 
-                id="subclass--{{kebabCase ../select}}--{{code}}"
-                data-select="{{../select}}"
-                data-value="{{id}}"
-                autocomplete="off"
-              >
-              {{__ name}}
-            </label></p>
-          {{/each}}
+          {{#> ItemList id=(str "${id}-items" id=id) show=../show}}
+            {{{dump select}}}
+            {{#each select.displayGroups}}
+              <h3>{{__ group "Display Group"}}</h3>
+              <div class="item-list__group">
+                {{#each values}}
+                  <label for="class-option--{{kebabCase ../../select.select}}--{{kebabCase group}}--{{code}}" class="btn--tile-light">
+                    <input type="checkbox" 
+                      id="class-option--{{kebabCase ../../select.select}}--{{kebabCase group}}--{{code}}"
+                      data-select="{{../../select.select}}"
+                      data-value="{{id}}"
+                      autocomplete="off"
+                    >
+                    {{__ name}}
+                  </label>
+                {{/each}}
+              </div>
+            {{/each}}
+          {{/ItemList}}
         {{/CentrePane}}
       {{/ScrollPane}}
     {{/Pane}}

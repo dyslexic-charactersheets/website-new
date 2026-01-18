@@ -3988,13 +3988,6 @@ dl dd + dt {
 .btn--tile-light {
   min-width: 11rem;
   position: relative;
-  /* &[data-select=class] {
-    picture {
-      img {
-        height: 6rem;
-      }
-    }
-  } */
 }
 
 .btn--tile-light picture img {
