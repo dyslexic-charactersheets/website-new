@@ -382,6 +382,8 @@ function respondToVisibility(element, callback) {
  * Licensed under the Artistic License 2.0
  */
 
+// import { isEmpty } from "#src/util.js";
+
 // watch an element's attribute for changes
 function watch(target, attribute, handler) {
   let observer = new MutationObserver(function (mutations) {
@@ -454,7 +456,7 @@ function applyPipes(value, pipes) {
     if (isString(value)) {
       value = value.split(';');
     }
-    return value.map((item) => applyPipes(item, pipes)).join(", ");
+    return value.map((item) => applyPipes(item, pipes)).filter((r) => !isEmpty(r)).join(", ");
   }
 
   for (let pipe of pipes) {
@@ -2135,18 +2137,96 @@ function searchWords(str) {
   console.log("Error in ItemFacetSearchTools", e)
 }
 try {
+on('.item-list__suggestion--edition_pathfinder2', 'click', (evt) => {
+  let facet = evt.target.closest('.menu').querySelector('.facet-search-tools').querySelector('.facet-edition');
+  set(facet, 'value', 'pathfinder2');
+});
+
+on('.item-list__suggestion--edition_pathfinder2remaster', 'click', (evt) => {
+  let facet = evt.target.closest('.menu').querySelector('.facet-search-tools').querySelector('.facet-edition');
+  set(facet, 'value', 'pathfinder2remaster');
+});
+
+on('.item-list__suggestion--edition_starfinder', 'click', (evt) => {
+  let facet = evt.target.closest('.menu').querySelector('.facet-search-tools').querySelector('.facet-edition');
+  set(facet, 'value', 'starfinder');
+});
+
+on('.item-list__suggestion--source', 'click', (evt) => {
+  let facet = evt.target.closest('.menu').querySelector('.facet-search-tools').querySelector('.facet-source');
+  set(facet, 'value', '');
+});
+
+on('.item-list__suggestion--rarity', 'click', (evt) => {
+  let facet = evt.target.closest('.menu').querySelector('.facet-search-tools').querySelector('.facet-rarity');
+  set(facet, 'value', '');
+});
+
+on('.item-list__suggestion--ancestry', 'click', (evt) => {
+  let tab = evt.target.closest('.menu').querySelector('.tab-bar__tab[data-tab="ancestry"]');
+  emit(tab, 'click');
+});
+
+on('.item-list__suggestion--versatile', 'click', (evt) => {
+  let tab = evt.target.closest('.menu').querySelector('.tab-bar__tab[data-tab="versatile"]');
+  emit(tab, 'click');
+});
+  
 function updateItemList(list, searchParams) {
   if (list === null) {
     return;
   }
+
+  // zoom in on actual selected list
+  let tabRegion = list.closest('.form-select-menu').querySelector('.tab-region');
+  if (tabRegion !== null) {
+    let tabPane = list.closest('.form-select-menu').querySelector('.header-row .tab-bar');
+    let currentTabCode = tabPane.dataset.current;
+    let regionId = tabRegion.dataset.regionid;
+
+    let newList = tabRegion.querySelector(`.tab-region__tab-pane[data-code="${currentTabCode}"] .item-list`);
+    if (newList !== null) {
+      list = newList;
+    }
+  }
+
   // hide buttons that don't match the query params
+  let mismatch = [];
   for (let btn of list.querySelectorAll('.btn')) {
     let meta = btn.dataset;
-    let visible = itemMatchesSearchParams(meta, searchParams);
-    btn.classList.toggle('btn--hidden', !visible);
+    let cmp = compareToSearchParams(btn.dataset, searchParams);
+    if (cmp.close) {
+      mismatch = mismatch.concat(cmp.mismatch);
+    }
+    btn.classList.toggle('btn--hidden', !cmp.match);
     console.log("Toggled", btn.classList.contains('btn--hidden'));
   }
+
+  // check adjacent tabs for links
+  if (tabRegion !== null) {
+    let tabPane = list.closest('.form-select-menu').querySelector('.header-row .tab-bar');
+    let currentTabCode = tabPane.dataset.current;
+    let regionId = tabRegion.dataset.regionid;
+
+    TABS:
+    for (let tab of tabRegion.querySelectorAll('.tab-region__tab-pane')) {
+      let tabCode = tab.dataset.code;
+      if (tabCode == currentTabCode) {
+        continue;
+      }
+
+      for (let btn of tab.querySelectorAll('.btn')) {
+        let cmp = compareToSearchParams(btn.dataset, searchParams);
+        if (cmp.match) {
+          mismatch.push(tabCode);
+          continue TABS;
+        }
+      }
+    }
+  }
+
   // hide groups with no visible results
+  let searchFound = false;
   for (let grp of list.querySelectorAll('.item-list__group')) {
     let hasAny = false;
     for (let btn of grp.querySelectorAll('.btn')) {
@@ -2156,34 +2236,59 @@ function updateItemList(list, searchParams) {
     }
     grp.classList.toggle('item-list__group--hidden', !hasAny);
     grp.previousElementSibling.classList.toggle('h3--hidden', !hasAny);
+    searchFound = searchFound || hasAny;
+  }
+
+  // nothing found? prompt for where to find it
+  if (!searchFound) {
+    list.querySelector('.item-list__no-results').classList.add('show');
+    console.log("Mismatch", mismatch);
+    for (let suggestion of list.querySelectorAll('.item-list__suggestion')) {
+      suggestion.classList.remove('show');
+    }
+    for (let suggestion of mismatch) {
+      list.querySelector('.item-list__suggestion--'+mismatch).classList.add('show');
+    }
+  } else {
+    list.querySelector('.item-list__no-results').classList.remove('show');
   }
 }
 
-function itemMatchesSearchParams(item, params) {
+function compareToSearchParams(item, params) {
+  let match = true;
+  let close = true;
+  let mismatch = [];
+
   if ('edition' in params && params.edition != "" && params.edition != "all" && 'edition' in item && item.edition != params.edition) {
-    return false;
+    mismatch.push('edition_'+item.edition);
   }
 
   if ('source' in params && params.source != "" && 'source' in item && item.source != params.source) {
-    return false;
+    mismatch.push('source');
   }
 
   if ('rarity' in params && params.rarity != "" && 'rarity' in item && item.rarity != params.rarity) {
-    return false;
+    mismatch.push('rarity');
   }
-
-  if ('search' in params && 'name' in item) {
-    if (params.search.length > 0) {
-      let content = item.name.toLowerCase();
-      for (let word of params.search) {
-        if (content.match(word)) {
-          return true;
-        }
+  
+  let found = 0;
+  if ('search' in params && 'name' in item && params.search.length > 0) {
+    let content = item.name.toLowerCase();
+    for (let word of params.search) {
+      if (content.match(word)) {
+        found++;
+        continue;
       }
-      return false;
+    }
+    if (found == 0) {
+      match = false;
+      close = false;
     }
   }
-  return true;
+
+  match = match && mismatch.length == 0;
+  close = close && !match && mismatch.length <= 2;
+  return {match, close, mismatch, found};
 }
 } catch (e) { 
   console.log("Error in ItemList", e)

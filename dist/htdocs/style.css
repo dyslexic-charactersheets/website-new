@@ -4038,6 +4038,43 @@ input[type=search] {
   background-repeat: no-repeat;
 }
 
+/**
+ * Copyright 2025 Marcus Downing
+ * Licensed under the Artistic License 2.0
+ */
+.dark-region {
+  color: white;
+  text-shadow: 0 0.5px 1px black;
+}
+
+.dark-region h3, .dark-region nav.nav--menu h3, .dark-region h4 {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-region a, .dark-region a:active, .dark-region a:visited, .dark-region button, .dark-region button:active, .dark-region button:visited, .dark-region .btn, .dark-region .btn:active, .dark-region .btn:visited, .dark-region .btn.btn--light, .dark-region .btn.btn--light:active, .dark-region .btn.btn--light:visited, .dark-region .btn.btn--selected, .dark-region .btn.btn--selected:active, .dark-region .btn.btn--selected:visited, .dark-region .btn.btn--min, .dark-region .btn.btn--min:active, .dark-region .btn.btn--min:visited, .dark-region .badge, .dark-region .badge:active, .dark-region .badge:visited {
+  color: white;
+}
+
+.dark-region .btn.btn--light {
+  border-color: white;
+  background-color: transparent;
+}
+
+.dark-region a.btn--selected, .dark-region button.btn--selected, .dark-region .btn.btn--selected, .dark-region .badge.btn--selected {
+  background: white;
+  color: #1030a0;
+}
+
+.dark-region .badge {
+  color: white;
+  border-color: white;
+}
+
+.light-region {
+  color: black;
+  text-shadow: 0 0 0.5px white;
+}
+
 .item-list .item-list__group {
   display: flex;
   flex-direction: row;
@@ -4054,6 +4091,25 @@ input[type=search] {
 
 .item-list h3.h3--hidden {
   display: none !important;
+}
+
+.item-list .item-list__no-results {
+  display: none;
+}
+
+.item-list .item-list__no-results.show {
+  display: block;
+}
+
+.item-list .item-list__suggestion {
+  display: none;
+}
+
+.item-list .item-list__suggestion.show {
+  display: block;
+  color: #1030a0;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .build-form .large-print label {
@@ -8964,6 +9020,10 @@ dl dd + dt {
   border-bottom: 2px solid #80101b;
 }
 
+.header-row > .tab-bar:last-child {
+  margin-bottom: -6px;
+}
+
 button.tab-bar__tab {
   background: none;
   border-width: 0.3rem 0;
@@ -8975,9 +9035,14 @@ button.tab-bar__tab {
   font-weight: 500;
 }
 
-button.tab-bar__tab[data-active=true] {
+button.tab-bar__tab[data-active=true], button.tab-bar__tab:hover[data-active=true] {
   border-bottom-color: #80101b;
   color: #80101b;
+}
+
+button.tab-bar__tab:hover {
+  border-bottom-color: white;
+  border-bottom-style: solid;
 }
 
 .tab-region__tab-pane {

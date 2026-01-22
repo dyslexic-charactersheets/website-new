@@ -5,7 +5,7 @@
 
 <template>
   <div class="image-drop image-drop--shape_{{shape}} image-drop--target_{{target}}" id="{{id}}">
-    <input type="hidden" name="data-image-{{id}}" id="data-image-{{id}}" autocomplete="off"/>
+    <input type="hidden" name="data-image-{{id}}" id="data-image-{{id}}" autocomplete="off"{{#if value}} value="{{value}}"{{/if}}/>
     {{#if label}}
       <p>{{__ label}}</p>
     {{/if}}

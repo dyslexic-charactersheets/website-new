@@ -22,7 +22,7 @@
 
       {{#> ScrollPane}}
         {{{dump show}}}
-        {{#> ItemList id=(str "${id}-items" id=id) show=../show}}
+        {{#> ItemList id=(str "${id}-items" id=id) show=../show facet=id}}
           {{#each select.displayGroups}}
             {{!-- {{{dump ../show}}} --}}
             <h3>{{__ group "Display Group"}}</h3>

@@ -15,13 +15,14 @@
       {{#> HeaderRow}}
         {{#> Row}}
           {{> CloseButton }}
-          {{> TabBar
-            regionid=id
-            tabs=tabs
-            current=current
-          }}
+          <h3>{{__ title "Menu title"}}</h3>
         {{/Row}}
         {{> ItemFacetSearchTools for=id}}
+        {{> TabBar
+          regionid=id
+          tabs=tabs
+          current=current
+        }}
       {{/HeaderRow}}
 
       {{#> ScrollPane}}

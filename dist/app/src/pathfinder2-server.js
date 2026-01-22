@@ -13,6 +13,8 @@ import { log, warn, error } from '#src/log.js';
 import { conf } from '#src/conf.js';
 import { applyTranslation } from '#src/i18n.js';
 import { isLoggedIn } from '#src/auth.js';
+import { has } from '#src/util.js';
+
 var browser;
 
 let systemFormData = null;

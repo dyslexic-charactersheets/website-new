@@ -46,6 +46,12 @@ on('.tab-bar__tab', 'click', (evt) => {
   border-bottom: 2px solid colours.$red-leather;
 }
 
+.header-row {
+  > .tab-bar:last-child {
+    margin-bottom: -6px;
+  }
+}
+
 button.tab-bar__tab {
   background: none;
   border-width: 0.3rem 0;
@@ -56,9 +62,14 @@ button.tab-bar__tab {
 
   @include fonts.heading;
 
-  &[data-active='true'] {
+  &[data-active='true'], &:hover[data-active='true'] {
     border-bottom-color: colours.$red-leather;
     color: colours.$red-leather;
+  }
+
+  &:hover {
+    border-bottom-color: white;
+    border-bottom-style: solid;
   }
 }
 

@@ -3,6 +3,8 @@
  * Licensed under the Artistic License 2.0
  */
 
+// import { isEmpty } from "#src/util.js";
+
 // watch an element's attribute for changes
 function watch(target, attribute, handler) {
   let observer = new MutationObserver(function (mutations) {
@@ -75,7 +77,7 @@ function applyPipes(value, pipes) {
     if (isString(value)) {
       value = value.split(';');
     }
-    return value.map((item) => applyPipes(item, pipes)).join(", ");
+    return value.map((item) => applyPipes(item, pipes)).filter((r) => !isEmpty(r)).join(", ");
   }
 
   for (let pipe of pipes) {

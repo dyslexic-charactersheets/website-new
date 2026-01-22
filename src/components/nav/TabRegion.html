@@ -4,7 +4,11 @@
 -->
 
 <template>
-  <div class="tab-region" id="tab-region--{{regionid}}">
+  <div
+    class="tab-region"
+    id="tab-region--{{regionid}}"
+    data-regionid="{{regionid}}"
+  >
     {{> @partial-block }}
   </div>
 </template>

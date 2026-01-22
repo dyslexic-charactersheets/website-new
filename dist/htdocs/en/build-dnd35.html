@@ -8609,7 +8609,7 @@
                                               
                                                               <h3>Portrait</h3>
                                                               <div class="image-drop image-drop--shape_portrait image-drop--target_portrait" id="character-portrait">
-                                                                  <input type="hidden" name="data-image-character-portrait" id="data-image-character-portrait" autocomplete="off"/>
+                                                                  <input type="hidden" name="data-image-character-portrait" id="data-image-character-portrait" autocomplete="off" value="character"/>
                                                                     <p>Select or drop portrait</p>
                                                                   <img src="/images/generic.png">
                                                                   <button 
@@ -8631,7 +8631,7 @@
                                               
                                                               <h3>Logo</h3>
                                                               <div class="image-drop image-drop--shape_logo image-drop--target_logo" id="logo">
-                                                                  <input type="hidden" name="data-image-logo" id="data-image-logo" autocomplete="off"/>
+                                                                  <input type="hidden" name="data-image-logo" id="data-image-logo" autocomplete="off" value="character"/>
                                                                     <p>Select or drop logo</p>
                                                                   <img src="/images/dnd35.png">
                                                                   <button 
@@ -9046,7 +9046,7 @@
                                               
                                                               <h3>Portrait</h3>
                                                               <div class="image-drop image-drop--shape_portrait image-drop--target_portrait" id="mini-portrait">
-                                                                  <input type="hidden" name="data-image-mini-portrait" id="data-image-mini-portrait" autocomplete="off"/>
+                                                                  <input type="hidden" name="data-image-mini-portrait" id="data-image-mini-portrait" autocomplete="off" value="mini"/>
                                                                     <p>Select or drop portrait</p>
                                                                   <img src="/images/generic.png">
                                                                   <button 
@@ -9278,7 +9278,7 @@
                       
                     </div><div class="column">
                       
-                      <div class="item-list " id="portrait-menu-items">
+                      <div class="item-list " id="portrait-menu-items" data-facet="">
                                           <!-- {
                             "code": "1-pathfinder-1-pathfinder-iconics",
                             "group": "1-pathfinder/1-pathfinder-iconics",
@@ -43302,6 +43302,40 @@
                                                     
                                                   </button>
                                           </div>
+                          <div class="item-list__no-results">
+                      <div class="centre-pane">
+                          <div class="centre-pane__inner">
+                            <div 
+                                class="row align_centre"
+                              >
+                                          <div>
+                                            <h2 class="align-centre">Nothing found</h2>
+                                            <div class="item-list__suggestions">
+                                              <p class="item-list__suggestion item-list__suggestion--edition_pathfinder2">
+                                                <a>Try searching in Pathfinder 2e (Legacy)?</a>
+                                              </p>
+                                              <p class="item-list__suggestion item-list__suggestion--edition_pathfinder2remaster">
+                                                <a>Try searching in Pathfinder 2e (Remaster)?</a>
+                                              </p>
+                                              <p class="item-list__suggestion item-list__suggestion--edition_starfinder">
+                                                <a>Try searching in Starfinder 2e?</a>
+                                              </p>
+                                              <p class="item-list__suggestion item-list__suggestion--source">
+                                                <a>Try searching any source?</a>
+                                              </p>
+                                              <p class="item-list__suggestion item-list__suggestion--rarity">
+                                                <a>Try searching any rarity?</a>
+                                              </p>
+                                              <p class="item-list__suggestion item-list__suggestion--ancestry">
+                                                <a>Try searching for an ancestry heritage?</a>
+                                              </p>
+                                              <p class="item-list__suggestion item-list__suggestion--versatile">
+                                                <a>Try searching for a versatile heritage?</a>
+                                              </p>
+                                            </div>
+                                          </div>
+                              </div>    </div>
+                        </div>    </div>
                         </div>
                     </div>  </div>  </div>      
         </div>    </div>
@@ -43358,7 +43392,7 @@
                       
                     </div><div class="column">
                       
-                      <div class="item-list " id="logo-menu-items">
+                      <div class="item-list " id="logo-menu-items" data-facet="">
                                           <!-- {
                             "code": "dnd35",
                             "group": "dnd35",
@@ -44106,6 +44140,40 @@
                                                     
                                                   </button>
                                           </div>
+                          <div class="item-list__no-results">
+                      <div class="centre-pane">
+                          <div class="centre-pane__inner">
+                            <div 
+                                class="row align_centre"
+                              >
+                                          <div>
+                                            <h2 class="align-centre">Nothing found</h2>
+                                            <div class="item-list__suggestions">
+                                              <p class="item-list__suggestion item-list__suggestion--edition_pathfinder2">
+                                                <a>Try searching in Pathfinder 2e (Legacy)?</a>
+                                              </p>
+                                              <p class="item-list__suggestion item-list__suggestion--edition_pathfinder2remaster">
+                                                <a>Try searching in Pathfinder 2e (Remaster)?</a>
+                                              </p>
+                                              <p class="item-list__suggestion item-list__suggestion--edition_starfinder">
+                                                <a>Try searching in Starfinder 2e?</a>
+                                              </p>
+                                              <p class="item-list__suggestion item-list__suggestion--source">
+                                                <a>Try searching any source?</a>
+                                              </p>
+                                              <p class="item-list__suggestion item-list__suggestion--rarity">
+                                                <a>Try searching any rarity?</a>
+                                              </p>
+                                              <p class="item-list__suggestion item-list__suggestion--ancestry">
+                                                <a>Try searching for an ancestry heritage?</a>
+                                              </p>
+                                              <p class="item-list__suggestion item-list__suggestion--versatile">
+                                                <a>Try searching for a versatile heritage?</a>
+                                              </p>
+                                            </div>
+                                          </div>
+                              </div>    </div>
+                        </div>    </div>
                         </div>
                     </div>  </div>  </div>      
         </div>    </div>
@@ -44176,8 +44244,8 @@
                                   
                                 </a>
                                           </div>
-                          </div>            
-                      </div>
+                          </div>  </div>
+                    
                         <a 
                           id="new-character-menu"
                           class="btn btn--tile " 

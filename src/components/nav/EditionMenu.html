@@ -14,30 +14,31 @@
         <h3>{{__ "Edition"}}</h3>
       {{/Row}}
 
-      <nav class="nav--menu">
-        <ul class="pick-list">
-          <li>
-            <a class="option" data-on-click="">
-              {{__ "Pathfinder 2e (Legacy)"}}
-            </a>
-          </li>
-          <li>
-            <a class="option" data-on-click="">
-              {{__ "Pathfinder 2e (Remaster)"}}
-            </a>
-          </li>
-          <!-- <li>
-            <a class="option" data-on-click="">
-              {{__ "Starfinder 2e"}}
-            </a>
-          </li> -->
-          <li>
-            <a class="option" data-on-click="">
-              {{__ "All options combined"}}
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <!-- <nav class="nav--menu"> -->
+      {{#> CentrePane }}
+        {{#> Row align="centre"}}
+          {{> Picture src="/images/pathfinder2e.png" size="logo"}}
+        {{/Row}}
+        
+        {{#> Row align="centre"}}
+          <div>
+            {{> Picture src="/images/pathfinder2e-legacy.png" size="tile-small"}}
+            {{#> Button type="primary" href="build-pathfinder2?edition=pathfinder2"}}
+              {{__ "Legacy"}}
+            {{/Button}}
+          </div><div>
+            {{> Picture src="/images/pathfinder2e-remaster.png" size="tile-small"}}
+            {{#> Button type="primary" href="build-pathfinder2?edition=pathfinder2remaster"}}
+              {{__ "Remaster"}}
+            {{/Button}}
+          </div>
+        {{/Row}}
+
+        {{!-- {{#> Button type="tile" href="build-starfinder2" badge="2e"}}
+          {{> Picture src="/images/starfinder2e.png" size="logo"}}
+        {{/Button}} --}}
+      {{/CentrePane}}
+      <!-- </nav> -->
     {{/Pane}}
   {{/SideMenu}}
 </template>

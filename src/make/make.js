@@ -20,7 +20,7 @@ import { loadReady, getPageData } from './gamedata.js';
 import { languages, languageNames, translate, de_i18n } from './i18n.js';
 import { getNews } from './news.js'
 // import { getQuotes } from './quotes.js'
-import { slugify, isString, stringify, isObject, toKebabCase, toCamelCase, log, warn, error } from './util.js';
+import { slugify, isString, stringify, isObject, toKebabCase, toCamelCase, log, warn, error, has } from './util.js';
 import { translateObject } from './i18n.js';
 
 Error.stackTraceLimit = Infinity;
@@ -83,19 +83,23 @@ Handlebars.registerHelper('plus', function (term1, term2) {
   return parseInt(term1) + parseInt(term2);
 });
 
+const OPERATORS = {
+  'eq': function(l,r) { return l == r; },
+  'noteq': function(l,r) { return l != r; },
+  'gt': function(l,r) { return Number(l) > Number(r); },
+  'lt': function(l,r) { return Number(l) < Number(r); },
+  'gte': function(l,r) { return Number(l) >= Number(r); },
+  'lte': function(l,r) { return Number(l) <= Number(r); },
+  'or': function(l,r) { return l || r; },
+  'and': function(l,r) { return l && r; },
+  '%': function(l,r) { return (l % r) === 0; }
+}
 Handlebars.registerHelper('when', function (operand_1, operator, operand_2, options) {
-  let operators = {
-   'eq': function(l,r) { return l == r; },
-   'noteq': function(l,r) { return l != r; },
-   'gt': function(l,r) { return Number(l) > Number(r); },
-   'lt': function(l,r) { return Number(l) < Number(r); },
-   'gte': function(l,r) { return Number(l) >= Number(r); },
-   'lte': function(l,r) { return Number(l) <= Number(r); },
-   'or': function(l,r) { return l || r; },
-   'and': function(l,r) { return l && r; },
-   '%': function(l,r) { return (l % r) === 0; }
+  if (!has(OPERATORS, operator)) {
+    error("when", "Unknown operator", operator);
+    return '';
   }
-  let result = operators[operator](operand_1,operand_2);
+  let result = OPERATORS[operator](operand_1,operand_2);
 
   if (result) return options.fn(this);
   else  return options.inverse(this);
