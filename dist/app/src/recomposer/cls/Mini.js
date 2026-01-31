@@ -12,7 +12,7 @@ export class Mini {
   }
 
   async create() {
-    // log("Mini", "Create mini", this.primary);
+    // log("re:Mini", "Create mini", this.primary);
     let doc = await Document.create(this.primary, this.attachments);
     
     if (this.primary.attributes.permission) {

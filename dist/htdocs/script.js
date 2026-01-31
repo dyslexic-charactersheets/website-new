@@ -1650,7 +1650,7 @@ on('.repeatable__remove', 'click', (evt) => {
 }
 try {
 let slideshowDebug = getDebug('Slideshow');
-enableDebug('Slideshow');
+// enableDebug('Slideshow');
 
 all('.slideshow', (slideshow) => {
   const dolly = slideshow.querySelector('.slideshow__dolly');
@@ -2690,6 +2690,22 @@ on('button[data-action="close"]', 'click', (event, btn) => {
 });
 } catch (e) { 
   console.log("Error in CloseButton", e)
+}
+try {
+onloaded(() => {
+  console.log("Looking for floats to place");
+  all('.float', (float) => {
+    placeFloat(float);
+  })
+});
+
+function placeFloat(float) {
+  console.log("Placing float", float);
+  let placeholder = float.closest('.float-placeholder');
+  float.style.height = placeholder.offsetHeight + 'px';
+}
+} catch (e) { 
+  console.log("Error in Float", e)
 }
 try {
 on('.reveal', 'reveal', (evt) => {

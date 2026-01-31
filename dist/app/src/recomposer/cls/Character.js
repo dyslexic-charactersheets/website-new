@@ -12,11 +12,11 @@ export class Character {
   constructor(primary, attachments) {
     this.primary = primary;
     this.attachments = attachments;
-    log("Character", "Create character sheet", this.primary, this.attachments.length);
+    log("re:Character", "Create character sheet", this.primary, this.attachments.length);
   }
 
   option(name) {
-    log("Character", "option", name, this.primary[name])
+    log("re:Character", "option", name, this.primary[name])
     return has(this.primary.attributes, name) && this.primary.attributes[name];
   }
 
@@ -24,7 +24,7 @@ export class Character {
     let doc = await Document.create(this.primary, this.attachments);
     doc.classes = doc.gameData.getClassInfo(doc.settings.classes);
     this.classNames = doc.classes.map((cls) => cls.name);
-    log("Character", "Character classes", doc.classes);
+    log("re:Character", "Character classes", doc.classes);
 
     if (this.option("permission")) {
       await doc.addPage(doc.gameData.getPage("permission"));
@@ -76,7 +76,7 @@ export class Character {
   filename() {
     // let classes = (has(this.primary.attributes, "classes") && Array.isArray(this.primary.attributes.classes)) ? this.primary.attributes.classes : [];
 
-    log("Character", "Filename? Classes", this.classNames);
+    log("re:Character", "Filename? Classes", this.classNames);
 
     if (this.classNames.length == 0) {
       return "Generic.pdf";

@@ -24,11 +24,11 @@ export async function writeSkills(doc, pageInfo) {
 
   let profile = getSkillsProfile(pageInfo, doc.settings);
   if (profile == null) {
-    error("skills", "No skill profile for page:", pageInfo);
+    error("re:skills", "No skill profile for page:", pageInfo);
     return;
   }
 
-  // log("skills", "Writing skills", skills, profile);
+  // log("re:skills", "Writing skills", skills, profile);
 
   // pull out the subskills
   let topSkills = [];
@@ -100,10 +100,10 @@ export async function writeSkills(doc, pageInfo) {
 
   async function writeSkillLine(pos, skill, isSubskill) {
     if (skill === null) {
-      error("skills", "No skill");
+      error("re:skills", "No skill");
     }
     if (!has(skill, "name")) {
-      error("skills", "Skill with no name:", pos, skill);
+      error("re:skills", "Skill with no name:", pos, skill);
     }
 
     let baseline = profile.firstLine + pos * profile.lineIncrement;
@@ -158,15 +158,15 @@ export async function writeSkills(doc, pageInfo) {
 
       // class skill checkbox
       if (doc.settings.classes) {
-        // log("skills", "Classes", doc.classes);
+        // log("re:skills", "Classes", doc.classes);
         
         if (!isSubskill && !skill.noRanks) {
           if (doc.settings.isPathfinder || doc.settings.isStarfinder) {
-            // log("skills", `Class skill checkbox at ${profile.classSkillMiddle}, line ${pos}`);
-            // log("skills", "isClassSkill", skill);
+            // log("re:skills", `Class skill checkbox at ${profile.classSkillMiddle}, line ${pos}`);
+            // log("re:skills", "isClassSkill", skill);
             let isClassSkill = false;
             for (let cls of doc.classes) {
-              // log("skills", "isClassSkill", skill.name, "in", cls.name, cls.skills);
+              // log("re:skills", "isClassSkill", skill.name, "in", cls.name, cls.skills);
               if ('skills' in cls && cls.skills.includes(skill.name)) {
               // if (skill.classSkill[cls.name] || skill.classSkill[cls.baseName] || skill.classSkill[cls.shortName]) {
                 isClassSkill = true;
@@ -200,7 +200,7 @@ export async function writeSkills(doc, pageInfo) {
         }
 
         for (let cls of doc.classes) {
-          // log("skills", "Class plus level", skill.name, "in", cls.name, cls.plusLevel, cls.plusHalfLevel);
+          // log("re:skills", "Class plus level", skill.name, "in", cls.name, cls.plusLevel, cls.plusHalfLevel);
           if ('skillBonus' in cls && skill.name in cls.skillBonus) {
             skillBonus += cls.skillBonus[skill.name];
           }
@@ -212,8 +212,8 @@ export async function writeSkills(doc, pageInfo) {
           }
         }
 
-        // log("skills", "Skill bonus", skill.name, skillBonus);
-        // log("skills", "Plus level", skill.name, "in", plusLevelClasses, plusHalfLevelClasses);
+        // log("re:skills", "Skill bonus", skill.name, skillBonus);
+        // log("re:skills", "Plus level", skill.name, "in", plusLevelClasses, plusHalfLevelClasses);
 
         if (plusLevelClasses.size > 0 || plusHalfLevelClasses.size > 0 || skillBonus > 0) {
           let [plusLevelPlusX, plusLevelX] = 
@@ -276,8 +276,8 @@ export async function writeSkills(doc, pageInfo) {
                 plusLevelX += width / 2 + 1;
                 
               } catch (e) {
-                error("skills", "Plus level class", cls);
-                error("skills", "Error", e);
+                error("re:skills", "Plus level class", cls);
+                error("re:skills", "Error", e);
               }
             }
             doc.canvas.drawText("÷ 2", {
@@ -359,7 +359,7 @@ export async function writeSkills(doc, pageInfo) {
           try {
             if (skill.noRage) {
               // draw barbarian non-rage X
-              // log("skills", "Barbarian: Profile", profile);
+              // log("re:skills", "Barbarian: Profile", profile);
               let args = {
                 x: profile.rageMiddle - 3,
                 y: baseline - 1,
@@ -367,18 +367,18 @@ export async function writeSkills(doc, pageInfo) {
                 size: 8,
                 color: doc.black,
               };
-              // log("skills", "args", args);
+              // log("re:skills", "args", args);
               doc.canvas.drawText("X", args);
             }
           } catch (e) {
-            error("skills", "Error", e);
+            error("re:skills", "Error", e);
           }
         }
       }
 
       // skill-specific bonuses
       function annotateSkill(sigil, line1, line2) {
-        // log("skills", "Annotating", sigil, line1, line2);
+        // log("re:skills", "Annotating", sigil, line1, line2);
         let x = profile.skillsAreaRight - profile.acpWidth + 3;
         doc.canvas.drawText(sigil, {
           x: x - 10,
@@ -404,7 +404,7 @@ export async function writeSkills(doc, pageInfo) {
       }
 
       if (doc.settings.isPathfinder) {
-        // log("skills", "Original name", skill.name);
+        // log("re:skills", "Original name", skill.name);
         if (skill.name == "Intimidate") annotateSkill("±4", "if larger/", "smaller");
       } else if (doc.settings.isDnD35) {
         if (skill.name == "Intimidate") annotateSkill("+", "size", "diff x4");
@@ -423,7 +423,7 @@ export async function writeSkills(doc, pageInfo) {
           color: doc.textColour,
         });
 
-        // if (doc.settings.isDnD35) log("skills", "Is skill double?", skill);
+        // if (doc.settings.isDnD35) log("re:skills", "Is skill double?", skill);
         let isAcpDouble = doc.settings.isDnD35 && skill.name == "Swim";
 
         doc.canvas.drawRectangle({

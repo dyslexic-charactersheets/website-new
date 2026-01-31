@@ -10,6 +10,7 @@ import { log, error } from '#src/log.js';
 import { getAssetPath, loadAsset } from '../assets.js';
 import { has, isEmpty } from '../util.js';
 import { degrees } from 'pdf-lib';
+import { warn } from 'console';
 
 class PortraitProfile {
   constructor(args) {
@@ -207,7 +208,7 @@ let iconicFiles = {};
   let indexPath = getAssetPath("iconics/iconics.txt");
   readFile(indexPath, 'utf-8', (err, data) => {
     if (err) {
-      error("PortraitProfile", "Error reading iconic info", err);
+      error("re:PortraitProfile", "Error reading iconic info", err);
       return;
     }
     let lines = data.split(/\n/);
@@ -216,12 +217,13 @@ let iconicFiles = {};
       let [code, name] = line.split(/=/, 2);
       let assetCode = code.replaceAll('/', '-');
       let assetPath = getAssetPath('iconics/large/'+code+'.png');
-      // log("PortraitProfile", `Iconic [${assetCode}] [${assetPath}]`);
+      // log("re:PortraitProfile", `Iconic [${assetCode}] [${assetPath}]`);
       if (assetCode != "") {
-        iconicFiles[assetCode] = assetPath;
+        // iconicFiles[assetCode] = assetPath;
+        iconicFiles[code+".png"] = assetPath;
       }
     }
-    log("PortraitProfile", `Read ${Object.keys(iconicFiles).length} iconics`);
+    log("re:PortraitProfile", `Read ${Object.keys(iconicFiles).length} iconics`);
   });
 })();
 
@@ -231,10 +233,13 @@ export function getPortraitPath(portrait) {
   }
   
   if (!isEmpty(portrait)) {
-    log("PortraitProfile", "Looking for portrait", portrait);
+    log("re:PortraitProfile", "Looking for portrait", portrait);
     if (has(iconicFiles, portrait)) {
-      log("PortraitProfile", "Found", iconicFiles[portrait]);
+      log("re:PortraitProfile", "Found", iconicFiles[portrait]);
       return iconicFiles[portrait];
+    } else {
+      warn("re:PortraitProfile", "Not found among", Object.keys(iconicFiles).length, "iconics:", portrait);
+      // warn("re:PortraitProfile", "Iconics", iconicFiles);
     }
   }
   return null;

@@ -13,7 +13,7 @@ export class Kingdom {
   }
 
   async create() {
-    log("Kingdom", "Create kingdom", this.primary);
+    log("re:Kingdom", "Create kingdom", this.primary);
     let doc = await Document.create(this.primary, this.attachments);
     
     if (this.primary.attributes.permission) {

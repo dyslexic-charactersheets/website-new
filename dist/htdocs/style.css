@@ -5612,6 +5612,8 @@ article + article {
 
 .column {
   flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 /**
@@ -5750,6 +5752,17 @@ article + article {
     max-width: 15rem;
   }
 }
+.float-placeholder {
+  flex: 1 1 auto;
+}
+
+.float {
+  position: fixed;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
 .flow {
   display: flex;
   flex-direction: row;

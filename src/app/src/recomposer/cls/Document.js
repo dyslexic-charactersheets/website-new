@@ -22,7 +22,7 @@ export class Document {
   static async create(primary, attachments) {
     let doc = new Document();
     doc.attachments = isArray(attachments) ? attachments : [];
-    log("Document", "Found", doc.attachments.length, "attachments");
+    log("re:Document", "Found", doc.attachments.length, "attachments");
 
     await doc.setup(primary);
     return doc;
@@ -63,7 +63,7 @@ export class Document {
   }
 
   async addFont(filename) {
-    log("Document", "Loading font:", filename);
+    log("re:Document", "Loading font:", filename);
     let data = loadAppAsset(`fonts/${filename}`);
     let font = await this.document.embedFont(data);
     return font;
@@ -73,32 +73,32 @@ export class Document {
     if (isObject(attachmentId)) {
       let type = attachmentId.type;
       let id = attachmentId.id;
-      // log("Document", "Looking for attachment", type, id);
+      // log("re:Document", "Looking for attachment", type, id);
       
       for (let attachment of this.attachments) {
-        // log("Document", " - Comparing", attachment.type, attachment.id);
+        // log("re:Document", " - Comparing", attachment.type, attachment.id);
         if (attachment.type == type && attachment.id == id) {
-          // log("Document", "Found attachment", type, id);
+          // log("re:Document", "Found attachment", type, id);
           return attachment;
         }
       }
     } else {
-      log("Document", "Looking for attachment", attachmentId);
+      log("re:Document", "Looking for attachment", attachmentId);
       for (let attachment of this.attachments) {
         if (attachment.id == attachmentId) {
-          // log("Document", "Found attachment", type, id);
+          // log("re:Document", "Found attachment", type, id);
           return attachment;
         }
       }
     }
-    log("Document", "No attachment", attachmentId);
+    log("re:Document", "No attachment", attachmentId);
     return null;
   }
 
   async addPage(pageInfo) {
     try {
       if (isEmpty(pageInfo)) {
-        error("Document", "No page");
+        error("re:Document", "No page");
         return;
       }
       if (pageInfo.slot == "fighter-maths") {
@@ -107,17 +107,17 @@ export class Document {
       }
       let pageFile = locatePage(pageInfo, this.settings);
       if (isEmpty(pageFile)) {
-        error("Document", "Unknown page", pageInfo, pageFile);
+        error("re:Document", "Unknown page", pageInfo, pageFile);
         return;
       }
 
-      log("Document", "Page", pageInfo);
+      log("re:Document", "Page", pageInfo);
       const inDocBytes = readFileSync(pageFile);
       
       let [inPage] = await this.document.embedPdf(inDocBytes);
       let inPageDims = inPage.scale(1);
       this.pageDims = inPageDims;
-      // log("Document", "Page dimensions", pageInfo, inPageDims);
+      // log("re:Document", "Page dimensions", pageInfo, inPageDims);
       
       this.canvas = this.document.addPage([inPageDims.width, inPageDims.height]);
 
@@ -143,7 +143,7 @@ export class Document {
       await this.writePageOverlays(pageInfo);
 
       // apply the colour overlay
-      log("Document", "Main colour:", this.settings.colour, this.settings.colourMode);
+      log("re:Document", "Main colour:", this.settings.colour, this.settings.colourMode);
       if (this.settings.colour) {
         this.canvas.drawRectangle({
           x: 0, y: 0,
@@ -161,7 +161,7 @@ export class Document {
 
       await writeWatermark(this, pageInfo);
     } catch (e) {
-      error("Document", "Cannot add page", pageInfo, e);
+      error("re:Document", "Cannot add page", pageInfo, e);
     }
   }
 
@@ -183,11 +183,11 @@ export class Document {
 
     if (this.settings.game == "starfinder") {
       if (pageInfo.slot == "core" && !isEmpty(this.primary.attributes.classes)) {
-        log("Document", "Themes?");
+        log("re:Document", "Themes?");
         for (let cls of this.primary.attributes.classes) {
           let clsInfo = this.gameData.getClassInfo(cls);
           if (!isEmpty(clsInfo) && clsInfo.isTheme) {
-            log("Document", "Theme", clsInfo);
+            log("re:Document", "Theme", clsInfo);
             this.canvas.drawText(clsInfo.name, {
               x: 240,
               y: 642,
@@ -203,28 +203,28 @@ export class Document {
 
   async overlayPage(pageInfo) {
     try {
-      log("Document", "Overlay page", pageInfo);
+      log("re:Document", "Overlay page", pageInfo);
       let pageFile = locatePage(pageInfo, this.settings);
       if (isEmpty(pageFile)) {
-        error("Document", "Unknown page", pageInfo, pageFile);
+        error("re:Document", "Unknown page", pageInfo, pageFile);
         return;
       }
 
       const inDocBytes = readFileSync(pageFile);
-      log("Document", "Overlay page:", inDocBytes.length, "bytes");
+      log("re:Document", "Overlay page:", inDocBytes.length, "bytes");
       
       let [inPage] = await this.document.embedPdf(inDocBytes);
-      // log("Document", "Loaded page", inPage);
+      // log("re:Document", "Loaded page", inPage);
       let inPageDims = inPage.scale(1);
-      log("Document", "Overlay page: dims", inPageDims);
+      log("re:Document", "Overlay page: dims", inPageDims);
 
       this.canvas.drawPage(inPage, {
         ...inPageDims,
         x: 0, y: 0
       });
-      log("Document", "Overlay page: done");
+      log("re:Document", "Overlay page: done");
     } catch (e) {
-      error("Document", "Error overlaying", e);
+      error("re:Document", "Error overlaying", e);
     }
   }
   

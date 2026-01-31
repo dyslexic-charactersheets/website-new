@@ -21,7 +21,7 @@ import { languages, languageNames, translate, de_i18n } from './i18n.js';
 import { getNews } from './news.js'
 // import { getQuotes } from './quotes.js'
 import { slugify, isString, stringify, isObject, toKebabCase, toCamelCase, log, warn, error, has } from './util.js';
-import { translateObject } from './i18n.js';
+import { translateObject, getTranslationPOT } from './i18n.js';
 
 Error.stackTraceLimit = Infinity;
 let hasError = false;
@@ -432,6 +432,7 @@ fs.writeFile('../dist/htdocs/script.js', scripts, (err) => {
 
 // Build pages
 
+let pagePromises = [];
 loadReady().then((gameData) => {
   let templateOptions = {
     languages,
@@ -481,23 +482,38 @@ loadReady().then((gameData) => {
         ...templateOptions
       }
 
-      try {
-        let pageContent = pageTemplate(pageOptions);
+      pagePromises.push(new Promise((resolve, reject) => {
+        try {
+          let pageContent = pageTemplate(pageOptions);
 
-        fs.writeFile('../dist/htdocs/'+lang+'/'+name+'.html', pageContent, (err) => {
-          if (err) {
-            error("make", "Page ERROR".red, name+" ("+lang+")", err);
-            hasError = true;
-          } else {
-            // log("make", "Page OK".green, name+" ("+lang+")");
-          }
-        });
-      } catch (e) {
-        error("make", "Error in page".red, name, e);
-        hasError = true;
-      }
+          fs.writeFile('../dist/htdocs/'+lang+'/'+name+'.html', pageContent, (err) => {
+            if (err) {
+              error("make", "Page ERROR".red, name+" ("+lang+")", err);
+              hasError = true;
+              reject();
+            } else {
+              // log("make", "Page OK".green, name+" ("+lang+")");
+              resolve();
+            }
+          });
+        } catch (e) {
+          error("make", "Error in page".red, name, e);
+          hasError = true;
+          reject();
+        }
+      }));
     }
   }
+  
+  Promise.all(pagePromises).then(() => {
+    let pot = getTranslationPOT();
+    fs.writeFile('../dist/website.pot', pot, (err) => {
+      if (err) {
+        error("make", "POT ERROR".red, "("+lang+")", err);
+        hasError = true;
+      }
+    });
+  });
 });
 
 
@@ -521,9 +537,12 @@ fse.copy('app', '../dist/app', (err) => {
   }
 });
 
+// check for failure
 setTimeout(() => {
-  if (hasError) {
-    console.log("#### BUILD ERROR ####".red);
-    process.exit(1);
-  }
+  Promise.all(pagePromises).then(() => {
+    if (hasError) {
+      console.log("#### BUILD ERROR ####".red);
+      process.exit(1);
+    }
+  })
 }, 2000);

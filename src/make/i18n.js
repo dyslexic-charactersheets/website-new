@@ -95,3 +95,7 @@ export function de_i18n(content) {
 
   return content;
 }
+
+export function getTranslationPOT() {
+  return "POT";
+}

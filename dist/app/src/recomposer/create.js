@@ -15,7 +15,7 @@ export function createCharacterSheet(request) {
   return new Promise((resolve, reject) => {
     try {
       let primary = interpretPrimary(request.data, request.included);
-      log("create", "Attachments", request.included.length);
+      log("re:create", "Attachments", request.included.length);
 
       primary.create()
         .then((bytes) => {
@@ -34,7 +34,7 @@ export function createCharacterSheet(request) {
 }
 
 function interpretPrimary(primary, attachments) {
-  log("create", "Primary type:", primary.type);
+  log("re:create", "Primary type:", primary.type);
   switch (primary.type) {
     case "all":
       return new All(primary, attachments);

@@ -15,22 +15,25 @@
           {{> CloseButton }}
           <h3>{{__ (default selectbtn "Select Picture")}}</h3>
         {{/Row}}
+
         {{> AssetSearchTools for=id portrait=(eq id "portrait-menu")}}
       {{/HeaderRow}}
 
-      {{#> ScrollPane}}
-        {{#> Columns n=2 layout="folders"}}
-          {{#> Column}}
+      {{#> Columns n=2 layout="folders"}}
+        {{#> Column}}
 
+          {{#> ScrollPane }}
             {{#each items.folders}}
               <a data-zoom="{{code}}" class="jump-link indent-{{depth}}">
                 {{__ name "Asset Group"}}
               </a>
             {{/each}}
+          {{/ScrollPane}}
 
-          {{/Column}}
-          {{#> Column}}
-
+        {{/Column}}
+        {{#> Column}}
+        
+          {{#> ScrollPane}}
             {{#> ItemList id=(str "${id}-items" id=id)}}
               {{#each items.displayGroups}}
                 {{{dump this}}}
@@ -42,10 +45,10 @@
                 </div>
               {{/each}}
             {{/ItemList}}
+          {{/ScrollPane}}
 
-          {{/Column}}
-        {{/Columns}}
-      {{/ScrollPane}}
+        {{/Column}}
+      {{/Columns}}
       
     {{/Pane}}
   {{/SideMenu}}

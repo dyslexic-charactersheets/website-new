@@ -13,11 +13,11 @@ export class All {
   }
 
   async create() {
-    log("All", "Download all");
+    log("re:All", "Download all");
     let doc = await Document.create(this.primary, this.attachments);
 
     for (let page of doc.gameData.getAllPages()) {
-      log("All", "Page", page);
+      log("re:All", "Page", page);
       await doc.addPage(page);
     }
     
@@ -26,7 +26,7 @@ export class All {
   }
 
   filename() {
-    log("All", "Filename");
+    log("re:All", "Filename");
     return "All.pdf";
   }
 }

@@ -18,9 +18,9 @@ export class GameData {
   }
   
   mergeClassVariant(variant, classInfo) {
-    // log("GameData", "Merging variant", variant.name, "into", classInfo.name);
-    // log("GameData", "Variant", variant);
-    // log("GameData", "Class", classInfo);
+    // log("re:GameData", "Merging variant", variant.name, "into", classInfo.name);
+    // log("re:GameData", "Variant", variant);
+    // log("re:GameData", "Class", classInfo);
 
     classInfo = {
       skills: [],
@@ -45,7 +45,7 @@ export class GameData {
       baseName: classInfo.name,
     };
 
-    // log("GameData", "Merged", merged);
+    // log("re:GameData", "Merged", merged);
     return merged;
   }
 
@@ -63,7 +63,7 @@ export class GameData {
       return classes;
     }
 
-    log("GameData", "getClassInfo", classSpec);
+    log("re:GameData", "getClassInfo", classSpec);
     let className = classSpec['class'];
       
     // get base class info
@@ -73,7 +73,7 @@ export class GameData {
     if (found.length > 0) {
       let classInfo = found[0];
       if ('variant' in classSpec && isArray(classSpec.variant)) {
-        // log("GameData", "Looking for variant", classInfo);
+        // log("re:GameData", "Looking for variant", classInfo);
         classInfo.baseName = classInfo.name;
 
         if (has(classInfo, "variants") && isArray(classInfo.variants)) {
@@ -126,7 +126,7 @@ export class GameData {
       return pages[0];
     }
 
-    error("GameData", "Page not found:", slot, variant);
+    error("re:GameData", "Page not found:", slot, variant);
     return null;
   }
 
@@ -150,7 +150,7 @@ export class GameData {
       return pages[0];
     }
     
-    error("GameData", "GM page not found:", slot, variant);
+    error("re:GameData", "GM page not found:", slot, variant);
     return null;
   }
 
@@ -170,10 +170,10 @@ export class GameData {
 
   inferClassPages(primary, gameData, classes) {
     if (isEmpty(gameData)) {
-      error("GameData", "No game data", primary.attributes.game);
+      error("re:GameData", "No game data", primary.attributes.game);
     }
     if (isEmpty(classes)) {
-      error("GameData", "No classes", classes);
+      error("re:GameData", "No classes", classes);
     }
   
     let pages = new Set();
@@ -192,18 +192,18 @@ export class GameData {
     }
 
     if (primary.attributes.simple) {
-      log("GameData", "More!");
+      log("re:GameData", "More!");
       addPageSlot("core/simple");
       addPageSlot("combat/simple");
     }
 
     if (primary.attributes.more) {
-      log("GameData", "More!");
+      log("re:GameData", "More!");
       addPageSlot("core/more");
     }
   
     for (let classInfo of classes) {
-      // log("GameData", "Class", classInfo);
+      // log("re:GameData", "Class", classInfo);
       if (!isEmpty(classInfo) && has(classInfo, "pages")) {
         for (let page of classInfo.pages) {
           addPageSlot(page);
@@ -218,7 +218,7 @@ export class GameData {
 
     if (pages.has("spellbook")) {
       let spellbookSize = primary.attributes.spellbookSize;
-      log("GameData", "Spellbook size", spellbookSize);
+      log("re:GameData", "Spellbook size", spellbookSize);
       if (spellbookSize == "none") {
         pages.delete("spellbook");
       } else if (spellbookSize && spellbookSize != "medium") {
@@ -226,7 +226,7 @@ export class GameData {
       }
     }
 
-    log("GameData", "Pages", pages, pageVariants);
+    log("re:GameData", "Pages", pages, pageVariants);
 
     let pageData = [];
     pages.forEach((page) => {
@@ -247,7 +247,7 @@ export class GameData {
     if (isEmpty(skill)) {
       let match = skillName.match(/(Perform|Craft|Profession) \(.*\)/);
       if (match) {
-        // log("GameData", "Dynamic skill", match);
+        // log("re:GameData", "Dynamic skill", match);
         let ability = (match[1] == "Perform") ? "CHA" : ((match[1] == "Craft") ? "INT" : "WIS");
         skill = {
           name: skillName,
@@ -256,7 +256,7 @@ export class GameData {
           afterFold: true
         };
       } else {
-        error("GameData", "Skill not found:", skillName);
+        error("re:GameData", "Skill not found:", skillName);
         return null;
       }
     }
@@ -281,12 +281,12 @@ export class GameData {
     let self = this;
 
     let skillsListStyle = settings.skillsListStyle;
-    log("GameData", "Skills style:", skillsListStyle, " slot:", pageInfo.slot);
+    log("re:GameData", "Skills style:", skillsListStyle, " slot:", pageInfo.slot);
     if (skillsListStyle == "blank") {
       return [];
     }
     let isConsolidated = skillsListStyle == "consolidated" && has(this.data, "consolidatedSkills");
-    log("GameData", "Consolidated skills", isConsolidated);
+    log("re:GameData", "Consolidated skills", isConsolidated);
 
     function addDynamicSkills(prefix, dynamicSkillNames) {
       if (isEmpty(dynamicSkillNames)) {
@@ -297,7 +297,7 @@ export class GameData {
     }
 
     function addSkills(skillNames) {
-      // log("GameData", "Add skills", skillNames);
+      // log("re:GameData", "Add skills", skillNames);
       if (isEmpty(skillNames)) {
         return;
       }
@@ -306,9 +306,9 @@ export class GameData {
         if (skill !== null) {
           if (isConsolidated && has(self.data.consolidatedSkills, skillName)) {
             for (let altSkill of self.data.consolidatedSkills[skillName]) {
-              log("GameData", "Consolidated skill?", altSkill);
+              log("re:GameData", "Consolidated skill?", altSkill);
               skill = self.getSkillInfo(altSkill);
-              log("GameData", "Consolidated skill", skill);
+              log("re:GameData", "Consolidated skill", skill);
 
               skillName = skill.name;
               skills[skillName] = {
@@ -340,7 +340,7 @@ export class GameData {
       if (isEmpty(skillNames)) {
         return;
       }
-      log("GameData", "Setting class skills", skillNames);
+      log("re:GameData", "Setting class skills", skillNames);
       for (let skillName of skillNames) {
         if (skillName in skills) {
           if (Array.isArray(cls)) {
@@ -355,13 +355,13 @@ export class GameData {
     switch (pageInfo.slot) {
       case "core":
         // find all the skills
-        log("GameData", "Core skills!");
+        log("re:GameData", "Core skills!");
         addSkills(this.data.coreSkills);
-        // log("GameData", "Skills for classes", classes);
+        // log("re:GameData", "Skills for classes", classes);
         if (classes) {
           for (let cls of classes) {
-            // log("GameData", "Skills for class", cls);
-            // log("GameData", "Skills for class", cls.name, cls.skills);
+            // log("re:GameData", "Skills for class", cls);
+            // log("re:GameData", "Skills for class", cls.name, cls.skills);
             if (cls != null) {
               addSkills(cls.skills);
               setClassSkills(cls.name, cls.skills);
@@ -415,7 +415,7 @@ export class GameData {
             if (skill in skills) {
               skills[skill].plusHalfLevel = true;
             } else {
-              warn("GameData", "What skill?", skill);
+              warn("re:GameData", "What skill?", skill);
             }
           }
         }
@@ -424,7 +424,7 @@ export class GameData {
             if (skill in skills) {
               skills[skill].plusLevel = true;
             } else {
-              warn("GameData", "What skill?", skill);
+              warn("re:GameData", "What skill?", skill);
             }
           }
         }
@@ -433,7 +433,7 @@ export class GameData {
             if (skill in skills) {
               skills[skill].skillBonus += cls.skillBonus[skill];
             } else {
-              warn("GameData", "What skill?", skill);
+              warn("re:GameData", "What skill?", skill);
             }
           }
         }
@@ -445,7 +445,7 @@ export class GameData {
   }
 }
 
-log("gamedata", "Loading game data", resolve('data'));
+log("re:GameData", "Loading game data", resolve('data'));
 let systemGameData = {
   pathfinder: new GameData(readFileSync(resolve('app/data/pathfinder.json'))),
   starfinder: new GameData(readFileSync(resolve('app/data/starfinder.json'))),
@@ -454,7 +454,7 @@ let systemGameData = {
 
 export function getGameData(game) {
   if (!has(systemGameData, game)) {
-    error("GameData", "System not found:", game);
+    error("re:GameData", "System not found:", game);
   }
   return systemGameData[game];
 }
@@ -562,7 +562,7 @@ export function inferSettings(primary) {
     colourMode: interpretColourMode(attrs.printColour),
   };
 
-  log("GameData", "Inferred settings", settings);
+  log("re:GameData", "Inferred settings", settings);
 
   return settings;
 }
@@ -575,6 +575,6 @@ export function locatePage(pageInfo, settings) {
   let language = settings.language;
 
   let file = getAssetPath(`${(language == 'en' || language == 'english' || language == 'default') ? '' : `languages/${language}/`}${game}/${pageInfo.file}`);
-  log("GameData", "Locate file", file);
+  log("re:GameData", "Locate file", file);
   return file;
 }

@@ -15,12 +15,12 @@ export class GM {
   }
 
   option(name) {
-    log("Character", "option", name, this.primary[name])
+    log("re:GM", "option", name, this.primary[name])
     return has(this.primary.attributes, name) && this.primary.attributes[name];
   }
 
   async create() {
-    log("Character", "Create character sheet", this.primary);
+    log("re:GM", "Create character sheet", this.primary);
     let doc = await Document.create(this.primary, this.attachments);
 
     if (this.option("permission")) {

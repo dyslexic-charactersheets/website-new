@@ -58,17 +58,17 @@ export async function writePortrait(doc, pageInfo) {
     return;
   }
 
-  log("pictures", "Get portrait profile", pageInfo.slot);
+  log("re:pictures", "Get portrait profile", pageInfo.slot);
   let profiles = getPortraitProfile(pageInfo, doc.settings);
   for (let profile of profiles) {
     let imageBytes = null;
     let format = "png";
     
-    // log("pictures", "Portrait", doc.settings.portrait);
+    // log("re:pictures", "Portrait", doc.settings.portrait);
 
     let portrait = doc.settings.portrait;
     let attachment = doc.getAttachment(portrait);
-    // log("pictures", "Attachment", attachment);
+    // log("re:pictures", "Attachment", attachment);
     if (!isEmpty(attachment) && attachment.type == "image") {
       let portraitData = attachment.data;
       if (portraitData.match(/^data:image\/jpeg/)) {

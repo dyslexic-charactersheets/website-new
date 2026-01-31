@@ -1,0 +1,42 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <div class="float-placeholder">
+    <div class="float">
+      {{> @partial-block }}
+    </div>
+  </div>
+</template>
+
+<style>
+
+.float-placeholder {
+  flex: 1 1 auto;
+}
+
+.float {
+  position: fixed;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+</style>
+
+<script>
+onloaded(() => {
+  console.log("Looking for floats to place");
+  all('.float', (float) => {
+    placeFloat(float);
+  })
+});
+
+function placeFloat(float) {
+  console.log("Placing float", float);
+  let placeholder = float.closest('.float-placeholder');
+  float.style.height = placeholder.offsetHeight + 'px';
+}
+</script>

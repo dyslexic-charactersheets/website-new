@@ -28,7 +28,6 @@ export function isEmpty(obj) {
 }
 
 export function has(obj, key) {
-  // console.log("has", obj, key);
   return !isEmpty(obj) && Object.prototype.hasOwnProperty.call(obj, key) && !isEmpty(obj[key]);
 }
 

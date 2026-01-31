@@ -1,5 +1,5 @@
 export async function writeCopyright(doc, pageInfo, settings) {
-  // log("copyright", "Writing copyright", pageInfo);
+  // log("re:copyright", "Writing copyright", pageInfo);
   // pageInfo
 
   await doc.canvas.drawText("© 2009-2023 Marcus Downing    https://www.dyslexic-charactersheets.com/", {

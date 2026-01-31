@@ -75,7 +75,7 @@ export function getLogoProfile(pageInfo) {
 let logoData = {};
 readFile(getAssetPath("logos/logos.txt"), (err, data) => {
   if (err) {
-    error("LogoProfile", "Couldn't find logo file", err);
+    error("re:LogoProfile", "Couldn't find logo file", err);
   }
   for (let line of data.toString().split("\n")) {
     if (isEmpty(line)) {
@@ -100,7 +100,7 @@ export function getLogoPath(settings) {
   if (!isEmpty(settings.logo)) {
     if (has(logoData, settings.logo)) {
       let logo = getAssetPath(`logos/${logoData[settings.logo]}`);
-      log("LogoProfile", "Found logo", logo);
+      log("re:LogoProfile", "Found logo", logo);
       return logo;
     }
   }

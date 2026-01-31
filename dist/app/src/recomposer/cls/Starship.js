@@ -12,7 +12,7 @@ export class Starship {
   }
 
   async create() {
-    // log("Starship", "Create starship", this.primary);
+    // log("re:Starship", "Create starship", this.primary);
     let doc = await Document.create(this.primary, this.attachments);
     
     if (this.primary.attributes.permission) {
