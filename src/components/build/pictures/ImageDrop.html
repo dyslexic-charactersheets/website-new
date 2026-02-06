@@ -16,7 +16,7 @@
       {{/Button}}
     {{/if}}
     {{#if skippable}}
-      <label for="no-{{id}}">
+      <label for="no-{{id}}" class="image-drop__no-image-label">
         <input type="checkbox" id="no-{{id}}" class="image-drop__no-image" name="no-{{id}}" data-var="no-{{id}}" autocomplete="off">
         {{__ skippable}}
       </label>
@@ -133,6 +133,12 @@ on('.image-drop__no-image', 'change', (evt) => {
     min-height: 60%;
     max-height: 90%;
     max-width: 90%;
+  }
+
+  .image-drop__no-image-label {
+    color: black;
+    text-shadow: none;
+    margin-top: 0.5rem;
   }
 
   &.image-drop--no-image {

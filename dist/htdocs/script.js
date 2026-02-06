@@ -2177,7 +2177,7 @@ function updateItemList(list, searchParams) {
     return;
   }
 
-  // zoom in on actual selected list
+  // zoom in on actual selected tab
   let tabRegion = list.closest('.form-select-menu').querySelector('.tab-region');
   if (tabRegion !== null) {
     let tabPane = list.closest('.form-select-menu').querySelector('.header-row .tab-bar');
@@ -2545,6 +2545,57 @@ on('.asset-select-item-button', 'click', (evt) => {
   console.log("Error in AssetSelectItem", e)
 }
 try {
+let debug = getDebug('DropPane');
+enableDebug('DropPane');
+
+on(".drop-pane", "dragover", (evt) => {
+  evt.preventDefault();
+  evt.stopPropagation();
+  evt.target.closest('.drop-pane').classList.add('drop-pane--ready');
+  debug.log("Drag on");
+});
+
+on(".drop-pane", "dragleave", (evt) => {
+  evt.preventDefault();
+  evt.stopPropagation();
+  evt.target.closest('.drop-pane').classList.remove('drop-pane--ready');
+  debug.log("Drag off");
+});
+
+on(".drop-pane", "drop", (evt) => {
+  debug.log("Image dropped");
+
+  // TODO check image size! 20MB limit
+  
+  evt.preventDefault();
+  evt.stopPropagation();
+
+  let dropPane = evt.target.closest('.drop-pane');
+  dropPane.classList.remove('drop-pane--ready');
+
+  var files = evt.dataTransfer.files;
+  if (files.length > 0) {
+    var file = files[0];
+    switch (file.type) {
+      case 'image/png':
+      case 'image/jpeg':
+      case 'image/webp':
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          var data = e.target.result;
+          debug.log("I have data!");
+          emit(dropPane, 'asset-drop', data);
+          emit(dropPane, 'close-menu');
+        }
+        reader.readAsDataURL(file);
+        break;
+    }
+  }
+});
+} catch (e) { 
+  console.log("Error in DropPane", e)
+}
+try {
 let debug = getDebug('ImageDrop');
 enableDebug('ImageDrop');
 
@@ -2643,6 +2694,18 @@ on('#portrait-menu', 'asset-select', (evt) => {
     }
   });
 });
+on('#portrait-menu', 'asset-drop', (evt) => {
+  let data = evt.detail;
+
+  all('.image-drop--target_portrait', (imageDrop) => {
+    let input = imageDrop.querySelector('input');
+    input.value = data;
+
+    for (let img of imageDrop.querySelectorAll('img')) {
+      img.src = data;
+    }
+  });
+})
 } catch (e) { 
   console.log("Error in PortraitMenu", e)
 }
@@ -2739,6 +2802,10 @@ on('.tab-bar__tab', 'click', (evt) => {
   
   let tabBar = tab.closest('.tab-bar');
   set(tabBar, 'current', tabCode);
+  
+  for (let searchTools of tabBar.closest('.header-row').getElementsByClassName('facet-search-tools')) {
+    emit(searchTools, 'facet-change');
+  }
 });
 } catch (e) { 
   console.log("Error in TabBar", e)

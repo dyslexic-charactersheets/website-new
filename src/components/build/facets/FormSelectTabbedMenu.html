@@ -30,8 +30,8 @@
         {{#> TabRegion regionid=id}}
           {{#each tabs}}
             <!-- 0 {{id}} 1 {{../id}} 2 {{../../id}} 3 {{../../../id}} -->
-            {{#> TabPane code=code regionid=../id}}
-              {{#> ItemList id=(str "${id}-items" id=../id) show=../show}}
+            {{#> TabPane code=code regionid=../../id}}
+              {{#> ItemList id=(str "${id}-items" id=../../id) show=../show}}
                 {{#each select.displayGroups}}
                   <h3>{{__ group "Display Group"}}</h3>
                   <!-- 0 {{id}} 1 {{../id}} 2 {{../../id}} 3 {{../../../id}} -->

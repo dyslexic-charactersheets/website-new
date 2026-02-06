@@ -8,7 +8,7 @@
     id="portrait-menu" 
     items=iconics 
     folder="iconics" 
-    selectbtn="Select Portrait"
+    selectbtn="Select Picture"
   }}
 </template>
 
@@ -25,4 +25,16 @@ on('#portrait-menu', 'asset-select', (evt) => {
     }
   });
 });
+on('#portrait-menu', 'asset-drop', (evt) => {
+  let data = evt.detail;
+
+  all('.image-drop--target_portrait', (imageDrop) => {
+    let input = imageDrop.querySelector('input');
+    input.value = data;
+
+    for (let img of imageDrop.querySelectorAll('img')) {
+      img.src = data;
+    }
+  });
+})
 </script>

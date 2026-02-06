@@ -1,0 +1,77 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <div class="drop-pane">
+    {{> @partial-block }}
+  </div>
+</template>
+
+<script>
+
+let debug = getDebug('DropPane');
+enableDebug('DropPane');
+
+on(".drop-pane", "dragover", (evt) => {
+  evt.preventDefault();
+  evt.stopPropagation();
+  evt.target.closest('.drop-pane').classList.add('drop-pane--ready');
+  debug.log("Drag on");
+});
+
+on(".drop-pane", "dragleave", (evt) => {
+  evt.preventDefault();
+  evt.stopPropagation();
+  evt.target.closest('.drop-pane').classList.remove('drop-pane--ready');
+  debug.log("Drag off");
+});
+
+on(".drop-pane", "drop", (evt) => {
+  debug.log("Image dropped");
+
+  // TODO check image size! 20MB limit
+  
+  evt.preventDefault();
+  evt.stopPropagation();
+
+  let dropPane = evt.target.closest('.drop-pane');
+  dropPane.classList.remove('drop-pane--ready');
+
+  var files = evt.dataTransfer.files;
+  if (files.length > 0) {
+    var file = files[0];
+    switch (file.type) {
+      case 'image/png':
+      case 'image/jpeg':
+      case 'image/webp':
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          var data = e.target.result;
+          debug.log("I have data!");
+          emit(dropPane, 'asset-drop', data);
+          emit(dropPane, 'close-menu');
+        }
+        reader.readAsDataURL(file);
+        break;
+    }
+  }
+});
+
+</script>
+
+<style>
+
+.drop-pane {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+
+  &.drop-pane--ready {
+    background: rgba(120, 220, 255, 0.6) url(/images/white-spot.png) 50% 50% no-repeat;
+    box-shadow: inset 0 0 5rem 2rem rgba(120,220,255,0.9);
+  }
+}
+
+</style>
