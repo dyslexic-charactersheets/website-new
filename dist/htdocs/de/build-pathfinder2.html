@@ -843,6 +843,13 @@
                                                                                 class=""
                                                                                 data-on-click="show-menu form-select-heritage-lost-omens-mwangi-expanse-shisk"
                                                                                 data-bind="content=#build-form.heritage | displayName &#x27;heritage&#x27;"
+                                                                              ></output>  </div><div class="switch__case" data-value="ancestry/remaster/catfolk" data-show="">
+                                                                            <output
+                                                                                name="heritage/apg/catfolk"
+                                                                                
+                                                                                class=""
+                                                                                data-on-click="show-menu form-select-heritage-apg-catfolk"
+                                                                                data-bind="content=#build-form.heritage | displayName &#x27;heritage&#x27;"
                                                                               ></output>  </div><div class="switch__case" data-value="ancestry/remaster/dwarf" data-show="">
                                                                             <output
                                                                                 name="heritage/dwarf"
@@ -878,12 +885,33 @@
                                                                                 class=""
                                                                                 data-on-click="show-menu form-select-heritage-halfling"
                                                                                 data-bind="content=#build-form.heritage | displayName &#x27;heritage&#x27;"
+                                                                              ></output>  </div><div class="switch__case" data-value="ancestry/remaster/hobgoblin" data-show="">
+                                                                            <output
+                                                                                name="heritage/lost-omens/character-guide/hobgoblin"
+                                                                                
+                                                                                class=""
+                                                                                data-on-click="show-menu form-select-heritage-lost-omens-character-guide-hobgoblin"
+                                                                                data-bind="content=#build-form.heritage | displayName &#x27;heritage&#x27;"
                                                                               ></output>  </div><div class="switch__case" data-value="ancestry/remaster/human" data-show="">
                                                                             <output
                                                                                 name="heritage/human"
                                                                                 
                                                                                 class=""
                                                                                 data-on-click="show-menu form-select-heritage-human"
+                                                                                data-bind="content=#build-form.heritage | displayName &#x27;heritage&#x27;"
+                                                                              ></output>  </div><div class="switch__case" data-value="ancestry/remaster/kholo" data-show="">
+                                                                            <output
+                                                                                name="heritage/lost-omens/mwangi-expanse/gnoll"
+                                                                                
+                                                                                class=""
+                                                                                data-on-click="show-menu form-select-heritage-lost-omens-mwangi-expanse-gnoll"
+                                                                                data-bind="content=#build-form.heritage | displayName &#x27;heritage&#x27;"
+                                                                              ></output>  </div><div class="switch__case" data-value="ancestry/remaster/leshy" data-show="">
+                                                                            <output
+                                                                                name="heritage/lost-omens/character-guide/leshy"
+                                                                                
+                                                                                class=""
+                                                                                data-on-click="show-menu form-select-heritage-lost-omens-character-guide-leshy"
                                                                                 data-bind="content=#build-form.heritage | displayName &#x27;heritage&#x27;"
                                                                               ></output>  </div>  </div>        </td>
                                                         </tr>
@@ -4537,6 +4565,19 @@
                                                 <h4>Human</h4>
                                           
                                         </button>
+                                        <button 
+                                          type="button"
+                                          id="item-ancestry-remaster-leshy"
+                                          class="btn btn--tile-light  form-select-item-button small-figure" 
+                                          data-on-click="emit form-select,close-menu ancestry/remaster/leshy"
+                                          data-select="ancestry" data-name="_{Leshy}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster" data-selects="heritage/lost-omens/character-guide/leshy"
+                                        >
+                                                <picture class="picture--size_tile picture--lazy picture--transparent">
+                                                    <img data-src="/images/options/ancestry/remaster/leshy.png">
+                                                  </picture>
+                                                <h4>Leshy</h4>
+                                          
+                                        </button>
                                 </div>
                                 <h3>Advanced Player&#x27;s Guide</h3>
                                 <div class="item-list__group">
@@ -4603,6 +4644,48 @@
                                                     <img data-src="/images/options/ancestry/apg/tengu.png">
                                                   </picture>
                                                 <h4>Tengu</h4>
+                                          
+                                        </button>
+                                </div>
+                                <h3>Player Core 2</h3>
+                                <div class="item-list__group">
+                                        <button 
+                                          type="button"
+                                          id="item-ancestry-remaster-catfolk"
+                                          class="btn btn--tile-light  form-select-item-button " 
+                                          data-on-click="emit form-select,close-menu ancestry/remaster/catfolk"
+                                          data-select="ancestry" data-name="_{Catfolk}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster" data-selects="heritage/apg/catfolk"
+                                        >
+                                                <picture class="picture--size_tile picture--lazy picture--transparent">
+                                                    <img data-src="/images/options/ancestry/remaster/catfolk.png">
+                                                  </picture>
+                                                <h4>Catfolk</h4>
+                                          
+                                        </button>
+                                        <button 
+                                          type="button"
+                                          id="item-ancestry-remaster-hobgoblin"
+                                          class="btn btn--tile-light  form-select-item-button " 
+                                          data-on-click="emit form-select,close-menu ancestry/remaster/hobgoblin"
+                                          data-select="ancestry" data-name="_{Hobgoblin}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster" data-selects="heritage/lost-omens/character-guide/hobgoblin"
+                                        >
+                                                <picture class="picture--size_tile picture--lazy picture--transparent">
+                                                    <img data-src="/images/options/ancestry/remaster/hobgoblin.png">
+                                                  </picture>
+                                                <h4>Hobgoblin</h4>
+                                          
+                                        </button>
+                                        <button 
+                                          type="button"
+                                          id="item-ancestry-remaster-kholo"
+                                          class="btn btn--tile-light  form-select-item-button " 
+                                          data-on-click="emit form-select,close-menu ancestry/remaster/kholo"
+                                          data-select="ancestry" data-name="_{Kholo}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster" data-selects="heritage/lost-omens/mwangi-expanse/gnoll"
+                                        >
+                                                <picture class="picture--size_tile picture--lazy picture--transparent">
+                                                    <img data-src="/images/options/ancestry/remaster/kholo.png">
+                                                  </picture>
+                                                <h4>Kholo</h4>
                                           
                                         </button>
                                 </div>
@@ -11643,6 +11726,80 @@
                                                             data-select="heritage/apg/catfolk" data-name="_{Jungle Catfolk}" data-rarity="common" data-source="core" data-edition="pathfinder2"
                                                           >
                                                                   <h4>Jungle Catfolk</h4>
+                                                            
+                                                          </button>
+                                                  </div>
+                                                  <h3>Player Core 2</h3>
+                                                  <!-- 0  1 form-select-heritage-apg-catfolk-items 2  3  -->
+                                                  <div class="item-list__group">
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-catfolk-remaster-clawed"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/catfolk/remaster/clawed"
+                                                            data-select="heritage/apg/catfolk" data-name="_{Clawed Catfolk}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Clawed Catfolk</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-catfolk-remaster-hunting"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/catfolk/remaster/hunting"
+                                                            data-select="heritage/apg/catfolk" data-name="_{Hunting Catfolk}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Hunting Catfolk</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-catfolk-remaster-jungle"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/catfolk/remaster/jungle"
+                                                            data-select="heritage/apg/catfolk" data-name="_{Jungle Catfolk}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Jungle Catfolk</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-catfolk-remaster-liminal"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/catfolk/remaster/liminal"
+                                                            data-select="heritage/apg/catfolk" data-name="_{Liminal Catfolk}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Liminal Catfolk</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-catfolk-remaster-nine-lives"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/catfolk/remaster/nine-lives"
+                                                            data-select="heritage/apg/catfolk" data-name="_{Nine Lives Catfolk}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Nine Lives Catfolk</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-catfolk-remaster-sharp-eared"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/catfolk/remaster/sharp-eared"
+                                                            data-select="heritage/apg/catfolk" data-name="_{Sharp Eared Catfolk}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Sharp Eared Catfolk</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-catfolk-remaster-winter"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/catfolk/remaster/winter"
+                                                            data-select="heritage/apg/catfolk" data-name="_{Winter Catfolk}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Winter Catfolk</h4>
                                                             
                                                           </button>
                                                   </div>
@@ -21798,6 +21955,70 @@
                             data-bind="active = #tab-bar--form-select-heritage-lost-omens-character-guide-hobgoblin.current | eq 'ancestry'"
                           >
                             <div class="item-list " id="form-select-heritage-lost-omens-character-guide-hobgoblin-items" data-facet="">
+                                                  <h3>Player Core 2</h3>
+                                                  <!-- 0  1 form-select-heritage-lost-omens-character-guide-hobgoblin-items 2  3  -->
+                                                  <div class="item-list__group">
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-hobgoblin-remaster-elfbane"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/hobgoblin/remaster/elfbane"
+                                                            data-select="heritage/lost-omens/character-guide/hobgoblin" data-name="_{Elfbane Hobgoblin}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Elfbane Hobgoblin</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-hobgoblin-remaster-runtboss"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/hobgoblin/remaster/runtboss"
+                                                            data-select="heritage/lost-omens/character-guide/hobgoblin" data-name="_{Runtboss Hobgoblin}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Runtboss Hobgoblin</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-hobgoblin-remaster-shortshanks"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/hobgoblin/remaster/shortshanks"
+                                                            data-select="heritage/lost-omens/character-guide/hobgoblin" data-name="_{Shortshanks Hobgoblin}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Shortshanks Hobgoblin</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-hobgoblin-remaster-smokeworker"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/hobgoblin/remaster/smokeworker"
+                                                            data-select="heritage/lost-omens/character-guide/hobgoblin" data-name="_{Smokeworker Hobgoblin}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Smokeworker Hobgoblin</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-hobgoblin-remaster-warmarch"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/hobgoblin/remaster/warmarch"
+                                                            data-select="heritage/lost-omens/character-guide/hobgoblin" data-name="_{Warmarch Hobgoblin}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Warmarch Hobgoblin</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-hobgoblin-remaster-warrenbred"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/hobgoblin/remaster/warrenbred"
+                                                            data-select="heritage/lost-omens/character-guide/hobgoblin" data-name="_{Warrenbred Hobgoblin}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Warrenbred Hobgoblin</h4>
+                                                            
+                                                          </button>
+                                                  </div>
                                                   <h3>Lost Omens Ancestry Guide</h3>
                                                   <!-- 0  1 form-select-heritage-lost-omens-character-guide-hobgoblin-items 2  3  -->
                                                   <div class="item-list__group">
@@ -22304,6 +22525,100 @@
                             data-bind="active = #tab-bar--form-select-heritage-lost-omens-character-guide-leshy.current | eq 'ancestry'"
                           >
                             <div class="item-list " id="form-select-heritage-lost-omens-character-guide-leshy-items" data-facet="">
+                                                  <h3>Player Core</h3>
+                                                  <!-- 0  1 form-select-heritage-lost-omens-character-guide-leshy-items 2  3  -->
+                                                  <div class="item-list__group">
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-leshy-remaster-cactus"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/leshy/remaster/cactus"
+                                                            data-select="heritage/lost-omens/character-guide/leshy" data-name="_{Cactus Leshy}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Cactus Leshy</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-leshy-remaster-fruit"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/leshy/remaster/fruit"
+                                                            data-select="heritage/lost-omens/character-guide/leshy" data-name="_{Fruit Leshy}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Fruit Leshy</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-leshy-remaster-fungus"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/leshy/remaster/fungus"
+                                                            data-select="heritage/lost-omens/character-guide/leshy" data-name="_{Fungus Leshy}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Fungus Leshy</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-leshy-remaster-gourd"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/leshy/remaster/gourd"
+                                                            data-select="heritage/lost-omens/character-guide/leshy" data-name="_{Gourd Leshy}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Gourd Leshy</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-leshy-remaster-leaf"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/leshy/remaster/leaf"
+                                                            data-select="heritage/lost-omens/character-guide/leshy" data-name="_{Leaf Leshy}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Leaf Leshy</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-leshy-remaster-lotus"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/leshy/remaster/lotus"
+                                                            data-select="heritage/lost-omens/character-guide/leshy" data-name="_{Lotus Leshy}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Lotus Leshy</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-leshy-remaster-root"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/leshy/remaster/root"
+                                                            data-select="heritage/lost-omens/character-guide/leshy" data-name="_{Root Leshy}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Root Leshy</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-leshy-remaster-seaweed"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/leshy/remaster/seaweed"
+                                                            data-select="heritage/lost-omens/character-guide/leshy" data-name="_{Seaweed Leshy}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Seaweed Leshy</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-leshy-remaster-vine"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/leshy/remaster/vine"
+                                                            data-select="heritage/lost-omens/character-guide/leshy" data-name="_{Vine Leshy}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Vine Leshy</h4>
+                                                            
+                                                          </button>
+                                                  </div>
                                                   <h3>Lost Omens Ancestry Guide</h3>
                                                   <!-- 0  1 form-select-heritage-lost-omens-character-guide-leshy-items 2  3  -->
                                                   <div class="item-list__group">
@@ -24796,6 +25111,80 @@
                             data-bind="active = #tab-bar--form-select-heritage-lost-omens-mwangi-expanse-gnoll.current | eq 'ancestry'"
                           >
                             <div class="item-list " id="form-select-heritage-lost-omens-mwangi-expanse-gnoll-items" data-facet="">
+                                                  <h3>Player Core 2</h3>
+                                                  <!-- 0  1 form-select-heritage-lost-omens-mwangi-expanse-gnoll-items 2  3  -->
+                                                  <div class="item-list__group">
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-kholo-remaster-ant"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/kholo/remaster/ant"
+                                                            data-select="heritage/lost-omens/mwangi-expanse/gnoll" data-name="_{Ant Kholo}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Ant Kholo</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-kholo-remaster-cave"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/kholo/remaster/cave"
+                                                            data-select="heritage/lost-omens/mwangi-expanse/gnoll" data-name="_{Cave Kholo}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Cave Kholo</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-kholo-remaster-dog"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/kholo/remaster/dog"
+                                                            data-select="heritage/lost-omens/mwangi-expanse/gnoll" data-name="_{Dog Kholo}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Dog Kholo</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-kholo-remaster-great"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/kholo/remaster/great"
+                                                            data-select="heritage/lost-omens/mwangi-expanse/gnoll" data-name="_{Great Kholo}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Great Kholo</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-kholo-remaster-sweetbreath"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/kholo/remaster/sweetbreath"
+                                                            data-select="heritage/lost-omens/mwangi-expanse/gnoll" data-name="_{Sweetbreath Kholo}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Sweetbreath Kholo</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-kholo-remaster-winter"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/kholo/remaster/winter"
+                                                            data-select="heritage/lost-omens/mwangi-expanse/gnoll" data-name="_{Winter Kholo}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Winter Kholo</h4>
+                                                            
+                                                          </button>
+                                                          <button 
+                                                            type="button"
+                                                            id="item-heritage-kholo-remaster-witch"
+                                                            class="btn btn--tile-light  form-select-item-button " 
+                                                            data-on-click="emit form-select,close-menu heritage/kholo/remaster/witch"
+                                                            data-select="heritage/lost-omens/mwangi-expanse/gnoll" data-name="_{Witch Kholo}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                          >
+                                                                  <h4>Witch Kholo</h4>
+                                                            
+                                                          </button>
+                                                  </div>
                                                   <h3>Mwangi Expanse</h3>
                                                   <!-- 0  1 form-select-heritage-lost-omens-mwangi-expanse-gnoll-items 2  3  -->
                                                   <div class="item-list__group">
@@ -34809,9 +35198,9 @@
               "apg-toxicologist"
             ],
             "_{Core Rulebook}": [
-              "mutagenist",
               "bomber",
-              "chirurgeon"
+              "chirurgeon",
+              "mutagenist"
             ]
           },
           "displayGroups": [
@@ -35212,13 +35601,13 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
+                                      "alchemical-familiar",
                                       "chemical-contagion",
                                       "pinpoint-poisoner",
-                                      "sticky-poison",
-                                      "alchemical-familiar",
                                       "smoke-bomb",
-                                      "tenacious-toxins",
-                                      "subtle-delivery"
+                                      "sticky-poison",
+                                      "subtle-delivery",
+                                      "tenacious-toxins"
                                     ]
                                   },
                                   "displayGroups": [
@@ -35505,9 +35894,9 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "alchemical-sciences",
               "forensic-medicine",
               "empiricism",
+              "alchemical-sciences",
               "interrogation"
             ]
           },
@@ -35889,11 +36278,11 @@
           "groups": {
             "_{Advanced Player's Guide}": [
               "ancestors",
+              "flames",
               "cosmos",
               "bones",
-              "life",
               "battle",
-              "flames",
+              "life",
               "tempest",
               "lore"
             ]
@@ -36330,11 +36719,11 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "gymnast",
-              "battledancer",
-              "wit",
               "fencer",
-              "braggart"
+              "battledancer",
+              "braggart",
+              "gymnast",
+              "wit"
             ]
           },
           "displayGroups": [
@@ -36829,12 +37218,12 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "night",
               "curse",
-              "rune",
-              "fervor",
               "fate",
+              "rune",
+              "night",
               "wild",
+              "fervor",
               "winter"
             ]
           },
@@ -37449,8 +37838,8 @@
               "animal",
               "fury",
               "giant",
-              "spirit",
-              "dragon"
+              "dragon",
+              "spirit"
             ]
           },
           "displayGroups": [
@@ -38444,14 +38833,14 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "apg-antipaladin",
               "apg-desecrator",
-              "apg-tyrant"
+              "apg-tyrant",
+              "apg-antipaladin"
             ],
             "_{Core Rulebook}": [
-              "redeemer",
               "liberator",
-              "paladin"
+              "paladin",
+              "redeemer"
             ]
           },
           "displayGroups": [
@@ -38826,9 +39215,9 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
+              "shield",
               "blade",
-              "steed",
-              "shield"
+              "steed"
             ]
           },
           "displayGroups": [
@@ -39516,8 +39905,8 @@
           "groups": {
             "_{Dark Archive}": [
               "unbound-step",
-              "precise-discipline",
               "gathered-lore",
+              "precise-discipline",
               "wandering-reverie"
             ]
           },
@@ -39868,12 +40257,12 @@
           ],
           "groups": {
             "_{Dark Archive}": [
-              "distant-grasp",
               "oscillating-wave",
-              "infinite-eye",
+              "distant-grasp",
               "silent-whisper",
-              "unbound-step",
-              "tangible-dream"
+              "infinite-eye",
+              "tangible-dream",
+              "unbound-step"
             ]
           },
           "displayGroups": [
@@ -40318,15 +40707,15 @@
           ],
           "groups": {
             "_{Dark Archive}": [
-              "chalice",
               "amulet",
+              "chalice",
+              "regalia",
               "bell",
               "lantern",
-              "regalia",
-              "tome",
-              "wand",
               "mirror",
-              "weapon"
+              "tome",
+              "weapon",
+              "wand"
             ]
           },
           "displayGroups": [
@@ -40831,10 +41220,10 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
+              "animal",
               "leaf",
-              "wild",
               "storm",
-              "animal"
+              "wild"
             ]
           },
           "displayGroups": [
@@ -41675,10 +42064,10 @@
           ],
           "groups": {
             "_{Guns and Gears}": [
-              "pistolero",
-              "sniper",
+              "vanguard",
               "drifter",
-              "vanguard"
+              "sniper",
+              "pistolero"
             ]
           },
           "displayGroups": [
@@ -41983,9 +42372,9 @@
           ],
           "groups": {
             "_{Guns and Gears}": [
+              "weapon",
               "construct",
-              "armour",
-              "weapon"
+              "armour"
             ]
           },
           "displayGroups": [
@@ -42349,12 +42738,12 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
-                                      "ironblood",
+                                      "dragon",
                                       "crane",
+                                      "ironblood",
+                                      "tiger",
                                       "tangled-forest",
                                       "mountain",
-                                      "dragon",
-                                      "tiger",
                                       "wolf"
                                     ]
                                   },
@@ -42769,11 +43158,11 @@
                                   ],
                                   "groups": {
                                     "_{Rage of Elements}": [
-                                      "metal",
                                       "earth",
-                                      "fire",
-                                      "water",
                                       "air",
+                                      "fire",
+                                      "metal",
+                                      "water",
                                       "wood"
                                     ]
                                   },
@@ -43476,8 +43865,8 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
-                                      "animal-companion",
                                       "camouflage",
+                                      "animal-companion",
                                       "favored-terrain"
                                     ],
                                     "_{Advanced Player's Guide}": [
@@ -43783,8 +44172,8 @@
               "apg-mastermind"
             ],
             "_{Core Rulebook}": [
-              "ruffian",
               "thief",
+              "ruffian",
               "scoundrel"
             ]
           },
@@ -44335,11 +44724,11 @@
           ],
           "groups": {
             "_{Secrets of Magic}": [
+              "inexorable-iron",
+              "twisting-tree",
               "sparkling-targe",
               "laughing-shadow",
-              "starlit-span",
-              "inexorable-iron",
-              "twisting-tree"
+              "starlit-span"
             ]
           },
           "displayGroups": [
@@ -44774,16 +45163,16 @@
           ],
           "groups": {
             "_{Secrets of Magic}": [
-              "anger-phantom",
               "angel",
+              "anger-phantom",
               "beast",
               "demon",
-              "devotion-phantom",
+              "plant",
               "construct",
-              "dragon",
+              "devotion-phantom",
               "fey",
-              "psychopomp",
-              "plant"
+              "dragon",
+              "psychopomp"
             ]
           },
           "displayGroups": [
@@ -45453,22 +45842,22 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "apg-genie",
-              "apg-shadow",
               "apg-psychopomp",
-              "apg-nymph"
+              "apg-nymph",
+              "apg-genie",
+              "apg-shadow"
             ],
             "_{Core Rulebook}": [
-              "demonic",
-              "aberrant",
-              "draconic",
-              "angelic",
               "diabolic",
+              "demonic",
+              "angelic",
               "hag",
+              "aberrant",
+              "undead",
+              "draconic",
               "fey",
               "elemental",
-              "imperial",
-              "undead"
+              "imperial"
             ]
           },
           "displayGroups": [
@@ -46316,10 +46705,10 @@
               "apg-staff-nexus"
             ],
             "_{Core Rulebook}": [
-              "improved-familiar-attunement",
-              "metamagical-experimentation",
               "spell-blending",
-              "spell-substitution"
+              "spell-substitution",
+              "improved-familiar-attunement",
+              "metamagical-experimentation"
             ]
           },
           "displayGroups": [
@@ -46971,13 +47360,13 @@
           "groups": {
             "_{Core Rulebook}": [
               "divination",
-              "conjuration",
               "abjuration",
+              "conjuration",
+              "transmutation",
               "evocation",
+              "necromancy",
               "enchantment",
               "illusion",
-              "transmutation",
-              "necromancy",
               "universalist"
             ]
           },
@@ -47609,8 +47998,8 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
-                                      "counterspell",
                                       "familiar",
+                                      "counterspell",
                                       "reach-spell"
                                     ]
                                   },
