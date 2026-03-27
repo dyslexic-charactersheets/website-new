@@ -7,6 +7,8 @@ let logger = getDebug('build-classic');
 
 function readClassicFormAndSubmit(type) {
   logger.log("Download");
+  set('body', 'downloadStatus', 'in-progress');
+  set('body', 'currentMenu', 'download-menu');
   
   let request = readClassicForm(type);
   if (isLoggedIn()) {

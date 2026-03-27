@@ -60,6 +60,22 @@ function isString(val) {
   return typeof val === 'string' || val instanceof String;
 }
 
+function isEmpty(val) {
+  if (val === null || val === undefined || val === false) {
+    return true;
+  }
+  if (isString(val)) {
+    return val == '';
+  }
+  if (isArray(val)) {
+    return val.length == 0;
+  }
+  if (isObject(val)) {
+    return !Object.entries((val || {})).length;
+  }
+  return false;
+}
+
 function isElement(val) {
   if (val === null || val === undefined) {
     return false;

@@ -114,6 +114,22 @@ function isString(val) {
   return typeof val === 'string' || val instanceof String;
 }
 
+function isEmpty(val) {
+  if (val === null || val === undefined || val === false) {
+    return true;
+  }
+  if (isString(val)) {
+    return val == '';
+  }
+  if (isArray(val)) {
+    return val.length == 0;
+  }
+  if (isObject(val)) {
+    return !Object.entries((val || {})).length;
+  }
+  return false;
+}
+
 function isElement(val) {
   if (val === null || val === undefined) {
     return false;
@@ -302,6 +318,9 @@ function set(target, field, value) {
           break;
 
         default:
+          if (!isString(value)) {
+            componentLogger.warn("Not a string:", target, field, value);
+          }
           if (target.dataset[field] == value) {
             return;
           }
@@ -470,16 +489,25 @@ function applyPipes(value, pipes) {
   return value;
 }
 
+function summariseElement(elem) {
+  if (!isEmpty(elem.id)) {
+    return '#'+elem.id;
+  }
+
+  return elem.tagName;
+}
+
 function createBinding(destElem, field, pipes) {
+  let id = summariseElement(destElem);
   return function (value) {
-    // componentLogger.log("Binding callback");
+    componentLogger.log("Binding callback:", id+"."+field);
     componentLogger.indent();
 
-    // componentLogger.log("Processing value of", field, ":", value, pipes);
+    componentLogger.log("Processing value of", id+"."+field, ":", value, pipes);
     value = applyPipes(value, pipes);
 
     // actually set the value
-    componentLogger.log("Setting value of", field, "=", value);
+    componentLogger.log("Setting value of", id+"."+field, "=", value);
     componentLogger.indent();
     set(destElem, field, value);
     componentLogger.outdent();
@@ -581,6 +609,10 @@ function setupBindings(container) {
 
       // find the data source element
       let [sourceSelector, sourceAttr] = source.split('.');
+      if (sourceAttr.match('-')) {
+        componentLogger.error("Bad binding key", sourceSelector, sourceAttr);
+      }
+
       let sourceElem = initObserver(sourceSelector);
       if (sourceElem === undefined || sourceElem === null) {
         componentLogger.log("Source element not found:", sourceSelector);
@@ -828,6 +860,9 @@ function downloadCharacterSheet(request) {
     downloadDisabled = false;
     clearTimeout(downloadTimeout);
   });
+  
+  // show the right message
+  set('body', 'downloadStatus', 'in-progress');
 
   // the request
   let doc = JSON.stringify(request);
@@ -877,6 +912,8 @@ function downloadCharacterSheet(request) {
       
       // download the file
       res.blob().then((data) => {
+        set('body', 'downloadStatus', 'ready');
+
         let a = document.createElement('a');
         a.href = window.URL.createObjectURL(data);
         a.download = fileName;
@@ -897,6 +934,8 @@ let logger = getDebug('build-classic');
 
 function readClassicFormAndSubmit(type) {
   logger.log("Download");
+  set('body', 'downloadStatus', 'in-progress');
+  set('body', 'currentMenu', 'download-menu');
   
   let request = readClassicForm(type);
   if (isLoggedIn()) {
@@ -1170,6 +1209,8 @@ let pf2logger = getDebug('build-pf2');
 
 function readPf2FormAndSubmit(type) {
   pf2logger.log("Download");
+  set('body', 'downloadStatus', 'in-progress');
+  set('body', 'currentMenu', 'download-menu');
   
   let request = readPf2Form(type);
   if (isLoggedIn()) {
@@ -1231,6 +1272,13 @@ function readPf2Form(type) {
       }
     }
     return value;
+  }
+
+  function readColour(colour, custom) {
+    if (colour == 'custom') {
+      return custom;
+    }
+    return colour;
   }
 
   // attach images
@@ -1372,9 +1420,9 @@ function readPf2Form(type) {
       break;
   }
 
-  character.attributes.printColour = dataset.baseColour;
-  character.attributes.accentColour = dataset.accentColour;
-  character.attributes.printBrightness = dataset.printBrightness;
+  character.attributes.printColour = readColour(dataset.baseColour, dataset.baseColourCustom);
+  character.attributes.accentColour = readColour(dataset.accentColour, dataset.accentColourCustom);
+  character.attributes.printIntensity = -dataset.printBrightness;
   character.attributes.printWatermark = dataset.watermark;
 
   // accessibility
@@ -1420,6 +1468,15 @@ function readPf2Form(type) {
 };
 addEventListener('load', () => {
   try {
+on('.brightness-picker input[type="range"]', 'change', (evt) => {
+  let input = evt.target;
+  let brightness = input.value;
+  set('#build-form', input.dataset.var, brightness);
+});
+} catch (e) { 
+  console.log("Error in BrightnessPicker", e)
+}
+try {
 on("input[type='checkbox']", "change", (evt) => {
   let checkbox = evt.target;
   if (checkbox.dataset.var) {
@@ -1438,7 +1495,11 @@ on("input[type='checkbox']", "change", (evt) => {
   console.log("Error in Checkbox", e)
 }
 try {
-function colourValue(colour) {
+function colourValue(colour, custom) {
+  if (colour == "custom") {
+    return custom;
+  }
+
   if (colour.match(/#[A-Z0-9]{6}/)) {
     return colour;
   }
@@ -1506,8 +1567,11 @@ on ('.colour-output__inner', 'click', (evt) => {
 on('.colour-output input', 'change', (evt) => {
   let value = evt.currentTarget.value;
   let output = evt.currentTarget.closest('.colour-output');
+
+  let custom = '';
+
   for (let pallette of output.querySelectorAll('.colour-output__pallette')) {
-    pallette.style.backgroundColor = colourValue(value);
+    pallette.style.backgroundColor = colourValue(value, custom);
   }
 });
 } catch (e) { 
@@ -1520,6 +1584,13 @@ on('.colour-wheel input[type="radio"]', 'change', (evt) => {
   set('#build-form', wheel.dataset.field, radio.value);
   emit(wheel, 'close-menu');
 });
+
+on ('.colour-picker-custom input[type="radio"]', 'change', (evt) => {
+  let radio = evt.currentTarget;
+  let wheel = radio.closest('.colour-wheel');
+  set('#build-form', wheel.dataset.field, radio.value);
+  emit(wheel, 'close-menu');
+})
 
 function colourName(name) {
   switch (name) {
@@ -1542,6 +1613,25 @@ function colourName(name) {
 
 definePipe('colourName', (name) => {
   return colourName(name);
+});
+
+function updateCustomColourPreview(inputElem) {
+  let colour = '#'+inputElem.value.trim();
+
+  let previewElem = inputElem.closest('.row').querySelector('.colour-sample');
+  previewElem.classList.remove('colour-sample-rainbow');
+  previewElem.style['background-color'] = colour;
+}
+
+on('.print-colour-custom', 'change', (evt) => {
+  let inputElem = evt.target;
+  updateCustomColourPreview(inputElem);
+});
+
+onLoaded(() => {
+  all('.print-colour-custom', (inputElem) => {
+    updateCustomColourPreview(inputElem);
+  });
 });
 } catch (e) { 
   console.log("Error in ColourSelectMenu", e)

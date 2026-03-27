@@ -20,38 +20,58 @@
 
       <div class="spacer"></div>
       
-      <div class='colour-wheel' data-field="{{field}}">
+      <div class="colour-wheel" data-field="{{field}}">
         <object data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
-        <input type='radio' name='{{id}}' value='grey' id='colour-wheel-grey' data-bind="checked = #build-form.{{field}} | eq 'grey'">
+        <input type='radio' name='{{id}}' value='grey' id='colour-wheel-grey' checked autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'grey'">
     
-        <input type='radio' name='{{id}}' value='red' id='colour-wheel-{{id}}-red' data-bind="checked = #build-form.{{field}} | eq 'red'">
-        <input type='radio' name='{{id}}' value='orange' id='colour-wheel-{{id}}-orange' data-bind="checked = #build-form.{{field}} | eq 'orange'">
-        <input type='radio' name='{{id}}' value='gold' id='colour-wheel-{{id}}-gold' data-bind="checked = #build-form.{{field}} | eq 'gold'">
-        <input type='radio' name='{{id}}' value='lime' id='colour-wheel-{{id}}-lime' data-bind="checked = #build-form.{{field}} | eq 'lime'">
-        <input type='radio' name='{{id}}' value='green' id='colour-wheel-{{id}}-green' data-bind="checked = #build-form.{{field}} | eq 'green'">
-        <input type='radio' name='{{id}}' value='teal' id='colour-wheel-{{id}}-teal' data-bind="checked = #build-form.{{field}} | eq 'teal'">
-        <input type='radio' name='{{id}}' value='cyan' id='colour-wheel-{{id}}-cyan' data-bind="checked = #build-form.{{field}} | eq 'cyan'">
-        <input type='radio' name='{{id}}' value='azure' id='colour-wheel-{{id}}-azure' data-bind="checked = #build-form.{{field}} | eq 'azure'">
-        <input type='radio' name='{{id}}' value='blue' id='colour-wheel-{{id}}-blue' data-bind="checked = #build-form.{{field}} | eq 'blue'">
-        <input type='radio' name='{{id}}' value='indigo' id='colour-wheel-{{id}}-indigo' data-bind="checked = #build-form.{{field}} | eq 'indigo'">
-        <input type='radio' name='{{id}}' value='violet' id='colour-wheel-{{id}}-violet' data-bind="checked = #build-form.{{field}} | eq 'violet'">
-        <input type='radio' name='{{id}}' value='magenta' id='colour-wheel-{{id}}-magenta' data-bind="checked = #build-form.{{field}} | eq 'magenta'">
+        <input type='radio' name='{{id}}' value='red' id='colour-wheel-{{id}}-red' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'red'">
+        <input type='radio' name='{{id}}' value='orange' id='colour-wheel-{{id}}-orange' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'orange'">
+        <input type='radio' name='{{id}}' value='gold' id='colour-wheel-{{id}}-gold' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'gold'">
+        <input type='radio' name='{{id}}' value='lime' id='colour-wheel-{{id}}-lime' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'lime'">
+        <input type='radio' name='{{id}}' value='green' id='colour-wheel-{{id}}-green' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'green'">
+        <input type='radio' name='{{id}}' value='teal' id='colour-wheel-{{id}}-teal' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'teal'">
+        <input type='radio' name='{{id}}' value='cyan' id='colour-wheel-{{id}}-cyan' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'cyan'">
+        <input type='radio' name='{{id}}' value='azure' id='colour-wheel-{{id}}-azure' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'azure'">
+        <input type='radio' name='{{id}}' value='blue' id='colour-wheel-{{id}}-blue' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'blue'">
+        <input type='radio' name='{{id}}' value='indigo' id='colour-wheel-{{id}}-indigo' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'indigo'">
+        <input type='radio' name='{{id}}' value='violet' id='colour-wheel-{{id}}-violet' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'violet'">
+        <input type='radio' name='{{id}}' value='magenta' id='colour-wheel-{{id}}-magenta' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'magenta'">
     
-        <input type='radio' name='{{id}}' value='red2' id='colour-wheel-{{id}}-red2' data-bind="checked = #build-form.{{field}} | eq 'red2'">
-        <input type='radio' name='{{id}}' value='orange2' id='colour-wheel-{{id}}-orange2' data-bind="checked = #build-form.{{field}} | eq 'orange2'">
-        <input type='radio' name='{{id}}' value='gold2' id='colour-wheel-{{id}}-gold2' data-bind="checked = #build-form.{{field}} | eq 'gold2'">
-        <input type='radio' name='{{id}}' value='lime2' id='colour-wheel-{{id}}-lime2' data-bind="checked = #build-form.{{field}} | eq 'lime2'">
-        <input type='radio' name='{{id}}' value='green2' id='colour-wheel-{{id}}-green2' data-bind="checked = #build-form.{{field}} | eq 'green2'">
-        <input type='radio' name='{{id}}' value='teal2' id='colour-wheel-{{id}}-teal2' data-bind="checked = #build-form.{{field}} | eq 'teal2'">
-        <input type='radio' name='{{id}}' value='cyan2' id='colour-wheel-{{id}}-cyan2' data-bind="checked = #build-form.{{field}} | eq 'cyan2'">
-        <input type='radio' name='{{id}}' value='azure2' id='colour-wheel-{{id}}-azure2' data-bind="checked = #build-form.{{field}} | eq 'azure2'">
-        <input type='radio' name='{{id}}' value='blue2' id='colour-wheel-{{id}}-blue2' data-bind="checked = #build-form.{{field}} | eq 'blue2'">
-        <input type='radio' name='{{id}}' value='indigo2' id='colour-wheel-{{id}}-indigo2' data-bind="checked = #build-form.{{field}} | eq 'indigo2'">
-        <input type='radio' name='{{id}}' value='violet2' id='colour-wheel-{{id}}-violet2' data-bind="checked = #build-form.{{field}} | eq 'violet2'">
-        <input type='radio' name='{{id}}' value='magenta2' id='colour-wheel-{{id}}-magenta2' data-bind="checked = #build-form.{{field}} | eq 'magenta2'">
+        <input type='radio' name='{{id}}' value='red2' id='colour-wheel-{{id}}-red2' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'red2'">
+        <input type='radio' name='{{id}}' value='orange2' id='colour-wheel-{{id}}-orange2' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'orange2'">
+        <input type='radio' name='{{id}}' value='gold2' id='colour-wheel-{{id}}-gold2' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'gold2'">
+        <input type='radio' name='{{id}}' value='lime2' id='colour-wheel-{{id}}-lime2' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'lime2'">
+        <input type='radio' name='{{id}}' value='green2' id='colour-wheel-{{id}}-green2' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'green2'">
+        <input type='radio' name='{{id}}' value='teal2' id='colour-wheel-{{id}}-teal2' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'teal2'">
+        <input type='radio' name='{{id}}' value='cyan2' id='colour-wheel-{{id}}-cyan2' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'cyan2'">
+        <input type='radio' name='{{id}}' value='azure2' id='colour-wheel-{{id}}-azure2' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'azure2'">
+        <input type='radio' name='{{id}}' value='blue2' id='colour-wheel-{{id}}-blue2' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'blue2'">
+        <input type='radio' name='{{id}}' value='indigo2' id='colour-wheel-{{id}}-indigo2' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'indigo2'">
+        <input type='radio' name='{{id}}' value='violet2' id='colour-wheel-{{id}}-violet2' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'violet2'">
+        <input type='radio' name='{{id}}' value='magenta2' id='colour-wheel-{{id}}-magenta2' autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'magenta2'">
       </div>
 
       {{!-- {{>Output var=(str "#build-form.${field} | colourName" field=field) bare=true}} --}}
+
+      {{!--
+        SPOT COLOURS
+        (eg pink)
+      --}}
+
+      {{!--
+        RECENT COLOURS
+        (logged in users only)
+      --}}
+
+      {{#> Row align="centre"}}
+        <p class="colour-picker-custom">
+          <input type="radio" name="{{id}}" value="custom" id="colour-wheel-{{id}}-custom" autocomplete="off" data-bind="checked = #build-form.{{field}} | eq 'custom'">
+          <label for="colour-wheel-{{id}}-custom">{{__ "Custom"}}</label> &nbsp;
+          <label class='colour-input' for="print-colour-{{id}}-custom">#</label>
+          <input type='text' name='print-colour-custom' class="print-colour-custom" id="print-colour-{{id}}-custom" autocomplete="off" size='6' data-bind="value = #build-form.{{field}}Custom"></span>
+          <label class='colour-sample colour-sample-rainbow' id='print-colour-{{id}}-custom-preview'><span></span></label>
+        </p>
+      {{/Row}}
       
       <div class="spacer"></div>
 
@@ -66,6 +86,13 @@ on('.colour-wheel input[type="radio"]', 'change', (evt) => {
   set('#build-form', wheel.dataset.field, radio.value);
   emit(wheel, 'close-menu');
 });
+
+on ('.colour-picker-custom input[type="radio"]', 'change', (evt) => {
+  let radio = evt.currentTarget;
+  let wheel = radio.closest('.colour-wheel');
+  set('#build-form', wheel.dataset.field, radio.value);
+  emit(wheel, 'close-menu');
+})
 
 function colourName(name) {
   switch (name) {
@@ -89,6 +116,26 @@ function colourName(name) {
 definePipe('colourName', (name) => {
   return colourName(name);
 });
+
+function updateCustomColourPreview(inputElem) {
+  let colour = '#'+inputElem.value.trim();
+
+  let previewElem = inputElem.closest('.row').querySelector('.colour-sample');
+  previewElem.classList.remove('colour-sample-rainbow');
+  previewElem.style['background-color'] = colour;
+}
+
+on('.print-colour-custom', 'change', (evt) => {
+  let inputElem = evt.target;
+  updateCustomColourPreview(inputElem);
+});
+
+onLoaded(() => {
+  all('.print-colour-custom', (inputElem) => {
+    updateCustomColourPreview(inputElem);
+  });
+});
+
 </script>
 
 <style>
@@ -207,5 +254,28 @@ definePipe('colourName', (name) => {
 .colour-wheel input[type=radio][value=magenta2] {
   top: 67px;
   left: 95px;
+}
+
+label.colour-sample {
+  display: inline-block;
+  vertical-align: middle;
+
+  width: 24px;
+  height: 24px;
+
+  span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 2px;
+  }
+
+  &.colour-sample-rainbow span {
+    background-color: #7a7a7a;
+    background-color: rgba(128,128,128,0.5);
+    /* background-color: linear-gradient(-45deg, #c04040, #40c040, #4040c0, #c04040); */
+    background: linear-gradient(135deg, #c04040, #b0b020, #40c040, #20b0b0, #4040c0, #b020b0);
+  }
 }
 </style>

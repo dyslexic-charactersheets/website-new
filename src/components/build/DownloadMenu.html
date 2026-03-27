@@ -1,0 +1,33 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  {{#> SideMenu
+    id="download-menu"
+    cls="download-menu"
+    side="right"
+    wide=false
+  }}
+    {{#> Pane bg="parchment"}}
+
+      <div class="spacer"></div>
+
+      <div class="hero">
+        <h2>{{__ "Downloading"...}}</h2>
+      </div>
+
+      {{#> Reveal id="download-building" cond="#body.downloadStatus | eq 'in-progress'"}}
+        <p>{{__ "Building character sheet"}}</p>
+      {{/Reveal}}
+
+      {{#> Reveal id="download-ready" cond="#body.downloadStatus | eq 'ready'"}}
+        <p>{{__ "Ready!"}}</p>
+      {{/Reveal}}
+      
+      <div class="spacer"></div>
+
+    {{/Pane}}
+  {{/SideMenu}}
+</template>

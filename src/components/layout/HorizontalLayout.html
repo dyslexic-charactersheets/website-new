@@ -1,0 +1,23 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <main class="main--layout_horizontal">
+    {{> @partial-block }}
+  </main>
+</template>
+
+<style>
+
+@use 'responsive';
+@use 'layout';
+@use 'colours';
+
+.main--layout_horizontal {
+  display: flex;
+  flex-direction: column;
+}
+
+</style>

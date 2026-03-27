@@ -1,0 +1,98 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <div class="brightness-picker">
+    <label>{{__ "Print darkness"}}</label>
+    <div class="brightness-picker__inner">
+      <div class="brightness-picker__inner2">
+        <input type="range" min="-4" max="4" value="0"
+          name="colour-brightness" 
+          autocomplete="off"
+          data-bind="value=#build-form.{{field}}"
+          data-var="{{field}}"
+          list="{{field}}-markers">
+        <datalist id="{{field}}-markers">
+          <option value="-4"></option>
+          <option value="-2"></option>
+          <option value="0"></option>
+          <option value="2"></option>
+          <option value="4"></option>
+        </datalist>
+        <span class="brightness-picker__notch"></span>
+        <label class="brightness-picker__lighter">Lighter</label>
+        <label class="brightness-picker__darker">Darker</label>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+on('.brightness-picker input[type="range"]', 'change', (evt) => {
+  let input = evt.target;
+  let brightness = input.value;
+  set('#build-form', input.dataset.var, brightness);
+});
+</script>
+
+<style>
+@use 'fonts';
+@use 'colours';
+
+.brightness-picker {
+  margin: 0.5em 0;
+
+  flex: 1 1 auto;
+  label {
+    @include fonts.small-heading;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .brightness-picker__inner {
+    /* border: 1px solid colours.$shade; */
+    background: white;
+    padding: 0.2rem;
+    border-radius: 0.4rem;
+  }
+
+  .brightness-picker__inner2 {
+    position: relative;
+
+    background: linear-gradient(to right, colours.$brightness-light, colours.$brightness-dark);
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+    height: 2.5rem;
+  }
+
+  .brightness-picker__notch {
+    position: absolute;
+    display: block;
+
+    border-right: 1px solid white;
+    border-left: 1px solid black;
+    height: 1rem;
+    width: 0;
+
+    left: 50%;
+  }
+
+  .brightness-picker__lighter {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    color: black;
+    text-shadow: 0 -0.5px 1px white;
+  }
+
+  .brightness-picker__darker {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+}
+</style>

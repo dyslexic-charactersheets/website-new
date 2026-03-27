@@ -128,6 +128,9 @@ function set(target, field, value) {
           break;
 
         default:
+          if (!isString(value)) {
+            componentLogger.warn("Not a string:", target, field, value);
+          }
           if (target.dataset[field] == value) {
             return;
           }

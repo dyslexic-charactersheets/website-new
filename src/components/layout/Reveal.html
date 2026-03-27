@@ -4,7 +4,11 @@
 -->
 
 <template>
-  <div class="reveal" id="{{id}}">
+  <div class="reveal reveal--{{id}}" id="{{id}}"
+    {{#if cond}}
+    bind="show = {{cond}}"
+    {{/if}}
+  >
     {{> @partial-block }}
   </div>
 </template>
@@ -13,7 +17,7 @@
 .reveal {
   display: none;
 
-  &.reveal--show {
+  &.reveal--show, &[data-show='true'] {
     display: block;
   }
 }

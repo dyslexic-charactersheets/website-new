@@ -7,6 +7,8 @@ let pf2logger = getDebug('build-pf2');
 
 function readPf2FormAndSubmit(type) {
   pf2logger.log("Download");
+  set('body', 'downloadStatus', 'in-progress');
+  set('body', 'currentMenu', 'download-menu');
   
   let request = readPf2Form(type);
   if (isLoggedIn()) {
@@ -68,6 +70,13 @@ function readPf2Form(type) {
       }
     }
     return value;
+  }
+
+  function readColour(colour, custom) {
+    if (colour == 'custom') {
+      return custom;
+    }
+    return colour;
   }
 
   // attach images
@@ -209,9 +218,9 @@ function readPf2Form(type) {
       break;
   }
 
-  character.attributes.printColour = dataset.baseColour;
-  character.attributes.accentColour = dataset.accentColour;
-  character.attributes.printBrightness = dataset.printBrightness;
+  character.attributes.printColour = readColour(dataset.baseColour, dataset.baseColourCustom);
+  character.attributes.accentColour = readColour(dataset.accentColour, dataset.accentColourCustom);
+  character.attributes.printIntensity = -dataset.printBrightness;
   character.attributes.printWatermark = dataset.watermark;
 
   // accessibility

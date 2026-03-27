@@ -18,6 +18,9 @@ function downloadCharacterSheet(request) {
     downloadDisabled = false;
     clearTimeout(downloadTimeout);
   });
+  
+  // show the right message
+  set('body', 'downloadStatus', 'in-progress');
 
   // the request
   let doc = JSON.stringify(request);
@@ -67,6 +70,8 @@ function downloadCharacterSheet(request) {
       
       // download the file
       res.blob().then((data) => {
+        set('body', 'downloadStatus', 'ready');
+
         let a = document.createElement('a');
         a.href = window.URL.createObjectURL(data);
         a.download = fileName;

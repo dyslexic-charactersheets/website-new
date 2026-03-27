@@ -2050,6 +2050,7 @@
                                                                 <div class="row">
                                                                   <div class="colour-output" data-colourname="baseColour">
                                                                       <input type="hidden" name="baseColour" value="grey" data-bind="value=#build-form.baseColour">
+                                                                      <input type="hidden" name="baseColour-custom" data-bind="value=#build-form.baseColourCustom">
                                                                       <label>Base colour</label>
                                                                       <div class="colour-output__inner" data-select="base-colour-menu">
                                                                           <div class="colour-output__pallette">
@@ -2058,6 +2059,7 @@
                                                                       <object class="colour-output__emblem" data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
                                                                     </div>        <div class="colour-output" data-colourname="accentColour">
                                                                       <input type="hidden" name="accentColour" value="grey" data-bind="value=#build-form.accentColour">
+                                                                      <input type="hidden" name="accentColour-custom" data-bind="value=#build-form.accentColourCustom">
                                                                       <label>Accent colour</label>
                                                                       <div class="colour-output__inner" data-select="accent-colour-menu">
                                                                           <div class="colour-output__pallette">
@@ -2066,7 +2068,29 @@
                                                                       <object class="colour-output__emblem" data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
                                                                     </div>      </div>
                                                           
-                                                          
+                                                                <div class="brightness-picker">
+                                                                    <label>Print darkness</label>
+                                                                    <div class="brightness-picker__inner">
+                                                                      <div class="brightness-picker__inner2">
+                                                                        <input type="range" min="-4" max="4" value="0"
+                                                                          name="colour-brightness" 
+                                                                          autocomplete="off"
+                                                                          data-bind="value=#build-form.printBrightness"
+                                                                          data-var="printBrightness"
+                                                                          list="printBrightness-markers">
+                                                                        <datalist id="printBrightness-markers">
+                                                                          <option value="-4"></option>
+                                                                          <option value="-2"></option>
+                                                                          <option value="0"></option>
+                                                                          <option value="2"></option>
+                                                                          <option value="4"></option>
+                                                                        </datalist>
+                                                                        <span class="brightness-picker__notch"></span>
+                                                                        <label class="brightness-picker__lighter">Lighter</label>
+                                                                        <label class="brightness-picker__darker">Darker</label>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
                                                                 <h3>Page Background</h3>
                                                           <div class="tile-picker">
                                                                       <label class="tile-option" for="radio-pageBackground_white" id="tile-option-pageBackground-white">
@@ -2830,6 +2854,7 @@
                                                                 <div class="row">
                                                                   <div class="colour-output" data-colourname="baseColour">
                                                                       <input type="hidden" name="baseColour" value="grey" data-bind="value=#build-form.baseColour">
+                                                                      <input type="hidden" name="baseColour-custom" data-bind="value=#build-form.baseColourCustom">
                                                                       <label>Base colour</label>
                                                                       <div class="colour-output__inner" data-select="base-colour-menu">
                                                                           <div class="colour-output__pallette">
@@ -2838,6 +2863,7 @@
                                                                       <object class="colour-output__emblem" data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
                                                                     </div>        <div class="colour-output" data-colourname="accentColour">
                                                                       <input type="hidden" name="accentColour" value="grey" data-bind="value=#build-form.accentColour">
+                                                                      <input type="hidden" name="accentColour-custom" data-bind="value=#build-form.accentColourCustom">
                                                                       <label>Accent colour</label>
                                                                       <div class="colour-output__inner" data-select="accent-colour-menu">
                                                                           <div class="colour-output__pallette">
@@ -2846,7 +2872,29 @@
                                                                       <object class="colour-output__emblem" data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
                                                                     </div>      </div>
                                                           
-                                                          
+                                                                <div class="brightness-picker">
+                                                                    <label>Print darkness</label>
+                                                                    <div class="brightness-picker__inner">
+                                                                      <div class="brightness-picker__inner2">
+                                                                        <input type="range" min="-4" max="4" value="0"
+                                                                          name="colour-brightness" 
+                                                                          autocomplete="off"
+                                                                          data-bind="value=#build-form.printBrightness"
+                                                                          data-var="printBrightness"
+                                                                          list="printBrightness-markers">
+                                                                        <datalist id="printBrightness-markers">
+                                                                          <option value="-4"></option>
+                                                                          <option value="-2"></option>
+                                                                          <option value="0"></option>
+                                                                          <option value="2"></option>
+                                                                          <option value="4"></option>
+                                                                        </datalist>
+                                                                        <span class="brightness-picker__notch"></span>
+                                                                        <label class="brightness-picker__lighter">Lighter</label>
+                                                                        <label class="brightness-picker__darker">Darker</label>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
                                                                 <h3>Page Background</h3>
                                                           <div class="tile-picker">
                                                                       <label class="tile-option" for="radio-pageBackground_white" id="tile-option-pageBackground-white">
@@ -3487,6 +3535,7 @@
                                                                 <div class="row">
                                                                   <div class="colour-output" data-colourname="baseColour">
                                                                       <input type="hidden" name="baseColour" value="grey" data-bind="value=#build-form.baseColour">
+                                                                      <input type="hidden" name="baseColour-custom" data-bind="value=#build-form.baseColourCustom">
                                                                       <label>Base colour</label>
                                                                       <div class="colour-output__inner" data-select="base-colour-menu">
                                                                           <div class="colour-output__pallette">
@@ -3495,6 +3544,7 @@
                                                                       <object class="colour-output__emblem" data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
                                                                     </div>        <div class="colour-output" data-colourname="accentColour">
                                                                       <input type="hidden" name="accentColour" value="grey" data-bind="value=#build-form.accentColour">
+                                                                      <input type="hidden" name="accentColour-custom" data-bind="value=#build-form.accentColourCustom">
                                                                       <label>Accent colour</label>
                                                                       <div class="colour-output__inner" data-select="accent-colour-menu">
                                                                           <div class="colour-output__pallette">
@@ -3503,7 +3553,29 @@
                                                                       <object class="colour-output__emblem" data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
                                                                     </div>      </div>
                                                           
-                                                          
+                                                                <div class="brightness-picker">
+                                                                    <label>Print darkness</label>
+                                                                    <div class="brightness-picker__inner">
+                                                                      <div class="brightness-picker__inner2">
+                                                                        <input type="range" min="-4" max="4" value="0"
+                                                                          name="colour-brightness" 
+                                                                          autocomplete="off"
+                                                                          data-bind="value=#build-form.printBrightness"
+                                                                          data-var="printBrightness"
+                                                                          list="printBrightness-markers">
+                                                                        <datalist id="printBrightness-markers">
+                                                                          <option value="-4"></option>
+                                                                          <option value="-2"></option>
+                                                                          <option value="0"></option>
+                                                                          <option value="2"></option>
+                                                                          <option value="4"></option>
+                                                                        </datalist>
+                                                                        <span class="brightness-picker__notch"></span>
+                                                                        <label class="brightness-picker__lighter">Lighter</label>
+                                                                        <label class="brightness-picker__darker">Darker</label>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
                                                                 <h3>Page Background</h3>
                                                           <div class="tile-picker">
                                                                       <label class="tile-option" for="radio-pageBackground_white" id="tile-option-pageBackground-white">
@@ -4012,6 +4084,7 @@
                                                                 <div class="row">
                                                                   <div class="colour-output" data-colourname="baseColour">
                                                                       <input type="hidden" name="baseColour" value="grey" data-bind="value=#build-form.baseColour">
+                                                                      <input type="hidden" name="baseColour-custom" data-bind="value=#build-form.baseColourCustom">
                                                                       <label>Base colour</label>
                                                                       <div class="colour-output__inner" data-select="base-colour-menu">
                                                                           <div class="colour-output__pallette">
@@ -4020,6 +4093,7 @@
                                                                       <object class="colour-output__emblem" data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
                                                                     </div>        <div class="colour-output" data-colourname="accentColour">
                                                                       <input type="hidden" name="accentColour" value="grey" data-bind="value=#build-form.accentColour">
+                                                                      <input type="hidden" name="accentColour-custom" data-bind="value=#build-form.accentColourCustom">
                                                                       <label>Accent colour</label>
                                                                       <div class="colour-output__inner" data-select="accent-colour-menu">
                                                                           <div class="colour-output__pallette">
@@ -4028,7 +4102,29 @@
                                                                       <object class="colour-output__emblem" data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
                                                                     </div>      </div>
                                                           
-                                                          
+                                                                <div class="brightness-picker">
+                                                                    <label>Print darkness</label>
+                                                                    <div class="brightness-picker__inner">
+                                                                      <div class="brightness-picker__inner2">
+                                                                        <input type="range" min="-4" max="4" value="0"
+                                                                          name="colour-brightness" 
+                                                                          autocomplete="off"
+                                                                          data-bind="value=#build-form.printBrightness"
+                                                                          data-var="printBrightness"
+                                                                          list="printBrightness-markers">
+                                                                        <datalist id="printBrightness-markers">
+                                                                          <option value="-4"></option>
+                                                                          <option value="-2"></option>
+                                                                          <option value="0"></option>
+                                                                          <option value="2"></option>
+                                                                          <option value="4"></option>
+                                                                        </datalist>
+                                                                        <span class="brightness-picker__notch"></span>
+                                                                        <label class="brightness-picker__lighter">Lighter</label>
+                                                                        <label class="brightness-picker__darker">Darker</label>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
                                                                 <h3>Page Background</h3>
                                                           <div class="tile-picker">
                                                                       <label class="tile-option" for="radio-pageBackground_white" id="tile-option-pageBackground-white">
@@ -35198,8 +35294,8 @@
               "apg-toxicologist"
             ],
             "_{Core Rulebook}": [
-              "bomber",
               "chirurgeon",
+              "bomber",
               "mutagenist"
             ]
           },
@@ -35601,13 +35697,13 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
+                                      "pinpoint-poisoner",
                                       "alchemical-familiar",
                                       "chemical-contagion",
-                                      "pinpoint-poisoner",
                                       "smoke-bomb",
                                       "sticky-poison",
-                                      "subtle-delivery",
-                                      "tenacious-toxins"
+                                      "tenacious-toxins",
+                                      "subtle-delivery"
                                     ]
                                   },
                                   "displayGroups": [
@@ -35894,10 +35990,10 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "forensic-medicine",
+              "interrogation",
               "empiricism",
               "alchemical-sciences",
-              "interrogation"
+              "forensic-medicine"
             ]
           },
           "displayGroups": [
@@ -36278,13 +36374,13 @@
           "groups": {
             "_{Advanced Player's Guide}": [
               "ancestors",
-              "flames",
-              "cosmos",
               "bones",
               "battle",
-              "life",
+              "flames",
+              "cosmos",
               "tempest",
-              "lore"
+              "lore",
+              "life"
             ]
           },
           "displayGroups": [
@@ -36719,11 +36815,11 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "fencer",
-              "battledancer",
-              "braggart",
               "gymnast",
-              "wit"
+              "braggart",
+              "wit",
+              "battledancer",
+              "fencer"
             ]
           },
           "displayGroups": [
@@ -37219,12 +37315,12 @@
           "groups": {
             "_{Advanced Player's Guide}": [
               "curse",
-              "fate",
-              "rune",
               "night",
-              "wild",
               "fervor",
-              "winter"
+              "rune",
+              "fate",
+              "winter",
+              "wild"
             ]
           },
           "displayGroups": [
@@ -37835,11 +37931,11 @@
               "apg-superstition"
             ],
             "_{Core Rulebook}": [
-              "animal",
-              "fury",
-              "giant",
               "dragon",
-              "spirit"
+              "fury",
+              "animal",
+              "spirit",
+              "giant"
             ]
           },
           "displayGroups": [
@@ -38280,9 +38376,9 @@
               "apg-warrior"
             ],
             "_{Core Rulebook}": [
+              "polymath",
               "maestro",
-              "enigma",
-              "polymath"
+              "enigma"
             ]
           },
           "displayGroups": [
@@ -38833,13 +38929,13 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "apg-desecrator",
+              "apg-antipaladin",
               "apg-tyrant",
-              "apg-antipaladin"
+              "apg-desecrator"
             ],
             "_{Core Rulebook}": [
-              "liberator",
               "paladin",
+              "liberator",
               "redeemer"
             ]
           },
@@ -39215,9 +39311,9 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "shield",
               "blade",
-              "steed"
+              "steed",
+              "shield"
             ]
           },
           "displayGroups": [
@@ -39512,8 +39608,8 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "warpriest",
-              "cloistered"
+              "cloistered",
+              "warpriest"
             ]
           },
           "displayGroups": [
@@ -39904,9 +40000,9 @@
           ],
           "groups": {
             "_{Dark Archive}": [
-              "unbound-step",
-              "gathered-lore",
               "precise-discipline",
+              "gathered-lore",
+              "unbound-step",
               "wandering-reverie"
             ]
           },
@@ -40259,8 +40355,8 @@
             "_{Dark Archive}": [
               "oscillating-wave",
               "distant-grasp",
-              "silent-whisper",
               "infinite-eye",
+              "silent-whisper",
               "tangible-dream",
               "unbound-step"
             ]
@@ -40708,14 +40804,14 @@
           "groups": {
             "_{Dark Archive}": [
               "amulet",
-              "chalice",
-              "regalia",
-              "bell",
               "lantern",
+              "chalice",
+              "bell",
+              "regalia",
               "mirror",
               "tome",
-              "weapon",
-              "wand"
+              "wand",
+              "weapon"
             ]
           },
           "displayGroups": [
@@ -41220,10 +41316,10 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "animal",
               "leaf",
-              "storm",
-              "wild"
+              "wild",
+              "animal",
+              "storm"
             ]
           },
           "displayGroups": [
@@ -41649,8 +41745,8 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
-                                      "animal-companion",
-                                      "wild-shape"
+                                      "wild-shape",
+                                      "animal-companion"
                                     ]
                                   },
                                   "displayGroups": [
@@ -42064,9 +42160,9 @@
           ],
           "groups": {
             "_{Guns and Gears}": [
-              "vanguard",
               "drifter",
               "sniper",
+              "vanguard",
               "pistolero"
             ]
           },
@@ -42372,9 +42468,9 @@
           ],
           "groups": {
             "_{Guns and Gears}": [
-              "weapon",
+              "armour",
               "construct",
-              "armour"
+              "weapon"
             ]
           },
           "displayGroups": [
@@ -42738,13 +42834,13 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
-                                      "dragon",
+                                      "mountain",
                                       "crane",
                                       "ironblood",
                                       "tiger",
-                                      "tangled-forest",
-                                      "mountain",
-                                      "wolf"
+                                      "wolf",
+                                      "dragon",
+                                      "tangled-forest"
                                     ]
                                   },
                                   "displayGroups": [
@@ -43158,12 +43254,12 @@
                                   ],
                                   "groups": {
                                     "_{Rage of Elements}": [
-                                      "earth",
+                                      "metal",
                                       "air",
                                       "fire",
-                                      "metal",
-                                      "water",
-                                      "wood"
+                                      "earth",
+                                      "wood",
+                                      "water"
                                     ]
                                   },
                                   "displayGroups": [
@@ -43456,9 +43552,9 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
+              "outwit",
               "flurry",
-              "precision",
-              "outwit"
+              "precision"
             ]
           },
           "displayGroups": [
@@ -43865,8 +43961,8 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
-                                      "camouflage",
                                       "animal-companion",
+                                      "camouflage",
                                       "favored-terrain"
                                     ],
                                     "_{Advanced Player's Guide}": [
@@ -44172,9 +44268,9 @@
               "apg-mastermind"
             ],
             "_{Core Rulebook}": [
-              "thief",
               "ruffian",
-              "scoundrel"
+              "scoundrel",
+              "thief"
             ]
           },
           "displayGroups": [
@@ -44725,10 +44821,10 @@
           "groups": {
             "_{Secrets of Magic}": [
               "inexorable-iron",
+              "starlit-span",
               "twisting-tree",
-              "sparkling-targe",
               "laughing-shadow",
-              "starlit-span"
+              "sparkling-targe"
             ]
           },
           "displayGroups": [
@@ -45164,15 +45260,15 @@
           "groups": {
             "_{Secrets of Magic}": [
               "angel",
+              "construct",
+              "demon",
               "anger-phantom",
               "beast",
-              "demon",
-              "plant",
-              "construct",
-              "devotion-phantom",
               "fey",
+              "devotion-phantom",
               "dragon",
-              "psychopomp"
+              "psychopomp",
+              "plant"
             ]
           },
           "displayGroups": [
@@ -45842,22 +45938,22 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "apg-psychopomp",
-              "apg-nymph",
               "apg-genie",
-              "apg-shadow"
+              "apg-shadow",
+              "apg-psychopomp",
+              "apg-nymph"
             ],
             "_{Core Rulebook}": [
+              "angelic",
+              "aberrant",
               "diabolic",
               "demonic",
-              "angelic",
-              "hag",
-              "aberrant",
-              "undead",
               "draconic",
-              "fey",
               "elemental",
-              "imperial"
+              "fey",
+              "hag",
+              "imperial",
+              "undead"
             ]
           },
           "displayGroups": [
@@ -46705,10 +46801,10 @@
               "apg-staff-nexus"
             ],
             "_{Core Rulebook}": [
-              "spell-blending",
-              "spell-substitution",
               "improved-familiar-attunement",
-              "metamagical-experimentation"
+              "metamagical-experimentation",
+              "spell-blending",
+              "spell-substitution"
             ]
           },
           "displayGroups": [
@@ -47359,14 +47455,14 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "divination",
               "abjuration",
               "conjuration",
-              "transmutation",
+              "enchantment",
+              "divination",
+              "illusion",
               "evocation",
               "necromancy",
-              "enchantment",
-              "illusion",
+              "transmutation",
               "universalist"
             ]
           },
@@ -47998,9 +48094,9 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
-                                      "familiar",
                                       "counterspell",
-                                      "reach-spell"
+                                      "reach-spell",
+                                      "familiar"
                                     ]
                                   },
                                   "displayGroups": [
@@ -49159,38 +49255,51 @@
                   </div>  </div>
                   <div class="spacer"></div>
                   
-                  <div class='colour-wheel' data-field="baseColour">
+                  <div class="colour-wheel" data-field="baseColour">
                     <object data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
-                    <input type='radio' name='base-colour-menu' value='grey' id='colour-wheel-grey' data-bind="checked = #build-form.baseColour | eq 'grey'">
+                    <input type='radio' name='base-colour-menu' value='grey' id='colour-wheel-grey' checked autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'grey'">
                 
-                    <input type='radio' name='base-colour-menu' value='red' id='colour-wheel-base-colour-menu-red' data-bind="checked = #build-form.baseColour | eq 'red'">
-                    <input type='radio' name='base-colour-menu' value='orange' id='colour-wheel-base-colour-menu-orange' data-bind="checked = #build-form.baseColour | eq 'orange'">
-                    <input type='radio' name='base-colour-menu' value='gold' id='colour-wheel-base-colour-menu-gold' data-bind="checked = #build-form.baseColour | eq 'gold'">
-                    <input type='radio' name='base-colour-menu' value='lime' id='colour-wheel-base-colour-menu-lime' data-bind="checked = #build-form.baseColour | eq 'lime'">
-                    <input type='radio' name='base-colour-menu' value='green' id='colour-wheel-base-colour-menu-green' data-bind="checked = #build-form.baseColour | eq 'green'">
-                    <input type='radio' name='base-colour-menu' value='teal' id='colour-wheel-base-colour-menu-teal' data-bind="checked = #build-form.baseColour | eq 'teal'">
-                    <input type='radio' name='base-colour-menu' value='cyan' id='colour-wheel-base-colour-menu-cyan' data-bind="checked = #build-form.baseColour | eq 'cyan'">
-                    <input type='radio' name='base-colour-menu' value='azure' id='colour-wheel-base-colour-menu-azure' data-bind="checked = #build-form.baseColour | eq 'azure'">
-                    <input type='radio' name='base-colour-menu' value='blue' id='colour-wheel-base-colour-menu-blue' data-bind="checked = #build-form.baseColour | eq 'blue'">
-                    <input type='radio' name='base-colour-menu' value='indigo' id='colour-wheel-base-colour-menu-indigo' data-bind="checked = #build-form.baseColour | eq 'indigo'">
-                    <input type='radio' name='base-colour-menu' value='violet' id='colour-wheel-base-colour-menu-violet' data-bind="checked = #build-form.baseColour | eq 'violet'">
-                    <input type='radio' name='base-colour-menu' value='magenta' id='colour-wheel-base-colour-menu-magenta' data-bind="checked = #build-form.baseColour | eq 'magenta'">
+                    <input type='radio' name='base-colour-menu' value='red' id='colour-wheel-base-colour-menu-red' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'red'">
+                    <input type='radio' name='base-colour-menu' value='orange' id='colour-wheel-base-colour-menu-orange' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'orange'">
+                    <input type='radio' name='base-colour-menu' value='gold' id='colour-wheel-base-colour-menu-gold' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'gold'">
+                    <input type='radio' name='base-colour-menu' value='lime' id='colour-wheel-base-colour-menu-lime' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'lime'">
+                    <input type='radio' name='base-colour-menu' value='green' id='colour-wheel-base-colour-menu-green' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'green'">
+                    <input type='radio' name='base-colour-menu' value='teal' id='colour-wheel-base-colour-menu-teal' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'teal'">
+                    <input type='radio' name='base-colour-menu' value='cyan' id='colour-wheel-base-colour-menu-cyan' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'cyan'">
+                    <input type='radio' name='base-colour-menu' value='azure' id='colour-wheel-base-colour-menu-azure' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'azure'">
+                    <input type='radio' name='base-colour-menu' value='blue' id='colour-wheel-base-colour-menu-blue' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'blue'">
+                    <input type='radio' name='base-colour-menu' value='indigo' id='colour-wheel-base-colour-menu-indigo' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'indigo'">
+                    <input type='radio' name='base-colour-menu' value='violet' id='colour-wheel-base-colour-menu-violet' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'violet'">
+                    <input type='radio' name='base-colour-menu' value='magenta' id='colour-wheel-base-colour-menu-magenta' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'magenta'">
                 
-                    <input type='radio' name='base-colour-menu' value='red2' id='colour-wheel-base-colour-menu-red2' data-bind="checked = #build-form.baseColour | eq 'red2'">
-                    <input type='radio' name='base-colour-menu' value='orange2' id='colour-wheel-base-colour-menu-orange2' data-bind="checked = #build-form.baseColour | eq 'orange2'">
-                    <input type='radio' name='base-colour-menu' value='gold2' id='colour-wheel-base-colour-menu-gold2' data-bind="checked = #build-form.baseColour | eq 'gold2'">
-                    <input type='radio' name='base-colour-menu' value='lime2' id='colour-wheel-base-colour-menu-lime2' data-bind="checked = #build-form.baseColour | eq 'lime2'">
-                    <input type='radio' name='base-colour-menu' value='green2' id='colour-wheel-base-colour-menu-green2' data-bind="checked = #build-form.baseColour | eq 'green2'">
-                    <input type='radio' name='base-colour-menu' value='teal2' id='colour-wheel-base-colour-menu-teal2' data-bind="checked = #build-form.baseColour | eq 'teal2'">
-                    <input type='radio' name='base-colour-menu' value='cyan2' id='colour-wheel-base-colour-menu-cyan2' data-bind="checked = #build-form.baseColour | eq 'cyan2'">
-                    <input type='radio' name='base-colour-menu' value='azure2' id='colour-wheel-base-colour-menu-azure2' data-bind="checked = #build-form.baseColour | eq 'azure2'">
-                    <input type='radio' name='base-colour-menu' value='blue2' id='colour-wheel-base-colour-menu-blue2' data-bind="checked = #build-form.baseColour | eq 'blue2'">
-                    <input type='radio' name='base-colour-menu' value='indigo2' id='colour-wheel-base-colour-menu-indigo2' data-bind="checked = #build-form.baseColour | eq 'indigo2'">
-                    <input type='radio' name='base-colour-menu' value='violet2' id='colour-wheel-base-colour-menu-violet2' data-bind="checked = #build-form.baseColour | eq 'violet2'">
-                    <input type='radio' name='base-colour-menu' value='magenta2' id='colour-wheel-base-colour-menu-magenta2' data-bind="checked = #build-form.baseColour | eq 'magenta2'">
+                    <input type='radio' name='base-colour-menu' value='red2' id='colour-wheel-base-colour-menu-red2' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'red2'">
+                    <input type='radio' name='base-colour-menu' value='orange2' id='colour-wheel-base-colour-menu-orange2' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'orange2'">
+                    <input type='radio' name='base-colour-menu' value='gold2' id='colour-wheel-base-colour-menu-gold2' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'gold2'">
+                    <input type='radio' name='base-colour-menu' value='lime2' id='colour-wheel-base-colour-menu-lime2' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'lime2'">
+                    <input type='radio' name='base-colour-menu' value='green2' id='colour-wheel-base-colour-menu-green2' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'green2'">
+                    <input type='radio' name='base-colour-menu' value='teal2' id='colour-wheel-base-colour-menu-teal2' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'teal2'">
+                    <input type='radio' name='base-colour-menu' value='cyan2' id='colour-wheel-base-colour-menu-cyan2' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'cyan2'">
+                    <input type='radio' name='base-colour-menu' value='azure2' id='colour-wheel-base-colour-menu-azure2' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'azure2'">
+                    <input type='radio' name='base-colour-menu' value='blue2' id='colour-wheel-base-colour-menu-blue2' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'blue2'">
+                    <input type='radio' name='base-colour-menu' value='indigo2' id='colour-wheel-base-colour-menu-indigo2' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'indigo2'">
+                    <input type='radio' name='base-colour-menu' value='violet2' id='colour-wheel-base-colour-menu-violet2' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'violet2'">
+                    <input type='radio' name='base-colour-menu' value='magenta2' id='colour-wheel-base-colour-menu-magenta2' autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'magenta2'">
                   </div>
             
-                  
+            
+            
+            
+            <div 
+                class="row align_centre"
+              >
+                        <p class="colour-picker-custom">
+                          <input type="radio" name="base-colour-menu" value="custom" id="colour-wheel-base-colour-menu-custom" autocomplete="off" data-bind="checked = #build-form.baseColour | eq 'custom'">
+                          <label for="colour-wheel-base-colour-menu-custom">Custom</label> &nbsp;
+                          <label class='colour-input' for="print-colour-base-colour-menu-custom">#</label>
+                          <input type='text' name='print-colour-custom' class="print-colour-custom" id="print-colour-base-colour-menu-custom" autocomplete="off" size='6' data-bind="value = #build-form.baseColourCustom"></span>
+                          <label class='colour-sample colour-sample-rainbow' id='print-colour-base-colour-menu-custom-preview'><span></span></label>
+                        </p>
+              </div>      
                   <div class="spacer"></div>
             
           </div>    </div>
@@ -49209,38 +49318,51 @@
                   </div>  </div>
                   <div class="spacer"></div>
                   
-                  <div class='colour-wheel' data-field="accentColour">
+                  <div class="colour-wheel" data-field="accentColour">
                     <object data="/images/colour-wheel.svg" type="image/svg+xml" class="colour-wheel-svg" width="280" height="280"></object>
-                    <input type='radio' name='accent-colour-menu' value='grey' id='colour-wheel-grey' data-bind="checked = #build-form.accentColour | eq 'grey'">
+                    <input type='radio' name='accent-colour-menu' value='grey' id='colour-wheel-grey' checked autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'grey'">
                 
-                    <input type='radio' name='accent-colour-menu' value='red' id='colour-wheel-accent-colour-menu-red' data-bind="checked = #build-form.accentColour | eq 'red'">
-                    <input type='radio' name='accent-colour-menu' value='orange' id='colour-wheel-accent-colour-menu-orange' data-bind="checked = #build-form.accentColour | eq 'orange'">
-                    <input type='radio' name='accent-colour-menu' value='gold' id='colour-wheel-accent-colour-menu-gold' data-bind="checked = #build-form.accentColour | eq 'gold'">
-                    <input type='radio' name='accent-colour-menu' value='lime' id='colour-wheel-accent-colour-menu-lime' data-bind="checked = #build-form.accentColour | eq 'lime'">
-                    <input type='radio' name='accent-colour-menu' value='green' id='colour-wheel-accent-colour-menu-green' data-bind="checked = #build-form.accentColour | eq 'green'">
-                    <input type='radio' name='accent-colour-menu' value='teal' id='colour-wheel-accent-colour-menu-teal' data-bind="checked = #build-form.accentColour | eq 'teal'">
-                    <input type='radio' name='accent-colour-menu' value='cyan' id='colour-wheel-accent-colour-menu-cyan' data-bind="checked = #build-form.accentColour | eq 'cyan'">
-                    <input type='radio' name='accent-colour-menu' value='azure' id='colour-wheel-accent-colour-menu-azure' data-bind="checked = #build-form.accentColour | eq 'azure'">
-                    <input type='radio' name='accent-colour-menu' value='blue' id='colour-wheel-accent-colour-menu-blue' data-bind="checked = #build-form.accentColour | eq 'blue'">
-                    <input type='radio' name='accent-colour-menu' value='indigo' id='colour-wheel-accent-colour-menu-indigo' data-bind="checked = #build-form.accentColour | eq 'indigo'">
-                    <input type='radio' name='accent-colour-menu' value='violet' id='colour-wheel-accent-colour-menu-violet' data-bind="checked = #build-form.accentColour | eq 'violet'">
-                    <input type='radio' name='accent-colour-menu' value='magenta' id='colour-wheel-accent-colour-menu-magenta' data-bind="checked = #build-form.accentColour | eq 'magenta'">
+                    <input type='radio' name='accent-colour-menu' value='red' id='colour-wheel-accent-colour-menu-red' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'red'">
+                    <input type='radio' name='accent-colour-menu' value='orange' id='colour-wheel-accent-colour-menu-orange' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'orange'">
+                    <input type='radio' name='accent-colour-menu' value='gold' id='colour-wheel-accent-colour-menu-gold' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'gold'">
+                    <input type='radio' name='accent-colour-menu' value='lime' id='colour-wheel-accent-colour-menu-lime' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'lime'">
+                    <input type='radio' name='accent-colour-menu' value='green' id='colour-wheel-accent-colour-menu-green' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'green'">
+                    <input type='radio' name='accent-colour-menu' value='teal' id='colour-wheel-accent-colour-menu-teal' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'teal'">
+                    <input type='radio' name='accent-colour-menu' value='cyan' id='colour-wheel-accent-colour-menu-cyan' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'cyan'">
+                    <input type='radio' name='accent-colour-menu' value='azure' id='colour-wheel-accent-colour-menu-azure' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'azure'">
+                    <input type='radio' name='accent-colour-menu' value='blue' id='colour-wheel-accent-colour-menu-blue' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'blue'">
+                    <input type='radio' name='accent-colour-menu' value='indigo' id='colour-wheel-accent-colour-menu-indigo' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'indigo'">
+                    <input type='radio' name='accent-colour-menu' value='violet' id='colour-wheel-accent-colour-menu-violet' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'violet'">
+                    <input type='radio' name='accent-colour-menu' value='magenta' id='colour-wheel-accent-colour-menu-magenta' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'magenta'">
                 
-                    <input type='radio' name='accent-colour-menu' value='red2' id='colour-wheel-accent-colour-menu-red2' data-bind="checked = #build-form.accentColour | eq 'red2'">
-                    <input type='radio' name='accent-colour-menu' value='orange2' id='colour-wheel-accent-colour-menu-orange2' data-bind="checked = #build-form.accentColour | eq 'orange2'">
-                    <input type='radio' name='accent-colour-menu' value='gold2' id='colour-wheel-accent-colour-menu-gold2' data-bind="checked = #build-form.accentColour | eq 'gold2'">
-                    <input type='radio' name='accent-colour-menu' value='lime2' id='colour-wheel-accent-colour-menu-lime2' data-bind="checked = #build-form.accentColour | eq 'lime2'">
-                    <input type='radio' name='accent-colour-menu' value='green2' id='colour-wheel-accent-colour-menu-green2' data-bind="checked = #build-form.accentColour | eq 'green2'">
-                    <input type='radio' name='accent-colour-menu' value='teal2' id='colour-wheel-accent-colour-menu-teal2' data-bind="checked = #build-form.accentColour | eq 'teal2'">
-                    <input type='radio' name='accent-colour-menu' value='cyan2' id='colour-wheel-accent-colour-menu-cyan2' data-bind="checked = #build-form.accentColour | eq 'cyan2'">
-                    <input type='radio' name='accent-colour-menu' value='azure2' id='colour-wheel-accent-colour-menu-azure2' data-bind="checked = #build-form.accentColour | eq 'azure2'">
-                    <input type='radio' name='accent-colour-menu' value='blue2' id='colour-wheel-accent-colour-menu-blue2' data-bind="checked = #build-form.accentColour | eq 'blue2'">
-                    <input type='radio' name='accent-colour-menu' value='indigo2' id='colour-wheel-accent-colour-menu-indigo2' data-bind="checked = #build-form.accentColour | eq 'indigo2'">
-                    <input type='radio' name='accent-colour-menu' value='violet2' id='colour-wheel-accent-colour-menu-violet2' data-bind="checked = #build-form.accentColour | eq 'violet2'">
-                    <input type='radio' name='accent-colour-menu' value='magenta2' id='colour-wheel-accent-colour-menu-magenta2' data-bind="checked = #build-form.accentColour | eq 'magenta2'">
+                    <input type='radio' name='accent-colour-menu' value='red2' id='colour-wheel-accent-colour-menu-red2' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'red2'">
+                    <input type='radio' name='accent-colour-menu' value='orange2' id='colour-wheel-accent-colour-menu-orange2' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'orange2'">
+                    <input type='radio' name='accent-colour-menu' value='gold2' id='colour-wheel-accent-colour-menu-gold2' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'gold2'">
+                    <input type='radio' name='accent-colour-menu' value='lime2' id='colour-wheel-accent-colour-menu-lime2' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'lime2'">
+                    <input type='radio' name='accent-colour-menu' value='green2' id='colour-wheel-accent-colour-menu-green2' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'green2'">
+                    <input type='radio' name='accent-colour-menu' value='teal2' id='colour-wheel-accent-colour-menu-teal2' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'teal2'">
+                    <input type='radio' name='accent-colour-menu' value='cyan2' id='colour-wheel-accent-colour-menu-cyan2' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'cyan2'">
+                    <input type='radio' name='accent-colour-menu' value='azure2' id='colour-wheel-accent-colour-menu-azure2' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'azure2'">
+                    <input type='radio' name='accent-colour-menu' value='blue2' id='colour-wheel-accent-colour-menu-blue2' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'blue2'">
+                    <input type='radio' name='accent-colour-menu' value='indigo2' id='colour-wheel-accent-colour-menu-indigo2' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'indigo2'">
+                    <input type='radio' name='accent-colour-menu' value='violet2' id='colour-wheel-accent-colour-menu-violet2' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'violet2'">
+                    <input type='radio' name='accent-colour-menu' value='magenta2' id='colour-wheel-accent-colour-menu-magenta2' autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'magenta2'">
                   </div>
             
-                  
+            
+            
+            
+            <div 
+                class="row align_centre"
+              >
+                        <p class="colour-picker-custom">
+                          <input type="radio" name="accent-colour-menu" value="custom" id="colour-wheel-accent-colour-menu-custom" autocomplete="off" data-bind="checked = #build-form.accentColour | eq 'custom'">
+                          <label for="colour-wheel-accent-colour-menu-custom">Custom</label> &nbsp;
+                          <label class='colour-input' for="print-colour-accent-colour-menu-custom">#</label>
+                          <input type='text' name='print-colour-custom' class="print-colour-custom" id="print-colour-accent-colour-menu-custom" autocomplete="off" size='6' data-bind="value = #build-form.accentColourCustom"></span>
+                          <label class='colour-sample colour-sample-rainbow' id='print-colour-accent-colour-menu-custom-preview'><span></span></label>
+                        </p>
+              </div>      
                   <div class="spacer"></div>
             
           </div>    </div>
@@ -84283,6 +84405,33 @@
                               </div>  </div>
                       </div>  </div>      
               </div>  </div>    </div>
+    </aside><aside id="download-menu" 
+      class="menu menu--right download-menu" 
+      data-bind="show = body.currentMenu | eq 'download-menu'"
+      
+    >
+      <div class="menu__inner">
+        <div class="pane pane--bg_parchment  light-region ">
+            
+                  <div class="spacer"></div>
+            
+                  <div class="hero">
+                    <h2>Downloading</h2>
+                  </div>
+            
+            <div class="reveal reveal--download-building" id="download-building"
+                bind="show = #body.downloadStatus | eq &#x27;in-progress&#x27;"
+              >
+                        <p>Building character sheet</p>
+              </div>
+            <div class="reveal reveal--download-ready" id="download-ready"
+                bind="show = #body.downloadStatus | eq &#x27;ready&#x27;"
+              >
+                        <p>Ready!</p>
+              </div>      
+                  <div class="spacer"></div>
+            
+          </div>    </div>
     </aside><aside id="new-character-menu" 
       class="menu menu--right " 
       data-bind="show = body.currentMenu | eq 'new-character-menu'"
@@ -84317,7 +84466,8 @@
                                           </picture>      <span class="btn__badge">2e</span>
                           </button>
                       
-                      <div class="reveal" id="pf2-edition">
+                      <div class="reveal reveal--pf2-edition" id="pf2-edition"
+                        >
                           <div 
                               class="row align_centre"
                             >

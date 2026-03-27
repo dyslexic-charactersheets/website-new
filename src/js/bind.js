@@ -91,16 +91,25 @@ function applyPipes(value, pipes) {
   return value;
 }
 
+function summariseElement(elem) {
+  if (!isEmpty(elem.id)) {
+    return '#'+elem.id;
+  }
+
+  return elem.tagName;
+}
+
 function createBinding(destElem, field, pipes) {
+  let id = summariseElement(destElem);
   return function (value) {
-    // componentLogger.log("Binding callback");
+    componentLogger.log("Binding callback:", id+"."+field);
     componentLogger.indent();
 
-    // componentLogger.log("Processing value of", field, ":", value, pipes);
+    componentLogger.log("Processing value of", id+"."+field, ":", value, pipes);
     value = applyPipes(value, pipes);
 
     // actually set the value
-    componentLogger.log("Setting value of", field, "=", value);
+    componentLogger.log("Setting value of", id+"."+field, "=", value);
     componentLogger.indent();
     set(destElem, field, value);
     componentLogger.outdent();
@@ -202,6 +211,10 @@ function setupBindings(container) {
 
       // find the data source element
       let [sourceSelector, sourceAttr] = source.split('.');
+      if (sourceAttr.match('-')) {
+        componentLogger.error("Bad binding key", sourceSelector, sourceAttr);
+      }
+
       let sourceElem = initObserver(sourceSelector);
       if (sourceElem === undefined || sourceElem === null) {
         componentLogger.log("Source element not found:", sourceSelector);

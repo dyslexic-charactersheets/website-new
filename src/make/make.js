@@ -373,9 +373,13 @@ let scssComponents = components.map((component) => {
 });
 
 let stylesheetParts = [stylesheet.css, ...scssComponents];
-stylesheet = Sass.compileString(stylesheetParts.join('\n'));
+// stylesheet = Sass.compileString(stylesheetParts.join('\n'));
+let stylesheetCss = stylesheetParts.join('\n');
 
-fs.writeFile('../dist/htdocs/style.css', stylesheet.css, (err) => {
+stylesheetCss = stylesheetCss.replaceAll(/\/\*.*?\*\//gs, '');
+stylesheetCss = stylesheetCss.replaceAll(/\n\n+/g, '\n');
+
+fs.writeFile('../dist/htdocs/style.css', stylesheetCss, (err) => {
   if (err) {
     error("make", "Stylesheet ERROR ".red+err);
     hasError = true;

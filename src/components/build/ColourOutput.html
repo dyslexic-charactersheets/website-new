@@ -6,6 +6,7 @@
 <template>
   <div class="colour-output" data-colourname="{{id}}">
     <input type="hidden" name="{{id}}" value="grey" data-bind="value=#build-form.{{id}}">
+    <input type="hidden" name="{{id}}-custom" data-bind="value=#build-form.{{id}}Custom">
     <label>{{__ name}}</label>
     <div class="colour-output__inner" data-select="{{select}}">
         <div class="colour-output__pallette">
@@ -15,8 +16,50 @@
   </div>
 </template>
 
+<style>
+@use 'fonts';
+@use 'colours';
+
+.colour-output {
+  margin: 0.5em 0;
+  position: relative;
+
+  label {
+      @include fonts.small-heading;
+  }
+
+  .colour-output__inner {
+      /* border: 1px solid colours.$shade; */
+      background: white;
+      padding: 0.2rem;
+      border-radius: 0.4rem;
+
+      cursor: pointer;
+  }
+
+  .colour-output__pallette {
+      border-radius: 0.3rem;
+      width: 8rem;
+      height: 3.5rem;
+      background-color: #808080;
+  }
+
+  .colour-output__emblem {
+      position: absolute;
+      bottom: -0.6rem;
+      right: -0.3rem;
+      width: 1.5rem;
+      height: 2rem;
+  }
+}
+</style>
+
 <script>
-function colourValue(colour) {
+function colourValue(colour, custom) {
+  if (colour == "custom") {
+    return custom;
+  }
+
   if (colour.match(/#[A-Z0-9]{6}/)) {
     return colour;
   }
@@ -84,8 +127,11 @@ on ('.colour-output__inner', 'click', (evt) => {
 on('.colour-output input', 'change', (evt) => {
   let value = evt.currentTarget.value;
   let output = evt.currentTarget.closest('.colour-output');
+
+  let custom = '';
+
   for (let pallette of output.querySelectorAll('.colour-output__pallette')) {
-    pallette.style.backgroundColor = colourValue(value);
+    pallette.style.backgroundColor = colourValue(value, custom);
   }
 });
 </script>

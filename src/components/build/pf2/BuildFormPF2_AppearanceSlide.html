@@ -90,19 +90,7 @@
         {{> ColourOutput id="accentColour" name="Accent colour" select="accent-colour-menu" }}
       </div>
 
-      {{!-- <div class="brightness-picker">
-        <label>{{__ "Print darkness"}}</label>
-        <div class="brightness-picker__inner">
-          <div class="brightness-picker__inner2">
-            <input type="range" min="1" max="9" value="5"
-              name="colour-brightness" 
-              autocomplete="off"
-              data-bind="value=#build-form.printBrightness"
-              data-var="printBrightness">
-            <span class="brightness-picker__notch"></span>
-          </div>
-        </div>
-      </div> --}}
+      {{> BrightnessPicker field="printBrightness" }}
 
       <h3>{{__ "Page Background"}}</h3>
       {{#> TilePicker field="pageBackground"}}
@@ -121,12 +109,30 @@
 </template>
 
 <style>
-.build-form .large-print {
-  label {
-    font-size: 1.3rem;
+@use 'fonts';
+
+.build-form {
+
+  .large-print {
+    label {
+      font-size: 1.3rem;
+    }
+    p.info {
+      font-size: 1.1rem;
+    }
   }
-  p.info {
-    font-size: 1.1rem;
+
+  label[for='radio-option-dyslexic-font_dyslexie'] {
+    @include fonts.dyslexie;
+    font-size: 0.8rem;
+  }
+
+  label[for='radio-option-dyslexic-font_lexend'] {
+    @include fonts.lexend;
+  }
+
+  .high-contrast {
+    background: black;
   }
 }
 
