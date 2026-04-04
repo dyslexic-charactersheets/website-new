@@ -41420,6 +41420,33 @@
               </div>
             </div>      
         </div>    </div>
+  </aside><aside id="download-menu" 
+    class="menu menu--right download-menu" 
+    data-bind="show = body.currentMenu | eq 'download-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_parchment  light-region ">
+          
+                <div class="spacer"></div>
+          
+                <div class="hero">
+                  <h2>Downloading</h2>
+                </div>
+          
+          <div class="reveal reveal--download-building" id="download-building"
+              bind="show = #body.downloadStatus | eq &#x27;in-progress&#x27;"
+            >
+                      <p>Building character sheet</p>
+            </div>
+          <div class="reveal reveal--download-ready" id="download-ready"
+              bind="show = #body.downloadStatus | eq &#x27;ready&#x27;"
+            >
+                      <p>Ready!</p>
+            </div>      
+                <div class="spacer"></div>
+          
+        </div>    </div>
   </aside>
 
 <div id="blanket"
