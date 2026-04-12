@@ -1,10 +1,4 @@
 @charset "UTF-8";
-html {
-  font-size: calc(15px + 0.1 * (1vw + 1vh));
-}
-body, p, a, nav, button {
-  font-size: 1rem;
-}
 .dark-region {
   color: white;
   text-shadow: 0 0.5px 1px black;
@@ -30,6 +24,86 @@ body, p, a, nav, button {
 .light-region {
   color: black;
   text-shadow: 0 0 0.5px white;
+}
+.responsive-xxlarge {
+  display: none;
+}
+@media screen and (min-width: 2400px) {
+  .responsive-xxlarge {
+    display: block;
+  }
+}
+.responsive-xlarge {
+  display: none;
+}
+@media screen and (min-width: 1600px) {
+  .responsive-xlarge {
+    display: block;
+  }
+}
+.responsive-large {
+  display: none;
+}
+@media screen and (min-width: 1400px) {
+  .responsive-large {
+    display: block;
+  }
+}
+.responsive-not-large {
+  display: block;
+}
+@media screen and (min-width: 1400px) {
+  .responsive-not-large {
+    display: none;
+  }
+}
+.responsive-medium {
+  display: none;
+}
+@media screen and (min-width: 740px) and (max-width: 1399px) {
+  .responsive-medium {
+    display: block;
+  }
+}
+.responsive-small {
+  display: none;
+}
+@media screen and (max-width: 739px) {
+  .responsive-small {
+    display: block;
+  }
+}
+.responsive-medium-large {
+  display: none;
+}
+@media screen and (min-width: 740px) {
+  .responsive-medium-large {
+    display: block;
+  }
+}
+.responsive-small-medium {
+  display: none;
+}
+@media screen and (max-width: 1399px) {
+  .responsive-small-medium {
+    display: block;
+  }
+}
+html {
+  font-size: calc(15px + 0.1 * (1vw + 1vh));
+}
+body, p, a, nav, button {
+  font-size: 1rem;
+}
+@media screen and (max-width: 739px) {
+  html {
+    font-size: calc(30px + 0.25 * (1vw + 1vh));
+  }
+}
+@media screen and (min-width: 740px) and (max-width: 1399px) {
+  html {
+    font-size: calc(20px + 0.15 * (1vw + 1vh));
+  }
 }
 @font-face {
   font-family: "Lato";
@@ -239,6 +313,9 @@ html {
   font-family: "Lato";
   font-weight: normal;
 }
+body[data-dyslexie=true] * {
+  font-family: "Dyslexie" !important;
+}
 p {
   margin: 1rem 0;
 }
@@ -292,70 +369,6 @@ dl dt {
 }
 dl dd + dt {
   margin-top: 0.5rem;
-}
-.responsive-xxlarge {
-  display: none;
-}
-@media screen and (min-width: 2400px) {
-  .responsive-xxlarge {
-    display: block;
-  }
-}
-.responsive-xlarge {
-  display: none;
-}
-@media screen and (min-width: 1600px) {
-  .responsive-xlarge {
-    display: block;
-  }
-}
-.responsive-large {
-  display: none;
-}
-@media screen and (min-width: 1400px) {
-  .responsive-large {
-    display: block;
-  }
-}
-.responsive-not-large {
-  display: block;
-}
-@media screen and (min-width: 1400px) {
-  .responsive-not-large {
-    display: none;
-  }
-}
-.responsive-medium {
-  display: none;
-}
-@media screen and (min-width: 740px) and (max-width: 1399px) {
-  .responsive-medium {
-    display: block;
-  }
-}
-.responsive-small {
-  display: none;
-}
-@media screen and (max-width: 739px) {
-  .responsive-small {
-    display: block;
-  }
-}
-.responsive-medium-large {
-  display: none;
-}
-@media screen and (min-width: 740px) {
-  .responsive-medium-large {
-    display: block;
-  }
-}
-.responsive-small-medium {
-  display: none;
-}
-@media screen and (max-width: 1399px) {
-  .responsive-small-medium {
-    display: block;
-  }
 }
 html {
   padding: 0;
@@ -1303,6 +1316,9 @@ html {
   font-family: "Lato";
   font-weight: normal;
 }
+body[data-dyslexie=true] * {
+  font-family: "Dyslexie" !important;
+}
 p {
   margin: 1rem 0;
 }
@@ -1636,6 +1652,9 @@ dl dd + dt {
 html {
   font-family: "Lato";
   font-weight: normal;
+}
+body[data-dyslexie=true] * {
+  font-family: "Dyslexie" !important;
 }
 p {
   margin: 1rem 0;
@@ -2088,6 +2107,9 @@ label.colour-sample.colour-sample-rainbow span {
 html {
   font-family: "Lato";
   font-weight: normal;
+}
+body[data-dyslexie=true] * {
+  font-family: "Dyslexie" !important;
 }
 p {
   margin: 1rem 0;
@@ -2949,6 +2971,9 @@ html {
   font-family: "Lato";
   font-weight: normal;
 }
+body[data-dyslexie=true] * {
+  font-family: "Dyslexie" !important;
+}
 p {
   margin: 1rem 0;
 }
@@ -3454,6 +3479,9 @@ h4 + .row {
 html {
   font-family: "Lato";
   font-weight: normal;
+}
+body[data-dyslexie=true] * {
+  font-family: "Dyslexie" !important;
 }
 p {
   margin: 1rem 0;
@@ -4119,6 +4147,9 @@ html {
   font-family: "Lato";
   font-weight: normal;
 }
+body[data-dyslexie=true] * {
+  font-family: "Dyslexie" !important;
+}
 p {
   margin: 1rem 0;
 }
@@ -4490,6 +4521,9 @@ html {
   font-family: "Lato";
   font-weight: normal;
 }
+body[data-dyslexie=true] * {
+  font-family: "Dyslexie" !important;
+}
 p {
   margin: 1rem 0;
 }
@@ -4679,6 +4713,28 @@ button .icon.icon_globe {
 }
 .light-region .btn--selected .icon.icon_globe, .light-region .btn--borderless:hover .icon.icon_globe {
   background-image: url(/images/globe-white.png);
+}
+.icon.icon_accessibility {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+  background-image: url(/images/accessibility-dark.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+button .icon.icon_accessibility {
+  margin-right: 0.3rem;
+}
+.dark-region .icon.icon_accessibility {
+  background-image: url(/images/accessibility-white.png);
+}
+.dark-region .btn--selected .icon.icon_accessibility, .dark-region .btn--borderless:hover .icon.icon_accessibility {
+  background-image: url(/images/accessibility-dark.png);
+}
+.light-region .btn--selected .icon.icon_accessibility, .light-region .btn--borderless:hover .icon.icon_accessibility {
+  background-image: url(/images/accessibility-white.png);
 }
 .lazy {
   display: none;
@@ -5150,6 +5206,9 @@ button > picture {
 html {
   font-family: "Lato";
   font-weight: normal;
+}
+body[data-dyslexie=true] * {
+  font-family: "Dyslexie" !important;
 }
 p {
   margin: 1rem 0;
@@ -7266,6 +7325,9 @@ html {
   font-family: "Lato";
   font-weight: normal;
 }
+body[data-dyslexie=true] * {
+  font-family: "Dyslexie" !important;
+}
 p {
   margin: 1rem 0;
 }
@@ -7346,6 +7408,9 @@ dl dd + dt {
 }
 .badge.badge--colour_blue {
   background-color: #1030a0;
+}
+.option.option--selected .badge {
+  background: rgba(255, 255, 255, 0.4);
 }
 .dark-region {
   color: white;
@@ -7581,6 +7646,9 @@ html {
   font-family: "Lato";
   font-weight: normal;
 }
+body[data-dyslexie=true] * {
+  font-family: "Dyslexie" !important;
+}
 p {
   margin: 1rem 0;
 }
@@ -7650,6 +7718,9 @@ dl dd + dt {
 }
 .btn.btn--hidden {
   display: none !important;
+}
+.btn.btn--home-action {
+  border-width: 0.3rem !important;
 }
 .btn.btn--primary {
   display: block;
@@ -8353,6 +8424,9 @@ aside.menu .btn.btn--light {
 html {
   font-family: "Lato";
   font-weight: normal;
+}
+body[data-dyslexie=true] * {
+  font-family: "Dyslexie" !important;
 }
 p {
   margin: 1rem 0;

@@ -12,7 +12,7 @@
       {{> MenuButtons inmenu="language"}}
 
       <nav class="nav--menu">
-        <h3>{{__ "Language"}}</h3>
+        <h3>{{> Icon icon="globe"}} {{__ "Language"}}</h3>
         
         <ul class="pick-list">
         {{#each languages}}
@@ -25,6 +25,21 @@
           </li>
         {{/each}}
         </ul>
+
+        <h3>{{> Icon icon="accessibility"}} {{__ "Accessibility"}}</h3>
+        <p>
+          {{> Checkbox 
+            id="accessibility-dyslexie"
+            name="accessibility-dyslexie" 
+            label="Use Dyslexic Font" 
+            var="body.dyslexie"}}
+
+          {{!-- <label for="accessibility-dyslexie">
+            
+            <input type="checkbox" id="accessibility-dyslexie" autocomplete="off" data-bind="checked = body.dyslexie">
+            {{__ "Use Dyslexic Font"}}
+          </label> --}}
+        </p>
       </nav>
     {{/Pane}}
   {{/SideMenu}}

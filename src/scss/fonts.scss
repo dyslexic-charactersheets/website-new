@@ -47,6 +47,12 @@ html {
     @include body;
 }
 
+body[data-dyslexie="true"] {
+    * {
+        font-family: 'Dyslexie' !important;
+    }
+}
+
 p {
     margin: 1rem 0;
 }

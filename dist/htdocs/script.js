@@ -1480,7 +1480,12 @@ try {
 on("input[type='checkbox']", "change", (evt) => {
   let checkbox = evt.target;
   if (checkbox.dataset.var) {
-    set("#build-form", checkbox.dataset.var, checkbox.checked);
+    let parts = checkbox.dataset.var.split('.', 2);
+    if (parts.length > 1) {
+      set(parts[0], parts[1], checkbox.checked);
+    } else {
+      set("#build-form", checkbox.dataset.var, checkbox.checked);
+    }
   }
 });
 

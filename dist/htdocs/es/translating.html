@@ -404,7 +404,7 @@
                     <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
                   </nav>
                 <nav class="nav--menu">
-                  <h3>Language</h3>
+                  <h3><i class="icon icon_globe"></i> Language</h3>
                   
                   <ul class="pick-list">
                     <li>
@@ -442,7 +442,44 @@
                         Polaco
                       </a>
                     </li>
+                    <li>
+                      <a class="option" href="/it/translating.html">
+                        <span class='badge badge--language'>it</span>
+                        <b>Italiano</b> / 
+                        Italiano
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/pt-BR/translating.html">
+                        <span class='badge badge--language'>pt-BR</span>
+                        <b>Português Brasileiro</b> / 
+                        Portugués Brasileño
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/no/translating.html">
+                        <span class='badge badge--language'>no</span>
+                        <b>Norsk</b> / 
+                        Noruega
+                      </a>
+                    </li>
                   </ul>
+          
+                  <h3><i class="icon icon_accessibility"></i> Accessibility</h3>
+                  <p>
+                    <p>
+                        <label for="accessibility-dyslexie">
+                          <input
+                            type="checkbox"
+                            name="accessibility-dyslexie"
+                            id="accessibility-dyslexie"
+                            
+                            data-bind="checked=#build-form.body.dyslexie"
+                            data-var="body.dyslexie"
+                            autocomplete="off"
+                          > Use Dyslexic Font</label>
+                      </p>
+                  </p>
                 </nav>
         </div>    </div>
   </aside><!-- Login menu goes here -->

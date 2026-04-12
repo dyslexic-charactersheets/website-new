@@ -65,9 +65,9 @@ app.get('/auth/token-login', tokenLogin);
 
 app.get('/auth/logout', logout);
 
-app.post('/message', (req, res) => {
-  message.sendMessage(req, res);
-});
+// app.post('/message', (req, res) => {
+//   message.sendMessage(req, res);
+// });
 
 
 // build

@@ -8,13 +8,16 @@ import fs from 'fs';
 import { isString, isArray, isObject, log, warn, error, has } from './util.js';
 import { isatty } from 'tty';
 
-export const languages = ['en', 'fr', 'es', 'de', 'pl'];
+export const languages = ['en', 'fr', 'es', 'de', 'pl', 'it', 'pt-BR', 'no'];
 export const languageNames = {
     en: 'English',
     fr: 'Français',
     es: 'Espagnol',
     de: 'Deutsch',
-    pl: 'Polskie'
+    pl: 'Polskie',
+    it: 'Italiano',
+    'pt-BR': 'Português Brasileiro',
+    'no': 'Norsk',
 };
 
 let translationsFileContent = fs.readFileSync('data/translations.json', { encoding: 'utf8' });
@@ -85,11 +88,14 @@ export function de_i18n(content) {
 
   if (isObject(content)) {
     let res = {...content};
-    delete res.en;
-    delete res.it;
-    delete res.fr;
-    delete res.es;
-    delete res.pl;
+    for (let lang of languages) {
+      delete res[lang];
+    }
+    // delete res.en;
+    // delete res.it;
+    // delete res.fr;
+    // delete res.es;
+    // delete res.pl;
     return res;
   }
 

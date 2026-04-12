@@ -11,10 +11,18 @@ import { rgb, BlendMode } from 'pdf-lib';
 import { log, warn, error } from '#src/log.js';
 import { getAssetPath, loadAsset } from '../assets.js';
 import { has, isEmpty, isString, isArray } from '../util.js';
+import { slugify } from '#src/recomposer/util.js';
 
 export class GameData {
   constructor(data) {
     this.data = JSON.parse(data);
+
+    // this.data.classByCode = {};
+    for (let cls of this.data.classes) {
+      cls['code'] = slugify(cls['name']);
+      // this.data.classByCode[cls['code']] = cls;
+      log("re:GameData", "Found code", cls['code'], '=', cls['name']);
+    }
   }
   
   mergeClassVariant(variant, classInfo) {
@@ -68,7 +76,8 @@ export class GameData {
       
     // get base class info
     className = className.replace(/^class-/, '');
-    let found = this.data.classes.filter((cls) => className.localeCompare(cls['name'], undefined, { sensitivity: 'accent' }) === 0);
+    log("re:GameData", "Searching for class", className);
+    let found = this.data.classes.filter((cls) => className == cls['code'] || className.localeCompare(cls['name'], undefined, { sensitivity: 'accent' }) === 0);
 
     if (found.length > 0) {
       let classInfo = found[0];

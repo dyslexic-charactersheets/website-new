@@ -3,6 +3,8 @@
  * Licensed under the Artistic License 2.0
  */
 
+@use 'responsive';
+
 html {
   font-size: calc(15px + 0.1*(1vw + 1vh));
 }
@@ -11,4 +13,17 @@ $pt: 0.1rem;
 
 body, p, a, nav, button {
   font-size: 1rem;
+}
+
+// Bump base font size on small screens
+@include responsive.small {
+  html {
+    font-size: calc(30px + 0.25*(1vw + 1vh));
+  }
+}
+
+@include responsive.medium {
+  html {
+    font-size: calc(20px + 0.15*(1vw + 1vh));
+  }
 }

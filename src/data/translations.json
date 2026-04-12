@@ -3,13 +3,19 @@
         "Français": "French",
         "Espagnol": "Spanish",
         "Deutsch": "German",
-        "Polskie": "Polish"
+        "Polskie": "Polish",
+        "Italiano": "Italian",
+        "Português Brasileiro": "Brazilian Portuguese",
+        "Norsk": "Norwegian"
     },
     "fr": {
         "English": "Anglais",
         "Espagnol": "Espagnol",
         "Deutsch": "Allemand",
         "Polskie": "Polonais",
+        "Italiano": "Italien",
+        "Português Brasileiro": "Portugais Brésilien",
+        "Norsk": "Norvégien",
 
         "Dyslexic Character Sheets": "Fiches de Personnages Dyslexiques",
         "Personalised character sheets, unique to your character and free for you to print.": "Feuilles de personnage personnalisées, uniques à votre personnage et gratuites à imprimer.",
@@ -39,18 +45,54 @@
         "English": "Englisch",
         "Français": "Französisch",
         "Espagnol": "Spanisch",
-        "Polskie": "Polieren"
+        "Polskie": "Polieren",
+        "Italiano": "Italienisch",
+        "Português Brasileiro": "Brasilianisches Portugiesisch",
+        "Norsk": "Norwegisch"
     },
     "es": {
         "English": "Inglés",
         "Français": "Francés",
         "Deutsch": "Alemán",
-        "Polskie": "Polaco"
+        "Polskie": "Polaco",
+        "Italiano": "Italiano",
+        "Português Brasileiro": "Portugués Brasileño",
+        "Norsk": "Noruega"
     },
     "pl": {
         "English": "Angielski",
         "Français": "Francuski",
         "Espagnol": "Hiszpański",
-        "Deutsch": "Niemiecki"
+        "Deutsch": "Niemiecki",
+        "Italiano": "Włoski",
+        "Português Brasileiro": "Brazylijski Portugalski",
+        "Norsk": "Norweski"
+    },
+    "it": {
+        "English": "Inglese",
+        "Français": "Francese",
+        "Espagnol": "Spagnola",
+        "Deutsch": "Tedesca",
+        "Polskie": "Polacca",
+        "Português Brasileiro": "Portoghese Brasiliano",
+        "Norsk": "Norvegese"
+    },
+    "pt-BR": {
+        "English": "Inglês",
+        "Français": "Francesa",
+        "Espagnol": "Espanhola",
+        "Deutsch": "Alemã",
+        "Polskie": "Polonês",
+        "Italiano": "Italiana",
+        "Norsk": "Norueguês"
+    },
+    "no": {
+        "English": "Engelsk",
+        "Français": "Fransk",
+        "Espagnol": "Spansk",
+        "Deutsch": "Tysk",
+        "Polskie": "Pusse",
+        "Italiano": "Italiensk",
+        "Português Brasileiro": "Brasiliansk Portugisisk"
     }
 }

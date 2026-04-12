@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Plan - Dyslexic Character Sheets</title>
+  
+  <link rel="stylesheet" media="screen" href="/style.css"/>
+  <link rel="shortcut icon" type="image/png" href="/images/favicon16.png"/>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+</head>
+
+<body id="body" data-current-menu="" data-language="pt-BR">
+
+
+<main class="main--layout_horizontal">
+    <div class="pane pane--bg_parchment  light-region ">
+        <div 
+            class="row"
+          >
+                  <div>
+                    <nav class="nav--row" id="home-link" aria-label="">
+                        <a href="/pt-BR/" class="btn btn--borderless">
+                          <img src="/images/favicon64.png" alt="D20 logo">
+                          Dyslexic Character Sheets
+                        </a>
+                      </nav>
+                      <nav class="nav--row">
+                            <button 
+                          type="button"
+                          
+                          class="btn btn--borderless " 
+                          data-on-click="body.currentMenu &#x3D; main-menu"
+                          
+                        >
+                          ☰      
+                        </button>
+                    
+                            <button 
+                          type="button"
+                          
+                          class="btn btn--borderless " 
+                          data-on-click="body.currentMenu &#x3D; language-menu"
+                          
+                        >
+                          <i class="icon icon_globe"></i>PT-BR      
+                        </button>
+                    
+                    <span class="if" data-bind="reveal=body.isLoggedIn">
+                              <span class="badge badge--colour_green dark-region">
+                            <i class="icon icon_user"></i>Logged In  </span>
+                      </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                                  <button 
+                              type="button"
+                              
+                              class="btn btn--borderless login-menu-button" 
+                              data-on-click="body.currentMenu &#x3D; login-menu"
+                              
+                            >
+                              <i class="icon icon_user"></i>Login      
+                            </button>
+                        
+                      </span>    <div class="spacer"></div>
+                        
+                      </nav>      </div>
+          </div>
+            
+        
+      </div>  </main>
+
+<div id="blanket"
+  data-bind="show = body.currentMenu | isSet"
+></div>
+<aside id="main-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'main-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn btn--borderless " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="main-menu"
+                      class="btn btn--borderless " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>PT-BR      
+                    </button>
+                
+                <span class="if" data-bind="reveal=body.isLoggedIn">
+                          <span class="badge badge--colour_green dark-region">
+                        <i class="icon icon_user"></i>Logged In  </span>
+                  </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                              <button 
+                          type="button"
+                          id="main-menu"
+                          class="btn btn--borderless login-menu-button" 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Login      
+                        </button>
+                    
+                  </span>    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h2>Dyslexic Character Sheets</h2>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/pt-BR/">Home</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pt-BR/news.html">News</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a href="https://discord.gg/ajVTD4N" class="btn btn--light btn--bgicon button-discord">Discord</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-patreon">Patreon</a>
+                    </li>
+                    <li>
+                      <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-github">GitHub</a>
+                    </li>
+                    <li>
+                          <a 
+                id="main-menu"
+                class="btn btn--light btn--bgicon button-facebook" 
+                href="https://www.facebook.com/groups/dyslexiccharactersheets" 
+                 
+          
+                
+              >
+                Facebook      
+              </a>
+          
+                    </li>
+                    <li>
+                          <a 
+                id="main-menu"
+                class="btn btn--light btn--bgicon button-reddit" 
+                href="https://www.reddit.com/r/dyslexic_charsheets/" 
+                 
+          
+                
+              >
+                Reddit      
+              </a>
+          
+                    </li>
+                  </ul>
+          
+                  <h3>Build a character</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/pt-BR/build-pathfinder2.html?edition=pathfinder2">Pathfinder 2e (Legacy)</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pt-BR/build-pathfinder2.html?edition=pathfinder2remaster">Pathfinder 2e (Remaster)</a>
+                    </li>
+                  </ul>
+          
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/pt-BR/build-starfinder.html">Starfinder 1e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pt-BR/build-pathfinder1.html">Pathfinder 1e</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pt-BR/build-dnd35.html">Dungeons &amp; Dragons 3.5</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Information</h3>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/pt-BR/open-source.html">Open Source</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pt-BR/translating.html">Translating</a>
+                    </li>
+                  </ul>
+          
+                  <h3>Legal</h3>
+                  <p>Copyright &copy; Marcus Downing</p>
+                  <p>These character sheets are provided under the Artistic License 2.0</p>
+                  <ul>
+                    <li>
+                      <a class="btn btn--light" href="/pt-BR/legal.html">Legal Info</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pt-BR/license.html">Artistic License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pt-BR/ogl.html">Open Game License</a>
+                    </li>
+                    <li>
+                      <a class="btn btn--light" href="/pt-BR/orc.html">ORC License</a>
+                    </li>
+                  </ul>
+                </nav>
+        </div>    </div>
+  </aside><aside id="language-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'language-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn btn--borderless " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="language-menu"
+                      class="btn btn--borderless " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>PT-BR      
+                    </button>
+                
+                <span class="if" data-bind="reveal=body.isLoggedIn">
+                          <span class="badge badge--colour_green dark-region">
+                        <i class="icon icon_user"></i>Logged In  </span>
+                  </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                              <button 
+                          type="button"
+                          id="language-menu"
+                          class="btn btn--borderless login-menu-button" 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Login      
+                        </button>
+                    
+                  </span>    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3><i class="icon icon_globe"></i> Language</h3>
+                  
+                  <ul class="pick-list">
+                    <li>
+                      <a class="option" href="/en/plan.html">
+                        <span class='badge badge--language'>en</span>
+                        <b>English</b> / 
+                        Inglês
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/fr/plan.html">
+                        <span class='badge badge--language'>fr</span>
+                        <b>Français</b> / 
+                        Francesa
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/es/plan.html">
+                        <span class='badge badge--language'>es</span>
+                        <b>Espagnol</b> / 
+                        Espanhola
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/de/plan.html">
+                        <span class='badge badge--language'>de</span>
+                        <b>Deutsch</b> / 
+                        Alemã
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/pl/plan.html">
+                        <span class='badge badge--language'>pl</span>
+                        <b>Polskie</b> / 
+                        Polonês
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/it/plan.html">
+                        <span class='badge badge--language'>it</span>
+                        <b>Italiano</b> / 
+                        Italiana
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option option--selected" href="/pt-BR/plan.html">
+                        <span class='badge badge--language'>pt-BR</span>
+                        <b>Português Brasileiro</b> / 
+                        Português Brasileiro
+                      </a>
+                    </li>
+                    <li>
+                      <a class="option" href="/no/plan.html">
+                        <span class='badge badge--language'>no</span>
+                        <b>Norsk</b> / 
+                        Norueguês
+                      </a>
+                    </li>
+                  </ul>
+          
+                  <h3><i class="icon icon_accessibility"></i> Accessibility</h3>
+                  <p>
+                    <p>
+                        <label for="accessibility-dyslexie">
+                          <input
+                            type="checkbox"
+                            name="accessibility-dyslexie"
+                            id="accessibility-dyslexie"
+                            
+                            data-bind="checked=#build-form.body.dyslexie"
+                            data-var="body.dyslexie"
+                            autocomplete="off"
+                          > Use Dyslexic Font</label>
+                      </p>
+                  </p>
+                </nav>
+        </div>    </div>
+  </aside><!-- Login menu goes here -->
+<aside id="login-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'login-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_blue  dark-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="login-menu"
+                      class="btn btn--borderless " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="login-menu"
+                      class="btn btn--borderless " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>PT-BR      
+                    </button>
+                
+                <span class="if" data-bind="reveal=body.isLoggedIn">
+                          <span class="badge badge--colour_green dark-region">
+                        <i class="icon icon_user"></i>Logged In  </span>
+                  </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                              <button 
+                          type="button"
+                          id="login-menu"
+                          class="btn btn--borderless login-menu-button" 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Login      
+                        </button>
+                    
+                  </span>    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Login</h3>
+          
+                  <p>Login with Patreon to get access to patron-only features.</p>
+          
+                  <p>
+                    <a class="btn btn--light btn--bgicon button-patreon auth-login-link" href="">
+                      Login with Patreon</a>
+                  </p>
+          
+                  <p class="small-print">Logging in will set a cookie on your PC. This does not contain any personally identifiable information, and will not be sent to any third party.</p>
+          
+                  <h3>Become a patron</h3>
+          
+                  <p>Patrons get the ability to edit all the fields, have calculations work automatically, and save character sheets. Login with Patreon to unlock these features:</p>
+          
+                  <p>Support the site and gain access to extra features for just $1 by becoming a patron.</p>
+          
+                  <p>
+                    <a href="https://www.patreon.com/dyslexic_charactersheets" class="btn btn--light btn--bgicon button-patreon">Patreon</a>
+                  </p>
+                </nav>
+        </div>    </div>
+  </aside><aside id="contact-menu" 
+    class="menu menu--left " 
+    data-bind="show = body.currentMenu | eq 'contact-menu'"
+    
+  >
+    <div class="menu__inner">
+      <div class="pane pane--bg_contact  light-region ">
+                
+                  <nav class="nav--row">
+                        <button 
+                      type="button"
+                      id="contact-menu"
+                      class="btn btn--borderless " 
+                      data-on-click="body.currentMenu &#x3D; main-menu"
+                      
+                    >
+                      ☰      
+                    </button>
+                
+                        <button 
+                      type="button"
+                      id="contact-menu"
+                      class="btn btn--borderless " 
+                      data-on-click="body.currentMenu &#x3D; language-menu"
+                      
+                    >
+                      <i class="icon icon_globe"></i>PT-BR      
+                    </button>
+                
+                <span class="if" data-bind="reveal=body.isLoggedIn">
+                          <span class="badge badge--colour_green dark-region">
+                        <i class="icon icon_user"></i>Logged In  </span>
+                  </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
+                              <button 
+                          type="button"
+                          id="contact-menu"
+                          class="btn btn--borderless login-menu-button" 
+                          data-on-click="body.currentMenu &#x3D; login-menu"
+                          
+                        >
+                          <i class="icon icon_user"></i>Login      
+                        </button>
+                    
+                  </span>    <div class="spacer"></div>
+                    <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>
+                  </nav>
+                <nav class="nav--menu">
+                  <h3>Contact</h3>
+                  
+                  <form id="message-form" method="post" action="/message" class="contact-form">
+                    <p>Your message:</p>
+          
+                    <textarea name="message"></textarea>
+          
+                    <p>
+                        <label for="game">Which game is this about?</label>
+                    </p>
+                    <div class="row">
+                        <label><input type="radio" name="game" value="pf2"> Pathfinder 2e</label>
+                        <label><input type="radio" name="game" value="sf"> Starfinder</label>
+                    </div>
+                    <div class="row">
+                        <label><input type="radio" name="game" value="pf1"> Pathfinder 1e</label>
+                        <label><input type="radio" name="game" value="d35"> D&amp;D 3.5</label>
+                    </div>
+          
+                    <p>
+                        <label for="author">
+                            Your name:
+                            <input id="author" name="author" type="text" placeholder="The Internet" class="box">
+                        </label>
+                    </p>
+                    <p>
+                        <label for="email">
+                            Optionally, your email address:
+                        </label>
+                    </p>
+                    <p>
+                        <input id="email" name="email" type="email" placeholder="But only if you feel like it" class="box">
+                    </p>
+                    
+                    <button class="btn btn--primary" id="message-send">Send Message</button>
+                  </form>
+          
+                </nav>
+        </div>    </div>
+  </aside>
+<script src="/script.js"></script>
+
+</body>
+</html>
