@@ -2389,7 +2389,7 @@
                                                 type="button"
                                                 id="switch-character"
                                                 class="btn btn--gm-tile " 
-                                                data-on-click="#gm-pick.value&#x3D;characters; #switch-gm.current&#x3D;characters; emit scrollto slides-character-slide-gm-options"
+                                                data-on-click="#gm-pick.value&#x3D;characters; #switch-gm-options.current&#x3D;characters; #build-form.gm&#x3D;characters; emit scrollto slides-character-slide-gm-options"
                                                 
                                               >
                                                                   <picture class="picture--size_gm-tile  ">
@@ -2402,7 +2402,7 @@
                                                 type="button"
                                                 id="switch-character"
                                                 class="btn btn--gm-tile " 
-                                                data-on-click="#switch-gm-options.current&#x3D;maps; #build-form.gm&#x3D;maps; emit scrollto slides-character-slide-gm-options"
+                                                data-on-click="#gm-pick.value&#x3D;maps; #switch-gm-options.current&#x3D;maps; #build-form.gm&#x3D;maps; emit scrollto slides-character-slide-gm-options"
                                                 
                                               >
                                                                   <picture class="picture--size_gm-tile  ">
@@ -2419,13 +2419,13 @@
                                     data-show-next-button="true"
                                   >
                                     <div class="slide__inner ">
-                                                  <h2>GM</h2>
                                       <div 
                                           class="switch" 
                                           id="switch-gm-options"
                                           data-current="start"
                                         >
-                                          <div class="switch__case" data-value="npcs" data-show="">
+                                          <div class="switch__case" data-value="characters" data-show="">
+                                                              <h3>GM: Characters and NPCs</h3>
                                                               <h3>NPCs</h3>
                                                               
                                                               <div 
@@ -2510,6 +2510,7 @@
                                                                                   > Permission to print</label>
                                                                               </p>  </div>  </div>  </div>              
                                           <div class="switch__case" data-value="maps" data-show="">
+                                                              <h3>GM: Exploration Maps</h3>
                                                               <h3>Maps</h3>
                                                               
                                                               <div 
@@ -2580,6 +2581,7 @@
                                                                                   > Permission to print</label>
                                                                               </p>  </div>  </div>  </div>              
                                           <div class="switch__case" data-value="kingdom" data-show="">
+                                                              <h3>GM: Kingmaker</h3>
                                                               <h3>Kingmaker</h3>
                                                               
                                                                 <!-- <div 
@@ -35295,8 +35297,8 @@
             ],
             "_{Core Rulebook}": [
               "mutagenist",
-              "chirurgeon",
-              "bomber"
+              "bomber",
+              "chirurgeon"
             ]
           },
           "displayGroups": [
@@ -35697,13 +35699,13 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
-                                      "chemical-contagion",
-                                      "pinpoint-poisoner",
-                                      "sticky-poison",
                                       "alchemical-familiar",
+                                      "chemical-contagion",
                                       "smoke-bomb",
+                                      "pinpoint-poisoner",
                                       "subtle-delivery",
-                                      "tenacious-toxins"
+                                      "tenacious-toxins",
+                                      "sticky-poison"
                                     ]
                                   },
                                   "displayGroups": [
@@ -35990,10 +35992,10 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "empiricism",
               "alchemical-sciences",
               "forensic-medicine",
-              "interrogation"
+              "interrogation",
+              "empiricism"
             ]
           },
           "displayGroups": [
@@ -36374,13 +36376,13 @@
           "groups": {
             "_{Advanced Player's Guide}": [
               "ancestors",
-              "battle",
               "bones",
-              "flames",
-              "life",
-              "tempest",
               "cosmos",
-              "lore"
+              "battle",
+              "flames",
+              "lore",
+              "life",
+              "tempest"
             ]
           },
           "displayGroups": [
@@ -36817,9 +36819,9 @@
             "_{Advanced Player's Guide}": [
               "battledancer",
               "gymnast",
+              "braggart",
               "wit",
-              "fencer",
-              "braggart"
+              "fencer"
             ]
           },
           "displayGroups": [
@@ -37314,13 +37316,13 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
+              "fervor",
               "curse",
               "night",
+              "rune",
               "fate",
-              "fervor",
               "wild",
-              "winter",
-              "rune"
+              "winter"
             ]
           },
           "displayGroups": [
@@ -37931,11 +37933,11 @@
               "apg-superstition"
             ],
             "_{Core Rulebook}": [
-              "fury",
               "animal",
-              "spirit",
               "giant",
-              "dragon"
+              "fury",
+              "dragon",
+              "spirit"
             ]
           },
           "displayGroups": [
@@ -38929,14 +38931,14 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "apg-tyrant",
               "apg-antipaladin",
-              "apg-desecrator"
+              "apg-desecrator",
+              "apg-tyrant"
             ],
             "_{Core Rulebook}": [
+              "redeemer",
               "paladin",
-              "liberator",
-              "redeemer"
+              "liberator"
             ]
           },
           "displayGroups": [
@@ -39311,8 +39313,8 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "blade",
               "shield",
+              "blade",
               "steed"
             ]
           },
@@ -40354,9 +40356,9 @@
           "groups": {
             "_{Dark Archive}": [
               "distant-grasp",
-              "oscillating-wave",
-              "silent-whisper",
               "infinite-eye",
+              "silent-whisper",
+              "oscillating-wave",
               "tangible-dream",
               "unbound-step"
             ]
@@ -40803,15 +40805,15 @@
           ],
           "groups": {
             "_{Dark Archive}": [
-              "amulet",
               "lantern",
               "bell",
+              "amulet",
               "chalice",
               "mirror",
               "regalia",
               "tome",
-              "weapon",
-              "wand"
+              "wand",
+              "weapon"
             ]
           },
           "displayGroups": [
@@ -41316,10 +41318,10 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
+              "leaf",
               "animal",
-              "wild",
               "storm",
-              "leaf"
+              "wild"
             ]
           },
           "displayGroups": [
@@ -42160,9 +42162,9 @@
           ],
           "groups": {
             "_{Guns and Gears}": [
-              "pistolero",
-              "drifter",
               "sniper",
+              "drifter",
+              "pistolero",
               "vanguard"
             ]
           },
@@ -42468,8 +42470,8 @@
           ],
           "groups": {
             "_{Guns and Gears}": [
-              "armour",
               "construct",
+              "armour",
               "weapon"
             ]
           },
@@ -42834,13 +42836,13 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
+                                      "crane",
                                       "dragon",
                                       "mountain",
-                                      "ironblood",
                                       "tangled-forest",
-                                      "tiger",
                                       "wolf",
-                                      "crane"
+                                      "tiger",
+                                      "ironblood"
                                     ]
                                   },
                                   "displayGroups": [
@@ -43254,12 +43256,12 @@
                                   ],
                                   "groups": {
                                     "_{Rage of Elements}": [
-                                      "fire",
                                       "air",
-                                      "earth",
                                       "metal",
-                                      "wood",
-                                      "water"
+                                      "water",
+                                      "fire",
+                                      "earth",
+                                      "wood"
                                     ]
                                   },
                                   "displayGroups": [
@@ -43552,9 +43554,9 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "outwit",
+              "precision",
               "flurry",
-              "precision"
+              "outwit"
             ]
           },
           "displayGroups": [
@@ -43961,8 +43963,8 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
-                                      "animal-companion",
                                       "camouflage",
+                                      "animal-companion",
                                       "favored-terrain"
                                     ],
                                     "_{Advanced Player's Guide}": [
@@ -44821,9 +44823,9 @@
           "groups": {
             "_{Secrets of Magic}": [
               "inexorable-iron",
+              "starlit-span",
               "sparkling-targe",
               "laughing-shadow",
-              "starlit-span",
               "twisting-tree"
             ]
           },
@@ -45259,16 +45261,16 @@
           ],
           "groups": {
             "_{Secrets of Magic}": [
-              "beast",
-              "angel",
               "construct",
+              "angel",
+              "beast",
               "anger-phantom",
               "demon",
               "devotion-phantom",
+              "dragon",
               "fey",
               "plant",
-              "psychopomp",
-              "dragon"
+              "psychopomp"
             ]
           },
           "displayGroups": [
@@ -45939,20 +45941,20 @@
           "groups": {
             "_{Advanced Player's Guide}": [
               "apg-genie",
-              "apg-shadow",
               "apg-psychopomp",
-              "apg-nymph"
+              "apg-nymph",
+              "apg-shadow"
             ],
             "_{Core Rulebook}": [
-              "angelic",
-              "aberrant",
               "demonic",
-              "diabolic",
-              "fey",
+              "angelic",
               "draconic",
-              "elemental",
-              "hag",
+              "diabolic",
+              "aberrant",
+              "fey",
               "imperial",
+              "hag",
+              "elemental",
               "undead"
             ]
           },
@@ -47455,12 +47457,12 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "divination",
-              "conjuration",
               "abjuration",
-              "illusion",
-              "evocation",
+              "divination",
               "enchantment",
+              "conjuration",
+              "evocation",
+              "illusion",
               "transmutation",
               "necromancy",
               "universalist"
@@ -48095,8 +48097,8 @@
                                   "groups": {
                                     "_{Core Rulebook}": [
                                       "reach-spell",
-                                      "familiar",
-                                      "counterspell"
+                                      "counterspell",
+                                      "familiar"
                                     ]
                                   },
                                   "displayGroups": [

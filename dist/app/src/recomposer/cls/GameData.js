@@ -21,7 +21,7 @@ export class GameData {
     for (let cls of this.data.classes) {
       cls['code'] = slugify(cls['name']);
       // this.data.classByCode[cls['code']] = cls;
-      log("re:GameData", "Found code", cls['code'], '=', cls['name']);
+      // log("re:GameData", "Found code", cls['code'], '=', cls['name']);
     }
   }
   
