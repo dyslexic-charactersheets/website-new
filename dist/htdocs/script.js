@@ -1224,6 +1224,10 @@ function readPf2Form(type) {
 
   let dataset = form.dataset;
   var edition = dataset.edition;
+  if (edition === undefined || edition === null || edition == "") {
+    edition = "pathfinder2";
+  }
+
   var id = generateId();
 
   var character = {
@@ -2448,16 +2452,27 @@ on('.button-download-pf2', 'click', (evt) => {
 }
 try {
 const urlParams = new URLSearchParams(window.location.search);
-const edition = urlParams.get('edition');
-if (edition == "pathfinder2") {
-  document.getElementById('build-form').dataset.edition = "pathfinder2";
-} else if (edition == "pathfinder2remaster") {
-  document.getElementById('build-form').dataset.edition = "pathfinder2remaster";
-} else if (edition == "both") {
-  document.getElementById('build-form').dataset.edition = "all";
-} else if (window.location.pathname.match(/starfinder2/)) {
-  document.getElementById('build-form').dataset.edition = 'starfinder2';
+let edition = urlParams.get('edition');
+switch (edition) {
+  case 'pathfinder2':
+  case 'pathfinder2remaster':
+  case 'starfinder2':
+    break;
+  default:
+    edition = 'pathfinder2remaster';
+    break;
 }
+// if (edition == "pathfinder2") {
+//   document.getElementById('build-form').dataset.edition = "pathfinder2";
+// } else if (edition == "pathfinder2remaster") {
+//   document.getElementById('build-form').dataset.edition = "pathfinder2remaster";
+// } else if (edition == "both") {
+//   document.getElementById('build-form').dataset.edition = "all";
+// } else if (window.location.pathname.match(/starfinder2/)) {
+//   document.getElementById('build-form').dataset.edition = 'starfinder2';
+// }
+
+set('#build-form', 'edition', edition);
 
 definePipe('editionName', (value) => {
   switch (value) {

@@ -22,6 +22,10 @@ function readPf2Form(type) {
 
   let dataset = form.dataset;
   var edition = dataset.edition;
+  if (edition === undefined || edition === null || edition == "") {
+    edition = "pathfinder2";
+  }
+
   var id = generateId();
 
   var character = {

@@ -722,50 +722,50 @@
               ],
               "groups": {
                 "_{BattleZoo}": [
-                  "apocalypse",
-                  "amber",
-                  "astral",
-                  "bliss",
                   "black",
+                  "amber",
                   "blue",
+                  "bliss",
                   "brass",
-                  "bronze",
+                  "apocalypse",
+                  "astral",
                   "brine",
-                  "copper",
                   "cloud",
-                  "crypt",
+                  "bronze",
                   "cerulean",
+                  "copper",
+                  "crypt",
                   "dream",
-                  "edict",
-                  "forest",
-                  "indigo",
                   "crystal",
+                  "edict",
                   "etheric",
-                  "green",
+                  "forest",
                   "gold",
-                  "lunar",
+                  "green",
                   "havoc",
-                  "harlequin",
-                  "magma",
-                  "nightmare",
                   "infernal",
-                  "rift",
+                  "harlequin",
+                  "indigo",
+                  "nightmare",
+                  "lunar",
+                  "magma",
                   "red",
-                  "occult",
-                  "silver",
                   "paradise",
-                  "sky",
+                  "occult",
                   "sea",
-                  "solar",
-                  "time",
+                  "sky",
+                  "rift",
                   "tumult",
-                  "sovereign",
-                  "vemillion",
+                  "solar",
+                  "silver",
+                  "time",
                   "toadstool",
-                  "void",
-                  "umbral",
+                  "sovereign",
                   "vortex",
+                  "umbral",
+                  "vemillion",
                   "underworld",
+                  "void",
                   "white"
                 ]
               },
@@ -1560,11 +1560,11 @@
               ],
               "groups": {
                 "_{BattleZoo}": [
-                  "archipelago",
+                  "labyrinth",
                   "caverns",
-                  "tree",
                   "tower",
-                  "labyrinth"
+                  "tree",
+                  "archipelago"
                 ]
               },
               "displayGroups": [
@@ -1743,8 +1743,8 @@
               "groups": {
                 "_{Ponyfinder}": [
                   "horned",
-                  "mountaineer",
                   "watchfulness",
+                  "mountaineer",
                   "resilience"
                 ]
               },
@@ -2245,15 +2245,15 @@
                       "groups": {
                         "_{Core Rulebook}": [
                           "ancient-blooded",
-                          "rock",
+                          "death-warden",
                           "forge",
                           "strong-blooded",
-                          "death-warden"
+                          "rock"
                         ],
                         "_{Lost Omens Character Guide}": [
                           "lost-omens-character-guide-oathkeeper",
-                          "lost-omens-character-guide-elemental-heart",
-                          "lost-omens-character-guide-anvil"
+                          "lost-omens-character-guide-anvil",
+                          "lost-omens-character-guide-elemental-heart"
                         ]
                       },
                       "displayGroups": [
@@ -2486,12 +2486,12 @@
               "groups": {
                 "_{Ponyfinder}": [
                   "pegasus",
-                  "ghost",
+                  "sea-horse",
                   "earth-bound",
                   "leather-wings",
-                  "zebra",
-                  "sea-horse",
-                  "unicorn"
+                  "ghost",
+                  "unicorn",
+                  "zebra"
                 ]
               },
               "displayGroups": [
@@ -2648,15 +2648,15 @@
                           "groups": {
                             "_{Core Rulebook}": [
                               "ancient-blooded",
-                              "rock",
+                              "death-warden",
                               "forge",
                               "strong-blooded",
-                              "death-warden"
+                              "rock"
                             ],
                             "_{Lost Omens Character Guide}": [
                               "lost-omens-character-guide-oathkeeper",
-                              "lost-omens-character-guide-elemental-heart",
-                              "lost-omens-character-guide-anvil"
+                              "lost-omens-character-guide-anvil",
+                              "lost-omens-character-guide-elemental-heart"
                             ]
                           },
                           "displayGroups": [
@@ -3232,10 +3232,10 @@
               ],
               "groups": {
                 "_{Rogue Genius}": [
-                  "rootling",
+                  "bluffling",
                   "fieldling",
-                  "darkling",
-                  "bluffling"
+                  "rootling",
+                  "darkling"
                 ]
               },
               "displayGroups": [
@@ -3399,10 +3399,10 @@
               ],
               "groups": {
                 "_{Extinction Curse}": [
-                  "paddler",
+                  "bloodhound",
                   "thickcoat",
                   "fishseeker",
-                  "bloodhound"
+                  "paddler"
                 ]
               },
               "displayGroups": [
@@ -3625,16 +3625,16 @@
               ],
               "groups": {
                 "_{Advanced Player's Guide}": [
-                  "heritage-catfolk-jungle",
+                  "nine-lives",
                   "clawed",
-                  "winter",
                   "hunting",
-                  "nine-lives"
+                  "heritage-catfolk-jungle",
+                  "winter"
                 ],
                 "_{Lost Omens Ancestry Guide}": [
                   "lost-omens-ancestry-guide-flexible",
-                  "lost-omens-ancestry-guide-liminal",
-                  "lost-omens-ancestry-guide-sharp-eared"
+                  "lost-omens-ancestry-guide-sharp-eared",
+                  "lost-omens-ancestry-guide-liminal"
                 ]
               },
               "displayGroups": [
@@ -3907,10 +3907,10 @@
               ],
               "groups": {
                 "_{Advanced Player's Guide}": [
-                  "dragonscaled",
-                  "cavern",
                   "spellscale",
+                  "cavern",
                   "strongjaw",
+                  "dragonscaled",
                   "venomtail"
                 ],
                 "_{Lost Omens Ancestry Guide}": [
@@ -4173,15 +4173,15 @@
               ],
               "groups": {
                 "_{Advanced Player's Guide}": [
-                  "deep",
                   "badlands",
-                  "hold-scarred",
-                  "rainfall"
+                  "rainfall",
+                  "deep",
+                  "hold-scarred"
                 ],
                 "_{Lost Omens Ancestry Guide}": [
+                  "lost-omens-ancestry-guide-battle-ready",
                   "lost-omens-ancestry-guide-grave",
-                  "lost-omens-ancestry-guide-winter",
-                  "lost-omens-ancestry-guide-battle-ready"
+                  "lost-omens-ancestry-guide-winter"
                 ]
               },
               "displayGroups": [
@@ -4440,9 +4440,9 @@
               "groups": {
                 "_{Advanced Player's Guide}": [
                   "longsnout",
-                  "desert",
-                  "sewer",
                   "deep",
+                  "sewer",
+                  "desert",
                   "shadow"
                 ],
                 "_{Lost Omens Ancestry Guide}": [
@@ -4706,9 +4706,9 @@
               "groups": {
                 "_{Advanced Player's Guide}": [
                   "jinxed",
-                  "mountainkeeper",
-                  "skyborn",
                   "stormtossed",
+                  "skyborn",
+                  "mountainkeeper",
                   "taloned"
                 ],
                 "_{Lost Omens Ancestry Guide}": [
@@ -4927,9 +4927,9 @@
               ],
               "groups": {
                 "_{Book of the Dead}": [
+                  "compact",
                   "monstrous",
                   "fodder",
-                  "compact",
                   "sturdy"
                 ]
               },
@@ -5154,15 +5154,15 @@
               "groups": {
                 "_{Core Rulebook}": [
                   "ancient-blooded",
-                  "rock",
+                  "death-warden",
                   "forge",
                   "strong-blooded",
-                  "death-warden"
+                  "rock"
                 ],
                 "_{Lost Omens Character Guide}": [
                   "lost-omens-character-guide-oathkeeper",
-                  "lost-omens-character-guide-elemental-heart",
-                  "lost-omens-character-guide-anvil"
+                  "lost-omens-character-guide-anvil",
+                  "lost-omens-character-guide-elemental-heart"
                 ]
               },
               "displayGroups": [
@@ -5436,10 +5436,10 @@
               "groups": {
                 "_{Core Rulebook}": [
                   "cavern",
-                  "arctic",
                   "seer",
-                  "woodland",
-                  "whisper"
+                  "arctic",
+                  "whisper",
+                  "woodland"
                 ],
                 "_{Lost Omens Character Guide}": [
                   "lost-omens-character-guide-ancient",
@@ -5686,11 +5686,11 @@
               ],
               "groups": {
                 "_{Core Rulebook}": [
+                  "feytouched",
                   "chameleon",
                   "sensate",
                   "umbral",
-                  "wellspring",
-                  "feytouched"
+                  "wellspring"
                 ],
                 "_{Lost Omens Character Guide}": [
                   "lost-omens-character-guide-vivacious"
@@ -5936,15 +5936,15 @@
               ],
               "groups": {
                 "_{Core Rulebook}": [
-                  "charhide",
-                  "irongut",
                   "razortooth",
+                  "irongut",
+                  "charhide",
                   "snow",
                   "unbreakable"
                 ],
                 "_{Lost Omens Character Guide}": [
-                  "lost-omens-character-guide-treedweller",
-                  "lost-omens-character-guide-tailed"
+                  "lost-omens-character-guide-tailed",
+                  "lost-omens-character-guide-treedweller"
                 ]
               },
               "displayGroups": [
@@ -6158,10 +6158,10 @@
               ],
               "groups": {
                 "_{Guns and Gears}": [
+                  "sharpshooter",
                   "hunter",
                   "mage",
-                  "warrior",
-                  "sharpshooter"
+                  "warrior"
                 ]
               },
               "displayGroups": [
@@ -6372,10 +6372,10 @@
                   "apg-jinxed"
                 ],
                 "_{Core Rulebook}": [
-                  "gutsy",
-                  "hillock",
-                  "nomadic",
                   "twilight",
+                  "hillock",
+                  "gutsy",
+                  "nomadic",
                   "wildwood"
                 ],
                 "_{Lost Omens Character Guide}": [
@@ -6815,11 +6815,11 @@
               ],
               "groups": {
                 "_{Absalom, City of Lost Omens}": [
-                  "ancient-scale",
                   "mistbreath",
-                  "benthic",
                   "river",
-                  "thalassic"
+                  "benthic",
+                  "thalassic",
+                  "ancient-scale"
                 ],
                 "_{Lost Omens Ancestry Guide}": [
                   "ancestry-guide-inured",
@@ -7084,10 +7084,10 @@
               ],
               "groups": {
                 "_{Lost Omens Ancestry Guide}": [
-                  "artisan",
-                  "impersonator",
-                  "polyglot",
                   "laborer",
+                  "impersonator",
+                  "artisan",
+                  "polyglot",
                   "warrior"
                 ]
               },
@@ -7282,11 +7282,11 @@
               ],
               "groups": {
                 "_{Lost Omens Ancestry Guide}": [
+                  "liminal",
+                  "resolute",
                   "bright",
                   "deep",
-                  "liminal",
-                  "wisp",
-                  "resolute"
+                  "wisp"
                 ]
               },
               "displayGroups": [
@@ -7465,10 +7465,10 @@
               ],
               "groups": {
                 "_{Lost Omens Ancestry Guide}": [
-                  "created",
                   "technological",
-                  "mutated",
-                  "shapewrought"
+                  "created",
+                  "shapewrought",
+                  "mutated"
                 ]
               },
               "displayGroups": [
@@ -7648,8 +7648,8 @@
               "groups": {
                 "_{Lost Omens Ancestry Guide}": [
                   "dark-fields",
-                  "earthly-wilds",
                   "celestial-envoy",
+                  "earthly-wilds",
                   "frozen-wind",
                   "empty-sky"
                 ]
@@ -7845,11 +7845,11 @@
               ],
               "groups": {
                 "_{Lost Omens Ancestry Guide}": [
-                  "draxie",
-                  "grig",
                   "melixie",
+                  "luminous",
                   "nyktera",
-                  "luminous"
+                  "grig",
+                  "draxie"
                 ]
               },
               "displayGroups": [
@@ -8044,9 +8044,9 @@
               "groups": {
                 "_{Lost Omens Ancestry Guide}": [
                   "shoreline",
-                  "scavenger",
                   "nightglider",
                   "predator",
+                  "scavenger",
                   "songbird"
                 ]
               },
@@ -8274,11 +8274,11 @@
                   "ancestry-guide-steelskin"
                 ],
                 "_{Lost Omens Character Guide}": [
-                  "runtboss",
-                  "elfbane",
-                  "smokeworker",
                   "warmarch",
-                  "warrenbred"
+                  "smokeworker",
+                  "elfbane",
+                  "warrenbred",
+                  "runtboss"
                 ]
               },
               "displayGroups": [
@@ -8586,15 +8586,15 @@
                 "_{Lost Omens Ancestry Guide}": [
                   "ancestry-guide-cactus",
                   "ancestry-guide-fruit",
-                  "ancestry-guide-lotus",
+                  "ancestry-guide-root",
                   "ancestry-guide-seaweed",
-                  "ancestry-guide-root"
+                  "ancestry-guide-lotus"
                 ],
                 "_{Lost Omens Character Guide}": [
-                  "gourd",
                   "fungus",
+                  "vine",
                   "leaf",
-                  "vine"
+                  "gourd"
                 ]
               },
               "displayGroups": [
@@ -8906,11 +8906,11 @@
                   "ancestry-guide-cloudleaper"
                 ],
                 "_{Lost Omens Character Guide}": [
-                  "frilled",
-                  "cliffscle",
                   "sandstrider",
+                  "unseen",
+                  "frilled",
                   "wetlander",
-                  "unseen"
+                  "cliffscle"
                 ]
               },
               "displayGroups": [
@@ -9140,10 +9140,10 @@
               "groups": {
                 "_{Lost Omens Grand Bazaar}": [
                   "ghost",
-                  "stuffed",
                   "windup",
                   "toy",
-                  "wishborn"
+                  "wishborn",
+                  "stuffed"
                 ]
               },
               "displayGroups": [
@@ -9337,11 +9337,11 @@
               ],
               "groups": {
                 "_{Mwangi Expanse}": [
-                  "adaptive",
+                  "snaring",
+                  "spindly",
                   "venomous",
                   "polychromatic",
-                  "snaring",
-                  "spindly"
+                  "adaptive"
                 ]
               },
               "displayGroups": [
@@ -9536,10 +9536,10 @@
               "groups": {
                 "_{Mwangi Expanse}": [
                   "invocation",
-                  "knowing",
                   "reinforcement",
+                  "light",
                   "passage",
-                  "light"
+                  "knowing"
                 ]
               },
               "displayGroups": [
@@ -9718,10 +9718,10 @@
               ],
               "groups": {
                 "_{Mwangi Expanse}": [
-                  "sweetbreath",
-                  "great",
                   "ant",
-                  "witch"
+                  "witch",
+                  "sweetbreath",
+                  "great"
                 ]
               },
               "displayGroups": [
@@ -9900,11 +9900,11 @@
               ],
               "groups": {
                 "_{Mwangi Expanse}": [
-                  "frightful",
-                  "vigilant",
-                  "farsight",
                   "insightful",
-                  "vicious"
+                  "farsight",
+                  "vicious",
+                  "frightful",
+                  "vigilant"
                 ]
               },
               "displayGroups": [
@@ -10083,10 +10083,10 @@
               ],
               "groups": {
                 "_{Mwangi Expanse}": [
-                  "stickytoe",
+                  "snaptongue",
                   "poisonhide",
                   "windweb",
-                  "snaptongue"
+                  "stickytoe"
                 ]
               },
               "displayGroups": [
@@ -10265,11 +10265,11 @@
               ],
               "groups": {
                 "_{Mwangi Expanse}": [
-                  "stonestep",
-                  "spellkeeper",
                   "stronggut",
                   "lorekeeper",
-                  "quillcoat"
+                  "spellkeeper",
+                  "quillcoat",
+                  "stonestep"
                 ]
               },
               "displayGroups": [
@@ -10492,13 +10492,13 @@
               ],
               "groups": {
                 "_{Player Core 2}": [
-                  "heritage-catfolk-remaster-hunting",
                   "heritage-catfolk-remaster-clawed",
                   "heritage-catfolk-remaster-jungle",
                   "heritage-catfolk-remaster-liminal",
-                  "heritage-catfolk-remaster-sharp-eared",
                   "heritage-catfolk-remaster-nine-lives",
-                  "heritage-catfolk-remaster-winter"
+                  "heritage-catfolk-remaster-hunting",
+                  "heritage-catfolk-remaster-winter",
+                  "heritage-catfolk-remaster-sharp-eared"
                 ]
               },
               "displayGroups": [
@@ -10721,8 +10721,8 @@
               ],
               "groups": {
                 "_{Player Core}": [
-                  "remaster-forge",
                   "remaster-ancient-blooded",
+                  "remaster-forge",
                   "remaster-death-warden",
                   "remaster-strong-blooded",
                   "remaster-rock"
@@ -10933,11 +10933,11 @@
               ],
               "groups": {
                 "_{Player Core}": [
+                  "remaster-arctic",
+                  "remaster-cavern",
                   "remaster-seer",
                   "remaster-ancient",
                   "remaster-whisper",
-                  "remaster-arctic",
-                  "remaster-cavern",
                   "remaster-woodland"
                 ]
               },
@@ -11146,11 +11146,11 @@
               ],
               "groups": {
                 "_{Player Core}": [
-                  "remaster-chameleon",
-                  "remaster-fey-touched",
                   "remaster-umbral",
                   "remaster-sensate",
-                  "remaster-wellspring"
+                  "remaster-wellspring",
+                  "remaster-fey-touched",
+                  "remaster-chameleon"
                 ]
               },
               "displayGroups": [
@@ -11343,10 +11343,10 @@
               ],
               "groups": {
                 "_{Player Core}": [
-                  "remaster-charhide",
-                  "remaster-irongut",
                   "remaster-razortooth",
+                  "remaster-charhide",
                   "remaster-snow",
+                  "remaster-irongut",
                   "remaster-unbreakable"
                 ]
               },
@@ -11555,12 +11555,12 @@
               ],
               "groups": {
                 "_{Player Core}": [
-                  "remaster-hillock",
-                  "remaster-gutsy",
                   "remaster-jinxed",
-                  "remaster-wildwood",
+                  "remaster-gutsy",
+                  "remaster-twilight",
+                  "remaster-hillock",
                   "remaster-nomadic",
-                  "remaster-twilight"
+                  "remaster-wildwood"
                 ]
               },
               "displayGroups": [
@@ -11784,11 +11784,11 @@
               "groups": {
                 "_{Player Core 2}": [
                   "heritage-hobgoblin-remaster-elfbane",
-                  "heritage-hobgoblin-remaster-shortshanks",
-                  "heritage-hobgoblin-remaster-runtboss",
                   "heritage-hobgoblin-remaster-smokeworker",
-                  "heritage-hobgoblin-remaster-warrenbred",
-                  "heritage-hobgoblin-remaster-warmarch"
+                  "heritage-hobgoblin-remaster-shortshanks",
+                  "heritage-hobgoblin-remaster-warmarch",
+                  "heritage-hobgoblin-remaster-runtboss",
+                  "heritage-hobgoblin-remaster-warrenbred"
                 ]
               },
               "displayGroups": [
@@ -11951,8 +11951,8 @@
               ],
               "groups": {
                 "_{Player Core}": [
-                  "remaster-versatile",
-                  "remaster-skilled"
+                  "remaster-skilled",
+                  "remaster-versatile"
                 ]
               },
               "displayGroups": [
@@ -12131,12 +12131,12 @@
               "groups": {
                 "_{Player Core 2}": [
                   "heritage-kholo-remaster-ant",
-                  "heritage-kholo-remaster-dog",
                   "heritage-kholo-remaster-cave",
-                  "heritage-kholo-remaster-sweetbreath",
                   "heritage-kholo-remaster-great",
+                  "heritage-kholo-remaster-dog",
+                  "heritage-kholo-remaster-winter",
                   "heritage-kholo-remaster-witch",
-                  "heritage-kholo-remaster-winter"
+                  "heritage-kholo-remaster-sweetbreath"
                 ]
               },
               "displayGroups": [
@@ -12423,10 +12423,10 @@
                   "heritage-leshy-remaster-cactus",
                   "heritage-leshy-remaster-fungus",
                   "heritage-leshy-remaster-gourd",
-                  "heritage-leshy-remaster-seaweed",
+                  "heritage-leshy-remaster-lotus",
                   "heritage-leshy-remaster-root",
                   "heritage-leshy-remaster-leaf",
-                  "heritage-leshy-remaster-lotus",
+                  "heritage-leshy-remaster-seaweed",
                   "heritage-leshy-remaster-vine"
                 ]
               },
@@ -12585,11 +12585,11 @@
         "_{Ponyfinder}": [
           "3pp-ponyfinder-cloven",
           "3pp-ponyfinder-griffon",
-          "3pp-ponyfinder-pony",
           "3pp-ponyfinder-flutterpony",
           "3pp-ponyfinder-phoenix-wolf",
-          "3pp-ponyfinder-steelheart",
+          "3pp-ponyfinder-pony",
           "3pp-ponyfinder-purrsian",
+          "3pp-ponyfinder-steelheart",
           "3pp-ponyfinder-sun-cat"
         ],
         "_{Rogue Genius}": [
@@ -12612,8 +12612,8 @@
           "dwarf",
           "elf",
           "gnome",
-          "halfling",
           "goblin",
+          "halfling",
           "human"
         ],
         "_{Guns and Gears}": [
@@ -12641,8 +12641,8 @@
         "_{Lost Omens Mwangi Expanse}": [
           "lost-omens-mwangi-expanse-anadi",
           "lost-omens-mwangi-expanse-conrasu",
-          "lost-omens-mwangi-expanse-goloma",
           "lost-omens-mwangi-expanse-gnoll",
+          "lost-omens-mwangi-expanse-goloma",
           "lost-omens-mwangi-expanse-grippli",
           "lost-omens-mwangi-expanse-shisk"
         ]
@@ -12801,15 +12801,15 @@
                   "groups": {
                     "_{Core Rulebook}": [
                       "ancient-blooded",
-                      "rock",
+                      "death-warden",
                       "forge",
                       "strong-blooded",
-                      "death-warden"
+                      "rock"
                     ],
                     "_{Lost Omens Character Guide}": [
                       "lost-omens-character-guide-oathkeeper",
-                      "lost-omens-character-guide-elemental-heart",
-                      "lost-omens-character-guide-anvil"
+                      "lost-omens-character-guide-anvil",
+                      "lost-omens-character-guide-elemental-heart"
                     ]
                   },
                   "displayGroups": [
@@ -13083,10 +13083,10 @@
                   "groups": {
                     "_{Core Rulebook}": [
                       "cavern",
-                      "arctic",
                       "seer",
-                      "woodland",
-                      "whisper"
+                      "arctic",
+                      "whisper",
+                      "woodland"
                     ],
                     "_{Lost Omens Character Guide}": [
                       "lost-omens-character-guide-ancient",
@@ -13333,11 +13333,11 @@
                   ],
                   "groups": {
                     "_{Core Rulebook}": [
+                      "feytouched",
                       "chameleon",
                       "sensate",
                       "umbral",
-                      "wellspring",
-                      "feytouched"
+                      "wellspring"
                     ],
                     "_{Lost Omens Character Guide}": [
                       "lost-omens-character-guide-vivacious"
@@ -13583,15 +13583,15 @@
                   ],
                   "groups": {
                     "_{Core Rulebook}": [
-                      "charhide",
-                      "irongut",
                       "razortooth",
+                      "irongut",
+                      "charhide",
                       "snow",
                       "unbreakable"
                     ],
                     "_{Lost Omens Character Guide}": [
-                      "lost-omens-character-guide-treedweller",
-                      "lost-omens-character-guide-tailed"
+                      "lost-omens-character-guide-tailed",
+                      "lost-omens-character-guide-treedweller"
                     ]
                   },
                   "displayGroups": [
@@ -13852,10 +13852,10 @@
                       "apg-jinxed"
                     ],
                     "_{Core Rulebook}": [
-                      "gutsy",
-                      "hillock",
-                      "nomadic",
                       "twilight",
+                      "hillock",
+                      "gutsy",
+                      "nomadic",
                       "wildwood"
                     ],
                     "_{Lost Omens Character Guide}": [
@@ -14239,8 +14239,8 @@
                   ],
                   "groups": {
                     "_{Player Core}": [
-                      "remaster-forge",
                       "remaster-ancient-blooded",
+                      "remaster-forge",
                       "remaster-death-warden",
                       "remaster-strong-blooded",
                       "remaster-rock"
@@ -14451,11 +14451,11 @@
                   ],
                   "groups": {
                     "_{Player Core}": [
+                      "remaster-arctic",
+                      "remaster-cavern",
                       "remaster-seer",
                       "remaster-ancient",
                       "remaster-whisper",
-                      "remaster-arctic",
-                      "remaster-cavern",
                       "remaster-woodland"
                     ]
                   },
@@ -14664,11 +14664,11 @@
                   ],
                   "groups": {
                     "_{Player Core}": [
-                      "remaster-chameleon",
-                      "remaster-fey-touched",
                       "remaster-umbral",
                       "remaster-sensate",
-                      "remaster-wellspring"
+                      "remaster-wellspring",
+                      "remaster-fey-touched",
+                      "remaster-chameleon"
                     ]
                   },
                   "displayGroups": [
@@ -14861,10 +14861,10 @@
                   ],
                   "groups": {
                     "_{Player Core}": [
-                      "remaster-charhide",
-                      "remaster-irongut",
                       "remaster-razortooth",
+                      "remaster-charhide",
                       "remaster-snow",
+                      "remaster-irongut",
                       "remaster-unbreakable"
                     ]
                   },
@@ -15073,12 +15073,12 @@
                   ],
                   "groups": {
                     "_{Player Core}": [
-                      "remaster-hillock",
-                      "remaster-gutsy",
                       "remaster-jinxed",
-                      "remaster-wildwood",
+                      "remaster-gutsy",
+                      "remaster-twilight",
+                      "remaster-hillock",
                       "remaster-nomadic",
-                      "remaster-twilight"
+                      "remaster-wildwood"
                     ]
                   },
                   "displayGroups": [
@@ -15241,8 +15241,8 @@
                   ],
                   "groups": {
                     "_{Player Core}": [
-                      "remaster-versatile",
-                      "remaster-skilled"
+                      "remaster-skilled",
+                      "remaster-versatile"
                     ]
                   },
                   "displayGroups": [
@@ -15454,10 +15454,10 @@
                       "heritage-leshy-remaster-cactus",
                       "heritage-leshy-remaster-fungus",
                       "heritage-leshy-remaster-gourd",
-                      "heritage-leshy-remaster-seaweed",
+                      "heritage-leshy-remaster-lotus",
                       "heritage-leshy-remaster-root",
                       "heritage-leshy-remaster-leaf",
-                      "heritage-leshy-remaster-lotus",
+                      "heritage-leshy-remaster-seaweed",
                       "heritage-leshy-remaster-vine"
                     ]
                   },
@@ -15761,16 +15761,16 @@
                   ],
                   "groups": {
                     "_{Advanced Player's Guide}": [
-                      "heritage-catfolk-jungle",
+                      "nine-lives",
                       "clawed",
-                      "winter",
                       "hunting",
-                      "nine-lives"
+                      "heritage-catfolk-jungle",
+                      "winter"
                     ],
                     "_{Lost Omens Ancestry Guide}": [
                       "lost-omens-ancestry-guide-flexible",
-                      "lost-omens-ancestry-guide-liminal",
-                      "lost-omens-ancestry-guide-sharp-eared"
+                      "lost-omens-ancestry-guide-sharp-eared",
+                      "lost-omens-ancestry-guide-liminal"
                     ]
                   },
                   "displayGroups": [
@@ -16043,10 +16043,10 @@
                   ],
                   "groups": {
                     "_{Advanced Player's Guide}": [
-                      "dragonscaled",
-                      "cavern",
                       "spellscale",
+                      "cavern",
                       "strongjaw",
+                      "dragonscaled",
                       "venomtail"
                     ],
                     "_{Lost Omens Ancestry Guide}": [
@@ -16309,15 +16309,15 @@
                   ],
                   "groups": {
                     "_{Advanced Player's Guide}": [
-                      "deep",
                       "badlands",
-                      "hold-scarred",
-                      "rainfall"
+                      "rainfall",
+                      "deep",
+                      "hold-scarred"
                     ],
                     "_{Lost Omens Ancestry Guide}": [
+                      "lost-omens-ancestry-guide-battle-ready",
                       "lost-omens-ancestry-guide-grave",
-                      "lost-omens-ancestry-guide-winter",
-                      "lost-omens-ancestry-guide-battle-ready"
+                      "lost-omens-ancestry-guide-winter"
                     ]
                   },
                   "displayGroups": [
@@ -16576,9 +16576,9 @@
                   "groups": {
                     "_{Advanced Player's Guide}": [
                       "longsnout",
-                      "desert",
-                      "sewer",
                       "deep",
+                      "sewer",
+                      "desert",
                       "shadow"
                     ],
                     "_{Lost Omens Ancestry Guide}": [
@@ -16842,9 +16842,9 @@
                   "groups": {
                     "_{Advanced Player's Guide}": [
                       "jinxed",
-                      "mountainkeeper",
-                      "skyborn",
                       "stormtossed",
+                      "skyborn",
+                      "mountainkeeper",
                       "taloned"
                     ],
                     "_{Lost Omens Ancestry Guide}": [
@@ -17112,13 +17112,13 @@
                   ],
                   "groups": {
                     "_{Player Core 2}": [
-                      "heritage-catfolk-remaster-hunting",
                       "heritage-catfolk-remaster-clawed",
                       "heritage-catfolk-remaster-jungle",
                       "heritage-catfolk-remaster-liminal",
-                      "heritage-catfolk-remaster-sharp-eared",
                       "heritage-catfolk-remaster-nine-lives",
-                      "heritage-catfolk-remaster-winter"
+                      "heritage-catfolk-remaster-hunting",
+                      "heritage-catfolk-remaster-winter",
+                      "heritage-catfolk-remaster-sharp-eared"
                     ]
                   },
                   "displayGroups": [
@@ -17357,11 +17357,11 @@
                   "groups": {
                     "_{Player Core 2}": [
                       "heritage-hobgoblin-remaster-elfbane",
-                      "heritage-hobgoblin-remaster-shortshanks",
-                      "heritage-hobgoblin-remaster-runtboss",
                       "heritage-hobgoblin-remaster-smokeworker",
-                      "heritage-hobgoblin-remaster-warrenbred",
-                      "heritage-hobgoblin-remaster-warmarch"
+                      "heritage-hobgoblin-remaster-shortshanks",
+                      "heritage-hobgoblin-remaster-warmarch",
+                      "heritage-hobgoblin-remaster-runtboss",
+                      "heritage-hobgoblin-remaster-warrenbred"
                     ]
                   },
                   "displayGroups": [
@@ -17600,12 +17600,12 @@
                   "groups": {
                     "_{Player Core 2}": [
                       "heritage-kholo-remaster-ant",
-                      "heritage-kholo-remaster-dog",
                       "heritage-kholo-remaster-cave",
-                      "heritage-kholo-remaster-sweetbreath",
                       "heritage-kholo-remaster-great",
+                      "heritage-kholo-remaster-dog",
+                      "heritage-kholo-remaster-winter",
                       "heritage-kholo-remaster-witch",
-                      "heritage-kholo-remaster-winter"
+                      "heritage-kholo-remaster-sweetbreath"
                     ]
                   },
                   "displayGroups": [
@@ -17819,9 +17819,9 @@
                   ],
                   "groups": {
                     "_{Book of the Dead}": [
+                      "compact",
                       "monstrous",
                       "fodder",
-                      "compact",
                       "sturdy"
                     ]
                   },
@@ -17991,10 +17991,10 @@
                   ],
                   "groups": {
                     "_{Guns and Gears}": [
+                      "sharpshooter",
                       "hunter",
                       "mage",
-                      "warrior",
-                      "sharpshooter"
+                      "warrior"
                     ]
                   },
                   "displayGroups": [
@@ -18238,11 +18238,11 @@
                   ],
                   "groups": {
                     "_{Absalom, City of Lost Omens}": [
-                      "ancient-scale",
                       "mistbreath",
-                      "benthic",
                       "river",
-                      "thalassic"
+                      "benthic",
+                      "thalassic",
+                      "ancient-scale"
                     ],
                     "_{Lost Omens Ancestry Guide}": [
                       "ancestry-guide-inured",
@@ -18512,10 +18512,10 @@
                   ],
                   "groups": {
                     "_{Lost Omens Ancestry Guide}": [
-                      "artisan",
-                      "impersonator",
-                      "polyglot",
                       "laborer",
+                      "impersonator",
+                      "artisan",
+                      "polyglot",
                       "warrior"
                     ]
                   },
@@ -18710,11 +18710,11 @@
                   ],
                   "groups": {
                     "_{Lost Omens Ancestry Guide}": [
+                      "liminal",
+                      "resolute",
                       "bright",
                       "deep",
-                      "liminal",
-                      "wisp",
-                      "resolute"
+                      "wisp"
                     ]
                   },
                   "displayGroups": [
@@ -18893,10 +18893,10 @@
                   ],
                   "groups": {
                     "_{Lost Omens Ancestry Guide}": [
-                      "created",
                       "technological",
-                      "mutated",
-                      "shapewrought"
+                      "created",
+                      "shapewrought",
+                      "mutated"
                     ]
                   },
                   "displayGroups": [
@@ -19076,8 +19076,8 @@
                   "groups": {
                     "_{Lost Omens Ancestry Guide}": [
                       "dark-fields",
-                      "earthly-wilds",
                       "celestial-envoy",
+                      "earthly-wilds",
                       "frozen-wind",
                       "empty-sky"
                     ]
@@ -19273,11 +19273,11 @@
                   ],
                   "groups": {
                     "_{Lost Omens Ancestry Guide}": [
-                      "draxie",
-                      "grig",
                       "melixie",
+                      "luminous",
                       "nyktera",
-                      "luminous"
+                      "grig",
+                      "draxie"
                     ]
                   },
                   "displayGroups": [
@@ -19472,9 +19472,9 @@
                   "groups": {
                     "_{Lost Omens Ancestry Guide}": [
                       "shoreline",
-                      "scavenger",
                       "nightglider",
                       "predator",
+                      "scavenger",
                       "songbird"
                     ]
                   },
@@ -19707,11 +19707,11 @@
                       "ancestry-guide-steelskin"
                     ],
                     "_{Lost Omens Character Guide}": [
-                      "runtboss",
-                      "elfbane",
-                      "smokeworker",
                       "warmarch",
-                      "warrenbred"
+                      "smokeworker",
+                      "elfbane",
+                      "warrenbred",
+                      "runtboss"
                     ]
                   },
                   "displayGroups": [
@@ -20019,15 +20019,15 @@
                     "_{Lost Omens Ancestry Guide}": [
                       "ancestry-guide-cactus",
                       "ancestry-guide-fruit",
-                      "ancestry-guide-lotus",
+                      "ancestry-guide-root",
                       "ancestry-guide-seaweed",
-                      "ancestry-guide-root"
+                      "ancestry-guide-lotus"
                     ],
                     "_{Lost Omens Character Guide}": [
-                      "gourd",
                       "fungus",
+                      "vine",
                       "leaf",
-                      "vine"
+                      "gourd"
                     ]
                   },
                   "displayGroups": [
@@ -20339,11 +20339,11 @@
                       "ancestry-guide-cloudleaper"
                     ],
                     "_{Lost Omens Character Guide}": [
-                      "frilled",
-                      "cliffscle",
                       "sandstrider",
+                      "unseen",
+                      "frilled",
                       "wetlander",
-                      "unseen"
+                      "cliffscle"
                     ]
                   },
                   "displayGroups": [
@@ -20578,10 +20578,10 @@
                   "groups": {
                     "_{Lost Omens Grand Bazaar}": [
                       "ghost",
-                      "stuffed",
                       "windup",
                       "toy",
-                      "wishborn"
+                      "wishborn",
+                      "stuffed"
                     ]
                   },
                   "displayGroups": [
@@ -20780,11 +20780,11 @@
                   ],
                   "groups": {
                     "_{Mwangi Expanse}": [
-                      "adaptive",
+                      "snaring",
+                      "spindly",
                       "venomous",
                       "polychromatic",
-                      "snaring",
-                      "spindly"
+                      "adaptive"
                     ]
                   },
                   "displayGroups": [
@@ -20979,10 +20979,10 @@
                   "groups": {
                     "_{Mwangi Expanse}": [
                       "invocation",
-                      "knowing",
                       "reinforcement",
+                      "light",
                       "passage",
-                      "light"
+                      "knowing"
                     ]
                   },
                   "displayGroups": [
@@ -21161,10 +21161,10 @@
                   ],
                   "groups": {
                     "_{Mwangi Expanse}": [
-                      "sweetbreath",
-                      "great",
                       "ant",
-                      "witch"
+                      "witch",
+                      "sweetbreath",
+                      "great"
                     ]
                   },
                   "displayGroups": [
@@ -21343,11 +21343,11 @@
                   ],
                   "groups": {
                     "_{Mwangi Expanse}": [
-                      "frightful",
-                      "vigilant",
-                      "farsight",
                       "insightful",
-                      "vicious"
+                      "farsight",
+                      "vicious",
+                      "frightful",
+                      "vigilant"
                     ]
                   },
                   "displayGroups": [
@@ -21526,10 +21526,10 @@
                   ],
                   "groups": {
                     "_{Mwangi Expanse}": [
-                      "stickytoe",
+                      "snaptongue",
                       "poisonhide",
                       "windweb",
-                      "snaptongue"
+                      "stickytoe"
                     ]
                   },
                   "displayGroups": [
@@ -21708,11 +21708,11 @@
                   ],
                   "groups": {
                     "_{Mwangi Expanse}": [
-                      "stonestep",
-                      "spellkeeper",
                       "stronggut",
                       "lorekeeper",
-                      "quillcoat"
+                      "spellkeeper",
+                      "quillcoat",
+                      "stonestep"
                     ]
                   },
                   "displayGroups": [
@@ -21896,10 +21896,10 @@
                   ],
                   "groups": {
                     "_{Extinction Curse}": [
-                      "paddler",
+                      "bloodhound",
                       "thickcoat",
                       "fishseeker",
-                      "bloodhound"
+                      "paddler"
                     ]
                   },
                   "displayGroups": [
@@ -22694,50 +22694,50 @@
                   ],
                   "groups": {
                     "_{BattleZoo}": [
-                      "apocalypse",
-                      "amber",
-                      "astral",
-                      "bliss",
                       "black",
+                      "amber",
                       "blue",
+                      "bliss",
                       "brass",
-                      "bronze",
+                      "apocalypse",
+                      "astral",
                       "brine",
-                      "copper",
                       "cloud",
-                      "crypt",
+                      "bronze",
                       "cerulean",
+                      "copper",
+                      "crypt",
                       "dream",
-                      "edict",
-                      "forest",
-                      "indigo",
                       "crystal",
+                      "edict",
                       "etheric",
-                      "green",
+                      "forest",
                       "gold",
-                      "lunar",
+                      "green",
                       "havoc",
-                      "harlequin",
-                      "magma",
-                      "nightmare",
                       "infernal",
-                      "rift",
+                      "harlequin",
+                      "indigo",
+                      "nightmare",
+                      "lunar",
+                      "magma",
                       "red",
-                      "occult",
-                      "silver",
                       "paradise",
-                      "sky",
+                      "occult",
                       "sea",
-                      "solar",
-                      "time",
+                      "sky",
+                      "rift",
                       "tumult",
-                      "sovereign",
-                      "vemillion",
+                      "solar",
+                      "silver",
+                      "time",
                       "toadstool",
-                      "void",
-                      "umbral",
+                      "sovereign",
                       "vortex",
+                      "umbral",
+                      "vemillion",
                       "underworld",
+                      "void",
                       "white"
                     ]
                   },
@@ -23532,11 +23532,11 @@
                   ],
                   "groups": {
                     "_{BattleZoo}": [
-                      "archipelago",
+                      "labyrinth",
                       "caverns",
-                      "tree",
                       "tower",
-                      "labyrinth"
+                      "tree",
+                      "archipelago"
                     ]
                   },
                   "displayGroups": [
@@ -23720,8 +23720,8 @@
                   "groups": {
                     "_{Ponyfinder}": [
                       "horned",
-                      "mountaineer",
                       "watchfulness",
+                      "mountaineer",
                       "resilience"
                     ]
                   },
@@ -24222,15 +24222,15 @@
                           "groups": {
                             "_{Core Rulebook}": [
                               "ancient-blooded",
-                              "rock",
+                              "death-warden",
                               "forge",
                               "strong-blooded",
-                              "death-warden"
+                              "rock"
                             ],
                             "_{Lost Omens Character Guide}": [
                               "lost-omens-character-guide-oathkeeper",
-                              "lost-omens-character-guide-elemental-heart",
-                              "lost-omens-character-guide-anvil"
+                              "lost-omens-character-guide-anvil",
+                              "lost-omens-character-guide-elemental-heart"
                             ]
                           },
                           "displayGroups": [
@@ -24463,12 +24463,12 @@
                   "groups": {
                     "_{Ponyfinder}": [
                       "pegasus",
-                      "ghost",
+                      "sea-horse",
                       "earth-bound",
                       "leather-wings",
-                      "zebra",
-                      "sea-horse",
-                      "unicorn"
+                      "ghost",
+                      "unicorn",
+                      "zebra"
                     ]
                   },
                   "displayGroups": [
@@ -24625,15 +24625,15 @@
                               "groups": {
                                 "_{Core Rulebook}": [
                                   "ancient-blooded",
-                                  "rock",
+                                  "death-warden",
                                   "forge",
                                   "strong-blooded",
-                                  "death-warden"
+                                  "rock"
                                 ],
                                 "_{Lost Omens Character Guide}": [
                                   "lost-omens-character-guide-oathkeeper",
-                                  "lost-omens-character-guide-elemental-heart",
-                                  "lost-omens-character-guide-anvil"
+                                  "lost-omens-character-guide-anvil",
+                                  "lost-omens-character-guide-elemental-heart"
                                 ]
                               },
                               "displayGroups": [
@@ -25214,10 +25214,10 @@
                   ],
                   "groups": {
                     "_{Rogue Genius}": [
-                      "rootling",
+                      "bluffling",
                       "fieldling",
-                      "darkling",
-                      "bluffling"
+                      "rootling",
+                      "darkling"
                     ]
                   },
                   "displayGroups": [
@@ -25796,13 +25796,13 @@
               ],
               "groups": {
                 "_{Core Rulebook}": [
+                  "ironblood",
+                  "mountain",
                   "crane",
                   "dragon",
-                  "tiger",
                   "tangled-forest",
-                  "mountain",
-                  "ironblood",
-                  "wolf"
+                  "wolf",
+                  "tiger"
                 ]
               },
               "displayGroups": [
@@ -26171,60 +26171,60 @@
       "groups": {
         "_{Advanced Player's Guide}": [
           "apg-acrobat",
-          "apg-archaeologist",
           "apg-archer",
-          "apg-bastion",
-          "apg-bounty-hunter",
           "apg-assassin",
-          "apg-cavalier",
           "apg-beastmaster",
+          "apg-archaeologist",
+          "apg-bounty-hunter",
           "apg-blessed-one",
-          "apg-celebrity",
-          "apg-dual-weapon-warrior",
-          "apg-dragon-disciple",
+          "apg-cavalier",
+          "apg-bastion",
           "apg-dandy",
           "apg-eldritch-archer",
+          "apg-dragon-disciple",
+          "apg-celebrity",
+          "apg-dual-weapon-warrior",
           "apg-gladiator",
-          "apg-familiar-master",
           "apg-duelist",
+          "apg-familiar-master",
+          "apg-horizon-walker",
           "apg-herbalist",
           "apg-linguist",
           "apg-loremaster",
-          "apg-martial-artist",
-          "apg-horizon-walker",
-          "apg-mauler",
           "apg-marshal",
+          "apg-martial-artist",
           "apg-medic",
-          "apg-pirate",
-          "apg-poisoner",
-          "apg-scout",
+          "apg-mauler",
           "apg-ritualist",
-          "apg-shadowdancer",
+          "apg-poisoner",
+          "apg-pirate",
           "apg-scrounger",
+          "apg-scout",
           "apg-scroll-trickster",
-          "apg-sentinel",
-          "apg-viking",
+          "apg-shadowdancer",
           "apg-snarecrafter",
-          "apg-vigilante",
+          "apg-sentinel",
           "apg-talisman-dabbler",
-          "apg-oracle",
-          "apg-investigator",
+          "apg-viking",
           "apg-weapon-improviser",
+          "apg-vigilante",
           "apg-swashbuckler",
-          "apg-witch"
+          "apg-witch",
+          "apg-oracle",
+          "apg-investigator"
         ],
         "_{Core Rulebook}": [
           "alchemist",
-          "bard",
-          "druid",
           "barbarian",
           "champion",
-          "fighter",
+          "bard",
           "cleric",
+          "druid",
+          "fighter",
+          "monk",
+          "rogue",
           "sorcerer",
           "ranger",
-          "rogue",
-          "monk",
           "wizard"
         ],
         "_{Dark Archive}": [
@@ -26239,8 +26239,8 @@
           "rage-of-elements-kineticist"
         ],
         "_{Secrets of Magic}": [
-          "secrets-of-magic-summoner",
-          "secrets-of-magic-magus"
+          "secrets-of-magic-magus",
+          "secrets-of-magic-summoner"
         ]
       },
       "displayGroups": [
@@ -26742,13 +26742,13 @@
                   ],
                   "groups": {
                     "_{Core Rulebook}": [
+                      "ironblood",
+                      "mountain",
                       "crane",
                       "dragon",
-                      "tiger",
                       "tangled-forest",
-                      "mountain",
-                      "ironblood",
-                      "wolf"
+                      "wolf",
+                      "tiger"
                     ]
                   },
                   "displayGroups": [
@@ -38175,40 +38175,40 @@
       ],
       "groups": {
         "_{Abomination Vaults}": [
-          "adventure-abomination-vaults-eldritch-anatomist",
+          "adventure-abomination-vaults-market-runner",
           "adventure-abomination-vaults-bibliophile",
           "adventure-abomination-vaults-fogfen-tale-teller",
           "adventure-abomination-vaults-ruin-delver",
-          "adventure-abomination-vaults-market-runner",
+          "adventure-abomination-vaults-eldritch-anatomist",
           "adventure-abomination-vaults-witchlight-follower",
           "adventure-abomination-vaults-starwatcher"
         ],
         "_{Age of Ashes}": [
+          "adventure-age-of-ashes-dragon-scholar",
           "adventure-age-of-ashes-aiudara-seeker",
           "adventure-age-of-ashes-droskari-disciple",
           "adventure-age-of-ashes-haunting-vision",
           "adventure-age-of-ashes-emancipated",
-          "adventure-age-of-ashes-dragon-scholar",
-          "adventure-age-of-ashes-legendary-parents",
+          "adventure-age-of-ashes-hermean-heritor",
           "adventure-age-of-ashes-hellknight-historian",
+          "adventure-age-of-ashes-legendary-parents",
+          "adventure-age-of-ashes-out-of-towner",
           "adventure-age-of-ashes-local-scion",
           "adventure-age-of-ashes-reputation-seeker",
-          "adventure-age-of-ashes-hermean-heritor",
-          "adventure-age-of-ashes-out-of-towner",
-          "adventure-age-of-ashes-touched-by-dahak",
           "adventure-age-of-ashes-returning-descendant",
+          "adventure-age-of-ashes-touched-by-dahak",
           "adventure-age-of-ashes-truth-seeker"
         ],
         "_{Agents of Edgewatch}": [
-          "adventure-agents-of-edgewatch-grizzled-muckrucker",
-          "adventure-agents-of-edgewatch-godless-graycloak",
-          "adventure-agents-of-edgewatch-ex-con-token-guard",
-          "adventure-agents-of-edgewatch-learned-guard-prodigy",
           "adventure-agents-of-edgewatch-harbor-guard-moonlighter",
+          "adventure-agents-of-edgewatch-ex-con-token-guard",
+          "adventure-agents-of-edgewatch-godless-graycloak",
+          "adventure-agents-of-edgewatch-grizzled-muckrucker",
+          "adventure-agents-of-edgewatch-learned-guard-prodigy",
           "adventure-agents-of-edgewatch-harrow-led",
+          "adventure-agents-of-edgewatch-political-scion",
           "adventure-agents-of-edgewatch-sleepless-suns-star",
           "adventure-agents-of-edgewatch-post-guard-of-all-trades",
-          "adventure-agents-of-edgewatch-political-scion",
           "adventure-agents-of-edgewatch-sally-guard-neophyte",
           "adventure-agents-of-edgewatch-undercover-lotus-guard"
         ],
@@ -38224,478 +38224,478 @@
           "adventure-crown-of-the-kobold-king-friendly-darkmoon-kobold"
         ],
         "_{Extinction Curse}": [
-          "adventure-extinction-curse-animal-wrangler",
           "adventure-extinction-curse-aerialist",
-          "adventure-extinction-curse-barker",
           "adventure-extinction-curse-blow-in",
-          "adventure-extinction-curse-butcher",
-          "adventure-extinction-curse-clown",
+          "adventure-extinction-curse-animal-wrangler",
+          "adventure-extinction-curse-barker",
           "adventure-extinction-curse-circus-born",
+          "adventure-extinction-curse-butcher",
           "adventure-extinction-curse-dreamer-of-the-verdant-moon",
           "adventure-extinction-curse-rigger",
+          "adventure-extinction-curse-clown",
           "adventure-extinction-curse-mystic-seer"
         ],
         "_{The Fall of Plaguestone}": [
-          "adventure-fall-of-plaguestone-lesser-scion",
           "adventure-fall-of-plaguestone-missionary",
+          "adventure-fall-of-plaguestone-lesser-scion",
           "adventure-fall-of-plaguestone-lost-and-alone",
           "adventure-fall-of-plaguestone-refugee",
           "adventure-fall-of-plaguestone-teamster"
         ],
         "_{Fists of the Ruby Phoenix}": [
           "adventure-fists-of-the-ruby-phoenix-ruby-phoenix-fanatic",
-          "adventure-fists-of-the-ruby-phoenix-newcomer-in-need",
-          "adventure-fists-of-the-ruby-phoenix-attention-addict",
           "adventure-fists-of-the-ruby-phoenix-abadars-avenger",
-          "adventure-fists-of-the-ruby-phoenix-undercover-contender",
-          "adventure-fists-of-the-ruby-phoenix-second-chance-champion"
+          "adventure-fists-of-the-ruby-phoenix-second-chance-champion",
+          "adventure-fists-of-the-ruby-phoenix-attention-addict",
+          "adventure-fists-of-the-ruby-phoenix-newcomer-in-need",
+          "adventure-fists-of-the-ruby-phoenix-undercover-contender"
         ],
         "_{Gatewalkers}": [
-          "adventure-gatewalkers-dreams-of-vengeance",
-          "adventure-gatewalkers-lost-loved-one",
-          "adventure-gatewalkers-wish-for-riches",
           "adventure-gatewalkers-sense-of-belonging",
           "adventure-gatewalkers-total-power",
+          "adventure-gatewalkers-lost-loved-one",
+          "adventure-gatewalkers-dreams-of-vengeance",
+          "adventure-gatewalkers-wish-for-riches",
           "adventure-gatewalkers-wanderlust"
         ],
         "_{Kingmaker}": [
-          "adventure-kingmaker-brevic-noble",
-          "adventure-kingmaker-borderlands-pioneer",
           "adventure-kingmaker-brevic-outcast",
-          "adventure-kingmaker-rostlander",
-          "adventure-kingmaker-sword-scion",
+          "adventure-kingmaker-borderlands-pioneer",
+          "adventure-kingmaker-issian-patriot",
           "adventure-kingmaker-local-brigand",
-          "adventure-kingmaker-issian-patriot"
+          "adventure-kingmaker-rostlander",
+          "adventure-kingmaker-brevic-noble",
+          "adventure-kingmaker-sword-scion"
+        ],
+        "_{Outlaws of Alkenstar}": [
+          "adventure-outlaws-of-alkenstar-ratted-out-gun-runner",
+          "adventure-outlaws-of-alkenstar-inexplicably-expelled",
+          "adventure-outlaws-of-alkenstar-framed-in-ferrous-quarter",
+          "adventure-outlaws-of-alkenstar-banished-brighite",
+          "adventure-outlaws-of-alkenstar-wanted-witness",
+          "adventure-outlaws-of-alkenstar-snubbed-out-stoolie"
         ],
         "_{Little Trouble in Big Absalom}": [
           "adventure-little-trouble-in-big-absalom-hookclaw-digger"
         ],
-        "_{Outlaws of Alkenstar}": [
-          "adventure-outlaws-of-alkenstar-inexplicably-expelled",
-          "adventure-outlaws-of-alkenstar-wanted-witness",
-          "adventure-outlaws-of-alkenstar-banished-brighite",
-          "adventure-outlaws-of-alkenstar-framed-in-ferrous-quarter",
-          "adventure-outlaws-of-alkenstar-ratted-out-gun-runner",
-          "adventure-outlaws-of-alkenstar-snubbed-out-stoolie"
-        ],
         "_{Pathfinder Adventure: Rusthenge}": [
-          "adventure-pathfinder-adventure-:-rusthenge-osprey-fisher",
           "adventure-pathfinder-adventure-:-rusthenge-osprey-scout",
-          "adventure-pathfinder-adventure-:-rusthenge-osprey-scion",
+          "adventure-pathfinder-adventure-:-rusthenge-osprey-fisher",
           "adventure-pathfinder-adventure-:-rusthenge-osprey-barnraiser",
-          "adventure-pathfinder-adventure-:-rusthenge-osprey-spellcaster",
           "adventure-pathfinder-adventure-:-rusthenge-osprey-scribe",
+          "adventure-pathfinder-adventure-:-rusthenge-osprey-spellcaster",
+          "adventure-pathfinder-adventure-:-rusthenge-osprey-scion",
           "adventure-pathfinder-adventure-:-rusthenge-osprey-warrior"
         ],
         "_{Pathfinder #192: Worst of All Possible Worlds}": [
           "adventure-pathfinder-#192:-worst-of-all-possible-worlds-harrow-chosen"
         ],
         "_{Pathfinder Lost Omens: Highhelm}": [
-          "adventure-pathfinder-lost-omens-:-highhelm-fightbreaker",
+          "adventure-pathfinder-lost-omens-:-highhelm-highborn-snoop",
           "adventure-pathfinder-lost-omens-:-highhelm-union-representative",
-          "adventure-pathfinder-lost-omens-:-highhelm-highborn-snoop"
+          "adventure-pathfinder-lost-omens-:-highhelm-fightbreaker"
         ],
         "_{Pathfinder Lost Omens: Tian Xia Character Guide}": [
-          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-bachuan-revolutionary",
           "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-acupuncturist",
-          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-eagle-hunter",
-          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-fated-rival",
-          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-favored",
           "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-banished-celestial",
-          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-kaiju-stalker",
-          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-jeweler",
+          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-bachuan-revolutionary",
+          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-fated-rival",
+          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-eagle-hunter",
           "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-gossip",
+          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-favored",
+          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-jeweler",
+          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-kaiju-stalker",
           "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-ocean-diver",
-          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-remittance-agent",
-          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-silk-farmer",
-          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-runaway-noble",
           "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-professional-letter-writer",
-          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-warded-by-kami",
+          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-silk-farmer",
+          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-remittance-agent",
+          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-runaway-noble",
+          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-tiffin-box-deliverer",
           "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-streetfood-vendor",
           "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-traveling-gourmand",
-          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-tiffin-box-deliverer",
+          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-weaver",
           "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-zodiac-bound",
-          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-weaver"
+          "adventure-pathfinder-lost-omens-:-tian-xia-character-guide-warded-by-kami"
         ],
         "_{Pathfinder Rage of Elements}": [
           "adventure-pathfinder-rage-of-elements-concordance-researcher",
-          "adventure-pathfinder-rage-of-elements-dendrologist",
           "adventure-pathfinder-rage-of-elements-alloysmith",
           "adventure-pathfinder-rage-of-elements-crystal-healer",
-          "adventure-pathfinder-rage-of-elements-deep-sea-diver",
-          "adventure-pathfinder-rage-of-elements-elementally-infused",
+          "adventure-pathfinder-rage-of-elements-dendrologist",
           "adventure-pathfinder-rage-of-elements-concordance-scout",
-          "adventure-pathfinder-rage-of-elements-planar-migrant",
+          "adventure-pathfinder-rage-of-elements-elementally-infused",
           "adventure-pathfinder-rage-of-elements-fire-warden",
+          "adventure-pathfinder-rage-of-elements-deep-sea-diver",
+          "adventure-pathfinder-rage-of-elements-planar-migrant",
           "adventure-pathfinder-rage-of-elements-sky-rider"
         ],
         "_{Pathfinder Triumph of The Tusk Player's Guide}": [
           "adventure-pathfinder-triumph-of-the-tusk-players-guide-badlands-scout",
-          "adventure-pathfinder-triumph-of-the-tusk-players-guide-foreign-diplomat",
-          "adventure-pathfinder-triumph-of-the-tusk-players-guide-empty-hand-loyalist",
           "adventure-pathfinder-triumph-of-the-tusk-players-guide-belkzen-anthropologist",
-          "adventure-pathfinder-triumph-of-the-tusk-players-guide-self-made",
-          "adventure-pathfinder-triumph-of-the-tusk-players-guide-trade-representative"
-        ],
-        "_{Pathfinder Wake the Dead #2}": [
-          "adventure-pathfinder-wake-the-dead-#2-quick-refugee"
+          "adventure-pathfinder-triumph-of-the-tusk-players-guide-foreign-diplomat",
+          "adventure-pathfinder-triumph-of-the-tusk-players-guide-trade-representative",
+          "adventure-pathfinder-triumph-of-the-tusk-players-guide-empty-hand-loyalist",
+          "adventure-pathfinder-triumph-of-the-tusk-players-guide-self-made"
         ],
         "_{Pathfinder Wake the Dead #1}": [
           "adventure-pathfinder-wake-the-dead-#1-awful-scab"
         ],
+        "_{Pathfinder Wake the Dead #2}": [
+          "adventure-pathfinder-wake-the-dead-#2-quick-refugee"
+        ],
         "_{Quest for the Frozen Flame}": [
           "adventure-quest-for-the-frozen-flame-broken-tusk-recruiter",
+          "adventure-quest-for-the-frozen-flame-megafauna-hunter",
           "adventure-quest-for-the-frozen-flame-mammoth-herder",
           "adventure-quest-for-the-frozen-flame-northland-forager",
           "adventure-quest-for-the-frozen-flame-ex-mendevian-crusader",
-          "adventure-quest-for-the-frozen-flame-megafauna-hunter",
           "adventure-quest-for-the-frozen-flame-songsinger-in-training"
-        ],
-        "_{Pathfinder Wake the Dead #5}": [
-          "adventure-pathfinder-wake-the-dead-#5-mortuarium-survivor"
         ],
         "_{Pathfinder Society}": [
           "sewer-dragon"
         ],
+        "_{Pathfinder Wake the Dead #5}": [
+          "adventure-pathfinder-wake-the-dead-#5-mortuarium-survivor"
+        ],
         "_{Season of Ghosts}": [
-          "adventure-season-of-ghosts-folklore-enthusiast",
-          "adventure-season-of-ghosts-close-ties",
           "adventure-season-of-ghosts-northridge-scholar",
+          "adventure-season-of-ghosts-folklore-enthusiast",
           "adventure-season-of-ghosts-southbank-traditionalist",
           "adventure-season-of-ghosts-outskirt-dweller",
+          "adventure-season-of-ghosts-close-ties",
           "adventure-season-of-ghosts-willowshore-urchin"
         ],
         "_{Seven Dooms for Sandpoint}": [
-          "adventure-seven-dooms-for-sandpoint-cathedral-child",
+          "adventure-seven-dooms-for-sandpoint-curious-apprentice",
           "adventure-seven-dooms-for-sandpoint-lost-coast-local",
           "adventure-seven-dooms-for-sandpoint-eager-scofflaw",
-          "adventure-seven-dooms-for-sandpoint-curious-apprentice",
-          "adventure-seven-dooms-for-sandpoint-newcomer",
-          "adventure-seven-dooms-for-sandpoint-runelord-scholar",
+          "adventure-seven-dooms-for-sandpoint-cathedral-child",
           "adventure-seven-dooms-for-sandpoint-militia-member",
-          "adventure-seven-dooms-for-sandpoint-scarnetti-connected"
+          "adventure-seven-dooms-for-sandpoint-scarnetti-connected",
+          "adventure-seven-dooms-for-sandpoint-newcomer",
+          "adventure-seven-dooms-for-sandpoint-runelord-scholar"
         ],
         "_{Sky King's Tomb}": [
-          "adventure-sky-kings-tomb-child-of-notoriety",
           "adventure-sky-kings-tomb-clan-associate",
-          "adventure-sky-kings-tomb-dedicated-delver",
+          "adventure-sky-kings-tomb-child-of-notoriety",
           "adventure-sky-kings-tomb-conservator",
           "adventure-sky-kings-tomb-historical-reenactor",
+          "adventure-sky-kings-tomb-dedicated-delver",
           "adventure-sky-kings-tomb-eclectic-scholar"
         ],
         "_{Stolen Fate}": [
-          "adventure-stolen-fate-bookish-providence",
-          "adventure-stolen-fate-hammered-by-fate",
           "adventure-stolen-fate-crown-of-chaos",
+          "adventure-stolen-fate-bookish-providence",
           "adventure-stolen-fate-keys-to-destiny",
+          "adventure-stolen-fate-hammered-by-fate",
           "adventure-stolen-fate-shielded-fortune",
           "adventure-stolen-fate-writ-in-the-stars"
         ],
         "_{Strength of Thousands}": [
-          "adventure-strength-of-thousands-sponsored-by-a-stranger",
           "adventure-strength-of-thousands-sponsored-by-a-village",
           "adventure-strength-of-thousands-sponsored-by-family",
+          "adventure-strength-of-thousands-sponsored-by-teacher-ot",
           "adventure-strength-of-thousands-unsponsored",
-          "adventure-strength-of-thousands-sponsored-by-teacher-ot"
+          "adventure-strength-of-thousands-sponsored-by-a-stranger"
         ],
         "_{Advanced Player's Guide}": [
-          "apg-bandit",
-          "apg-amnesiac",
-          "apg-courier",
-          "apg-barber",
           "apg-blessed",
+          "apg-barber",
+          "apg-amnesiac",
+          "apg-bandit",
           "apg-bookkeeper",
           "apg-cursed",
           "apg-cook",
+          "apg-cultist",
+          "apg-courier",
           "apg-feral-child",
           "apg-feybound",
-          "apg-outrider",
           "apg-pilgrim",
-          "apg-insurgent",
-          "apg-cultist",
           "apg-haunted",
-          "apg-root-worker",
+          "apg-insurgent",
+          "apg-outrider",
           "apg-refugee",
           "apg-returned",
           "apg-royalty",
-          "apg-servant",
-          "apg-teacher",
-          "apg-tax-collector",
+          "apg-root-worker",
           "apg-scavenger",
+          "apg-servant",
+          "apg-ward",
           "apg-squire",
-          "apg-ward"
+          "apg-tax-collector",
+          "apg-teacher"
         ],
         "_{Pathfinder Beginner Box}": [
           "beginner-box-deckhand"
         ],
         "_{Book of the Dead}": [
           "book-of-the-dead-curandero",
-          "book-of-the-dead-grave-robber",
           "book-of-the-dead-haunted-citizen",
           "book-of-the-dead-night-watch",
+          "book-of-the-dead-grave-robber",
           "book-of-the-dead-necromancers-apprentice",
-          "book-of-the-dead-scion-of-slayers",
           "book-of-the-dead-pyre-tender",
-          "book-of-the-dead-tomb-born",
-          "book-of-the-dead-willing-host"
+          "book-of-the-dead-scion-of-slayers",
+          "book-of-the-dead-willing-host",
+          "book-of-the-dead-tomb-born"
         ],
         "_{Core Rulebook}": [
-          "artisan",
-          "animal-whisperer",
           "acolyte",
+          "animal-whisperer",
+          "artisan",
           "acrobat",
           "barkeep",
           "barrister",
-          "artist",
-          "detective",
-          "criminal",
           "bounty-hunter",
+          "artist",
+          "criminal",
           "charlatan",
+          "entertainer",
+          "detective",
           "emissary",
           "field-medic",
           "fortune-teller",
-          "entertainer",
           "farmhand",
-          "herbalist",
-          "gambler",
-          "guard",
-          "laborer",
-          "hunter",
           "gladiator",
-          "martial-disciple-acrobatics",
+          "gambler",
+          "herbalist",
+          "guard",
           "hermit",
-          "martial-disciple",
+          "hunter",
+          "laborer",
+          "martial-disciple-acrobatics",
           "martial-disciple-athletics",
-          "merchant",
+          "martial-disciple",
           "miner",
-          "prisoner",
-          "sailor",
-          "scout",
-          "nomad",
           "noble",
+          "merchant",
+          "nomad",
+          "sailor",
+          "prisoner",
           "scholar",
+          "scout",
           "street-urchin",
-          "warrior",
-          "tinker"
+          "tinker",
+          "warrior"
         ],
         "_{Dark Archive}": [
-          "dark-archive-empty-whispers",
           "dark-archive-child-of-the-twin-village",
           "dark-archive-reborn-soul",
-          "dark-archive-legacy-of-the-hammer"
+          "dark-archive-legacy-of-the-hammer",
+          "dark-archive-empty-whispers"
         ],
         "_{Guns and Gears}": [
-          "guns-and-gears-alkenstar-outlaw",
           "guns-and-gears-alkenstar-sojourner",
-          "guns-and-gears-back-alley-doctor",
+          "guns-and-gears-alkenstar-outlaw",
           "guns-and-gears-anti-tech-activist",
-          "guns-and-gears-circuit-judge",
+          "guns-and-gears-back-alley-doctor",
           "guns-and-gears-cannoneer",
+          "guns-and-gears-circuit-judge",
           "guns-and-gears-clockfighter",
-          "guns-and-gears-clockwork-researcher",
           "guns-and-gears-codebreaker",
-          "guns-and-gears-deputy",
+          "guns-and-gears-clockwork-researcher",
           "guns-and-gears-discarded-duplicate",
+          "guns-and-gears-deputy",
           "guns-and-gears-driver",
           "guns-and-gears-disciple-of-the-gear",
-          "guns-and-gears-gunsmith",
+          "guns-and-gears-farmsteader",
           "guns-and-gears-fireworks-performer",
           "guns-and-gears-goldhand-arms-dealer",
-          "guns-and-gears-farmsteader",
           "guns-and-gears-hired-killer",
+          "guns-and-gears-gunsmith",
           "guns-and-gears-junk-collector",
           "guns-and-gears-hounded-thief",
           "guns-and-gears-junker",
-          "guns-and-gears-medicinal-clocksmith",
-          "guns-and-gears-mechanic",
-          "guns-and-gears-otherworldly-mission",
-          "guns-and-gears-revenant",
           "guns-and-gears-mechanical-symbiosis",
+          "guns-and-gears-mechanic",
+          "guns-and-gears-medicinal-clocksmith",
           "guns-and-gears-press-ganged",
           "guns-and-gears-printer",
-          "guns-and-gears-saboteur",
-          "guns-and-gears-sheriff",
+          "guns-and-gears-otherworldly-mission",
+          "guns-and-gears-revenant",
           "guns-and-gears-saloon-entertainer",
-          "guns-and-gears-tech-reliant",
+          "guns-and-gears-saboteur",
           "guns-and-gears-saved-by-clockwork",
-          "guns-and-gears-spotter",
           "guns-and-gears-tall-tale",
-          "guns-and-gears-undertaker",
+          "guns-and-gears-sheriff",
+          "guns-and-gears-spotter",
+          "guns-and-gears-tech-reliant",
           "guns-and-gears-toymaker",
+          "guns-and-gears-undertaker",
           "guns-and-gears-wandering-preacher",
           "guns-and-gears-waste-walker",
           "guns-and-gears-wished-alive"
         ],
         "_{Lost Omens Firebrands}": [
+          "lost-omens-firebrands-free-spirit",
+          "lost-omens-firebrands-dauntless",
+          "lost-omens-firebrands-thrill-seeker",
+          "lost-omens-firebrands-firebrand-follower",
           "lost-omens-firebrands-beast-blessed",
           "lost-omens-firebrands-runner",
-          "lost-omens-firebrands-firebrand-follower",
-          "lost-omens-firebrands-dauntless",
-          "lost-omens-firebrands-free-spirit",
-          "lost-omens-firebrands-unremarkable",
-          "lost-omens-firebrands-thrill-seeker"
+          "lost-omens-firebrands-unremarkable"
         ],
         "_{Lost Omens Gods & Magic}": [
           "lost-omens-gods-and-magic-raised-by-belief"
         ],
         "_{Lost Omens Highhelm}": [
-          "lost-omens-highhelm-fightbreaker",
           "lost-omens-highhelm-union-representative",
-          "lost-omens-highhelm-highborn-snoop"
+          "lost-omens-highhelm-highborn-snoop",
+          "lost-omens-highhelm-fightbreaker"
         ],
         "_{Lost Omens Knights of Lastwall}": [
-          "lost-omens-knights-of-lastwall-pillar",
-          "lost-omens-knights-of-lastwall-reclaimed",
-          "lost-omens-knights-of-lastwall-tyrant-witness",
           "lost-omens-knights-of-lastwall-ozem-experience",
+          "lost-omens-knights-of-lastwall-reclaimed",
+          "lost-omens-knights-of-lastwall-pillar",
           "lost-omens-knights-of-lastwall-once-bitten",
           "lost-omens-knights-of-lastwall-relentless-dedication",
           "lost-omens-knights-of-lastwall-sentinel-reflectance",
-          "lost-omens-knights-of-lastwall-reclaimer-investigator"
+          "lost-omens-knights-of-lastwall-reclaimer-investigator",
+          "lost-omens-knights-of-lastwall-tyrant-witness"
         ],
         "_{Lost Omens Pathfinder Society Guide}": [
           "lost-omens-pathfinder-society-guide-archaeologist",
           "lost-omens-pathfinder-society-guide-pathfinder-recruiter",
-          "lost-omens-pathfinder-society-guide-translator",
+          "lost-omens-pathfinder-society-guide-spell-seeker",
           "lost-omens-pathfinder-society-guide-trailblazer",
-          "lost-omens-pathfinder-society-guide-spell-seeker"
+          "lost-omens-pathfinder-society-guide-translator"
         ],
         "_{Lost Omens Travel Guide}": [
-          "lost-omens-travel-guide-astrological-augur",
-          "lost-omens-travel-guide-sign-bound",
           "lost-omens-travel-guide-eclipseborn",
           "lost-omens-travel-guide-doomcaller",
-          "lost-omens-travel-guide-tide-watcher",
+          "lost-omens-travel-guide-astrological-augur",
           "lost-omens-travel-guide-nocturnal-navigator",
+          "lost-omens-travel-guide-sun-dancer",
+          "lost-omens-travel-guide-sign-bound",
           "lost-omens-travel-guide-starless-one",
-          "lost-omens-travel-guide-sun-dancer"
+          "lost-omens-travel-guide-tide-watcher"
         ],
         "_{Lost Omens World Guide}": [
-          "lost-omens-world-guide-alkenstar-tinker",
-          "lost-omens-world-guide-aspiring-free-captain",
           "lost-omens-world-guide-aspiring-river-monarch",
-          "lost-omens-world-guide-bekyar-restorer",
-          "lost-omens-world-guide-bellflower-agent",
-          "lost-omens-world-guide-black-market-smuggler",
-          "lost-omens-world-guide-bright-lion",
-          "lost-omens-world-guide-belkzen-slayer",
+          "lost-omens-world-guide-aspiring-free-captain",
+          "lost-omens-world-guide-alkenstar-tinker",
           "lost-omens-world-guide-atteran-rancher",
+          "lost-omens-world-guide-bekyar-restorer",
+          "lost-omens-world-guide-black-market-smuggler",
+          "lost-omens-world-guide-bellflower-agent",
+          "lost-omens-world-guide-belkzen-slayer",
           "lost-omens-world-guide-bonuwat-wavetouched",
-          "lost-omens-world-guide-chelish-rebel",
-          "lost-omens-world-guide-cursed-family",
+          "lost-omens-world-guide-bright-lion",
           "lost-omens-world-guide-child-of-westcrown",
+          "lost-omens-world-guide-chelish-rebel",
           "lost-omens-world-guide-child-of-the-puddles",
-          "lost-omens-world-guide-desert-tracker",
-          "lost-omens-world-guide-freed-slave-of-absalom",
           "lost-omens-world-guide-diobel-pearl-diver",
-          "lost-omens-world-guide-hermean-expatriate",
+          "lost-omens-world-guide-cursed-family",
+          "lost-omens-world-guide-desert-tracker",
           "lost-omens-world-guide-final-blade-survivor",
-          "lost-omens-world-guide-geb-crusader",
-          "lost-omens-world-guide-inlander",
+          "lost-omens-world-guide-freed-slave-of-absalom",
           "lost-omens-world-guide-goblinblood-orphan",
+          "lost-omens-world-guide-geb-crusader",
           "lost-omens-world-guide-grand-council-bureaucrat",
-          "lost-omens-world-guide-kalistrade-follower",
+          "lost-omens-world-guide-hermean-expatriate",
           "lost-omens-world-guide-issian-partisan",
+          "lost-omens-world-guide-inlander",
+          "lost-omens-world-guide-kalistrade-follower",
           "lost-omens-world-guide-kyonin-emissary",
-          "lost-omens-world-guide-mammoth-speaker",
           "lost-omens-world-guide-lastwall-survivor",
           "lost-omens-world-guide-lumber-consortium-laborer",
+          "lost-omens-world-guide-mammoth-speaker",
           "lost-omens-world-guide-magaambya-academic",
-          "lost-omens-world-guide-molthuni-mercenary",
-          "lost-omens-world-guide-merabite-prodigy",
-          "lost-omens-world-guide-menagerie-dung-sweeper",
           "lost-omens-world-guide-mana-wastes-refugee",
           "lost-omens-world-guide-mantis-scion",
+          "lost-omens-world-guide-menagerie-dung-sweeper",
+          "lost-omens-world-guide-merabite-prodigy",
           "lost-omens-world-guide-nirmathi-guerrilla",
+          "lost-omens-world-guide-molthuni-mercenary",
           "lost-omens-world-guide-onyx-trader",
           "lost-omens-world-guide-oenopion-ooze-tender",
           "lost-omens-world-guide-nexian-mystic",
-          "lost-omens-world-guide-pathfinder-hopeful",
-          "lost-omens-world-guide-perfection-seeker",
           "lost-omens-world-guide-press-ganged",
-          "lost-omens-world-guide-rivethun-adherent",
-          "lost-omens-world-guide-purveyor-of-the-bizarre",
+          "lost-omens-world-guide-perfection-seeker",
           "lost-omens-world-guide-osirionologist",
+          "lost-omens-world-guide-pathfinder-hopeful",
+          "lost-omens-world-guide-purveyor-of-the-bizarre",
           "lost-omens-world-guide-quick",
-          "lost-omens-world-guide-rostland-partisan",
           "lost-omens-world-guide-razmiran-faithful",
-          "lost-omens-world-guide-sarkorian-survivor",
-          "lost-omens-world-guide-secular-medic",
           "lost-omens-world-guide-sarkorian-reclaimer",
-          "lost-omens-world-guide-shoanti-name-bearer",
+          "lost-omens-world-guide-rivethun-adherent",
+          "lost-omens-world-guide-rostland-partisan",
+          "lost-omens-world-guide-sarkorian-survivor",
           "lost-omens-world-guide-scholar-of-the-ancients",
-          "lost-omens-world-guide-shadow-haunted",
-          "lost-omens-world-guide-sodden-scavenger",
-          "lost-omens-world-guide-storm-survivor",
-          "lost-omens-world-guide-shory-seeker",
           "lost-omens-world-guide-senghor-sailor",
+          "lost-omens-world-guide-secular-medic",
+          "lost-omens-world-guide-shadow-haunted",
+          "lost-omens-world-guide-shoanti-name-bearer",
+          "lost-omens-world-guide-storm-survivor",
+          "lost-omens-world-guide-sodden-scavenger",
+          "lost-omens-world-guide-shory-seeker",
           "lost-omens-world-guide-taldan-schemer",
-          "lost-omens-world-guide-thuvian-unifier",
-          "lost-omens-world-guide-thrune-loyalist",
-          "lost-omens-world-guide-trade-consortium-underling",
           "lost-omens-world-guide-thassilonian-traveler",
-          "lost-omens-world-guide-ustalavic-academic",
-          "lost-omens-world-guide-undersea-enthusiast",
           "lost-omens-world-guide-ulfen-raider",
-          "lost-omens-world-guide-varisian-wanderer",
+          "lost-omens-world-guide-trade-consortium-underling",
+          "lost-omens-world-guide-thrune-loyalist",
+          "lost-omens-world-guide-thuvian-unifier",
+          "lost-omens-world-guide-ustalavic-academic",
           "lost-omens-world-guide-vidrian-reformer",
-          "lost-omens-world-guide-winters-child",
-          "lost-omens-world-guide-wildwood-local",
+          "lost-omens-world-guide-undersea-enthusiast",
+          "lost-omens-world-guide-varisian-wanderer",
           "lost-omens-world-guide-whispering-way-scion",
+          "lost-omens-world-guide-wildwood-local",
           "lost-omens-world-guide-wonder-taster",
+          "lost-omens-world-guide-winters-child",
           "lost-omens-world-guide-witch-wary"
         ],
         "_{Organized Play Foundation}": [
           "pfs-almas-clerk",
-          "pfs-demon-slayer",
           "pfs-early-explorer",
+          "pfs-demon-slayer",
           "pfs-faction-opportunist",
-          "pfs-glorianas-fixer",
-          "pfs-finadar-leshy",
           "pfs-former-aspis-agent",
-          "pfs-iolite-trainee-hobgoblin",
+          "pfs-finadar-leshy",
           "pfs-friend-of-greensteeples",
+          "pfs-glorianas-fixer",
+          "pfs-gold-falls-regular",
+          "pfs-iolite-trainee-hobgoblin",
           "pfs-guest-of-sedeq-lodge",
           "pfs-ruby-phoenix-enthusiast",
-          "pfs-gold-falls-regular",
-          "pfs-sewer-dragon",
-          "pfs-sandswept-survivor",
           "pfs-savior-of-air",
+          "pfs-sandswept-survivor",
+          "pfs-sewer-dragon",
           "pfs-scholar-of-the-sky-key",
           "pfs-shadow-war-survivor",
-          "pfs-thassilonian-delver",
+          "pfs-shadow-lodge-defector",
           "pfs-tapestry-refugee",
-          "pfs-shadow-lodge-defector"
+          "pfs-thassilonian-delver"
         ],
         "_{Rage of Elements}": [
           "rage-of-elements-alloysmith",
           "rage-of-elements-concordance-researcher",
           "rage-of-elements-concordance-scout",
           "rage-of-elements-deep-sea-diver",
-          "rage-of-elements-dendrologist",
           "rage-of-elements-crystal-healer",
+          "rage-of-elements-dendrologist",
           "rage-of-elements-elementally-infused",
           "rage-of-elements-planar-migrant",
-          "rage-of-elements-sky-rider",
-          "rage-of-elements-fire-warden"
+          "rage-of-elements-fire-warden",
+          "rage-of-elements-sky-rider"
         ],
         "_{Secrets of Magic}": [
-          "secrets-of-magic-academy-dropout",
-          "secrets-of-magic-anti-magical",
-          "secrets-of-magic-energy-scarred",
           "secrets-of-magic-chosen-one",
           "secrets-of-magic-astrologer",
+          "secrets-of-magic-anti-magical",
+          "secrets-of-magic-academy-dropout",
           "secrets-of-magic-eidolon-contact",
           "secrets-of-magic-false-medium",
-          "secrets-of-magic-magical-experiment",
+          "secrets-of-magic-energy-scarred",
           "secrets-of-magic-genie-blessed",
           "secrets-of-magic-magical-merchant",
+          "secrets-of-magic-magical-experiment",
           "secrets-of-magic-magical-misfit",
           "secrets-of-magic-musical-prodigy",
           "secrets-of-magic-mystic-tutor",
           "secrets-of-magic-plant-whisperer",
-          "secrets-of-magic-seer-of-the-dead",
           "secrets-of-magic-song-of-the-deep",
+          "secrets-of-magic-seer-of-the-dead",
           "secrets-of-magic-occult-librarian",
           "secrets-of-magic-student-of-magic",
           "secrets-of-magic-street-preacher",
@@ -50180,9 +50180,9 @@
                   "apg-toxicologist"
                 ],
                 "_{Core Rulebook}": [
-                  "chirurgeon",
                   "bomber",
-                  "mutagenist"
+                  "mutagenist",
+                  "chirurgeon"
                 ]
               },
               "displayGroups": [
@@ -50384,10 +50384,10 @@
               "groups": {
                 "_{Core Rulebook}": [
                   "alchemical-familiar",
-                  "chemical-contagion",
-                  "smoke-bomb",
                   "pinpoint-poisoner",
+                  "chemical-contagion",
                   "sticky-poison",
+                  "smoke-bomb",
                   "subtle-delivery",
                   "tenacious-toxins"
                 ]
@@ -50597,9 +50597,9 @@
               ],
               "groups": {
                 "_{Advanced Player's Guide}": [
-                  "alchemical-sciences",
-                  "empiricism",
                   "forensic-medicine",
+                  "empiricism",
+                  "alchemical-sciences",
                   "interrogation"
                 ]
               },
@@ -50823,14 +50823,14 @@
               ],
               "groups": {
                 "_{Advanced Player's Guide}": [
+                  "cosmos",
+                  "ancestors",
                   "bones",
                   "battle",
-                  "ancestors",
-                  "cosmos",
-                  "life",
                   "flames",
-                  "tempest",
-                  "lore"
+                  "lore",
+                  "life",
+                  "tempest"
                 ]
               },
               "displayGroups": [
@@ -51068,11 +51068,11 @@
               ],
               "groups": {
                 "_{Advanced Player's Guide}": [
-                  "fencer",
+                  "battledancer",
                   "gymnast",
-                  "braggart",
                   "wit",
-                  "battledancer"
+                  "braggart",
+                  "fencer"
                 ]
               },
               "displayGroups": [
@@ -51295,13 +51295,13 @@
               ],
               "groups": {
                 "_{Advanced Player's Guide}": [
-                  "curse",
                   "night",
                   "fervor",
+                  "curse",
                   "fate",
+                  "wild",
                   "rune",
-                  "winter",
-                  "wild"
+                  "winter"
                 ]
               },
               "displayGroups": [
@@ -51542,11 +51542,11 @@
                   "apg-superstition"
                 ],
                 "_{Core Rulebook}": [
-                  "animal",
-                  "spirit",
                   "giant",
+                  "animal",
+                  "fury",
                   "dragon",
-                  "fury"
+                  "spirit"
                 ]
               },
               "displayGroups": [
@@ -51750,8 +51750,8 @@
                 ],
                 "_{Core Rulebook}": [
                   "enigma",
-                  "maestro",
-                  "polymath"
+                  "polymath",
+                  "maestro"
                 ]
               },
               "displayGroups": [
@@ -51983,8 +51983,8 @@
               ],
               "groups": {
                 "_{Advanced Player's Guide}": [
-                  "apg-antipaladin",
                   "apg-tyrant",
+                  "apg-antipaladin",
                   "apg-desecrator"
                 ],
                 "_{Core Rulebook}": [
@@ -52163,8 +52163,8 @@
               "groups": {
                 "_{Core Rulebook}": [
                   "blade",
-                  "shield",
-                  "steed"
+                  "steed",
+                  "shield"
                 ]
               },
               "displayGroups": [
@@ -52284,8 +52284,8 @@
               ],
               "groups": {
                 "_{Core Rulebook}": [
-                  "warpriest",
-                  "cloistered"
+                  "cloistered",
+                  "warpriest"
                 ]
               },
               "displayGroups": [
@@ -52460,11 +52460,11 @@
               ],
               "groups": {
                 "_{Dark Archive}": [
+                  "silent-whisper",
                   "distant-grasp",
                   "oscillating-wave",
-                  "infinite-eye",
-                  "silent-whisper",
                   "tangible-dream",
+                  "infinite-eye",
                   "unbound-step"
                 ]
               },
@@ -52635,10 +52635,10 @@
               ],
               "groups": {
                 "_{Dark Archive}": [
-                  "gathered-lore",
                   "unbound-step",
                   "precise-discipline",
-                  "wandering-reverie"
+                  "wandering-reverie",
+                  "gathered-lore"
                 ]
               },
               "displayGroups": [
@@ -52876,13 +52876,13 @@
               ],
               "groups": {
                 "_{Dark Archive}": [
-                  "bell",
-                  "amulet",
-                  "mirror",
                   "chalice",
-                  "regalia",
+                  "amulet",
+                  "bell",
                   "lantern",
+                  "mirror",
                   "tome",
+                  "regalia",
                   "weapon",
                   "wand"
                 ]
@@ -53125,9 +53125,9 @@
               "groups": {
                 "_{Core Rulebook}": [
                   "animal",
-                  "storm",
                   "wild",
-                  "leaf"
+                  "leaf",
+                  "storm"
                 ]
               },
               "displayGroups": [
@@ -53561,9 +53561,9 @@
               ],
               "groups": {
                 "_{Guns and Gears}": [
+                  "sniper",
                   "pistolero",
                   "drifter",
-                  "sniper",
                   "vanguard"
                 ]
               },
@@ -53713,8 +53713,8 @@
               ],
               "groups": {
                 "_{Guns and Gears}": [
-                  "armour",
                   "construct",
+                  "armour",
                   "weapon"
                 ]
               },
@@ -53937,13 +53937,13 @@
               ],
               "groups": {
                 "_{Core Rulebook}": [
+                  "ironblood",
+                  "mountain",
                   "crane",
                   "dragon",
-                  "tiger",
                   "tangled-forest",
-                  "mountain",
-                  "ironblood",
-                  "wolf"
+                  "wolf",
+                  "tiger"
                 ]
               },
               "displayGroups": [
@@ -54188,12 +54188,12 @@
               ],
               "groups": {
                 "_{Rage of Elements}": [
-                  "fire",
-                  "air",
                   "earth",
+                  "metal",
+                  "air",
+                  "fire",
                   "wood",
-                  "water",
-                  "metal"
+                  "water"
                 ]
               },
               "displayGroups": [
@@ -54400,9 +54400,9 @@
               ],
               "groups": {
                 "_{Core Rulebook}": [
+                  "animal-companion",
                   "camouflage",
-                  "favored-terrain",
-                  "animal-companion"
+                  "favored-terrain"
                 ],
                 "_{Advanced Player's Guide}": [
                   "terrain-master"
@@ -54536,8 +54536,8 @@
               "groups": {
                 "_{Core Rulebook}": [
                   "flurry",
-                  "precision",
-                  "outwit"
+                  "outwit",
+                  "precision"
                 ]
               },
               "displayGroups": [
@@ -54723,13 +54723,13 @@
               ],
               "groups": {
                 "_{Advanced Player's Guide}": [
-                  "apg-mastermind",
-                  "apg-eldritch-trickster"
+                  "apg-eldritch-trickster",
+                  "apg-mastermind"
                 ],
                 "_{Core Rulebook}": [
-                  "scoundrel",
+                  "thief",
                   "ruffian",
-                  "thief"
+                  "scoundrel"
                 ]
               },
               "displayGroups": [
@@ -54927,11 +54927,11 @@
               ],
               "groups": {
                 "_{Secrets of Magic}": [
-                  "inexorable-iron",
+                  "starlit-span",
                   "laughing-shadow",
-                  "twisting-tree",
                   "sparkling-targe",
-                  "starlit-span"
+                  "twisting-tree",
+                  "inexorable-iron"
                 ]
               },
               "displayGroups": [
@@ -55200,12 +55200,12 @@
               "groups": {
                 "_{Secrets of Magic}": [
                   "angel",
-                  "anger-phantom",
-                  "beast",
                   "construct",
-                  "devotion-phantom",
+                  "beast",
+                  "anger-phantom",
                   "demon",
                   "dragon",
+                  "devotion-phantom",
                   "plant",
                   "fey",
                   "psychopomp"
@@ -55726,21 +55726,21 @@
               "groups": {
                 "_{Advanced Player's Guide}": [
                   "apg-genie",
-                  "apg-nymph",
+                  "apg-psychopomp",
                   "apg-shadow",
-                  "apg-psychopomp"
+                  "apg-nymph"
                 ],
                 "_{Core Rulebook}": [
-                  "diabolic",
-                  "aberrant",
                   "demonic",
+                  "aberrant",
                   "angelic",
-                  "fey",
                   "draconic",
-                  "hag",
                   "elemental",
-                  "undead",
-                  "imperial"
+                  "diabolic",
+                  "fey",
+                  "hag",
+                  "imperial",
+                  "undead"
                 ]
               },
               "displayGroups": [
@@ -56311,14 +56311,14 @@
               "groups": {
                 "_{Core Rulebook}": [
                   "abjuration",
-                  "divination",
                   "enchantment",
+                  "divination",
+                  "necromancy",
                   "conjuration",
                   "evocation",
                   "illusion",
                   "universalist",
-                  "transmutation",
-                  "necromancy"
+                  "transmutation"
                 ]
               },
               "displayGroups": [
@@ -56551,10 +56551,10 @@
                   "apg-staff-nexus"
                 ],
                 "_{Core Rulebook}": [
-                  "improved-familiar-attunement",
+                  "metamagical-experimentation",
                   "spell-blending",
-                  "spell-substitution",
-                  "metamagical-experimentation"
+                  "improved-familiar-attunement",
+                  "spell-substitution"
                 ]
               },
               "displayGroups": [
@@ -56739,8 +56739,8 @@
               ],
               "groups": {
                 "_{Player Core}": [
-                  "remaster-bard-muse-polymath",
                   "remaster-enigma",
+                  "remaster-bard-muse-polymath",
                   "remaster-maestro",
                   "remaster-warrior"
                 ]
@@ -56897,8 +56897,8 @@
               ],
               "groups": {
                 "_{Player Core}": [
-                  "remaster-cloistered",
-                  "remaster-warpriest"
+                  "remaster-warpriest",
+                  "remaster-cloistered"
                 ]
               },
               "displayGroups": [
@@ -57044,8 +57044,8 @@
               "groups": {
                 "_{Player Core}": [
                   "remaster-animal",
-                  "remaster-leaf",
                   "remaster-untamed",
+                  "remaster-leaf",
                   "remaster-storm"
                 ]
               },
@@ -57281,9 +57281,9 @@
               ],
               "groups": {
                 "_{Player Core}": [
+                  "remaster-outwit",
                   "remaster-flurry",
-                  "remaster-precision",
-                  "remaster-outwit"
+                  "remaster-precision"
                 ]
               },
               "displayGroups": [
@@ -57454,10 +57454,10 @@
               ],
               "groups": {
                 "_{Player Core}": [
-                  "thief",
                   "remaster-ruffian",
                   "remaster-scoundrel",
-                  "mastermind"
+                  "mastermind",
+                  "thief"
                 ]
               },
               "displayGroups": [
@@ -57668,9 +57668,9 @@
                   "inscribed-one",
                   "faiths-flamekeeper",
                   "resentment",
-                  "silence-in-snow",
-                  "spinner-of-threads",
                   "starless-shadow",
+                  "spinner-of-threads",
+                  "silence-in-snow",
                   "wilding-steward"
                 ]
               },
@@ -57975,11 +57975,11 @@
               "groups": {
                 "_{Player Core}": [
                   "ars-grammatica",
-                  "battle-magic",
                   "mentalism",
                   "civic-wizardry",
-                  "protean-form",
-                  "unified-magical-theory"
+                  "battle-magic",
+                  "unified-magical-theory",
+                  "protean-form"
                 ]
               },
               "displayGroups": [
@@ -58164,11 +58164,11 @@
               ],
               "groups": {
                 "_{Player Core}": [
-                  "spell-blending",
-                  "staff-nexus",
                   "improved-familiar-attunement",
+                  "spell-substitution",
                   "experimental-spellshaping",
-                  "spell-substitution"
+                  "staff-nexus",
+                  "spell-blending"
                 ]
               },
               "displayGroups": [
@@ -58393,9 +58393,9 @@
                       "apg-toxicologist"
                     ],
                     "_{Core Rulebook}": [
-                      "chirurgeon",
                       "bomber",
-                      "mutagenist"
+                      "mutagenist",
+                      "chirurgeon"
                     ]
                   },
                   "displayGroups": [
@@ -58597,10 +58597,10 @@
                   "groups": {
                     "_{Core Rulebook}": [
                       "alchemical-familiar",
-                      "chemical-contagion",
-                      "smoke-bomb",
                       "pinpoint-poisoner",
+                      "chemical-contagion",
                       "sticky-poison",
+                      "smoke-bomb",
                       "subtle-delivery",
                       "tenacious-toxins"
                     ]
@@ -58843,11 +58843,11 @@
                       "apg-superstition"
                     ],
                     "_{Core Rulebook}": [
-                      "animal",
-                      "spirit",
                       "giant",
+                      "animal",
+                      "fury",
                       "dragon",
-                      "fury"
+                      "spirit"
                     ]
                   },
                   "displayGroups": [
@@ -59051,8 +59051,8 @@
                     ],
                     "_{Core Rulebook}": [
                       "enigma",
-                      "maestro",
-                      "polymath"
+                      "polymath",
+                      "maestro"
                     ]
                   },
                   "displayGroups": [
@@ -59284,8 +59284,8 @@
                   ],
                   "groups": {
                     "_{Advanced Player's Guide}": [
-                      "apg-antipaladin",
                       "apg-tyrant",
+                      "apg-antipaladin",
                       "apg-desecrator"
                     ],
                     "_{Core Rulebook}": [
@@ -59464,8 +59464,8 @@
                   "groups": {
                     "_{Core Rulebook}": [
                       "blade",
-                      "shield",
-                      "steed"
+                      "steed",
+                      "shield"
                     ]
                   },
                   "displayGroups": [
@@ -59585,8 +59585,8 @@
                   ],
                   "groups": {
                     "_{Core Rulebook}": [
-                      "warpriest",
-                      "cloistered"
+                      "cloistered",
+                      "warpriest"
                     ]
                   },
                   "displayGroups": [
@@ -59732,9 +59732,9 @@
                   "groups": {
                     "_{Core Rulebook}": [
                       "animal",
-                      "storm",
                       "wild",
-                      "leaf"
+                      "leaf",
+                      "storm"
                     ]
                   },
                   "displayGroups": [
@@ -60241,13 +60241,13 @@
                   ],
                   "groups": {
                     "_{Core Rulebook}": [
+                      "ironblood",
+                      "mountain",
                       "crane",
                       "dragon",
-                      "tiger",
                       "tangled-forest",
-                      "mountain",
-                      "ironblood",
-                      "wolf"
+                      "wolf",
+                      "tiger"
                     ]
                   },
                   "displayGroups": [
@@ -60476,9 +60476,9 @@
                   ],
                   "groups": {
                     "_{Core Rulebook}": [
+                      "animal-companion",
                       "camouflage",
-                      "favored-terrain",
-                      "animal-companion"
+                      "favored-terrain"
                     ],
                     "_{Advanced Player's Guide}": [
                       "terrain-master"
@@ -60612,8 +60612,8 @@
                   "groups": {
                     "_{Core Rulebook}": [
                       "flurry",
-                      "precision",
-                      "outwit"
+                      "outwit",
+                      "precision"
                     ]
                   },
                   "displayGroups": [
@@ -60799,13 +60799,13 @@
                   ],
                   "groups": {
                     "_{Advanced Player's Guide}": [
-                      "apg-mastermind",
-                      "apg-eldritch-trickster"
+                      "apg-eldritch-trickster",
+                      "apg-mastermind"
                     ],
                     "_{Core Rulebook}": [
-                      "scoundrel",
+                      "thief",
                       "ruffian",
-                      "thief"
+                      "scoundrel"
                     ]
                   },
                   "displayGroups": [
@@ -61253,21 +61253,21 @@
                   "groups": {
                     "_{Advanced Player's Guide}": [
                       "apg-genie",
-                      "apg-nymph",
+                      "apg-psychopomp",
                       "apg-shadow",
-                      "apg-psychopomp"
+                      "apg-nymph"
                     ],
                     "_{Core Rulebook}": [
-                      "diabolic",
-                      "aberrant",
                       "demonic",
+                      "aberrant",
                       "angelic",
-                      "fey",
                       "draconic",
-                      "hag",
                       "elemental",
-                      "undead",
-                      "imperial"
+                      "diabolic",
+                      "fey",
+                      "hag",
+                      "imperial",
+                      "undead"
                     ]
                   },
                   "displayGroups": [
@@ -61838,14 +61838,14 @@
                   "groups": {
                     "_{Core Rulebook}": [
                       "abjuration",
-                      "divination",
                       "enchantment",
+                      "divination",
+                      "necromancy",
                       "conjuration",
                       "evocation",
                       "illusion",
                       "universalist",
-                      "transmutation",
-                      "necromancy"
+                      "transmutation"
                     ]
                   },
                   "displayGroups": [
@@ -62078,10 +62078,10 @@
                       "apg-staff-nexus"
                     ],
                     "_{Core Rulebook}": [
-                      "improved-familiar-attunement",
+                      "metamagical-experimentation",
                       "spell-blending",
-                      "spell-substitution",
-                      "metamagical-experimentation"
+                      "improved-familiar-attunement",
+                      "spell-substitution"
                     ]
                   },
                   "displayGroups": [
@@ -62271,8 +62271,8 @@
                   ],
                   "groups": {
                     "_{Player Core}": [
-                      "remaster-bard-muse-polymath",
                       "remaster-enigma",
+                      "remaster-bard-muse-polymath",
                       "remaster-maestro",
                       "remaster-warrior"
                     ]
@@ -62429,8 +62429,8 @@
                   ],
                   "groups": {
                     "_{Player Core}": [
-                      "remaster-cloistered",
-                      "remaster-warpriest"
+                      "remaster-warpriest",
+                      "remaster-cloistered"
                     ]
                   },
                   "displayGroups": [
@@ -62576,8 +62576,8 @@
                   "groups": {
                     "_{Player Core}": [
                       "remaster-animal",
-                      "remaster-leaf",
                       "remaster-untamed",
+                      "remaster-leaf",
                       "remaster-storm"
                     ]
                   },
@@ -62813,9 +62813,9 @@
                   ],
                   "groups": {
                     "_{Player Core}": [
+                      "remaster-outwit",
                       "remaster-flurry",
-                      "remaster-precision",
-                      "remaster-outwit"
+                      "remaster-precision"
                     ]
                   },
                   "displayGroups": [
@@ -62986,10 +62986,10 @@
                   ],
                   "groups": {
                     "_{Player Core}": [
-                      "thief",
                       "remaster-ruffian",
                       "remaster-scoundrel",
-                      "mastermind"
+                      "mastermind",
+                      "thief"
                     ]
                   },
                   "displayGroups": [
@@ -63200,9 +63200,9 @@
                       "inscribed-one",
                       "faiths-flamekeeper",
                       "resentment",
-                      "silence-in-snow",
-                      "spinner-of-threads",
                       "starless-shadow",
+                      "spinner-of-threads",
+                      "silence-in-snow",
                       "wilding-steward"
                     ]
                   },
@@ -63507,11 +63507,11 @@
                   "groups": {
                     "_{Player Core}": [
                       "ars-grammatica",
-                      "battle-magic",
                       "mentalism",
                       "civic-wizardry",
-                      "protean-form",
-                      "unified-magical-theory"
+                      "battle-magic",
+                      "unified-magical-theory",
+                      "protean-form"
                     ]
                   },
                   "displayGroups": [
@@ -63696,11 +63696,11 @@
                   ],
                   "groups": {
                     "_{Player Core}": [
-                      "spell-blending",
-                      "staff-nexus",
                       "improved-familiar-attunement",
+                      "spell-substitution",
                       "experimental-spellshaping",
-                      "spell-substitution"
+                      "staff-nexus",
+                      "spell-blending"
                     ]
                   },
                   "displayGroups": [
@@ -63883,9 +63883,9 @@
                   ],
                   "groups": {
                     "_{Advanced Player's Guide}": [
-                      "alchemical-sciences",
-                      "empiricism",
                       "forensic-medicine",
+                      "empiricism",
+                      "alchemical-sciences",
                       "interrogation"
                     ]
                   },
@@ -64109,14 +64109,14 @@
                   ],
                   "groups": {
                     "_{Advanced Player's Guide}": [
+                      "cosmos",
+                      "ancestors",
                       "bones",
                       "battle",
-                      "ancestors",
-                      "cosmos",
-                      "life",
                       "flames",
-                      "tempest",
-                      "lore"
+                      "lore",
+                      "life",
+                      "tempest"
                     ]
                   },
                   "displayGroups": [
@@ -64354,11 +64354,11 @@
                   ],
                   "groups": {
                     "_{Advanced Player's Guide}": [
-                      "fencer",
+                      "battledancer",
                       "gymnast",
-                      "braggart",
                       "wit",
-                      "battledancer"
+                      "braggart",
+                      "fencer"
                     ]
                   },
                   "displayGroups": [
@@ -64581,13 +64581,13 @@
                   ],
                   "groups": {
                     "_{Advanced Player's Guide}": [
-                      "curse",
                       "night",
                       "fervor",
+                      "curse",
                       "fate",
+                      "wild",
                       "rune",
-                      "winter",
-                      "wild"
+                      "winter"
                     ]
                   },
                   "displayGroups": [
@@ -64832,11 +64832,11 @@
                   ],
                   "groups": {
                     "_{Dark Archive}": [
+                      "silent-whisper",
                       "distant-grasp",
                       "oscillating-wave",
-                      "infinite-eye",
-                      "silent-whisper",
                       "tangible-dream",
+                      "infinite-eye",
                       "unbound-step"
                     ]
                   },
@@ -65007,10 +65007,10 @@
                   ],
                   "groups": {
                     "_{Dark Archive}": [
-                      "gathered-lore",
                       "unbound-step",
                       "precise-discipline",
-                      "wandering-reverie"
+                      "wandering-reverie",
+                      "gathered-lore"
                     ]
                   },
                   "displayGroups": [
@@ -65248,13 +65248,13 @@
                   ],
                   "groups": {
                     "_{Dark Archive}": [
-                      "bell",
-                      "amulet",
-                      "mirror",
                       "chalice",
-                      "regalia",
+                      "amulet",
+                      "bell",
                       "lantern",
+                      "mirror",
                       "tome",
+                      "regalia",
                       "weapon",
                       "wand"
                     ]
@@ -65500,9 +65500,9 @@
                   ],
                   "groups": {
                     "_{Guns and Gears}": [
+                      "sniper",
                       "pistolero",
                       "drifter",
-                      "sniper",
                       "vanguard"
                     ]
                   },
@@ -65652,8 +65652,8 @@
                   ],
                   "groups": {
                     "_{Guns and Gears}": [
-                      "armour",
                       "construct",
+                      "armour",
                       "weapon"
                     ]
                   },
@@ -65837,12 +65837,12 @@
                   ],
                   "groups": {
                     "_{Rage of Elements}": [
-                      "fire",
-                      "air",
                       "earth",
+                      "metal",
+                      "air",
+                      "fire",
                       "wood",
-                      "water",
-                      "metal"
+                      "water"
                     ]
                   },
                   "displayGroups": [
@@ -66055,11 +66055,11 @@
                   ],
                   "groups": {
                     "_{Secrets of Magic}": [
-                      "inexorable-iron",
+                      "starlit-span",
                       "laughing-shadow",
-                      "twisting-tree",
                       "sparkling-targe",
-                      "starlit-span"
+                      "twisting-tree",
+                      "inexorable-iron"
                     ]
                   },
                   "displayGroups": [
@@ -66328,12 +66328,12 @@
                   "groups": {
                     "_{Secrets of Magic}": [
                       "angel",
-                      "anger-phantom",
-                      "beast",
                       "construct",
-                      "devotion-phantom",
+                      "beast",
+                      "anger-phantom",
                       "demon",
                       "dragon",
+                      "devotion-phantom",
                       "plant",
                       "fey",
                       "psychopomp"
@@ -66670,11 +66670,11 @@
                       "apg-superstition"
                     ],
                     "_{Core Rulebook}": [
-                      "animal",
-                      "spirit",
                       "giant",
+                      "animal",
+                      "fury",
                       "dragon",
-                      "fury"
+                      "spirit"
                     ]
                   },
                   "displayGroups": [
@@ -66933,8 +66933,8 @@
                   ],
                   "groups": {
                     "_{Advanced Player's Guide}": [
-                      "apg-antipaladin",
                       "apg-tyrant",
+                      "apg-antipaladin",
                       "apg-desecrator"
                     ],
                     "_{Core Rulebook}": [
@@ -67113,8 +67113,8 @@
                   "groups": {
                     "_{Core Rulebook}": [
                       "blade",
-                      "shield",
-                      "steed"
+                      "steed",
+                      "shield"
                     ]
                   },
                   "displayGroups": [
@@ -67280,9 +67280,9 @@
                   "groups": {
                     "_{Core Rulebook}": [
                       "animal",
-                      "storm",
                       "wild",
-                      "leaf"
+                      "leaf",
+                      "storm"
                     ]
                   },
                   "displayGroups": [
@@ -67711,21 +67711,21 @@
                   "groups": {
                     "_{Advanced Player's Guide}": [
                       "apg-genie",
-                      "apg-nymph",
+                      "apg-psychopomp",
                       "apg-shadow",
-                      "apg-psychopomp"
+                      "apg-nymph"
                     ],
                     "_{Core Rulebook}": [
-                      "diabolic",
-                      "aberrant",
                       "demonic",
+                      "aberrant",
                       "angelic",
-                      "fey",
                       "draconic",
-                      "hag",
                       "elemental",
-                      "undead",
-                      "imperial"
+                      "diabolic",
+                      "fey",
+                      "hag",
+                      "imperial",
+                      "undead"
                     ]
                   },
                   "displayGroups": [
@@ -68148,8 +68148,8 @@
                   "groups": {
                     "_{Player Core}": [
                       "remaster-animal",
-                      "remaster-leaf",
                       "remaster-untamed",
+                      "remaster-leaf",
                       "remaster-storm"
                     ]
                   },
@@ -68410,9 +68410,9 @@
                       "inscribed-one",
                       "faiths-flamekeeper",
                       "resentment",
-                      "silence-in-snow",
-                      "spinner-of-threads",
                       "starless-shadow",
+                      "spinner-of-threads",
+                      "silence-in-snow",
                       "wilding-steward"
                     ]
                   },
@@ -68719,14 +68719,14 @@
                   ],
                   "groups": {
                     "_{Advanced Player's Guide}": [
+                      "cosmos",
+                      "ancestors",
                       "bones",
                       "battle",
-                      "ancestors",
-                      "cosmos",
-                      "life",
                       "flames",
-                      "tempest",
-                      "lore"
+                      "lore",
+                      "life",
+                      "tempest"
                     ]
                   },
                   "displayGroups": [
@@ -68965,11 +68965,11 @@
                   ],
                   "groups": {
                     "_{Advanced Player's Guide}": [
-                      "fencer",
+                      "battledancer",
                       "gymnast",
-                      "braggart",
                       "wit",
-                      "battledancer"
+                      "braggart",
+                      "fencer"
                     ]
                   },
                   "displayGroups": [
@@ -69193,13 +69193,13 @@
                   ],
                   "groups": {
                     "_{Advanced Player's Guide}": [
-                      "curse",
                       "night",
                       "fervor",
+                      "curse",
                       "fate",
+                      "wild",
                       "rune",
-                      "winter",
-                      "wild"
+                      "winter"
                     ]
                   },
                   "displayGroups": [
@@ -69451,9 +69451,9 @@
                   ],
                   "groups": {
                     "_{Guns and Gears}": [
+                      "sniper",
                       "pistolero",
                       "drifter",
-                      "sniper",
                       "vanguard"
                     ]
                   },
@@ -69604,8 +69604,8 @@
                   ],
                   "groups": {
                     "_{Guns and Gears}": [
-                      "armour",
                       "construct",
+                      "armour",
                       "weapon"
                     ]
                   },
@@ -69888,12 +69888,12 @@
                   "groups": {
                     "_{Secrets of Magic}": [
                       "angel",
-                      "anger-phantom",
-                      "beast",
                       "construct",
-                      "devotion-phantom",
+                      "beast",
+                      "anger-phantom",
                       "demon",
                       "dragon",
+                      "devotion-phantom",
                       "plant",
                       "fey",
                       "psychopomp"
@@ -70263,14 +70263,14 @@
               ],
               "groups": {
                 "_{Advanced Player's Guide}": [
+                  "cosmos",
+                  "ancestors",
                   "bones",
                   "battle",
-                  "ancestors",
-                  "cosmos",
-                  "life",
                   "flames",
-                  "tempest",
-                  "lore"
+                  "lore",
+                  "life",
+                  "tempest"
                 ]
               },
               "displayGroups": [
@@ -70509,11 +70509,11 @@
               ],
               "groups": {
                 "_{Advanced Player's Guide}": [
-                  "fencer",
+                  "battledancer",
                   "gymnast",
-                  "braggart",
                   "wit",
-                  "battledancer"
+                  "braggart",
+                  "fencer"
                 ]
               },
               "displayGroups": [
@@ -70737,13 +70737,13 @@
               ],
               "groups": {
                 "_{Advanced Player's Guide}": [
-                  "curse",
                   "night",
                   "fervor",
+                  "curse",
                   "fate",
+                  "wild",
                   "rune",
-                  "winter",
-                  "wild"
+                  "winter"
                 ]
               },
               "displayGroups": [
@@ -70985,11 +70985,11 @@
                   "apg-superstition"
                 ],
                 "_{Core Rulebook}": [
-                  "animal",
-                  "spirit",
                   "giant",
+                  "animal",
+                  "fury",
                   "dragon",
-                  "fury"
+                  "spirit"
                 ]
               },
               "displayGroups": [
@@ -71248,8 +71248,8 @@
               ],
               "groups": {
                 "_{Advanced Player's Guide}": [
-                  "apg-antipaladin",
                   "apg-tyrant",
+                  "apg-antipaladin",
                   "apg-desecrator"
                 ],
                 "_{Core Rulebook}": [
@@ -71428,8 +71428,8 @@
               "groups": {
                 "_{Core Rulebook}": [
                   "blade",
-                  "shield",
-                  "steed"
+                  "steed",
+                  "shield"
                 ]
               },
               "displayGroups": [
@@ -71627,9 +71627,9 @@
               "groups": {
                 "_{Core Rulebook}": [
                   "animal",
-                  "storm",
                   "wild",
-                  "leaf"
+                  "leaf",
+                  "storm"
                 ]
               },
               "displayGroups": [
@@ -71810,9 +71810,9 @@
               ],
               "groups": {
                 "_{Guns and Gears}": [
+                  "sniper",
                   "pistolero",
                   "drifter",
-                  "sniper",
                   "vanguard"
                 ]
               },
@@ -71963,8 +71963,8 @@
               ],
               "groups": {
                 "_{Guns and Gears}": [
-                  "armour",
                   "construct",
+                  "armour",
                   "weapon"
                 ]
               },
@@ -72285,12 +72285,12 @@
               "groups": {
                 "_{Secrets of Magic}": [
                   "angel",
-                  "anger-phantom",
-                  "beast",
                   "construct",
-                  "devotion-phantom",
+                  "beast",
+                  "anger-phantom",
                   "demon",
                   "dragon",
+                  "devotion-phantom",
                   "plant",
                   "fey",
                   "psychopomp"
@@ -72748,21 +72748,21 @@
               "groups": {
                 "_{Advanced Player's Guide}": [
                   "apg-genie",
-                  "apg-nymph",
+                  "apg-psychopomp",
                   "apg-shadow",
-                  "apg-psychopomp"
+                  "apg-nymph"
                 ],
                 "_{Core Rulebook}": [
-                  "diabolic",
-                  "aberrant",
                   "demonic",
+                  "aberrant",
                   "angelic",
-                  "fey",
                   "draconic",
-                  "hag",
                   "elemental",
-                  "undead",
-                  "imperial"
+                  "diabolic",
+                  "fey",
+                  "hag",
+                  "imperial",
+                  "undead"
                 ]
               },
               "displayGroups": [
@@ -73180,8 +73180,8 @@
               "groups": {
                 "_{Player Core}": [
                   "remaster-animal",
-                  "remaster-leaf",
                   "remaster-untamed",
+                  "remaster-leaf",
                   "remaster-storm"
                 ]
               },
@@ -73442,9 +73442,9 @@
                   "inscribed-one",
                   "faiths-flamekeeper",
                   "resentment",
-                  "silence-in-snow",
-                  "spinner-of-threads",
                   "starless-shadow",
+                  "spinner-of-threads",
+                  "silence-in-snow",
                   "wilding-steward"
                 ]
               },
@@ -74274,50 +74274,50 @@
       ],
       "groups": {
         "_{BattleZoo}": [
-          "apocalypse",
-          "amber",
-          "astral",
-          "bliss",
           "black",
+          "amber",
           "blue",
+          "bliss",
           "brass",
-          "bronze",
+          "apocalypse",
+          "astral",
           "brine",
-          "copper",
           "cloud",
-          "crypt",
+          "bronze",
           "cerulean",
+          "copper",
+          "crypt",
           "dream",
-          "edict",
-          "forest",
-          "indigo",
           "crystal",
+          "edict",
           "etheric",
-          "green",
+          "forest",
           "gold",
-          "lunar",
+          "green",
           "havoc",
-          "harlequin",
-          "magma",
-          "nightmare",
           "infernal",
-          "rift",
+          "harlequin",
+          "indigo",
+          "nightmare",
+          "lunar",
+          "magma",
           "red",
-          "occult",
-          "silver",
           "paradise",
-          "sky",
+          "occult",
           "sea",
-          "solar",
-          "time",
+          "sky",
+          "rift",
           "tumult",
-          "sovereign",
-          "vemillion",
+          "solar",
+          "silver",
+          "time",
           "toadstool",
-          "void",
-          "umbral",
+          "sovereign",
           "vortex",
+          "umbral",
+          "vemillion",
           "underworld",
+          "void",
           "white"
         ]
       },
@@ -75088,11 +75088,11 @@
       ],
       "groups": {
         "_{BattleZoo}": [
-          "archipelago",
+          "labyrinth",
           "caverns",
-          "tree",
           "tower",
-          "labyrinth"
+          "tree",
+          "archipelago"
         ]
       },
       "displayGroups": [
@@ -75248,8 +75248,8 @@
       "groups": {
         "_{Ponyfinder}": [
           "horned",
-          "mountaineer",
           "watchfulness",
+          "mountaineer",
           "resilience"
         ]
       },
@@ -75658,15 +75658,15 @@
               "groups": {
                 "_{Core Rulebook}": [
                   "ancient-blooded",
-                  "rock",
+                  "death-warden",
                   "forge",
                   "strong-blooded",
-                  "death-warden"
+                  "rock"
                 ],
                 "_{Lost Omens Character Guide}": [
                   "lost-omens-character-guide-oathkeeper",
-                  "lost-omens-character-guide-elemental-heart",
-                  "lost-omens-character-guide-anvil"
+                  "lost-omens-character-guide-anvil",
+                  "lost-omens-character-guide-elemental-heart"
                 ]
               },
               "displayGroups": [
@@ -75899,12 +75899,12 @@
       "groups": {
         "_{Ponyfinder}": [
           "pegasus",
-          "ghost",
+          "sea-horse",
           "earth-bound",
           "leather-wings",
-          "zebra",
-          "sea-horse",
-          "unicorn"
+          "ghost",
+          "unicorn",
+          "zebra"
         ]
       },
       "displayGroups": [
@@ -76061,15 +76061,15 @@
                   "groups": {
                     "_{Core Rulebook}": [
                       "ancient-blooded",
-                      "rock",
+                      "death-warden",
                       "forge",
                       "strong-blooded",
-                      "death-warden"
+                      "rock"
                     ],
                     "_{Lost Omens Character Guide}": [
                       "lost-omens-character-guide-oathkeeper",
-                      "lost-omens-character-guide-elemental-heart",
-                      "lost-omens-character-guide-anvil"
+                      "lost-omens-character-guide-anvil",
+                      "lost-omens-character-guide-elemental-heart"
                     ]
                   },
                   "displayGroups": [
@@ -76552,10 +76552,10 @@
       ],
       "groups": {
         "_{Rogue Genius}": [
-          "rootling",
+          "bluffling",
           "fieldling",
-          "darkling",
-          "bluffling"
+          "rootling",
+          "darkling"
         ]
       },
       "displayGroups": [
@@ -76695,10 +76695,10 @@
       ],
       "groups": {
         "_{Extinction Curse}": [
-          "paddler",
+          "bloodhound",
           "thickcoat",
           "fishseeker",
-          "bloodhound"
+          "paddler"
         ]
       },
       "displayGroups": [
@@ -77003,16 +77003,16 @@
       ],
       "groups": {
         "_{Advanced Player's Guide}": [
-          "heritage-catfolk-jungle",
+          "nine-lives",
           "clawed",
-          "winter",
           "hunting",
-          "nine-lives"
+          "heritage-catfolk-jungle",
+          "winter"
         ],
         "_{Lost Omens Ancestry Guide}": [
           "lost-omens-ancestry-guide-flexible",
-          "lost-omens-ancestry-guide-liminal",
-          "lost-omens-ancestry-guide-sharp-eared"
+          "lost-omens-ancestry-guide-sharp-eared",
+          "lost-omens-ancestry-guide-liminal"
         ]
       },
       "displayGroups": [
@@ -77372,10 +77372,10 @@
       ],
       "groups": {
         "_{Advanced Player's Guide}": [
-          "dragonscaled",
-          "cavern",
           "spellscale",
+          "cavern",
           "strongjaw",
+          "dragonscaled",
           "venomtail"
         ],
         "_{Lost Omens Ancestry Guide}": [
@@ -77615,15 +77615,15 @@
       ],
       "groups": {
         "_{Advanced Player's Guide}": [
-          "deep",
           "badlands",
-          "hold-scarred",
-          "rainfall"
+          "rainfall",
+          "deep",
+          "hold-scarred"
         ],
         "_{Lost Omens Ancestry Guide}": [
+          "lost-omens-ancestry-guide-battle-ready",
           "lost-omens-ancestry-guide-grave",
-          "lost-omens-ancestry-guide-winter",
-          "lost-omens-ancestry-guide-battle-ready"
+          "lost-omens-ancestry-guide-winter"
         ]
       },
       "displayGroups": [
@@ -77859,9 +77859,9 @@
       "groups": {
         "_{Advanced Player's Guide}": [
           "longsnout",
-          "desert",
-          "sewer",
           "deep",
+          "sewer",
+          "desert",
           "shadow"
         ],
         "_{Lost Omens Ancestry Guide}": [
@@ -78102,9 +78102,9 @@
       "groups": {
         "_{Advanced Player's Guide}": [
           "jinxed",
-          "mountainkeeper",
-          "skyborn",
           "stormtossed",
+          "skyborn",
+          "mountainkeeper",
           "taloned"
         ],
         "_{Lost Omens Ancestry Guide}": [
@@ -78299,9 +78299,9 @@
       ],
       "groups": {
         "_{Book of the Dead}": [
+          "compact",
           "monstrous",
           "fodder",
-          "compact",
           "sturdy"
         ]
       },
@@ -78578,15 +78578,15 @@
       "groups": {
         "_{Core Rulebook}": [
           "ancient-blooded",
-          "rock",
+          "death-warden",
           "forge",
           "strong-blooded",
-          "death-warden"
+          "rock"
         ],
         "_{Lost Omens Character Guide}": [
           "lost-omens-character-guide-oathkeeper",
-          "lost-omens-character-guide-elemental-heart",
-          "lost-omens-character-guide-anvil"
+          "lost-omens-character-guide-anvil",
+          "lost-omens-character-guide-elemental-heart"
         ]
       },
       "displayGroups": [
@@ -79007,10 +79007,10 @@
       "groups": {
         "_{Core Rulebook}": [
           "cavern",
-          "arctic",
           "seer",
-          "woodland",
-          "whisper"
+          "arctic",
+          "whisper",
+          "woodland"
         ],
         "_{Lost Omens Character Guide}": [
           "lost-omens-character-guide-ancient",
@@ -79404,11 +79404,11 @@
       ],
       "groups": {
         "_{Core Rulebook}": [
+          "feytouched",
           "chameleon",
           "sensate",
           "umbral",
-          "wellspring",
-          "feytouched"
+          "wellspring"
         ],
         "_{Lost Omens Character Guide}": [
           "lost-omens-character-guide-vivacious"
@@ -79786,15 +79786,15 @@
       ],
       "groups": {
         "_{Core Rulebook}": [
-          "charhide",
-          "irongut",
           "razortooth",
+          "irongut",
+          "charhide",
           "snow",
           "unbreakable"
         ],
         "_{Lost Omens Character Guide}": [
-          "lost-omens-character-guide-treedweller",
-          "lost-omens-character-guide-tailed"
+          "lost-omens-character-guide-tailed",
+          "lost-omens-character-guide-treedweller"
         ]
       },
       "displayGroups": [
@@ -80064,10 +80064,10 @@
       ],
       "groups": {
         "_{Guns and Gears}": [
+          "sharpshooter",
           "hunter",
           "mage",
-          "warrior",
-          "sharpshooter"
+          "warrior"
         ]
       },
       "displayGroups": [
@@ -80345,10 +80345,10 @@
           "apg-jinxed"
         ],
         "_{Core Rulebook}": [
-          "gutsy",
-          "hillock",
-          "nomadic",
           "twilight",
+          "hillock",
+          "gutsy",
+          "nomadic",
           "wildwood"
         ],
         "_{Lost Omens Character Guide}": [
@@ -80901,11 +80901,11 @@
       ],
       "groups": {
         "_{Absalom, City of Lost Omens}": [
-          "ancient-scale",
           "mistbreath",
-          "benthic",
           "river",
-          "thalassic"
+          "benthic",
+          "thalassic",
+          "ancient-scale"
         ],
         "_{Lost Omens Ancestry Guide}": [
           "ancestry-guide-inured",
@@ -81146,10 +81146,10 @@
       ],
       "groups": {
         "_{Lost Omens Ancestry Guide}": [
-          "artisan",
-          "impersonator",
-          "polyglot",
           "laborer",
+          "impersonator",
+          "artisan",
+          "polyglot",
           "warrior"
         ]
       },
@@ -81320,11 +81320,11 @@
       ],
       "groups": {
         "_{Lost Omens Ancestry Guide}": [
+          "liminal",
+          "resolute",
           "bright",
           "deep",
-          "liminal",
-          "wisp",
-          "resolute"
+          "wisp"
         ]
       },
       "displayGroups": [
@@ -81479,10 +81479,10 @@
       ],
       "groups": {
         "_{Lost Omens Ancestry Guide}": [
-          "created",
           "technological",
-          "mutated",
-          "shapewrought"
+          "created",
+          "shapewrought",
+          "mutated"
         ]
       },
       "displayGroups": [
@@ -81638,8 +81638,8 @@
       "groups": {
         "_{Lost Omens Ancestry Guide}": [
           "dark-fields",
-          "earthly-wilds",
           "celestial-envoy",
+          "earthly-wilds",
           "frozen-wind",
           "empty-sky"
         ]
@@ -81811,11 +81811,11 @@
       ],
       "groups": {
         "_{Lost Omens Ancestry Guide}": [
-          "draxie",
-          "grig",
           "melixie",
+          "luminous",
           "nyktera",
-          "luminous"
+          "grig",
+          "draxie"
         ]
       },
       "displayGroups": [
@@ -81986,9 +81986,9 @@
       "groups": {
         "_{Lost Omens Ancestry Guide}": [
           "shoreline",
-          "scavenger",
           "nightglider",
           "predator",
+          "scavenger",
           "songbird"
         ]
       },
@@ -82283,11 +82283,11 @@
           "ancestry-guide-steelskin"
         ],
         "_{Lost Omens Character Guide}": [
-          "runtboss",
-          "elfbane",
-          "smokeworker",
           "warmarch",
-          "warrenbred"
+          "smokeworker",
+          "elfbane",
+          "warrenbred",
+          "runtboss"
         ]
       },
       "displayGroups": [
@@ -82802,15 +82802,15 @@
         "_{Lost Omens Ancestry Guide}": [
           "ancestry-guide-cactus",
           "ancestry-guide-fruit",
-          "ancestry-guide-lotus",
+          "ancestry-guide-root",
           "ancestry-guide-seaweed",
-          "ancestry-guide-root"
+          "ancestry-guide-lotus"
         ],
         "_{Lost Omens Character Guide}": [
-          "gourd",
           "fungus",
+          "vine",
           "leaf",
-          "vine"
+          "gourd"
         ]
       },
       "displayGroups": [
@@ -83239,11 +83239,11 @@
           "ancestry-guide-cloudleaper"
         ],
         "_{Lost Omens Character Guide}": [
-          "frilled",
-          "cliffscle",
           "sandstrider",
+          "unseen",
+          "frilled",
           "wetlander",
-          "unseen"
+          "cliffscle"
         ]
       },
       "displayGroups": [
@@ -83449,10 +83449,10 @@
       "groups": {
         "_{Lost Omens Grand Bazaar}": [
           "ghost",
-          "stuffed",
           "windup",
           "toy",
-          "wishborn"
+          "wishborn",
+          "stuffed"
         ]
       },
       "displayGroups": [
@@ -83622,11 +83622,11 @@
       ],
       "groups": {
         "_{Mwangi Expanse}": [
-          "adaptive",
+          "snaring",
+          "spindly",
           "venomous",
           "polychromatic",
-          "snaring",
-          "spindly"
+          "adaptive"
         ]
       },
       "displayGroups": [
@@ -83797,10 +83797,10 @@
       "groups": {
         "_{Mwangi Expanse}": [
           "invocation",
-          "knowing",
           "reinforcement",
+          "light",
           "passage",
-          "light"
+          "knowing"
         ]
       },
       "displayGroups": [
@@ -84060,10 +84060,10 @@
       ],
       "groups": {
         "_{Mwangi Expanse}": [
-          "sweetbreath",
-          "great",
           "ant",
-          "witch"
+          "witch",
+          "sweetbreath",
+          "great"
         ]
       },
       "displayGroups": [
@@ -84328,11 +84328,11 @@
       ],
       "groups": {
         "_{Mwangi Expanse}": [
-          "frightful",
-          "vigilant",
-          "farsight",
           "insightful",
-          "vicious"
+          "farsight",
+          "vicious",
+          "frightful",
+          "vigilant"
         ]
       },
       "displayGroups": [
@@ -84487,10 +84487,10 @@
       ],
       "groups": {
         "_{Mwangi Expanse}": [
-          "stickytoe",
+          "snaptongue",
           "poisonhide",
           "windweb",
-          "snaptongue"
+          "stickytoe"
         ]
       },
       "displayGroups": [
@@ -84645,11 +84645,11 @@
       ],
       "groups": {
         "_{Mwangi Expanse}": [
-          "stonestep",
-          "spellkeeper",
           "stronggut",
           "lorekeeper",
-          "quillcoat"
+          "spellkeeper",
+          "quillcoat",
+          "stonestep"
         ]
       },
       "displayGroups": [
@@ -85050,25 +85050,25 @@
       ],
       "groups": {
         "_{Advanced Player's Guide}": [
-          "heritage-apg-changeling",
           "heritage-apg-aasimar",
-          "heritage-apg-tiefling",
           "heritage-apg-duskwalker",
-          "heritage-apg-dhampir"
+          "heritage-apg-changeling",
+          "heritage-apg-dhampir",
+          "heritage-apg-tiefling"
         ],
         "_{Core Rulebook}": [
           "half-elf",
           "half-orc"
         ],
         "_{Lost Omens Ancestry Guide}": [
-          "heritage-lost-omens-ancestry-guide-geniekin-ifrit",
           "heritage-lost-omens-ancestry-guide-geniekin-suli",
-          "heritage-lost-omens-ancestry-guide-geniekin-sylph",
           "heritage-lost-omens-ancestry-guide-geniekin-oread",
-          "heritage-lost-omens-ancestry-guide-aphorite",
-          "heritage-lost-omens-ancestry-guide-geniekin-undine",
+          "heritage-lost-omens-ancestry-guide-geniekin-sylph",
+          "heritage-lost-omens-ancestry-guide-geniekin-ifrit",
+          "heritage-lost-omens-ancestry-guide-beastkin",
           "heritage-lost-omens-ancestry-guide-ganzi",
-          "heritage-lost-omens-ancestry-guide-beastkin"
+          "heritage-lost-omens-ancestry-guide-aphorite",
+          "heritage-lost-omens-ancestry-guide-geniekin-undine"
         ]
       },
       "displayGroups": [
@@ -85481,9 +85481,9 @@
           "apg-toxicologist"
         ],
         "_{Core Rulebook}": [
-          "chirurgeon",
           "bomber",
-          "mutagenist"
+          "mutagenist",
+          "chirurgeon"
         ]
       },
       "displayGroups": [
@@ -85661,11 +85661,11 @@
           "apg-superstition"
         ],
         "_{Core Rulebook}": [
-          "animal",
-          "spirit",
           "giant",
+          "animal",
+          "fury",
           "dragon",
-          "fury"
+          "spirit"
         ]
       },
       "displayGroups": [
@@ -85904,8 +85904,8 @@
         ],
         "_{Core Rulebook}": [
           "enigma",
-          "maestro",
-          "polymath"
+          "polymath",
+          "maestro"
         ]
       },
       "displayGroups": [
@@ -86157,8 +86157,8 @@
       ],
       "groups": {
         "_{Advanced Player's Guide}": [
-          "apg-antipaladin",
           "apg-tyrant",
+          "apg-antipaladin",
           "apg-desecrator"
         ],
         "_{Core Rulebook}": [
@@ -86337,8 +86337,8 @@
       "groups": {
         "_{Core Rulebook}": [
           "blade",
-          "shield",
-          "steed"
+          "steed",
+          "shield"
         ]
       },
       "displayGroups": [
@@ -86463,8 +86463,8 @@
       ],
       "groups": {
         "_{Core Rulebook}": [
-          "warpriest",
-          "cloistered"
+          "cloistered",
+          "warpriest"
         ]
       },
       "displayGroups": [
@@ -86670,9 +86670,9 @@
       "groups": {
         "_{Core Rulebook}": [
           "animal",
-          "storm",
           "wild",
-          "leaf"
+          "leaf",
+          "storm"
         ]
       },
       "displayGroups": [
@@ -86934,10 +86934,10 @@
       "groups": {
         "_{Core Rulebook}": [
           "alchemical-familiar",
-          "chemical-contagion",
-          "smoke-bomb",
           "pinpoint-poisoner",
+          "chemical-contagion",
           "sticky-poison",
+          "smoke-bomb",
           "subtle-delivery",
           "tenacious-toxins"
         ]
@@ -87433,9 +87433,9 @@
       ],
       "groups": {
         "_{Core Rulebook}": [
+          "animal-companion",
           "camouflage",
-          "favored-terrain",
-          "animal-companion"
+          "favored-terrain"
         ],
         "_{Advanced Player's Guide}": [
           "terrain-master"
@@ -87824,9 +87824,9 @@
       ],
       "groups": {
         "_{Guns and Gears}": [
+          "sniper",
           "pistolero",
           "drifter",
-          "sniper",
           "vanguard"
         ]
       },
@@ -87952,8 +87952,8 @@
       ],
       "groups": {
         "_{Guns and Gears}": [
-          "armour",
           "construct",
+          "armour",
           "weapon"
         ]
       },
@@ -88079,9 +88079,9 @@
       ],
       "groups": {
         "_{Advanced Player's Guide}": [
-          "alchemical-sciences",
-          "empiricism",
           "forensic-medicine",
+          "empiricism",
+          "alchemical-sciences",
           "interrogation"
         ]
       },
@@ -88252,12 +88252,12 @@
       ],
       "groups": {
         "_{Rage of Elements}": [
-          "fire",
-          "air",
           "earth",
+          "metal",
+          "air",
+          "fire",
           "wood",
-          "water",
-          "metal"
+          "water"
         ]
       },
       "displayGroups": [
@@ -88442,11 +88442,11 @@
       ],
       "groups": {
         "_{Secrets of Magic}": [
-          "inexorable-iron",
+          "starlit-span",
           "laughing-shadow",
-          "twisting-tree",
           "sparkling-targe",
-          "starlit-span"
+          "twisting-tree",
+          "inexorable-iron"
         ]
       },
       "displayGroups": [
@@ -88653,13 +88653,13 @@
       ],
       "groups": {
         "_{Core Rulebook}": [
+          "ironblood",
+          "mountain",
           "crane",
           "dragon",
-          "tiger",
           "tangled-forest",
-          "mountain",
-          "ironblood",
-          "wolf"
+          "wolf",
+          "tiger"
         ]
       },
       "displayGroups": [
@@ -88911,14 +88911,14 @@
       ],
       "groups": {
         "_{Advanced Player's Guide}": [
+          "cosmos",
+          "ancestors",
           "bones",
           "battle",
-          "ancestors",
-          "cosmos",
-          "life",
           "flames",
-          "tempest",
-          "lore"
+          "lore",
+          "life",
+          "tempest"
         ]
       },
       "displayGroups": [
@@ -89148,11 +89148,11 @@
       ],
       "groups": {
         "_{Dark Archive}": [
+          "silent-whisper",
           "distant-grasp",
           "oscillating-wave",
-          "infinite-eye",
-          "silent-whisper",
           "tangible-dream",
+          "infinite-eye",
           "unbound-step"
         ]
       },
@@ -89323,10 +89323,10 @@
       ],
       "groups": {
         "_{Dark Archive}": [
-          "gathered-lore",
           "unbound-step",
           "precise-discipline",
-          "wandering-reverie"
+          "wandering-reverie",
+          "gathered-lore"
         ]
       },
       "displayGroups": [
@@ -89497,8 +89497,8 @@
       "groups": {
         "_{Core Rulebook}": [
           "flurry",
-          "precision",
-          "outwit"
+          "outwit",
+          "precision"
         ]
       },
       "displayGroups": [
@@ -89748,13 +89748,13 @@
       ],
       "groups": {
         "_{Advanced Player's Guide}": [
-          "apg-mastermind",
-          "apg-eldritch-trickster"
+          "apg-eldritch-trickster",
+          "apg-mastermind"
         ],
         "_{Core Rulebook}": [
-          "scoundrel",
+          "thief",
           "ruffian",
-          "thief"
+          "scoundrel"
         ]
       },
       "displayGroups": [
@@ -90180,21 +90180,21 @@
       "groups": {
         "_{Advanced Player's Guide}": [
           "apg-genie",
-          "apg-nymph",
+          "apg-psychopomp",
           "apg-shadow",
-          "apg-psychopomp"
+          "apg-nymph"
         ],
         "_{Core Rulebook}": [
-          "diabolic",
-          "aberrant",
           "demonic",
+          "aberrant",
           "angelic",
-          "fey",
           "draconic",
-          "hag",
           "elemental",
-          "undead",
-          "imperial"
+          "diabolic",
+          "fey",
+          "hag",
+          "imperial",
+          "undead"
         ]
       },
       "displayGroups": [
@@ -90630,12 +90630,12 @@
       "groups": {
         "_{Secrets of Magic}": [
           "angel",
-          "anger-phantom",
-          "beast",
           "construct",
-          "devotion-phantom",
+          "beast",
+          "anger-phantom",
           "demon",
           "dragon",
+          "devotion-phantom",
           "plant",
           "fey",
           "psychopomp"
@@ -90883,11 +90883,11 @@
       ],
       "groups": {
         "_{Advanced Player's Guide}": [
-          "fencer",
+          "battledancer",
           "gymnast",
-          "braggart",
           "wit",
-          "battledancer"
+          "braggart",
+          "fencer"
         ]
       },
       "displayGroups": [
@@ -91117,13 +91117,13 @@
       ],
       "groups": {
         "_{Dark Archive}": [
-          "bell",
-          "amulet",
-          "mirror",
           "chalice",
-          "regalia",
+          "amulet",
+          "bell",
           "lantern",
+          "mirror",
           "tome",
+          "regalia",
           "weapon",
           "wand"
         ]
@@ -91490,13 +91490,13 @@
       ],
       "groups": {
         "_{Advanced Player's Guide}": [
-          "curse",
           "night",
           "fervor",
+          "curse",
           "fate",
+          "wild",
           "rune",
-          "winter",
-          "wild"
+          "winter"
         ]
       },
       "displayGroups": [
@@ -91957,14 +91957,14 @@
       "groups": {
         "_{Core Rulebook}": [
           "abjuration",
-          "divination",
           "enchantment",
+          "divination",
+          "necromancy",
           "conjuration",
           "evocation",
           "illusion",
           "universalist",
-          "transmutation",
-          "necromancy"
+          "transmutation"
         ]
       },
       "displayGroups": [
@@ -92367,10 +92367,10 @@
           "apg-staff-nexus"
         ],
         "_{Core Rulebook}": [
-          "improved-familiar-attunement",
+          "metamagical-experimentation",
           "spell-blending",
-          "spell-substitution",
-          "metamagical-experimentation"
+          "improved-familiar-attunement",
+          "spell-substitution"
         ]
       },
       "displayGroups": [
