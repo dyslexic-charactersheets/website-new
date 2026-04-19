@@ -98,15 +98,15 @@ function readClassicForm(type) {
     character.attributes[attrib] = [];
     for (let i = 0; i < limit; i++) {
       let skill = readSelect(name+"-"+i);
-      let visible = false;
-      for (let select of document.getElementsByName(name+"-"+i)) {
-        let repeatableInstance = select.closest('.repeatable__instance');
-        if (repeatableInstance.classList.contains('repeatable__instance--visible')) {
-          visible = true;
-        }
-      }
+      // let visible = false;
+      // for (let select of document.getElementsByName(name+"-"+i)) {
+      //   let repeatableInstance = select.closest('.repeatable__instance');
+      //   if (repeatableInstance.classList.contains('repeatable__instance--visible')) {
+      //     visible = true;
+      //   }
+      // }
 
-      if (skill && visible) {
+      if (skill) { // && visible) {
         character.attributes[attrib].push(skill);
       }
     }
