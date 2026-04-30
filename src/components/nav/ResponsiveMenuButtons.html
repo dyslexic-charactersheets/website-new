@@ -1,0 +1,33 @@
+<!-- 
+  Copyright 2025 Marcus Downing
+  Licensed under the Artistic License 2.0
+-->
+
+<template>
+  <nav class="nav--responsive responsive-small-medium">
+    {{#> Button type="borderless" on-click=(str "body.currentMenu = ${menuid}" menuid=menuid)}}⋮{{/Button}}
+  </nav>
+</template>
+
+<style>
+@use 'colours';
+
+.nav--responsive {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+
+  button.btn {
+    $size: 3.5rem;
+
+    font-size: 2rem;
+    line-height: $size;
+    width: $size;
+    height: $size;
+    border-radius: calc($size / 2) !important;
+    display: block;
+    background: colours.$light;
+    cursor: pointer;
+  }
+}
+</style>

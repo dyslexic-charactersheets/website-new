@@ -4,7 +4,12 @@
 -->
 
 <template>
-  <section id="right">
+  <section id="right"
+    {{#if responsive}} 
+    class="right--menu menu menu--right"
+    data-bind="show = body.currentMenu | eq '{{id}}'"
+    {{/if}}
+  >
     {{> @partial-block }}
   </section>
 </template>

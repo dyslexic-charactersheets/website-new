@@ -4,7 +4,57 @@
 -->
 
 <template>
-  <section id="left">
+  <section id="left"
+    {{#if responsive}} 
+    class="left--menu menu menu--left"
+    data-bind="show = body.currentMenu | eq '{{id}}'"
+    {{/if}}
+  >
     {{> @partial-block }}
   </section>
 </template>
+
+<style>
+
+@use 'responsive';
+@use 'colours';
+
+@mixin menu($size) {
+  width: $size;
+  &.menu--left {
+    left: -($size * 1.2);
+  }
+  &.menu--right {
+    right: -($size * 1.2);
+  }
+}
+
+.left--menu {
+  @include responsive.small-medium {
+    $slide-time: 0.3s;
+
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    box-shadow: none;
+
+    transition: left $slide-time;
+    box-shadow: none;
+
+    &[data-show="true"] {
+      left: 0 !important;
+      box-shadow: 0 0 10000px 10000px colours.$shadow, 1rem 0 1rem colours.$light;
+    }
+  }
+  
+  @include responsive.medium {
+    @include menu(60vw);
+  }
+
+  @include responsive.small {
+    @include menu(90vw);
+  }
+}
+
+</style>

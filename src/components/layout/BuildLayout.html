@@ -28,8 +28,17 @@
     }
   }
 
-  @include responsive.small {
+  @include responsive.small-medium {
     @include layout.v-layout;
+
+    #left {
+      $slide-time: 0.3s;
+
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      bottom: 0;
+    }
   }
 
 }

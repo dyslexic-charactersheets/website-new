@@ -13,7 +13,10 @@
 <body id="body" data-current-menu="" data-language="fr">
 
   <main class="main--layout_build main--theme_adventure">
-      <section id="left">
+      <section id="left"
+          class="left--menu menu menu--left"
+          data-bind="show = body.currentMenu | eq 'pathfinder2left'"
+        >
           <div class="pane pane--bg_parchment pane--shadow_left light-region ">
                   <nav class="nav--row" id="home-link" aria-label="">
                       <a href="/fr/" class="btn btn--borderless">
@@ -24,7 +27,7 @@
                     <nav class="nav--row">
                           <button 
                         type="button"
-                        
+                        id="pathfinder2left"
                         class="btn btn--borderless " 
                         data-on-click="body.currentMenu &#x3D; main-menu"
                         
@@ -34,7 +37,7 @@
                   
                           <button 
                         type="button"
-                        
+                        id="pathfinder2left"
                         class="btn btn--borderless " 
                         data-on-click="body.currentMenu &#x3D; language-menu"
                         
@@ -48,7 +51,7 @@
                     </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
                                 <button 
                             type="button"
-                            
+                            id="pathfinder2left"
                             class="btn btn--borderless login-menu-button" 
                             data-on-click="body.currentMenu &#x3D; login-menu"
                             
@@ -311,10 +314,22 @@
                                   <div class="spacer spacer--min"></div>
                                 </nav>  </div>
                 </div>  </div>  </section>
-      <section id="right">
+      <section id="right"
+        >
           <div class="pane pane--bg_red  dark-region pane--nopad">
                 <div class="pane__inner pane__inner--spotlight">
-                  <form
+                  <nav class="nav--responsive responsive-small-medium">
+                          <button 
+                        type="button"
+                        
+                        class="btn btn--borderless " 
+                        data-on-click="body.currentMenu &#x3D; pathfinder2left"
+                        
+                      >
+                        ⋮      
+                      </button>
+                  
+                    </nav>    <form
                       id="build-form"
                       class="build-form"
                       data-edition=""
@@ -35699,10 +35714,10 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
-                                      "alchemical-familiar",
-                                      "pinpoint-poisoner",
                                       "chemical-contagion",
+                                      "pinpoint-poisoner",
                                       "sticky-poison",
+                                      "alchemical-familiar",
                                       "smoke-bomb",
                                       "subtle-delivery",
                                       "tenacious-toxins"
@@ -35992,10 +36007,10 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "forensic-medicine",
-              "empiricism",
               "alchemical-sciences",
-              "interrogation"
+              "interrogation",
+              "empiricism",
+              "forensic-medicine"
             ]
           },
           "displayGroups": [
@@ -36375,13 +36390,13 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "cosmos",
               "ancestors",
-              "bones",
+              "cosmos",
               "battle",
+              "bones",
+              "life",
               "flames",
               "lore",
-              "life",
               "tempest"
             ]
           },
@@ -36817,10 +36832,10 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "battledancer",
               "gymnast",
-              "wit",
+              "battledancer",
               "braggart",
+              "wit",
               "fencer"
             ]
           },
@@ -37316,9 +37331,9 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
+              "curse",
               "night",
               "fervor",
-              "curse",
               "fate",
               "wild",
               "rune",
@@ -37933,8 +37948,8 @@
               "apg-superstition"
             ],
             "_{Core Rulebook}": [
-              "giant",
               "animal",
+              "giant",
               "fury",
               "dragon",
               "spirit"
@@ -38378,9 +38393,9 @@
               "apg-warrior"
             ],
             "_{Core Rulebook}": [
-              "enigma",
               "polymath",
-              "maestro"
+              "maestro",
+              "enigma"
             ]
           },
           "displayGroups": [
@@ -38931,8 +38946,8 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "apg-tyrant",
               "apg-antipaladin",
+              "apg-tyrant",
               "apg-desecrator"
             ],
             "_{Core Rulebook}": [
@@ -39314,8 +39329,8 @@
           "groups": {
             "_{Core Rulebook}": [
               "blade",
-              "steed",
-              "shield"
+              "shield",
+              "steed"
             ]
           },
           "displayGroups": [
@@ -40003,9 +40018,9 @@
           "groups": {
             "_{Dark Archive}": [
               "unbound-step",
-              "precise-discipline",
+              "gathered-lore",
               "wandering-reverie",
-              "gathered-lore"
+              "precise-discipline"
             ]
           },
           "displayGroups": [
@@ -40355,11 +40370,11 @@
           ],
           "groups": {
             "_{Dark Archive}": [
-              "silent-whisper",
               "distant-grasp",
+              "silent-whisper",
+              "infinite-eye",
               "oscillating-wave",
               "tangible-dream",
-              "infinite-eye",
               "unbound-step"
             ]
           },
@@ -40805,13 +40820,13 @@
           ],
           "groups": {
             "_{Dark Archive}": [
-              "chalice",
-              "amulet",
-              "bell",
               "lantern",
+              "amulet",
+              "chalice",
+              "bell",
               "mirror",
-              "tome",
               "regalia",
+              "tome",
               "weapon",
               "wand"
             ]
@@ -41318,10 +41333,10 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "animal",
               "wild",
-              "leaf",
-              "storm"
+              "animal",
+              "storm",
+              "leaf"
             ]
           },
           "displayGroups": [
@@ -42163,8 +42178,8 @@
           "groups": {
             "_{Guns and Gears}": [
               "sniper",
-              "pistolero",
               "drifter",
+              "pistolero",
               "vanguard"
             ]
           },
@@ -42470,9 +42485,9 @@
           ],
           "groups": {
             "_{Guns and Gears}": [
-              "construct",
               "armour",
-              "weapon"
+              "weapon",
+              "construct"
             ]
           },
           "displayGroups": [
@@ -42837,12 +42852,12 @@
                                   "groups": {
                                     "_{Core Rulebook}": [
                                       "ironblood",
-                                      "mountain",
-                                      "crane",
                                       "dragon",
+                                      "crane",
+                                      "mountain",
                                       "tangled-forest",
-                                      "wolf",
-                                      "tiger"
+                                      "tiger",
+                                      "wolf"
                                     ]
                                   },
                                   "displayGroups": [
@@ -43256,12 +43271,12 @@
                                   ],
                                   "groups": {
                                     "_{Rage of Elements}": [
-                                      "earth",
-                                      "metal",
                                       "air",
                                       "fire",
-                                      "wood",
-                                      "water"
+                                      "metal",
+                                      "earth",
+                                      "water",
+                                      "wood"
                                     ]
                                   },
                                   "displayGroups": [
@@ -43963,8 +43978,8 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
-                                      "animal-companion",
                                       "camouflage",
+                                      "animal-companion",
                                       "favored-terrain"
                                     ],
                                     "_{Advanced Player's Guide}": [
@@ -44270,8 +44285,8 @@
               "apg-mastermind"
             ],
             "_{Core Rulebook}": [
-              "thief",
               "ruffian",
+              "thief",
               "scoundrel"
             ]
           },
@@ -44822,11 +44837,11 @@
           ],
           "groups": {
             "_{Secrets of Magic}": [
+              "inexorable-iron",
               "starlit-span",
-              "laughing-shadow",
               "sparkling-targe",
-              "twisting-tree",
-              "inexorable-iron"
+              "laughing-shadow",
+              "twisting-tree"
             ]
           },
           "displayGroups": [
@@ -45261,15 +45276,15 @@
           ],
           "groups": {
             "_{Secrets of Magic}": [
-              "angel",
-              "construct",
               "beast",
               "anger-phantom",
+              "construct",
+              "angel",
+              "devotion-phantom",
               "demon",
               "dragon",
-              "devotion-phantom",
-              "plant",
               "fey",
+              "plant",
               "psychopomp"
             ]
           },
@@ -45941,20 +45956,20 @@
           "groups": {
             "_{Advanced Player's Guide}": [
               "apg-genie",
+              "apg-nymph",
               "apg-psychopomp",
-              "apg-shadow",
-              "apg-nymph"
+              "apg-shadow"
             ],
             "_{Core Rulebook}": [
               "demonic",
               "aberrant",
               "angelic",
+              "diabolic",
               "draconic",
               "elemental",
-              "diabolic",
+              "imperial",
               "fey",
               "hag",
-              "imperial",
               "undead"
             ]
           },
@@ -47460,12 +47475,12 @@
               "abjuration",
               "enchantment",
               "divination",
-              "necromancy",
               "conjuration",
-              "evocation",
+              "transmutation",
               "illusion",
-              "universalist",
-              "transmutation"
+              "evocation",
+              "necromancy",
+              "universalist"
             ]
           },
           "displayGroups": [

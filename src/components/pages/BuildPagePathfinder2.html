@@ -6,7 +6,7 @@
 <template>
   
 {{#> BuildLayout game="pathfinder2" theme=theme}}
-{{#> Left }}
+{{#> Left responsive=true id="pathfinder2left"}}
   {{#> Pane bg=(ifeq theme "scifi" "starfield" "parchment") shadow="left"}}
     {{> MenuButtons}}
 
@@ -95,6 +95,7 @@
 
 {{#> Right dark=true}}
   {{#> Pane bg=(ifeq theme "scifi" "scifi" "red") nopad=true spotlight=true}}
+    {{> ResponsiveMenuButtons menuid="pathfinder2left" }}
     {{> BuildFormPathfinder2 }}
   {{/Pane}}
 {{/Right}}

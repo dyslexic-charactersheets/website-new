@@ -18,7 +18,7 @@ body, p, a, nav, button {
 // Bump base font size on small screens
 @include responsive.small {
   html {
-    font-size: calc(30px + 0.25*(1vw + 1vh));
+    font-size: calc(20px + 0.25*(1vw + 1vh));
   }
 }
 
