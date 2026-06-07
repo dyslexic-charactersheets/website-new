@@ -41,7 +41,7 @@ $medium: 740px;
 }
 
 @mixin small {
-    @media screen and (max-width: ($medium - 1px)) {
+    @media screen and (max-width: ($medium - 1px)), screen and (min-resolution: 2dppx) and (max-width: (($medium * 2) - 1px)) {
         @content;
     }
 }
@@ -53,7 +53,7 @@ $medium: 740px;
 }
 
 @mixin small-medium {
-    @media screen and (max-width: ($large - 1px)) {
+    @media screen and (max-width: ($large - 1px)), screen and (min-resolution: 2dppx) and (max-width: (($large *2) - 1px)) {
         @content;
     }
 }

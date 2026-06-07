@@ -5,8 +5,11 @@
         "Deutsch": "German",
         "Polskie": "Polish",
         "Italiano": "Italian",
+        "Português": "Brazilian",
         "Português Brasileiro": "Brazilian Portuguese",
-        "Norsk": "Norwegian"
+        "Norsk": "Norwegian",
+        "Nederlands": "Dutch",
+        "Русский": "Russian"
     },
     "fr": {
         "English": "Anglais",
@@ -14,8 +17,11 @@
         "Deutsch": "Allemand",
         "Polskie": "Polonais",
         "Italiano": "Italien",
+        "Português": "Portugais",
         "Português Brasileiro": "Portugais Brésilien",
         "Norsk": "Norvégien",
+        "Nederlands": "Néerlandais",
+        "Русский": "Russe",
 
         "Dyslexic Character Sheets": "Fiches de Personnages Dyslexiques",
         "Personalised character sheets, unique to your character and free for you to print.": "Feuilles de personnage personnalisées, uniques à votre personnage et gratuites à imprimer.",
@@ -47,8 +53,11 @@
         "Espagnol": "Spanisch",
         "Polskie": "Polieren",
         "Italiano": "Italienisch",
+        "Português": "Brasilianisches",
         "Português Brasileiro": "Brasilianisches Portugiesisch",
-        "Norsk": "Norwegisch"
+        "Norsk": "Norwegisch",
+        "Nederlands": "Niederländisch",
+        "Русский": "Russisch"
     },
     "es": {
         "English": "Inglés",
@@ -56,8 +65,11 @@
         "Deutsch": "Alemán",
         "Polskie": "Polaco",
         "Italiano": "Italiano",
+        "Português": "Portugués",
         "Português Brasileiro": "Portugués Brasileño",
-        "Norsk": "Noruega"
+        "Norsk": "Noruega",
+        "Nederlands": "Holandés",
+        "Русский": "Ruso"
     },
     "pl": {
         "English": "Angielski",
@@ -65,8 +77,11 @@
         "Espagnol": "Hiszpański",
         "Deutsch": "Niemiecki",
         "Italiano": "Włoski",
+        "Português": "Brazylijski",
         "Português Brasileiro": "Brazylijski Portugalski",
-        "Norsk": "Norweski"
+        "Norsk": "Norweski",
+        "Nederlands": "Holenderski",
+        "Русский": "Rosyjski"
     },
     "it": {
         "English": "Inglese",
@@ -74,8 +89,22 @@
         "Espagnol": "Spagnola",
         "Deutsch": "Tedesca",
         "Polskie": "Polacca",
+        "Português": "Portoghese",
         "Português Brasileiro": "Portoghese Brasiliano",
-        "Norsk": "Norvegese"
+        "Norsk": "Norvegese",
+        "Nederlands": "Olandese",
+        "Русский": "Russo"
+    },
+    "pt": {
+        "English": "Inglês",
+        "Français": "Francesa",
+        "Espagnol": "Espanhola",
+        "Deutsch": "Alemã",
+        "Polskie": "Polonês",
+        "Italiano": "Italiana",
+        "Norsk": "Norueguês",
+        "Nederlands": "Holandês",
+        "Русский": "Russo"
     },
     "pt-BR": {
         "English": "Inglês",
@@ -84,7 +113,9 @@
         "Deutsch": "Alemã",
         "Polskie": "Polonês",
         "Italiano": "Italiana",
-        "Norsk": "Norueguês"
+        "Norsk": "Norueguês",
+        "Nederlands": "Holandês",
+        "Русский": "Russo"
     },
     "no": {
         "English": "Engelsk",
@@ -93,6 +124,33 @@
         "Deutsch": "Tysk",
         "Polskie": "Pusse",
         "Italiano": "Italiensk",
-        "Português Brasileiro": "Brasiliansk Portugisisk"
+        "Português": "Portugisisk",
+        "Português Brasileiro": "Brasiliansk Portugisisk",
+        "Nederlands": "Nederlandsk",
+        "Русский": "Russisk"
+    },
+    "nl": {
+        "English": "Engels",
+        "Français": "Frans",
+        "Espagnol": "Spaans",
+        "Deutsch": "Duits",
+        "Polskie": "Pools",
+        "Italiano": "Italiaans",
+        "Português": "Portugees",
+        "Português Brasileiro": "Braziliaans Portugees",
+        "Norsk": "Noors",
+        "Русский": "Russisch"
+    },
+    "ru": {
+        "English": "Английский",
+        "Français": "Французский",
+        "Espagnol": "испанский",
+        "Deutsch": "немецкий",
+        "Polskie": "польский",
+        "Italiano": "итальянский",
+        "Português": "португальский",
+        "Português Brasileiro": "бразильский португальский",
+        "Norsk": "норвежский",
+        "Nederlands": "Голландский"
     }
 }

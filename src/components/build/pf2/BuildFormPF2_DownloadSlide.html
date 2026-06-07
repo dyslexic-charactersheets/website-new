@@ -21,13 +21,13 @@
 
   <h4>{{__ "Format"}}</h4>
   <fieldset>
-    <div class="columns">
-      <div class="column">
+    {{#> Columns }}
+      {{#> Column }}
         {{> Radio name=(str "${type}-download-format" type=type) var=(str "${type}DownloadFormat" type=type) value="html" checked=true label="HTML"}}
         <p class='info'>{{__ "Allows values to be filled in"}}</p>
         <p class='info'>{{__ "Adjusts to fit your paper size"}}</p>
-      </div>
-      <div class="column">
+      {{/Column}}
+      {{#> Column }}
         {{> Radio name=(str "${type}-download-format" type=type) var=(str "${type}DownloadFormat" type=type) value="pdf" label="PDF"}}
         <p class='info'>{{__ "Use this if you have trouble printing HTML"}}</p>
         <p class='info'>
@@ -35,8 +35,8 @@
           {{> Radio name=(str "${type}-download-paper" type=type) var=(str "${type}DownloadPaper" type=type) value="Letter" checked=true label="US Letter" p=false}}
           {{> Radio name=(str "${type}-download-paper" type=type) var=(str "${type}DownloadPaper" type=type) value="A4" label="A4" p=false}}
         </p>
-      </div>
-    </div>
+      {{/Column}}
+    {{/Columns}}
   </fieldset>
 
   {{#> Row align="centre"}}

@@ -11,15 +11,23 @@
   {{/Row}}
 
   <h4>{{__ "Character"}}</h4>
-  {{#> Row valign="top"}}
-    {{> PageOption page="cover" label="Cover page" checked=true}}
-    {{> PageOption page="level-up" label="Level up" checked=true}}
-    {{> PageOption page="reference" label="Action/Class Reference"}}
-    {{> PageOption page="actions" label="Actions"}}
-    {{> PageOption page="character-background" label="Character Background"}}
-  {{/Row}}
+  {{#> Columns layout="3-2"}}
+    {{#> Column}}
+      {{#> Row valign="top"}}
+        {{> PageOption page="cover" label="Cover page" checked=true}}
+        {{> PageOption page="level-up" label="Level up" checked=true}}
+        {{> PageOption page="reference" label="Action/Class Reference"}}
+      {{/Row}}
+    {{/Column}}
+    {{#> Column}}
+      {{#> Row valign="top"}}
+        {{> PageOption page="actions" label="Actions"}}
+        {{> PageOption page="character-background" label="Character Background"}}
+      {{/Row}}
+    {{/Column}}
+  {{/Columns}}
 
-  {{#> Row valign="top"}}
+  {{#> Columns layout="3-2"}}
     {{#> Column}}
       <h4>{{__ "Inventory"}}</h4>
       <div class="row row--dense">
@@ -40,7 +48,7 @@
         </div>
       {{/Row}}
     {{/Column}}
-  {{/Row}}
+  {{/Columns}}
 
   <h4>{{__ "Companions"}}</h4>
   {{#> Row valign="top"}}

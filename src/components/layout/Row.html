@@ -5,7 +5,7 @@
 
 <template>
   <div 
-    class="row{{#if align}} align_{{align}}{{/if}}{{#if valign}} valign_{{valign}}{{/if}}{{#if pad}} pad{{/if}}"
+    class="row{{#if align}} align_{{align}}{{/if}}{{#if valign}} valign_{{valign}}{{/if}}{{#if pad}} pad{{/if}}{{#if responsive}} row--responsive{{/if}}"
   >
     {{> @partial-block }}
   </div>
@@ -51,11 +51,18 @@
 
   @include responsive.medium {
     gap: 1rem;
+
+    &.row--responsive {
+      flex-direction: column;
+    }
   }
 
   @include responsive.small {
-    flex-direction: column;
     gap: 0.5rem;
+
+    &.row--responsive {
+      flex-direction: column;
+    }
   }
 
   > * {
