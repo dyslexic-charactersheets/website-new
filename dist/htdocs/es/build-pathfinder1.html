@@ -15,6 +15,8 @@
 
 <main class="main--layout_build main--theme_adventure">
     <section id="left"
+        class="left--menu menu menu--left"
+        data-bind="show = body.currentMenu | eq 'pathfinder1left'"
       >
         <div class="pane pane--bg_parchment pane--shadow_left light-region ">
                   <nav class="nav--row" id="home-link" aria-label="">
@@ -26,7 +28,7 @@
                     <nav class="nav--row">
                           <button 
                         type="button"
-                        
+                        id="pathfinder1left"
                         class="btn btn--borderless " 
                         data-on-click="body.currentMenu &#x3D; main-menu"
                         
@@ -36,7 +38,7 @@
                   
                           <button 
                         type="button"
-                        
+                        id="pathfinder1left"
                         class="btn btn--borderless " 
                         data-on-click="body.currentMenu &#x3D; language-menu"
                         
@@ -50,7 +52,7 @@
                     </span><span class="if" data-bind="reveal=body.isLoggedIn|not">
                                 <button 
                             type="button"
-                            
+                            id="pathfinder1left"
                             class="btn btn--borderless login-menu-button" 
                             data-on-click="body.currentMenu &#x3D; login-menu"
                             
@@ -240,7 +242,18 @@
     <section id="right"
       >
         <div class="pane pane--bg_red  dark-region ">
-                  <form 
+                  <nav class="nav--responsive responsive-small-medium">
+                          <button 
+                        type="button"
+                        
+                        class="btn btn--borderless " 
+                        data-on-click="body.currentMenu &#x3D; pathfinder1left"
+                        
+                      >
+                        ⋮      
+                      </button>
+                  
+                    </nav>      <form 
                       id="build-form"
                       class="build-form build-form-classic build-form-pathfinder"
                       data-game="pathfinder"
@@ -69196,105 +69209,106 @@
             >
                       <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>        <h2>New Character</h2>
             </div>
-          <div class="centre-pane">
-              <div class="centre-pane__inner">
-                
-                <div 
-                    class="row align_centre"
-                  >
-                              <h3 class="align-centre">Pick a game:</h3>
-                  </div>        <p>&nbsp;</p>
-                
-                <div class="grid grid--1">
-                        <button 
-                          type="button"
-                          id="new-character-menu"
-                          class="btn btn--tile " 
-                          data-on-click="emit reveal-pf2"
-                          
-                        >
-                                      <picture class="picture--size_logo  ">
-                                          <img src="/images/pathfinder2e.png">
-                                        </picture>      <span class="btn__badge">2e</span>
-                        </button>
+          <div class="scroll-pane">
+              <div class="centre-pane">
+                  <div class="centre-pane__inner">
                     
-                    <div class="reveal reveal--pf2-edition" id="pf2-edition"
+                    <div 
+                        class="row align_centre"
                       >
-                        <div 
-                            class="row align_centre"
+                                  <h3 class="align-centre">Pick a game:</h3>
+                      </div>        <p>&nbsp;</p>
+                    
+                    <div class="grid grid--1">
+                            <button 
+                              type="button"
+                              id="new-character-menu"
+                              class="btn btn--tile " 
+                              data-on-click="emit reveal-pf2"
+                              
+                            >
+                                          <picture class="picture--size_logo  ">
+                                              <img src="/images/pathfinder2e.png">
+                                            </picture>      <span class="btn__badge">2e</span>
+                            </button>
+                        
+                        <div class="reveal reveal--pf2-edition" id="pf2-edition"
                           >
-                                          <div>
-                                            <picture class="picture--size_tile-small  ">
-                                                <img src="/images/pathfinder2e-legacy.png">
-                                              </picture>    <a 
-                                  id="pf2-edition"
-                                  class="btn btn--primary " 
-                                  href="/es/build-pathfinder2.html?edition&#x3D;pathfinder2" 
-                                   
-                            
-                                  
-                                >
-                                                    Legacy
-                                  
-                                </a>
-                                          </div><div>
-                                            <picture class="picture--size_tile-small  ">
-                                                <img src="/images/pathfinder2e-remaster.png">
-                                              </picture>    <a 
-                                  id="pf2-edition"
-                                  class="btn btn--primary " 
-                                  href="/es/build-pathfinder2.html?edition&#x3D;pathfinder2remaster" 
-                                   
-                            
-                                  
-                                >
-                                                    Remaster
-                                  
-                                </a>
-                                          </div>
-                          </div>  </div>
-                    
-                        <a 
-                          id="new-character-menu"
-                          class="btn btn--tile " 
-                          href="/es/build-starfinder1.html" 
-                           
-                    
-                          
-                        >
-                                      <picture class="picture--size_logo  ">
-                                          <img src="/images/starfinder.png">
-                                        </picture>      <span class="btn__badge">1e</span>
-                        </a>
-                    
-                        <a 
-                          id="new-character-menu"
-                          class="btn btn--tile " 
-                          href="/es/build-pathfinder1.html" 
-                           
-                    
-                          
-                        >
-                                      <picture class="picture--size_logo  ">
-                                          <img src="/images/pathfinder.png">
-                                        </picture>      <span class="btn__badge">1e</span>
-                        </a>
-                    
-                        <a 
-                          id="new-character-menu"
-                          class="btn btn--tile " 
-                          href="/es/build-dnd35.html" 
-                           
-                    
-                          
-                        >
-                                      <picture class="picture--size_logo  ">
-                                          <img src="/images/dnd35.png">
-                                        </picture>      <span class="btn__badge">3.5</span>
-                        </a>
+                            <div 
+                                class="row align_centre"
+                              >
+                                              <div>
+                                                <picture class="picture--size_tile-small  ">
+                                                    <img src="/images/pathfinder2e-legacy.png">
+                                                  </picture>    <a 
+                                      id="pf2-edition"
+                                      class="btn btn--primary " 
+                                      href="/es/build-pathfinder2.html?edition&#x3D;pathfinder2" 
+                                       
+                                
+                                      
+                                    >
+                                                        Legacy
+                                      
+                                    </a>
+                                              </div><div>
+                                                <picture class="picture--size_tile-small  ">
+                                                    <img src="/images/pathfinder2e-remaster.png">
+                                                  </picture>    <a 
+                                      id="pf2-edition"
+                                      class="btn btn--primary " 
+                                      href="/es/build-pathfinder2.html?edition&#x3D;pathfinder2remaster" 
+                                       
+                                
+                                      
+                                    >
+                                                        Remaster
+                                      
+                                    </a>
+                                              </div>
+                              </div>  </div>
+                        
+                            <a 
+                              id="new-character-menu"
+                              class="btn btn--tile " 
+                              href="/es/build-starfinder1.html" 
+                               
+                        
+                              
+                            >
+                                          <picture class="picture--size_logo  ">
+                                              <img src="/images/starfinder.png">
+                                            </picture>      <span class="btn__badge">1e</span>
+                            </a>
+                        
+                            <a 
+                              id="new-character-menu"
+                              class="btn btn--tile " 
+                              href="/es/build-pathfinder1.html" 
+                               
+                        
+                              
+                            >
+                                          <picture class="picture--size_logo  ">
+                                              <img src="/images/pathfinder.png">
+                                            </picture>      <span class="btn__badge">1e</span>
+                            </a>
+                        
+                            <a 
+                              id="new-character-menu"
+                              class="btn btn--tile " 
+                              href="/es/build-dnd35.html" 
+                               
+                        
+                              
+                            >
+                                          <picture class="picture--size_logo  ">
+                                              <img src="/images/dnd35.png">
+                                            </picture>      <span class="btn__badge">3.5</span>
+                            </a>
+                      </div>
                   </div>
-              </div>
-            </div>      
+                </div>  </div>      
         </div>    </div>
   </aside><aside id="download-menu" 
     class="menu menu--right download-menu" 
@@ -69310,16 +69324,34 @@
                   <h2>Downloading...</h2>
                 </div>
           
-          <div class="reveal reveal--download-building" id="download-building"
-              bind="show = #body.downloadStatus | eq &#x27;in-progress&#x27;"
-            >
+          <span class="if" data-bind="reveal=body.isLoggedIn">
+                      <span class="badge badge--colour_green dark-region">
+                  <i class="icon icon_user"></i>Logged In  </span>
+              
+                      <p>Thank you</p>
+            </span>      
+          <span class="if" data-bind="reveal=body.isLoggedIn|not">
+                          <button 
+                    type="button"
+                    id="download-menu"
+                    class="btn btn--borderless login-menu-button" 
+                    data-on-click="body.currentMenu &#x3D; login-menu"
+                    
+                  >
+                    <i class="icon icon_user"></i>Login      
+                  </button>
+              
+              
+                      <p>Want to fill in your character sheets on screen? Patrons can do that.</p>
+            </span>
+          <span class="if" data-bind="reveal=#body.downloadStatus | eq &#x27;in-progress&#x27;">
                       <p>Building character sheet</p>
-            </div>
-          <div class="reveal reveal--download-ready" id="download-ready"
-              bind="show = #body.downloadStatus | eq &#x27;ready&#x27;"
-            >
+            </span>
+          <span class="if" data-bind="reveal=#body.downloadStatus | eq &#x27;ready&#x27;">
                       <p>Ready!</p>
-            </div>      
+            </span>
+                
+                
                 <div class="spacer"></div>
           
         </div>    </div>

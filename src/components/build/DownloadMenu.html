@@ -18,13 +18,27 @@
         <h2>{{__ "Downloading"}}...</h2>
       </div>
 
-      {{#> Reveal id="download-building" cond="#body.downloadStatus | eq 'in-progress'"}}
-        <p>{{__ "Building character sheet"}}</p>
-      {{/Reveal}}
+      {{#> If bind="body.isLoggedIn"}}
+        {{#> Badge colour="green"}}{{> Icon icon="user"}}{{__ "Logged In"}}{{/Badge}}
 
-      {{#> Reveal id="download-ready" cond="#body.downloadStatus | eq 'ready'"}}
+        <p>{{__ "Thank you"}}</p>
+      {{/ If}}
+      
+      {{#> If bind="body.isLoggedIn|not"}}
+        {{#> Button type="borderless" on-click="body.currentMenu = login-menu" cls="login-menu-button"}}{{> Icon icon="user"}}{{__ "Login"}}{{/Button}}
+
+        <p>{{__ "Want to fill in your character sheets on screen? Patrons can do that."}}</p>
+      {{/ If}}
+
+      {{#> If bind="#body.downloadStatus | eq 'in-progress'"}}
+        <p>{{__ "Building character sheet"}}</p>
+      {{/If}}
+
+      {{#> If bind="#body.downloadStatus | eq 'ready'"}}
         <p>{{__ "Ready!"}}</p>
-      {{/Reveal}}
+      {{/If}}
+
+      
       
       <div class="spacer"></div>
 

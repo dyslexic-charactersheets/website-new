@@ -1239,7 +1239,16 @@
                                                                                     class=""
                                                                                     data-on-click="show-menu form-select-feat-wizard"
                                                                                     data-bind="content=#build-form.featWizard | each | displayName &#x27;feat/wizard&#x27;"
-                                                                                  ></output>  </div><div class="switch__case" data-value="class/remaster/bard" data-show="">
+                                                                                  ></output>  </div><div class="switch__case" data-value="class/remaster/alchemist" data-show="">
+                                                                              <h4>Research Field</h4>
+                                                                              <output
+                                                                                  name="remaster/alchemist/research-field"
+                                                                                  
+                                                                                  class=""
+                                                                                  data-on-click="show-menu form-select-remaster-alchemist-research-field"
+                                                                                  data-bind="content=#build-form.remasterAlchemistResearchField | displayName &#x27;remaster/alchemist/research-field&#x27;"
+                                                                                ></output>                
+                                                        </div><div class="switch__case" data-value="class/remaster/bard" data-show="">
                                                                               <h4>Bard&#x27;s Muse</h4>
                                                                               <output
                                                                                   name="bard/muse"
@@ -35765,6 +35774,25 @@
                                           
                                         </button>
                                 </div>
+                                <h3>Player Core 2</h3>
+                                <div class="item-list__group">
+                                        <button 
+                                          type="button"
+                                          id="item-class-remaster-alchemist"
+                                          class="btn btn--tile-light  form-select-item-button " 
+                                          data-on-click="emit form-select,close-menu class/remaster/alchemist"
+                                          data-select="class" data-name="_{Alchemist}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster" data-selects="remaster/alchemist/research-field,feat/alchemist"
+                                        >
+                                                <picture class="picture--size_tile picture--lazy picture--transparent">
+                                                    <img data-src="/images/options/class/remaster/alchemist.png">
+                                                  </picture>
+                                                <h4>Alchemist</h4>
+                                                <span class="button__badge">
+                                                  <img src="/images/options/badge/class/remaster/alchemist.png">
+                                                </span>
+                                          
+                                        </button>
+                                </div>
                                 <h3>Dark Archive</h3>
                                 <div class="item-list__group">
                                         <button 
@@ -35996,8 +36024,8 @@
               "apg-toxicologist"
             ],
             "_{Core Rulebook}": [
-              "chirurgeon",
               "bomber",
+              "chirurgeon",
               "mutagenist"
             ]
           },
@@ -36399,13 +36427,13 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
+                                      "chemical-contagion",
                                       "alchemical-familiar",
                                       "pinpoint-poisoner",
                                       "smoke-bomb",
                                       "sticky-poison",
-                                      "chemical-contagion",
-                                      "subtle-delivery",
-                                      "tenacious-toxins"
+                                      "tenacious-toxins",
+                                      "subtle-delivery"
                                     ]
                                   },
                                   "displayGroups": [
@@ -36692,8 +36720,8 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "interrogation",
               "alchemical-sciences",
+              "interrogation",
               "empiricism",
               "forensic-medicine"
             ]
@@ -37075,12 +37103,12 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "ancestors",
-              "battle",
-              "cosmos",
-              "life",
               "bones",
+              "cosmos",
               "flames",
+              "battle",
+              "life",
+              "ancestors",
               "lore",
               "tempest"
             ]
@@ -37518,10 +37546,10 @@
           "groups": {
             "_{Advanced Player's Guide}": [
               "battledancer",
-              "braggart",
               "gymnast",
               "wit",
-              "fencer"
+              "fencer",
+              "braggart"
             ]
           },
           "displayGroups": [
@@ -38016,12 +38044,12 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "curse",
+              "night",
               "fervor",
               "fate",
-              "wild",
-              "night",
               "rune",
+              "curse",
+              "wild",
               "winter"
             ]
           },
@@ -38633,10 +38661,10 @@
               "apg-superstition"
             ],
             "_{Core Rulebook}": [
-              "dragon",
               "giant",
-              "fury",
+              "dragon",
               "animal",
+              "fury",
               "spirit"
             ]
           },
@@ -39079,8 +39107,8 @@
             ],
             "_{Core Rulebook}": [
               "enigma",
-              "polymath",
-              "maestro"
+              "maestro",
+              "polymath"
             ]
           },
           "displayGroups": [
@@ -39632,13 +39660,13 @@
           "groups": {
             "_{Advanced Player's Guide}": [
               "apg-antipaladin",
-              "apg-desecrator",
-              "apg-tyrant"
+              "apg-tyrant",
+              "apg-desecrator"
             ],
             "_{Core Rulebook}": [
+              "redeemer",
               "liberator",
-              "paladin",
-              "redeemer"
+              "paladin"
             ]
           },
           "displayGroups": [
@@ -40014,8 +40042,8 @@
           "groups": {
             "_{Core Rulebook}": [
               "blade",
-              "steed",
-              "shield"
+              "shield",
+              "steed"
             ]
           },
           "displayGroups": [
@@ -40310,8 +40338,8 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "cloistered",
-              "warpriest"
+              "warpriest",
+              "cloistered"
             ]
           },
           "displayGroups": [
@@ -40702,10 +40730,10 @@
           ],
           "groups": {
             "_{Dark Archive}": [
-              "gathered-lore",
               "precise-discipline",
               "unbound-step",
-              "wandering-reverie"
+              "wandering-reverie",
+              "gathered-lore"
             ]
           },
           "displayGroups": [
@@ -41055,10 +41083,10 @@
           ],
           "groups": {
             "_{Dark Archive}": [
-              "distant-grasp",
-              "infinite-eye",
               "oscillating-wave",
+              "distant-grasp",
               "silent-whisper",
+              "infinite-eye",
               "tangible-dream",
               "unbound-step"
             ]
@@ -41508,12 +41536,12 @@
               "amulet",
               "chalice",
               "bell",
-              "regalia",
-              "mirror",
               "lantern",
               "tome",
-              "wand",
-              "weapon"
+              "mirror",
+              "regalia",
+              "weapon",
+              "wand"
             ]
           },
           "displayGroups": [
@@ -42019,9 +42047,9 @@
           "groups": {
             "_{Core Rulebook}": [
               "animal",
-              "leaf",
               "wild",
-              "storm"
+              "storm",
+              "leaf"
             ]
           },
           "displayGroups": [
@@ -42447,8 +42475,8 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
-                                      "animal-companion",
-                                      "wild-shape"
+                                      "wild-shape",
+                                      "animal-companion"
                                     ]
                                   },
                                   "displayGroups": [
@@ -42862,9 +42890,9 @@
           ],
           "groups": {
             "_{Guns and Gears}": [
-              "drifter",
-              "pistolero",
               "sniper",
+              "pistolero",
+              "drifter",
               "vanguard"
             ]
           },
@@ -43171,8 +43199,8 @@
           "groups": {
             "_{Guns and Gears}": [
               "armour",
-              "weapon",
-              "construct"
+              "construct",
+              "weapon"
             ]
           },
           "displayGroups": [
@@ -43537,10 +43565,10 @@
                                   "groups": {
                                     "_{Core Rulebook}": [
                                       "crane",
-                                      "dragon",
-                                      "tangled-forest",
-                                      "ironblood",
                                       "mountain",
+                                      "dragon",
+                                      "ironblood",
+                                      "tangled-forest",
                                       "tiger",
                                       "wolf"
                                     ]
@@ -43956,12 +43984,12 @@
                                   ],
                                   "groups": {
                                     "_{Rage of Elements}": [
-                                      "fire",
                                       "air",
                                       "earth",
+                                      "fire",
                                       "metal",
-                                      "water",
-                                      "wood"
+                                      "wood",
+                                      "water"
                                     ]
                                   },
                                   "displayGroups": [
@@ -44966,13 +44994,13 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "apg-mastermind",
-              "apg-eldritch-trickster"
+              "apg-eldritch-trickster",
+              "apg-mastermind"
             ],
             "_{Core Rulebook}": [
               "thief",
-              "scoundrel",
-              "ruffian"
+              "ruffian",
+              "scoundrel"
             ]
           },
           "displayGroups": [
@@ -45522,10 +45550,10 @@
           ],
           "groups": {
             "_{Secrets of Magic}": [
-              "laughing-shadow",
-              "sparkling-targe",
               "starlit-span",
+              "laughing-shadow",
               "inexorable-iron",
+              "sparkling-targe",
               "twisting-tree"
             ]
           },
@@ -45961,16 +45989,16 @@
           ],
           "groups": {
             "_{Secrets of Magic}": [
-              "angel",
-              "beast",
-              "anger-phantom",
-              "dragon",
-              "demon",
               "construct",
+              "anger-phantom",
+              "angel",
+              "demon",
               "devotion-phantom",
-              "fey",
+              "beast",
+              "dragon",
               "psychopomp",
-              "plant"
+              "plant",
+              "fey"
             ]
           },
           "displayGroups": [
@@ -46640,22 +46668,22 @@
           ],
           "groups": {
             "_{Advanced Player's Guide}": [
-              "apg-shadow",
-              "apg-nymph",
+              "apg-genie",
               "apg-psychopomp",
-              "apg-genie"
+              "apg-shadow",
+              "apg-nymph"
             ],
             "_{Core Rulebook}": [
               "angelic",
+              "aberrant",
               "demonic",
               "diabolic",
-              "aberrant",
               "draconic",
-              "elemental",
-              "fey",
-              "undead",
+              "hag",
               "imperial",
-              "hag"
+              "fey",
+              "elemental",
+              "undead"
             ]
           },
           "displayGroups": [
@@ -48157,14 +48185,14 @@
           ],
           "groups": {
             "_{Core Rulebook}": [
-              "conjuration",
-              "enchantment",
-              "abjuration",
               "divination",
-              "evocation",
+              "enchantment",
+              "conjuration",
               "illusion",
-              "necromancy",
+              "abjuration",
+              "evocation",
               "transmutation",
+              "necromancy",
               "universalist"
             ]
           },
@@ -48796,9 +48824,9 @@
                                   ],
                                   "groups": {
                                     "_{Core Rulebook}": [
+                                      "reach-spell",
                                       "counterspell",
-                                      "familiar",
-                                      "reach-spell"
+                                      "familiar"
                                     ]
                                   },
                                   "displayGroups": [
@@ -48952,7 +48980,207 @@
                               </div>    </div>
                               </div>    </div>
                         </div>  </div>  </div>    </div>
-          </aside>
+          </aside>      <!-- {
+          "select": "remaster/alchemist/research-field",
+          "name": "_{Research Field}",
+          "max": 1,
+          "base": false,
+          "values": [
+            {
+              "id": "remaster/alchemist/research-field/bomber",
+              "code": "bomber",
+              "group": "_{Player Core}",
+              "name": "_{Bomber}",
+              "meta": {
+                "select": "remaster/alchemist/research-field",
+                "name": "_{Bomber}",
+                "rarity": "common",
+                "source": "core",
+                "edition": "pathfinder2remaster"
+              },
+              "size": "",
+              "select": "remaster/alchemist/research-field"
+            }
+          ],
+          "groups": {
+            "_{Player Core}": [
+              "bomber"
+            ]
+          },
+          "displayGroups": [
+            {
+              "group": "_{Player Core}",
+              "values": [
+                {
+                  "id": "remaster/alchemist/research-field/bomber",
+                  "code": "bomber",
+                  "group": "_{Player Core}",
+                  "name": "_{Bomber}",
+                  "meta": {
+                    "select": "remaster/alchemist/research-field",
+                    "name": "_{Bomber}",
+                    "rarity": "common",
+                    "source": "core",
+                    "edition": "pathfinder2remaster"
+                  },
+                  "size": "",
+                  "select": "remaster/alchemist/research-field"
+                }
+              ]
+            }
+          ]
+        } -->
+          <aside id="form-select-remaster-alchemist-research-field" 
+              class="menu menu--right menu--wide form-select-menu " 
+              data-bind="show = body.currentMenu | eq 'form-select-remaster-alchemist-research-field'"
+              data-code="subclass"
+            >
+              <div class="menu__inner">
+                <div class="pane pane--bg_parchment  light-region pane--nopad">
+                    <div class="header-row">
+                        <div 
+                            class="row"
+                          >
+                                      <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>          <h3>Research Field</h3>
+                          </div>        <div class="facet-search-tools"
+                                    data-list="form-select-remaster-alchemist-research-field-items">
+                                <div 
+                                    class="row"
+                                  >
+                                          <div class="facet">
+                                                <label>Edition</label>
+                                                <select 
+                                                  id="form-select-remaster-alchemist-research-field--facet-edition" 
+                                                  class="facet-select facet-edition" 
+                                                  data-on-change="emit facet-change"
+                                                  autocomplete="off"
+                                                >
+                                                    <option 
+                                                      value="all" 
+                                                    >Any</option>
+                                                    <option 
+                                                      value="pathfinder2" 
+                                                    >Pathfinder 2 Legacy</option>
+                                                    <option 
+                                                      value="pathfinder2remaster" 
+                                                    >Pathfinder 2 Remaster</option>
+                                                </select>
+                                          
+                                          
+                                          
+                                            </div>
+                                          <div class="facet">
+                                                <label>Source</label>
+                                                <select 
+                                                  id="form-select-remaster-alchemist-research-field--facet-source" 
+                                                  class="facet-select facet-source" 
+                                                  data-on-change="emit facet-change"
+                                                  autocomplete="off"
+                                                >
+                                                    <option 
+                                                      value="" 
+                                                    >Any</option>
+                                                    <option 
+                                                      value="core" 
+                                                    >Core Rulebooks</option>
+                                                    <option 
+                                                      value="expansions" 
+                                                    >Expansions</option>
+                                                    <option 
+                                                      value="advetures" 
+                                                    >Adventures</option>
+                                                    <option 
+                                                      value="thirdparty" 
+                                                    >Third-party</option>
+                                                </select>
+                                          
+                                          
+                                          
+                                            </div>
+                                          <div class="facet">
+                                                <label>Rarity</label>
+                                                <select 
+                                                  id="form-select-remaster-alchemist-research-field--facet-rarity" 
+                                                  class="facet-select facet-rarity" 
+                                                  data-on-change="emit facet-change"
+                                                  autocomplete="off"
+                                                >
+                                                    <option 
+                                                      value="" selected
+                                                    >Any</option>
+                                                    <option 
+                                                      value="common" 
+                                                    >Common</option>
+                                                    <option 
+                                                      value="uncommon" 
+                                                    >Uncommon</option>
+                                                    <option 
+                                                      value="rare" 
+                                                    >Rare</option>
+                                                    <option 
+                                                      value="unique" 
+                                                    >Unique</option>
+                                                </select>
+                                          
+                                          
+                                          
+                                            </div>      
+                                          <input type="search" class="facet-search-box" 
+                                              id="search-form-select-remaster-alchemist-research-field"
+                                              autocomplete="off"
+                                              data-on-change="emit facet-change">  </div>  </div>  </div>
+                    <div class="scroll-pane">
+                                <!-- "small" -->
+                        <div class="item-list item-list--small" id="form-select-remaster-alchemist-research-field-items" data-facet="form-select-remaster-alchemist-research-field">
+                                        <h3>Player Core</h3>
+                                        <div class="item-list__group">
+                                                <button 
+                                                  type="button"
+                                                  id="item-remaster-alchemist-research-field-bomber"
+                                                  class="btn btn--tile-light  form-select-item-button " 
+                                                  data-on-click="emit form-select,close-menu remaster/alchemist/research-field/bomber"
+                                                  data-select="remaster/alchemist/research-field" data-name="_{Bomber}" data-rarity="common" data-source="core" data-edition="pathfinder2remaster"
+                                                >
+                                                        <h4>Bomber</h4>
+                                                  
+                                                </button>
+                                        </div>
+                            <div class="item-list__no-results">
+                        <div class="centre-pane">
+                            <div class="centre-pane__inner">
+                              <div 
+                                  class="row align_centre"
+                                >
+                                            <div>
+                                              <h2 class="align-centre">Nothing found</h2>
+                                              <div class="item-list__suggestions">
+                                                <p class="item-list__suggestion item-list__suggestion--edition_pathfinder2">
+                                                  <a>Try searching in Pathfinder 2e (Legacy)?</a>
+                                                </p>
+                                                <p class="item-list__suggestion item-list__suggestion--edition_pathfinder2remaster">
+                                                  <a>Try searching in Pathfinder 2e (Remaster)?</a>
+                                                </p>
+                                                <p class="item-list__suggestion item-list__suggestion--edition_starfinder">
+                                                  <a>Try searching in Starfinder 2e?</a>
+                                                </p>
+                                                <p class="item-list__suggestion item-list__suggestion--source">
+                                                  <a>Try searching any source?</a>
+                                                </p>
+                                                <p class="item-list__suggestion item-list__suggestion--rarity">
+                                                  <a>Try searching any rarity?</a>
+                                                </p>
+                                                <p class="item-list__suggestion item-list__suggestion--ancestry">
+                                                  <a>Try searching for an ancestry heritage?</a>
+                                                </p>
+                                                <p class="item-list__suggestion item-list__suggestion--versatile">
+                                                  <a>Try searching for a versatile heritage?</a>
+                                                </p>
+                                              </div>
+                                            </div>
+                                </div>    </div>
+                          </div>    </div>
+                          </div>  </div>  </div>    </div>
+            </aside>
   <aside id="form-select-multiclass" 
       class="menu menu--right menu--wide form-select-menu " 
       data-bind="show = body.currentMenu | eq 'form-select-multiclass'"
@@ -85121,16 +85349,34 @@
                     <h2>Downloading...</h2>
                   </div>
             
-            <div class="reveal reveal--download-building" id="download-building"
-                bind="show = #body.downloadStatus | eq &#x27;in-progress&#x27;"
-              >
+            <span class="if" data-bind="reveal=body.isLoggedIn">
+                        <span class="badge badge--colour_green dark-region">
+                    <i class="icon icon_user"></i>Logged In  </span>
+                
+                        <p>Thank you</p>
+              </span>      
+            <span class="if" data-bind="reveal=body.isLoggedIn|not">
+                            <button 
+                      type="button"
+                      id="download-menu"
+                      class="btn btn--borderless login-menu-button" 
+                      data-on-click="body.currentMenu &#x3D; login-menu"
+                      
+                    >
+                      <i class="icon icon_user"></i>Login      
+                    </button>
+                
+                
+                        <p>Want to fill in your character sheets on screen? Patrons can do that.</p>
+              </span>
+            <span class="if" data-bind="reveal=#body.downloadStatus | eq &#x27;in-progress&#x27;">
                         <p>Building character sheet</p>
-              </div>
-            <div class="reveal reveal--download-ready" id="download-ready"
-                bind="show = #body.downloadStatus | eq &#x27;ready&#x27;"
-              >
+              </span>
+            <span class="if" data-bind="reveal=#body.downloadStatus | eq &#x27;ready&#x27;">
                         <p>Ready!</p>
-              </div>      
+              </span>
+                  
+                  
                   <div class="spacer"></div>
             
           </div>    </div>
@@ -85146,105 +85392,106 @@
               >
                         <button class="btn btn--min btn--icon btn--close-button" data-action="close">✕</button>        <h2>New Character</h2>
               </div>
-            <div class="centre-pane">
-                <div class="centre-pane__inner">
-                  
-                  <div 
-                      class="row align_centre"
-                    >
-                                <h3 class="align-centre">Pick a game:</h3>
-                    </div>        <p>&nbsp;</p>
-                  
-                  <div class="grid grid--1">
-                          <button 
-                            type="button"
-                            id="new-character-menu"
-                            class="btn btn--tile " 
-                            data-on-click="emit reveal-pf2"
-                            
-                          >
-                                        <picture class="picture--size_logo  ">
-                                            <img src="/images/pathfinder2e.png">
-                                          </picture>      <span class="btn__badge">2e</span>
-                          </button>
+            <div class="scroll-pane">
+                <div class="centre-pane">
+                    <div class="centre-pane__inner">
                       
-                      <div class="reveal reveal--pf2-edition" id="pf2-edition"
+                      <div 
+                          class="row align_centre"
                         >
-                          <div 
-                              class="row align_centre"
+                                    <h3 class="align-centre">Pick a game:</h3>
+                        </div>        <p>&nbsp;</p>
+                      
+                      <div class="grid grid--1">
+                              <button 
+                                type="button"
+                                id="new-character-menu"
+                                class="btn btn--tile " 
+                                data-on-click="emit reveal-pf2"
+                                
+                              >
+                                            <picture class="picture--size_logo  ">
+                                                <img src="/images/pathfinder2e.png">
+                                              </picture>      <span class="btn__badge">2e</span>
+                              </button>
+                          
+                          <div class="reveal reveal--pf2-edition" id="pf2-edition"
                             >
-                                            <div>
-                                              <picture class="picture--size_tile-small  ">
-                                                  <img src="/images/pathfinder2e-legacy.png">
-                                                </picture>    <a 
-                                    id="pf2-edition"
-                                    class="btn btn--primary " 
-                                    href="/it/build-pathfinder2.html?edition&#x3D;pathfinder2" 
-                                     
-                              
-                                    
-                                  >
-                                                      Legacy
-                                    
-                                  </a>
-                                            </div><div>
-                                              <picture class="picture--size_tile-small  ">
-                                                  <img src="/images/pathfinder2e-remaster.png">
-                                                </picture>    <a 
-                                    id="pf2-edition"
-                                    class="btn btn--primary " 
-                                    href="/it/build-pathfinder2.html?edition&#x3D;pathfinder2remaster" 
-                                     
-                              
-                                    
-                                  >
-                                                      Remaster
-                                    
-                                  </a>
-                                            </div>
-                            </div>  </div>
-                      
-                          <a 
-                            id="new-character-menu"
-                            class="btn btn--tile " 
-                            href="/it/build-starfinder1.html" 
-                             
-                      
-                            
-                          >
-                                        <picture class="picture--size_logo  ">
-                                            <img src="/images/starfinder.png">
-                                          </picture>      <span class="btn__badge">1e</span>
-                          </a>
-                      
-                          <a 
-                            id="new-character-menu"
-                            class="btn btn--tile " 
-                            href="/it/build-pathfinder1.html" 
-                             
-                      
-                            
-                          >
-                                        <picture class="picture--size_logo  ">
-                                            <img src="/images/pathfinder.png">
-                                          </picture>      <span class="btn__badge">1e</span>
-                          </a>
-                      
-                          <a 
-                            id="new-character-menu"
-                            class="btn btn--tile " 
-                            href="/it/build-dnd35.html" 
-                             
-                      
-                            
-                          >
-                                        <picture class="picture--size_logo  ">
-                                            <img src="/images/dnd35.png">
-                                          </picture>      <span class="btn__badge">3.5</span>
-                          </a>
+                              <div 
+                                  class="row align_centre"
+                                >
+                                                <div>
+                                                  <picture class="picture--size_tile-small  ">
+                                                      <img src="/images/pathfinder2e-legacy.png">
+                                                    </picture>    <a 
+                                        id="pf2-edition"
+                                        class="btn btn--primary " 
+                                        href="/it/build-pathfinder2.html?edition&#x3D;pathfinder2" 
+                                         
+                                  
+                                        
+                                      >
+                                                          Legacy
+                                        
+                                      </a>
+                                                </div><div>
+                                                  <picture class="picture--size_tile-small  ">
+                                                      <img src="/images/pathfinder2e-remaster.png">
+                                                    </picture>    <a 
+                                        id="pf2-edition"
+                                        class="btn btn--primary " 
+                                        href="/it/build-pathfinder2.html?edition&#x3D;pathfinder2remaster" 
+                                         
+                                  
+                                        
+                                      >
+                                                          Remaster
+                                        
+                                      </a>
+                                                </div>
+                                </div>  </div>
+                          
+                              <a 
+                                id="new-character-menu"
+                                class="btn btn--tile " 
+                                href="/it/build-starfinder1.html" 
+                                 
+                          
+                                
+                              >
+                                            <picture class="picture--size_logo  ">
+                                                <img src="/images/starfinder.png">
+                                              </picture>      <span class="btn__badge">1e</span>
+                              </a>
+                          
+                              <a 
+                                id="new-character-menu"
+                                class="btn btn--tile " 
+                                href="/it/build-pathfinder1.html" 
+                                 
+                          
+                                
+                              >
+                                            <picture class="picture--size_logo  ">
+                                                <img src="/images/pathfinder.png">
+                                              </picture>      <span class="btn__badge">1e</span>
+                              </a>
+                          
+                              <a 
+                                id="new-character-menu"
+                                class="btn btn--tile " 
+                                href="/it/build-dnd35.html" 
+                                 
+                          
+                                
+                              >
+                                            <picture class="picture--size_logo  ">
+                                                <img src="/images/dnd35.png">
+                                              </picture>      <span class="btn__badge">3.5</span>
+                              </a>
+                        </div>
                     </div>
-                </div>
-              </div>      
+                  </div>  </div>      
           </div>    </div>
     </aside>
 <div id="blanket"

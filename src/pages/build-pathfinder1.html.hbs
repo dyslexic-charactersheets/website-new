@@ -5,7 +5,7 @@
 {{#> Base title="Pathfinder - Dyslexic Character Sheets"}}
 
 {{#> BuildLayout theme="adventure"}}
-  {{#> Left }}
+  {{#> Left responsive=true id="pathfinder1left" }}
     {{#> Pane bg="parchment" shadow="left"}}
       {{> MenuButtons}}
 
@@ -76,6 +76,7 @@
 
   {{#> Right dark=true}}
     {{#> Pane bg="red"}}
+      {{> ResponsiveMenuButtons menuid="pathfinder1left" }}
       {{> BuildFormClassic game="pathfinder" gameData=pathfinder1 logo="/images/pathfinder.png" }}
     {{/Pane}}
   {{/Right}}

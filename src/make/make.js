@@ -23,6 +23,11 @@ import { getNews } from './news.js'
 import { slugify, isString, stringify, isObject, toKebabCase, toCamelCase, log, warn, error, has } from './util.js';
 import { translateObject, getTranslationPOT } from './i18n.js';
 
+// stack for debugging
+import { AsyncLocalStorage } from 'node:async_hooks';
+const asyncLocalStorage = new AsyncLocalStorage();
+
+
 Error.stackTraceLimit = Infinity;
 let hasError = false;
 
@@ -221,8 +226,8 @@ function loadComponents(dir) {
           let partial = Handlebars.compile(template);
           Handlebars.registerPartial(name, function (...args) {
             // console.log("partial", "Partial", name, ...args);
+            let stack = [];
             try {
-              let stack = [];
               if (Array.isArray(args[1].data.currentComponent)) {
                 stack = args[1].data.currentComponent;
               }
@@ -233,7 +238,7 @@ function loadComponents(dir) {
               args[1].data = data;
               return partial(...args);
             } catch (x) {
-              error(name, "Error", x);
+              error(name, "Error:", x, stack);
               return "";
             }
           });
@@ -487,24 +492,27 @@ loadReady().then((gameData) => {
       }
 
       pagePromises.push(new Promise((resolve, reject) => {
-        try {
-          let pageContent = pageTemplate(pageOptions);
+        // const stack = [name];
+        // asyncLocalStorage.run(stack, () => {
+          try {
+            let pageContent = pageTemplate(pageOptions);
 
-          fs.writeFile('../dist/htdocs/'+lang+'/'+name+'.html', pageContent, (err) => {
-            if (err) {
-              error("make", "Page ERROR".red, name+" ("+lang+")", err);
-              hasError = true;
-              reject();
-            } else {
-              // log("make", "Page OK".green, name+" ("+lang+")");
-              resolve();
-            }
-          });
-        } catch (e) {
-          error("make", "Error in page".red, name, e);
-          hasError = true;
-          reject();
-        }
+            fs.writeFile('../dist/htdocs/'+lang+'/'+name+'.html', pageContent, (err) => {
+              if (err) {
+                error("make", "Page ERROR".red, name+" ("+lang+")", err);
+                hasError = true;
+                reject();
+              } else {
+                // log("make", "Page OK".green, name+" ("+lang+")");
+                resolve();
+              }
+            });
+          } catch (e) {
+            error("make", "Error in page".red, name, e);
+            hasError = true;
+            reject();
+          }
+        // });
       }));
     }
   }

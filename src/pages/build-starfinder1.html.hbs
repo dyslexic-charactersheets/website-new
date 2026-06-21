@@ -5,7 +5,7 @@
 {{#> Base title="Starfinder - Dyslexic Character Sheets"}}
 
 {{#> BuildLayout theme="scifi"}}
-  {{#> Left dark=true}}
+  {{#> Left responsive=true id="starfinder1left" dark=true}}
     {{#> Pane bg="starfield" shadow="left"}}
       {{> MenuButtons}}
       
@@ -75,6 +75,7 @@
 
   {{#> Right dark=true }}
     {{#> Pane bg="scifi"}}
+      {{> ResponsiveMenuButtons menuid="starfinder1left" }}
       {{> BuildFormClassic game="starfinder" gameData=starfinder1 logo="/images/starfinder.png" }}
     {{/Pane}}
   {{/Right}}

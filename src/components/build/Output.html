@@ -26,6 +26,7 @@
 <style>
 
 @use 'colours';
+@use 'responsive';
 
 output {
   display: block;
@@ -49,6 +50,13 @@ output {
     border: 0 none;
     padding: 0;
     background: none;
+  }
+  
+  @include responsive.small {
+    min-width: 8rem;
+  }
+  @include responsive.medium {
+    min-width: 12rem;
   }
 }
 

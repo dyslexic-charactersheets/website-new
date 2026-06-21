@@ -5,7 +5,7 @@
 {{#> Base title="D&D 3.5e - Dyslexic Character Sheets"}}
 
 {{#> BuildLayout theme="adventure"}}
-  {{#> Left }}
+  {{#> Left responsive=true id="dnd35left" }}
     {{#> Pane bg="parchment" shadow="left"}}
       {{> MenuButtons}}
 
@@ -63,6 +63,7 @@
 
   {{#> Right }}
     {{#> Pane bg="red"}}
+      {{> ResponsiveMenuButtons menuid="dnd35left" }}
       {{> BuildFormClassic game="dnd35" gameData=dnd35 logo="/images/dnd35.png" }}
     {{/Pane}}
   {{/Right}}

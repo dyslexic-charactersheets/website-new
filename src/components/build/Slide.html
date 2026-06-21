@@ -28,6 +28,7 @@
 </template>
 
 <style>
+@use 'responsive';
   
 .slide {
   display: flex;
@@ -47,6 +48,12 @@
 
   &.width_full {
     max-width: none;
+  }
+
+  @include responsive.small-medium {
+    flex: 1 1 auto;
+
+    padding: 6rem 1rem 10rem;
   }
 }
 </style>
