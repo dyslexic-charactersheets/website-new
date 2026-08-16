@@ -25,6 +25,7 @@
         {{#> TileGrid grid="1"}}
           {{#> Button type="tile" on-click="emit reveal-pf2" badge="2e"}}
             {{> Picture src="/images/pathfinder2e.png" size="logo"}}
+            <p class="tile-note">{{__ "Fillable online"}}</p>
           {{/Button}}
 
           {{#> Reveal id="pf2-edition"}}
@@ -45,18 +46,22 @@
 
           {{!-- {{#> Button type="tile" href="build-starfinder2" badge="2e"}}
             {{> Picture src="/images/starfinder2e.png" size="logo"}}
+            <p class="tile-note tile-note--fillable">{{__ "Fillable online"}}</p>
           {{/Button}} --}}
 
           {{#> Button type="tile" href="build-starfinder1" badge="1e"}}
             {{> Picture src="/images/starfinder.png" size="logo"}}
+            <p class="tile-note">{{__ "PDF only"}}</p>
           {{/Button}}
 
           {{#> Button type="tile" href="build-pathfinder1" badge="1e"}}
             {{> Picture src="/images/pathfinder.png" size="logo"}}
+            <p class="tile-note">{{__ "PDF only"}}</p>
           {{/Button}}
 
           {{#> Button type="tile" href="build-dnd35" badge="3.5"}}
             {{> Picture src="/images/dnd35.png" size="logo"}}
+            <p class="tile-note">{{__ "PDF only"}}</p>
           {{/Button}}
         {{/TileGrid}}
 
@@ -78,6 +83,8 @@ on("#new-character-menu", "reveal-pf2", (evt) => {
 <style>
 
 @use 'responsive';
+@use 'fonts';
+@use 'colours';
 
 #new-character-menu {
   .btn--tile {
@@ -88,6 +95,13 @@ on("#new-character-menu", "reveal-pf2", (evt) => {
     @include responsive.small-medium {
       min-height: 5rem;
     }
+  }
+
+  .tile-note {
+    @include fonts.small-heading;
+    margin-top: 0.4rem;
+    opacity: 0.85;
+    color: colours.$edition;
   }
 }
 </style>

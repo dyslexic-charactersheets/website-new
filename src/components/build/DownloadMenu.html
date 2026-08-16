@@ -23,12 +23,16 @@
 
         <p>{{__ "Thank you"}}</p>
       {{/ If}}
-      
-      {{#> If bind="body.isLoggedIn|not"}}
-        {{#> Button type="borderless" on-click="body.currentMenu = login-menu" cls="login-menu-button"}}{{> Icon icon="user"}}{{__ "Login"}}{{/Button}}
 
-        <p>{{__ "Want to fill in your character sheets on screen? Patrons can do that."}}</p>
-      {{/ If}}
+      {{#if fillable}}
+        {{#> If bind="body.isLoggedIn|not"}}
+          {{#> Button type="borderless" on-click="body.currentMenu = login-menu" cls="login-menu-button"}}{{> Icon icon="user"}}{{__ "Login"}}{{/Button}}
+
+          <p>{{__ "Want to fill in your character sheets on screen? Patrons can do that."}}</p>
+        {{/ If}}
+      {{else}}
+        <p>{{__ "This is a PDF character sheet, for printing. Only Pathfinder 2e and Starfinder 2e sheets can be filled in online."}}</p>
+      {{/if}}
 
       {{#> If bind="#body.downloadStatus | eq 'in-progress'"}}
         <p>{{__ "Building character sheet"}}</p>
