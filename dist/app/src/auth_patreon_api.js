@@ -85,7 +85,7 @@ function apiCall(apiPath, method = 'GET', useHttps = true, accessToken = false) 
 
         if (statusCode !== 200) {
           error("patreon", "API response code:", statusCode, statusMessage);
-          // error("patreon", "Response", response);
+          error("patreon", "Response", response);
           reject(statusMessage);
           return;
         }
@@ -112,9 +112,8 @@ function apiCall(apiPath, method = 'GET', useHttps = true, accessToken = false) 
 }
 
 function verifyOauthToken(oauthToken) {
-  let url = `oauth2/token?code=${oauthToken}&grant_type=authorization_code&client_id=${clientId}&client_secret=${clientSecret}&redirect_uri=${redirectURL}`;
-
   return new Promise((resolve, reject) => {
+    let url = `oauth2/token?code=${oauthToken}&grant_type=authorization_code&client_id=${clientId}&client_secret=${clientSecret}&redirect_uri=${redirectURL}`;
     apiCall(url, 'POST', true)
       .then((body) => {
         log("patreon", "verifyOauthToken: loaded", body);
@@ -128,11 +127,14 @@ function verifyOauthToken(oauthToken) {
 }
 
 function getCurrentPledge(accessToken) {
-  let userFields = 'fields[user]='+encodeURIComponent('full_name');
-  let memberFields = 'fields[memberships]='+encodeURIComponent('status,currently_entitled_amount_cents');
-  let url = `oauth2/v2/identity?include=memberships.null&${userFields}&${memberFields}`;
-
   return new Promise((resolve, reject) => {
+    let includes = 'includes=memberships';
+    let userFields = encodeURIComponent('fields[user]=full_name,email');
+    let campaignFields = encodeURIComponent('fields[campaign]=summary,is_monthly');
+    let membershipFields = encodeURIComponent('fields[memberships]=email,patron_status');
+    // are none of those useful?
+    let url = `oauth2/v2/identity`;
+    
     apiCall(url, 'GET', true, accessToken)
       .then((body) => {
         log("patreon", "getCurrentPledge: loaded", body);
@@ -156,7 +158,6 @@ export function patreonHandleRedirect (req, res) {
   log("patreon", "OAuth token:", oauthToken);
 
   verifyOauthToken(oauthToken).then((patreonInfo) => {
-    log("patreon", "Patreon Info", patreonInfo);
     let {access_token} = patreonInfo;
 
     getCurrentPledge(access_token).then((pledge) => {
