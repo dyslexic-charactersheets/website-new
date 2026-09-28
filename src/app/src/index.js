@@ -21,7 +21,7 @@ import { conf, onConfigLoaded } from '#src/conf.js';
 import { renderDnD35, renderPathfinder1, renderStarfinder1 } from '#src/recomposer/recomposer.js';
 
 // login
-import { setupAuth, checkAuth, patreonRedirect, tokenLogin, translatorsLogin, logout } from '#src/auth.js';
+import { setupAuth, checkAuth, patreonHandleRedirect, tokenLogin, translatorsLogin, logout } from '#src/auth.js';
 
 // engines
 import { pathfinder2init, pathfinder2render } from '#src/pathfinder2-server.js';
@@ -58,7 +58,7 @@ app.use('/logos', express.static('../../assets/logos'));
 
 app.get('/auth/check', checkAuth);
 
-app.get('/auth/patreon-redirect', patreonRedirect);
+app.get('/auth/patreon-redirect', patreonHandleRedirect);
 
 app.get('/auth/translators-login', translatorsLogin);
 app.get('/auth/token-login', tokenLogin);

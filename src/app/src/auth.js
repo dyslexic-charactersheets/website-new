@@ -5,7 +5,7 @@
 
 import crypto from 'crypto';
 
-import { setupPatreonAuth, patreonRedirect, patreonLoginURL } from '#src/auth_patreon_api.js';
+import { setupPatreonAuth, patreonHandleRedirect, patreonLoginURL } from '#src/auth_patreon_api.js';
 import { setupTranslatorsAuth, translatorsLogin } from '#src/auth_translators.js';
 import { setupTokenAuth, tokenLogin } from '#src/auth_token.js';
 import { log, error } from '#src/log.js';
@@ -98,7 +98,7 @@ export function logout(req, res) {
     res.clearCookie('login').redirect('/#logged_out');
 }
 
-export { patreonRedirect };
+export { patreonHandleRedirect };
 
 export function translatorsLoginURL() {
     return auth_translators.loginURL();

@@ -4,47 +4,38 @@
  */
 
 import url from 'url';
-import patreon from 'patreon';
+import dns from 'node:dns';
+import http from 'node:http';
+import https from 'node:https';
 
 import { setLogin, failLogin } from '#src/auth.js';
 import { log, warn, error } from '#src/log.js';
 
-let patreonOAuthClient;
+// Config
 
+let clientId = "";
+let clientSecret = "";
 let loginURL = "";
 let redirectURL = "";
+let patreonIpAddress = false;
+    
+export function setupPatreonAuth (conf) {
+  clientId = conf('patreon_v2_client_id');
+  clientSecret = conf('patreon_v2_client_secret');
+  
+  redirectURL = conf('url')+'auth/patreon-redirect';
+  log("patreon", "Patreon redirect URL:    ", redirectURL);
+  loginURL = `https://www.patreon.com/oauth2/authorize?response_type=code&client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(redirectURL)}`;
+  log("patreon", "Patreon login URL:       ", loginURL);
 
-function getCurrentPledge(api) {
-  let fields = 'fields[memberships]=status,currently_entitled_amount_cents';
-  let url = `/current_user?include=memberships.null&${encodeURIComponent(fields)}`;
-  return new Promise((resolve, reject) => {
-    api(url)
-      .then(({store}) => {
-        log("patreon", "getCurrentPledge: store loaded", store);
-        var pledges = store.findAll('pledge');
-        log("patreon", "getCurrentPledge:", pledges);
-        resolve((pledges.length >= 0) ? pledges[0] : null);
-      })
-      .catch((err) => {
-        error("patreon", "Error from Patreon API", err);
-        reject(err);
-      });
-  });
-}
-
-function getAPI(oauthGrantCode) {
-  return new Promise((resolve, reject) => {
-    log("patreon", "getAPI: oauth grant code =", oauthGrantCode, "redirect URL =", patreonRedirectURL());
-    patreonOAuthClient.getTokens(oauthGrantCode, patreonRedirectURL())
-      .then((tokensResponse) => {
-        log("patreon", "getAPI", tokensResponse);
-        var api = patreon.patreon(tokensResponse.access_token);
-        resolve(api);
-      })
-      .catch((err) => {
-        error("patreon", "getAPI", err);
-        reject(err);
-      });
+  
+  dns.lookup('www.patreon.com', (err, address, family) => {
+    if (err) {
+      error("patreon", "Cannot lookup DNS", err);
+      return;
+    }
+    log("patreon", `Found address: ${address} family: IPv${family}`);
+    patreonIpAddress = address;
   });
 }
 
@@ -52,29 +43,123 @@ export function patreonLoginURL() {
   return loginURL;
 }
 
-function patreonRedirectURL() {
-  return redirectURL;
-}
-    
-export function setupPatreonAuth (conf) {
-  var client_id = conf('patreon_v1_client_id');
-  var client_secret = conf('patreon_v1_client_secret');
-  
-  patreonOAuthClient = patreon.oauth(client_id, client_secret);
-  
-  redirectURL = conf('url')+'auth/patreon-redirect';
-  log("patreon", "Patreon redirect URL:    ", redirectURL);
-  loginURL = `https://www.patreon.com/oauth2/authorize?response_type=code&client_id=${encodeURIComponent(client_id)}&redirect_uri=${encodeURIComponent(redirectURL)}`;
-  log("patreon", "Patreon login URL:       ", loginURL);
+// API calls
+
+function apiCall(apiPath, method = 'GET', useHttps = true, accessToken = false) {
+  return new Promise((resolve, reject) => {
+    let url = (useHttps ? 'https' : 'http')+'://www.patreon.com/api/'+apiPath;
+
+    let headers = {};
+    if (accessToken) {
+      headers['Authorization'] = 'Bearer '+accessToken;
+    }
+
+    // Bypass DNS lookup function to save DNS timeouts/failures
+    let lookup = (hostname, options, callback) => {
+      log("patreon", "Lookup", hostname, options);
+      if (hostname == 'www.patreon.com' && patreonIpAddress) {
+        if (options.all) {
+          callback(null, [ { address: patreonIpAddress, family: 4}])
+        } else {
+          callback(null, patreonIpAddress, 4);
+        }
+        return;
+      }
+      error("patreon", "Lookup what?", hostname);
+      dns.lookup(hostname, options, callback);
+    };
+
+    // Make the API call
+    log("patreon", "API call".green, url, "headers:".yellow, headers);
+    try {
+      (useHttps ? https : http).get(url, { method, headers, lookup }, (response) => {
+        // log("patreon", "API response", response);
+        
+        const { statusCode, statusMessage, rawHeaders } = response;
+
+        if (statusCode == 301) {
+          error("patreon", "Redirect:", rawHeaders);
+          reject(statusMessage);
+          return;
+        };
+
+        if (statusCode !== 200) {
+          error("patreon", "API response code:", statusCode, statusMessage);
+          // error("patreon", "Response", response);
+          reject(statusMessage);
+          return;
+        }
+
+        response.setEncoding('utf8');
+        let rawData = '';
+        response.on('data', (chunk) => { rawData += chunk; });
+        response.on('end', () => {
+          try {
+            const body = JSON.parse(rawData);
+            log("patreon", "API result:", body);
+            resolve(body);
+          } catch (e) {
+            error("patreon", "API exception:", e);
+            reject(e.message);
+          }
+        });
+      });
+    } catch (e) {
+      error("patreon", "API exception:", e);
+      reject(e.message);
+    }
+  });
 }
 
-export function patreonRedirect (req, res) {
-  var oauthGrantCode = url.parse(req.url, true).query.code;
-  log("patreon", "OAuth grant code:", oauthGrantCode);
+function verifyOauthToken(oauthToken) {
+  let url = `oauth2/token?code=${oauthToken}&grant_type=authorization_code&client_id=${clientId}&client_secret=${clientSecret}&redirect_uri=${redirectURL}`;
 
-  getAPI(oauthGrantCode).then((api) => {
-    log("patreon", "API loaded");
-    getCurrentPledge(api).then((pledge) => {
+  return new Promise((resolve, reject) => {
+    apiCall(url, 'POST', true)
+      .then((body) => {
+        log("patreon", "verifyOauthToken: loaded", body);
+        resolve(body);
+      })
+      .catch((err) => {
+        error("patreon", "verifyOauthToken: Error from Patreon API", err);
+        reject(err);
+      })
+  });
+}
+
+function getCurrentPledge(accessToken) {
+  let userFields = 'fields[user]='+encodeURIComponent('full_name');
+  let memberFields = 'fields[memberships]='+encodeURIComponent('status,currently_entitled_amount_cents');
+  let url = `oauth2/v2/identity?include=memberships.null&${userFields}&${memberFields}`;
+
+  return new Promise((resolve, reject) => {
+    apiCall(url, 'GET', true, accessToken)
+      .then((body) => {
+        log("patreon", "getCurrentPledge: loaded", body);
+        var pledges = body.store.findAll('member');
+        log("patreon", "getCurrentPledge:", pledges);
+        resolve((pledges.length >= 0) ? pledges[0] : null);
+      })
+      .catch((err) => {
+        error("patreon", "getCurrentPledge: Error from Patreon API", err);
+        reject(err);
+      });
+  });
+}
+
+// Handle an auth redirect
+
+export function patreonHandleRedirect (req, res) {
+  log("patreon", "Incoming redirect", req.url);
+  log("patreon", "Incoming query", url.parse(req.url, true).query);
+  var oauthToken = url.parse(req.url, true).query.code;
+  log("patreon", "OAuth token:", oauthToken);
+
+  verifyOauthToken(oauthToken).then((patreonInfo) => {
+    log("patreon", "Patreon Info", patreonInfo);
+    let {access_token} = patreonInfo;
+
+    getCurrentPledge(access_token).then((pledge) => {
       log("patreon", "Pledge:", pledge);
       if (pledge === undefined || pledge === null) {
         warn("patreon", "Pledge is null");
@@ -93,9 +178,8 @@ export function patreonRedirect (req, res) {
       error('patreon', 'Error (getCurrentPledge)', err);
       failLogin(res, true);
     });
-
   }).catch((err) => {
-    error('patreon', 'Error (getAPI)', err);
+    error('patreon', 'Error (getCurrentPledge)', err);
     failLogin(res, true);
   });
 }
