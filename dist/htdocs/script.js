@@ -169,8 +169,9 @@ async function initLogin() {
     body.dataset.isLoggedIn = true;
   }
 
+  let loginURL = msg.patreonLoginURL+'&state='+window.location.pathname;
   for (let loginLink of document.getElementsByClassName('auth-login-link')) {
-    loginLink.href = msg.patreonLoginURL;
+    loginLink.href = loginURL;
   }
 }
 

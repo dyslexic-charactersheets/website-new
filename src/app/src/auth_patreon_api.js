@@ -85,7 +85,7 @@ function apiCall(apiPath, method = 'GET', useHttps = true, accessToken = false) 
 
         if (statusCode !== 200) {
           error("patreon", "API response code:", statusCode, statusMessage);
-          error("patreon", "Response", response);
+          // error("patreon", "Response", response);
           reject(statusMessage);
           return;
         }
@@ -153,8 +153,21 @@ function getCurrentPledge(accessToken) {
 
 export function patreonHandleRedirect (req, res) {
   log("patreon", "Incoming redirect", req.url);
-  log("patreon", "Incoming query", url.parse(req.url, true).query);
-  var oauthToken = url.parse(req.url, true).query.code;
+  let query = url.parse(req.url, true).query;
+  log("patreon", "Incoming query", query);
+
+  let redirect = '/';
+  if (query.state !== 'None') {
+    redirect = query.state;
+  }
+  
+  // User said 'no' to sharing info
+  if (query.error == 'access_denied') {
+    failLogin(res, redirect);
+    return;
+  }
+
+  var oauthToken = query.code;
   log("patreon", "OAuth token:", oauthToken);
 
   verifyOauthToken(oauthToken).then((patreonInfo) => {
@@ -164,24 +177,24 @@ export function patreonHandleRedirect (req, res) {
       log("patreon", "Pledge:", pledge);
       if (pledge === undefined || pledge === null) {
         warn("patreon", "Pledge is null");
-        failLogin(res, true);
+        failLogin(res, redirect);
         return;
       }
       
       var pledgeValue = pledge.amount_cents;
       if (pledgeValue === null || pledgeValue == 0) {
         warn("patreon", "No pledge")
-        failLogin(res, true);
+        failLogin(res, redirect);
         return;
       }
-      setLogin(res, true);
+      setLogin(res, redirect);
     }).catch((err) => {
       error('patreon', 'Error (getCurrentPledge)', err);
-      failLogin(res, true);
+      failLogin(res, redirect);
     });
   }).catch((err) => {
     error('patreon', 'Error (getCurrentPledge)', err);
-    failLogin(res, true);
+    failLogin(res, redirect);
   });
 }
 

@@ -12,44 +12,44 @@ import { log, error } from '#src/log.js';
 var sharedSecret;
 
 function checkSignature(token, signature, salt) {
-    const hash = crypto.createHash('sha256');
-    hash.update(token, 'latin1');
-    hash.update(salt, 'latin1');
-    var signature2 = hash.digest('hex');
+  const hash = crypto.createHash('sha256');
+  hash.update(token, 'latin1');
+  hash.update(salt, 'latin1');
+  var signature2 = hash.digest('hex');
 
-    log("auth", "Translators: Check signature:        ", signature, "==", signature2);
+  log("auth", "Translators: Check signature:        ", signature, "==", signature2);
 
-    return signature == signature2;
+  return signature == signature2;
 }
 
 export function setupTranslatorsAuth (conf) {
-    sharedSecret = conf('shared_secret');
+  sharedSecret = conf('shared_secret');
 }
 
-export const loginURL = "https://translate.dyslexic-charactersheets.com/authorize";
+// export const loginURL = "https://translate.dyslexic-charactersheets.com/authorize";
 
 export function translatorsLogin (req, res) {
-    log("auth", "Translator's login");
-    try {
-        var token = req.query.login;
+  log("auth", "Translator's login");
+  try {
+    var token = req.query.login;
 
-        var tokenParts = token.split(/:/);
-        var id = tokenParts[0];
-        var signature = tokenParts[1];
-        console.log("[auth]          Shared secret:          ", sharedSecret);
-        console.log("[auth]          Login token:            ", id);
-        console.log("[auth]          Signature:              ", signature);
+    var tokenParts = token.split(/:/);
+    var id = tokenParts[0];
+    var signature = tokenParts[1];
+    console.log("[auth]          Shared secret:          ", sharedSecret);
+    console.log("[auth]          Login token:            ", id);
+    console.log("[auth]          Signature:              ", signature);
 
-        if (!checkSignature(id, signature, sharedSecret)) {
-            warn("auth", "Signature doesn't match");
-            failLogin(res, true);
-            return;
-        }
-        log("auth", "Translator login now");
-        setLogin(res, true);
-    } catch (e) {
-        error("auth", "Translator's login: Error:", e);
-        // res.redirect('/login');
-        failLogin(res, true);
+    if (!checkSignature(id, signature, sharedSecret)) {
+      warn("auth", "Signature doesn't match");
+      failLogin(res, '/');
+      return;
     }
+
+    log("auth", "Translator login now");
+    setLogin(res, '/');
+  } catch (e) {
+    error("auth", "Translator's login: Error:", e);
+    failLogin(res, '/');
+  }
 }
