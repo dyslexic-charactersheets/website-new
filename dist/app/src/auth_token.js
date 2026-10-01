@@ -65,7 +65,7 @@ export function tokenLogin(req, res) {
     // static tokens
     if (loginTokens.indexOf(token) != -1) {
       log("token", "Static token OK! Login now");
-      setLogin(res, '/');
+      setLogin(res, null, '/');
       return;
     }
 
@@ -73,7 +73,7 @@ export function tokenLogin(req, res) {
     updateTimedTokens();
     if (timedTokens.indexOf(token) != -1) {
       log("token", "Timed token OK! Login now");
-      setLogin(res, '/');
+      setLogin(res, null, '/');
       return;
     }
 

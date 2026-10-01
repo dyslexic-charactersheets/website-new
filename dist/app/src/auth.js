@@ -65,9 +65,29 @@ export function isLoggedIn(req) {
   return false;
 }
 
+export function getUsername(req) {
+  try {
+    log("auth", "isLoggedIn: cookie =", req.cookies);
+    if (has(req.cookies, 'login')) {
+      let cookieParts = req.cookies.login.split(/:/);
+      // let loginToken = cookieParts[0];
+      // let signature = cookieParts[1];
+      let username = cookieParts.length > 2 ? cookieParts[2] : null;
+
+      return username;
+    }
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+  
+  return false;
+}
+
 export function checkAuth(req, res) {
   let result = {
     isLoggedIn: isLoggedIn(req),
+    username: getUsername(req),
     patreonLoginURL: patreonLoginURL()
   }
   
@@ -75,7 +95,7 @@ export function checkAuth(req, res) {
   res.send(JSON.stringify(result));
 }
 
-export function setLogin(res, redirect = false) {
+export function setLogin(res, name = null, redirect = false) {
   const loginDur = 3600*24*30*1000; // 30 days
   const now = Date.now();
 
@@ -86,7 +106,7 @@ export function setLogin(res, redirect = false) {
   hash.update(sessionKey);
   let signature = hash.digest('hex');
 
-  let cookie = loginToken+":"+signature.toString();
+  let cookie = loginToken+":"+signature.toString()+":"+name;
   res.cookie('login', cookie, { maxAge: loginDur, httpOnly: true, domain: undefined }).redirect((redirect ? redirect : '/')+'#login_success');
 }
 

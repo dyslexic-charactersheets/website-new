@@ -26,6 +26,12 @@ async function initLogin() {
   if (msg.isLoggedIn) {
     authLogger.warn("Logged in!");
     body.dataset.isLoggedIn = true;
+
+    if (msg.username) {
+      for (let span of document.getElementsByClassName('username-field')) {
+        span.textContent = msg.username;
+      }
+    }
   }
 
   let loginURL = msg.patreonLoginURL+'&state='+window.location.pathname;

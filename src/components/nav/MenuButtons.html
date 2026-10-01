@@ -4,7 +4,7 @@
 -->
 
 <template>
-  {{#if (not (or inmenu (eq page "index")))}}<nav class="nav--row" id="home-link" aria-label="">
+  {{#if (not (or inmenu (eq page "index")))}}<nav class="nav--row home-link" aria-label="">
     <a href="/{{lang}}/" class="btn btn--borderless">
       <img src="/images/favicon64.png" alt="D20 logo">
       Dyslexic Character Sheets
@@ -14,7 +14,7 @@
     {{#> Button type="borderless" on-click="body.currentMenu = main-menu"}}☰{{/Button}}
     {{#> Button type="borderless" on-click="body.currentMenu = language-menu"}}{{> Icon icon="globe"}}{{ upperCase lang }}{{/Button}}
     {{#> If bind="body.isLoggedIn"}}
-      {{#> Badge colour="green"}}{{> Icon icon="user"}}{{__ "Logged In"}}{{/Badge}}
+      {{#> Badge colour="green"}}{{> Icon icon="user"}}<span class="username-field">{{__ "Logged In"}}</span>{{/Badge}}
     {{/ If}}
     {{#> If bind="body.isLoggedIn|not"}}
       {{#> Button type="borderless" on-click="body.currentMenu = login-menu" cls="login-menu-button"}}{{> Icon icon="user"}}{{__ "Login"}}{{/Button}}
@@ -28,8 +28,15 @@
 
 @use 'colours';
 
-#home-link {
+.home-link {
   padding-bottom: 10px;
+}
+
+.username-field {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 200px;
 }
 
 </style>

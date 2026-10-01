@@ -8547,8 +8547,14 @@ dl dd + dt {
   color: black;
   text-shadow: 0 0 0.5px white;
 }
-#home-link {
+.home-link {
   padding-bottom: 10px;
+}
+.username-field {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 200px;
 }
 .dark-region {
   color: white;

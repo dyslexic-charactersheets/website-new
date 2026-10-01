@@ -10,6 +10,7 @@ import https from 'node:https';
 
 import { setLogin, failLogin } from '#src/auth.js';
 import { log, warn, error } from '#src/log.js';
+// import { red } from 'colors';
 
 // Config
 
@@ -66,7 +67,14 @@ function apiCall(apiPath, method = 'GET', useHttps = true, accessToken = false) 
         return;
       }
       error("patreon", "Lookup what?", hostname);
-      dns.lookup(hostname, options, callback);
+      try {
+        dns.lookup(hostname, options, (err, address, family) => {
+          error("patreon", "DNS error", err);
+          callback(err, address, family);
+        });
+      } catch (ex) {
+        error("patreon", "DNS error", ex);
+      }
     };
 
     // Make the API call
@@ -126,24 +134,37 @@ function verifyOauthToken(oauthToken) {
   });
 }
 
-function getCurrentPledge(accessToken) {
+function getMembershipData(accessToken) {
   return new Promise((resolve, reject) => {
-    let includes = 'includes=memberships';
-    let userFields = encodeURIComponent('fields[user]=full_name,email');
-    let campaignFields = encodeURIComponent('fields[campaign]=summary,is_monthly');
-    let membershipFields = encodeURIComponent('fields[memberships]=email,patron_status');
+    let includes = 'include=memberships';
+    let userFields = 'fields[user]=full_name,email';
+    let campaignFields = 'fields[campaign]=summary,is_monthly';
+    let membershipFields = 'fields[member]=patron_status';
     // are none of those useful?
-    let url = `oauth2/v2/identity`;
+    let url = `oauth2/v2/identity?${includes}&${userFields}&${membershipFields}`;
     
     apiCall(url, 'GET', true, accessToken)
       .then((body) => {
-        log("patreon", "getCurrentPledge: loaded", body);
-        var pledges = body.store.findAll('member');
-        log("patreon", "getCurrentPledge:", pledges);
-        resolve((pledges.length >= 0) ? pledges[0] : null);
+        log("patreon", "getMembershipData: loaded", JSON.stringify(body, null, 2));
+        
+        let name = body.data.attributes ? body.data.attributes.full_name : null;
+        let isPatron = false;
+        
+        if (body.included) {
+          let memberships = body.included.filter((inc) => inc.type == 'member' && inc.attributes && inc.attributes.patron_status == 'active_patron');
+          if (memberships.length >= 1) {
+            log("patreon", "Found membership", memberships);
+            isPatron = true;
+          }
+        }
+
+        resolve({
+          name,
+          isPatron
+        });
       })
       .catch((err) => {
-        error("patreon", "getCurrentPledge: Error from Patreon API", err);
+        error("patreon", "getMembershipData: Error from Patreon API", err);
         reject(err);
       });
   });
@@ -173,21 +194,14 @@ export function patreonHandleRedirect (req, res) {
   verifyOauthToken(oauthToken).then((patreonInfo) => {
     let {access_token} = patreonInfo;
 
-    getCurrentPledge(access_token).then((pledge) => {
-      log("patreon", "Pledge:", pledge);
-      if (pledge === undefined || pledge === null) {
-        warn("patreon", "Pledge is null");
+    getMembershipData(access_token).then(({name, isPatron}) => {
+      if (!isPatron) {
+        warn("patreon", "No pledge");
         failLogin(res, redirect);
         return;
       }
       
-      var pledgeValue = pledge.amount_cents;
-      if (pledgeValue === null || pledgeValue == 0) {
-        warn("patreon", "No pledge")
-        failLogin(res, redirect);
-        return;
-      }
-      setLogin(res, redirect);
+      setLogin(res, name, redirect);
     }).catch((err) => {
       error('patreon', 'Error (getCurrentPledge)', err);
       failLogin(res, redirect);

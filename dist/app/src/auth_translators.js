@@ -47,7 +47,7 @@ export function translatorsLogin (req, res) {
     }
 
     log("auth", "Translator login now");
-    setLogin(res, '/');
+    setLogin(res, null, '/');
   } catch (e) {
     error("auth", "Translator's login: Error:", e);
     failLogin(res, '/');
