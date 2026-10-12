@@ -25,7 +25,9 @@
 
         <h3>{{__ "Become a patron"}}</h3>
 
-        <p>Patrons get the ability to edit all the fields, have calculations work automatically, and save character sheets. Login with Patreon to unlock these features:</p>
+        <p>Patrons get the ability to edit all the fields, have calculations work automatically, and save character sheets. Login with Patreon to unlock these features.</p>
+
+        <p class="callout">This currently only applies to Pathfinder 2e and Starfinder 2e sheets — other games are PDF only, for printing.</p>
 
         <p>Support the site and gain access to extra features for just $1 by becoming a patron.</p>
 
@@ -36,3 +38,23 @@
     {{/Pane}}
   {{/SideMenu}}
 </template>
+
+<style>
+
+@use 'colours';
+@use 'fonts';
+
+#login-menu {
+  .callout {
+    margin: 1rem 0;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid colours.$edition;
+    border-radius: 0.4rem;
+    background: rgba(217, 177, 103, 0.15);
+    color: colours.$edition;
+    @include fonts.small-heading;
+    line-height: 1.3rem;
+  }
+}
+
+</style>
